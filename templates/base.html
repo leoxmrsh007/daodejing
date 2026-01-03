@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}道德经 - 多版本对照平台{% endblock %}</title>
+
+    <!-- Bootstrap 5.3.0 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <!-- 目录按钮（移动端抽屉菜单） -->
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 品牌标题 -->
+            <a class="navbar-brand" href="{{ url_for('daodejing_index') }}">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+
+            <!-- 当前章节标题（动态显示） -->
+            {% block page_title %}{% endblock %}
+
+            <!-- 右侧工具栏 -->
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <!-- 搜索框 -->
+                <div class="search-box d-none d-md-block">
+                    <input type="text" class="form-control form-control-sm"
+                           id="searchInput" placeholder="搜索章节..."
+                           autocomplete="off">
+                </div>
+
+                <!-- 暗黑模式切换 -->
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主体布局 -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 左侧目录栏 -->
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+                            {% if data and data.chapters %}
+                                {% for chapter in data.chapters %}
+                                <a class="nav-link chapter-item {{ 'active' if request.endpoint == 'chapter_view' and request.view_args.get('chapter_id') == chapter.chapter else '' }}"
+                                   href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+                                   data-chapter="{{ chapter.chapter }}">
+                                    <span class="chapter-num">第{{ chapter.chapter }}章</span>
+                                </a>
+                                {% endfor %}
+                            {% endif %}
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 右侧主内容区 -->
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <!-- 搜索结果弹窗 -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">搜索结果</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="searchResults">
+                    <!-- 搜索结果将在这里动态显示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

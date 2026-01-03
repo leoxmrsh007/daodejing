@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第29章 - 道德经 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    transition: background-color 0.2s;
+}
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.2);
+}
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.note-text {
+    line-height: 1.8;
+}
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+.version-content {
+    line-height: 1.8;
+}
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+.tooltip-inner {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    max-width: 250px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+[data-bs-theme="dark"] .tooltip-inner {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">第29章</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item " href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item active" href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter34.html">
+    <span class="chapter-num">第34章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter35.html">
+    <span class="chapter-num">第35章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter36.html">
+    <span class="chapter-num">第36章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter37.html">
+    <span class="chapter-num">第37章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter38.html">
+    <span class="chapter-num">第38章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter39.html">
+    <span class="chapter-num">第39章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter40.html">
+    <span class="chapter-num">第40章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter41.html">
+    <span class="chapter-num">第41章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter42.html">
+    <span class="chapter-num">第42章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter43.html">
+    <span class="chapter-num">第43章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter44.html">
+    <span class="chapter-num">第44章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter45.html">
+    <span class="chapter-num">第45章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter46.html">
+    <span class="chapter-num">第46章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter47.html">
+    <span class="chapter-num">第47章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter48.html">
+    <span class="chapter-num">第48章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter49.html">
+    <span class="chapter-num">第49章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter50.html">
+    <span class="chapter-num">第50章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter51.html">
+    <span class="chapter-num">第51章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter52.html">
+    <span class="chapter-num">第52章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter53.html">
+    <span class="chapter-num">第53章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter54.html">
+    <span class="chapter-num">第54章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter55.html">
+    <span class="chapter-num">第55章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter56.html">
+    <span class="chapter-num">第56章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter57.html">
+    <span class="chapter-num">第57章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter58.html">
+    <span class="chapter-num">第58章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter59.html">
+    <span class="chapter-num">第59章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter60.html">
+    <span class="chapter-num">第60章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter61.html">
+    <span class="chapter-num">第61章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter62.html">
+    <span class="chapter-num">第62章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter63.html">
+    <span class="chapter-num">第63章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter64.html">
+    <span class="chapter-num">第64章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter65.html">
+    <span class="chapter-num">第65章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter66.html">
+    <span class="chapter-num">第66章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter67.html">
+    <span class="chapter-num">第67章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter68.html">
+    <span class="chapter-num">第68章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter69.html">
+    <span class="chapter-num">第69章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter70.html">
+    <span class="chapter-num">第70章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter71.html">
+    <span class="chapter-num">第71章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter72.html">
+    <span class="chapter-num">第72章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter73.html">
+    <span class="chapter-num">第73章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter74.html">
+    <span class="chapter-num">第74章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter75.html">
+    <span class="chapter-num">第75章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter76.html">
+    <span class="chapter-num">第76章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter77.html">
+    <span class="chapter-num">第77章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter78.html">
+    <span class="chapter-num">第78章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter79.html">
+    <span class="chapter-num">第79章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter80.html">
+    <span class="chapter-num">第80章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter81.html">
+    <span class="chapter-num">第81章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
+            <li class="breadcrumb-item active">第29章</li>
+        </ol>
+    </nav>
+
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">第29章 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    将欲取天下而为之，吾见其不得已。天下神<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="qì: 器具">器</span>，不可为也，不可执也。为者败之，执者失之。故物或行或随，或嘘或吹，或强或<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="léi: 瘦弱，衰败">羸</span>，或载或隳。是以圣人去甚，去奢，去泰。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0">想要治理天下却要用强制的办法，我看他是达不到目的的。天下是神圣的器物，是不可以有所作为的，是不可以强行控制的。有所作为就会失败，强行控制就会失去。所以万物有的前行，有的后随；有的呼气，有的吹气；有的强壮，有的瘦弱；有的安稳，有的坠落。因此，圣人要摒弃极端的、奢侈的、过度的措施。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#postsilk" type="button">帛书异文</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian" type="button">郭店异文</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">神无形无方也．器合成也．无形以合．故谓之神器也．万物以自然为性．故可因而不可为也．可通而不可执也．物有常性．而造为之．故必败也．物有往来．而执之．故必失也．凡此诸或．言物事逆顺反复．不施为执割也．圣人达自然之至性．畅万物之情．故因而不为．顺而不施．除其所以迷．去其所以惑．故心不乱而物性自得之也.</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">将欲取天下者，欲为天下主也。而为之者，将欲有为于天下，吾见其不得已，必败也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">天下在我，吾何取？我在天下，吾何為，天下如我，吾何欲？我如天下，吾何執？以我測天下，天下神。以天下遇我，天下不神。不神者使其神，而天下亂。神者使其不神，而我安。故窮天下以八數，而去我之三死，則炎火焚林而可待其寒，巨浸滔天而可視其暵。水火失其威，金石喪其守，況有情之必窮而有氣之必縮者哉？</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">此言聖人道全德備，應運出世，為官為長。當任無為無事，而不可有為太過也。由上章云，樸散則為器。聖人用之則為官長。故老子因而誡之曰，將欲取天下者，當任自然，不可有心為之。而有心為之者，吾見其必不可得已。何也，且天下者大器，有神主之。豈可以人力私智取而奪之耶。故曰不可為也。而為之者，必反敗之。縱為而得之，亦不可執為己有。而執之者，必反失之。故如強秦力能併吞六國，混一天下，是為之也。且誓云一世以至萬世，是執之也。故不旋踵而敗，二世而亡，豈非為者敗之，執者失之之驗歟。然而所以敗之失之者，以其所處過甚，而奢泰之極也。凡物極則反，此亦自然之勢耳。故物或行或在。或呴或吹。或強或羸。或載或隳。是以聖人去甚，去奢，去泰。</p>
+                    </div>
+                    <div class="tab-pane fade" id="postsilk">
+                        <h6 class="text-muted mb-2">马王堆帛书异文（西汉）</h6>
+                        <div class="version-content mb-0">
+                            <p class="note-text mb-0 fst-italic">将欲取天下而为之，吾见其弗得已。夫天下，神器也，非可为者也。</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">帛书本'将欲取天下'作'将欲取天下'，'不可为也'作'不可为也'，内容一致。</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="guodian">
+                        <h6 class="text-muted mb-2">郭店楚简异文（战国）</h6>
+                        <div class="version-content mb-0">
+                            <p class="text-muted">此章缺</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">郭店本'将欲取天下'章不全，'天下神器'等内容存在。</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic">Those who wish to take the world and act upon it, I see that they cannot succeed. The world is a sacred vessel, it cannot be acted upon. Those who act upon it will destroy it. Those who hold it will lose it. Sometimes things lead, sometimes they follow. Sometimes they breathe gently, sometimes they blow hard. Sometimes they are strong, sometimes they are weak. Sometimes they develop, sometimes they collapse. Therefore the sage avoids excess, extravagance, and arrogance.</p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic">Those who wish to take the world and act upon it, I see that they cannot succeed. The world is a sacred vessel, it cannot be acted upon. Those who act upon it will destroy it. Those who hold it will lose it. Sometimes things lead, sometimes they follow. Sometimes they breathe gently, sometimes they blow hard. Sometimes they are strong, sometimes they are weak. Sometimes they develop, sometimes they collapse. Therefore the sage avoids excess, extravagance, and arrogance.</p>
+                    </div>
+                    <div class="tab-pane fade" id="addiss">
+                        <p class="english-text mb-0 fst-italic">Those who want to take the world and act on it, I see that they cannot succeed. The world is a sacred vessel, cannot be acted on. Those who act on it destroy it. Those who hold it lose it. Sometimes things go forward, sometimes follow. Sometimes breathe gently, sometimes blow hard. Sometimes are strong, sometimes are weak. Sometimes develop, sometimes collapse. Therefore the sage rejects excess, extravagance, arrogance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="./chapter28.html">← 第28章</a></li>
+            <li class="page-item disabled">
+                <span class="page-link">29 / 81</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="./chapter30.html">第30章 →</a></li>
+        </ul>
+    </nav>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+
+// 初始化 Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        delay: { show: 300, hide: 150 },
+        placement: 'top',
+        customClass: 'difficult-char-tooltip'
+    }));
+});
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+
+    </script>
+</body>
+</html>

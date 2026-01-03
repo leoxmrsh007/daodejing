@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第5章 - 道德经 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    transition: background-color 0.2s;
+}
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.2);
+}
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.note-text {
+    line-height: 1.8;
+}
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+.version-content {
+    line-height: 1.8;
+}
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+.tooltip-inner {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    max-width: 250px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+[data-bs-theme="dark"] .tooltip-inner {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">第5章</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item " href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item active" href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter34.html">
+    <span class="chapter-num">第34章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter35.html">
+    <span class="chapter-num">第35章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter36.html">
+    <span class="chapter-num">第36章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter37.html">
+    <span class="chapter-num">第37章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter38.html">
+    <span class="chapter-num">第38章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter39.html">
+    <span class="chapter-num">第39章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter40.html">
+    <span class="chapter-num">第40章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter41.html">
+    <span class="chapter-num">第41章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter42.html">
+    <span class="chapter-num">第42章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter43.html">
+    <span class="chapter-num">第43章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter44.html">
+    <span class="chapter-num">第44章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter45.html">
+    <span class="chapter-num">第45章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter46.html">
+    <span class="chapter-num">第46章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter47.html">
+    <span class="chapter-num">第47章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter48.html">
+    <span class="chapter-num">第48章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter49.html">
+    <span class="chapter-num">第49章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter50.html">
+    <span class="chapter-num">第50章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter51.html">
+    <span class="chapter-num">第51章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter52.html">
+    <span class="chapter-num">第52章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter53.html">
+    <span class="chapter-num">第53章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter54.html">
+    <span class="chapter-num">第54章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter55.html">
+    <span class="chapter-num">第55章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter56.html">
+    <span class="chapter-num">第56章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter57.html">
+    <span class="chapter-num">第57章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter58.html">
+    <span class="chapter-num">第58章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter59.html">
+    <span class="chapter-num">第59章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter60.html">
+    <span class="chapter-num">第60章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter61.html">
+    <span class="chapter-num">第61章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter62.html">
+    <span class="chapter-num">第62章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter63.html">
+    <span class="chapter-num">第63章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter64.html">
+    <span class="chapter-num">第64章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter65.html">
+    <span class="chapter-num">第65章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter66.html">
+    <span class="chapter-num">第66章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter67.html">
+    <span class="chapter-num">第67章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter68.html">
+    <span class="chapter-num">第68章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter69.html">
+    <span class="chapter-num">第69章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter70.html">
+    <span class="chapter-num">第70章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter71.html">
+    <span class="chapter-num">第71章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter72.html">
+    <span class="chapter-num">第72章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter73.html">
+    <span class="chapter-num">第73章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter74.html">
+    <span class="chapter-num">第74章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter75.html">
+    <span class="chapter-num">第75章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter76.html">
+    <span class="chapter-num">第76章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter77.html">
+    <span class="chapter-num">第77章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter78.html">
+    <span class="chapter-num">第78章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter79.html">
+    <span class="chapter-num">第79章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter80.html">
+    <span class="chapter-num">第80章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter81.html">
+    <span class="chapter-num">第81章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
+            <li class="breadcrumb-item active">第5章</li>
+        </ol>
+    </nav>
+
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">第5章 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    天地不仁，以万物为<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="chú gǒu: 用草扎的狗，用于祭祀">刍狗</span>；圣人不仁，以百姓为<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="chú gǒu: 用草扎的狗，用于祭祀">刍狗</span>。天地之间，其<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="yóu: 犹豫，警惕">犹</span><span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="tuó yuè: 风箱，比喻虚空而能生风">橐龠</span>乎？虚而不屈，动而愈出。多言数穷，不如守中。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0">天地是无所谓仁慈的，它没有偏爱，对待万物就像对待刍狗一样一视同仁；圣人也是无所谓仁慈的，也同样像对待刍狗一样对待百姓一视同仁。天地之间，岂不像个风箱吗？空虚但不会枯竭，越鼓动风就越多，生生不息。政令繁多反而会加速败亡，不如保持内心的虚静。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#postsilk" type="button">帛书异文</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian" type="button">郭店异文</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">天地任自然．无为无造．万物自相治理．故不仁也．仁者必造立施化．有恩有为．造立施化．则物失其眞．有恩有为．则物不具存．物不具存．则不足以备载．天地不为兽生刍．而兽食刍．不为人生狗．而人食狗．无为于万物而万物各适其所用．则莫不赡矣．若慧由己树．未足任也．圣人与天地合其徳．以百姓比刍狗也．橐排橐也．钥乐钥也．橐钥之中空洞．无情无为．故虚而不得穷屈．动而不可竭尽也．天地之中．荡然任自然．故不可得而穷．犹若橐钥也．愈为之则愈失之矣．物树其慧．事错其言．不慧不济．不言不理．必穷之数也．橐钥而守数中．则无穷尽．弃己任物．则莫不理．若橐钥有意于为声也．则不足以共吹者之求也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">天地不仁以万物为刍狗者，天地生万物，人最为贵，天地视之如刍草狗畜，不责望其报恩也。圣人不仁以百姓为刍狗者，圣人视百姓如刍草狗畜，不责望其礼义。天地之间其犹橐龠乎虚而不屈者，橐龠中虚空，故能有风气，动之愈出风也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">風生於空，橐待於鼓，相須以成，而器原非用。故同聲不必其應，而同氣不必其求。是以天不能生，地不能成．天地無以自擅，而況於萬物乎？況於聖人乎，設之於彼者，「虛而不屈」而已矣。道縫其中，則魚可使鳥，而鳥可使魚，仁者不足以似之也。仁者，天之氣，地之滋，有窮之業也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">此言天地之道，以無心而成物。聖人之道，以忘言而體玄也。仁，好生愛物之心。芻狗，乃縛芻為狗，以用祭祀者。且天地聖人，皆有好生愛物之仁。而今言不仁者，謂天地雖是生育萬物，不是有心要生。蓋由一氣當生，不得不生。故雖生而不有。譬如芻狗，本無用之物。而祭者當用，不得不用。雖用而本非有也。故曰天地不仁，以萬物為芻狗。聖人雖是愛養百姓，不是有心要愛。蓋由同體當愛，不得不愛。雖愛而無心。譬如芻狗，雖虛假之物。而尸之者當重，不得不重。雖重而知終無用也。故曰聖人不仁，以百姓為芻狗。猶，似也。橐，即皮韝。乃鼓風鑄物之器。籥，即管籥。乃承氣出音之器。屈，枉己從人之意。動，猶感觸也。謂橐籥二物，其體至虛而有用，未嘗恃巧而好為。故用不為伸，不用則虛以自處，置之而亦不自以為屈，故曰虛而不屈。且人不用則已。若用之，則觸動其機，任其造作而不休，故曰動而愈出。然道在天地，則生生而不已。道在聖人，則既已為人己愈有，既已與人己愈多。大道之妙如此。惜乎談道者，不知虛無自然之妙。方且眾口之辯說，說而不休，去道轉遠，故曰多言數窮。不若忘言以體玄，故曰不若守中。蓋守中，即進道之功夫也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="postsilk">
+                        <h6 class="text-muted mb-2">马王堆帛书异文（西汉）</h6>
+                        <div class="version-content mb-0">
+                            <p class="note-text mb-0 fst-italic">天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗。天地之间，其犹橐龠乎？虚而不屈，动而俞出。</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">差异说明：动而愈出作动而俞出，俞通愈。</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="guodian">
+                        <h6 class="text-muted mb-2">郭店楚简异文（战国）</h6>
+                        <div class="version-content mb-0">
+                            <p class="text-muted">此章缺</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">郭店楚简无此章内容。</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic">Heaven and earth are ruthless, and treat the myriad creatures as straw dogs; the sage is ruthless, and treats the people as straw dogs. Is not the space between heaven and earth like a bellows? It is empty and yet not exhausted; the more it is worked the more comes out. Much speech leads inevitably to silence. It is better to keep to the centre.</p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic">Heaven and Earth are not humane, they regard the myriad creatures as straw dogs. The Sage is not humane, he regards the common people as straw dogs. The space between Heaven and Earth—is it not like a bellows? Empty, and yet it never collapses; keep moving, and more will be produced. Much talk will inevitably come to a halt. It is better to guard the centre.</p>
+                    </div>
+                    <div class="tab-pane fade" id="addiss">
+                        <p class="english-text mb-0 fst-italic">Heaven and earth aren't humane, they treat the ten thousand things as straw dogs. The sage isn't humane, he treats the common people as straw dogs. The space between heaven and earth—is it not like a bellows? Empty and yet not failing, moving and gushing forth. The more you talk of it the worse it gets. It's better to keep what's inside.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="./chapter4.html">← 第4章</a></li>
+            <li class="page-item disabled">
+                <span class="page-link">5 / 81</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="./chapter6.html">第6章 →</a></li>
+        </ul>
+    </nav>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+
+// 初始化 Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        delay: { show: 300, hide: 150 },
+        placement: 'top',
+        customClass: 'difficult-char-tooltip'
+    }));
+});
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+
+    </script>
+</body>
+</html>

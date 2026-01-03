@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章 - 道德经 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    transition: background-color 0.2s;
+}
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.2);
+}
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.note-text {
+    line-height: 1.8;
+}
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+.version-content {
+    line-height: 1.8;
+}
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+.tooltip-inner {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    max-width: 250px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+[data-bs-theme="dark"] .tooltip-inner {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">第1章</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item active" href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter34.html">
+    <span class="chapter-num">第34章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter35.html">
+    <span class="chapter-num">第35章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter36.html">
+    <span class="chapter-num">第36章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter37.html">
+    <span class="chapter-num">第37章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter38.html">
+    <span class="chapter-num">第38章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter39.html">
+    <span class="chapter-num">第39章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter40.html">
+    <span class="chapter-num">第40章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter41.html">
+    <span class="chapter-num">第41章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter42.html">
+    <span class="chapter-num">第42章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter43.html">
+    <span class="chapter-num">第43章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter44.html">
+    <span class="chapter-num">第44章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter45.html">
+    <span class="chapter-num">第45章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter46.html">
+    <span class="chapter-num">第46章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter47.html">
+    <span class="chapter-num">第47章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter48.html">
+    <span class="chapter-num">第48章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter49.html">
+    <span class="chapter-num">第49章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter50.html">
+    <span class="chapter-num">第50章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter51.html">
+    <span class="chapter-num">第51章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter52.html">
+    <span class="chapter-num">第52章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter53.html">
+    <span class="chapter-num">第53章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter54.html">
+    <span class="chapter-num">第54章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter55.html">
+    <span class="chapter-num">第55章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter56.html">
+    <span class="chapter-num">第56章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter57.html">
+    <span class="chapter-num">第57章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter58.html">
+    <span class="chapter-num">第58章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter59.html">
+    <span class="chapter-num">第59章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter60.html">
+    <span class="chapter-num">第60章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter61.html">
+    <span class="chapter-num">第61章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter62.html">
+    <span class="chapter-num">第62章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter63.html">
+    <span class="chapter-num">第63章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter64.html">
+    <span class="chapter-num">第64章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter65.html">
+    <span class="chapter-num">第65章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter66.html">
+    <span class="chapter-num">第66章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter67.html">
+    <span class="chapter-num">第67章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter68.html">
+    <span class="chapter-num">第68章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter69.html">
+    <span class="chapter-num">第69章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter70.html">
+    <span class="chapter-num">第70章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter71.html">
+    <span class="chapter-num">第71章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter72.html">
+    <span class="chapter-num">第72章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter73.html">
+    <span class="chapter-num">第73章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter74.html">
+    <span class="chapter-num">第74章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter75.html">
+    <span class="chapter-num">第75章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter76.html">
+    <span class="chapter-num">第76章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter77.html">
+    <span class="chapter-num">第77章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter78.html">
+    <span class="chapter-num">第78章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter79.html">
+    <span class="chapter-num">第79章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter80.html">
+    <span class="chapter-num">第80章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter81.html">
+    <span class="chapter-num">第81章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
+            <li class="breadcrumb-item active">第1章</li>
+        </ol>
+    </nav>
+
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">第1章 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    道可道，非常道。名可名，非常名。无名天地之始，有名万物之母。故常无欲以观其妙，常有欲以观其<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="jiào: 边界，边际">徼</span>。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0">可以用语言表述的道，不是永恒不变的道；可以用名称界定的名，不是永恒不变的名。无名是天地的开端，有名是万物的根源。所以，常从无中观察奥妙，常从有中观察端倪。无和有同源而名称不同，都可以说是深奥的。这种深奥又深奥，是一切奥妙的门户。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#postsilk" type="button">帛书异文</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian" type="button">郭店异文</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">可道之道．可名之名．指事造形．非其常也．故不可道．不可名也．凡有皆始于无．故未形无名时．则为万物之始．及其有形有名时．则长之育之亭之毒之．为其母也．言道以无形无名始成万物．万物以始以成而不知其所以然．玄之又玄也．妙者微之极也．万物始于微而后成．始于无而后生．故常无欲空虚．可以观其始物之妙．徼归终也．凡有之为利．必以无为用．欲之所本．适道而后济．故常有欲．可以观其终物之徼也．两者始与母也．同出者同出于玄也．异名所施不可同也．在首则谓之始．在终则谓之母．玄者冥默然无有也．始母之所出也．不可得而名．故不可言同名曰玄．而言之同谓之玄者．取于不可得而谓之然也．不可得而谓之然．则不可以定乎一玄而已．若定乎一玄则是名则失之远矣．故曰玄之又玄也．众妙皆从玄而出．故曰众妙之门也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">道可道，谓经术政教之道也。非常道，非自然生长之道也。名可名，谓富贵尊荣等名也。非常名，非自然常在之名也。无名者，谓道。道无形，故不可名。有名者，谓天地。天地有形位，阴阳有刚柔，故有其名。</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">「可」者不「常」，「常」者無「可」。然據「常」，則「常」一「可」也，是故不廢「常」，而無所「可」。不廢「常」，則人機通；無所「可」，則天和一。夫既有「始」矣，既有「母」矣，而我聊與「觀」之；「觀」之者，乘於其不得已也。觀乾其」異」，則有無數遷；觀於其「同」，則有者後起，而無者亦非大始也。然則往以應者見異矣．居以俟者見同矣。故食萬物而不尸其仁，入機偽而不逢其銳；知天下之情，不強人以奉己；棄一己之餘，不執故以迷新。是以莫能名其功，而字之曰「眾妙」，蓋其得意以居，開戶而歷百為之生死者，亦甚適矣夫！</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">此章總言道之體用，及入道工夫也。老氏之學，盡在於此。其五千餘言，所敷演者，唯演此一章而已。所言道，乃真常之道。可道之道，猶言也。意謂真常之道，本無相無名，不可言說。凡可言者，則非真常之道矣，故非常道。且道本無名，今既強名曰道，是則凡可名者，皆假名耳，故非常名。此二句，言道之體也。然無相無名之道，其體至虛，天地皆從此中變化而出，故為天地之始。斯則無相無名之道體，全成有相有名之天地，而萬物盡從天地陰陽造化而生成。此所謂一生二，二生三，三生萬物，故為萬物之母。此二句，言道之用也。此下二句，乃入道之工夫。常，猶尋常也。欲，猶要也。老子謂，我尋常日用安心於無，要以觀其道之妙處。我尋常日用安心於有，要以觀其道之徼處。徼，猶邊際也。意謂全虛無之道體，既全成了有名之萬物。是則物物皆道之全體所在，正謂一物一太極。是則只在日用目前，事事物物上，就要見道之實際，所遇無往而非道之所在。故莊子曰，道在稊稗，道在屎尿。如此深觀，纔見道之妙處。此二觀字最要緊。此兩者同已下，乃釋疑顯妙。老子因上說觀無觀有，恐學人把有無二字看做兩邊，故釋之曰，此兩者同。意謂我觀無，不是單單觀無。以觀虛無體中，而含有造化生物之妙。我觀有，不是單單觀有。以觀萬物象上，而全是虛無妙道之理。是則有無並觀，同是一體，故曰，此兩者同。恐人又疑兩者既同，如何又立有無之名，故釋之曰，出而異名。意謂虛無道體，既生出有形天地萬物。而有不能生有，必因無以生有。無不自無，因有以顯無。此乃有無相生，故二名不一，故曰，出而異名。至此恐人又疑既是有無對待，則不成一體，如何謂之妙道，故釋之曰，同謂之玄。斯則天地同根，萬物一體。深觀至此，豈不妙哉。老子又恐學人工夫到此，不能滌除玄覽，故又遣之曰，玄之又玄。意謂雖是有無同觀，若不忘心忘跡，雖妙不妙。殊不知大道體中，不但絕有無之名，抑且離玄妙之跡，故曰，玄之又玄。工夫到此，忘懷泯物，無往而不妙，故曰，眾妙之門。斯乃造道之極也。似此一段工夫，豈可以區區文字者也之乎而盡之哉。此愚所謂須是靜工純熟，方見此中之妙耳。</p>
+                    </div>
+                    <div class="tab-pane fade" id="postsilk">
+                        <h6 class="text-muted mb-2">马王堆帛书异文（西汉）</h6>
+                        <div class="version-content mb-0">
+                            <p class="note-text mb-0 fst-italic">道可道也，非恒道也。名可名也，非恒名也。无名万物之始也，有名万物之母也。</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">差异说明：1)常作恒，避汉文帝刘恒讳改为常；2)有也字助词，句式更古拙；3)句序略有不同。</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="guodian">
+                        <h6 class="text-muted mb-2">郭店楚简异文（战国）</h6>
+                        <div class="version-content mb-0">
+                            <p class="note-text mb-0 fst-italic">道可道，非恒道也。名可名，非恒名也。</p>
+                            <div class="version-explanation">
+                                <small class="text-muted">郭店本仅有此开篇残句，无完整章节。郭店楚简年代最早(战国中期)，不避恒字讳，证常原作恒。</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic">The way that can be spoken of is not the constant way; the name that can be named is not the constant name. The nameless was the beginning of heaven and earth; the named was the mother of the myriad creatures. Hence always rid yourself of desires in order to observe its mystery; always have desires in order to observe its manifestations. These two are the same but diverge in name as they issue forth. Being the same they are called mysteries, mystery upon mystery, the gateway to the manifold secrets.</p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic">The Way that can be spoken of is not the constant Way; the name that can be named is not the constant Name. The Nameless is the origin of Heaven and Earth; the Named is the mother of all things. Therefore, let there always be non-being so we may perceive its subtlety, and let there always be being so we may perceive its manifestations. These two are the same—only as they manifest differently they are called by different names. The identity of their sameness is the mystery—mystery upon mystery—the gateway to all subtleties.</p>
+                    </div>
+                    <div class="tab-pane fade" id="addiss">
+                        <p class="english-text mb-0 fst-italic">The way you can go isn't the real way. The name you can say isn't the real name. Heaven and earth begin in the unnamed: name's the mother of the ten thousand things. So the unwanting soul sees what's hidden, and the ever-wanting soul sees only what it wants. Two things, one origin, different names once they pass the gate. The gateway's mystery—dark and deep—opens to all secrets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><span class="page-link">← 上一章</span></li>
+            <li class="page-item disabled">
+                <span class="page-link">1 / 81</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="./chapter2.html">第2章 →</a></li>
+        </ul>
+    </nav>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+
+// 初始化 Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        delay: { show: 300, hide: 150 },
+        placement: 'top',
+        customClass: 'difficult-char-tooltip'
+    }));
+});
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+
+    </script>
+</body>
+</html>

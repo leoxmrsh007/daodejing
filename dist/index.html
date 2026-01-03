@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道德经 - 多版本对照平台 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+
+.index-page .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    padding: 1rem 0;
+}
+.index-page .chapter-card {
+    text-align: center;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+.index-page .chapter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent-color);
+}
+.index-page .chapter-num {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+.index-page .chapter-preview {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.intro-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.intro-section h1 {
+    font-family: 'KaiTi', '楷体', serif;
+    color: var(--accent-color);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">首页</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item " href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter34.html">
+    <span class="chapter-num">第34章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter35.html">
+    <span class="chapter-num">第35章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter36.html">
+    <span class="chapter-num">第36章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter37.html">
+    <span class="chapter-num">第37章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter38.html">
+    <span class="chapter-num">第38章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter39.html">
+    <span class="chapter-num">第39章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter40.html">
+    <span class="chapter-num">第40章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter41.html">
+    <span class="chapter-num">第41章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter42.html">
+    <span class="chapter-num">第42章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter43.html">
+    <span class="chapter-num">第43章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter44.html">
+    <span class="chapter-num">第44章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter45.html">
+    <span class="chapter-num">第45章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter46.html">
+    <span class="chapter-num">第46章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter47.html">
+    <span class="chapter-num">第47章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter48.html">
+    <span class="chapter-num">第48章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter49.html">
+    <span class="chapter-num">第49章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter50.html">
+    <span class="chapter-num">第50章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter51.html">
+    <span class="chapter-num">第51章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter52.html">
+    <span class="chapter-num">第52章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter53.html">
+    <span class="chapter-num">第53章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter54.html">
+    <span class="chapter-num">第54章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter55.html">
+    <span class="chapter-num">第55章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter56.html">
+    <span class="chapter-num">第56章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter57.html">
+    <span class="chapter-num">第57章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter58.html">
+    <span class="chapter-num">第58章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter59.html">
+    <span class="chapter-num">第59章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter60.html">
+    <span class="chapter-num">第60章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter61.html">
+    <span class="chapter-num">第61章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter62.html">
+    <span class="chapter-num">第62章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter63.html">
+    <span class="chapter-num">第63章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter64.html">
+    <span class="chapter-num">第64章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter65.html">
+    <span class="chapter-num">第65章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter66.html">
+    <span class="chapter-num">第66章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter67.html">
+    <span class="chapter-num">第67章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter68.html">
+    <span class="chapter-num">第68章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter69.html">
+    <span class="chapter-num">第69章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter70.html">
+    <span class="chapter-num">第70章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter71.html">
+    <span class="chapter-num">第71章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter72.html">
+    <span class="chapter-num">第72章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter73.html">
+    <span class="chapter-num">第73章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter74.html">
+    <span class="chapter-num">第74章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter75.html">
+    <span class="chapter-num">第75章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter76.html">
+    <span class="chapter-num">第76章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter77.html">
+    <span class="chapter-num">第77章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter78.html">
+    <span class="chapter-num">第78章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter79.html">
+    <span class="chapter-num">第79章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter80.html">
+    <span class="chapter-num">第80章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter81.html">
+    <span class="chapter-num">第81章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <div class="intro-section">
+        <h1 class="text-center mb-4">☯ 道德经</h1>
+        <p class="text-center text-muted mb-4">多版本对照研究平台</p>
+        <p class="text-center">
+            <span class="badge bg-secondary me-1">王弼注</span>
+            <span class="badge bg-secondary me-1">河上公注</span>
+            <span class="badge bg-secondary me-1">王夫之</span>
+            <span class="badge bg-secondary me-1">憨山德清</span>
+            <span class="badge bg-info me-1">帛书</span>
+            <span class="badge bg-info">郭店简</span>
+        </p>
+    </div>
+
+    <h4 class="mb-3">章节目录</h4>
+    <div class="chapters-grid index-page">
+<a href="./chapter1.html" class="chapter-card">    <div class="chapter-num">第1章</div>    <div class="chapter-preview">可以用语言表述的道，不是永恒不变的道；可以用名称界定的名，不...</div></a><a href="./chapter2.html" class="chapter-card">    <div class="chapter-num">第2章</div>    <div class="chapter-preview">天下人都知道美之所以为美，那是由于有丑陋的存在；都知道善之所...</div></a><a href="./chapter3.html" class="chapter-card">    <div class="chapter-num">第3章</div>    <div class="chapter-preview">不推崇有才德的人，导使老百姓不互相争夺；不珍爱难得的财物，导...</div></a><a href="./chapter4.html" class="chapter-card">    <div class="chapter-num">第4章</div>    <div class="chapter-preview">道是虚空的，但使用它却是无穷无尽的。深邃啊！它好像是万物的宗...</div></a><a href="./chapter5.html" class="chapter-card">    <div class="chapter-num">第5章</div>    <div class="chapter-preview">天地是无所谓仁慈的，它没有偏爱，对待万物就像对待刍狗一样一视...</div></a><a href="./chapter6.html" class="chapter-card">    <div class="chapter-num">第6章</div>    <div class="chapter-preview">虚空而神奇的道是永恒不灭的，这叫做深奥的母性。深奥母性的门户...</div></a><a href="./chapter7.html" class="chapter-card">    <div class="chapter-num">第7章</div>    <div class="chapter-preview">天长地久。天地所以能长久存在，是因为它们不为自己而生，所以能...</div></a><a href="./chapter8.html" class="chapter-card">    <div class="chapter-num">第8章</div>    <div class="chapter-preview">最高尚的品德像水一样。水善于滋润万物而不与万物相争，停留在众...</div></a><a href="./chapter9.html" class="chapter-card">    <div class="chapter-num">第9章</div>    <div class="chapter-preview">端着杯子让它装满水，不如适可而止。把刀剑磨得锋利，很难长久保...</div></a><a href="./chapter10.html" class="chapter-card">    <div class="chapter-num">第10章</div>    <div class="chapter-preview">身体和灵魂合一，能不分离吗？凝聚气息达到柔顺，能像婴儿一样吗...</div></a><a href="./chapter11.html" class="chapter-card">    <div class="chapter-num">第11章</div>    <div class="chapter-preview">三十根辐条汇集到一个毂中，正是因为有了毂中的空虚，车才能发挥...</div></a><a href="./chapter12.html" class="chapter-card">    <div class="chapter-num">第12章</div>    <div class="chapter-preview">缤纷的色彩使人眼花缭乱；嘈杂的音乐使人耳朵失聪；丰美的食物使...</div></a><a href="./chapter13.html" class="chapter-card">    <div class="chapter-num">第13章</div>    <div class="chapter-preview">受到宠爱和受到侮辱好像都感到惊恐，把宠辱看得像生命一样重要。...</div></a><a href="./chapter14.html" class="chapter-card">    <div class="chapter-num">第14章</div>    <div class="chapter-preview">看它看不见，叫作夷；听它听不到，叫作希；摸它摸不着，叫作微。...</div></a><a href="./chapter15.html" class="chapter-card">    <div class="chapter-num">第15章</div>    <div class="chapter-preview">古代善于为士的人，微妙玄妙，深奥通达，深刻得无法认识。正因为...</div></a><a href="./chapter16.html" class="chapter-card">    <div class="chapter-num">第16章</div>    <div class="chapter-preview">努力使心灵虚空到极点，坚守清静到极致。万物都在蓬勃生长，我由...</div></a><a href="./chapter17.html" class="chapter-card">    <div class="chapter-num">第17章</div>    <div class="chapter-preview">最好的统治者，人民并不知道他的存在；其次的统治者，人民亲近他...</div></a><a href="./chapter18.html" class="chapter-card">    <div class="chapter-num">第18章</div>    <div class="chapter-preview">大道被废弃了，才有仁义；智慧出现了，才有大的虚伪；家庭不和了...</div></a><a href="./chapter19.html" class="chapter-card">    <div class="chapter-num">第19章</div>    <div class="chapter-preview">抛弃聪明智巧，人民可以得到百倍的好处；抛弃仁义，人民可以恢复...</div></a><a href="./chapter20.html" class="chapter-card">    <div class="chapter-num">第20章</div>    <div class="chapter-preview">应诺和呵斥，相差有多远？美好和丑恶，相差有多远？别人所畏惧的...</div></a>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="./all-chapters.html" class="btn btn-outline-primary">查看全部81章 →</a>
+    </div>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

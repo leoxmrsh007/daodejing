@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+
+{% block title %}第{{ chapter.chapter }}章 - 道德经{% endblock %}
+
+{% block page_title %}
+<span class="navbar-text ms-3 d-none d-md-block">
+    第{{ chapter.chapter }}章
+</span>
+{% endblock %}
+
+{% block content %}
+<div class="chapter-view container-fluid px-4">
+    <!-- 章节导航 -->
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item active">第{{ chapter.chapter }}章</li>
+        </ol>
+    </nav>
+
+    <!-- 原文卡片 -->
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">第{{ chapter.chapter }}章 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="togglePinyin"
+                            title="显示/隐藏拼音">拼音</button>
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal"
+                            title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    {{ chapter.original_annotated|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 现代白话译文 -->
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0">{{ chapter.modern_chinese }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 多版本对照 Tabs -->
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi"
+                                type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong"
+                                type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi"
+                                type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan"
+                                type="button">憨山德清注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#postsilk"
+                                type="button">帛书异文</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian"
+                                type="button">郭店异文</button>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a href="{{ url_for('compare_view', chapter_id=chapter.chapter) }}"
+                           class="btn btn-sm btn-outline-primary mt-1">全屏对照</a>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">{{ chapter.wangbi_note }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">{{ chapter.heshanggong_note }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">{{ chapter.wangfuzhi_note }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">{{ chapter.hanshandeqing_note }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="postsilk">
+                        <h6 class="text-muted mb-2">马王堆帛书异文（西汉）</h6>
+                        <div class="version-content mb-0">
+                            {% if chapter.postsilk_text %}
+                            <div class="version-original-text mb-3">
+                                <p class="note-text mb-0 fst-italic">{{ chapter.postsilk_text }}</p>
+                            </div>
+                            {% endif %}
+                            <div class="version-explanation">
+                                <small class="text-muted">{{ chapter.postsilk_diff }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="guodian">
+                        <h6 class="text-muted mb-2">郭店楚简异文（战国）</h6>
+                        <div class="version-content mb-0">
+                            {% if chapter.guodian_text %}
+                            <div class="version-original-text mb-3">
+                                <p class="note-text mb-0 fst-italic">{{ chapter.guodian_text }}</p>
+                            </div>
+                            {% endif %}
+                            <div class="version-explanation">
+                                <small class="text-muted">{{ chapter.guodian_diff }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 英文译本 -->
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau"
+                                type="button">D.C. Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks"
+                                type="button">Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#addiss"
+                                type="button">Addiss & Lombardo</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic">{{ chapter.english_lau }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic">{{ chapter.english_henricks }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="addiss">
+                        <p class="english-text mb-0 fst-italic">{{ chapter.english_addiss }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 章节导航按钮 -->
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            {% if chapter.prev_chapter %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
+                    ← 第{{ chapter.prev_chapter.chapter }}章
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">← 上一章</span>
+            </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">{{ chapter.chapter }} / {{ chapter.total_chapters }}</span>
+            </li>
+
+            {% if chapter.next_chapter %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
+                    第{{ chapter.next_chapter.chapter }}章 →
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">下一章 →</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.2);
+}
+
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.note-text {
+    line-height: 1.8;
+}
+
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+
+/* 版本文档样式 */
+.version-content {
+    line-height: 1.8;
+}
+
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.version-explanation {
+    padding: 0.5rem 0;
+}
+
+/* Bootstrap tooltip 样式优化 */
+.tooltip-inner {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    max-width: 250px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+[data-bs-theme="dark"] .tooltip-inner {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 初始化 Bootstrap tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    // 为所有疑难字标注启用 Bootstrap tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        delay: { show: 300, hide: 150 },
+        placement: 'top',
+        customClass: 'difficult-char-tooltip'
+    }));
+});
+
+// 键盘导航
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        const prevLink = document.querySelector('.chapter-navigation .page-item:first-child a');
+        if (prevLink) prevLink.click();
+    } else if (e.key === 'ArrowRight') {
+        const nextLink = document.querySelector('.chapter-navigation .page-item:last-child a');
+        if (nextLink) nextLink.click();
+    } else if (e.key === 'Escape') {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('searchModal'));
+        if (modal) modal.hide();
+    }
+});
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block title %}第{{ chapter.chapter }}章 - 版本对照{% endblock %}
+
+{% block page_title %}
+<span class="navbar-text ms-3 d-none d-md-block">
+    第{{ chapter.chapter }}章 · 对照
+</span>
+{% endblock %}
+
+{% block content %}
+<div class="compare-view container-fluid px-4">
+    <!-- 章节导航 -->
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}">第{{ chapter.chapter }}章</a></li>
+            <li class="breadcrumb-item active">版本对照</li>
+        </ol>
+    </nav>
+
+    <!-- 对照模式选择 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>第{{ chapter.chapter }}章 · 多版本对照</h4>
+        <div class="btn-group btn-group-sm" role="group">
+            <input type="radio" class="btn-check" name="compareMode" id="mode2col" value="2col" checked>
+            <label class="btn btn-outline-primary" for="mode2col">双栏对照</label>
+
+            <input type="radio" class="btn-check" name="compareMode" id="modeVertical" value="vertical">
+            <label class="btn btn-outline-primary" for="modeVertical">垂直排列</label>
+
+            <input type="radio" class="btn-check" name="compareMode" id="modeDiff" value="diff">
+            <label class="btn btn-outline-primary" for="modeDiff">差异高亮</label>
+        </div>
+    </div>
+
+    <!-- 双栏对照模式 -->
+    <div class="compare-mode mode-2col" id="mode2colView">
+        <div class="row g-3">
+            <!-- 左栏：中文版本 -->
+            <div class="col-md-6">
+                <div class="compare-column">
+                    <h5 class="column-title">中文版本</h5>
+
+                    <!-- 通行本原文 -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">通行本（王弼本）</h6>
+                        <div class="version-content original">{{ chapter.original }}</div>
+                    </div>
+
+                    <!-- 王弼注 -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">王弼注</h6>
+                        <div class="version-content">{{ chapter.wangbi_note }}</div>
+                    </div>
+
+                    <!-- 河上公注 -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">河上公注</h6>
+                        <div class="version-content">{{ chapter.heshanggong_note }}</div>
+                    </div>
+
+                    <!-- 帛书异文 -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label text-warning">帛书异文</h6>
+                        <div class="version-content diff-text">{{ chapter.postsilk_diff }}</div>
+                    </div>
+
+                    <!-- 郭店异文 -->
+                    <div class="version-block">
+                        <h6 class="version-label text-warning">郭店异文</h6>
+                        <div class="version-content diff-text">{{ chapter.guodian_diff }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右栏：英文版本 + 其他注解 -->
+            <div class="col-md-6">
+                <div class="compare-column">
+                    <h5 class="column-title">English Versions</h5>
+
+                    <!-- D.C. Lau -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">D.C. Lau 译本</h6>
+                        <div class="version-content english-text">{{ chapter.english_lau }}</div>
+                    </div>
+
+                    <!-- Henricks -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">Henricks 译本（基于帛书）</h6>
+                        <div class="version-content english-text">{{ chapter.english_henricks }}</div>
+                    </div>
+
+                    <!-- Addiss & Lombardo -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">Addiss & Lombardo 诗意译本</h6>
+                        <div class="version-content english-text">{{ chapter.english_addiss }}</div>
+                    </div>
+
+                    <!-- 王夫之注 -->
+                    <div class="version-block mb-3">
+                        <h6 class="version-label">王夫之《老子衍》</h6>
+                        <div class="version-content">{{ chapter.wangfuzhi_note }}</div>
+                    </div>
+
+                    <!-- 憨山德清注 -->
+                    <div class="version-block">
+                        <h6 class="version-label">憨山德清注</h6>
+                        <div class="version-content">{{ chapter.hanshandeqing_note }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 垂直排列模式 -->
+    <div class="compare-mode mode-vertical d-none" id="modeVerticalView">
+        <div class="version-block mb-4 p-3 border rounded">
+            <h5 class="version-label">通行本（王弼本）</h5>
+            <div class="version-content original">{{ chapter.original }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded">
+            <h5 class="version-label">王弼注</h5>
+            <div class="version-content">{{ chapter.wangbi_note }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded">
+            <h5 class="version-label">河上公注</h5>
+            <div class="version-content">{{ chapter.heshanggong_note }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded">
+            <h5 class="version-label">王夫之注</h5>
+            <div class="version-content">{{ chapter.wangfuzhi_note }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded">
+            <h5 class="version-label">憨山德清注</h5>
+            <div class="version-content">{{ chapter.hanshandeqing_note }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded bg-warning bg-opacity-10">
+            <h5 class="version-label text-warning">帛书异文</h5>
+            <div class="version-content diff-text">{{ chapter.postsilk_diff }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded bg-warning bg-opacity-10">
+            <h5 class="version-label text-warning">郭店异文</h5>
+            <div class="version-content diff-text">{{ chapter.guodian_diff }}</div>
+        </div>
+
+        <div class="version-block mb-4 p-3 border rounded bg-info bg-opacity-10">
+            <h5 class="version-label text-info">D.C. Lau 英译</h5>
+            <div class="version-content english-text">{{ chapter.english_lau }}</div>
+        </div>
+    </div>
+
+    <!-- 差异高亮模式 -->
+    <div class="compare-mode mode-diff d-none" id="modeDiffView">
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle me-2"></i>
+            差异高亮模式：突出显示各版本之间的主要差异
+        </div>
+
+        <div class="diff-view">
+            <h5 class="mb-3">原文 vs 帛书异文</h5>
+            <table class="table table-bordered diff-table">
+                <thead>
+                    <tr>
+                        <th>通行本</th>
+                        <th>帛书差异</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="original">{{ chapter.original }}</td>
+                        <td class="diff-content">{{ chapter.postsilk_diff }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mb-3 mt-4">王弼注 vs 河上公注</h5>
+            <table class="table table-bordered diff-table">
+                <thead>
+                    <tr>
+                        <th>王弼注</th>
+                        <th>河上公注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ chapter.wangbi_note }}</td>
+                        <td>{{ chapter.heshanggong_note }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+           class="btn btn-outline-primary">
+            ← 返回阅读页
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.compare-column {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.column-title {
+    position: sticky;
+    top: 0;
+    background: var(--bg-primary);
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--accent-color);
+    z-index: 10;
+}
+
+.version-block {
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.version-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.version-content {
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.version-content.original {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.english-text {
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.diff-text {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1rem;
+}
+
+.diff-table th {
+    background-color: var(--table-header-bg);
+}
+
+.diff-table td {
+    vertical-align: top;
+    font-size: 0.9rem;
+}
+
+.diff-content {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+
+/* 滚动条样式 */
+.compare-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.compare-column::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.compare-column::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 对照模式切换
+document.querySelectorAll('input[name="compareMode"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        // 隐藏所有模式视图
+        document.querySelectorAll('.compare-mode').forEach(view => {
+            view.classList.add('d-none');
+        });
+
+        // 显示选中的模式
+        const mode = this.value;
+        if (mode === '2col') {
+            document.getElementById('mode2colView').classList.remove('d-none');
+        } else if (mode === 'vertical') {
+            document.getElementById('modeVerticalView').classList.remove('d-none');
+        } else if (mode === 'diff') {
+            document.getElementById('modeDiffView').classList.remove('d-none');
+        }
+    });
+});
+</script>
+{% endblock %}
