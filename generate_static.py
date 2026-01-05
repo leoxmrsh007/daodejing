@@ -217,6 +217,7 @@ CHAPTER_EXTRA_CSS = '''
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
@@ -262,16 +263,28 @@ CHAPTER_EXTRA_CSS = '''
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
 }
+/* Bootstrap Tooltip 样式优化 */
+.tooltip {
+    z-index: 9999 !important;
+}
 .tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
     max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 [data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-bs-theme="dark"] .bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 '''
 
