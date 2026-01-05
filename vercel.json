@@ -8,8 +8,18 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/app.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "app.py"
+      "dest": "/app.py"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/app.py"
     }
   ]
 }

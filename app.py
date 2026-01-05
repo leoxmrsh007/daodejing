@@ -226,3 +226,11 @@ def server_error(error):
 
 
 # ==================== 启动配置 ====================
+
+# Vercel 无服务器函数入口
+# 从 Vercel 的 Python 运行时导入 app
+app = app
+
+# 本地开发入口
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
