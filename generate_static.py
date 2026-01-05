@@ -76,14 +76,21 @@ def load_data():
 def annotate_difficult_chars(text):
     """为疑难字添加拼音和释义标注"""
     result = text
+    # 按字数降序排序，先处理长词（如"玄牝"、"谷神"）
     sorted_chars = sorted(DIFFICULT_CHARS.items(), key=lambda x: -len(x[0]))
 
     for char, info in sorted_chars:
         pinyin = info['pinyin']
         meaning = info['meaning']
-        pattern = re.compile(re.escape(char))
-        replacement = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
-        result = pattern.sub(replacement, result)
+
+        # 使用正则替换，但跳过已经被 <span> 包裹的内容
+        # 负向前瞻：确保不在 <span> 标签内部
+        pattern = re.compile(f'(?<!<span[^>]*>){re.escape(char)}(?!(?:<[^>]*>)*</span>)')
+
+        def make_span(m):
+            return f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{m.group(0)}</span>'
+
+        result = pattern.sub(make_span, result)
 
     return result
 
