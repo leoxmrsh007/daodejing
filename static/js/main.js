@@ -477,9 +477,12 @@
             };
 
             this.currentUtterance.onerror = (event) => {
-                console.error('朗读错误:', event.error);
+                // interrupted 和 canceled 是正常情况（切换章节、手动停止），不显示为错误
+                if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                    console.error('朗读错误:', event.error);
+                    this.setStatus('朗读出错: ' + event.error, false);
+                }
                 this.updateState();
-                this.setStatus('朗读出错: ' + event.error, false);
             };
 
             this.synth.speak(this.currentUtterance);
