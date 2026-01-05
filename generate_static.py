@@ -267,6 +267,9 @@ CHAPTER_EXTRA_CSS = '''
 .tooltip {
     z-index: 9999 !important;
 }
+.tooltip.bs-tooltip-top .tooltip-arrow {
+    bottom: -2px;
+}
 .tooltip-inner {
     background-color: rgba(44, 24, 16, 0.95);
     color: #fff;
@@ -275,6 +278,7 @@ CHAPTER_EXTRA_CSS = '''
     font-size: 0.9em;
     max-width: 250px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
 }
 [data-bs-theme="dark"] .tooltip-inner {
     background-color: rgba(232, 224, 216, 0.95);
@@ -295,7 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
         delay: { show: 300, hide: 150 },
         placement: 'top',
-        customClass: 'difficult-char-tooltip'
+        offset: [0, 8],
+        boundary: 'window',
+        fallbackPlacements: ['top', 'bottom']
     }));
 });
 
