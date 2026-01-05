@@ -16,14 +16,50 @@
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -64,17 +100,6 @@
     background-color: var(--bg-secondary);
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
-}
-.tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
 }
 
     </style>
@@ -372,7 +397,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    <span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="gǔ shén: 形容虚空而神奇的存在"><span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="gǔ: 川谷，虚怀">谷</span>神</span>不死，是谓<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="xuán pìn: 微妙而神秘的母体">玄<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="pìn: <span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="cí: 雌性，柔弱">雌</span>性的鸟兽，喻指柔弱">牝</span></span>。<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="xuán pìn: 微妙而神秘的母体">玄<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="pìn: <span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="cí: 雌性，柔弱">雌</span>性的鸟兽，喻指柔弱">牝</span></span>之门，是谓天地根。绵绵若存，用之不勤。
+                    <span class="difficult" data-pinyin="gǔ shén" data-meaning="形容虚空而神奇的存在">谷神</span>不死，是谓<span class="difficult" data-pinyin="xuán pìn" data-meaning="微妙而神秘的母体">玄牝</span>。<span class="difficult" data-pinyin="xuán pìn" data-meaning="微妙而神秘的母体">玄牝</span>之门，是谓天地根。绵绵若存，用之不勤。
                 </div>
             </div>
         </div>
@@ -511,16 +536,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        customClass: 'difficult-char-tooltip'
-    }));
-});
 
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {

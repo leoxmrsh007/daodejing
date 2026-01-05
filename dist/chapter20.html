@@ -16,14 +16,50 @@
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -64,17 +100,6 @@
     background-color: var(--bg-secondary);
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
-}
-.tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
 }
 
     </style>
@@ -372,7 +397,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    唯之与阿，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮，其未央哉！众人熙熙，如享太牢，如春登台。我独泊兮，其未兆；<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="dùn: <span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="hùn: 混同，浑<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="zhuó: 浑浊">浊</span>">混</span>沌，不分明的样子">沌</span>兮，如婴儿之未孩；<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="lěi: 颓丧，疲惫">儽</span><span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="lěi: 颓丧，疲惫">儽</span>兮，若无所归。众人皆有余，而我独若遗。我愚人之心也哉！俗人昭昭，我独昏昏；俗人察察，我独闷闷。<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="dàn: 恬静，安定">澹</span>兮其若海，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="liù: 风声，飘扬">飂</span>兮若无止。众人皆有以，而我独顽似鄙。我独异于人，而贵食母。
+                    唯之与阿，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮，其未央哉！众人熙熙，如享太牢，如春登台。我独泊兮，其未兆；<span class="difficult" data-pinyin="dùn" data-meaning="混沌兮，不分明的样子">沌</span>兮，如婴儿之未孩；<span class="difficult" data-pinyin="lěi" data-meaning="颓丧，疲惫">儽</span><span class="difficult" data-pinyin="lěi" data-meaning="颓丧，疲惫">儽</span>兮，若无所归。众人皆有余，而我独若遗。我愚人之心也哉！俗人昭昭，我独昏昏；俗人察察，我独闷闷。<span class="difficult" data-pinyin="dàn" data-meaning="恬静，安定">澹</span>兮其若海，<span class="difficult" data-pinyin="liù" data-meaning="风声，飘扬">飂</span>兮若无止。众人皆有以，而我独顽似鄙。我独异于人，而贵食母。
                 </div>
             </div>
         </div>
@@ -511,16 +536,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        customClass: 'difficult-char-tooltip'
-    }));
-});
 
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {

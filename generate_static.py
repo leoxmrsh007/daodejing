@@ -79,18 +79,32 @@ def annotate_difficult_chars(text):
     # 按字数降序排序，先处理长词（如"玄牝"、"谷神"）
     sorted_chars = sorted(DIFFICULT_CHARS.items(), key=lambda x: -len(x[0]))
 
+    # 使用占位符记录已标注的内容，避免嵌套
+    placeholders = {}
+    temp_text = text
+
     for char, info in sorted_chars:
         pinyin = info['pinyin']
         meaning = info['meaning']
 
-        # 使用正则替换，但跳过已经被 <span> 包裹的内容
-        # 负向前瞻：确保不在 <span> 标签内部
-        pattern = re.compile(f'(?<!<span[^>]*>){re.escape(char)}(?!(?:<[^>]*>)*</span>)')
+        # 在临时文本中查找并替换
+        start = 0
+        while True:
+            pos = temp_text.find(char, start)
+            if pos == -1:
+                break
 
-        def make_span(m):
-            return f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{m.group(0)}</span>'
+            # 执行替换，使用占位符
+            placeholder = f"___PH_{len(placeholders)}___"
+            span_html = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
+            temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char):]
+            placeholders[placeholder] = span_html
+            start = pos + len(placeholder)
 
-        result = pattern.sub(make_span, result)
+    # 将所有占位符替换回实际的HTML
+    result = temp_text
+    for placeholder, html in placeholders.items():
+        result = result.replace(placeholder, html)
 
     return result
 

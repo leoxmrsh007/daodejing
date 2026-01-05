@@ -16,14 +16,50 @@
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -64,17 +100,6 @@
     background-color: var(--bg-secondary);
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
-}
-.tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
 }
 
     </style>
@@ -372,7 +397,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    载营魄抱一，能无离乎？专气致柔，能婴儿乎？涤除玄览，能无疵乎？爱民治国，能无为乎？天门开阖，能为<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="cí: 雌性，柔弱">雌</span>乎？明白四达，能无知乎？生之畜之，生而不有，为而不恃，长而不宰，是谓玄德。
+                    载营魄抱一，能无离乎？专气致柔，能婴儿乎？涤除玄览，能无疵乎？爱民治国，能无为乎？天门开阖，能为<span class="difficult" data-pinyin="cí" data-meaning="鸟兽的雌性，柔弱">雌</span>乎？明白四达，能无知乎？生之畜之，生而不有，为而不恃，长而不宰，是谓玄德。
                 </div>
             </div>
         </div>
@@ -511,16 +536,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        customClass: 'difficult-char-tooltip'
-    }));
-});
 
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {

@@ -16,14 +16,50 @@
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -64,17 +100,6 @@
     background-color: var(--bg-secondary);
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
-}
-.tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
 }
 
     </style>
@@ -372,7 +397,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    知其<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="xióng: 雄性，刚强">雄</span>，守其<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="cí: 雌性，柔弱">雌</span>，为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="xī: 溪涧">溪</span>。为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="xī: 溪涧">溪</span>，常德不离，复归于婴儿。知其白，守其黑，为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="shì: 范式，法式">式</span>。为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="shì: 范式，法式">式</span>，常德不<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="tè: 差错">忒</span>，复归于无极。知其荣，守其辱，为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="gǔ: 川谷，虚怀">谷</span>。为天下<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="gǔ: 川谷，虚怀">谷</span>，常德乃足，复归于<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="pǔ: 朴素，未雕琢的木材">朴</span>。<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="pǔ: 朴素，未雕琢的木材">朴</span>散则为<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="qì: 器具">器</span>，圣人用之，则为官长，故大制不割。
+                    知其<span class="difficult" data-pinyin="xióng" data-meaning="雄性，刚强">雄</span>，守其<span class="difficult" data-pinyin="cí" data-meaning="鸟兽的雌性，柔弱">雌</span>，为天下<span class="difficult" data-pinyin="xī" data-meaning="溪涧">溪</span>。为天下<span class="difficult" data-pinyin="xī" data-meaning="溪涧">溪</span>，常德不离，复归于婴儿。知其白，守其黑，为天下<span class="difficult" data-pinyin="shì" data-meaning="范式，法式">式</span>。为天下<span class="difficult" data-pinyin="shì" data-meaning="范式，法式">式</span>，常德不<span class="difficult" data-pinyin="tè" data-meaning="差错">忒</span>，复归于无极。知其荣，守其辱，为天下<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>。为天下<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>，常德乃足，复归于<span class="difficult" data-pinyin="pǔ" data-meaning="朴素，未雕琢的木材">朴</span>。<span class="difficult" data-pinyin="pǔ" data-meaning="朴素，未雕琢的木材">朴</span>散则为<span class="difficult" data-pinyin="qì" data-meaning="器具">器</span>，圣人用之，则为官长，故大制不割。
                 </div>
             </div>
         </div>
@@ -511,16 +536,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        customClass: 'difficult-char-tooltip'
-    }));
-});
 
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {

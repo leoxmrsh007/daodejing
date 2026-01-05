@@ -16,14 +16,50 @@
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
     position: relative;
+    display: inline-block;
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -64,17 +100,6 @@
     background-color: var(--bg-secondary);
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
-}
-.tooltip-inner {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
 }
 
     </style>
@@ -372,7 +397,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    古之善为士者，微妙玄通，深不可识。夫唯不可识，故强为之容：<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="yù: <span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="yóu: 犹豫，警惕">犹</span>豫，谨慎">豫</span>兮若冬涉川，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="yóu: 犹豫，警惕">犹</span>兮若畏四邻，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="yǎn: 恭敬，庄重">俨</span>兮其若客，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="huàn: 消散，离散">涣</span>兮其若冰之将释，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="dūn: 淳厚，诚恳">敦</span>兮其若<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="pǔ: 朴素，未雕琢的木材">朴</span>，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="kuàng: 空阔，广大">旷</span>兮其若<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="gǔ: 川谷，虚怀">谷</span>，<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="hùn: 混同，浑<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="zhuó: 浑浊">浊</span>">混</span>兮其若<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="zhuó: 浑浊">浊</span>。孰能<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="zhuó: 浑浊">浊</span>以静之徐清？孰能安以动之徐生？保此道者，不欲盈。夫唯不盈，故能蔽不新成。
+                    古之善为士者，微妙玄通，深不可识。夫唯不可识，故强为之容：<span class="difficult" data-pinyin="yù" data-meaning="犹豫。容：犹豫，谨慎。">豫</span>兮若冬涉川，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>兮若畏四邻，<span class="difficult" data-pinyin="yǎn" data-meaning="恭敬，庄重">俨</span>兮其若客，<span class="difficult" data-pinyin="huàn" data-meaning="消散，离散">涣</span>兮其若冰之将释，<span class="difficult" data-pinyin="dūn" data-meaning="淳厚，诚恳">敦</span>兮其若<span class="difficult" data-pinyin="pǔ" data-meaning="朴素，未雕琢的木材">朴</span>，<span class="difficult" data-pinyin="kuàng" data-meaning="空阔，广大">旷</span>兮其若<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>，<span class="difficult" data-pinyin="hùn" data-meaning="混同，混浊">混</span>兮其若<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>。孰能<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>以静之徐清？孰能安以动之徐生？保此道者，不欲盈。夫唯不盈，故能蔽不新成。
                 </div>
             </div>
         </div>
@@ -511,16 +536,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        customClass: 'difficult-char-tooltip'
-    }));
-});
 
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {
