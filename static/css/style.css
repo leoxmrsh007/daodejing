@@ -262,7 +262,7 @@ body {
     border-bottom: none;
 }
 
-/* 疑难字标注 */
+/* 疑难字标注 - 使用纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
@@ -271,41 +271,42 @@ body {
     display: inline-block;
 }
 
-/* Bootstrap Tooltip 样式优化 */
-.tooltip {
-    /* 确保 tooltip 在最上层 */
-    z-index: 9999 !important;
-}
-
-.tooltip.bs-tooltip-top .tooltip-arrow {
-    bottom: -2px;
-}
-
-.tooltip-inner {
+/* 悬停时显示注音和释义 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgba(44, 24, 16, 0.95);
     color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.9em;
-    max-width: 250px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    margin-bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
 }
 
-/* 暗黑模式下的 tooltip */
-[data-bs-theme="dark"] .tooltip-inner,
-[data-theme="dark"] .tooltip-inner {
+/* 暗黑模式 */
+[data-theme="dark"] .difficult:hover::after {
     background-color: rgba(232, 224, 216, 0.95);
     color: #2c1810;
 }
 
-/* Tooltip 箭头样式 */
-.bs-tooltip-top .tooltip-arrow::before {
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
     border-top-color: rgba(44, 24, 16, 0.95);
 }
 
-[data-bs-theme="dark"] .bs-tooltip-top .tooltip-arrow::before,
-[data-theme="dark"] .bs-tooltip-top .tooltip-arrow::before {
+[data-theme="dark"] .difficult:hover::before {
     border-top-color: rgba(232, 224, 216, 0.95);
 }
 

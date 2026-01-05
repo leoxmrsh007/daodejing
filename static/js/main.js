@@ -251,18 +251,6 @@
         SidebarManager.init();
         SearchManager.init();
         ScrollHighlight.init();
-
-        // 初始化疑难字 tooltip，增加偏移避免重叠
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => {
-            return new bootstrap.Tooltip(tooltipTriggerEl, {
-                delay: { show: 300, hide: 150 },
-                placement: 'top',
-                offset: [0, 8],
-                boundary: 'window',
-                fallbackPlacements: ['top', 'bottom']
-            });
-        });
     });
 
 })();

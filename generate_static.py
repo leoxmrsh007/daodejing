@@ -82,7 +82,7 @@ def annotate_difficult_chars(text):
         pinyin = info['pinyin']
         meaning = info['meaning']
         pattern = re.compile(re.escape(char))
-        replacement = f'<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="{pinyin}: {meaning}">{char}</span>'
+        replacement = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
         result = pattern.sub(replacement, result)
 
     return result
@@ -213,6 +213,7 @@ CHAPTER_EXTRA_CSS = '''
     text-align: center;
     padding: 1.5rem;
 }
+/* 疑难字标注 - 纯CSS方案 */
 .difficult {
     border-bottom: 1px dashed var(--accent-color);
     cursor: help;
@@ -221,7 +222,41 @@ CHAPTER_EXTRA_CSS = '''
     transition: background-color 0.2s;
 }
 .difficult:hover {
-    background-color: rgba(212, 165, 116, 0.2);
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
 }
 .modern-text {
     line-height: 1.8;
@@ -263,48 +298,9 @@ CHAPTER_EXTRA_CSS = '''
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
 }
-/* Bootstrap Tooltip 样式优化 */
-.tooltip {
-    z-index: 9999 !important;
-}
-.tooltip.bs-tooltip-top .tooltip-arrow {
-    bottom: -2px;
-}
-.tooltip-inner {
-    background-color: rgba(44, 24, 16, 0.95);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.9em;
-    max-width: 250px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    margin-bottom: 8px;
-}
-[data-bs-theme="dark"] .tooltip-inner {
-    background-color: rgba(232, 224, 216, 0.95);
-    color: #2c1810;
-}
-.bs-tooltip-top .tooltip-arrow::before {
-    border-top-color: rgba(44, 24, 16, 0.95);
-}
-[data-bs-theme="dark"] .bs-tooltip-top .tooltip-arrow::before {
-    border-top-color: rgba(232, 224, 216, 0.95);
-}
 '''
 
 CHAPTER_EXTRA_JS = '''
-// 初始化 Bootstrap tooltips
-document.addEventListener('DOMContentLoaded', function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        delay: { show: 300, hide: 150 },
-        placement: 'top',
-        offset: [0, 8],
-        boundary: 'window',
-        fallbackPlacements: ['top', 'bottom']
-    }));
-});
-
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {
     const text = document.getElementById('originalText').innerText;

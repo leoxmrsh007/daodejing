@@ -84,9 +84,9 @@ def annotate_difficult_chars(text):
     for char, info in sorted_chars:
         pinyin = info['pinyin']
         meaning = info['meaning']
-        # 使用 Bootstrap tooltip
+        # 使用自定义 data 属性存储注音和释义
         pattern = re.compile(re.escape(char))
-        replacement = f'<span class="difficult" data-bs-toggle="tooltip" data-bs-placement="top" title="{pinyin}: {meaning}">{char}</span>'
+        replacement = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
         result = pattern.sub(replacement, result)
 
     return result
