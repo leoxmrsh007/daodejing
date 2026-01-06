@@ -6,7 +6,8 @@
 import os
 import json
 import re
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+import requests
+from flask import Flask, render_template, jsonify, request, redirect, url_for, Response
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -211,6 +212,71 @@ def api_search():
                 })
 
     return jsonify({'query': query, 'results': results})
+
+
+@app.route('/api/tts/fish-audio', methods=['POST'])
+def fish_audio_proxy():
+    """Fish Audio TTS 代理端点 - 解决CORS问题"""
+    try:
+        # 获取请求数据
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No JSON data provided'}), 400
+
+        api_key = data.get('api_key')
+        text = data.get('text')
+        model_id = data.get('model_id')
+
+        if not api_key or not text:
+            return jsonify({'error': 'Missing api_key or text'}), 400
+
+        # 构建Fish Audio API请求
+        fish_api_url = 'https://api.fish.audio/v1/tts'
+
+        headers = {
+            'Authorization': f'Bearer {api_key}',
+            'Content-Type': 'application/json'
+        }
+
+        request_body = {
+            'text': text,
+            'format': 'mp3'
+        }
+
+        # 如果提供了model_id，添加到请求体
+        if model_id:
+            request_body['model_id'] = model_id
+
+        # 发送请求到Fish Audio API
+        response = requests.post(
+            fish_api_url,
+            headers=headers,
+            json=request_body,
+            timeout=30
+        )
+
+        # 如果请求成功，返回音频数据
+        if response.status_code == 200:
+            return Response(
+                response.content,
+                mimetype='audio/mpeg',
+                headers={
+                    'Content-Disposition': 'attachment; filename=tts.mp3'
+                }
+            )
+        else:
+            # 返回错误信息
+            return jsonify({
+                'error': f'Fish Audio API error: {response.status_code}',
+                'detail': response.text
+            }), response.status_code
+
+    except requests.exceptions.Timeout:
+        return jsonify({'error': 'Request timeout'}), 504
+    except requests.exceptions.RequestException as e:
+        return jsonify({'error': f'Request failed: {str(e)}'}), 502
+    except Exception as e:
+        return jsonify({'error': f'Server error: {str(e)}'}), 500
 
 
 # ==================== 错误处理 ====================

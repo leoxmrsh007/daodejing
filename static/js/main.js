@@ -512,40 +512,33 @@
             this.setStatus('正在生成AI语音...', true);
 
             try {
+                // 调用后端代理API，避免CORS问题
+                const proxyUrl = '/api/tts/fish-audio';
+
                 const requestBody = {
+                    api_key: config.apiKey,
                     text: text,
-                    format: 'mp3'
+                    model_id: config.voiceId || undefined
                 };
 
-                // 如果用户配置了声音ID，使用它
-                if (config.voiceId) {
-                    requestBody.model_id = config.voiceId;
-                }
+                console.log('请求代理API:', proxyUrl);
 
-                console.log('请求体:', JSON.stringify({ ...requestBody, text: text.substring(0, 30) + '...' }, null, 2));
-
-                const headers = {
-                    'Authorization': `Bearer ${config.apiKey}`,
-                    'Content-Type': 'application/json'
-                };
-
-                console.log('请求头:', { ...headers, 'Authorization': 'Bearer ***' });
-
-                const response = await fetch('https://api.fish.audio/v1/tts', {
+                const response = await fetch(proxyUrl, {
                     method: 'POST',
-                    headers: headers,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify(requestBody)
                 });
 
                 console.log('响应状态:', response.status, response.statusText);
-                console.log('响应头:', Object.fromEntries(response.headers.entries()));
 
                 if (!response.ok) {
-                    const errorText = await response.text();
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     console.error('=== API 错误详情 ===');
                     console.error('状态码:', response.status);
-                    console.error('错误内容:', errorText);
-                    this.setStatus(`API错误(${response.status})，请查看控制台`, false);
+                    console.error('错误内容:', errorData);
+                    this.setStatus(`API错误: ${errorData.error || response.status}`, false);
                     // 回退到系统TTS
                     this.speakWithSystem(text);
                     return;
@@ -563,7 +556,7 @@
                 }
 
                 const audioUrl = URL.createObjectURL(audioBlob);
-                console.log('音频URL已创建:', audioUrl);
+                console.log('音频URL已创建');
 
                 // 创建Audio元素播放
                 this.currentAudio = new Audio(audioUrl);
