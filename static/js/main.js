@@ -498,6 +498,8 @@
         async speakWithFishAudio(text) {
             const config = this.getFishAudioConfig();
 
+            console.log('Fish Audio配置:', { apiKey: config.apiKey ? '***已配置***' : '未配置', voiceId: config.voiceId || '未设置' });
+
             if (!config.apiKey) {
                 this.setStatus('请先配置Fish Audio API Key', false);
                 // 回退到系统TTS
@@ -508,30 +510,48 @@
             this.setStatus('正在生成AI语音...', true);
 
             try {
+                const requestBody = {
+                    text: text,
+                    format: 'mp3'
+                };
+
+                // 如果用户配置了声音ID，使用它
+                if (config.voiceId) {
+                    requestBody.model_id = config.voiceId;
+                }
+
+                console.log('Fish Audio请求体:', { ...requestBody, text: text.substring(0, 20) + '...' });
+
                 const response = await fetch('https://api.fish.audio/v1/tts', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${config.apiKey}`,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        text: text,
-                        format: 'mp3',
-                        // 如果用户配置了声音ID，使用它；否则使用默认声音
-                        ...(config.voiceId && { reference_id: config.voiceId })
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
+                console.log('Fish Audio响应状态:', response.status);
+
                 if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({}));
-                    console.error('Fish Audio API错误:', errorData);
-                    this.setStatus(`API错误: ${response.status}`, false);
+                    const errorText = await response.text();
+                    console.error('Fish Audio API错误:', errorText);
+                    this.setStatus(`API错误(${response.status})，使用系统语音`, false);
                     // 回退到系统TTS
                     this.speakWithSystem(text);
                     return;
                 }
 
                 const audioBlob = await response.blob();
+                console.log('音频数据大小:', audioBlob.size, 'bytes');
+
+                if (audioBlob.size < 100) {
+                    console.error('返回的音频数据太小');
+                    this.setStatus('音频数据异常，使用系统语音', false);
+                    this.speakWithSystem(text);
+                    return;
+                }
+
                 const audioUrl = URL.createObjectURL(audioBlob);
 
                 // 创建Audio元素播放
@@ -540,11 +560,13 @@
                 this.isPaused = false;
 
                 this.currentAudio.onplay = () => {
+                    console.log('Fish Audio开始播放');
                     this.updateState();
-                    this.setStatus(`正在朗读第${this.currentChapter}章`, true);
+                    this.setStatus(`🎙️ AI朗读第${this.currentChapter}章`, true);
                 };
 
                 this.currentAudio.onended = () => {
+                    console.log('Fish Audio播放结束');
                     this.isPlayingFishAudio = false;
                     URL.revokeObjectURL(audioUrl);
                     if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
@@ -567,7 +589,7 @@
 
             } catch (error) {
                 console.error('Fish Audio请求错误:', error);
-                this.setStatus('生成语音失败', false);
+                this.setStatus('网络错误，使用系统语音', false);
                 // 回退到系统TTS
                 this.speakWithSystem(text);
             }
