@@ -544,9 +544,16 @@
                 const audioBlob = await response.blob();
                 console.log('音频数据大小:', audioBlob.size, 'bytes');
 
-                if (audioBlob.size < 100) {
-                    console.error('返回的音频数据太小');
-                    this.setStatus('音频数据异常', false);
+                // 检查是否是JSON错误响应
+                if (audioBlob.type === 'application/json' || audioBlob.size < 100) {
+                    const errorText = await audioBlob.text();
+                    try {
+                        const errorData = JSON.parse(errorText);
+                        console.error('错误详情:', errorData);
+                        this.setStatus(`错误: ${errorData.error || '未知错误'}`, false);
+                    } catch {
+                        this.setStatus('音频数据异常', false);
+                    }
                     this.speakWithSystem(text);
                     return;
                 }

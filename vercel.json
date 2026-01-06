@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "api/**/*.py",
       "use": "@vercel/python"
     }
   ],
   "rewrites": [
     {
+      "source": "/api/tts/edge",
+      "destination": "/api/tts/edge.py"
+    },
+    {
+      "source": "/api/tts/fish-audio",
+      "destination": "/api/tts/fish-audio.py"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/app.py"
+      "destination": "/dist/$1"
     }
   ]
 }
