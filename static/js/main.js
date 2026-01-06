@@ -328,6 +328,7 @@
     const SpeechManager = {
         STORAGE_KEY: 'daodejing_speech_rate',
         DEFAULT_RATE: 0.8,
+        API_KEY_STORAGE: 'daodejing_ai_keys',
 
         init() {
             this.toggleBtn = document.getElementById('speechToggle');
@@ -361,6 +362,8 @@
             this.isPaused = false;
             this.currentChapter = 1;
             this.speechMode = 'current'; // 'current' or 'all'
+            this.currentAudio = null; // Fish Audio播放元素
+            this.isPlayingFishAudio = false;
 
             this.bindEvents();
         },
@@ -414,7 +417,34 @@
             });
         },
 
+        // 检查是否使用Fish Audio
+        isUsingFishAudio() {
+            const ttsEngine = localStorage.getItem('daodejing_tts_engine');
+            return ttsEngine === 'fish';
+        },
+
+        // 获取Fish Audio API配置
+        getFishAudioConfig() {
+            const saved = localStorage.getItem(this.API_KEY_STORAGE);
+            const apiKeys = saved ? JSON.parse(saved) : {};
+            return {
+                apiKey: apiKeys.fish || '',
+                voiceId: apiKeys.fishVoiceId || ''
+            };
+        },
+
         toggle() {
+            // 检查是否正在播放Fish Audio
+            if (this.isPlayingFishAudio) {
+                if (this.isPaused) {
+                    this.resume();
+                } else {
+                    this.pause();
+                }
+                return;
+            }
+
+            // 检查系统TTS是否在播放
             if (this.synth.speaking) {
                 if (this.isPaused) {
                     this.resume();
@@ -456,6 +486,97 @@
         speak(text) {
             this.stop(); // 先停止之前的朗读
 
+            // 检查是否使用Fish Audio
+            if (this.isUsingFishAudio()) {
+                this.speakWithFishAudio(text);
+            } else {
+                this.speakWithSystem(text);
+            }
+        },
+
+        // 使用Fish Audio进行语音合成
+        async speakWithFishAudio(text) {
+            const config = this.getFishAudioConfig();
+
+            if (!config.apiKey) {
+                this.setStatus('请先配置Fish Audio API Key', false);
+                // 回退到系统TTS
+                this.speakWithSystem(text);
+                return;
+            }
+
+            this.setStatus('正在生成AI语音...', true);
+
+            try {
+                const response = await fetch('https://api.fish.audio/v1/tts', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${config.apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        format: 'mp3',
+                        // 如果用户配置了声音ID，使用它；否则使用默认声音
+                        ...(config.voiceId && { reference_id: config.voiceId })
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    console.error('Fish Audio API错误:', errorData);
+                    this.setStatus(`API错误: ${response.status}`, false);
+                    // 回退到系统TTS
+                    this.speakWithSystem(text);
+                    return;
+                }
+
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+
+                // 创建Audio元素播放
+                this.currentAudio = new Audio(audioUrl);
+                this.isPlayingFishAudio = true;
+                this.isPaused = false;
+
+                this.currentAudio.onplay = () => {
+                    this.updateState();
+                    this.setStatus(`正在朗读第${this.currentChapter}章`, true);
+                };
+
+                this.currentAudio.onended = () => {
+                    this.isPlayingFishAudio = false;
+                    URL.revokeObjectURL(audioUrl);
+                    if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
+                        this.nextChapter();
+                    } else {
+                        this.updateState();
+                        this.setStatus('朗读完成', false);
+                    }
+                };
+
+                this.currentAudio.onerror = (error) => {
+                    console.error('Fish Audio播放错误:', error);
+                    this.isPlayingFishAudio = false;
+                    URL.revokeObjectURL(audioUrl);
+                    this.setStatus('播放出错', false);
+                    this.updateState();
+                };
+
+                await this.currentAudio.play();
+
+            } catch (error) {
+                console.error('Fish Audio请求错误:', error);
+                this.setStatus('生成语音失败', false);
+                // 回退到系统TTS
+                this.speakWithSystem(text);
+            }
+        },
+
+        // 使用系统TTS进行语音合成
+        speakWithSystem(text) {
+            this.isPlayingFishAudio = false;
+
             this.currentUtterance = new SpeechSynthesisUtterance(text);
             this.currentUtterance.lang = 'zh-CN';
             this.currentUtterance.rate = this.rate;
@@ -489,6 +610,16 @@
         },
 
         pause() {
+            // Fish Audio暂停
+            if (this.isPlayingFishAudio && this.currentAudio) {
+                this.currentAudio.pause();
+                this.isPaused = true;
+                this.updateState();
+                this.setStatus('已暂停', false);
+                return;
+            }
+
+            // 系统TTS暂停
             if (this.synth.speaking && !this.isPaused) {
                 this.synth.pause();
                 this.isPaused = true;
@@ -498,6 +629,16 @@
         },
 
         resume() {
+            // Fish Audio恢复
+            if (this.isPlayingFishAudio && this.currentAudio) {
+                this.currentAudio.play();
+                this.isPaused = false;
+                this.updateState();
+                this.setStatus('正在朗读...', true);
+                return;
+            }
+
+            // 系统TTS恢复
             if (this.isPaused) {
                 this.synth.resume();
                 this.isPaused = false;
@@ -507,6 +648,14 @@
         },
 
         stop() {
+            // 停止Fish Audio
+            if (this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio = null;
+            }
+            this.isPlayingFishAudio = false;
+
+            // 停止系统TTS
             this.synth.cancel();
             this.isPaused = false;
             this.updateState();
@@ -1559,7 +1708,7 @@
 
         loadApiKeys() {
             const saved = localStorage.getItem(this.API_KEY_STORAGE);
-            this.apiKeys = saved ? JSON.parse(saved) : { deepseek: '', openai: '' };
+            this.apiKeys = saved ? JSON.parse(saved) : { deepseek: '', openai: '', fish: '' };
 
             // 填充已保存的API Key
             const deepseekInput = document.getElementById('deepseekKey');
@@ -1577,6 +1726,48 @@
                 this.apiKeys.openai = e.target.value;
                 this.saveApiKeys();
             });
+
+            // Fish Audio API Key
+            const fishApiKeyInput = document.getElementById('fishApiKey');
+            const fishVoiceIdInput = document.getElementById('fishVoiceId');
+            if (fishApiKeyInput) fishApiKeyInput.value = this.apiKeys.fish || '';
+            if (fishVoiceIdInput) fishVoiceIdInput.value = this.apiKeys.fishVoiceId || '';
+
+            fishApiKeyInput?.addEventListener('change', (e) => {
+                this.apiKeys.fish = e.target.value;
+                this.saveApiKeys();
+            });
+
+            fishVoiceIdInput?.addEventListener('change', (e) => {
+                this.apiKeys.fishVoiceId = e.target.value;
+                this.saveApiKeys();
+            });
+
+            // TTS引擎选择
+            const ttsEngineSelect = document.getElementById('ttsEngine');
+            const fishSettings = document.getElementById('fishAudioSettings');
+
+            // 加载保存的TTS引擎设置
+            const savedTtsEngine = localStorage.getItem('daodejing_tts_engine');
+            if (ttsEngineSelect && savedTtsEngine) {
+                ttsEngineSelect.value = savedTtsEngine;
+            }
+
+            // 显示/隐藏Fish Audio设置
+            if (ttsEngineSelect && fishSettings) {
+                if (ttsEngineSelect.value === 'fish') {
+                    fishSettings.classList.add('show');
+                }
+
+                ttsEngineSelect.addEventListener('change', (e) => {
+                    localStorage.setItem('daodejing_tts_engine', e.target.value);
+                    if (e.target.value === 'fish') {
+                        fishSettings.classList.add('show');
+                    } else {
+                        fishSettings.classList.remove('show');
+                    }
+                });
+            }
         },
 
         saveApiKeys() {

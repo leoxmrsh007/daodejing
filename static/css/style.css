@@ -1482,3 +1482,28 @@ body {
         padding: 8px 10px;
     }
 }
+
+/* ==================== Fish Audio设置样式 ==================== */
+.fish-audio-settings {
+    display: none;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.fish-audio-settings.show {
+    display: block;
+}
+
+[data-theme="dark"] .fish-audio-settings {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.fish-audio-settings a {
+    text-decoration: none;
+}
+
+.fish-audio-settings a:hover {
+    text-decoration: underline;
+}

@@ -16,7 +16,10 @@
       "Bash(cd:*)",
       "Bash(git -C \"D:\\\\项目文件\\\\daodejing\" status)",
       "Bash(git -C \"D:\\\\项目文件\\\\daodejing\" diff --stat)",
-      "Bash(git -C:*)"
+      "Bash(git -C:*)",
+      "WebSearch",
+      "mcp__web-reader__webReader",
+      "mcp__web-search-prime__webSearchPrime"
     ]
   }
 }

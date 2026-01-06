@@ -301,6 +301,22 @@
                     API Key仅存储在本地，不会上传服务器
                 </small>
             </div>
+
+            <!-- 语音朗读设置 -->
+            <div class="setting-section">
+                <label class="setting-label">🎙️ 语音朗读设置</label>
+                <select class="form-select form-select-sm mb-2" id="ttsEngine">
+                    <option value="system">系统默认语音</option>
+                    <option value="fish">Fish Audio（AI声音克隆）</option>
+                </select>
+                <div id="fishAudioSettings" class="fish-audio-settings">
+                    <input type="password" class="form-control form-control-sm mb-2" id="fishApiKey" placeholder="Fish Audio API Key">
+                    <input type="text" class="form-control form-control-sm mb-2" id="fishVoiceId" placeholder="声音ID（可选）">
+                    <small class="text-muted d-block mb-2">
+                        在 <a href="https://fish.audio" target="_blank" style="color: #d4a574;">Fish Audio</a> 克隆您的声音，获取API Key和声音ID
+                    </small>
+                </div>
+            </div>
         </div>
     </div>
 
