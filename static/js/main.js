@@ -619,6 +619,415 @@
         }
     };
 
+    // ==================== 设置管理 ====================
+    const SettingsManager = {
+        // 存储键
+        STORAGE_KEY: 'daodejing_settings',
+
+        // 默认设置
+        defaults: {
+            mode: 'reading',      // reading, zen, recite
+            font: 'default',      // default, kaiti, songti, fangsong, mingliu, xkai
+            fontSize: 'medium',   // small, medium, large
+            showPinyin: true,
+            showAnnotation: true,
+            showModern: true,
+            showNotes: true,
+            showEnglish: false
+        },
+
+        // 当前设置
+        settings: {},
+
+        init() {
+            this.settingsBtn = document.getElementById('settingsToggle');
+            this.settingsPanel = document.getElementById('settingsPanel');
+            this.closeSettingsBtn = document.getElementById('closeSettingsPanel');
+            this.zenOverlay = document.getElementById('zenModeOverlay');
+            this.zenExitBtn = document.getElementById('zenExitBtn');
+
+            if (!this.settingsBtn) return;
+
+            // 加载保存的设置
+            this.loadSettings();
+
+            // 从URL参数加载设置
+            this.loadFromURL();
+
+            // 应用设置
+            this.applySettings();
+
+            // 绑定事件
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // 打开设置面板
+            this.settingsBtn.addEventListener('click', () => this.togglePanel());
+
+            // 关闭设置面板
+            if (this.closeSettingsBtn) {
+                this.closeSettingsBtn.addEventListener('click', () => this.closePanel());
+            }
+
+            // 点击外部关闭
+            document.addEventListener('click', (e) => {
+                if (this.settingsPanel && this.settingsPanel.classList.contains('show')) {
+                    if (!this.settingsPanel.contains(e.target) && !this.settingsBtn.contains(e.target)) {
+                        this.closePanel();
+                    }
+                }
+            });
+
+            // 阅读模式切换
+            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
+            modeBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mode = btn.dataset.mode;
+                    this.setMode(mode);
+                });
+            });
+
+            // 字体选择
+            const fontSelect = document.getElementById('fontSelect');
+            if (fontSelect) {
+                fontSelect.addEventListener('change', (e) => {
+                    this.setFont(e.target.value);
+                });
+            }
+
+            // 字体大小
+            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
+            sizeBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const size = btn.dataset.size;
+                    this.setFontSize(size);
+                });
+            });
+
+            // 显示选项
+            const showPinyin = document.getElementById('showPinyin');
+            const showAnnotation = document.getElementById('showAnnotation');
+            if (showPinyin) {
+                showPinyin.addEventListener('change', (e) => {
+                    this.setShowPinyin(e.target.checked);
+                });
+            }
+            if (showAnnotation) {
+                showAnnotation.addEventListener('change', (e) => {
+                    this.setShowAnnotation(e.target.checked);
+                });
+            }
+
+            // 版本显示
+            const showModern = document.getElementById('showModern');
+            const showNotes = document.getElementById('showNotes');
+            const showEnglish = document.getElementById('showEnglish');
+            if (showModern) {
+                showModern.addEventListener('change', (e) => {
+                    this.setShowModern(e.target.checked);
+                });
+            }
+            if (showNotes) {
+                showNotes.addEventListener('change', (e) => {
+                    this.setShowNotes(e.target.checked);
+                });
+            }
+            if (showEnglish) {
+                showEnglish.addEventListener('change', (e) => {
+                    this.setShowEnglish(e.target.checked);
+                });
+            }
+
+            // 退出禅读模式
+            if (this.zenExitBtn) {
+                this.zenExitBtn.addEventListener('click', () => {
+                    this.exitZenMode();
+                });
+            }
+
+            // ESC键关闭面板/退出禅读
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (this.zenOverlay?.classList.contains('active')) {
+                        this.exitZenMode();
+                    } else if (this.settingsPanel?.classList.contains('show')) {
+                        this.closePanel();
+                    }
+                }
+            });
+
+            // 分享设置
+            const shareBtn = document.getElementById('shareSettings');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', () => this.shareSettings());
+            }
+        },
+
+        togglePanel() {
+            this.settingsPanel.classList.toggle('show');
+        },
+
+        closePanel() {
+            this.settingsPanel.classList.remove('show');
+        },
+
+        loadSettings() {
+            const saved = localStorage.getItem(this.STORAGE_KEY);
+            if (saved) {
+                try {
+                    this.settings = { ...this.defaults, ...JSON.parse(saved) };
+                } catch (e) {
+                    this.settings = { ...this.defaults };
+                }
+            } else {
+                this.settings = { ...this.defaults };
+            }
+        },
+
+        saveSettings() {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.settings));
+        },
+
+        loadFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const config = params.get('config');
+            if (config) {
+                try {
+                    const urlSettings = JSON.parse(atob(config));
+                    this.settings = { ...this.settings, ...urlSettings };
+                    this.saveSettings();
+                } catch (e) {
+                    console.error('解析URL配置失败:', e);
+                }
+            }
+        },
+
+        applySettings() {
+            // 应用模式
+            this.setMode(this.settings.mode, false);
+            // 应用字体
+            this.setFont(this.settings.font, false);
+            // 应用字体大小
+            this.setFontSize(this.settings.fontSize, false);
+            // 应用显示选项
+            this.setShowPinyin(this.settings.showPinyin, false);
+            this.setShowAnnotation(this.settings.showAnnotation, false);
+            this.setShowModern(this.settings.showModern, false);
+            this.setShowNotes(this.settings.showNotes, false);
+            this.setShowEnglish(this.settings.showEnglish, false);
+
+            // 更新UI状态
+            this.updateUIState();
+        },
+
+        updateUIState() {
+            // 更新模式按钮
+            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
+            modeBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === this.settings.mode);
+            });
+
+            // 更新字体选择
+            const fontSelect = document.getElementById('fontSelect');
+            if (fontSelect) {
+                fontSelect.value = this.settings.font;
+            }
+
+            // 更新字体大小按钮
+            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
+            sizeBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.size === this.settings.fontSize);
+            });
+
+            // 更新复选框
+            const showPinyin = document.getElementById('showPinyin');
+            const showAnnotation = document.getElementById('showAnnotation');
+            const showModern = document.getElementById('showModern');
+            const showNotes = document.getElementById('showNotes');
+            const showEnglish = document.getElementById('showEnglish');
+
+            if (showPinyin) showPinyin.checked = this.settings.showPinyin;
+            if (showAnnotation) showAnnotation.checked = this.settings.showAnnotation;
+            if (showModern) showModern.checked = this.settings.showModern;
+            if (showNotes) showNotes.checked = this.settings.showNotes;
+            if (showEnglish) showEnglish.checked = this.settings.showEnglish;
+        },
+
+        setMode(mode, save = true) {
+            this.settings.mode = mode;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('mode-reading', 'mode-zen', 'mode-recite');
+            body.classList.add(`mode-${mode}`);
+
+            // 禅读模式特殊处理
+            if (mode === 'zen') {
+                this.enterZenMode();
+            } else {
+                this.exitZenMode();
+            }
+
+            // 背诵模式：隐藏译文和注解
+            if (mode === 'recite') {
+                body.classList.add('hide-modern', 'hide-notes', 'hide-english');
+            }
+
+            this.updateUIState();
+        },
+
+        setFont(font, save = true) {
+            this.settings.font = font;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('font-default', 'font-kaiti', 'font-songti', 'font-fangsong', 'font-mingliu', 'font-xkai');
+            body.classList.add(`font-${font}`);
+
+            // 更新原文区域的字体
+            const originalText = document.querySelector('.original-text');
+            if (originalText) {
+                originalText.style.fontFamily = '';
+            }
+
+            this.updateUIState();
+        },
+
+        setFontSize(size, save = true) {
+            this.settings.fontSize = size;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large');
+            body.classList.add(`font-size-${size}`);
+
+            this.updateUIState();
+        },
+
+        setShowPinyin(show, save = true) {
+            this.settings.showPinyin = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-pinyin');
+            } else {
+                body.classList.add('hide-pinyin');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowAnnotation(show, save = true) {
+            this.settings.showAnnotation = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-annotation');
+            } else {
+                body.classList.add('hide-annotation');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowModern(show, save = true) {
+            this.settings.showModern = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-modern');
+            } else {
+                body.classList.add('hide-modern');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowNotes(show, save = true) {
+            this.settings.showNotes = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-notes');
+            } else {
+                body.classList.add('hide-notes');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowEnglish(show, save = true) {
+            this.settings.showEnglish = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-english');
+            } else {
+                body.classList.add('hide-english');
+            }
+
+            this.updateUIState();
+        },
+
+        enterZenMode() {
+            // 获取当前章节原文
+            const originalText = document.querySelector('.original-text');
+            if (!originalText) return;
+
+            // 复制原文内容到禅读遮罩
+            const content = originalText.innerHTML;
+            this.zenOverlay.innerHTML = `
+                <button class="zen-exit-btn" id="zenExitBtn">退出禅读</button>
+                <div class="zen-content">
+                    <div class="original-text">${content}</div>
+                </div>
+            `;
+
+            // 绑定退出按钮
+            this.zenOverlay.querySelector('#zenExitBtn').addEventListener('click', () => {
+                this.exitZenMode();
+            });
+
+            // 显示禅读模式
+            this.zenOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        },
+
+        exitZenMode() {
+            this.zenOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+
+            // 如果当前不是禅读模式，切换回阅读模式
+            if (this.settings.mode === 'zen') {
+                // 保持设置但退出禅读视图
+            }
+        },
+
+        shareSettings() {
+            const config = btoa(JSON.stringify(this.settings));
+            const url = `${window.location.origin}${window.location.pathname}?config=${config}`;
+
+            // 复制到剪贴板
+            navigator.clipboard.writeText(url).then(() => {
+                // 显示提示
+                const shareBtn = document.getElementById('shareSettings');
+                const originalText = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<span>✓</span> 已复制链接';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('分享链接：' + url);
+            });
+        }
+    };
+
     // ==================== 初始化 ====================
     document.addEventListener('DOMContentLoaded', () => {
         ThemeManager.init();
@@ -627,6 +1036,7 @@
         MusicManager.init();
         SpeechManager.init();
         ScrollHighlight.init();
+        SettingsManager.init();
     });
 
 })();

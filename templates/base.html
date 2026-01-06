@@ -85,6 +85,10 @@
                     </button>
                 </div>
 
+                <!-- 设置按钮 -->
+                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
+                    <span>⚙️</span>
+                </button>
                 <!-- 暗黑模式切换 -->
                 <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
                     <span class="theme-icon">🌙</span>
@@ -92,6 +96,103 @@
             </div>
         </div>
     </nav>
+
+    <!-- 设置面板 -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-panel-header">
+            <span>⚙️ 阅读设置</span>
+            <button type="button" class="btn-close btn-close-white" id="closeSettingsPanel"></button>
+        </div>
+        <div class="settings-panel-body">
+            <!-- 阅读模式 -->
+            <div class="setting-section">
+                <label class="setting-label">阅读模式</label>
+                <div class="setting-options">
+                    <button class="mode-btn active" data-mode="reading">
+                        <span class="mode-icon">📖</span>
+                        <span class="mode-text">阅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="zen">
+                        <span class="mode-icon">🧘</span>
+                        <span class="mode-text">禅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="recite">
+                        <span class="mode-icon">📝</span>
+                        <span class="mode-text">背诵</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 字体选择 -->
+            <div class="setting-section">
+                <label class="setting-label">字体选择</label>
+                <select class="form-select form-select-sm" id="fontSelect">
+                    <option value="default">系统默认</option>
+                    <option value="kaiti">楷体</option>
+                    <option value="songti">宋体</option>
+                    <option value="fangsong">仿宋</option>
+                    <option value="mingliu">明体</option>
+                    <option value="xkai">华文行楷</option>
+                </select>
+            </div>
+
+            <!-- 字体大小 -->
+            <div class="setting-section">
+                <label class="setting-label">字体大小</label>
+                <div class="font-size-control">
+                    <button class="size-btn" data-size="small">小</button>
+                    <button class="size-btn active" data-size="medium">中</button>
+                    <button class="size-btn" data-size="large">大</button>
+                </div>
+            </div>
+
+            <!-- 显示选项 -->
+            <div class="setting-section">
+                <label class="setting-label">显示选项</label>
+                <div class="setting-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showPinyin" checked>
+                        <span>显示拼音</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showAnnotation" checked>
+                        <span>显示释义</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 版本选择 -->
+            <div class="setting-section">
+                <label class="setting-label">显示版本</label>
+                <div class="version-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showModern" checked>
+                        <span>白话译文</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showNotes" checked>
+                        <span>注解版本</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showEnglish">
+                        <span>英文译本</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 分享设置 -->
+            <div class="setting-section">
+                <button class="btn btn-outline-light btn-sm w-100" id="shareSettings">
+                    <span>📋</span> 复制配置分享链接
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 禅读模式遮罩 -->
+    <div class="zen-mode-overlay" id="zenModeOverlay">
+        <button class="zen-exit-btn" id="zenExitBtn">退出禅读</button>
+    </div>
 
     <!-- 主体布局 -->
     <div class="container-fluid">
