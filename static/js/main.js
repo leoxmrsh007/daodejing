@@ -1028,6 +1028,109 @@
         }
     };
 
+    // ==================== 分享管理 ====================
+    const ShareManager = {
+        init() {
+            this.shareBtn = document.getElementById('shareToggle');
+            this.supportBtn = document.getElementById('supportBtn');
+            this.communityBtn = document.getElementById('communityBtn');
+            this.shareModal = document.getElementById('shareModal');
+            this.shareUrlInput = document.getElementById('shareUrlInput');
+
+            if (!this.shareBtn) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // 分享按钮
+            this.shareBtn?.addEventListener('click', () => this.openShareModal());
+
+            // 赞赏按钮
+            this.supportBtn?.addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('supportModal'));
+                modal.show();
+            });
+
+            // 社群按钮
+            this.communityBtn?.addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('communityModal'));
+                modal.show();
+            });
+
+            // 微信分享
+            document.getElementById('shareWechat')?.addEventListener('click', () => {
+                this.shareToWechat();
+            });
+
+            // 微博分享
+            document.getElementById('shareWeibo')?.addEventListener('click', () => {
+                this.shareToWeibo();
+            });
+
+            // 复制链接
+            document.getElementById('shareLink')?.addEventListener('click', () => {
+                this.copyLink();
+            });
+        },
+
+        openShareModal() {
+            if (!this.shareModal) return;
+
+            // 更新链接输入框
+            const shareUrl = window.location.href.split('?')[0];
+            if (this.shareUrlInput) {
+                this.shareUrlInput.value = shareUrl;
+            }
+
+            const modal = new bootstrap.Modal(this.shareModal);
+            modal.show();
+        },
+
+        shareToWechat() {
+            // 微信需要用户手动截图或复制链接
+            const shareUrl = window.location.href.split('?')[0];
+            const title = '道德经多版本对照阅读平台';
+            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照，疑难字注音，暗黑模式。`;
+
+            // 显示提示
+            alert(`请复制链接在微信中分享：\n${shareUrl}\n\n${text}`);
+        },
+
+        shareToWeibo() {
+            const shareUrl = encodeURIComponent(window.location.href.split('?')[0]);
+            const title = encodeURIComponent('道德经多版本对照阅读平台 - 王弼·河上公·王夫之·帛书·英文译本');
+            const text = encodeURIComponent('《道德经》81章完整版，支持多版本对照，疑难字注音，暗黑模式，手机阅读。');
+
+            window.open(`https://service.weibo.com/share/share.php?url=${shareUrl}&title=${title}&pic=`, '_blank');
+        },
+
+        copyLink() {
+            const shareUrl = window.location.href.split('?')[0];
+            const title = '道德经多版本对照阅读平台';
+            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照。`;
+
+            navigator.clipboard.writeText(`${title}\n${text}\n${shareUrl}`).then(() => {
+                // 显示提示
+                const shareBtn = document.getElementById('shareLink');
+                const originalHTML = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<span class="share-icon">✓</span><span>已复制</span>';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalHTML;
+                }, 2000);
+            }).catch(() => {
+                // 备用方案
+                const textArea = document.createElement('textarea');
+                textArea.value = `${title}\n${text}\n${shareUrl}`;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('链接已复制！');
+            });
+        }
+    };
+
     // ==================== 初始化 ====================
     document.addEventListener('DOMContentLoaded', () => {
         ThemeManager.init();
@@ -1037,6 +1140,7 @@
         SpeechManager.init();
         ScrollHighlight.init();
         SettingsManager.init();
+        ShareManager.init();
     });
 
 })();

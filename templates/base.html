@@ -85,6 +85,10 @@
                     </button>
                 </div>
 
+                <!-- 分享按钮 -->
+                <button class="btn btn-sm btn-outline-light" id="shareToggle" title="分享">
+                    <span>📤</span>
+                </button>
                 <!-- 设置按钮 -->
                 <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
                     <span>⚙️</span>
@@ -185,6 +189,109 @@
                 <button class="btn btn-outline-light btn-sm w-100" id="shareSettings">
                     <span>📋</span> 复制配置分享链接
                 </button>
+            </div>
+
+            <!-- 赞赏支持 -->
+            <div class="setting-section">
+                <button class="btn btn-outline-warning btn-sm w-100" id="supportBtn">
+                    <span>❤️</span> 赞赏支持
+                </button>
+            </div>
+
+            <!-- 加入社群 -->
+            <div class="setting-section">
+                <button class="btn btn-outline-info btn-sm w-100" id="communityBtn">
+                    <span>👥</span> 加入社群
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 赞赏模态框 -->
+    <div class="modal fade" id="supportModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">❤️ 赞赏支持</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="mb-3">如果这个平台对您有帮助，欢迎赞赏支持</p>
+                    <div class="qr-codes-container">
+                        <div class="qr-code-item">
+                            <div class="qr-placeholder">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <rect fill="#07c160" width="120" height="120"/>
+                                    <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="12">微信</text>
+                                </svg>
+                            </div>
+                            <small class="text-muted">微信赞赏</small>
+                        </div>
+                        <div class="qr-code-item">
+                            <div class="qr-placeholder">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <rect fill="#1677ff" width="120" height="120"/>
+                                    <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="12">支付宝</text>
+                                </svg>
+                            </div>
+                            <small class="text-muted">支付宝</small>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-muted small">您的支持是我们前进的动力</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 社群模态框 -->
+    <div class="modal fade" id="communityModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">👥 加入社群</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="mb-3">扫码加入《道德经》阅读交流群</p>
+                    <div class="qr-placeholder-large">
+                        <svg width="200" height="200" viewBox="0 0 200 200">
+                            <rect fill="#6c757d" width="200" height="200"/>
+                            <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="16">微信群二维码</text>
+                        </svg>
+                    </div>
+                    <p class="mt-3 text-muted small">与同道一起交流学习，共同进步</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 社交分享模态框 -->
+    <div class="modal fade" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📢 分享给朋友</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="share-buttons">
+                        <button class="share-btn share-wechat" id="shareWechat">
+                            <span class="share-icon">💬</span>
+                            <span>微信</span>
+                        </button>
+                        <button class="share-btn share-weibo" id="shareWeibo">
+                            <span class="share-icon">🔴</span>
+                            <span>微博</span>
+                        </button>
+                        <button class="share-btn share-link" id="shareLink">
+                            <span class="share-icon">🔗</span>
+                            <span>复制链接</span>
+                        </button>
+                    </div>
+                    <div class="share-preview mt-3">
+                        <input type="text" class="form-control form-control-sm" id="shareUrlInput" readonly>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
