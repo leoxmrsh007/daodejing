@@ -1,28 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.py",
-      "use": "@vercel/python"
-    }
-  ],
   "rewrites": [
-    {
-      "source": "/api/tts/edge",
-      "destination": "/api/tts/edge.py"
-    },
-    {
-      "source": "/api/tts/fish-audio",
-      "destination": "/api/tts/fish-audio.py"
-    },
-    {
-      "source": "/",
-      "destination": "/dist/index.html"
-    },
-    {
-      "source": "/daodejing",
-      "destination": "/dist/index.html"
-    },
     {
       "source": "/(.*)",
       "destination": "/dist/$1"
