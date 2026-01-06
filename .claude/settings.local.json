@@ -11,7 +11,8 @@
       "Bash(cat:*)",
       "Bash(python:*)",
       "Bash(ls:*)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "mcp__zai-mcp-server__analyze_image"
     ]
   }
 }
