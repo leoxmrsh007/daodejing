@@ -1058,3 +1058,136 @@ body {
         font-size: 20px;
     }
 }
+
+/* ==================== 目录3列布局 ==================== */
+.chapter-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+@media (max-width: 991px) {
+    .chapter-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .chapter-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+    }
+}
+
+.chapter-item {
+    text-align: center;
+    padding: 6px 4px;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+@media (max-width: 576px) {
+    .chapter-item {
+        font-size: 11px;
+        padding: 4px 2px;
+    }
+}
+
+/* ==================== 布局按钮样式 ==================== */
+.layout-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.layout-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.layout-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.layout-icon {
+    font-size: 18px;
+}
+
+.layout-text {
+    font-size: 12px;
+}
+
+[data-theme="dark"] .layout-btn {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .layout-btn:hover {
+    background: rgba(212, 165, 116, 0.1);
+}
+
+[data-theme="dark"] .layout-btn.active {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+/* ==================== 音量控制内联样式 ==================== */
+.volume-control-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 32px;
+}
+
+.volume-control-inline .form-range {
+    flex: 1;
+    height: 4px;
+}
+
+.volume-value {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 36px;
+    text-align: right;
+}
+
+/* ==================== 文字布局控制 ==================== */
+.text-layout-center .original-text {
+    text-align: center;
+}
+
+.text-layout-left .original-text {
+    text-align: left;
+}
+
+/* ==================== 二维码图片样式 ==================== */
+.qr-code-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.qr-code-img-large {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: contain;
+}

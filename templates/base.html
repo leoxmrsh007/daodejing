@@ -150,6 +150,36 @@
                 </div>
             </div>
 
+            <!-- 文字布局 -->
+            <div class="setting-section">
+                <label class="setting-label">文字布局</label>
+                <div class="setting-options">
+                    <button class="layout-btn active" data-layout="center">
+                        <span class="layout-icon">📍</span>
+                        <span class="layout-text">居中</span>
+                    </button>
+                    <button class="layout-btn" data-layout="left">
+                        <span class="layout-icon">⬅️</span>
+                        <span class="layout-text">靠左</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 背景音乐 -->
+            <div class="setting-section">
+                <label class="setting-label">背景音乐</label>
+                <select class="form-select form-select-sm mb-2" id="musicSelect">
+                    <option value="none">关闭</option>
+                    <option value="chinese">中国古典（古琴/琵琶）</option>
+                    <option value="western">西方古典（钢琴/小提琴）</option>
+                </select>
+                <div class="volume-control-inline">
+                    <span class="volume-label">音量</span>
+                    <input type="range" class="form-range form-range-sm" id="musicVolumeSlider" min="0" max="100" value="30">
+                    <span class="volume-value" id="musicVolumeValue">30%</span>
+                </div>
+            </div>
+
             <!-- 显示选项 -->
             <div class="setting-section">
                 <label class="setting-label">显示选项</label>
@@ -219,7 +249,12 @@
                     <p class="mb-3">如果这个平台对您有帮助，欢迎赞赏支持</p>
                     <div class="qr-codes-container">
                         <div class="qr-code-item">
-                            <div class="qr-placeholder">
+                            <!-- 替换 src 为真实微信收款二维码 -->
+                            <img src="{{ url_for('static', filename='images/wechat-pay.png') }}"
+                                 alt="微信赞赏"
+                                 class="qr-code-img"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                            <div class="qr-placeholder" style="display:none">
                                 <svg width="120" height="120" viewBox="0 0 120 120">
                                     <rect fill="#07c160" width="120" height="120"/>
                                     <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="12">微信</text>
@@ -228,7 +263,12 @@
                             <small class="text-muted">微信赞赏</small>
                         </div>
                         <div class="qr-code-item">
-                            <div class="qr-placeholder">
+                            <!-- 替换 src 为真实支付宝收款二维码 -->
+                            <img src="{{ url_for('static', filename='images/alipay.png') }}"
+                                 alt="支付宝"
+                                 class="qr-code-img"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                            <div class="qr-placeholder" style="display:none">
                                 <svg width="120" height="120" viewBox="0 0 120 120">
                                     <rect fill="#1677ff" width="120" height="120"/>
                                     <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="12">支付宝</text>
@@ -253,7 +293,12 @@
                 </div>
                 <div class="modal-body text-center">
                     <p class="mb-3">扫码加入《道德经》阅读交流群</p>
-                    <div class="qr-placeholder-large">
+                    <!-- 替换 src 为真实微信群二维码 -->
+                    <img src="{{ url_for('static', filename='images/wechat-group.png') }}"
+                         alt="微信群"
+                         class="qr-code-img-large"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <div class="qr-placeholder-large" style="display:none">
                         <svg width="200" height="200" viewBox="0 0 200 200">
                             <rect fill="#6c757d" width="200" height="200"/>
                             <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-size="16">微信群二维码</text>
@@ -354,9 +399,22 @@
     </div>
 
     <!-- 背景音乐 -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="{{ url_for('static', filename='audio/gaoshanliushui.mp3') }}" type="audio/mpeg">
-    </audio>
+    <audio id="bgMusic" loop preload="none"></audio>
+
+    <!-- 音乐资源 -->
+    <script>
+        // 音乐列表
+        window.musicTracks = {
+            chinese: [
+                '/static/audio/gaoshanliushui.mp3',  // 高山流水
+                'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3'
+            ],
+            western: [
+                'https://upload.wikimedia.org/wikipedia/commons/e/eb/Guqin_-_Yangguan_San_Die_%28Three_Refrains_on_the_Yang_Pass_Theme%29.ogg',
+                'https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a73467.mp3'
+            ]
+        };
+    </script>
 
     <!-- 音乐音量控制面板 -->
     <div class="volume-panel" id="volumePanel">

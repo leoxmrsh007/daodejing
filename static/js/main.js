@@ -629,6 +629,9 @@
             mode: 'reading',      // reading, zen, recite
             font: 'default',      // default, kaiti, songti, fangsong, mingliu, xkai
             fontSize: 'medium',   // small, medium, large
+            textLayout: 'center', // center, left
+            musicType: 'none',    // none, chinese, western
+            musicVolume: 30,
             showPinyin: true,
             showAnnotation: true,
             showModern: true,
@@ -638,6 +641,9 @@
 
         // 当前设置
         settings: {},
+
+        // 当前音乐索引
+        currentMusicIndex: 0,
 
         init() {
             this.settingsBtn = document.getElementById('settingsToggle');
@@ -704,6 +710,35 @@
                     this.setFontSize(size);
                 });
             });
+
+            // 文字布局
+            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
+            layoutBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const layout = btn.dataset.layout;
+                    this.setTextLayout(layout);
+                });
+            });
+
+            // 音乐类型选择
+            const musicSelect = document.getElementById('musicSelect');
+            if (musicSelect) {
+                musicSelect.addEventListener('change', (e) => {
+                    this.setMusicType(e.target.value);
+                });
+            }
+
+            // 音乐音量
+            const volumeSlider = document.getElementById('musicVolumeSlider');
+            const volumeValue = document.getElementById('musicVolumeValue');
+            if (volumeSlider) {
+                volumeSlider.addEventListener('input', (e) => {
+                    this.setMusicVolume(e.target.value);
+                    if (volumeValue) {
+                        volumeValue.textContent = e.target.value + '%';
+                    }
+                });
+            }
 
             // 显示选项
             const showPinyin = document.getElementById('showPinyin');
@@ -810,6 +845,12 @@
             this.setFont(this.settings.font, false);
             // 应用字体大小
             this.setFontSize(this.settings.fontSize, false);
+            // 应用文字布局
+            this.setTextLayout(this.settings.textLayout, false);
+            // 应用音乐类型
+            this.setMusicType(this.settings.musicType, false);
+            // 应用音乐音量
+            this.setMusicVolume(this.settings.musicVolume, false);
             // 应用显示选项
             this.setShowPinyin(this.settings.showPinyin, false);
             this.setShowAnnotation(this.settings.showAnnotation, false);
@@ -839,6 +880,28 @@
             sizeBtns?.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.size === this.settings.fontSize);
             });
+
+            // 更新布局按钮
+            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
+            layoutBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.layout === this.settings.textLayout);
+            });
+
+            // 更新音乐选择
+            const musicSelect = document.getElementById('musicSelect');
+            if (musicSelect) {
+                musicSelect.value = this.settings.musicType;
+            }
+
+            // 更新音量滑块
+            const volumeSlider = document.getElementById('musicVolumeSlider');
+            const volumeValue = document.getElementById('musicVolumeValue');
+            if (volumeSlider) {
+                volumeSlider.value = this.settings.musicVolume;
+            }
+            if (volumeValue) {
+                volumeValue.textContent = this.settings.musicVolume + '%';
+            }
 
             // 更新复选框
             const showPinyin = document.getElementById('showPinyin');
@@ -872,6 +935,8 @@
             // 背诵模式：隐藏译文和注解
             if (mode === 'recite') {
                 body.classList.add('hide-modern', 'hide-notes', 'hide-english');
+            } else {
+                body.classList.remove('hide-modern', 'hide-notes', 'hide-english');
             }
 
             this.updateUIState();
@@ -885,12 +950,6 @@
             body.classList.remove('font-default', 'font-kaiti', 'font-songti', 'font-fangsong', 'font-mingliu', 'font-xkai');
             body.classList.add(`font-${font}`);
 
-            // 更新原文区域的字体
-            const originalText = document.querySelector('.original-text');
-            if (originalText) {
-                originalText.style.fontFamily = '';
-            }
-
             this.updateUIState();
         },
 
@@ -903,6 +962,63 @@
             body.classList.add(`font-size-${size}`);
 
             this.updateUIState();
+        },
+
+        setTextLayout(layout, save = true) {
+            this.settings.textLayout = layout;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('text-layout-center', 'text-layout-left');
+            body.classList.add(`text-layout-${layout}`);
+
+            this.updateUIState();
+        },
+
+        setMusicType(type, save = true) {
+            this.settings.musicType = type;
+            if (save) this.saveSettings();
+
+            const audio = document.getElementById('bgMusic');
+            if (!audio) return;
+
+            // 停止当前播放
+            const wasPlaying = !audio.paused;
+            audio.pause();
+
+            if (type === 'none') {
+                audio.removeAttribute('src');
+                this.updateUIState();
+                return;
+            }
+
+            // 获取音乐列表
+            const tracks = window.musicTracks?.[type] || [];
+            if (tracks.length === 0) return;
+
+            // 设置新的音频源
+            this.currentMusicIndex = Math.floor(Math.random() * tracks.length);
+            audio.src = tracks[this.currentMusicIndex];
+            audio.load();
+
+            // 如果之前在播放，重新开始播放
+            if (wasPlaying) {
+                audio.play().catch(err => {
+                    console.warn('自动播放被阻止:', err);
+                });
+            }
+
+            this.updateUIState();
+        },
+
+        setMusicVolume(volume, save = true) {
+            this.settings.musicVolume = parseInt(volume);
+            if (save) this.saveSettings();
+
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = this.settings.musicVolume / 100;
+            }
         },
 
         setShowPinyin(show, save = true) {
