@@ -195,7 +195,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- 背景音乐 -->
-    <audio id="bgMusic" loop preload="none">
+    <audio id="bgMusic" loop preload="none" crossorigin="anonymous">
+        <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_4f60002816.mp3" type="audio/mpeg">
         <source src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Guqin_-_Yangguan_San_Die_%28Three_Refrains_on_the_Yang_Pass_Theme%29.ogg" type="audio/ogg">
     </audio>
 
