@@ -9,7 +9,9 @@
       "Bash(git pull:*)",
       "Bash(curl:*)",
       "Bash(cat:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(npx vercel:*)"
     ]
   }
 }

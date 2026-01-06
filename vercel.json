@@ -6,16 +6,6 @@
       "use": "@vercel/python"
     }
   ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/app.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/app.py"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",

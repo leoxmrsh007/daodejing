@@ -326,3 +326,196 @@ body {
     width: 1rem;
     height: 1rem;
 }
+
+/* ==================== 媒体控制按钮样式 ==================== */
+.media-btn {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 38px;
+    position: relative;
+}
+
+.media-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.media-divider {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 4px;
+}
+
+/* 播放状态动画 */
+.music-icon.playing {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.speech-icon.speaking {
+    animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    75% { transform: scale(0.95); }
+}
+
+/* ==================== 音量控制面板 ==================== */
+.volume-panel,
+.speech-panel {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 280px;
+    background-color: rgba(44, 24, 16, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.volume-panel.show,
+.speech-panel.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+[data-theme="dark"] .volume-panel,
+[data-theme="dark"] .speech-panel {
+    background-color: rgba(40, 40, 40, 0.98);
+    border: 1px solid var(--border-color);
+}
+
+.volume-panel-header,
+.speech-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .volume-panel-header,
+[data-theme="dark"] .speech-panel-header {
+    border-bottom-color: var(--border-color);
+}
+
+.volume-panel-body,
+.speech-panel-body {
+    padding: 16px;
+    color: #fff;
+}
+
+[data-theme="dark"] .volume-panel-body,
+[data-theme="dark"] .speech-panel-body {
+    color: var(--text-primary);
+}
+
+/* 滑块样式 */
+.volume-panel .form-range,
+.speech-panel .form-range {
+    margin-bottom: 8px;
+}
+
+.volume-panel .form-range::-webkit-slider-thumb,
+.speech-panel .form-range::-webkit-slider-thumb {
+    background-color: var(--accent-color);
+}
+
+.volume-panel .form-range::-webkit-slider-runnable-track,
+.speech-panel .form-range::-webkit-slider-runnable-track {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .volume-panel .form-range::-webkit-slider-runnable-track,
+[data-theme="dark"] .speech-panel .form-range::-webkit-slider-runnable-track {
+    background-color: var(--border-color);
+}
+
+.volume-level,
+.rate-level {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .volume-level,
+[data-theme="dark"] .rate-level {
+    color: var(--text-muted);
+}
+
+/* 朗读面板样式 */
+.speech-option label.form-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+[data-theme="dark"] .speech-option label.form-label {
+    color: var(--text-secondary);
+}
+
+.speech-panel .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+}
+
+[data-theme="dark"] .speech-panel .btn-outline-light {
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.speech-panel .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .speech-panel .btn-outline-light:hover {
+    background-color: var(--bg-secondary);
+}
+
+.speech-panel .btn-check:checked + .btn-outline-light {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.speech-status {
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .speech-status {
+    background-color: var(--bg-secondary);
+    color: var(--text-muted);
+}
+
+.speech-status.active {
+    background-color: rgba(212, 165, 116, 0.2);
+    color: var(--accent-color);
+}
+
+/* 移动端适配 */
+@media (max-width: 576px) {
+    .volume-panel,
+    .speech-panel {
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}

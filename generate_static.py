@@ -195,9 +195,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- 背景音乐 -->
-    <audio id="bgMusic" loop preload="none" crossorigin="anonymous">
-        <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_4f60002816.mp3" type="audio/mpeg">
-        <source src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Guqin_-_Yangguan_San_Die_%28Three_Refrains_on_the_Yang_Pass_Theme%29.ogg" type="audio/ogg">
+    <audio id="bgMusic" loop preload="auto">
+        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
     </audio>
 
     <!-- 音乐音量控制面板 -->
@@ -677,8 +676,10 @@ def copy_assets():
     # 创建assets目录
     assets_css_dir = OUTPUT_DIR / 'assets' / 'css'
     assets_js_dir = OUTPUT_DIR / 'assets' / 'js'
+    assets_audio_dir = OUTPUT_DIR / 'assets' / 'audio'
     assets_css_dir.mkdir(parents=True, exist_ok=True)
     assets_js_dir.mkdir(parents=True, exist_ok=True)
+    assets_audio_dir.mkdir(parents=True, exist_ok=True)
 
     # 复制CSS
     shutil.copy(BASE_DIR / 'static' / 'css' / 'style.css', assets_css_dir / 'style.css')
@@ -694,6 +695,12 @@ def copy_assets():
         "// API_ENDPOINT: '/api/daodejing/search',  // 静态版本"
     )
     (assets_js_dir / 'main.js').write_text(static_js, encoding='utf-8')
+
+    # 复制音频文件
+    audio_src = BASE_DIR / 'static' / 'audio' / 'gaoshanliushui.mp3'
+    if audio_src.exists():
+        shutil.copy(audio_src, assets_audio_dir / 'gaoshanliushui.mp3')
+        print("      音频文件已复制")
 
 
 def generate_site():

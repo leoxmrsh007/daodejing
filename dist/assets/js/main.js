@@ -199,6 +199,380 @@
         }
     };
 
+    // ==================== 音乐播放管理 ====================
+    const MusicManager = {
+        STORAGE_KEY: 'daodejing_music_volume',
+        DEFAULT_VOLUME: 0.3,
+
+        init() {
+            this.audio = document.getElementById('bgMusic');
+            this.toggleBtn = document.getElementById('musicToggle');
+            this.loopBtn = document.getElementById('musicLoop');
+            this.volumePanel = document.getElementById('volumePanel');
+            this.volumeSlider = document.getElementById('volumeSlider');
+            this.volumeValue = document.getElementById('volumeValue');
+            this.closeVolumeBtn = document.getElementById('closeVolumePanel');
+
+            if (!this.audio || !this.toggleBtn) return;
+
+            // 加载保存的音量
+            const savedVolume = localStorage.getItem(this.STORAGE_KEY);
+            this.volume = savedVolume ? parseFloat(savedVolume) : this.DEFAULT_VOLUME;
+            this.audio.volume = this.volume;
+
+            // 更新滑块显示
+            if (this.volumeSlider) {
+                this.volumeSlider.value = this.volume * 100;
+                this.volumeValue.textContent = Math.round(this.volume * 100);
+            }
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // 播放/暂停
+            this.toggleBtn.addEventListener('click', () => this.toggle());
+
+            // 循环按钮
+            if (this.loopBtn) {
+                this.loopBtn.addEventListener('click', () => this.toggleLoop());
+            }
+
+            // 音量滑块
+            if (this.volumeSlider) {
+                this.volumeSlider.addEventListener('input', (e) => {
+                    this.setVolume(e.target.value / 100);
+                });
+            }
+
+            // 关闭音量面板
+            if (this.closeVolumeBtn) {
+                this.closeVolumeBtn.addEventListener('click', () => {
+                    this.volumePanel.classList.remove('show');
+                });
+            }
+
+            // 点击外部关闭面板
+            document.addEventListener('click', (e) => {
+                if (this.volumePanel && this.volumePanel.classList.contains('show')) {
+                    if (!this.volumePanel.contains(e.target) && !this.toggleBtn.contains(e.target)) {
+                        this.volumePanel.classList.remove('show');
+                    }
+                }
+            });
+
+            // 右键点击音乐按钮打开音量面板
+            this.toggleBtn.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                this.volumePanel.classList.toggle('show');
+            });
+
+            // 音频事件
+            this.audio.addEventListener('play', () => this.updateState());
+            this.audio.addEventListener('pause', () => this.updateState());
+            this.audio.addEventListener('ended', () => this.updateState());
+        },
+
+        toggle() {
+            if (this.audio.paused) {
+                this.audio.play().then(() => {
+                    this.updateState();
+                }).catch(err => {
+                    console.warn('自动播放被阻止，需要用户交互:', err);
+                });
+            } else {
+                this.audio.pause();
+                this.updateState();
+            }
+        },
+
+        setVolume(value) {
+            this.volume = Math.max(0, Math.min(1, value));
+            this.audio.volume = this.volume;
+            localStorage.setItem(this.STORAGE_KEY, this.volume);
+            if (this.volumeValue) {
+                this.volumeValue.textContent = Math.round(this.volume * 100);
+            }
+        },
+
+        toggleLoop() {
+            this.audio.loop = !this.audio.loop;
+            this.updateState();
+        },
+
+        updateState() {
+            const icon = this.toggleBtn.querySelector('.music-icon');
+            if (!this.audio.paused) {
+                icon.classList.add('playing');
+                this.toggleBtn.classList.add('active');
+                if (this.loopBtn) {
+                    this.loopBtn.classList.remove('d-none');
+                }
+            } else {
+                icon.classList.remove('playing');
+                this.toggleBtn.classList.remove('active');
+                if (this.loopBtn) {
+                    this.loopBtn.classList.add('d-none');
+                }
+            }
+
+            // 更新循环按钮状态
+            if (this.loopBtn && !this.loopBtn.classList.contains('d-none')) {
+                const loopIcon = this.loopBtn.querySelector('.loop-icon');
+                loopIcon.textContent = this.audio.loop ? '🔁' : '🔂';
+            }
+        }
+    };
+
+    // ==================== 朗读管理 ====================
+    const SpeechManager = {
+        STORAGE_KEY: 'daodejing_speech_rate',
+        DEFAULT_RATE: 0.8,
+
+        init() {
+            this.toggleBtn = document.getElementById('speechToggle');
+            this.stopBtn = document.getElementById('speechStop');
+            this.speechPanel = document.getElementById('speechPanel');
+            this.closeSpeechBtn = document.getElementById('closeSpeechPanel');
+            this.speechRate = document.getElementById('speechRate');
+            this.rateValue = document.getElementById('rateValue');
+            this.speechStatus = document.getElementById('speechStatus');
+
+            // 检查浏览器支持
+            if (!('speechSynthesis' in window)) {
+                if (this.toggleBtn) {
+                    this.toggleBtn.disabled = true;
+                    this.toggleBtn.title = '您的浏览器不支持朗读功能';
+                }
+                return;
+            }
+
+            // 加载保存的语速
+            const savedRate = localStorage.getItem(this.STORAGE_KEY);
+            this.rate = savedRate ? parseFloat(savedRate) : this.DEFAULT_RATE;
+
+            if (this.speechRate) {
+                this.speechRate.value = this.rate * 100;
+                this.rateValue.textContent = this.rate.toFixed(1);
+            }
+
+            this.synth = window.speechSynthesis;
+            this.currentUtterance = null;
+            this.isPaused = false;
+            this.currentChapter = 1;
+            this.speechMode = 'current'; // 'current' or 'all'
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            if (!this.toggleBtn) return;
+
+            // 朗读按钮
+            this.toggleBtn.addEventListener('click', () => this.toggle());
+
+            // 停止按钮
+            if (this.stopBtn) {
+                this.stopBtn.addEventListener('click', () => this.stop());
+            }
+
+            // 语速滑块
+            if (this.speechRate) {
+                this.speechRate.addEventListener('input', (e) => {
+                    this.setRate(e.target.value / 100);
+                });
+            }
+
+            // 关闭面板
+            if (this.closeSpeechBtn) {
+                this.closeSpeechBtn.addEventListener('click', () => {
+                    this.speechPanel.classList.remove('show');
+                });
+            }
+
+            // 点击外部关闭面板
+            document.addEventListener('click', (e) => {
+                if (this.speechPanel && this.speechPanel.classList.contains('show')) {
+                    if (!this.speechPanel.contains(e.target) && !this.toggleBtn.contains(e.target)) {
+                        this.speechPanel.classList.remove('show');
+                    }
+                }
+            });
+
+            // 右键打开面板
+            this.toggleBtn.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                this.speechPanel.classList.toggle('show');
+            });
+
+            // 朗读模式切换
+            const modeInputs = document.querySelectorAll('input[name="speechMode"]');
+            modeInputs.forEach(input => {
+                input.addEventListener('change', (e) => {
+                    this.speechMode = e.target.value;
+                });
+            });
+        },
+
+        toggle() {
+            if (this.synth.speaking) {
+                if (this.isPaused) {
+                    this.resume();
+                } else {
+                    this.pause();
+                }
+            } else {
+                this.start();
+            }
+        },
+
+        start() {
+            // 获取当前章节原文
+            const originalText = document.getElementById('originalText');
+            if (!originalText) {
+                this.setStatus('无法找到原文内容', false);
+                return;
+            }
+
+            // 清理文本（移除HTML标签）
+            const text = this.cleanText(originalText.textContent);
+            if (!text) {
+                this.setStatus('原文内容为空', false);
+                return;
+            }
+
+            // 获取当前章节号
+            const breadcrumb = document.querySelector('.breadcrumb .active');
+            if (breadcrumb) {
+                const match = breadcrumb.textContent.match(/第(\d+)章/);
+                if (match) {
+                    this.currentChapter = parseInt(match[1]);
+                }
+            }
+
+            this.speak(text);
+        },
+
+        speak(text) {
+            this.stop(); // 先停止之前的朗读
+
+            this.currentUtterance = new SpeechSynthesisUtterance(text);
+            this.currentUtterance.lang = 'zh-CN';
+            this.currentUtterance.rate = this.rate;
+            this.currentUtterance.pitch = 1;
+
+            this.currentUtterance.onstart = () => {
+                this.updateState();
+                this.setStatus(`正在朗读第${this.currentChapter}章`, true);
+            };
+
+            this.currentUtterance.onend = () => {
+                if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
+                    // 继续下一章
+                    this.nextChapter();
+                } else {
+                    this.updateState();
+                    this.setStatus('朗读完成', false);
+                }
+            };
+
+            this.currentUtterance.onerror = (event) => {
+                // interrupted 和 canceled 是正常情况（切换章节、手动停止），不显示为错误
+                if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                    console.error('朗读错误:', event.error);
+                    this.setStatus('朗读出错: ' + event.error, false);
+                }
+                this.updateState();
+            };
+
+            this.synth.speak(this.currentUtterance);
+        },
+
+        pause() {
+            if (this.synth.speaking && !this.isPaused) {
+                this.synth.pause();
+                this.isPaused = true;
+                this.updateState();
+                this.setStatus('已暂停', false);
+            }
+        },
+
+        resume() {
+            if (this.isPaused) {
+                this.synth.resume();
+                this.isPaused = false;
+                this.updateState();
+                this.setStatus('正在朗读...', true);
+            }
+        },
+
+        stop() {
+            this.synth.cancel();
+            this.isPaused = false;
+            this.updateState();
+            this.setStatus('已停止', false);
+        },
+
+        nextChapter() {
+            this.currentChapter++;
+            // 跳转到下一章
+            const nextLink = document.querySelector(`.chapter-item[data-chapter="${this.currentChapter}"]`);
+            if (nextLink) {
+                nextLink.click();
+                // 等待页面加载后继续朗读
+                setTimeout(() => {
+                    this.start();
+                }, 500);
+            }
+        },
+
+        setRate(value) {
+            this.rate = Math.max(0.5, Math.min(1.5, value));
+            localStorage.setItem(this.STORAGE_KEY, this.rate);
+            if (this.rateValue) {
+                this.rateValue.textContent = this.rate.toFixed(1);
+            }
+        },
+
+        cleanText(text) {
+            // 移除多余空白和标点符号之间的空格
+            return text
+                .replace(/\s+/g, '')
+                .replace(/([，。；：！？、])/g, '$1 ')
+                .trim();
+        },
+
+        setStatus(text, isActive) {
+            if (this.speechStatus) {
+                this.speechStatus.textContent = text;
+                if (isActive) {
+                    this.speechStatus.classList.add('active');
+                } else {
+                    this.speechStatus.classList.remove('active');
+                }
+            }
+        },
+
+        updateState() {
+            const icon = this.toggleBtn.querySelector('.speech-icon');
+            const isSpeaking = this.synth.speaking && !this.isPaused;
+
+            if (isSpeaking) {
+                icon.classList.add('speaking');
+                this.toggleBtn.classList.add('active');
+                if (this.stopBtn) {
+                    this.stopBtn.classList.remove('d-none');
+                }
+            } else {
+                icon.classList.remove('speaking');
+                this.toggleBtn.classList.remove('active');
+                if (this.stopBtn) {
+                    this.stopBtn.classList.add('d-none');
+                }
+            }
+        }
+    };
+
     // ==================== 滚动高亮目录 ====================
     const ScrollHighlight = {
         init() {
@@ -250,6 +624,8 @@
         ThemeManager.init();
         SidebarManager.init();
         // SearchManager.init();  // 静态版本禁用搜索
+        MusicManager.init();
+        SpeechManager.init();
         ScrollHighlight.init();
     });
 
