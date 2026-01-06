@@ -16,6 +16,14 @@
       "destination": "/api/tts/fish-audio.py"
     },
     {
+      "source": "/",
+      "destination": "/dist/index.html"
+    },
+    {
+      "source": "/daodejing",
+      "destination": "/dist/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/dist/$1"
     }
