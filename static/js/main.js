@@ -1247,6 +1247,343 @@
         }
     };
 
+    // ==================== AI助手管理 ====================
+    const AIManager = {
+        API_KEY_STORAGE: 'daodejing_ai_keys',
+        messages: [],
+        isGenerating: false,
+
+        init() {
+            this.aiToggle = document.getElementById('aiToggle');
+            this.aiSidebar = document.getElementById('aiSidebar');
+            this.aiOverlay = document.getElementById('aiOverlay');
+            this.aiCloseSidebar = document.getElementById('aiCloseSidebar');
+            this.aiNewChat = document.getElementById('aiNewChat');
+            this.aiMessages = document.getElementById('aiMessages');
+            this.aiInput = document.getElementById('aiInput');
+            this.aiSend = document.getElementById('aiSend');
+            this.aiModel = document.getElementById('aiModel');
+            this.aiSuggestions = document.getElementById('aiSuggestions');
+
+            this.bindEvents();
+            this.loadApiKeys();
+        },
+
+        bindEvents() {
+            // 打开AI侧边栏
+            this.aiToggle?.addEventListener('click', () => this.toggleSidebar());
+
+            // 关闭侧边栏
+            this.aiCloseSidebar?.addEventListener('click', () => this.closeSidebar());
+
+            // 点击遮罩关闭
+            this.aiOverlay?.addEventListener('click', () => this.closeSidebar());
+
+            // 新对话
+            this.aiNewChat?.addEventListener('click', () => this.newChat());
+
+            // 发送消息
+            this.aiSend?.addEventListener('click', () => this.sendMessage());
+
+            // 回车发送
+            this.aiInput?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.sendMessage();
+                }
+            });
+
+            // 快捷问题
+            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const question = btn.dataset.question;
+                    this.aiInput.value = question;
+                    this.sendMessage();
+                });
+            });
+        },
+
+        toggleSidebar() {
+            this.aiSidebar.classList.toggle('show');
+            this.aiOverlay.classList.toggle('show', this.aiSidebar.classList.contains('show'));
+        },
+
+        closeSidebar() {
+            this.aiSidebar.classList.remove('show');
+            this.aiOverlay.classList.remove('show');
+        },
+
+        newChat() {
+            this.messages = [];
+            this.updateMessagesDisplay();
+            this.showWelcome();
+        },
+
+        showWelcome() {
+            if (this.aiMessages) {
+                this.aiMessages.innerHTML = `
+                    <div class="ai-welcome">
+                        <div class="ai-welcome-icon">🤖</div>
+                        <h6>道德经AI助手</h6>
+                        <p>您可以：</p>
+                        <ul>
+                            <li>点击下方快捷问题开始</li>
+                            <li>或直接输入您的问题</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        },
+
+        async sendMessage() {
+            const question = this.aiInput?.value.trim();
+            if (!question || this.isGenerating) return;
+
+            // 隐藏欢迎界面
+            const welcome = this.aiMessages?.querySelector('.ai-welcome');
+            if (welcome) welcome.remove();
+
+            // 添加用户消息
+            this.messages.push({ role: 'user', content: question });
+            this.addMessageToDisplay('user', question);
+            this.aiInput.value = '';
+
+            // 清空快捷问题
+            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+
+            // 显示加载动画
+            this.showTyping();
+
+            // 获取当前章节内容
+            const chapterContent = this.getChapterContent();
+
+            // 调用AI API
+            const response = await this.callAI(question, chapterContent);
+
+            // 移除加载动画
+            this.hideTyping();
+
+            // 添加AI响应
+            this.messages.push({ role: 'assistant', content: response });
+            this.addMessageToDisplay('assistant', response);
+        },
+
+        addMessageToDisplay(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ${role}`;
+
+            if (role === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="ai-message-content">${this.escapeHtml(content)}</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="ai-message-header">🤖 道德经AI助手</div>
+                    <div class="ai-message-content">${this.formatContent(content)}</div>
+                `;
+            }
+
+            this.aiMessages.appendChild(messageDiv);
+            this.scrollToBottom();
+        },
+
+        showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'ai-message assistant';
+            typingDiv.id = 'aiTyping';
+            typingDiv.innerHTML = `
+                <div class="ai-typing">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            this.aiMessages.appendChild(typingDiv);
+            this.scrollToBottom();
+        },
+
+        hideTyping() {
+            const typing = document.getElementById('aiTyping');
+            if (typing) typing.remove();
+        },
+
+        updateMessagesDisplay() {
+            this.aiMessages.innerHTML = '';
+            this.messages.forEach(msg => {
+                this.addMessageToDisplay(msg.role, msg.content);
+            });
+            if (this.messages.length === 0) {
+                this.showWelcome();
+            }
+        },
+
+        scrollToBottom() {
+            this.aiMessages.scrollTop = this.aiMessages.scrollHeight;
+        },
+
+        getChapterContent() {
+            // 获取当前章节的原文内容
+            const originalText = document.querySelector('.original-text');
+            const chapterTitle = document.querySelector('.breadcrumb .active')?.textContent || '当前章节';
+
+            return {
+                title: chapterTitle,
+                content: originalText?.textContent || ''
+            };
+        },
+
+        async callAI(question, chapterContent) {
+            const model = this.aiModel?.value || 'auto';
+
+            // 构建提示词
+            const prompt = this.buildPrompt(question, chapterContent);
+
+            // 尝试不同的API
+            let response = '';
+
+            if (model === 'deepseek' || model === 'auto') {
+                const deepseekKey = this.apiKeys?.deepseek;
+                if (deepseekKey) {
+                    response = await this.callDeepSeek(prompt, deepseekKey);
+                    if (response) return response;
+                }
+            }
+
+            if (model === 'openai' || model === 'auto') {
+                const openaiKey = this.apiKeys?.openai;
+                if (openaiKey) {
+                    response = await this.callOpenAI(prompt, openaiKey);
+                    if (response) return response;
+                }
+            }
+
+            // 没有可用的API Key，返回预设响应
+            return this.getFallbackResponse(question, chapterContent);
+        },
+
+        buildPrompt(question, chapterContent) {
+            return `你是《道德经》的解读助手，请基于以下内容回答问题。
+
+【章节】${chapterContent.title}
+【原文】${chapterContent.content}
+
+【问题】${question}
+
+请用简洁、通俗易懂的语言回答，突出道德经的智慧和现代应用价值。`;
+        },
+
+        async callDeepSeek(prompt, apiKey) {
+            try {
+                const response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            { role: 'user', content: prompt }
+                        ],
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API请求失败');
+                }
+
+                const data = await response.json();
+                return data.choices[0]?.message?.content || '';
+            } catch (error) {
+                console.error('DeepSeek API错误:', error);
+                return '';
+            }
+        },
+
+        async callOpenAI(prompt, apiKey) {
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-3.5-turbo',
+                        messages: [
+                            { role: 'user', content: prompt }
+                        ],
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API请求失败');
+                }
+
+                const data = await response.json();
+                return data.choices[0]?.message?.content || '';
+            } catch (error) {
+                console.error('OpenAI API错误:', error);
+                return '';
+            }
+        },
+
+        getFallbackResponse(question, chapterContent) {
+            // 没有API Key时的预设响应
+            const responses = {
+                '解读本章核心思想': `根据"${chapterContent.title}"的内容，本章的核心思想是...\n\n💡 要使用AI解读功能，请在设置中配置API Key（DeepSeek或OpenAI）\n\n配置后可获得更深入的AI解读和个性化回答。`,
+                '本章在现代生活中的应用': `道德经的智慧在现代生活中有很多应用...\n\n💡 配置API Key后可获得更详细的应用案例解读`,
+                '解释疑难词句的含义': `本章中的疑难词句包含丰富的哲学内涵...\n\n💡 配置API Key后可获得专业的词语解释`
+            };
+
+            return responses[question] || `感谢您的问题：「${question}」\n\n💡 要获得AI智能回答，请在设置中配置API Key：\n\n1. DeepSeek API (推荐，价格优惠)\n2. OpenAI API (GPT-3.5)\n\nAPI Key仅存储在您本地浏览器中，安全可靠。`;
+        },
+
+        formatContent(content) {
+            // 简单的Markdown格式化
+            return content
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>');
+        },
+
+        escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        },
+
+        loadApiKeys() {
+            const saved = localStorage.getItem(this.API_KEY_STORAGE);
+            this.apiKeys = saved ? JSON.parse(saved) : { deepseek: '', openai: '' };
+
+            // 填充已保存的API Key
+            const deepseekInput = document.getElementById('deepseekKey');
+            const openaiInput = document.getElementById('openaiKey');
+            if (deepseekInput) deepseekInput.value = this.apiKeys.deepseek || '';
+            if (openaiInput) openaiInput.value = this.apiKeys.openai || '';
+
+            // 监听API Key变化
+            deepseekInput?.addEventListener('change', (e) => {
+                this.apiKeys.deepseek = e.target.value;
+                this.saveApiKeys();
+            });
+
+            openaiInput?.addEventListener('change', (e) => {
+                this.apiKeys.openai = e.target.value;
+                this.saveApiKeys();
+            });
+        },
+
+        saveApiKeys() {
+            localStorage.setItem(this.API_KEY_STORAGE, JSON.stringify(this.apiKeys));
+        }
+    };
+
     // ==================== 初始化 ====================
     document.addEventListener('DOMContentLoaded', () => {
         ThemeManager.init();
@@ -1257,6 +1594,7 @@
         ScrollHighlight.init();
         SettingsManager.init();
         ShareManager.init();
+        AIManager.init();
     });
 
 })();

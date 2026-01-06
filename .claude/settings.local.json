@@ -12,7 +12,11 @@
       "Bash(python:*)",
       "Bash(ls:*)",
       "Bash(npx vercel:*)",
-      "mcp__zai-mcp-server__analyze_image"
+      "mcp__zai-mcp-server__analyze_image",
+      "Bash(cd:*)",
+      "Bash(git -C \"D:\\\\项目文件\\\\daodejing\" status)",
+      "Bash(git -C \"D:\\\\项目文件\\\\daodejing\" diff --stat)",
+      "Bash(git -C:*)"
     ]
   }
 }

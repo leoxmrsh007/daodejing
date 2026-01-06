@@ -89,6 +89,10 @@
                 <button class="btn btn-sm btn-outline-light" id="shareToggle" title="分享">
                     <span>📤</span>
                 </button>
+                <!-- AI解读按钮 -->
+                <button class="btn btn-sm btn-outline-primary ai-btn" id="aiToggle" title="AI解读">
+                    <span>🤖</span>
+                </button>
                 <!-- 设置按钮 -->
                 <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
                     <span>⚙️</span>
@@ -100,6 +104,59 @@
             </div>
         </div>
     </nav>
+
+    <!-- AI解读侧边栏 -->
+    <aside class="ai-sidebar" id="aiSidebar">
+        <div class="ai-sidebar-header">
+            <h6 class="ai-title">🤖 AI解读</h6>
+            <div class="ai-actions">
+                <button class="btn btn-sm btn-outline-light" id="aiNewChat" title="新对话">
+                    <span>➕</span>
+                </button>
+                <button class="btn btn-sm btn-outline-light" id="aiCloseSidebar" title="关闭">
+                    <span>✕</span>
+                </button>
+            </div>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-welcome">
+                <div class="ai-welcome-icon">🤖</div>
+                <h6>道德经AI助手</h6>
+                <p>您可以：</p>
+                <ul>
+                    <li>点击下方快捷问题开始</li>
+                    <li>或直接输入您的问题</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ai-suggestions" id="aiSuggestions">
+            <button class="ai-suggestion-btn" data-question="解读本章核心思想">
+                💡 解读本章核心思想
+            </button>
+            <button class="ai-suggestion-btn" data-question="本章在现代生活中的应用">
+                🌟 现代生活应用
+            </button>
+            <button class="ai-suggestion-btn" data-question="解释疑难词句的含义">
+                📖 解释疑难词句
+            </button>
+        </div>
+        <div class="ai-input-area">
+            <textarea id="aiInput" placeholder="输入您的问题..." rows="2"></textarea>
+            <div class="ai-input-actions">
+                <select class="form-select form-select-sm" id="aiModel">
+                    <option value="auto">自动选择</option>
+                    <option value="deepseek">DeepSeek</option>
+                    <option value="openai">OpenAI</option>
+                </select>
+                <button class="btn btn-primary btn-sm" id="aiSend">
+                    <span>发送</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- AI解读遮罩层 -->
+    <div class="ai-overlay" id="aiOverlay"></div>
 
     <!-- 设置面板 -->
     <div class="settings-panel" id="settingsPanel">
@@ -233,6 +290,16 @@
                 <button class="btn btn-outline-info btn-sm w-100" id="communityBtn">
                     <span>👥</span> 加入社群
                 </button>
+            </div>
+
+            <!-- AI设置 -->
+            <div class="setting-section">
+                <label class="setting-label">AI API配置</label>
+                <input type="password" class="form-control form-control-sm mb-2" id="deepseekKey" placeholder="DeepSeek API Key (可选)">
+                <input type="password" class="form-control form-control-sm" id="openaiKey" placeholder="OpenAI API Key (可选)">
+                <small class="text-muted d-block mt-1">
+                    API Key仅存储在本地，不会上传服务器
+                </small>
             </div>
         </div>
     </div>
