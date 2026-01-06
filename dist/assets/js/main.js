@@ -327,7 +327,9 @@
     // ==================== 朗读管理 ====================
     const SpeechManager = {
         STORAGE_KEY: 'daodejing_speech_rate',
-        DEFAULT_RATE: 0.8,
+        VOICE_KEY: 'daodejing_selected_voice',
+        DEFAULT_RATE: 0.9,
+        API_KEY_STORAGE: 'daodejing_ai_keys',
 
         init() {
             this.toggleBtn = document.getElementById('speechToggle');
@@ -337,6 +339,7 @@
             this.speechRate = document.getElementById('speechRate');
             this.rateValue = document.getElementById('rateValue');
             this.speechStatus = document.getElementById('speechStatus');
+            this.browserVoiceSelect = document.getElementById('browserVoice');
 
             // 检查浏览器支持
             if (!('speechSynthesis' in window)) {
@@ -361,8 +364,105 @@
             this.isPaused = false;
             this.currentChapter = 1;
             this.speechMode = 'current'; // 'current' or 'all'
+            this.voices = [];
+            this.selectedVoice = null;
+
+            // 加载浏览器语音列表
+            this.loadVoices();
+
+            // 语音列表是异步加载的，需要监听变化
+            if (this.synth.onvoiceschanged !== undefined) {
+                this.synth.onvoiceschanged = () => this.loadVoices();
+            }
 
             this.bindEvents();
+        },
+
+        // 加载可用的语音列表
+        loadVoices() {
+            this.voices = this.synth.getVoices();
+            const voiceSelect = this.browserVoiceSelect;
+
+            if (!voiceSelect || this.voices.length === 0) return;
+
+            // 清空现有选项
+            voiceSelect.innerHTML = '';
+
+            // 获取保存的语音
+            const savedVoiceUri = localStorage.getItem(this.VOICE_KEY);
+
+            // 优先显示中文语音，特别是Microsoft的神经语音
+            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
+            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
+
+            // 按优先级排序：Microsoft中文 > 其他中文 > 其他
+            const sortedVoices = [
+                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
+                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
+                ...otherVoices
+            ];
+
+            sortedVoices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                // 创建友好的显示名称
+                const displayName = `${voice.name} (${voice.lang})`;
+                option.textContent = displayName;
+
+                // 标记推荐的语音
+                if (voice.name.includes('Microsoft')) {
+                    option.textContent = '⭐ ' + displayName;
+                }
+
+                voiceSelect.appendChild(option);
+            });
+
+            // 恢复保存的语音选择
+            if (savedVoiceUri !== null) {
+                const savedIndex = sortedVoices.findIndex(v => v.voiceURI === savedVoiceUri);
+                if (savedIndex !== -1) {
+                    voiceSelect.value = sortedVoices.indexOf(sortedVoices[savedIndex]);
+                }
+            }
+
+            // 默认选择第一个Microsoft中文语音
+            if (voiceSelect.value === "") {
+                const defaultIndex = sortedVoices.findIndex(v =>
+                    v.name.includes('Microsoft') && v.lang.startsWith('zh')
+                );
+                if (defaultIndex !== -1) {
+                    voiceSelect.value = defaultIndex;
+                }
+            }
+
+            // 监听语音选择变化
+            voiceSelect.removeEventListener('change', this.handleVoiceChange);
+            voiceSelect.addEventListener('change', () => this.handleVoiceChange());
+        },
+
+        // 处理语音选择变化
+        handleVoiceChange() {
+            const voiceSelect = this.browserVoiceSelect;
+            if (!voiceSelect) return;
+
+            const sortedVoices = this.getSortedVoices();
+            const index = parseInt(voiceSelect.value);
+            if (sortedVoices[index]) {
+                this.selectedVoice = sortedVoices[index];
+                localStorage.setItem(this.VOICE_KEY, this.selectedVoice.voiceURI);
+                console.log('已选择语音:', this.selectedVoice.name, this.selectedVoice.lang);
+            }
+        },
+
+        // 获取排序后的语音列表
+        getSortedVoices() {
+            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
+            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
+            return [
+                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
+                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
+                ...otherVoices
+            ];
         },
 
         bindEvents() {
@@ -414,7 +514,34 @@
             });
         },
 
+        // 检查是否使用Fish Audio
+        isUsingFishAudio() {
+            const ttsEngine = localStorage.getItem('daodejing_tts_engine');
+            return ttsEngine === 'fish';
+        },
+
+        // 获取Fish Audio API配置
+        getFishAudioConfig() {
+            const saved = localStorage.getItem(this.API_KEY_STORAGE);
+            const apiKeys = saved ? JSON.parse(saved) : {};
+            return {
+                apiKey: apiKeys.fish || '',
+                voiceId: apiKeys.fishVoiceId || ''
+            };
+        },
+
         toggle() {
+            // 检查是否正在播放Fish Audio
+            if (this.isPlayingFishAudio) {
+                if (this.isPaused) {
+                    this.resume();
+                } else {
+                    this.pause();
+                }
+                return;
+            }
+
+            // 检查系统TTS是否在播放
             if (this.synth.speaking) {
                 if (this.isPaused) {
                     this.resume();
@@ -455,15 +582,36 @@
 
         speak(text) {
             this.stop(); // 先停止之前的朗读
+            this.speakWithSystem(text);
+        },
+
+        // 使用浏览器TTS进行语音合成
+        speakWithSystem(text) {
+            this.isPlayingFishAudio = false;
 
             this.currentUtterance = new SpeechSynthesisUtterance(text);
             this.currentUtterance.lang = 'zh-CN';
             this.currentUtterance.rate = this.rate;
             this.currentUtterance.pitch = 1;
 
+            // 使用用户选择的语音
+            if (this.selectedVoice) {
+                this.currentUtterance.voice = this.selectedVoice;
+            } else {
+                // 如果没有选择，尝试自动选择中文语音
+                const chineseVoice = this.voices.find(v =>
+                    v.lang.startsWith('zh') && v.name.includes('Microsoft')
+                );
+                if (chineseVoice) {
+                    this.currentUtterance.voice = chineseVoice;
+                    this.selectedVoice = chineseVoice;
+                }
+            }
+
             this.currentUtterance.onstart = () => {
                 this.updateState();
-                this.setStatus(`正在朗读第${this.currentChapter}章`, true);
+                const voiceName = this.selectedVoice ? this.selectedVoice.name.split(' ').slice(-1)[0] : '系统';
+                this.setStatus(`正在朗读第${this.currentChapter}章 (${voiceName})`, true);
             };
 
             this.currentUtterance.onend = () => {
@@ -489,6 +637,16 @@
         },
 
         pause() {
+            // Fish Audio暂停
+            if (this.isPlayingFishAudio && this.currentAudio) {
+                this.currentAudio.pause();
+                this.isPaused = true;
+                this.updateState();
+                this.setStatus('已暂停', false);
+                return;
+            }
+
+            // 系统TTS暂停
             if (this.synth.speaking && !this.isPaused) {
                 this.synth.pause();
                 this.isPaused = true;
@@ -498,6 +656,16 @@
         },
 
         resume() {
+            // Fish Audio恢复
+            if (this.isPlayingFishAudio && this.currentAudio) {
+                this.currentAudio.play();
+                this.isPaused = false;
+                this.updateState();
+                this.setStatus('正在朗读...', true);
+                return;
+            }
+
+            // 系统TTS恢复
             if (this.isPaused) {
                 this.synth.resume();
                 this.isPaused = false;
@@ -507,6 +675,14 @@
         },
 
         stop() {
+            // 停止Fish Audio
+            if (this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio = null;
+            }
+            this.isPlayingFishAudio = false;
+
+            // 停止系统TTS
             this.synth.cancel();
             this.isPaused = false;
             this.updateState();
@@ -619,6 +795,1040 @@
         }
     };
 
+    // ==================== 设置管理 ====================
+    const SettingsManager = {
+        // 存储键
+        STORAGE_KEY: 'daodejing_settings',
+
+        // 默认设置
+        defaults: {
+            mode: 'reading',      // reading, zen, recite
+            font: 'default',      // default, kaiti, songti, fangsong, mingliu, xkai
+            fontSize: 'medium',   // small, medium, large
+            textLayout: 'center', // center, left
+            musicType: 'none',    // none, chinese, western
+            musicVolume: 30,
+            showPinyin: true,
+            showAnnotation: true,
+            showModern: true,
+            showNotes: true,
+            showEnglish: false
+        },
+
+        // 当前设置
+        settings: {},
+
+        // 当前音乐索引
+        currentMusicIndex: 0,
+
+        init() {
+            this.settingsBtn = document.getElementById('settingsToggle');
+            this.settingsPanel = document.getElementById('settingsPanel');
+            this.closeSettingsBtn = document.getElementById('closeSettingsPanel');
+            this.zenOverlay = document.getElementById('zenModeOverlay');
+            this.zenExitBtn = document.getElementById('zenExitBtn');
+
+            if (!this.settingsBtn) return;
+
+            // 加载保存的设置
+            this.loadSettings();
+
+            // 从URL参数加载设置
+            this.loadFromURL();
+
+            // 应用设置
+            this.applySettings();
+
+            // 绑定事件
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // 打开设置面板
+            this.settingsBtn.addEventListener('click', () => this.togglePanel());
+
+            // 关闭设置面板
+            if (this.closeSettingsBtn) {
+                this.closeSettingsBtn.addEventListener('click', () => this.closePanel());
+            }
+
+            // 点击外部关闭
+            document.addEventListener('click', (e) => {
+                if (this.settingsPanel && this.settingsPanel.classList.contains('show')) {
+                    if (!this.settingsPanel.contains(e.target) && !this.settingsBtn.contains(e.target)) {
+                        this.closePanel();
+                    }
+                }
+            });
+
+            // 阅读模式切换
+            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
+            modeBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mode = btn.dataset.mode;
+                    this.setMode(mode);
+                });
+            });
+
+            // 字体选择
+            const fontSelect = document.getElementById('fontSelect');
+            if (fontSelect) {
+                fontSelect.addEventListener('change', (e) => {
+                    this.setFont(e.target.value);
+                });
+            }
+
+            // 字体大小
+            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
+            sizeBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const size = btn.dataset.size;
+                    this.setFontSize(size);
+                });
+            });
+
+            // 文字布局
+            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
+            layoutBtns?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const layout = btn.dataset.layout;
+                    this.setTextLayout(layout);
+                });
+            });
+
+            // 音乐类型选择
+            const musicSelect = document.getElementById('musicSelect');
+            if (musicSelect) {
+                musicSelect.addEventListener('change', (e) => {
+                    this.setMusicType(e.target.value);
+                });
+            }
+
+            // 音乐音量
+            const volumeSlider = document.getElementById('musicVolumeSlider');
+            const volumeValue = document.getElementById('musicVolumeValue');
+            if (volumeSlider) {
+                volumeSlider.addEventListener('input', (e) => {
+                    this.setMusicVolume(e.target.value);
+                    if (volumeValue) {
+                        volumeValue.textContent = e.target.value + '%';
+                    }
+                });
+            }
+
+            // 显示选项
+            const showPinyin = document.getElementById('showPinyin');
+            const showAnnotation = document.getElementById('showAnnotation');
+            if (showPinyin) {
+                showPinyin.addEventListener('change', (e) => {
+                    this.setShowPinyin(e.target.checked);
+                });
+            }
+            if (showAnnotation) {
+                showAnnotation.addEventListener('change', (e) => {
+                    this.setShowAnnotation(e.target.checked);
+                });
+            }
+
+            // 版本显示
+            const showModern = document.getElementById('showModern');
+            const showNotes = document.getElementById('showNotes');
+            const showEnglish = document.getElementById('showEnglish');
+            if (showModern) {
+                showModern.addEventListener('change', (e) => {
+                    this.setShowModern(e.target.checked);
+                });
+            }
+            if (showNotes) {
+                showNotes.addEventListener('change', (e) => {
+                    this.setShowNotes(e.target.checked);
+                });
+            }
+            if (showEnglish) {
+                showEnglish.addEventListener('change', (e) => {
+                    this.setShowEnglish(e.target.checked);
+                });
+            }
+
+            // 退出禅读模式
+            if (this.zenExitBtn) {
+                this.zenExitBtn.addEventListener('click', () => {
+                    this.exitZenMode();
+                });
+            }
+
+            // ESC键关闭面板/退出禅读
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (this.zenOverlay?.classList.contains('active')) {
+                        this.exitZenMode();
+                    } else if (this.settingsPanel?.classList.contains('show')) {
+                        this.closePanel();
+                    }
+                }
+            });
+
+            // 分享设置
+            const shareBtn = document.getElementById('shareSettings');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', () => this.shareSettings());
+            }
+        },
+
+        togglePanel() {
+            this.settingsPanel.classList.toggle('show');
+        },
+
+        closePanel() {
+            this.settingsPanel.classList.remove('show');
+        },
+
+        loadSettings() {
+            const saved = localStorage.getItem(this.STORAGE_KEY);
+            if (saved) {
+                try {
+                    this.settings = { ...this.defaults, ...JSON.parse(saved) };
+                } catch (e) {
+                    this.settings = { ...this.defaults };
+                }
+            } else {
+                this.settings = { ...this.defaults };
+            }
+        },
+
+        saveSettings() {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.settings));
+        },
+
+        loadFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const config = params.get('config');
+            if (config) {
+                try {
+                    const urlSettings = JSON.parse(atob(config));
+                    this.settings = { ...this.settings, ...urlSettings };
+                    this.saveSettings();
+                } catch (e) {
+                    console.error('解析URL配置失败:', e);
+                }
+            }
+        },
+
+        applySettings() {
+            // 应用模式
+            this.setMode(this.settings.mode, false);
+            // 应用字体
+            this.setFont(this.settings.font, false);
+            // 应用字体大小
+            this.setFontSize(this.settings.fontSize, false);
+            // 应用文字布局
+            this.setTextLayout(this.settings.textLayout, false);
+            // 应用音乐类型
+            this.setMusicType(this.settings.musicType, false);
+            // 应用音乐音量
+            this.setMusicVolume(this.settings.musicVolume, false);
+            // 应用显示选项
+            this.setShowPinyin(this.settings.showPinyin, false);
+            this.setShowAnnotation(this.settings.showAnnotation, false);
+            this.setShowModern(this.settings.showModern, false);
+            this.setShowNotes(this.settings.showNotes, false);
+            this.setShowEnglish(this.settings.showEnglish, false);
+
+            // 更新UI状态
+            this.updateUIState();
+        },
+
+        updateUIState() {
+            // 更新模式按钮
+            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
+            modeBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === this.settings.mode);
+            });
+
+            // 更新字体选择
+            const fontSelect = document.getElementById('fontSelect');
+            if (fontSelect) {
+                fontSelect.value = this.settings.font;
+            }
+
+            // 更新字体大小按钮
+            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
+            sizeBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.size === this.settings.fontSize);
+            });
+
+            // 更新布局按钮
+            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
+            layoutBtns?.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.layout === this.settings.textLayout);
+            });
+
+            // 更新音乐选择
+            const musicSelect = document.getElementById('musicSelect');
+            if (musicSelect) {
+                musicSelect.value = this.settings.musicType;
+            }
+
+            // 更新音量滑块
+            const volumeSlider = document.getElementById('musicVolumeSlider');
+            const volumeValue = document.getElementById('musicVolumeValue');
+            if (volumeSlider) {
+                volumeSlider.value = this.settings.musicVolume;
+            }
+            if (volumeValue) {
+                volumeValue.textContent = this.settings.musicVolume + '%';
+            }
+
+            // 更新复选框
+            const showPinyin = document.getElementById('showPinyin');
+            const showAnnotation = document.getElementById('showAnnotation');
+            const showModern = document.getElementById('showModern');
+            const showNotes = document.getElementById('showNotes');
+            const showEnglish = document.getElementById('showEnglish');
+
+            if (showPinyin) showPinyin.checked = this.settings.showPinyin;
+            if (showAnnotation) showAnnotation.checked = this.settings.showAnnotation;
+            if (showModern) showModern.checked = this.settings.showModern;
+            if (showNotes) showNotes.checked = this.settings.showNotes;
+            if (showEnglish) showEnglish.checked = this.settings.showEnglish;
+        },
+
+        setMode(mode, save = true) {
+            this.settings.mode = mode;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('mode-reading', 'mode-zen', 'mode-recite');
+            body.classList.add(`mode-${mode}`);
+
+            // 禅读模式特殊处理
+            if (mode === 'zen') {
+                this.enterZenMode();
+            } else {
+                this.exitZenMode();
+            }
+
+            // 背诵模式：隐藏译文和注解
+            if (mode === 'recite') {
+                body.classList.add('hide-modern', 'hide-notes', 'hide-english');
+            } else {
+                body.classList.remove('hide-modern', 'hide-notes', 'hide-english');
+            }
+
+            this.updateUIState();
+        },
+
+        setFont(font, save = true) {
+            this.settings.font = font;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('font-default', 'font-kaiti', 'font-songti', 'font-fangsong', 'font-mingliu', 'font-xkai');
+            body.classList.add(`font-${font}`);
+
+            this.updateUIState();
+        },
+
+        setFontSize(size, save = true) {
+            this.settings.fontSize = size;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large');
+            body.classList.add(`font-size-${size}`);
+
+            this.updateUIState();
+        },
+
+        setTextLayout(layout, save = true) {
+            this.settings.textLayout = layout;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            body.classList.remove('text-layout-center', 'text-layout-left');
+            body.classList.add(`text-layout-${layout}`);
+
+            this.updateUIState();
+        },
+
+        setMusicType(type, save = true) {
+            this.settings.musicType = type;
+            if (save) this.saveSettings();
+
+            const audio = document.getElementById('bgMusic');
+            if (!audio) return;
+
+            // 停止当前播放
+            const wasPlaying = !audio.paused;
+            audio.pause();
+
+            if (type === 'none') {
+                audio.removeAttribute('src');
+                this.updateUIState();
+                return;
+            }
+
+            // 获取音乐列表
+            const tracks = window.musicTracks?.[type] || [];
+            if (tracks.length === 0) return;
+
+            // 设置新的音频源
+            this.currentMusicIndex = Math.floor(Math.random() * tracks.length);
+            audio.src = tracks[this.currentMusicIndex];
+            audio.load();
+
+            // 如果之前在播放，重新开始播放
+            if (wasPlaying) {
+                audio.play().catch(err => {
+                    console.warn('自动播放被阻止:', err);
+                });
+            }
+
+            this.updateUIState();
+        },
+
+        setMusicVolume(volume, save = true) {
+            this.settings.musicVolume = parseInt(volume);
+            if (save) this.saveSettings();
+
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.volume = this.settings.musicVolume / 100;
+            }
+        },
+
+        setShowPinyin(show, save = true) {
+            this.settings.showPinyin = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-pinyin');
+            } else {
+                body.classList.add('hide-pinyin');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowAnnotation(show, save = true) {
+            this.settings.showAnnotation = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-annotation');
+            } else {
+                body.classList.add('hide-annotation');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowModern(show, save = true) {
+            this.settings.showModern = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-modern');
+            } else {
+                body.classList.add('hide-modern');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowNotes(show, save = true) {
+            this.settings.showNotes = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-notes');
+            } else {
+                body.classList.add('hide-notes');
+            }
+
+            this.updateUIState();
+        },
+
+        setShowEnglish(show, save = true) {
+            this.settings.showEnglish = show;
+            if (save) this.saveSettings();
+
+            const body = document.body;
+            if (show) {
+                body.classList.remove('hide-english');
+            } else {
+                body.classList.add('hide-english');
+            }
+
+            this.updateUIState();
+        },
+
+        enterZenMode() {
+            // 获取当前章节原文
+            const originalText = document.querySelector('.original-text');
+            if (!originalText) return;
+
+            // 复制原文内容到禅读遮罩
+            const content = originalText.innerHTML;
+            this.zenOverlay.innerHTML = `
+                <button class="zen-exit-btn" id="zenExitBtn">退出禅读</button>
+                <div class="zen-content">
+                    <div class="original-text">${content}</div>
+                </div>
+            `;
+
+            // 绑定退出按钮
+            this.zenOverlay.querySelector('#zenExitBtn').addEventListener('click', () => {
+                this.exitZenMode();
+            });
+
+            // 显示禅读模式
+            this.zenOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        },
+
+        exitZenMode() {
+            this.zenOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+
+            // 如果当前不是禅读模式，切换回阅读模式
+            if (this.settings.mode === 'zen') {
+                // 保持设置但退出禅读视图
+            }
+        },
+
+        shareSettings() {
+            const config = btoa(JSON.stringify(this.settings));
+            const url = `${window.location.origin}${window.location.pathname}?config=${config}`;
+
+            // 复制到剪贴板
+            navigator.clipboard.writeText(url).then(() => {
+                // 显示提示
+                const shareBtn = document.getElementById('shareSettings');
+                const originalText = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<span>✓</span> 已复制链接';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('分享链接：' + url);
+            });
+        }
+    };
+
+    // ==================== 分享管理 ====================
+    const ShareManager = {
+        init() {
+            this.shareBtn = document.getElementById('shareToggle');
+            this.supportBtn = document.getElementById('supportBtn');
+            this.communityBtn = document.getElementById('communityBtn');
+            this.shareModal = document.getElementById('shareModal');
+            this.shareUrlInput = document.getElementById('shareUrlInput');
+
+            if (!this.shareBtn) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            // 分享按钮
+            this.shareBtn?.addEventListener('click', () => this.openShareModal());
+
+            // 赞赏按钮
+            this.supportBtn?.addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('supportModal'));
+                modal.show();
+            });
+
+            // 社群按钮
+            this.communityBtn?.addEventListener('click', () => {
+                const modal = new bootstrap.Modal(document.getElementById('communityModal'));
+                modal.show();
+            });
+
+            // 微信分享
+            document.getElementById('shareWechat')?.addEventListener('click', () => {
+                this.shareToWechat();
+            });
+
+            // 微博分享
+            document.getElementById('shareWeibo')?.addEventListener('click', () => {
+                this.shareToWeibo();
+            });
+
+            // 复制链接
+            document.getElementById('shareLink')?.addEventListener('click', () => {
+                this.copyLink();
+            });
+        },
+
+        openShareModal() {
+            if (!this.shareModal) return;
+
+            // 更新链接输入框
+            const shareUrl = window.location.href.split('?')[0];
+            if (this.shareUrlInput) {
+                this.shareUrlInput.value = shareUrl;
+            }
+
+            const modal = new bootstrap.Modal(this.shareModal);
+            modal.show();
+        },
+
+        shareToWechat() {
+            // 微信需要用户手动截图或复制链接
+            const shareUrl = window.location.href.split('?')[0];
+            const title = '道德经多版本对照阅读平台';
+            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照，疑难字注音，暗黑模式。`;
+
+            // 显示提示
+            alert(`请复制链接在微信中分享：\n${shareUrl}\n\n${text}`);
+        },
+
+        shareToWeibo() {
+            const shareUrl = encodeURIComponent(window.location.href.split('?')[0]);
+            const title = encodeURIComponent('道德经多版本对照阅读平台 - 王弼·河上公·王夫之·帛书·英文译本');
+            const text = encodeURIComponent('《道德经》81章完整版，支持多版本对照，疑难字注音，暗黑模式，手机阅读。');
+
+            window.open(`https://service.weibo.com/share/share.php?url=${shareUrl}&title=${title}&pic=`, '_blank');
+        },
+
+        copyLink() {
+            const shareUrl = window.location.href.split('?')[0];
+            const title = '道德经多版本对照阅读平台';
+            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照。`;
+
+            navigator.clipboard.writeText(`${title}\n${text}\n${shareUrl}`).then(() => {
+                // 显示提示
+                const shareBtn = document.getElementById('shareLink');
+                const originalHTML = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<span class="share-icon">✓</span><span>已复制</span>';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalHTML;
+                }, 2000);
+            }).catch(() => {
+                // 备用方案
+                const textArea = document.createElement('textarea');
+                textArea.value = `${title}\n${text}\n${shareUrl}`;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('链接已复制！');
+            });
+        }
+    };
+
+    // ==================== AI助手管理 ====================
+    const AIManager = {
+        API_KEY_STORAGE: 'daodejing_ai_keys',
+        messages: [],
+        isGenerating: false,
+
+        init() {
+            this.aiToggle = document.getElementById('aiToggle');
+            this.aiSidebar = document.getElementById('aiSidebar');
+            this.aiOverlay = document.getElementById('aiOverlay');
+            this.aiCloseSidebar = document.getElementById('aiCloseSidebar');
+            this.aiNewChat = document.getElementById('aiNewChat');
+            this.aiMessages = document.getElementById('aiMessages');
+            this.aiInput = document.getElementById('aiInput');
+            this.aiSend = document.getElementById('aiSend');
+            this.aiModel = document.getElementById('aiModel');
+            this.aiSuggestions = document.getElementById('aiSuggestions');
+
+            this.bindEvents();
+            this.loadApiKeys();
+        },
+
+        bindEvents() {
+            // 打开AI侧边栏
+            this.aiToggle?.addEventListener('click', () => this.toggleSidebar());
+
+            // 关闭侧边栏
+            this.aiCloseSidebar?.addEventListener('click', () => this.closeSidebar());
+
+            // 点击遮罩关闭
+            this.aiOverlay?.addEventListener('click', () => this.closeSidebar());
+
+            // 新对话
+            this.aiNewChat?.addEventListener('click', () => this.newChat());
+
+            // 发送消息
+            this.aiSend?.addEventListener('click', () => this.sendMessage());
+
+            // 回车发送
+            this.aiInput?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.sendMessage();
+                }
+            });
+
+            // 快捷问题
+            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const question = btn.dataset.question;
+                    this.aiInput.value = question;
+                    this.sendMessage();
+                });
+            });
+        },
+
+        toggleSidebar() {
+            this.aiSidebar.classList.toggle('show');
+            this.aiOverlay.classList.toggle('show', this.aiSidebar.classList.contains('show'));
+        },
+
+        closeSidebar() {
+            this.aiSidebar.classList.remove('show');
+            this.aiOverlay.classList.remove('show');
+        },
+
+        newChat() {
+            this.messages = [];
+            this.updateMessagesDisplay();
+            this.showWelcome();
+        },
+
+        showWelcome() {
+            if (this.aiMessages) {
+                this.aiMessages.innerHTML = `
+                    <div class="ai-welcome">
+                        <div class="ai-welcome-icon">🤖</div>
+                        <h6>道德经AI助手</h6>
+                        <p>您可以：</p>
+                        <ul>
+                            <li>点击下方快捷问题开始</li>
+                            <li>或直接输入您的问题</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        },
+
+        async sendMessage() {
+            const question = this.aiInput?.value.trim();
+            if (!question || this.isGenerating) return;
+
+            // 隐藏欢迎界面
+            const welcome = this.aiMessages?.querySelector('.ai-welcome');
+            if (welcome) welcome.remove();
+
+            // 添加用户消息
+            this.messages.push({ role: 'user', content: question });
+            this.addMessageToDisplay('user', question);
+            this.aiInput.value = '';
+
+            // 清空快捷问题
+            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+
+            // 显示加载动画
+            this.showTyping();
+
+            // 获取当前章节内容
+            const chapterContent = this.getChapterContent();
+
+            // 调用AI API
+            const response = await this.callAI(question, chapterContent);
+
+            // 移除加载动画
+            this.hideTyping();
+
+            // 添加AI响应
+            this.messages.push({ role: 'assistant', content: response });
+            this.addMessageToDisplay('assistant', response);
+        },
+
+        addMessageToDisplay(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ${role}`;
+
+            if (role === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="ai-message-content">${this.escapeHtml(content)}</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="ai-message-header">🤖 道德经AI助手</div>
+                    <div class="ai-message-content">${this.formatContent(content)}</div>
+                `;
+            }
+
+            this.aiMessages.appendChild(messageDiv);
+            this.scrollToBottom();
+        },
+
+        showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'ai-message assistant';
+            typingDiv.id = 'aiTyping';
+            typingDiv.innerHTML = `
+                <div class="ai-typing">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            this.aiMessages.appendChild(typingDiv);
+            this.scrollToBottom();
+        },
+
+        hideTyping() {
+            const typing = document.getElementById('aiTyping');
+            if (typing) typing.remove();
+        },
+
+        updateMessagesDisplay() {
+            this.aiMessages.innerHTML = '';
+            this.messages.forEach(msg => {
+                this.addMessageToDisplay(msg.role, msg.content);
+            });
+            if (this.messages.length === 0) {
+                this.showWelcome();
+            }
+        },
+
+        scrollToBottom() {
+            this.aiMessages.scrollTop = this.aiMessages.scrollHeight;
+        },
+
+        getChapterContent() {
+            // 获取当前章节的原文内容
+            const originalText = document.querySelector('.original-text');
+            const chapterTitle = document.querySelector('.breadcrumb .active')?.textContent || '当前章节';
+
+            return {
+                title: chapterTitle,
+                content: originalText?.textContent || ''
+            };
+        },
+
+        async callAI(question, chapterContent) {
+            const model = this.aiModel?.value || 'auto';
+
+            // 构建提示词
+            const prompt = this.buildPrompt(question, chapterContent);
+
+            // 尝试不同的API
+            let response = '';
+
+            if (model === 'deepseek' || model === 'auto') {
+                const deepseekKey = this.apiKeys?.deepseek;
+                if (deepseekKey) {
+                    response = await this.callDeepSeek(prompt, deepseekKey);
+                    if (response) return response;
+                }
+            }
+
+            if (model === 'openai' || model === 'auto') {
+                const openaiKey = this.apiKeys?.openai;
+                if (openaiKey) {
+                    response = await this.callOpenAI(prompt, openaiKey);
+                    if (response) return response;
+                }
+            }
+
+            // 没有可用的API Key，返回预设响应
+            return this.getFallbackResponse(question, chapterContent);
+        },
+
+        buildPrompt(question, chapterContent) {
+            return `你是《道德经》的解读助手，请基于以下内容回答问题。
+
+【章节】${chapterContent.title}
+【原文】${chapterContent.content}
+
+【问题】${question}
+
+请用简洁、通俗易懂的语言回答，突出道德经的智慧和现代应用价值。`;
+        },
+
+        async callDeepSeek(prompt, apiKey) {
+            try {
+                const response = await fetch('https://api.deepseek.com/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            { role: 'user', content: prompt }
+                        ],
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API请求失败');
+                }
+
+                const data = await response.json();
+                return data.choices[0]?.message?.content || '';
+            } catch (error) {
+                console.error('DeepSeek API错误:', error);
+                return '';
+            }
+        },
+
+        async callOpenAI(prompt, apiKey) {
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-3.5-turbo',
+                        messages: [
+                            { role: 'user', content: prompt }
+                        ],
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API请求失败');
+                }
+
+                const data = await response.json();
+                return data.choices[0]?.message?.content || '';
+            } catch (error) {
+                console.error('OpenAI API错误:', error);
+                return '';
+            }
+        },
+
+        getFallbackResponse(question, chapterContent) {
+            // 没有API Key时的预设响应
+            const responses = {
+                '解读本章核心思想': `根据"${chapterContent.title}"的内容，本章的核心思想是...\n\n💡 要使用AI解读功能，请在设置中配置API Key（DeepSeek或OpenAI）\n\n配置后可获得更深入的AI解读和个性化回答。`,
+                '本章在现代生活中的应用': `道德经的智慧在现代生活中有很多应用...\n\n💡 配置API Key后可获得更详细的应用案例解读`,
+                '解释疑难词句的含义': `本章中的疑难词句包含丰富的哲学内涵...\n\n💡 配置API Key后可获得专业的词语解释`
+            };
+
+            return responses[question] || `感谢您的问题：「${question}」\n\n💡 要获得AI智能回答，请在设置中配置API Key：\n\n1. DeepSeek API (推荐，价格优惠)\n2. OpenAI API (GPT-3.5)\n\nAPI Key仅存储在您本地浏览器中，安全可靠。`;
+        },
+
+        formatContent(content) {
+            // 简单的Markdown格式化
+            return content
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>');
+        },
+
+        escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        },
+
+        loadApiKeys() {
+            const saved = localStorage.getItem(this.API_KEY_STORAGE);
+            this.apiKeys = saved ? JSON.parse(saved) : { deepseek: '', openai: '', fish: '' };
+
+            // 填充已保存的API Key
+            const deepseekInput = document.getElementById('deepseekKey');
+            const openaiInput = document.getElementById('openaiKey');
+            if (deepseekInput) deepseekInput.value = this.apiKeys.deepseek || '';
+            if (openaiInput) openaiInput.value = this.apiKeys.openai || '';
+
+            // 监听API Key变化
+            deepseekInput?.addEventListener('change', (e) => {
+                this.apiKeys.deepseek = e.target.value;
+                this.saveApiKeys();
+            });
+
+            openaiInput?.addEventListener('change', (e) => {
+                this.apiKeys.openai = e.target.value;
+                this.saveApiKeys();
+            });
+
+            // Fish Audio API Key
+            const fishApiKeyInput = document.getElementById('fishApiKey');
+            const fishVoiceIdInput = document.getElementById('fishVoiceId');
+            if (fishApiKeyInput) fishApiKeyInput.value = this.apiKeys.fish || '';
+            if (fishVoiceIdInput) fishVoiceIdInput.value = this.apiKeys.fishVoiceId || '';
+
+            fishApiKeyInput?.addEventListener('change', (e) => {
+                this.apiKeys.fish = e.target.value;
+                this.saveApiKeys();
+            });
+
+            fishVoiceIdInput?.addEventListener('change', (e) => {
+                this.apiKeys.fishVoiceId = e.target.value;
+                this.saveApiKeys();
+            });
+
+            // TTS引擎选择
+            const ttsEngineSelect = document.getElementById('ttsEngine');
+            const fishSettings = document.getElementById('fishAudioSettings');
+            const edgeSettings = document.getElementById('edgeAudioSettings');
+
+            // 加载保存的TTS引擎设置
+            const savedTtsEngine = localStorage.getItem('daodejing_tts_engine');
+            if (ttsEngineSelect && savedTtsEngine) {
+                ttsEngineSelect.value = savedTtsEngine;
+            }
+
+            // 显示/隐藏对应的设置面板
+            const updateSettingsPanel = () => {
+                if (!ttsEngineSelect) return;
+                const engine = ttsEngineSelect.value;
+
+                // 隐藏所有面板
+                if (fishSettings) fishSettings.classList.remove('show');
+                if (edgeSettings) edgeSettings.classList.remove('show');
+
+                // 显示选中的面板
+                if (engine === 'fish' && fishSettings) {
+                    fishSettings.classList.add('show');
+                } else if (engine === 'edge' && edgeSettings) {
+                    edgeSettings.classList.add('show');
+                }
+            };
+
+            // 初始化显示
+            updateSettingsPanel();
+
+            // 监听引擎选择变化
+            if (ttsEngineSelect) {
+                ttsEngineSelect.addEventListener('change', (e) => {
+                    localStorage.setItem('daodejing_tts_engine', e.target.value);
+                    updateSettingsPanel();
+                });
+            }
+
+            // 加载保存的Edge声音设置
+            const savedEdgeVoice = localStorage.getItem('daodejing_edge_voice');
+            const edgeVoiceSelect = document.getElementById('edgeVoice');
+            if (edgeVoiceSelect && savedEdgeVoice) {
+                edgeVoiceSelect.value = savedEdgeVoice;
+            }
+
+            // 监听Edge声音选择变化
+            if (edgeVoiceSelect) {
+                edgeVoiceSelect.addEventListener('change', (e) => {
+                    localStorage.setItem('daodejing_edge_voice', e.target.value);
+                });
+            }
+        },
+
+        saveApiKeys() {
+            localStorage.setItem(this.API_KEY_STORAGE, JSON.stringify(this.apiKeys));
+        }
+    };
+
     // ==================== 初始化 ====================
     document.addEventListener('DOMContentLoaded', () => {
         ThemeManager.init();
@@ -627,6 +1837,9 @@
         MusicManager.init();
         SpeechManager.init();
         ScrollHighlight.init();
+        SettingsManager.init();
+        ShareManager.init();
+        AIManager.init();
     });
 
 })();
