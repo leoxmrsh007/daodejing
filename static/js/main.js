@@ -498,7 +498,9 @@
         async speakWithFishAudio(text) {
             const config = this.getFishAudioConfig();
 
-            console.log('Fish Audio配置:', { apiKey: config.apiKey ? '***已配置***' : '未配置', voiceId: config.voiceId || '未设置' });
+            console.log('=== Fish Audio 调试信息 ===');
+            console.log('API Key状态:', config.apiKey ? '已配置 (前8位: ' + config.apiKey.substring(0, 8) + '...)' : '未配置');
+            console.log('Model ID:', config.voiceId || '未设置');
 
             if (!config.apiKey) {
                 this.setStatus('请先配置Fish Audio API Key', false);
@@ -520,23 +522,30 @@
                     requestBody.model_id = config.voiceId;
                 }
 
-                console.log('Fish Audio请求体:', { ...requestBody, text: text.substring(0, 20) + '...' });
+                console.log('请求体:', JSON.stringify({ ...requestBody, text: text.substring(0, 30) + '...' }, null, 2));
+
+                const headers = {
+                    'Authorization': `Bearer ${config.apiKey}`,
+                    'Content-Type': 'application/json'
+                };
+
+                console.log('请求头:', { ...headers, 'Authorization': 'Bearer ***' });
 
                 const response = await fetch('https://api.fish.audio/v1/tts', {
                     method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${config.apiKey}`,
-                        'Content-Type': 'application/json'
-                    },
+                    headers: headers,
                     body: JSON.stringify(requestBody)
                 });
 
-                console.log('Fish Audio响应状态:', response.status);
+                console.log('响应状态:', response.status, response.statusText);
+                console.log('响应头:', Object.fromEntries(response.headers.entries()));
 
                 if (!response.ok) {
                     const errorText = await response.text();
-                    console.error('Fish Audio API错误:', errorText);
-                    this.setStatus(`API错误(${response.status})，使用系统语音`, false);
+                    console.error('=== API 错误详情 ===');
+                    console.error('状态码:', response.status);
+                    console.error('错误内容:', errorText);
+                    this.setStatus(`API错误(${response.status})，请查看控制台`, false);
                     // 回退到系统TTS
                     this.speakWithSystem(text);
                     return;
@@ -544,6 +553,7 @@
 
                 const audioBlob = await response.blob();
                 console.log('音频数据大小:', audioBlob.size, 'bytes');
+                console.log('音频类型:', audioBlob.type);
 
                 if (audioBlob.size < 100) {
                     console.error('返回的音频数据太小');
@@ -553,6 +563,7 @@
                 }
 
                 const audioUrl = URL.createObjectURL(audioBlob);
+                console.log('音频URL已创建:', audioUrl);
 
                 // 创建Audio元素播放
                 this.currentAudio = new Audio(audioUrl);
@@ -560,13 +571,13 @@
                 this.isPaused = false;
 
                 this.currentAudio.onplay = () => {
-                    console.log('Fish Audio开始播放');
+                    console.log('=== Fish Audio 开始播放 ===');
                     this.updateState();
                     this.setStatus(`🎙️ AI朗读第${this.currentChapter}章`, true);
                 };
 
                 this.currentAudio.onended = () => {
-                    console.log('Fish Audio播放结束');
+                    console.log('=== Fish Audio 播放结束 ===');
                     this.isPlayingFishAudio = false;
                     URL.revokeObjectURL(audioUrl);
                     if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
@@ -578,17 +589,21 @@
                 };
 
                 this.currentAudio.onerror = (error) => {
-                    console.error('Fish Audio播放错误:', error);
+                    console.error('=== Fish Audio 播放错误 ===');
+                    console.error('错误对象:', error);
                     this.isPlayingFishAudio = false;
                     URL.revokeObjectURL(audioUrl);
-                    this.setStatus('播放出错', false);
+                    this.setStatus('播放出错，请查看控制台', false);
                     this.updateState();
                 };
 
                 await this.currentAudio.play();
 
             } catch (error) {
-                console.error('Fish Audio请求错误:', error);
+                console.error('=== Fish Audio 网络错误 ===');
+                console.error('错误类型:', error.name);
+                console.error('错误消息:', error.message);
+                console.error('错误堆栈:', error.stack);
                 this.setStatus('网络错误，使用系统语音', false);
                 // 回退到系统TTS
                 this.speakWithSystem(text);
