@@ -486,10 +486,109 @@
         speak(text) {
             this.stop(); // 先停止之前的朗读
 
-            // 检查是否使用Fish Audio
-            if (this.isUsingFishAudio()) {
+            // 检查TTS引擎
+            if (this.isUsingEdgeTTS()) {
+                this.speakWithEdgeTTS(text);
+            } else if (this.isUsingFishAudio()) {
                 this.speakWithFishAudio(text);
             } else {
+                this.speakWithSystem(text);
+            }
+        },
+
+        // 检查是否使用Edge TTS
+        isUsingEdgeTTS() {
+            const ttsEngine = localStorage.getItem('daodejing_tts_engine');
+            return ttsEngine === 'edge';
+        },
+
+        // 使用Edge TTS进行语音合成
+        async speakWithEdgeTTS(text) {
+            console.log('=== Edge TTS 调试信息 ===');
+            console.log('文本:', text.substring(0, 50) + '...');
+
+            // 获取选择的声音
+            const edgeVoiceSelect = document.getElementById('edgeVoice');
+            const voice = edgeVoiceSelect ? edgeVoiceSelect.value : 'zh-CN-XiaoxiaoNeural';
+            console.log('使用声音:', voice);
+
+            this.setStatus('正在生成语音...', true);
+
+            try {
+                const proxyUrl = '/api/tts/edge';
+
+                const requestBody = {
+                    text: text,
+                    voice: voice
+                };
+
+                const response = await fetch(proxyUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                console.log('Edge TTS响应状态:', response.status);
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    console.error('=== Edge TTS 错误 ===');
+                    console.error('错误详情:', errorData);
+                    this.setStatus(`Edge TTS错误: ${errorData.error || response.status}`, false);
+                    this.speakWithSystem(text);
+                    return;
+                }
+
+                const audioBlob = await response.blob();
+                console.log('音频数据大小:', audioBlob.size, 'bytes');
+
+                if (audioBlob.size < 100) {
+                    console.error('返回的音频数据太小');
+                    this.setStatus('音频数据异常', false);
+                    this.speakWithSystem(text);
+                    return;
+                }
+
+                const audioUrl = URL.createObjectURL(audioBlob);
+                console.log('音频URL已创建');
+
+                this.currentAudio = new Audio(audioUrl);
+                this.isPlayingFishAudio = true;
+                this.isPaused = false;
+
+                this.currentAudio.onplay = () => {
+                    console.log('=== Edge TTS 开始播放 ===');
+                    this.updateState();
+                    this.setStatus(`🔊 Edge朗读第${this.currentChapter}章`, true);
+                };
+
+                this.currentAudio.onended = () => {
+                    console.log('=== Edge TTS 播放结束 ===');
+                    this.isPlayingFishAudio = false;
+                    URL.revokeObjectURL(audioUrl);
+                    if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
+                        this.nextChapter();
+                    } else {
+                        this.updateState();
+                        this.setStatus('朗读完成', false);
+                    }
+                };
+
+                this.currentAudio.onerror = (error) => {
+                    console.error('=== Edge TTS 播放错误 ===', error);
+                    this.isPlayingFishAudio = false;
+                    URL.revokeObjectURL(audioUrl);
+                    this.setStatus('播放出错', false);
+                    this.updateState();
+                };
+
+                await this.currentAudio.play();
+
+            } catch (error) {
+                console.error('=== Edge TTS 网络错误 ===', error);
+                this.setStatus('网络错误', false);
                 this.speakWithSystem(text);
             }
         },
@@ -537,8 +636,17 @@
                     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
                     console.error('=== API 错误详情 ===');
                     console.error('状态码:', response.status);
-                    console.error('错误内容:', errorData);
-                    this.setStatus(`API错误: ${errorData.error || response.status}`, false);
+                    console.error('错误详情:', JSON.stringify(errorData, null, 2));
+
+                    // 显示详细错误信息
+                    let errorMsg = `API错误(${response.status})`;
+                    if (errorData.error) {
+                        errorMsg += ': ' + errorData.error;
+                    }
+                    if (errorData.detail) {
+                        errorMsg += ' - ' + errorData.detail;
+                    }
+                    this.setStatus(errorMsg, false);
                     // 回退到系统TTS
                     this.speakWithSystem(text);
                     return;
@@ -1776,6 +1884,7 @@
             // TTS引擎选择
             const ttsEngineSelect = document.getElementById('ttsEngine');
             const fishSettings = document.getElementById('fishAudioSettings');
+            const edgeSettings = document.getElementById('edgeAudioSettings');
 
             // 加载保存的TTS引擎设置
             const savedTtsEngine = localStorage.getItem('daodejing_tts_engine');
@@ -1783,19 +1892,45 @@
                 ttsEngineSelect.value = savedTtsEngine;
             }
 
-            // 显示/隐藏Fish Audio设置
-            if (ttsEngineSelect && fishSettings) {
-                if (ttsEngineSelect.value === 'fish') {
-                    fishSettings.classList.add('show');
-                }
+            // 显示/隐藏对应的设置面板
+            const updateSettingsPanel = () => {
+                if (!ttsEngineSelect) return;
+                const engine = ttsEngineSelect.value;
 
+                // 隐藏所有面板
+                if (fishSettings) fishSettings.classList.remove('show');
+                if (edgeSettings) edgeSettings.classList.remove('show');
+
+                // 显示选中的面板
+                if (engine === 'fish' && fishSettings) {
+                    fishSettings.classList.add('show');
+                } else if (engine === 'edge' && edgeSettings) {
+                    edgeSettings.classList.add('show');
+                }
+            };
+
+            // 初始化显示
+            updateSettingsPanel();
+
+            // 监听引擎选择变化
+            if (ttsEngineSelect) {
                 ttsEngineSelect.addEventListener('change', (e) => {
                     localStorage.setItem('daodejing_tts_engine', e.target.value);
-                    if (e.target.value === 'fish') {
-                        fishSettings.classList.add('show');
-                    } else {
-                        fishSettings.classList.remove('show');
-                    }
+                    updateSettingsPanel();
+                });
+            }
+
+            // 加载保存的Edge声音设置
+            const savedEdgeVoice = localStorage.getItem('daodejing_edge_voice');
+            const edgeVoiceSelect = document.getElementById('edgeVoice');
+            if (edgeVoiceSelect && savedEdgeVoice) {
+                edgeVoiceSelect.value = savedEdgeVoice;
+            }
+
+            // 监听Edge声音选择变化
+            if (edgeVoiceSelect) {
+                edgeVoiceSelect.addEventListener('change', (e) => {
+                    localStorage.setItem('daodejing_edge_voice', e.target.value);
                 });
             }
         },

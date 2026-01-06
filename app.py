@@ -279,6 +279,63 @@ def fish_audio_proxy():
         return jsonify({'error': f'Server error: {str(e)}'}), 500
 
 
+@app.route('/api/tts/edge', methods=['POST'])
+def edge_tts_proxy():
+    """Edge TTS 代理端点 - 微软免费TTS"""
+    try:
+        # 获取请求数据
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No JSON data provided'}), 400
+
+        text = data.get('text')
+        voice = data.get('voice', 'zh-CN-XiaoxiaoNeural')
+
+        if not text:
+            return jsonify({'error': 'Missing text'}), 400
+
+        # 使用Edge TTS的公共API
+        # 构建SSML格式
+        ssml = f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="zh-CN"><voice name="{voice}">{text}</voice></speak>'
+
+        # Edge TTS API端点
+        edge_tts_url = 'https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1'
+
+        headers = {
+            'Content-Type': 'application/ssml+xml',
+            'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+
+        response = requests.post(
+            edge_tts_url,
+            headers=headers,
+            data=ssml.encode('utf-8'),
+            timeout=30
+        )
+
+        if response.status_code == 200:
+            return Response(
+                response.content,
+                mimetype='audio/mpeg',
+                headers={
+                    'Content-Disposition': 'attachment; filename=tts.mp3'
+                }
+            )
+        else:
+            return jsonify({
+                'error': f'Edge TTS error: {response.status_code}',
+                'detail': response.text[:500]
+            }), response.status_code
+
+    except requests.exceptions.Timeout:
+        return jsonify({'error': 'Request timeout'}), 504
+    except requests.exceptions.RequestException as e:
+        return jsonify({'error': f'Request failed: {str(e)}'}), 502
+    except Exception as e:
+        return jsonify({'error': f'Server error: {str(e)}'}), 500
+
+
 # ==================== 错误处理 ====================
 
 @app.errorhandler(404)

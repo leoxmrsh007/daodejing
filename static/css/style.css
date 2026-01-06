@@ -1484,7 +1484,8 @@ body {
 }
 
 /* ==================== Fish Audio设置样式 ==================== */
-.fish-audio-settings {
+.fish-audio-settings,
+.edge-audio-settings {
     display: none;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);
@@ -1492,18 +1493,22 @@ body {
     margin-top: 8px;
 }
 
-.fish-audio-settings.show {
+.fish-audio-settings.show,
+.edge-audio-settings.show {
     display: block;
 }
 
-[data-theme="dark"] .fish-audio-settings {
+[data-theme="dark"] .fish-audio-settings,
+[data-theme="dark"] .edge-audio-settings {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.fish-audio-settings a {
+.fish-audio-settings a,
+.edge-audio-settings a {
     text-decoration: none;
 }
 
-.fish-audio-settings a:hover {
+.fish-audio-settings a:hover,
+.edge-audio-settings a:hover {
     text-decoration: underline;
 }
