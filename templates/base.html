@@ -305,27 +305,21 @@
             <!-- 语音朗读设置 -->
             <div class="setting-section">
                 <label class="setting-label">🎙️ 语音朗读设置</label>
-                <select class="form-select form-select-sm mb-2" id="ttsEngine">
-                    <option value="system">系统默认语音</option>
-                    <option value="edge">Edge TTS（微软免费语音）</option>
-                    <option value="fish">Fish Audio（AI声音克隆）</option>
-                </select>
-                <div id="edgeAudioSettings" class="edge-audio-settings" style="display:none;">
-                    <select class="form-select form-select-sm mb-2" id="edgeVoice">
-                        <option value="zh-CN-XiaoxiaoNeural">晓晓（女声，温柔）</option>
-                        <option value="zh-CN-YunxiNeural">云希（男声，温暖）</option>
-                        <option value="zh-CN-YunyangNeural">云扬（男声，沉稳）</option>
-                        <option value="zh-CN-XiaoyiNeural">晓伊（女声，亲切）</option>
-                        <option value="zh-CN-YunzeNeural">云泽（男声，磁性）</option>
-                        <option value="zh-HK-HiuMaanNeural">曉雯（粤语女声）</option>
-                        <option value="zh-TW-HsiaoChenNeural">曉臻（台湾女声）</option>
+                <div class="mb-2">
+                    <label class="small text-muted">选择语音：</label>
+                    <select class="form-select form-select-sm" id="browserVoice">
+                        <option value="">正在加载可用语音...</option>
                     </select>
+                    <small class="text-muted d-block">
+                        提示：Microsoft语音质量最佳，搜索"Microsoft"或"Chinese"
+                    </small>
                 </div>
                 <div id="fishAudioSettings" class="fish-audio-settings">
-                    <input type="password" class="form-control form-control-sm mb-2" id="fishApiKey" placeholder="Fish Audio API Key">
-                    <input type="text" class="form-control form-control-sm mb-2" id="fishVoiceId" placeholder="声音模型ID（可选，如：96d4ad5f4c50436a97240d00744c1f70）">
-                    <small class="text-muted d-block mb-2">
-                        在 <a href="https://fish.audio/app/text-to-speech" target="_blank" style="color: #d4a574;">Fish Audio</a> 选择声音后，从URL复制modelId
+                    <label class="small text-muted d-block mb-2">或使用 Fish Audio（需API Key）：</label>
+                    <input type="password" class="form-control form-control-sm mb-2" id="fishApiKey" placeholder="Fish Audio API Key（可选）">
+                    <input type="text" class="form-control form-control-sm mb-2" id="fishVoiceId" placeholder="声音模型ID（可选）">
+                    <small class="text-muted d-block">
+                        在 <a href="https://fish.audio/app/text-to-speech" target="_blank" style="color: #d4a574;">Fish Audio</a> 克隆声音
                     </small>
                 </div>
             </div>

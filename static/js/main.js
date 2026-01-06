@@ -327,7 +327,8 @@
     // ==================== 朗读管理 ====================
     const SpeechManager = {
         STORAGE_KEY: 'daodejing_speech_rate',
-        DEFAULT_RATE: 0.8,
+        VOICE_KEY: 'daodejing_selected_voice',
+        DEFAULT_RATE: 0.9,
         API_KEY_STORAGE: 'daodejing_ai_keys',
 
         init() {
@@ -338,6 +339,7 @@
             this.speechRate = document.getElementById('speechRate');
             this.rateValue = document.getElementById('rateValue');
             this.speechStatus = document.getElementById('speechStatus');
+            this.browserVoiceSelect = document.getElementById('browserVoice');
 
             // 检查浏览器支持
             if (!('speechSynthesis' in window)) {
@@ -362,10 +364,105 @@
             this.isPaused = false;
             this.currentChapter = 1;
             this.speechMode = 'current'; // 'current' or 'all'
-            this.currentAudio = null; // Fish Audio播放元素
-            this.isPlayingFishAudio = false;
+            this.voices = [];
+            this.selectedVoice = null;
+
+            // 加载浏览器语音列表
+            this.loadVoices();
+
+            // 语音列表是异步加载的，需要监听变化
+            if (this.synth.onvoiceschanged !== undefined) {
+                this.synth.onvoiceschanged = () => this.loadVoices();
+            }
 
             this.bindEvents();
+        },
+
+        // 加载可用的语音列表
+        loadVoices() {
+            this.voices = this.synth.getVoices();
+            const voiceSelect = this.browserVoiceSelect;
+
+            if (!voiceSelect || this.voices.length === 0) return;
+
+            // 清空现有选项
+            voiceSelect.innerHTML = '';
+
+            // 获取保存的语音
+            const savedVoiceUri = localStorage.getItem(this.VOICE_KEY);
+
+            // 优先显示中文语音，特别是Microsoft的神经语音
+            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
+            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
+
+            // 按优先级排序：Microsoft中文 > 其他中文 > 其他
+            const sortedVoices = [
+                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
+                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
+                ...otherVoices
+            ];
+
+            sortedVoices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                // 创建友好的显示名称
+                const displayName = `${voice.name} (${voice.lang})`;
+                option.textContent = displayName;
+
+                // 标记推荐的语音
+                if (voice.name.includes('Microsoft')) {
+                    option.textContent = '⭐ ' + displayName;
+                }
+
+                voiceSelect.appendChild(option);
+            });
+
+            // 恢复保存的语音选择
+            if (savedVoiceUri !== null) {
+                const savedIndex = sortedVoices.findIndex(v => v.voiceURI === savedVoiceUri);
+                if (savedIndex !== -1) {
+                    voiceSelect.value = sortedVoices.indexOf(sortedVoices[savedIndex]);
+                }
+            }
+
+            // 默认选择第一个Microsoft中文语音
+            if (voiceSelect.value === "") {
+                const defaultIndex = sortedVoices.findIndex(v =>
+                    v.name.includes('Microsoft') && v.lang.startsWith('zh')
+                );
+                if (defaultIndex !== -1) {
+                    voiceSelect.value = defaultIndex;
+                }
+            }
+
+            // 监听语音选择变化
+            voiceSelect.removeEventListener('change', this.handleVoiceChange);
+            voiceSelect.addEventListener('change', () => this.handleVoiceChange());
+        },
+
+        // 处理语音选择变化
+        handleVoiceChange() {
+            const voiceSelect = this.browserVoiceSelect;
+            if (!voiceSelect) return;
+
+            const sortedVoices = this.getSortedVoices();
+            const index = parseInt(voiceSelect.value);
+            if (sortedVoices[index]) {
+                this.selectedVoice = sortedVoices[index];
+                localStorage.setItem(this.VOICE_KEY, this.selectedVoice.voiceURI);
+                console.log('已选择语音:', this.selectedVoice.name, this.selectedVoice.lang);
+            }
+        },
+
+        // 获取排序后的语音列表
+        getSortedVoices() {
+            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
+            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
+            return [
+                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
+                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
+                ...otherVoices
+            ];
         },
 
         bindEvents() {
@@ -485,240 +582,10 @@
 
         speak(text) {
             this.stop(); // 先停止之前的朗读
-
-            // 检查TTS引擎
-            if (this.isUsingEdgeTTS()) {
-                this.speakWithEdgeTTS(text);
-            } else if (this.isUsingFishAudio()) {
-                this.speakWithFishAudio(text);
-            } else {
-                this.speakWithSystem(text);
-            }
+            this.speakWithSystem(text);
         },
 
-        // 检查是否使用Edge TTS
-        isUsingEdgeTTS() {
-            const ttsEngine = localStorage.getItem('daodejing_tts_engine');
-            return ttsEngine === 'edge';
-        },
-
-        // 使用Edge TTS进行语音合成
-        async speakWithEdgeTTS(text) {
-            console.log('=== Edge TTS 调试信息 ===');
-            console.log('文本:', text.substring(0, 50) + '...');
-
-            // 获取选择的声音
-            const edgeVoiceSelect = document.getElementById('edgeVoice');
-            const voice = edgeVoiceSelect ? edgeVoiceSelect.value : 'zh-CN-XiaoxiaoNeural';
-            console.log('使用声音:', voice);
-
-            this.setStatus('正在生成语音...', true);
-
-            try {
-                const proxyUrl = '/api/tts/edge';
-
-                const requestBody = {
-                    text: text,
-                    voice: voice
-                };
-
-                const response = await fetch(proxyUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                });
-
-                console.log('Edge TTS响应状态:', response.status);
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    console.error('=== Edge TTS 错误 ===');
-                    console.error('错误详情:', errorData);
-                    this.setStatus(`Edge TTS错误: ${errorData.error || response.status}`, false);
-                    this.speakWithSystem(text);
-                    return;
-                }
-
-                const audioBlob = await response.blob();
-                console.log('音频数据大小:', audioBlob.size, 'bytes');
-
-                // 检查是否是JSON错误响应
-                if (audioBlob.type === 'application/json' || audioBlob.size < 100) {
-                    const errorText = await audioBlob.text();
-                    try {
-                        const errorData = JSON.parse(errorText);
-                        console.error('错误详情:', errorData);
-                        this.setStatus(`错误: ${errorData.error || '未知错误'}`, false);
-                    } catch {
-                        this.setStatus('音频数据异常', false);
-                    }
-                    this.speakWithSystem(text);
-                    return;
-                }
-
-                const audioUrl = URL.createObjectURL(audioBlob);
-                console.log('音频URL已创建');
-
-                this.currentAudio = new Audio(audioUrl);
-                this.isPlayingFishAudio = true;
-                this.isPaused = false;
-
-                this.currentAudio.onplay = () => {
-                    console.log('=== Edge TTS 开始播放 ===');
-                    this.updateState();
-                    this.setStatus(`🔊 Edge朗读第${this.currentChapter}章`, true);
-                };
-
-                this.currentAudio.onended = () => {
-                    console.log('=== Edge TTS 播放结束 ===');
-                    this.isPlayingFishAudio = false;
-                    URL.revokeObjectURL(audioUrl);
-                    if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
-                        this.nextChapter();
-                    } else {
-                        this.updateState();
-                        this.setStatus('朗读完成', false);
-                    }
-                };
-
-                this.currentAudio.onerror = (error) => {
-                    console.error('=== Edge TTS 播放错误 ===', error);
-                    this.isPlayingFishAudio = false;
-                    URL.revokeObjectURL(audioUrl);
-                    this.setStatus('播放出错', false);
-                    this.updateState();
-                };
-
-                await this.currentAudio.play();
-
-            } catch (error) {
-                console.error('=== Edge TTS 网络错误 ===', error);
-                this.setStatus('网络错误', false);
-                this.speakWithSystem(text);
-            }
-        },
-
-        // 使用Fish Audio进行语音合成
-        async speakWithFishAudio(text) {
-            const config = this.getFishAudioConfig();
-
-            console.log('=== Fish Audio 调试信息 ===');
-            console.log('API Key状态:', config.apiKey ? '已配置 (前8位: ' + config.apiKey.substring(0, 8) + '...)' : '未配置');
-            console.log('Model ID:', config.voiceId || '未设置');
-
-            if (!config.apiKey) {
-                this.setStatus('请先配置Fish Audio API Key', false);
-                // 回退到系统TTS
-                this.speakWithSystem(text);
-                return;
-            }
-
-            this.setStatus('正在生成AI语音...', true);
-
-            try {
-                // 调用后端代理API，避免CORS问题
-                const proxyUrl = '/api/tts/fish-audio';
-
-                const requestBody = {
-                    api_key: config.apiKey,
-                    text: text,
-                    model_id: config.voiceId || undefined
-                };
-
-                console.log('请求代理API:', proxyUrl);
-
-                const response = await fetch(proxyUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestBody)
-                });
-
-                console.log('响应状态:', response.status, response.statusText);
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                    console.error('=== API 错误详情 ===');
-                    console.error('状态码:', response.status);
-                    console.error('错误详情:', JSON.stringify(errorData, null, 2));
-
-                    // 显示详细错误信息
-                    let errorMsg = `API错误(${response.status})`;
-                    if (errorData.error) {
-                        errorMsg += ': ' + errorData.error;
-                    }
-                    if (errorData.detail) {
-                        errorMsg += ' - ' + errorData.detail;
-                    }
-                    this.setStatus(errorMsg, false);
-                    // 回退到系统TTS
-                    this.speakWithSystem(text);
-                    return;
-                }
-
-                const audioBlob = await response.blob();
-                console.log('音频数据大小:', audioBlob.size, 'bytes');
-                console.log('音频类型:', audioBlob.type);
-
-                if (audioBlob.size < 100) {
-                    console.error('返回的音频数据太小');
-                    this.setStatus('音频数据异常，使用系统语音', false);
-                    this.speakWithSystem(text);
-                    return;
-                }
-
-                const audioUrl = URL.createObjectURL(audioBlob);
-                console.log('音频URL已创建');
-
-                // 创建Audio元素播放
-                this.currentAudio = new Audio(audioUrl);
-                this.isPlayingFishAudio = true;
-                this.isPaused = false;
-
-                this.currentAudio.onplay = () => {
-                    console.log('=== Fish Audio 开始播放 ===');
-                    this.updateState();
-                    this.setStatus(`🎙️ AI朗读第${this.currentChapter}章`, true);
-                };
-
-                this.currentAudio.onended = () => {
-                    console.log('=== Fish Audio 播放结束 ===');
-                    this.isPlayingFishAudio = false;
-                    URL.revokeObjectURL(audioUrl);
-                    if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
-                        this.nextChapter();
-                    } else {
-                        this.updateState();
-                        this.setStatus('朗读完成', false);
-                    }
-                };
-
-                this.currentAudio.onerror = (error) => {
-                    console.error('=== Fish Audio 播放错误 ===');
-                    console.error('错误对象:', error);
-                    this.isPlayingFishAudio = false;
-                    URL.revokeObjectURL(audioUrl);
-                    this.setStatus('播放出错，请查看控制台', false);
-                    this.updateState();
-                };
-
-                await this.currentAudio.play();
-
-            } catch (error) {
-                console.error('=== Fish Audio 网络错误 ===');
-                console.error('错误类型:', error.name);
-                console.error('错误消息:', error.message);
-                console.error('错误堆栈:', error.stack);
-                this.setStatus('网络错误，使用系统语音', false);
-                // 回退到系统TTS
-                this.speakWithSystem(text);
-            }
-        },
-
-        // 使用系统TTS进行语音合成
+        // 使用浏览器TTS进行语音合成
         speakWithSystem(text) {
             this.isPlayingFishAudio = false;
 
@@ -727,9 +594,24 @@
             this.currentUtterance.rate = this.rate;
             this.currentUtterance.pitch = 1;
 
+            // 使用用户选择的语音
+            if (this.selectedVoice) {
+                this.currentUtterance.voice = this.selectedVoice;
+            } else {
+                // 如果没有选择，尝试自动选择中文语音
+                const chineseVoice = this.voices.find(v =>
+                    v.lang.startsWith('zh') && v.name.includes('Microsoft')
+                );
+                if (chineseVoice) {
+                    this.currentUtterance.voice = chineseVoice;
+                    this.selectedVoice = chineseVoice;
+                }
+            }
+
             this.currentUtterance.onstart = () => {
                 this.updateState();
-                this.setStatus(`正在朗读第${this.currentChapter}章`, true);
+                const voiceName = this.selectedVoice ? this.selectedVoice.name.split(' ').slice(-1)[0] : '系统';
+                this.setStatus(`正在朗读第${this.currentChapter}章 (${voiceName})`, true);
             };
 
             this.currentUtterance.onend = () => {
