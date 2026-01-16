@@ -22,23 +22,45 @@ python generate_static.py
 ## Project Structure
 
 ```
-app.py                    # Single-file Flask application (routes, data loading, templates)
+app.py                    # Flask application entry point (uses app factory pattern)
+config.py                 # Application configuration
+services/                 # Business logic layer
+  ├── data_service.py     # Data loading and chapter management
+  ├── annotation_service.py # Difficult character annotation
+  └── tts_service.py      # TTS proxy services (Fish Audio, Edge TTS)
+routes/                   # Route handlers (Flask blueprints)
+  ├── page_routes.py      # HTML page routes
+  └── api_routes.py       # JSON API routes
+utils/                    # Utility functions
+  └── validators.py       # Input validation and sanitization
 data/daodejing.json       # All content data (81 chapters, commentaries, translations)
 generate_static.py        # Static site generator
 static/                   # Source assets (CSS, JS, images, audio)
 templates/                # Jinja2 templates for Flask
 dist/                     # Generated static site (output of generate_static.py)
+scripts/                  # Utility scripts
+  └── deploy_helper.py    # Deployment configuration generator
 ```
 
 ## Architecture
 
 ### Backend (Flask)
-- **Single-file application**: All routes, data loading, and template rendering in `app.py`
+- **Modular architecture**: Separated into services, routes, and utils
+- **App factory pattern**: `create_app()` function for initialization
 - **No database**: All content stored in `data/daodejing.json`
-- **Routes**:
-  - `/daodejing/` - Index page with chapter list
-  - `/daodejing/chapter/<id>` - Individual chapter view
-  - `/api/daodejing/*` - JSON API endpoints
+- **Blueprint-based routing**:
+  - Pages: `/daodejing/`, `/daodejing/chapter/<id>`
+  - API: `/api/daodejing/*`, `/api/tts/*`
+
+### Service Layer
+- `DataService`: Load data with caching, get chapters, search
+- `annotate_difficult_chars()`: Add pinyin/meaning annotations
+- `FishAudioService`, `EdgeTTSService`: TTS proxy services
+
+### Security
+- Input validation in `utils/validators.py`
+- XSS protection for search queries
+- Request validation for TTS services
 
 ### Frontend
 - **No frameworks**: Vanilla JavaScript with modular object-based organization
@@ -64,7 +86,7 @@ Each chapter in `daodejing.json` contains:
 
 ### Character Annotations
 
-Difficult characters are annotated with pinyin and meanings. The `DIFFICULT_CHARS` dictionary is duplicated in both `app.py` and `generate_static.py` - when adding new annotations, update both files.
+Difficult characters are annotated with pinyin and meanings. The `DIFFICULT_CHARS` dictionary is in `services/annotation_service.py` and is also duplicated in `generate_static.py` - when adding new annotations, update both files.
 
 ### Static Site Generation
 
