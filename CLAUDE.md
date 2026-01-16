@@ -78,10 +78,22 @@ The static version removes API-dependent features like search and keeps client-s
 
 ## Deployment
 
-The project can be deployed in two ways:
+Detailed deployment documentation is available in [DEPLOYMENT.md](./DEPLOYMENT.md), including:
 
-1. **Vercel/Flask**: Deploy `app.py` directly (Vercel's Python runtime handles this)
-2. **Static hosting**: Run `generate_static.py` and deploy the `dist/` folder to any static host
+- **Vercel 动态部署**: Flask 应用 + API 功能（搜索、TTS）
+- **静态站点部署**: 纯 HTML/CSS/JS，可部署到任何静态托管
+- **混合部署**: CDN 静态文件 + Vercel API
+- 域名配置、环境变量、故障排查
+
+Quick commands:
+```bash
+# 方案一：推送到 GitHub，Vercel 自动部署
+git push origin main
+
+# 方案二：生成静态文件后部署
+python generate_static.py
+# 然后上传 dist/ 目录到 Netlify/Vercel/GitHub Pages
+```
 
 ## Key Conventions
 
