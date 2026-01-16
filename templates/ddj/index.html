@@ -9,7 +9,7 @@
         <h1 class="display-4 mb-2">{{ data.title }}</h1>
         <p class="lead text-muted">{{ data.subtitle }}</p>
         <div class="mt-4">
-            <a href="{{ url_for('chapter_view', chapter_id=1) }}" class="btn btn-primary btn-lg">
+            <a href="{{ url_for('pages.chapter_view', chapter_id=1) }}" class="btn btn-primary btn-lg">
                 开始阅读 第1章
             </a>
         </div>
@@ -44,7 +44,7 @@
         <div class="row g-2">
             {% for chapter in data.chapters %}
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <a href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+                <a href="{{ url_for('pages.chapter_view', chapter_id=chapter.chapter) }}"
                    class="chapter-card text-decoration-none">
                     <div class="card h-100">
                         <div class="card-body text-center">

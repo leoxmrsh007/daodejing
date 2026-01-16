@@ -13,7 +13,7 @@
     <!-- 章节导航 -->
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('pages.daodejing_index') }}">目录</a></li>
             <li class="breadcrumb-item active">第{{ chapter.chapter }}章</li>
         </ol>
     </nav>
@@ -83,7 +83,7 @@
                                 type="button">郭店异文</button>
                     </li>
                     <li class="nav-item ms-auto">
-                        <a href="{{ url_for('compare_view', chapter_id=chapter.chapter) }}"
+                        <a href="{{ url_for('pages.compare_view', chapter_id=chapter.chapter) }}"
                            class="btn btn-sm btn-outline-primary mt-1">全屏对照</a>
                     </li>
                 </ul>
@@ -176,7 +176,7 @@
         <ul class="pagination justify-content-center">
             {% if chapter.prev_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('pages.chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
                     ← 第{{ chapter.prev_chapter.chapter }}章
                 </a>
             </li>
@@ -192,7 +192,7 @@
 
             {% if chapter.next_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('pages.chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
                     第{{ chapter.next_chapter.chapter }}章 →
                 </a>
             </li>

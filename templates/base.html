@@ -46,7 +46,7 @@
             </button>
 
             <!-- 品牌标题 -->
-            <a class="navbar-brand" href="{{ url_for('daodejing_index') }}">
+            <a class="navbar-brand" href="{{ url_for('pages.daodejing_index') }}">
                 <span class="brand-icon">☯</span>
                 <span class="brand-text">道德经</span>
             </a>
@@ -446,8 +446,8 @@
                         <nav class="nav flex-column">
                             {% if data and data.chapters %}
                                 {% for chapter in data.chapters %}
-                                <a class="nav-link chapter-item {{ 'active' if request.endpoint == 'chapter_view' and request.view_args.get('chapter_id') == chapter.chapter else '' }}"
-                                   href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+                                <a class="nav-link chapter-item {{ 'active' if request.endpoint == 'pages.chapter_view' and request.view_args.get('chapter_id') == chapter.chapter else '' }}"
+                                   href="{{ url_for('pages.chapter_view', chapter_id=chapter.chapter) }}"
                                    data-chapter="{{ chapter.chapter }}">
                                     <span class="chapter-num">第{{ chapter.chapter }}章</span>
                                 </a>
