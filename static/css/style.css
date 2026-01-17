@@ -247,6 +247,17 @@ body {
 }
 
 /* 搜索结果样式 */
+.search-options-bar {
+    background-color: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.search-results-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 .search-result-item {
     padding: 0.75rem;
     border-bottom: 1px solid var(--border-color);
@@ -260,6 +271,53 @@ body {
 
 .search-result-item:last-child {
     border-bottom: none;
+}
+
+/* 成语搜索结果 */
+.idiom-result {
+    background-color: rgba(255, 193, 7, 0.05);
+}
+
+[data-theme="dark"] .idiom-result {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+/* 章节搜索结果 */
+.chapter-result {
+    border-left: 3px solid transparent;
+}
+
+.chapter-result:hover {
+    border-left-color: var(--accent-color);
+}
+
+/* 匹配项 */
+.match-item {
+    padding: 0.25rem 0;
+    padding-left: 0.5rem;
+}
+
+.match-item:not(:last-child) {
+    margin-bottom: 0.25rem;
+}
+
+/* 搜索结果滚动条 */
+.search-results-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results-list::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }
 
 /* 疑难字标注 - 使用纯CSS方案 */

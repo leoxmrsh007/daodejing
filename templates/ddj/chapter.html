@@ -13,10 +13,46 @@
     <!-- 章节导航 -->
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url_for('pages.daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
             <li class="breadcrumb-item active">第{{ chapter.chapter }}章</li>
         </ol>
     </nav>
+
+    <!-- 操作按钮栏 -->
+    <div class="action-bar mb-3 d-flex justify-content-between align-items-center">
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-outline-primary" id="bookmarkBtn" title="收藏本章">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">收藏</span>
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="noteBtn" title="添加笔记">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <span class="ms-1">笔记</span>
+            </button>
+        </div>
+        <div class="chapter-id-badge">
+            <span class="badge bg-secondary">第{{ chapter.chapter }}章</span>
+        </div>
+    </div>
+
+    <!-- 成语相关 -->
+    <section class="idioms-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">📖 相关成语</h5>
+            </div>
+            <div class="card-body">
+                <div id="idiomsContainer" class="idioms-container">
+                    <span class="text-muted">加载中...</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 原文卡片 -->
     <section class="original-section mb-4">
@@ -24,8 +60,6 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">第{{ chapter.chapter }}章 · 原文</h5>
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-secondary" id="togglePinyin"
-                            title="显示/隐藏拼音">拼音</button>
                     <button type="button" class="btn btn-outline-secondary" id="copyOriginal"
                             title="复制原文">复制</button>
                 </div>
@@ -83,7 +117,7 @@
                                 type="button">郭店异文</button>
                     </li>
                     <li class="nav-item ms-auto">
-                        <a href="{{ url_for('pages.compare_view', chapter_id=chapter.chapter) }}"
+                        <a href="{{ url_for('compare_view', chapter_id=chapter.chapter) }}"
                            class="btn btn-sm btn-outline-primary mt-1">全屏对照</a>
                     </li>
                 </ul>
@@ -176,7 +210,7 @@
         <ul class="pagination justify-content-center">
             {% if chapter.prev_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('pages.chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
                     ← 第{{ chapter.prev_chapter.chapter }}章
                 </a>
             </li>
@@ -192,7 +226,7 @@
 
             {% if chapter.next_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('pages.chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
                     第{{ chapter.next_chapter.chapter }}章 →
                 </a>
             </li>
@@ -203,6 +237,29 @@
             {% endif %}
         </ul>
     </nav>
+
+    <!-- 笔记模态框 -->
+    <div class="modal fade" id="noteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📝 阅读笔记 - 第{{ chapter.chapter }}章</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="noteTextarea" class="form-control" rows="6"
+                              placeholder="写下你的阅读心得..."></textarea>
+                    <div class="form-text text-muted mt-2">
+                        笔记保存在本地浏览器中
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveNoteBtn">保存笔记</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -322,11 +379,225 @@
 .version-explanation {
     padding: 0.5rem 0;
 }
+
+/* 操作按钮栏 */
+.action-bar {
+    background-color: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+/* 成语展示 */
+.idioms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.idiom-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.idiom-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.idiom-tag .idiom-word {
+    font-weight: bold;
+}
+
+.idiom-tag .idiom-chapter {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}
+
+/* 收藏按钮状态 */
+#bookmarkBtn.active svg {
+    fill: var(--accent-color);
+}
+
+#bookmarkBtn.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
 </style>
 {% endblock %}
 
 {% block extra_js %}
 <script>
+// 当前章节号
+const CURRENT_CHAPTER = {{ chapter.chapter }};
+
+// ==================== 成语功能 ====================
+async function loadIdioms() {
+    const container = document.getElementById('idiomsContainer');
+    if (!container) return;
+
+    try {
+        const response = await fetch('/api/daodejing/idioms');
+        const data = await response.json();
+        const idioms = data.idioms || [];
+
+        // 筛选与本章节相关的成语
+        const relatedIdioms = idioms.filter(idiom => idiom.chapter === CURRENT_CHAPTER);
+
+        if (relatedIdioms.length === 0) {
+            container.innerHTML = '<span class="text-muted">本章暂无收录相关成语</span>';
+            return;
+        }
+
+        container.innerHTML = relatedIdioms.map(idiom => `
+            <a href="/daodejing/chapter/${idiom.chapter}"
+               class="idiom-tag"
+               title="${idiom.meaning}\n原文：${idiom.source}">
+                <span class="idiom-word">${idiom.word}</span>
+                <span class="idiom-chapter">第${idiom.chapter}章</span>
+            </a>
+        `).join('');
+    } catch (error) {
+        console.error('加载成语失败:', error);
+        container.innerHTML = '<span class="text-muted">加载失败</span>';
+    }
+}
+
+// ==================== 书签功能 ====================
+function initBookmarks() {
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    if (!bookmarkBtn) return;
+
+    const BOOKMARKS_KEY = 'daodejing_bookmarks';
+    const getBookmarks = () => JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '[]');
+    const isBookmarked = () => getBookmarks().includes(CURRENT_CHAPTER);
+
+    // 更新按钮状态
+    function updateBookmarkButton() {
+        if (isBookmarked()) {
+            bookmarkBtn.classList.add('active');
+            bookmarkBtn.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">已收藏</span>
+            `;
+        } else {
+            bookmarkBtn.classList.remove('active');
+            bookmarkBtn.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">收藏</span>
+            `;
+        }
+    }
+
+    // 切换收藏状态
+    bookmarkBtn.addEventListener('click', function() {
+        let bookmarks = getBookmarks();
+        if (isBookmarked()) {
+            bookmarks = bookmarks.filter(id => id !== CURRENT_CHAPTER);
+            showToast('已取消收藏');
+        } else {
+            bookmarks.push(CURRENT_CHAPTER);
+            showToast('已收藏本章');
+        }
+        localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+        updateBookmarkButton();
+    });
+
+    updateBookmarkButton();
+}
+
+// ==================== 笔记功能 ====================
+function initNotes() {
+    const noteBtn = document.getElementById('noteBtn');
+    const noteModal = document.getElementById('noteModal');
+    const noteTextarea = document.getElementById('noteTextarea');
+    const saveNoteBtn = document.getElementById('saveNoteBtn');
+
+    if (!noteBtn || !noteModal) return;
+
+    const NOTES_KEY = 'daodejing_notes';
+    const getNotes = () => JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+
+    // 打开笔记模态框
+    noteBtn.addEventListener('click', function() {
+        const notes = getNotes();
+        const chapterNote = notes[CURRENT_CHAPTER] || '';
+        noteTextarea.value = chapterNote;
+
+        // 更新按钮状态
+        if (chapterNote) {
+            noteBtn.classList.add('active');
+            noteBtn.querySelector('span').textContent = '编辑笔记';
+        } else {
+            noteBtn.classList.remove('active');
+            noteBtn.querySelector('span').textContent = '笔记';
+        }
+
+        const modal = new bootstrap.Modal(noteModal);
+        modal.show();
+    });
+
+    // 保存笔记
+    saveNoteBtn.addEventListener('click', function() {
+        const notes = getNotes();
+        notes[CURRENT_CHAPTER] = noteTextarea.value.trim();
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+
+        if (notes[CURRENT_CHAPTER]) {
+            noteBtn.classList.add('active');
+            noteBtn.querySelector('span').textContent = '编辑笔记';
+            showToast('笔记已保存');
+        } else {
+            noteBtn.classList.remove('active');
+            noteBtn.querySelector('span').textContent = '笔记';
+        }
+
+        const modal = bootstrap.Modal.getInstance(noteModal);
+        if (modal) modal.hide();
+    });
+
+    // 检查是否有笔记
+    const notes = getNotes();
+    if (notes[CURRENT_CHAPTER]) {
+        noteBtn.classList.add('active');
+        noteBtn.querySelector('span').textContent = '编辑笔记';
+    }
+}
+
+// ==================== 工具函数 ====================
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'position-fixed bottom-0 end-0 p-3';
+    toast.style.zIndex = '1100';
+    toast.innerHTML = `
+        <div class="toast show">
+            <div class="toast-body">${message}</div>
+        </div>
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2000);
+}
+
+// ==================== 初始化 ====================
+document.addEventListener('DOMContentLoaded', function() {
+    loadIdioms();
+    initBookmarks();
+    initNotes();
+});
 
 // 键盘导航
 document.addEventListener('keydown', function(e) {
@@ -337,7 +608,7 @@ document.addEventListener('keydown', function(e) {
         const nextLink = document.querySelector('.chapter-navigation .page-item:last-child a');
         if (nextLink) nextLink.click();
     } else if (e.key === 'Escape') {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('searchModal'));
+        const modal = bootstrap.Modal.getInstance(document.getElementById('noteModal'));
         if (modal) modal.hide();
     }
 });

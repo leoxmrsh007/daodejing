@@ -89,8 +89,8 @@ const KeyboardShortcuts = {
                 }
                 break;
             case 'toggleSpeech':
-                if (typeof SpeechManager !== 'undefined') {
-                    SpeechManager.toggle();
+                if (typeof window.SpeechManager !== 'undefined') {
+                    window.SpeechManager.toggle();
                 }
                 break;
             case 'toggleBookmark':

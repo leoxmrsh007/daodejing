@@ -46,7 +46,7 @@
             </button>
 
             <!-- 品牌标题 -->
-            <a class="navbar-brand" href="{{ url_for('pages.daodejing_index') }}">
+            <a class="navbar-brand" href="{{ url_for('daodejing_index') }}">
                 <span class="brand-icon">☯</span>
                 <span class="brand-text">道德经</span>
             </a>
@@ -87,11 +87,23 @@
 
                 <!-- 分享按钮 -->
                 <button class="btn btn-sm btn-outline-light" id="shareToggle" title="分享">
-                    <span>📤</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
                 </button>
                 <!-- AI解读按钮 -->
                 <button class="btn btn-sm btn-outline-primary ai-btn" id="aiToggle" title="AI解读">
-                    <span>🤖</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                        <circle cx="12" cy="5" r="2"></circle>
+                        <path d="M12 7v4"></path>
+                        <line x1="8" y1="16" x2="8" y2="16"></line>
+                        <line x1="16" y1="16" x2="16" y2="16"></line>
+                    </svg>
                 </button>
                 <!-- 设置按钮 -->
                 <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
@@ -224,11 +236,11 @@
 
             <!-- 背景音乐 -->
             <div class="setting-section">
-                <label class="setting-label">背景音乐</label>
+                <label class="setting-label">背景音乐（中国古典）</label>
                 <select class="form-select form-select-sm mb-2" id="musicSelect">
                     <option value="none">关闭</option>
-                    <option value="chinese">中国古典（古琴/琵琶）</option>
-                    <option value="western">西方古典（钢琴/小提琴）</option>
+                    <option value="chinese" selected>中国古典（古琴/编钟）</option>
+                    <option value="western">冥想阅读（静心曲）</option>
                 </select>
                 <div class="volume-control-inline">
                     <span class="volume-label">音量</span>
@@ -304,23 +316,14 @@
 
             <!-- 语音朗读设置 -->
             <div class="setting-section">
-                <label class="setting-label">🎙️ 语音朗读设置</label>
+                <label class="setting-label">🎙️ 语音朗读</label>
                 <div class="mb-2">
-                    <label class="small text-muted">选择语音：</label>
                     <select class="form-select form-select-sm" id="browserVoice">
-                        <option value="">正在加载可用语音...</option>
+                        <option value="zh-TW">闽南语</option>
+                        <option value="zh-HK">粤语</option>
+                        <option value="ja-JP">日语</option>
+                        <option value="ko-KR">韩语</option>
                     </select>
-                    <small class="text-muted d-block">
-                        提示：Microsoft语音质量最佳，搜索"Microsoft"或"Chinese"
-                    </small>
-                </div>
-                <div id="fishAudioSettings" class="fish-audio-settings">
-                    <label class="small text-muted d-block mb-2">或使用 Fish Audio（需API Key）：</label>
-                    <input type="password" class="form-control form-control-sm mb-2" id="fishApiKey" placeholder="Fish Audio API Key（可选）">
-                    <input type="text" class="form-control form-control-sm mb-2" id="fishVoiceId" placeholder="声音模型ID（可选）">
-                    <small class="text-muted d-block">
-                        在 <a href="https://fish.audio/app/text-to-speech" target="_blank" style="color: #d4a574;">Fish Audio</a> 克隆声音
-                    </small>
                 </div>
             </div>
         </div>
@@ -446,8 +449,8 @@
                         <nav class="nav flex-column">
                             {% if data and data.chapters %}
                                 {% for chapter in data.chapters %}
-                                <a class="nav-link chapter-item {{ 'active' if request.endpoint == 'pages.chapter_view' and request.view_args.get('chapter_id') == chapter.chapter else '' }}"
-                                   href="{{ url_for('pages.chapter_view', chapter_id=chapter.chapter) }}"
+                                <a class="nav-link chapter-item"
+                                   href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
                                    data-chapter="{{ chapter.chapter }}">
                                     <span class="chapter-num">第{{ chapter.chapter }}章</span>
                                 </a>
@@ -489,21 +492,6 @@
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop preload="none"></audio>
-
-    <!-- 音乐资源 -->
-    <script>
-        // 音乐列表
-        window.musicTracks = {
-            chinese: [
-                '/static/audio/gaoshanliushui.mp3',  // 高山流水
-                'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3'
-            ],
-            western: [
-                'https://upload.wikimedia.org/wikipedia/commons/e/eb/Guqin_-_Yangguan_San_Die_%28Three_Refrains_on_the_Yang_Pass_Theme%29.ogg',
-                'https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a73467.mp3'
-            ]
-        };
-    </script>
 
     <!-- 音乐音量控制面板 -->
     <div class="volume-panel" id="volumePanel">
@@ -552,7 +540,13 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
+    <!-- 自定义模块 -->
+    <script src="{{ url_for('static', filename='js/modules/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/sidebar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/music.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/shortcuts.js') }}"></script>
+
+    <!-- 主应用 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     {% block extra_js %}{% endblock %}
