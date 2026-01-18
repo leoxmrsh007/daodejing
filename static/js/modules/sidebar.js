@@ -68,6 +68,17 @@ const SidebarManager = {
     }
 };
 
+// 导出模块（兼容多种模块系统）
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = SidebarManager;
+}
+
+// 自动初始化
+if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => SidebarManager.init());
+    } else {
+        SidebarManager.init();
+    }
+    window.SidebarManager = SidebarManager;
 }

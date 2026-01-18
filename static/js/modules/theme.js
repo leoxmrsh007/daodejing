@@ -62,3 +62,13 @@ const ThemeManager = {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = ThemeManager;
 }
+
+// 自动初始化
+if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => ThemeManager.init());
+    } else {
+        ThemeManager.init();
+    }
+    window.ThemeManager = ThemeManager;
+}

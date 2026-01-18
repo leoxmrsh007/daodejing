@@ -293,6 +293,21 @@ const MusicManager = {
     }
 };
 
+// 导出模块（兼容多种模块系统）
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = MusicManager;
+}
+
+// 自动初始化
+if (typeof window !== 'undefined') {
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => MusicManager.init());
+    } else {
+        // DOM 已经加载完成
+        MusicManager.init();
+    }
+
+    // 导出到全局
+    window.MusicManager = MusicManager;
 }

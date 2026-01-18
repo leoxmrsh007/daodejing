@@ -205,6 +205,17 @@ const KeyboardShortcuts = {
     }
 };
 
+// 导出模块（兼容多种模块系统）
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = KeyboardShortcuts;
+}
+
+// 自动初始化
+if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => KeyboardShortcuts.init());
+    } else {
+        KeyboardShortcuts.init();
+    }
+    window.KeyboardShortcuts = KeyboardShortcuts;
 }
