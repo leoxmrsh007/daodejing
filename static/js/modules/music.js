@@ -31,6 +31,7 @@ const MusicManager = {
     currentType: 'chinese',
 
     init() {
+        console.log('[MusicManager] 初始化音乐播放器');
         this.audio = document.getElementById('bgMusic');
         this.toggleBtn = document.getElementById('musicToggle');
         this.loopBtn = document.getElementById('musicLoop');
@@ -42,12 +43,15 @@ const MusicManager = {
         this.musicVolumeSlider = document.getElementById('musicVolumeSlider');
         this.musicVolumeValue = document.getElementById('musicVolumeValue');
 
+        console.log('[MusicManager] audio:', !!this.audio, 'toggleBtn:', !!this.toggleBtn);
+
         if (!this.audio || !this.toggleBtn) return;
 
         // 加载保存的设置
         const savedVolume = localStorage.getItem(this.STORAGE_KEY);
         this.volume = savedVolume ? parseFloat(savedVolume) : this.DEFAULT_VOLUME;
         this.audio.volume = this.volume;
+        console.log('[MusicManager] 音量:', this.volume);
 
         const savedMusicType = localStorage.getItem(this.MUSIC_TYPE_KEY);
         if (savedMusicType && savedMusicType !== 'none') {
@@ -63,8 +67,12 @@ const MusicManager = {
         // 设置音频循环
         this.audio.loop = true;
 
-        // 添加音频错误处理
-        this.audio.addEventListener('error', () => this.handleAudioError());
+        // 添加音频事件监听
+        this.audio.addEventListener('loadstart', () => console.log('[MusicManager] 音频开始加载'));
+        this.audio.addEventListener('canplay', () => console.log('[MusicManager] 音频可以播放'));
+        this.audio.addEventListener('play', () => console.log('[MusicManager] 音频播放'));
+        this.audio.addEventListener('pause', () => console.log('[MusicManager] 音频暂停'));
+        this.audio.addEventListener('error', (e) => console.error('[MusicManager] 音频错误:', e));
     },
 
     bindEvents() {
@@ -133,19 +141,21 @@ const MusicManager = {
     },
 
     toggle() {
+        console.log('[MusicManager] toggle, paused:', this.audio.paused, 'src:', this.audio.src);
         if (this.audio.paused) {
             if (!this.audio.src || this.audio.error) {
+                console.log('[MusicManager] 需要加载曲目');
                 this.loadTrack();
             }
             this.audio.play().then(() => {
+                console.log('[MusicManager] 播放成功');
                 this.updateState();
                 if (this.currentTrackName) {
                     this.showToast(`▶️ ${this.currentTrackName}`);
                 }
             }).catch(err => {
-                console.warn('播放失败:', err);
-                this.showToast('播放失败，尝试切换曲目');
-                this.playNext();
+                console.error('[MusicManager] 播放失败:', err);
+                this.showToast('播放失败: ' + err.message);
             });
         } else {
             this.audio.pause();
@@ -172,7 +182,7 @@ const MusicManager = {
     loadTrack() {
         const tracks = this.tracks[this.currentType];
         if (!tracks || tracks.length === 0) {
-            console.warn('没有可用的音乐');
+            console.error('[MusicManager] 没有可用的音乐');
             this.showToast('没有可用的音乐');
             return;
         }
@@ -182,7 +192,7 @@ const MusicManager = {
         this.audio.load();
         this.currentTrackName = track.name;
 
-        console.log(`加载音乐: ${track.name}`);
+        console.log(`[MusicManager] 加载音乐: ${track.name}, URL: ${track.url}`);
     },
 
     handleAudioError() {
