@@ -348,8 +348,8 @@
             }
         },
 
-        // 静态方法：在首页显示阅读进度
-        static renderHomePageProgress() {
+        // 获取阅读进度数据（供首页使用）
+        getProgressData() {
             const progress = JSON.parse(localStorage.getItem('daodejing_reading_progress') || '{}');
             const history = JSON.parse(localStorage.getItem('daodejing_reading_history') || '[]');
             const readCount = new Set(history.map(h => h.chapter)).size;
