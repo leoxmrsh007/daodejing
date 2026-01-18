@@ -20,7 +20,10 @@
       "WebSearch",
       "mcp__web-reader__webReader",
       "mcp__web-search-prime__webSearchPrime",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(for f in youlan lisao yangguan dongting qinwang xiaoxiang)",
+      "Bash(do echo:*)",
+      "Bash(done)"
     ]
   }
 }

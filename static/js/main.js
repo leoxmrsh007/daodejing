@@ -270,6 +270,269 @@
         }
     };
 
+    // ==================== 阅读进度管理器 ====================
+    const ProgressManager = {
+        STORAGE_KEY: 'daodejing_reading_progress',
+        HISTORY_KEY: 'daodejing_reading_history',
+        MAX_HISTORY: 20,
+
+        init() {
+            this.currentChapter = this.getCurrentChapterId();
+            if (!this.currentChapter) return;
+
+            this.saveProgress();
+            this.updateLastReadUI();
+        },
+
+        getCurrentChapterId() {
+            // 从 URL 获取章节 ID
+            const match = window.location.pathname.match(/\/chapter\/(\d+)/);
+            return match ? parseInt(match[1]) : null;
+        },
+
+        saveProgress() {
+            const now = new Date();
+            const progress = {
+                chapter: this.currentChapter,
+                timestamp: now.getTime(),
+                date: now.toLocaleDateString('zh-CN'),
+                time: now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
+            };
+
+            // 保存最后阅读位置
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(progress));
+
+            // 添加到阅读历史
+            let history = this.getHistory();
+            history = history.filter(item => item.chapter !== this.currentChapter);
+            history.unshift(progress);
+            if (history.length > this.MAX_HISTORY) {
+                history = history.slice(0, this.MAX_HISTORY);
+            }
+            localStorage.setItem(this.HISTORY_KEY, JSON.stringify(history));
+        },
+
+        getLastReadChapter() {
+            const saved = localStorage.getItem(this.STORAGE_KEY);
+            return saved ? JSON.parse(saved) : null;
+        },
+
+        getHistory() {
+            const saved = localStorage.getItem(this.HISTORY_KEY);
+            return saved ? JSON.parse(saved) : [];
+        },
+
+        getReadingProgress() {
+            const history = this.getHistory();
+            const uniqueChapters = new Set(history.map(item => item.chapter));
+            return {
+                total: 81,
+                read: uniqueChapters.size,
+                percentage: Math.round((uniqueChapters.size / 81) * 100)
+            };
+        },
+
+        updateLastReadUI() {
+            // 更新"继续阅读"按钮
+            const lastRead = this.getLastReadChapter();
+            const continueBtn = document.getElementById('continueReadingBtn');
+            if (continueBtn && lastRead) {
+                continueBtn.href = `/daodejing/chapter/${lastRead.chapter}`;
+                continueBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                    </svg>
+                    继续阅读 第${lastRead.chapter}章
+                `;
+                continueBtn.classList.remove('d-none');
+            }
+        },
+
+        // 静态方法：在首页显示阅读进度
+        static renderHomePageProgress() {
+            const progress = JSON.parse(localStorage.getItem('daodejing_reading_progress') || '{}');
+            const history = JSON.parse(localStorage.getItem('daodejing_reading_history') || '[]');
+            const readCount = new Set(history.map(h => h.chapter)).size;
+            const percentage = Math.round((readCount / 81) * 100);
+
+            return {
+                lastChapter: progress.chapter,
+                lastDate: progress.date,
+                readCount,
+                percentage
+            };
+        }
+    };
+
+    // ==================== 复制管理器 ====================
+    const CopyManager = {
+        init() {
+            this.copyButtons = document.querySelectorAll('[data-copy-target]');
+            if (this.copyButtons.length === 0) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            this.copyButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = btn.dataset.copyTarget;
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        this.copyToClipboard(target.textContent.trim(), btn);
+                    }
+                });
+            });
+        },
+
+        async copyToClipboard(text, btn) {
+            try {
+                await navigator.clipboard.writeText(text);
+                this.showSuccess(btn);
+            } catch (err) {
+                // 降级方案
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    this.showSuccess(btn);
+                } catch (e) {
+                    console.error('复制失败:', e);
+                }
+                document.body.removeChild(textarea);
+            }
+        },
+
+        showSuccess(btn) {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg> 已复制`;
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-outline-secondary');
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-secondary');
+            }, 2000);
+        }
+    };
+
+    // ==================== 引用卡片管理器 ====================
+    const QuoteCardManager = {
+        init() {
+            this.quoteBtn = document.getElementById('quoteBtn');
+            this.quoteModal = document.getElementById('quoteModal');
+            if (!this.quoteBtn) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            this.quoteBtn.addEventListener('click', () => {
+                this.generateQuoteCard();
+            });
+        },
+
+        generateQuoteCard() {
+            const chapter = this.getCurrentChapter();
+            const original = document.querySelector('#originalText')?.textContent?.trim() || '';
+            const chapterNum = document.querySelector('#chapterNum')?.textContent || '';
+
+            if (!original) return;
+
+            // 创建预览
+            const preview = document.getElementById('quotePreview');
+            const canvas = document.getElementById('quoteCanvas');
+            if (!preview || !canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const width = 600;
+            const height = 400;
+
+            canvas.width = width;
+            canvas.height = height;
+
+            // 背景
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#2c1810');
+            gradient.addColorStop(1, '#1a0f0a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // 边框装饰
+            ctx.strokeStyle = '#c9a227';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(15, 15, width - 30, height - 30);
+
+            // 章节号
+            ctx.fillStyle = '#c9a227';
+            ctx.font = 'bold 24px serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(chapterNum, width / 2, 60);
+
+            // 原文（分行）
+            ctx.fillStyle = '#e8e0d8';
+            ctx.font = '20px serif';
+            const lines = this.wrapText(ctx, original, width - 100);
+            let y = 120;
+            lines.forEach(line => {
+                ctx.fillText(line, width / 2, y);
+                y += 35;
+            });
+
+            // 底部署名
+            ctx.fillStyle = '#888';
+            ctx.font = '14px sans-serif';
+            ctx.fillText('— 老子《道德经》', width / 2, height - 40);
+
+            // 显示下载按钮
+            const downloadBtn = document.getElementById('downloadQuoteBtn');
+            if (downloadBtn) {
+                downloadBtn.onclick = () => {
+                    const link = document.createElement('a');
+                    link.download = `道德经-${chapterNum}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                };
+            }
+
+            // 显示模态框
+            const modal = new bootstrap.Modal(this.quoteModal);
+            modal.show();
+        },
+
+        wrapText(ctx, text, maxWidth) {
+            const chars = text.split('');
+            const lines = [];
+            let currentLine = '';
+
+            for (const char of chars) {
+                const testLine = currentLine + char;
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && currentLine !== '') {
+                    lines.push(currentLine);
+                    currentLine = char;
+                } else {
+                    currentLine = testLine;
+                }
+            }
+            if (currentLine !== '') {
+                lines.push(currentLine);
+            }
+
+            return lines.slice(0, 6); // 最多6行
+        },
+
+        getCurrentChapter() {
+            const match = window.location.pathname.match(/\/chapter\/(\d+)/);
+            return match ? parseInt(match[1]) : null;
+        }
+    };
+
     // ==================== 朗读管理器 ====================
     const SpeechManager = {
         STORAGE_KEY: 'daodejing_speech',
@@ -1132,6 +1395,9 @@
             { name: 'MusicManager', init: () => MusicManager?.init() },
             { name: 'KeyboardShortcuts', init: () => KeyboardShortcuts?.init() },
             { name: 'SearchManager', init: () => SearchManager?.init() },
+            { name: 'ProgressManager', init: () => ProgressManager?.init() },
+            { name: 'CopyManager', init: () => CopyManager?.init() },
+            { name: 'QuoteCardManager', init: () => QuoteCardManager?.init() },
             { name: 'SpeechManager', init: () => SpeechManager?.init() },
             { name: 'SettingsManager', init: () => SettingsManager?.init() },
             { name: 'ShareManager', init: () => ShareManager?.init() },
@@ -1160,6 +1426,9 @@
     // 导出到全局
     window.DaoDeJingApp = {
         SearchManager,
+        ProgressManager,
+        CopyManager,
+        QuoteCardManager,
         SpeechManager,
         SettingsManager,
         ShareManager,
@@ -1170,6 +1439,9 @@
 
     // 兼容性别名
     window.SearchManager = SearchManager;
+    window.ProgressManager = ProgressManager;
+    window.CopyManager = CopyManager;
+    window.QuoteCardManager = QuoteCardManager;
     window.SpeechManager = SpeechManager;
     window.SettingsManager = SettingsManager;
     window.ShareManager = ShareManager;

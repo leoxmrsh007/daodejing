@@ -8,12 +8,41 @@
     <header class="page-header text-center py-5">
         <h1 class="display-4 mb-2">{{ data.title }}</h1>
         <p class="lead text-muted">{{ data.subtitle }}</p>
-        <div class="mt-4">
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
             <a href="{{ url_for('chapter_view', chapter_id=1) }}" class="btn btn-primary btn-lg">
-                开始阅读 第1章
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                开始阅读
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg d-none" id="continueReadingBtn">
+                继续阅读
             </a>
         </div>
     </header>
+
+    <!-- 阅读进度 -->
+    <section class="progress-section mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                            <span>📊 阅读进度</span>
+                            <span class="badge bg-primary" id="readPercentage">0%</span>
+                        </h5>
+                        <div class="progress mb-3" style="height: 10px;">
+                            <div class="progress-bar bg-success" id="progressBar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <p class="card-text text-muted small mb-0">
+                            已阅读 <strong id="readCount">0</strong> / 81 章
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 平台介绍 -->
     <section class="intro-section mb-5">
@@ -147,4 +176,43 @@
     border-radius: 0.5rem;
 }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    // 从本地存储加载阅读进度
+    const PROGRESS_KEY = 'daodejing_reading_progress';
+    const HISTORY_KEY = 'daodejing_reading_history';
+
+    function loadReadingProgress() {
+        const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        const uniqueChapters = new Set(history.map(h => h.chapter));
+        const readCount = uniqueChapters.size;
+        const percentage = Math.round((readCount / 81) * 100);
+
+        // 更新进度条
+        document.getElementById('readCount').textContent = readCount;
+        document.getElementById('readPercentage').textContent = percentage + '%';
+        document.getElementById('progressBar').style.width = percentage + '%';
+
+        // 更新"继续阅读"按钮
+        if (progress.chapter) {
+            const continueBtn = document.getElementById('continueReadingBtn');
+            continueBtn.href = `/daodejing/chapter/${progress.chapter}`;
+            continueBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>
+                继续阅读 第${progress.chapter}章
+            `;
+            continueBtn.classList.remove('d-none');
+        }
+    }
+
+    // 页面加载时执行
+    document.addEventListener('DOMContentLoaded', loadReadingProgress);
+})();
+</script>
 {% endblock %}

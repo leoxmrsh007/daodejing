@@ -34,9 +34,17 @@
                 </svg>
                 <span class="ms-1">笔记</span>
             </button>
+            <button type="button" class="btn btn-outline-success" id="quoteBtn" title="生成引用卡片">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span class="ms-1">引用卡片</span>
+            </button>
         </div>
         <div class="chapter-id-badge">
-            <span class="badge bg-secondary">第{{ chapter.chapter }}章</span>
+            <span class="badge bg-secondary" id="chapterNum">第{{ chapter.chapter }}章</span>
         </div>
     </div>
 
@@ -60,8 +68,13 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">第{{ chapter.chapter }}章 · 原文</h5>
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal"
-                            title="复制原文">复制</button>
+                    <button type="button" class="btn btn-outline-secondary" data-copy-target="originalText"
+                            title="复制原文">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
             <div class="card-body">
@@ -75,11 +88,18 @@
     <!-- 现代白话译文 -->
     <section class="modern-section mb-4">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">现代白话译文</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-copy-target="translationText"
+                        title="复制译文">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+                </button>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">{{ chapter.modern_chinese }}</p>
+                <p class="modern-text mb-0" id="translationText">{{ chapter.modern_chinese }}</p>
             </div>
         </div>
     </section>
@@ -256,6 +276,34 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                     <button type="button" class="btn btn-primary" id="saveNoteBtn">保存笔记</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引用卡片模态框 -->
+    <div class="modal fade" id="quoteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📜 引用卡片</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="quotePreview" class="mb-3">
+                        <canvas id="quoteCanvas" class="img-fluid border rounded"></canvas>
+                    </div>
+                    <p class="text-muted small">生成包含本章原文的精美引用卡片</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id="downloadQuoteBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                        </svg>
+                        下载图片
+                    </button>
                 </div>
             </div>
         </div>
@@ -611,15 +659,6 @@ document.addEventListener('keydown', function(e) {
         const modal = bootstrap.Modal.getInstance(document.getElementById('noteModal'));
         if (modal) modal.hide();
     }
-});
-
-// 复制原文
-document.getElementById('copyOriginal')?.addEventListener('click', function() {
-    const text = document.getElementById('originalText').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        this.textContent = '已复制';
-        setTimeout(() => this.textContent = '复制', 2000);
-    });
 });
 </script>
 {% endblock %}
