@@ -18,7 +18,7 @@ if not project_root.exists():
 sys.path.insert(0, str(project_root))
 os.chdir(project_root)
 
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_from_directory
 
 # 设置模板和静态文件路径
 template_folder = str(project_root / 'templates')
@@ -138,6 +138,12 @@ def get_chapter_with_annotation(chapter_id):
 @app.route('/')
 def index():
     return render_template('ddj/index.html', data=load_data())
+
+
+# 静态文件路由（Vercel 兼容）
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(static_folder, filename)
 
 
 @app.route('/daodejing/')
