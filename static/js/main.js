@@ -368,6 +368,7 @@
     const CopyManager = {
         init() {
             this.copyButtons = document.querySelectorAll('[data-copy-target]');
+            console.log('[CopyManager] 找到复制按钮:', this.copyButtons.length);
             if (this.copyButtons.length === 0) return;
 
             this.bindEvents();
@@ -376,40 +377,60 @@
         bindEvents() {
             this.copyButtons.forEach(btn => {
                 btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     const targetId = btn.dataset.copyTarget;
+                    console.log('[CopyManager] 复制目标:', targetId);
                     const target = document.getElementById(targetId);
                     if (target) {
-                        this.copyToClipboard(target.textContent.trim(), btn);
+                        // 获取纯文本（去除HTML标签）
+                        const text = target.innerText || target.textContent;
+                        const cleanText = text.trim();
+                        console.log('[CopyManager] 复制文本长度:', cleanText.length);
+                        this.copyToClipboard(cleanText, btn);
+                    } else {
+                        console.error('[CopyManager] 找不到目标元素:', targetId);
                     }
                 });
             });
         },
 
         async copyToClipboard(text, btn) {
+            console.log('[CopyManager] 开始复制...');
             try {
                 await navigator.clipboard.writeText(text);
+                console.log('[CopyManager] Clipboard API 成功');
                 this.showSuccess(btn);
             } catch (err) {
+                console.log('[CopyManager] Clipboard API 失败，使用降级方案:', err);
                 // 降级方案
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
                 textarea.style.position = 'fixed';
                 textarea.style.opacity = '0';
+                textarea.style.top = '0';
+                textarea.style.left = '0';
                 document.body.appendChild(textarea);
                 textarea.select();
                 try {
-                    document.execCommand('copy');
-                    this.showSuccess(btn);
+                    const success = document.execCommand('copy');
+                    console.log('[CopyManager] execCommand 结果:', success);
+                    if (success) {
+                        this.showSuccess(btn);
+                    } else {
+                        console.error('[CopyManager] execCommand 返回 false');
+                    }
                 } catch (e) {
-                    console.error('复制失败:', e);
+                    console.error('[CopyManager] 复制失败:', e);
                 }
                 document.body.removeChild(textarea);
             }
         },
 
         showSuccess(btn) {
+            console.log('[CopyManager] 显示成功状态');
             const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg> 已复制`;
+            btn.innerHTML = `<span style="color: green;">✓</span>`;
             btn.classList.add('btn-success');
             btn.classList.remove('btn-outline-secondary');
 
@@ -426,13 +447,18 @@
         init() {
             this.quoteBtn = document.getElementById('quoteBtn');
             this.quoteModal = document.getElementById('quoteModal');
-            if (!this.quoteBtn) return;
+            console.log('[QuoteCardManager] 初始化, quoteBtn:', !!this.quoteBtn, 'quoteModal:', !!this.quoteModal);
+            if (!this.quoteBtn) {
+                console.log('[QuoteCardManager] 未找到 quoteBtn，跳过初始化');
+                return;
+            }
 
             this.bindEvents();
         },
 
         bindEvents() {
             this.quoteBtn.addEventListener('click', () => {
+                console.log('[QuoteCardManager] 按钮被点击');
                 this.generateQuoteCard();
             });
         },
@@ -442,12 +468,20 @@
             const original = document.querySelector('#originalText')?.textContent?.trim() || '';
             const chapterNum = document.querySelector('#chapterNum')?.textContent || '';
 
-            if (!original) return;
+            console.log('[QuoteCardManager] 生成卡片, 章节:', chapter, '文本长度:', original.length);
+
+            if (!original) {
+                console.error('[QuoteCardManager] 未找到原文内容');
+                return;
+            }
 
             // 创建预览
             const preview = document.getElementById('quotePreview');
             const canvas = document.getElementById('quoteCanvas');
-            if (!preview || !canvas) return;
+            if (!preview || !canvas) {
+                console.error('[QuoteCardManager] 未找到 canvas 或 preview');
+                return;
+            }
 
             const ctx = canvas.getContext('2d');
             const width = 600;
@@ -719,6 +753,8 @@
             this.musicVolumeSlider = document.getElementById('musicVolumeSlider');
             this.musicVolumeValue = document.getElementById('musicVolumeValue');
 
+            console.log('[SettingsManager] 初始化, settingsPanel:', !!this.settingsPanel, 'settingsToggle:', !!this.settingsToggle);
+
             if (!this.settingsPanel) return;
 
             this.loadSettings();
@@ -774,12 +810,19 @@
         },
 
         bindEvents() {
+            console.log('[SettingsManager] 绑定事件, settingsToggle:', !!this.settingsToggle, 'closeSettingsBtn:', !!this.closeSettingsBtn);
+
             // 打开/关闭设置面板
-            this.settingsToggle?.addEventListener('click', () => {
+            this.settingsToggle?.addEventListener('click', (e) => {
+                console.log('[SettingsManager] 设置按钮被点击');
+                e.preventDefault();
+                e.stopPropagation();
                 this.settingsPanel.classList.toggle('show');
             });
 
-            this.closeSettingsBtn?.addEventListener('click', () => {
+            this.closeSettingsBtn?.addEventListener('click', (e) => {
+                console.log('[SettingsManager] 关闭按钮被点击');
+                e.preventDefault();
                 this.settingsPanel.classList.remove('show');
             });
 
@@ -1388,12 +1431,11 @@
 
     // ==================== 应用初始化 ====================
     function init() {
-        // 初始化各模块
+        console.log('[App] 开始初始化, readyState:', document.readyState);
+        console.log('[App] 当前页面:', window.location.pathname);
+
+        // 初始化各模块（只初始化本文件中定义的管理器）
         const modules = [
-            { name: 'ThemeManager', init: () => ThemeManager?.init() },
-            { name: 'SidebarManager', init: () => SidebarManager?.init() },
-            { name: 'MusicManager', init: () => MusicManager?.init() },
-            { name: 'KeyboardShortcuts', init: () => KeyboardShortcuts?.init() },
             { name: 'SearchManager', init: () => SearchManager?.init() },
             { name: 'ProgressManager', init: () => ProgressManager?.init() },
             { name: 'CopyManager', init: () => CopyManager?.init() },
@@ -1407,13 +1449,14 @@
 
         modules.forEach(module => {
             try {
+                console.log('[App] 初始化模块:', module.name);
                 module.init();
             } catch (e) {
                 console.warn(`模块 ${module.name} 初始化失败:`, e);
             }
         });
 
-        console.log('道德经应用初始化完成');
+        console.log('[App] 道德经应用初始化完成');
     }
 
     // 等待 DOM 加载完成
