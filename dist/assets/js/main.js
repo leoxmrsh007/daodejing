@@ -1,133 +1,27 @@
 /**
- * 道德经多版本对照平台 - 主脚本文件
- * 功能：暗黑模式切换、侧边栏、搜索、键盘导航
+ * 道德经 - 主应用文件
+ * 整合所有功能模块
  */
 
 (function() {
     'use strict';
 
-    // ==================== 暗黑模式管理 ====================
-    const ThemeManager = {
-        STORAGE_KEY: 'daodejing_theme',
-        ICONS: {
-            light: '☀️',
-            dark: '🌙'
-        },
-
-        init() {
-            this.themeToggle = document.getElementById('themeToggle');
-            if (!this.themeToggle) return;
-
-            // 加载保存的主题
-            const savedTheme = localStorage.getItem(this.STORAGE_KEY);
-            if (savedTheme) {
-                this.setTheme(savedTheme);
-            } else {
-                // 自动检测系统偏好
-                this.detectSystemTheme();
-            }
-
-            // 绑定切换事件
-            this.themeToggle.addEventListener('click', () => this.toggle());
-
-            // 监听系统主题变化
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                if (!localStorage.getItem(this.STORAGE_KEY)) {
-                    this.detectSystemTheme();
-                }
-            });
-        },
-
-        detectSystemTheme() {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            this.setTheme(prefersDark ? 'dark' : 'light');
-        },
-
-        toggle() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            this.setTheme(newTheme);
-        },
-
-        setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem(this.STORAGE_KEY, theme);
-            this.updateIcon();
-        },
-
-        updateIcon() {
-            const icon = this.themeToggle.querySelector('.theme-icon');
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            icon.textContent = currentTheme === 'dark' ? this.ICONS.dark : this.ICONS.light;
-        }
+    // ==================== 应用配置 ====================
+    const CONFIG = {
+        apiBaseUrl: '',
+        chapters: 81,
+        storagePrefix: 'daodejing_'
     };
 
-    // ==================== 侧边栏管理 ====================
-    const SidebarManager = {
-        init() {
-            this.sidebar = document.getElementById('sidebar');
-            this.toggleBtn = document.getElementById('sidebarToggle');
-            this.overlay = null;
-
-            if (!this.sidebar || !this.toggleBtn) return;
-
-            this.createOverlay();
-            this.bindEvents();
-        },
-
-        createOverlay() {
-            this.overlay = document.createElement('div');
-            this.overlay.className = 'sidebar-overlay';
-            document.body.appendChild(this.overlay);
-        },
-
-        bindEvents() {
-            // 打开/关闭侧边栏
-            this.toggleBtn.addEventListener('click', () => this.toggle());
-
-            // 点击遮罩关闭
-            this.overlay.addEventListener('click', () => this.close());
-
-            // 选择章节后自动关闭（移动端）
-            const chapterLinks = this.sidebar.querySelectorAll('.chapter-item');
-            chapterLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 992) {
-                        this.close();
-                    }
-                });
-            });
-
-            // 窗口大小改变时重置
-            window.addEventListener('resize', () => {
-                if (window.innerWidth >= 992) {
-                    this.sidebar.classList.remove('show');
-                    this.overlay.classList.remove('show');
-                }
-            });
-        },
-
-        toggle() {
-            this.sidebar.classList.toggle('show');
-            this.overlay.classList.toggle('show');
-        },
-
-        close() {
-            this.sidebar.classList.remove('show');
-            this.overlay.classList.remove('show');
-        }
-    };
-
-    // ==================== 搜索功能 ====================
+    // ==================== 搜索管理器 ====================
     const SearchManager = {
-        // API_ENDPOINT: '/api/daodejing/search',  // 静态版本
-        DEBOUNCE_DELAY: 300,
-
         init() {
             this.searchInput = document.getElementById('searchInput');
             this.searchModal = document.getElementById('searchModal');
             this.searchResults = document.getElementById('searchResults');
             this.debounceTimer = null;
+            this.currentScope = localStorage.getItem('daodejing_search_scope') || 'all';
+            this.useRegex = localStorage.getItem('daodejing_search_regex') === 'true';
 
             if (!this.searchInput) return;
 
@@ -135,1334 +29,1162 @@
         },
 
         bindEvents() {
-            // 输入事件（带防抖）
+            // 实时搜索（防抖）
             this.searchInput.addEventListener('input', (e) => {
                 clearTimeout(this.debounceTimer);
+                const query = e.target.value.trim();
+
+                if (query.length < 2) {
+                    this.hideModal();
+                    return;
+                }
+
                 this.debounceTimer = setTimeout(() => {
-                    this.search(e.target.value);
-                }, this.DEBOUNCE_DELAY);
+                    this.search(query);
+                }, 300);
             });
 
-            // 回车键直接搜索
+            // 回车搜索
             this.searchInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
-                    clearTimeout(this.debounceTimer);
-                    this.search(e.target.value);
-                    this.showModal();
+                    e.preventDefault();
+                    const query = this.searchInput.value.trim();
+                    if (query.length >= 2) {
+                        this.search(query);
+                    }
                 }
             });
 
-            // Escape 键清空
-            this.searchInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    this.searchInput.value = '';
-                    this.searchInput.blur();
-                }
+            // 失去焦点隐藏
+            this.searchInput.addEventListener('blur', () => {
+                setTimeout(() => this.hideModal(), 200);
             });
         },
 
         async search(query) {
-            if (!query || query.trim().length < 1) {
-                return;
-            }
-
             try {
-                const response = await fetch(`${this.API_ENDPOINT}?q=${encodeURIComponent(query)}`);
+                const params = new URLSearchParams({
+                    q: query,
+                    scope: this.currentScope,
+                    regex: this.useRegex
+                });
+                const response = await fetch(`${CONFIG.apiBaseUrl}/api/daodejing/search?${params}`);
                 const data = await response.json();
-                this.displayResults(data.results);
-                if (data.results.length > 0) {
-                    this.showModal();
-                }
+                this.displayResults(data);
             } catch (error) {
                 console.error('搜索失败:', error);
+                // 降级到客户端搜索
+                this.clientSideSearch(query);
             }
         },
 
-        displayResults(results) {
-            if (results.length === 0) {
-                this.searchResults.innerHTML = '<p class="text-muted text-center">未找到相关内容</p>';
+        clientSideSearch(query) {
+            const results = [];
+            const queryLower = query.toLowerCase();
+
+            // 从页面中搜索章节链接
+            const chapterLinks = document.querySelectorAll('.chapter-item');
+            chapterLinks.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                if (text.includes(queryLower) || queryLower.includes(text)) {
+                    results.push({
+                        id: parseInt(link.dataset.chapter),
+                        title: link.textContent.trim(),
+                        excerpt: link.textContent.trim()
+                    });
+                }
+            });
+
+            this.displayResults({ results, count: results.length, query });
+        },
+
+        displayResults(data) {
+            const { results, count, query, scope } = data;
+
+            if (!results || results.length === 0) {
+                const scopeName = this.getScopeName(this.currentScope);
+                this.showModal(`
+                    <div class="text-center text-muted py-4">
+                        <p class="mb-2">在 <strong>${scopeName}</strong> 范围内未找到包含"${query}"的内容</p>
+                        <small>尝试切换搜索范围或取消正则表达式</small>
+                    </div>
+                `);
                 return;
             }
 
-            this.searchResults.innerHTML = results.map(result => `
-                <div class="search-result-item" onclick="location.href='/daodejing/chapter/${result.id}'">
-                    <h6 class="mb-1">${result.title}</h6>
-                    <p class="small text-muted mb-0">${result.excerpt}</p>
+            // 搜索选项和结果统计
+            let html = `
+                <div class="search-options-bar d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                    <div class="d-flex align-items-center gap-2">
+                        <select class="form-select form-select-sm" id="searchScope" style="width: auto;">
+                            <option value="all" ${this.currentScope === 'all' ? 'selected' : ''}>全部</option>
+                            <option value="original" ${this.currentScope === 'original' ? 'selected' : ''}>原文</option>
+                            <option value="translation" ${this.currentScope === 'translation' ? 'selected' : ''}>白话译文</option>
+                            <option value="commentary" ${this.currentScope === 'commentary' ? 'selected' : ''}>注解</option>
+                            <option value="english" ${this.currentScope === 'english' ? 'selected' : ''}>英译</option>
+                            <option value="ancient" ${this.currentScope === 'ancient' ? 'selected' : ''}>古籍</option>
+                            <option value="idiom" ${this.currentScope === 'idiom' ? 'selected' : ''}>成语</option>
+                        </select>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="regexToggle" ${this.useRegex ? 'checked' : ''}>
+                            <label class="form-check-label small" for="regexToggle">正则</label>
+                        </div>
+                    </div>
+                    <span class="badge bg-primary">${count} 条结果</span>
                 </div>
-            `).join('');
+            `;
+
+            // 结果列表
+            html += '<div class="search-results-list">';
+            for (const result of results) {
+                if (result.type === 'idiom') {
+                    html += this.renderIdiomResult(result);
+                } else {
+                    html += this.renderChapterResult(result);
+                }
+            }
+            html += '</div>';
+
+            this.showModal(html);
+            this.bindResultClicks();
+            this.bindOptionEvents();
         },
 
-        showModal() {
-            if (!this.searchModal) return;
-            const modal = new bootstrap.Modal(this.searchModal);
-            modal.show();
+        renderIdiomResult(result) {
+            const { title, meaning, chapter, source, match_reason } = result;
+            const reasonText = match_reason ? match_reason.join('、') : '';
+
+            return `
+                <div class="search-result-item idiom-result" data-type="idiom" data-chapter="${chapter || ''}">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <span class="badge bg-warning text-dark me-2">成语</span>
+                            <span class="fw-bold">${title}</span>
+                        </div>
+                        ${chapter ? `<small class="text-muted">出自第${chapter}章</small>` : ''}
+                    </div>
+                    <div class="small text-muted mt-1">${meaning}</div>
+                    ${source ? `<div class="small text-muted fst-italic mt-1">「${source}」</div>` : ''}
+                    ${reasonText ? `<div class="small text-primary mt-1">匹配: ${reasonText}</div>` : ''}
+                </div>
+            `;
+        },
+
+        renderChapterResult(result) {
+            const { id, title, matches } = result;
+
+            let matchesHtml = '';
+            if (matches && matches.length > 0) {
+                matchesHtml = '<div class="matches-list mt-2">';
+                matches.forEach(match => {
+                    matchesHtml += `
+                        <div class="match-item small">
+                            <span class="badge bg-secondary me-1">${match.field}</span>
+                            <span class="text-muted">${match.text}</span>
+                        </div>
+                    `;
+                });
+                matchesHtml += '</div>';
+            }
+
+            return `
+                <div class="search-result-item chapter-result" data-type="chapter" data-chapter="${id}">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">${title}</span>
+                        <small class="text-muted">点击跳转</small>
+                    </div>
+                    ${matchesHtml}
+                </div>
+            `;
+        },
+
+        getScopeName(scope) {
+            const names = {
+                all: '全部',
+                original: '原文',
+                translation: '白话译文',
+                commentary: '注解',
+                english: '英译',
+                ancient: '古籍',
+                idiom: '成语'
+            };
+            return names[scope] || '全部';
+        },
+
+        bindOptionEvents() {
+            // 搜索范围切换
+            const scopeSelect = document.getElementById('searchScope');
+            if (scopeSelect) {
+                scopeSelect.addEventListener('change', (e) => {
+                    this.currentScope = e.target.value;
+                    localStorage.setItem('daodejing_search_scope', this.currentScope);
+                    // 重新搜索
+                    const query = this.searchInput?.value?.trim();
+                    if (query && query.length >= 2) {
+                        this.search(query);
+                    }
+                });
+            }
+
+            // 正则表达式切换
+            const regexToggle = document.getElementById('regexToggle');
+            if (regexToggle) {
+                regexToggle.addEventListener('change', (e) => {
+                    this.useRegex = e.target.checked;
+                    localStorage.setItem('daodejing_search_regex', this.useRegex);
+                    // 重新搜索
+                    const query = this.searchInput?.value?.trim();
+                    if (query && query.length >= 2) {
+                        this.search(query);
+                    }
+                });
+            }
+        },
+
+        bindResultClicks() {
+            document.querySelectorAll('.search-result-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const type = item.dataset.type;
+                    const chapter = item.dataset.chapter;
+                    if (chapter) {
+                        window.location.href = `/daodejing/chapter/${chapter}`;
+                    }
+                });
+            });
+        },
+
+        showModal(content) {
+            if (!this.searchResults) return;
+            this.searchResults.innerHTML = content;
+
+            if (!this.modalInstance) {
+                this.modalInstance = new bootstrap.Modal(this.searchModal);
+            }
+            this.modalInstance.show();
+        },
+
+        hideModal() {
+            if (this.modalInstance) {
+                this.modalInstance.hide();
+            }
         }
     };
 
-    // ==================== 音乐播放管理 ====================
-    const MusicManager = {
-        STORAGE_KEY: 'daodejing_music_volume',
-        DEFAULT_VOLUME: 0.3,
+    // ==================== 阅读进度管理器 ====================
+    const ProgressManager = {
+        STORAGE_KEY: 'daodejing_reading_progress',
+        HISTORY_KEY: 'daodejing_reading_history',
+        MAX_HISTORY: 20,
 
         init() {
-            this.audio = document.getElementById('bgMusic');
-            this.toggleBtn = document.getElementById('musicToggle');
-            this.loopBtn = document.getElementById('musicLoop');
-            this.volumePanel = document.getElementById('volumePanel');
-            this.volumeSlider = document.getElementById('volumeSlider');
-            this.volumeValue = document.getElementById('volumeValue');
-            this.closeVolumeBtn = document.getElementById('closeVolumePanel');
+            this.currentChapter = this.getCurrentChapterId();
+            if (!this.currentChapter) return;
 
-            if (!this.audio || !this.toggleBtn) return;
+            this.saveProgress();
+            this.updateLastReadUI();
+        },
 
-            // 加载保存的音量
-            const savedVolume = localStorage.getItem(this.STORAGE_KEY);
-            this.volume = savedVolume ? parseFloat(savedVolume) : this.DEFAULT_VOLUME;
-            this.audio.volume = this.volume;
+        getCurrentChapterId() {
+            // 从 URL 获取章节 ID
+            const match = window.location.pathname.match(/\/chapter\/(\d+)/);
+            return match ? parseInt(match[1]) : null;
+        },
 
-            // 更新滑块显示
-            if (this.volumeSlider) {
-                this.volumeSlider.value = this.volume * 100;
-                this.volumeValue.textContent = Math.round(this.volume * 100);
+        saveProgress() {
+            const now = new Date();
+            const progress = {
+                chapter: this.currentChapter,
+                timestamp: now.getTime(),
+                date: now.toLocaleDateString('zh-CN'),
+                time: now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
+            };
+
+            // 保存最后阅读位置
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(progress));
+
+            // 添加到阅读历史
+            let history = this.getHistory();
+            history = history.filter(item => item.chapter !== this.currentChapter);
+            history.unshift(progress);
+            if (history.length > this.MAX_HISTORY) {
+                history = history.slice(0, this.MAX_HISTORY);
+            }
+            localStorage.setItem(this.HISTORY_KEY, JSON.stringify(history));
+        },
+
+        getLastReadChapter() {
+            const saved = localStorage.getItem(this.STORAGE_KEY);
+            return saved ? JSON.parse(saved) : null;
+        },
+
+        getHistory() {
+            const saved = localStorage.getItem(this.HISTORY_KEY);
+            return saved ? JSON.parse(saved) : [];
+        },
+
+        getReadingProgress() {
+            const history = this.getHistory();
+            const uniqueChapters = new Set(history.map(item => item.chapter));
+            return {
+                total: 81,
+                read: uniqueChapters.size,
+                percentage: Math.round((uniqueChapters.size / 81) * 100)
+            };
+        },
+
+        updateLastReadUI() {
+            // 更新"继续阅读"按钮
+            const lastRead = this.getLastReadChapter();
+            const continueBtn = document.getElementById('continueReadingBtn');
+            if (continueBtn && lastRead) {
+                continueBtn.href = `/daodejing/chapter/${lastRead.chapter}`;
+                continueBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                    </svg>
+                    继续阅读 第${lastRead.chapter}章
+                `;
+                continueBtn.classList.remove('d-none');
+            }
+        },
+
+        // 获取阅读进度数据（供首页使用）
+        getProgressData() {
+            const progress = JSON.parse(localStorage.getItem('daodejing_reading_progress') || '{}');
+            const history = JSON.parse(localStorage.getItem('daodejing_reading_history') || '[]');
+            const readCount = new Set(history.map(h => h.chapter)).size;
+            const percentage = Math.round((readCount / 81) * 100);
+
+            return {
+                lastChapter: progress.chapter,
+                lastDate: progress.date,
+                readCount,
+                percentage
+            };
+        }
+    };
+
+    // ==================== 复制管理器 ====================
+    const CopyManager = {
+        init() {
+            this.copyButtons = document.querySelectorAll('[data-copy-target]');
+            console.log('[CopyManager] 找到复制按钮:', this.copyButtons.length);
+            if (this.copyButtons.length === 0) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            this.copyButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const targetId = btn.dataset.copyTarget;
+                    console.log('[CopyManager] 复制目标:', targetId);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        // 获取纯文本（去除HTML标签）
+                        const text = target.innerText || target.textContent;
+                        const cleanText = text.trim();
+                        console.log('[CopyManager] 复制文本长度:', cleanText.length);
+                        this.copyToClipboard(cleanText, btn);
+                    } else {
+                        console.error('[CopyManager] 找不到目标元素:', targetId);
+                    }
+                });
+            });
+        },
+
+        async copyToClipboard(text, btn) {
+            console.log('[CopyManager] 开始复制...');
+            try {
+                await navigator.clipboard.writeText(text);
+                console.log('[CopyManager] Clipboard API 成功');
+                this.showSuccess(btn);
+            } catch (err) {
+                console.log('[CopyManager] Clipboard API 失败，使用降级方案:', err);
+                // 降级方案
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                textarea.style.top = '0';
+                textarea.style.left = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    const success = document.execCommand('copy');
+                    console.log('[CopyManager] execCommand 结果:', success);
+                    if (success) {
+                        this.showSuccess(btn);
+                    } else {
+                        console.error('[CopyManager] execCommand 返回 false');
+                    }
+                } catch (e) {
+                    console.error('[CopyManager] 复制失败:', e);
+                }
+                document.body.removeChild(textarea);
+            }
+        },
+
+        showSuccess(btn) {
+            console.log('[CopyManager] 显示成功状态');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<span style="color: green;">✓</span>`;
+            btn.classList.add('btn-success');
+            btn.classList.remove('btn-outline-secondary');
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-secondary');
+            }, 2000);
+        }
+    };
+
+    // ==================== 引用卡片管理器 ====================
+    const QuoteCardManager = {
+        init() {
+            this.quoteBtn = document.getElementById('quoteBtn');
+            this.quoteModal = document.getElementById('quoteModal');
+            console.log('[QuoteCardManager] 初始化, quoteBtn:', !!this.quoteBtn, 'quoteModal:', !!this.quoteModal);
+            if (!this.quoteBtn) {
+                console.log('[QuoteCardManager] 未找到 quoteBtn，跳过初始化');
+                return;
             }
 
             this.bindEvents();
         },
 
         bindEvents() {
-            // 播放/暂停
-            this.toggleBtn.addEventListener('click', () => this.toggle());
+            this.quoteBtn.addEventListener('click', () => {
+                console.log('[QuoteCardManager] 按钮被点击');
+                this.generateQuoteCard();
+            });
+        },
 
-            // 循环按钮
-            if (this.loopBtn) {
-                this.loopBtn.addEventListener('click', () => this.toggleLoop());
+        generateQuoteCard() {
+            const chapter = this.getCurrentChapter();
+            const original = document.querySelector('#originalText')?.textContent?.trim() || '';
+            const chapterNum = document.querySelector('#chapterNum')?.textContent || '';
+
+            console.log('[QuoteCardManager] 生成卡片, 章节:', chapter, '文本长度:', original.length);
+
+            if (!original) {
+                console.error('[QuoteCardManager] 未找到原文内容');
+                return;
             }
 
-            // 音量滑块
-            if (this.volumeSlider) {
-                this.volumeSlider.addEventListener('input', (e) => {
-                    this.setVolume(e.target.value / 100);
-                });
+            // 创建预览
+            const preview = document.getElementById('quotePreview');
+            const canvas = document.getElementById('quoteCanvas');
+            if (!preview || !canvas) {
+                console.error('[QuoteCardManager] 未找到 canvas 或 preview');
+                return;
             }
 
-            // 关闭音量面板
-            if (this.closeVolumeBtn) {
-                this.closeVolumeBtn.addEventListener('click', () => {
-                    this.volumePanel.classList.remove('show');
-                });
-            }
+            const ctx = canvas.getContext('2d');
+            const width = 600;
+            const height = 400;
 
-            // 点击外部关闭面板
-            document.addEventListener('click', (e) => {
-                if (this.volumePanel && this.volumePanel.classList.contains('show')) {
-                    if (!this.volumePanel.contains(e.target) && !this.toggleBtn.contains(e.target)) {
-                        this.volumePanel.classList.remove('show');
-                    }
-                }
+            canvas.width = width;
+            canvas.height = height;
+
+            // 背景
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#2c1810');
+            gradient.addColorStop(1, '#1a0f0a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // 边框装饰
+            ctx.strokeStyle = '#c9a227';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(15, 15, width - 30, height - 30);
+
+            // 章节号
+            ctx.fillStyle = '#c9a227';
+            ctx.font = 'bold 24px serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(chapterNum, width / 2, 60);
+
+            // 原文（分行）
+            ctx.fillStyle = '#e8e0d8';
+            ctx.font = '20px serif';
+            const lines = this.wrapText(ctx, original, width - 100);
+            let y = 120;
+            lines.forEach(line => {
+                ctx.fillText(line, width / 2, y);
+                y += 35;
             });
 
-            // 右键点击音乐按钮打开音量面板
-            this.toggleBtn.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                this.volumePanel.classList.toggle('show');
-            });
+            // 底部署名
+            ctx.fillStyle = '#888';
+            ctx.font = '14px sans-serif';
+            ctx.fillText('— 老子《道德经》', width / 2, height - 40);
 
-            // 音频事件
-            this.audio.addEventListener('play', () => this.updateState());
-            this.audio.addEventListener('pause', () => this.updateState());
-            this.audio.addEventListener('ended', () => this.updateState());
-        },
-
-        toggle() {
-            if (this.audio.paused) {
-                this.audio.play().then(() => {
-                    this.updateState();
-                }).catch(err => {
-                    console.warn('自动播放被阻止，需要用户交互:', err);
-                });
-            } else {
-                this.audio.pause();
-                this.updateState();
+            // 显示下载按钮
+            const downloadBtn = document.getElementById('downloadQuoteBtn');
+            if (downloadBtn) {
+                downloadBtn.onclick = () => {
+                    const link = document.createElement('a');
+                    link.download = `道德经-${chapterNum}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                };
             }
+
+            // 显示模态框
+            const modal = new bootstrap.Modal(this.quoteModal);
+            modal.show();
         },
 
-        setVolume(value) {
-            this.volume = Math.max(0, Math.min(1, value));
-            this.audio.volume = this.volume;
-            localStorage.setItem(this.STORAGE_KEY, this.volume);
-            if (this.volumeValue) {
-                this.volumeValue.textContent = Math.round(this.volume * 100);
-            }
-        },
+        wrapText(ctx, text, maxWidth) {
+            const chars = text.split('');
+            const lines = [];
+            let currentLine = '';
 
-        toggleLoop() {
-            this.audio.loop = !this.audio.loop;
-            this.updateState();
-        },
-
-        updateState() {
-            const icon = this.toggleBtn.querySelector('.music-icon');
-            if (!this.audio.paused) {
-                icon.classList.add('playing');
-                this.toggleBtn.classList.add('active');
-                if (this.loopBtn) {
-                    this.loopBtn.classList.remove('d-none');
-                }
-            } else {
-                icon.classList.remove('playing');
-                this.toggleBtn.classList.remove('active');
-                if (this.loopBtn) {
-                    this.loopBtn.classList.add('d-none');
+            for (const char of chars) {
+                const testLine = currentLine + char;
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && currentLine !== '') {
+                    lines.push(currentLine);
+                    currentLine = char;
+                } else {
+                    currentLine = testLine;
                 }
             }
-
-            // 更新循环按钮状态
-            if (this.loopBtn && !this.loopBtn.classList.contains('d-none')) {
-                const loopIcon = this.loopBtn.querySelector('.loop-icon');
-                loopIcon.textContent = this.audio.loop ? '🔁' : '🔂';
+            if (currentLine !== '') {
+                lines.push(currentLine);
             }
+
+            return lines.slice(0, 6); // 最多6行
+        },
+
+        getCurrentChapter() {
+            const match = window.location.pathname.match(/\/chapter\/(\d+)/);
+            return match ? parseInt(match[1]) : null;
         }
     };
 
-    // ==================== 朗读管理 ====================
+    // ==================== 朗读管理器 ====================
     const SpeechManager = {
-        STORAGE_KEY: 'daodejing_speech_rate',
-        VOICE_KEY: 'daodejing_selected_voice',
-        DEFAULT_RATE: 0.9,
-        API_KEY_STORAGE: 'daodejing_ai_keys',
+        STORAGE_KEY: 'daodejing_speech',
+        isPlaying: false,
+        currentUtterance: null,
+        selectedLang: 'zh-CN',
+        voices: [],
 
         init() {
             this.toggleBtn = document.getElementById('speechToggle');
             this.stopBtn = document.getElementById('speechStop');
-            this.speechPanel = document.getElementById('speechPanel');
-            this.closeSpeechBtn = document.getElementById('closeSpeechPanel');
-            this.speechRate = document.getElementById('speechRate');
-            this.rateValue = document.getElementById('rateValue');
-            this.speechStatus = document.getElementById('speechStatus');
-            this.browserVoiceSelect = document.getElementById('browserVoice');
+            this.voiceSelect = document.getElementById('browserVoice');
 
-            // 检查浏览器支持
-            if (!('speechSynthesis' in window)) {
-                if (this.toggleBtn) {
-                    this.toggleBtn.disabled = true;
-                    this.toggleBtn.title = '您的浏览器不支持朗读功能';
-                }
-                return;
-            }
-
-            // 加载保存的语速
-            const savedRate = localStorage.getItem(this.STORAGE_KEY);
-            this.rate = savedRate ? parseFloat(savedRate) : this.DEFAULT_RATE;
-
-            if (this.speechRate) {
-                this.speechRate.value = this.rate * 100;
-                this.rateValue.textContent = this.rate.toFixed(1);
-            }
-
-            this.synth = window.speechSynthesis;
-            this.currentUtterance = null;
-            this.isPaused = false;
-            this.currentChapter = 1;
-            this.speechMode = 'current'; // 'current' or 'all'
-            this.voices = [];
-            this.selectedVoice = null;
-
-            // 加载浏览器语音列表
-            this.loadVoices();
-
-            // 语音列表是异步加载的，需要监听变化
-            if (this.synth.onvoiceschanged !== undefined) {
-                this.synth.onvoiceschanged = () => this.loadVoices();
-            }
-
-            this.bindEvents();
-        },
-
-        // 加载可用的语音列表
-        loadVoices() {
-            this.voices = this.synth.getVoices();
-            const voiceSelect = this.browserVoiceSelect;
-
-            if (!voiceSelect || this.voices.length === 0) return;
-
-            // 清空现有选项
-            voiceSelect.innerHTML = '';
-
-            // 获取保存的语音
-            const savedVoiceUri = localStorage.getItem(this.VOICE_KEY);
-
-            // 优先显示中文语音，特别是Microsoft的神经语音
-            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
-            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
-
-            // 按优先级排序：Microsoft中文 > 其他中文 > 其他
-            const sortedVoices = [
-                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
-                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
-                ...otherVoices
-            ];
-
-            sortedVoices.forEach((voice, index) => {
-                const option = document.createElement('option');
-                option.value = index;
-                // 创建友好的显示名称
-                const displayName = `${voice.name} (${voice.lang})`;
-                option.textContent = displayName;
-
-                // 标记推荐的语音
-                if (voice.name.includes('Microsoft')) {
-                    option.textContent = '⭐ ' + displayName;
-                }
-
-                voiceSelect.appendChild(option);
-            });
-
-            // 恢复保存的语音选择
-            if (savedVoiceUri !== null) {
-                const savedIndex = sortedVoices.findIndex(v => v.voiceURI === savedVoiceUri);
-                if (savedIndex !== -1) {
-                    voiceSelect.value = sortedVoices.indexOf(sortedVoices[savedIndex]);
-                }
-            }
-
-            // 默认选择第一个Microsoft中文语音
-            if (voiceSelect.value === "") {
-                const defaultIndex = sortedVoices.findIndex(v =>
-                    v.name.includes('Microsoft') && v.lang.startsWith('zh')
-                );
-                if (defaultIndex !== -1) {
-                    voiceSelect.value = defaultIndex;
-                }
-            }
-
-            // 监听语音选择变化
-            voiceSelect.removeEventListener('change', this.handleVoiceChange);
-            voiceSelect.addEventListener('change', () => this.handleVoiceChange());
-        },
-
-        // 处理语音选择变化
-        handleVoiceChange() {
-            const voiceSelect = this.browserVoiceSelect;
-            if (!voiceSelect) return;
-
-            const sortedVoices = this.getSortedVoices();
-            const index = parseInt(voiceSelect.value);
-            if (sortedVoices[index]) {
-                this.selectedVoice = sortedVoices[index];
-                localStorage.setItem(this.VOICE_KEY, this.selectedVoice.voiceURI);
-                console.log('已选择语音:', this.selectedVoice.name, this.selectedVoice.lang);
-            }
-        },
-
-        // 获取排序后的语音列表
-        getSortedVoices() {
-            const chineseVoices = this.voices.filter(v => v.lang.startsWith('zh'));
-            const otherVoices = this.voices.filter(v => !v.lang.startsWith('zh'));
-            return [
-                ...chineseVoices.filter(v => v.name.includes('Microsoft')),
-                ...chineseVoices.filter(v => !v.name.includes('Microsoft')),
-                ...otherVoices
-            ];
-        },
-
-        bindEvents() {
             if (!this.toggleBtn) return;
 
-            // 朗读按钮
-            this.toggleBtn.addEventListener('click', () => this.toggle());
-
-            // 停止按钮
-            if (this.stopBtn) {
-                this.stopBtn.addEventListener('click', () => this.stop());
-            }
-
-            // 语速滑块
-            if (this.speechRate) {
-                this.speechRate.addEventListener('input', (e) => {
-                    this.setRate(e.target.value / 100);
-                });
-            }
-
-            // 关闭面板
-            if (this.closeSpeechBtn) {
-                this.closeSpeechBtn.addEventListener('click', () => {
-                    this.speechPanel.classList.remove('show');
-                });
-            }
-
-            // 点击外部关闭面板
-            document.addEventListener('click', (e) => {
-                if (this.speechPanel && this.speechPanel.classList.contains('show')) {
-                    if (!this.speechPanel.contains(e.target) && !this.toggleBtn.contains(e.target)) {
-                        this.speechPanel.classList.remove('show');
-                    }
-                }
-            });
-
-            // 右键打开面板
-            this.toggleBtn.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                this.speechPanel.classList.toggle('show');
-            });
-
-            // 朗读模式切换
-            const modeInputs = document.querySelectorAll('input[name="speechMode"]');
-            modeInputs.forEach(input => {
-                input.addEventListener('change', (e) => {
-                    this.speechMode = e.target.value;
-                });
-            });
-        },
-
-        // 检查是否使用Fish Audio
-        isUsingFishAudio() {
-            const ttsEngine = localStorage.getItem('daodejing_tts_engine');
-            return ttsEngine === 'fish';
-        },
-
-        // 获取Fish Audio API配置
-        getFishAudioConfig() {
-            const saved = localStorage.getItem(this.API_KEY_STORAGE);
-            const apiKeys = saved ? JSON.parse(saved) : {};
-            return {
-                apiKey: apiKeys.fish || '',
-                voiceId: apiKeys.fishVoiceId || ''
-            };
-        },
-
-        toggle() {
-            // 检查是否正在播放Fish Audio
-            if (this.isPlayingFishAudio) {
-                if (this.isPaused) {
-                    this.resume();
-                } else {
-                    this.pause();
-                }
-                return;
-            }
-
-            // 检查系统TTS是否在播放
-            if (this.synth.speaking) {
-                if (this.isPaused) {
-                    this.resume();
-                } else {
-                    this.pause();
-                }
-            } else {
-                this.start();
-            }
-        },
-
-        start() {
-            // 获取当前章节原文
-            const originalText = document.getElementById('originalText');
-            if (!originalText) {
-                this.setStatus('无法找到原文内容', false);
-                return;
-            }
-
-            // 清理文本（移除HTML标签）
-            const text = this.cleanText(originalText.textContent);
-            if (!text) {
-                this.setStatus('原文内容为空', false);
-                return;
-            }
-
-            // 获取当前章节号
-            const breadcrumb = document.querySelector('.breadcrumb .active');
-            if (breadcrumb) {
-                const match = breadcrumb.textContent.match(/第(\d+)章/);
-                if (match) {
-                    this.currentChapter = parseInt(match[1]);
-                }
-            }
-
-            this.speak(text);
-        },
-
-        speak(text) {
-            this.stop(); // 先停止之前的朗读
-            this.speakWithSystem(text);
-        },
-
-        // 使用浏览器TTS进行语音合成
-        speakWithSystem(text) {
-            this.isPlayingFishAudio = false;
-
-            this.currentUtterance = new SpeechSynthesisUtterance(text);
-            this.currentUtterance.lang = 'zh-CN';
-            this.currentUtterance.rate = this.rate;
-            this.currentUtterance.pitch = 1;
-
-            // 使用用户选择的语音
-            if (this.selectedVoice) {
-                this.currentUtterance.voice = this.selectedVoice;
-            } else {
-                // 如果没有选择，尝试自动选择中文语音
-                const chineseVoice = this.voices.find(v =>
-                    v.lang.startsWith('zh') && v.name.includes('Microsoft')
-                );
-                if (chineseVoice) {
-                    this.currentUtterance.voice = chineseVoice;
-                    this.selectedVoice = chineseVoice;
-                }
-            }
-
-            this.currentUtterance.onstart = () => {
-                this.updateState();
-                const voiceName = this.selectedVoice ? this.selectedVoice.name.split(' ').slice(-1)[0] : '系统';
-                this.setStatus(`正在朗读第${this.currentChapter}章 (${voiceName})`, true);
-            };
-
-            this.currentUtterance.onend = () => {
-                if (this.speechMode === 'all' && this.currentChapter < 81 && !this.isPaused) {
-                    // 继续下一章
-                    this.nextChapter();
-                } else {
-                    this.updateState();
-                    this.setStatus('朗读完成', false);
-                }
-            };
-
-            this.currentUtterance.onerror = (event) => {
-                // interrupted 和 canceled 是正常情况（切换章节、手动停止），不显示为错误
-                if (event.error !== 'interrupted' && event.error !== 'canceled') {
-                    console.error('朗读错误:', event.error);
-                    this.setStatus('朗读出错: ' + event.error, false);
-                }
-                this.updateState();
-            };
-
-            this.synth.speak(this.currentUtterance);
-        },
-
-        pause() {
-            // Fish Audio暂停
-            if (this.isPlayingFishAudio && this.currentAudio) {
-                this.currentAudio.pause();
-                this.isPaused = true;
-                this.updateState();
-                this.setStatus('已暂停', false);
-                return;
-            }
-
-            // 系统TTS暂停
-            if (this.synth.speaking && !this.isPaused) {
-                this.synth.pause();
-                this.isPaused = true;
-                this.updateState();
-                this.setStatus('已暂停', false);
-            }
-        },
-
-        resume() {
-            // Fish Audio恢复
-            if (this.isPlayingFishAudio && this.currentAudio) {
-                this.currentAudio.play();
-                this.isPaused = false;
-                this.updateState();
-                this.setStatus('正在朗读...', true);
-                return;
-            }
-
-            // 系统TTS恢复
-            if (this.isPaused) {
-                this.synth.resume();
-                this.isPaused = false;
-                this.updateState();
-                this.setStatus('正在朗读...', true);
-            }
-        },
-
-        stop() {
-            // 停止Fish Audio
-            if (this.currentAudio) {
-                this.currentAudio.pause();
-                this.currentAudio = null;
-            }
-            this.isPlayingFishAudio = false;
-
-            // 停止系统TTS
-            this.synth.cancel();
-            this.isPaused = false;
-            this.updateState();
-            this.setStatus('已停止', false);
-        },
-
-        nextChapter() {
-            this.currentChapter++;
-            // 跳转到下一章
-            const nextLink = document.querySelector(`.chapter-item[data-chapter="${this.currentChapter}"]`);
-            if (nextLink) {
-                nextLink.click();
-                // 等待页面加载后继续朗读
-                setTimeout(() => {
-                    this.start();
-                }, 500);
-            }
-        },
-
-        setRate(value) {
-            this.rate = Math.max(0.5, Math.min(1.5, value));
-            localStorage.setItem(this.STORAGE_KEY, this.rate);
-            if (this.rateValue) {
-                this.rateValue.textContent = this.rate.toFixed(1);
-            }
-        },
-
-        cleanText(text) {
-            // 移除多余空白和标点符号之间的空格
-            return text
-                .replace(/\s+/g, '')
-                .replace(/([，。；：！？、])/g, '$1 ')
-                .trim();
-        },
-
-        setStatus(text, isActive) {
-            if (this.speechStatus) {
-                this.speechStatus.textContent = text;
-                if (isActive) {
-                    this.speechStatus.classList.add('active');
-                } else {
-                    this.speechStatus.classList.remove('active');
-                }
-            }
-        },
-
-        updateState() {
-            const icon = this.toggleBtn.querySelector('.speech-icon');
-            const isSpeaking = this.synth.speaking && !this.isPaused;
-
-            if (isSpeaking) {
-                icon.classList.add('speaking');
-                this.toggleBtn.classList.add('active');
-                if (this.stopBtn) {
-                    this.stopBtn.classList.remove('d-none');
-                }
-            } else {
-                icon.classList.remove('speaking');
-                this.toggleBtn.classList.remove('active');
-                if (this.stopBtn) {
-                    this.stopBtn.classList.add('d-none');
-                }
-            }
-        }
-    };
-
-    // ==================== 滚动高亮目录 ====================
-    const ScrollHighlight = {
-        init() {
-            this.sidebar = document.getElementById('sidebar');
-            this.chapterItems = document.querySelectorAll('.chapter-item');
-
-            if (this.chapterItems.length === 0) return;
-
-            // 使用 Intersection Observer
-            this.setupObserver();
-        },
-
-        setupObserver() {
-            const options = {
-                root: null,
-                rootMargin: '-20% 0px -60% 0px',
-                threshold: 0
-            };
-
-            this.observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.dataset.chapter;
-                        this.highlightChapter(id);
-                    }
-                });
-            }, options);
-
-            // 观察所有章节内容
-            document.querySelectorAll('.original-text, .original-section').forEach(el => {
-                this.observer.observe(el);
-            });
-        },
-
-        highlightChapter(chapterId) {
-            this.chapterItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.chapter == chapterId) {
-                    item.classList.add('active');
-                    // 滚动目录到可见区域
-                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
-        }
-    };
-
-    // ==================== 设置管理 ====================
-    const SettingsManager = {
-        // 存储键
-        STORAGE_KEY: 'daodejing_settings',
-
-        // 默认设置
-        defaults: {
-            mode: 'reading',      // reading, zen, recite
-            font: 'default',      // default, kaiti, songti, fangsong, mingliu, xkai
-            fontSize: 'medium',   // small, medium, large
-            textLayout: 'center', // center, left
-            musicType: 'none',    // none, chinese, western
-            musicVolume: 30,
-            showPinyin: true,
-            showAnnotation: true,
-            showModern: true,
-            showNotes: true,
-            showEnglish: false
-        },
-
-        // 当前设置
-        settings: {},
-
-        // 当前音乐索引
-        currentMusicIndex: 0,
-
-        init() {
-            this.settingsBtn = document.getElementById('settingsToggle');
-            this.settingsPanel = document.getElementById('settingsPanel');
-            this.closeSettingsBtn = document.getElementById('closeSettingsPanel');
-            this.zenOverlay = document.getElementById('zenModeOverlay');
-            this.zenExitBtn = document.getElementById('zenExitBtn');
-
-            if (!this.settingsBtn) return;
-
-            // 加载保存的设置
             this.loadSettings();
-
-            // 从URL参数加载设置
-            this.loadFromURL();
-
-            // 应用设置
-            this.applySettings();
-
-            // 绑定事件
+            this.loadVoices();
             this.bindEvents();
         },
 
-        bindEvents() {
-            // 打开设置面板
-            this.settingsBtn.addEventListener('click', () => this.togglePanel());
+        loadVoices() {
+            // 加载可用语音列表
+            const loadVoices = () => {
+                this.voices = speechSynthesis.getVoices();
+                console.log('可用语音:', this.voices.map(v => `${v.name} (${v.lang})`));
+            };
 
-            // 关闭设置面板
-            if (this.closeSettingsBtn) {
-                this.closeSettingsBtn.addEventListener('click', () => this.closePanel());
+            loadVoices();
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+                speechSynthesis.onvoiceschanged = loadVoices;
             }
-
-            // 点击外部关闭
-            document.addEventListener('click', (e) => {
-                if (this.settingsPanel && this.settingsPanel.classList.contains('show')) {
-                    if (!this.settingsPanel.contains(e.target) && !this.settingsBtn.contains(e.target)) {
-                        this.closePanel();
-                    }
-                }
-            });
-
-            // 阅读模式切换
-            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
-            modeBtns?.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const mode = btn.dataset.mode;
-                    this.setMode(mode);
-                });
-            });
-
-            // 字体选择
-            const fontSelect = document.getElementById('fontSelect');
-            if (fontSelect) {
-                fontSelect.addEventListener('change', (e) => {
-                    this.setFont(e.target.value);
-                });
-            }
-
-            // 字体大小
-            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
-            sizeBtns?.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const size = btn.dataset.size;
-                    this.setFontSize(size);
-                });
-            });
-
-            // 文字布局
-            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
-            layoutBtns?.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const layout = btn.dataset.layout;
-                    this.setTextLayout(layout);
-                });
-            });
-
-            // 音乐类型选择
-            const musicSelect = document.getElementById('musicSelect');
-            if (musicSelect) {
-                musicSelect.addEventListener('change', (e) => {
-                    this.setMusicType(e.target.value);
-                });
-            }
-
-            // 音乐音量
-            const volumeSlider = document.getElementById('musicVolumeSlider');
-            const volumeValue = document.getElementById('musicVolumeValue');
-            if (volumeSlider) {
-                volumeSlider.addEventListener('input', (e) => {
-                    this.setMusicVolume(e.target.value);
-                    if (volumeValue) {
-                        volumeValue.textContent = e.target.value + '%';
-                    }
-                });
-            }
-
-            // 显示选项
-            const showPinyin = document.getElementById('showPinyin');
-            const showAnnotation = document.getElementById('showAnnotation');
-            if (showPinyin) {
-                showPinyin.addEventListener('change', (e) => {
-                    this.setShowPinyin(e.target.checked);
-                });
-            }
-            if (showAnnotation) {
-                showAnnotation.addEventListener('change', (e) => {
-                    this.setShowAnnotation(e.target.checked);
-                });
-            }
-
-            // 版本显示
-            const showModern = document.getElementById('showModern');
-            const showNotes = document.getElementById('showNotes');
-            const showEnglish = document.getElementById('showEnglish');
-            if (showModern) {
-                showModern.addEventListener('change', (e) => {
-                    this.setShowModern(e.target.checked);
-                });
-            }
-            if (showNotes) {
-                showNotes.addEventListener('change', (e) => {
-                    this.setShowNotes(e.target.checked);
-                });
-            }
-            if (showEnglish) {
-                showEnglish.addEventListener('change', (e) => {
-                    this.setShowEnglish(e.target.checked);
-                });
-            }
-
-            // 退出禅读模式
-            if (this.zenExitBtn) {
-                this.zenExitBtn.addEventListener('click', () => {
-                    this.exitZenMode();
-                });
-            }
-
-            // ESC键关闭面板/退出禅读
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (this.zenOverlay?.classList.contains('active')) {
-                        this.exitZenMode();
-                    } else if (this.settingsPanel?.classList.contains('show')) {
-                        this.closePanel();
-                    }
-                }
-            });
-
-            // 分享设置
-            const shareBtn = document.getElementById('shareSettings');
-            if (shareBtn) {
-                shareBtn.addEventListener('click', () => this.shareSettings());
-            }
-        },
-
-        togglePanel() {
-            this.settingsPanel.classList.toggle('show');
-        },
-
-        closePanel() {
-            this.settingsPanel.classList.remove('show');
         },
 
         loadSettings() {
-            const saved = localStorage.getItem(this.STORAGE_KEY);
-            if (saved) {
-                try {
-                    this.settings = { ...this.defaults, ...JSON.parse(saved) };
-                } catch (e) {
-                    this.settings = { ...this.defaults };
-                }
-            } else {
-                this.settings = { ...this.defaults };
+            const settings = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '{}');
+            this.selectedLang = settings.lang || 'zh-CN';
+
+            if (this.voiceSelect) {
+                this.voiceSelect.value = this.selectedLang;
             }
         },
 
         saveSettings() {
-            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.settings));
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify({
+                lang: this.selectedLang
+            }));
         },
 
-        loadFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            const config = params.get('config');
-            if (config) {
-                try {
-                    const urlSettings = JSON.parse(atob(config));
-                    this.settings = { ...this.settings, ...urlSettings };
-                    this.saveSettings();
-                } catch (e) {
-                    console.error('解析URL配置失败:', e);
-                }
-            }
-        },
+        // 根据语言代码查找匹配的语音
+        findVoiceForLanguage(langCode) {
+            if (!this.voices || this.voices.length === 0) return null;
 
-        applySettings() {
-            // 应用模式
-            this.setMode(this.settings.mode, false);
-            // 应用字体
-            this.setFont(this.settings.font, false);
-            // 应用字体大小
-            this.setFontSize(this.settings.fontSize, false);
-            // 应用文字布局
-            this.setTextLayout(this.settings.textLayout, false);
-            // 应用音乐类型
-            this.setMusicType(this.settings.musicType, false);
-            // 应用音乐音量
-            this.setMusicVolume(this.settings.musicVolume, false);
-            // 应用显示选项
-            this.setShowPinyin(this.settings.showPinyin, false);
-            this.setShowAnnotation(this.settings.showAnnotation, false);
-            this.setShowModern(this.settings.showModern, false);
-            this.setShowNotes(this.settings.showNotes, false);
-            this.setShowEnglish(this.settings.showEnglish, false);
+            // 精确匹配语言代码
+            let voice = this.voices.find(v => v.lang === langCode);
+            if (voice) return voice;
 
-            // 更新UI状态
-            this.updateUIState();
-        },
+            // 匹配语言前缀 (如 zh-CN 匹配 zh)
+            const prefix = langCode.split('-')[0];
+            voice = this.voices.find(v => v.lang.startsWith(prefix));
+            if (voice) return voice;
 
-        updateUIState() {
-            // 更新模式按钮
-            const modeBtns = this.settingsPanel?.querySelectorAll('.mode-btn');
-            modeBtns?.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.mode === this.settings.mode);
-            });
-
-            // 更新字体选择
-            const fontSelect = document.getElementById('fontSelect');
-            if (fontSelect) {
-                fontSelect.value = this.settings.font;
+            // 特殊处理：英语
+            if (langCode.startsWith('en')) {
+                voice = this.voices.find(v => v.lang.startsWith('en'));
+                return voice || this.voices[0];
             }
 
-            // 更新字体大小按钮
-            const sizeBtns = this.settingsPanel?.querySelectorAll('.size-btn');
-            sizeBtns?.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.size === this.settings.fontSize);
-            });
-
-            // 更新布局按钮
-            const layoutBtns = this.settingsPanel?.querySelectorAll('.layout-btn');
-            layoutBtns?.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.layout === this.settings.textLayout);
-            });
-
-            // 更新音乐选择
-            const musicSelect = document.getElementById('musicSelect');
-            if (musicSelect) {
-                musicSelect.value = this.settings.musicType;
-            }
-
-            // 更新音量滑块
-            const volumeSlider = document.getElementById('musicVolumeSlider');
-            const volumeValue = document.getElementById('musicVolumeValue');
-            if (volumeSlider) {
-                volumeSlider.value = this.settings.musicVolume;
-            }
-            if (volumeValue) {
-                volumeValue.textContent = this.settings.musicVolume + '%';
-            }
-
-            // 更新复选框
-            const showPinyin = document.getElementById('showPinyin');
-            const showAnnotation = document.getElementById('showAnnotation');
-            const showModern = document.getElementById('showModern');
-            const showNotes = document.getElementById('showNotes');
-            const showEnglish = document.getElementById('showEnglish');
-
-            if (showPinyin) showPinyin.checked = this.settings.showPinyin;
-            if (showAnnotation) showAnnotation.checked = this.settings.showAnnotation;
-            if (showModern) showModern.checked = this.settings.showModern;
-            if (showNotes) showNotes.checked = this.settings.showNotes;
-            if (showEnglish) showEnglish.checked = this.settings.showEnglish;
-        },
-
-        setMode(mode, save = true) {
-            this.settings.mode = mode;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            body.classList.remove('mode-reading', 'mode-zen', 'mode-recite');
-            body.classList.add(`mode-${mode}`);
-
-            // 禅读模式特殊处理
-            if (mode === 'zen') {
-                this.enterZenMode();
-            } else {
-                this.exitZenMode();
-            }
-
-            // 背诵模式：隐藏译文和注解
-            if (mode === 'recite') {
-                body.classList.add('hide-modern', 'hide-notes', 'hide-english');
-            } else {
-                body.classList.remove('hide-modern', 'hide-notes', 'hide-english');
-            }
-
-            this.updateUIState();
-        },
-
-        setFont(font, save = true) {
-            this.settings.font = font;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            body.classList.remove('font-default', 'font-kaiti', 'font-songti', 'font-fangsong', 'font-mingliu', 'font-xkai');
-            body.classList.add(`font-${font}`);
-
-            this.updateUIState();
-        },
-
-        setFontSize(size, save = true) {
-            this.settings.fontSize = size;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large');
-            body.classList.add(`font-size-${size}`);
-
-            this.updateUIState();
-        },
-
-        setTextLayout(layout, save = true) {
-            this.settings.textLayout = layout;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            body.classList.remove('text-layout-center', 'text-layout-left');
-            body.classList.add(`text-layout-${layout}`);
-
-            this.updateUIState();
-        },
-
-        setMusicType(type, save = true) {
-            this.settings.musicType = type;
-            if (save) this.saveSettings();
-
-            const audio = document.getElementById('bgMusic');
-            if (!audio) return;
-
-            // 停止当前播放
-            const wasPlaying = !audio.paused;
-            audio.pause();
-
-            if (type === 'none') {
-                audio.removeAttribute('src');
-                this.updateUIState();
-                return;
-            }
-
-            // 获取音乐列表
-            const tracks = window.musicTracks?.[type] || [];
-            if (tracks.length === 0) return;
-
-            // 设置新的音频源
-            this.currentMusicIndex = Math.floor(Math.random() * tracks.length);
-            audio.src = tracks[this.currentMusicIndex];
-            audio.load();
-
-            // 如果之前在播放，重新开始播放
-            if (wasPlaying) {
-                audio.play().catch(err => {
-                    console.warn('自动播放被阻止:', err);
-                });
-            }
-
-            this.updateUIState();
-        },
-
-        setMusicVolume(volume, save = true) {
-            this.settings.musicVolume = parseInt(volume);
-            if (save) this.saveSettings();
-
-            const audio = document.getElementById('bgMusic');
-            if (audio) {
-                audio.volume = this.settings.musicVolume / 100;
-            }
-        },
-
-        setShowPinyin(show, save = true) {
-            this.settings.showPinyin = show;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            if (show) {
-                body.classList.remove('hide-pinyin');
-            } else {
-                body.classList.add('hide-pinyin');
-            }
-
-            this.updateUIState();
-        },
-
-        setShowAnnotation(show, save = true) {
-            this.settings.showAnnotation = show;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            if (show) {
-                body.classList.remove('hide-annotation');
-            } else {
-                body.classList.add('hide-annotation');
-            }
-
-            this.updateUIState();
-        },
-
-        setShowModern(show, save = true) {
-            this.settings.showModern = show;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            if (show) {
-                body.classList.remove('hide-modern');
-            } else {
-                body.classList.add('hide-modern');
-            }
-
-            this.updateUIState();
-        },
-
-        setShowNotes(show, save = true) {
-            this.settings.showNotes = show;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            if (show) {
-                body.classList.remove('hide-notes');
-            } else {
-                body.classList.add('hide-notes');
-            }
-
-            this.updateUIState();
-        },
-
-        setShowEnglish(show, save = true) {
-            this.settings.showEnglish = show;
-            if (save) this.saveSettings();
-
-            const body = document.body;
-            if (show) {
-                body.classList.remove('hide-english');
-            } else {
-                body.classList.add('hide-english');
-            }
-
-            this.updateUIState();
-        },
-
-        enterZenMode() {
-            // 获取当前章节原文
-            const originalText = document.querySelector('.original-text');
-            if (!originalText) return;
-
-            // 复制原文内容到禅读遮罩
-            const content = originalText.innerHTML;
-            this.zenOverlay.innerHTML = `
-                <button class="zen-exit-btn" id="zenExitBtn">退出禅读</button>
-                <div class="zen-content">
-                    <div class="original-text">${content}</div>
-                </div>
-            `;
-
-            // 绑定退出按钮
-            this.zenOverlay.querySelector('#zenExitBtn').addEventListener('click', () => {
-                this.exitZenMode();
-            });
-
-            // 显示禅读模式
-            this.zenOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        },
-
-        exitZenMode() {
-            this.zenOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-
-            // 如果当前不是禅读模式，切换回阅读模式
-            if (this.settings.mode === 'zen') {
-                // 保持设置但退出禅读视图
-            }
-        },
-
-        shareSettings() {
-            const config = btoa(JSON.stringify(this.settings));
-            const url = `${window.location.origin}${window.location.pathname}?config=${config}`;
-
-            // 复制到剪贴板
-            navigator.clipboard.writeText(url).then(() => {
-                // 显示提示
-                const shareBtn = document.getElementById('shareSettings');
-                const originalText = shareBtn.innerHTML;
-                shareBtn.innerHTML = '<span>✓</span> 已复制链接';
-                setTimeout(() => {
-                    shareBtn.innerHTML = originalText;
-                }, 2000);
-            }).catch(() => {
-                alert('分享链接：' + url);
-            });
-        }
-    };
-
-    // ==================== 分享管理 ====================
-    const ShareManager = {
-        init() {
-            this.shareBtn = document.getElementById('shareToggle');
-            this.supportBtn = document.getElementById('supportBtn');
-            this.communityBtn = document.getElementById('communityBtn');
-            this.shareModal = document.getElementById('shareModal');
-            this.shareUrlInput = document.getElementById('shareUrlInput');
-
-            if (!this.shareBtn) return;
-
-            this.bindEvents();
+            // 如果没找到，使用第一个可用语音
+            return this.voices[0];
         },
 
         bindEvents() {
-            // 分享按钮
-            this.shareBtn?.addEventListener('click', () => this.openShareModal());
+            this.toggleBtn?.addEventListener('click', () => this.toggle());
+            this.stopBtn?.addEventListener('click', () => this.stop());
+
+            this.voiceSelect?.addEventListener('change', (e) => {
+                this.selectedLang = e.target.value;
+                this.saveSettings();
+
+                // 如果正在朗读，重新开始
+                if (this.isPlaying) {
+                    this.stop();
+                    this.speak();
+                }
+            });
+        },
+
+        toggle() {
+            if (this.isPlaying) {
+                this.stop();
+            } else {
+                this.speak();
+            }
+        },
+
+        speak() {
+            const originalText = document.querySelector('.original-text');
+            if (!originalText) {
+                this.showToast('没有找到可朗读的内容');
+                return;
+            }
+
+            const text = originalText.textContent.trim();
+            if (!text) {
+                this.showToast('没有找到可朗读的内容');
+                return;
+            }
+
+            this.stop();
+
+            this.currentUtterance = new SpeechSynthesisUtterance(text);
+            this.currentUtterance.lang = this.selectedLang;
+            this.currentUtterance.rate = 0.8;
+
+            // 查找匹配的语音
+            const matchedVoice = this.findVoiceForLanguage(this.selectedLang);
+            if (matchedVoice) {
+                this.currentUtterance.voice = matchedVoice;
+                console.log(`使用语音: ${matchedVoice.name} (${matchedVoice.lang})`);
+            } else {
+                console.warn('未找到匹配的语音，使用默认');
+            }
+
+            this.currentUtterance.onstart = () => {
+                this.isPlaying = true;
+                this.updateState();
+            };
+
+            this.currentUtterance.onend = () => {
+                this.isPlaying = false;
+                this.updateState();
+            };
+
+            this.currentUtterance.onerror = (e) => {
+                console.error('语音合成错误:', e);
+                this.isPlaying = false;
+                this.updateState();
+            };
+
+            speechSynthesis.speak(this.currentUtterance);
+        },
+
+        stop() {
+            speechSynthesis.cancel();
+            this.isPlaying = false;
+            this.updateState();
+        },
+
+        updateState() {
+            const icon = this.toggleBtn?.querySelector('.speech-icon');
+            if (this.isPlaying) {
+                icon?.classList.add('speaking');
+                this.toggleBtn?.classList.add('active');
+                this.stopBtn?.classList.remove('d-none');
+            } else {
+                icon?.classList.remove('speaking');
+                this.toggleBtn?.classList.remove('active');
+                this.stopBtn?.classList.add('d-none');
+            }
+        },
+
+        showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'position-fixed bottom-0 end-0 p-3';
+            toast.style.zIndex = '1100';
+            toast.innerHTML = `
+                <div class="toast show">
+                    <div class="toast-body">${message}</div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+    };
+
+    // ==================== 设置管理器 ====================
+    const SettingsManager = {
+        init() {
+            this.settingsPanel = document.getElementById('settingsPanel');
+            this.settingsToggle = document.getElementById('settingsToggle');
+            this.closeSettingsBtn = document.getElementById('closeSettingsPanel');
+            this.fontSelect = document.getElementById('fontSelect');
+            this.musicSelect = document.getElementById('musicSelect');
+            this.musicVolumeSlider = document.getElementById('musicVolumeSlider');
+            this.musicVolumeValue = document.getElementById('musicVolumeValue');
+
+            console.log('[SettingsManager] 初始化, settingsPanel:', !!this.settingsPanel, 'settingsToggle:', !!this.settingsToggle);
+
+            if (!this.settingsPanel) return;
+
+            this.loadSettings();
+            this.bindEvents();
+            this.highlightCurrentChapter();
+        },
+
+        loadSettings() {
+            // 字体选择
+            const savedFont = localStorage.getItem('daodejing_font');
+            if (savedFont) {
+                this.setFont(savedFont);
+                if (this.fontSelect) {
+                    this.fontSelect.value = savedFont;
+                }
+            }
+
+            // 字体大小
+            const savedSize = localStorage.getItem('daodejing_fontSize');
+            if (savedSize) {
+                this.setFontSize(savedSize);
+            }
+
+            // 文字布局
+            const savedLayout = localStorage.getItem('daodejing_textLayout');
+            if (savedLayout) {
+                this.setTextLayout(savedLayout);
+            }
+
+            // 音乐选择
+            const savedMusic = localStorage.getItem('daodejing_music');
+            if (savedMusic && this.musicSelect) {
+                this.musicSelect.value = savedMusic;
+            }
+
+            // 音乐音量
+            const savedMusicVolume = localStorage.getItem('daodejing_music_volume');
+            if (savedMusicVolume && this.musicVolumeSlider) {
+                this.musicVolumeSlider.value = savedMusicVolume * 100;
+                if (this.musicVolumeValue) {
+                    this.musicVolumeValue.textContent = Math.round(savedMusicVolume * 100) + '%';
+                }
+            }
+
+            // 显示选项
+            this.loadDisplayOptions();
+
+            // 版本显示
+            this.loadVersionOptions();
+
+            // AI Keys
+            this.loadAIKeys();
+        },
+
+        bindEvents() {
+            console.log('[SettingsManager] 绑定事件, settingsToggle:', !!this.settingsToggle, 'closeSettingsBtn:', !!this.closeSettingsBtn);
+
+            // 打开/关闭设置面板
+            this.settingsToggle?.addEventListener('click', (e) => {
+                console.log('[SettingsManager] 设置按钮被点击');
+                e.preventDefault();
+                e.stopPropagation();
+                this.settingsPanel.classList.toggle('show');
+            });
+
+            this.closeSettingsBtn?.addEventListener('click', (e) => {
+                console.log('[SettingsManager] 关闭按钮被点击');
+                e.preventDefault();
+                this.settingsPanel.classList.remove('show');
+            });
+
+            // 点击外部关闭
+            document.addEventListener('click', (e) => {
+                if (this.settingsPanel?.classList.contains('show')) {
+                    if (!this.settingsPanel.contains(e.target) &&
+                        !this.settingsToggle?.contains(e.target)) {
+                        this.settingsPanel.classList.remove('show');
+                    }
+                }
+            });
+
+            // 字体选择
+            this.fontSelect?.addEventListener('change', (e) => {
+                this.setFont(e.target.value);
+            });
+
+            // 字体大小
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const size = btn.dataset.size;
+                    this.setFontSize(size);
+                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // 文字布局
+            document.querySelectorAll('.layout-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const layout = btn.dataset.layout;
+                    this.setTextLayout(layout);
+                    document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // 阅读模式
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mode = btn.dataset.mode;
+                    this.setReadingMode(mode);
+                    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // 音乐选择
+            this.musicSelect?.addEventListener('change', (e) => {
+                this.setMusic(e.target.value);
+            });
+
+            // 音乐音量
+            this.musicVolumeSlider?.addEventListener('input', (e) => {
+                const volume = e.target.value / 100;
+                localStorage.setItem('daodejing_music_volume', volume);
+                if (this.musicVolumeValue) {
+                    this.musicVolumeValue.textContent = e.target.value + '%';
+                }
+                const audio = document.getElementById('bgMusic');
+                if (audio) audio.volume = volume;
+            });
+
+            // 显示选项
+            document.getElementById('showPinyin')?.addEventListener('change', (e) => {
+                document.body.classList.toggle('hide-pinyin', !e.target.checked);
+                localStorage.setItem('daodejing_showPinyin', e.target.checked);
+            });
+
+            document.getElementById('showAnnotation')?.addEventListener('change', (e) => {
+                document.body.classList.toggle('hide-annotation', !e.target.checked);
+                localStorage.setItem('daodejing_showAnnotation', e.target.checked);
+            });
+
+            // 版本显示
+            document.getElementById('showModern')?.addEventListener('change', (e) => {
+                document.body.classList.toggle('hide-modern', !e.target.checked);
+                localStorage.setItem('daodejing_showModern', e.target.checked);
+            });
+
+            document.getElementById('showNotes')?.addEventListener('change', (e) => {
+                document.body.classList.toggle('hide-notes', !e.target.checked);
+                localStorage.setItem('daodejing_showNotes', e.target.checked);
+            });
+
+            document.getElementById('showEnglish')?.addEventListener('change', (e) => {
+                document.body.classList.toggle('hide-english', !e.target.checked);
+                localStorage.setItem('daodejing_showEnglish', e.target.checked);
+            });
+
+            // AI Keys
+            document.getElementById('deepseekKey')?.addEventListener('change', (e) => {
+                localStorage.setItem('daodejing_deepseek_key', e.target.value);
+            });
+
+            document.getElementById('openaiKey')?.addEventListener('change', (e) => {
+                localStorage.setItem('daodejing_openai_key', e.target.value);
+            });
 
             // 赞赏按钮
-            this.supportBtn?.addEventListener('click', () => {
+            document.getElementById('supportBtn')?.addEventListener('click', () => {
                 const modal = new bootstrap.Modal(document.getElementById('supportModal'));
                 modal.show();
             });
 
             // 社群按钮
-            this.communityBtn?.addEventListener('click', () => {
+            document.getElementById('communityBtn')?.addEventListener('click', () => {
                 const modal = new bootstrap.Modal(document.getElementById('communityModal'));
                 modal.show();
             });
 
-            // 微信分享
-            document.getElementById('shareWechat')?.addEventListener('click', () => {
-                this.shareToWechat();
+            // 分享设置
+            document.getElementById('shareSettings')?.addEventListener('click', () => {
+                this.shareSettings();
+            });
+        },
+
+        setFont(font) {
+            document.body.classList.remove('font-default', 'font-kaiti', 'font-songti',
+                'font-fangsong', 'font-mingliu', 'font-xkai');
+            document.body.classList.add(`font-${font}`);
+            localStorage.setItem('daodejing_font', font);
+        },
+
+        setFontSize(size) {
+            document.body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large');
+            document.body.classList.add(`font-size-${size}`);
+            localStorage.setItem('daodejing_fontSize', size);
+        },
+
+        setTextLayout(layout) {
+            document.body.classList.remove('text-layout-center', 'text-layout-left');
+            document.body.classList.add(`text-layout-${layout}`);
+            localStorage.setItem('daodejing_textLayout', layout);
+        },
+
+        setReadingMode(mode) {
+            const zenOverlay = document.getElementById('zenModeOverlay');
+
+            if (mode === 'zen') {
+                // 禅读模式
+                const originalText = document.querySelector('.original-text');
+                if (originalText && zenOverlay) {
+                    zenOverlay.innerHTML = `
+                        <button class="zen-exit-btn" id="zenExitBtn">退出禅读</button>
+                        <div class="original-text">${originalText.innerHTML}</div>
+                    `;
+                    zenOverlay.classList.add('active');
+                    document.getElementById('zenExitBtn')?.addEventListener('click', () => {
+                        zenOverlay.classList.remove('active');
+                        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                        document.querySelector('[data-mode="reading"]')?.classList.add('active');
+                    });
+                }
+            } else {
+                zenOverlay?.classList.remove('active');
+            }
+        },
+
+        setMusic(music) {
+            localStorage.setItem('daodejing_music', music);
+
+            const audio = document.getElementById('bgMusic');
+            if (!audio) return;
+
+            if (music === 'none') {
+                audio.pause();
+                audio.src = '';
+            } else if (window.musicTracks && window.musicTracks[music]) {
+                const tracks = window.musicTracks[music];
+                audio.src = tracks[Math.floor(Math.random() * tracks.length)];
+                audio.load();
+            }
+        },
+
+        loadDisplayOptions() {
+            const showPinyin = localStorage.getItem('daodejing_showPinyin') !== 'false';
+            const showAnnotation = localStorage.getItem('daodejing_showAnnotation') !== 'false';
+
+            document.getElementById('showPinyin').checked = showPinyin;
+            document.getElementById('showAnnotation').checked = showAnnotation;
+
+            if (!showPinyin) document.body.classList.add('hide-pinyin');
+            if (!showAnnotation) document.body.classList.add('hide-annotation');
+        },
+
+        loadVersionOptions() {
+            const showModern = localStorage.getItem('daodejing_showModern') !== 'false';
+            const showNotes = localStorage.getItem('daodejing_showNotes') !== 'false';
+            const showEnglish = localStorage.getItem('daodejing_showEnglish') === 'true';
+
+            document.getElementById('showModern').checked = showModern;
+            document.getElementById('showNotes').checked = showNotes;
+            document.getElementById('showEnglish').checked = showEnglish;
+
+            if (!showModern) document.body.classList.add('hide-modern');
+            if (!showNotes) document.body.classList.add('hide-notes');
+            if (!showEnglish) document.body.classList.add('hide-english');
+        },
+
+        loadAIKeys() {
+            const deepseekKey = localStorage.getItem('daodejing_deepseek_key');
+            const openaiKey = localStorage.getItem('daodejing_openai_key');
+
+            if (deepseekKey && document.getElementById('deepseekKey')) {
+                document.getElementById('deepseekKey').value = deepseekKey;
+            }
+            if (openaiKey && document.getElementById('openaiKey')) {
+                document.getElementById('openaiKey').value = openaiKey;
+            }
+        },
+
+        highlightCurrentChapter() {
+            // 高亮当前章节
+            const currentPath = window.location.pathname;
+            const match = currentPath.match(/\/chapter\/(\d+)/);
+            if (match) {
+                const chapterNum = match[1];
+                document.querySelectorAll('.chapter-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.chapter === chapterNum) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        },
+
+        shareSettings() {
+            const settings = {
+                f: localStorage.getItem('daodejing_font') || 'default',
+                s: localStorage.getItem('daodejing_fontSize') || 'medium',
+                l: localStorage.getItem('daodejing_textLayout') || 'center'
+            };
+
+            const url = new URL(window.location);
+            url.searchParams.set('settings', btoa(JSON.stringify(settings)));
+
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                this.showToast('配置链接已复制到剪贴板');
+            });
+        },
+
+        showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'position-fixed top-0 end-0 p-3';
+            toast.style.zIndex = '9999';
+            toast.innerHTML = `
+                <div class="toast show align-items-center text-white bg-success">
+                    <div class="d-flex">
+                        <div class="toast-body">${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.parentElement.parentElement.parentElement.remove()"></button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+    };
+
+    // ==================== 分享管理器 ====================
+    const ShareManager = {
+        init() {
+            this.shareToggle = document.getElementById('shareToggle');
+            this.shareModal = document.getElementById('shareModal');
+            this.shareWechat = document.getElementById('shareWechat');
+            this.shareWeibo = document.getElementById('shareWeibo');
+            this.shareLink = document.getElementById('shareLink');
+            this.shareUrlInput = document.getElementById('shareUrlInput');
+
+            if (!this.shareToggle) return;
+
+            this.bindEvents();
+        },
+
+        bindEvents() {
+            this.shareToggle?.addEventListener('click', () => this.showModal());
+
+            this.shareWechat?.addEventListener('click', () => {
+                this.showToast('请截图分享或点击复制链接');
             });
 
-            // 微博分享
-            document.getElementById('shareWeibo')?.addEventListener('click', () => {
-                this.shareToWeibo();
+            this.shareWeibo?.addEventListener('click', () => {
+                const url = encodeURIComponent(window.location.href);
+                const title = encodeURIComponent(document.title);
+                window.open(`https://service.weibo.com/share/share.php?url=${url}&title=${title}`, '_blank');
             });
 
-            // 复制链接
-            document.getElementById('shareLink')?.addEventListener('click', () => {
+            this.shareLink?.addEventListener('click', () => {
                 this.copyLink();
             });
         },
 
-        openShareModal() {
-            if (!this.shareModal) return;
-
-            // 更新链接输入框
-            const shareUrl = window.location.href.split('?')[0];
+        showModal() {
             if (this.shareUrlInput) {
-                this.shareUrlInput.value = shareUrl;
+                this.shareUrlInput.value = window.location.href;
             }
-
             const modal = new bootstrap.Modal(this.shareModal);
             modal.show();
         },
 
-        shareToWechat() {
-            // 微信需要用户手动截图或复制链接
-            const shareUrl = window.location.href.split('?')[0];
-            const title = '道德经多版本对照阅读平台';
-            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照，疑难字注音，暗黑模式。`;
-
-            // 显示提示
-            alert(`请复制链接在微信中分享：\n${shareUrl}\n\n${text}`);
-        },
-
-        shareToWeibo() {
-            const shareUrl = encodeURIComponent(window.location.href.split('?')[0]);
-            const title = encodeURIComponent('道德经多版本对照阅读平台 - 王弼·河上公·王夫之·帛书·英文译本');
-            const text = encodeURIComponent('《道德经》81章完整版，支持多版本对照，疑难字注音，暗黑模式，手机阅读。');
-
-            window.open(`https://service.weibo.com/share/share.php?url=${shareUrl}&title=${title}&pic=`, '_blank');
-        },
-
         copyLink() {
-            const shareUrl = window.location.href.split('?')[0];
-            const title = '道德经多版本对照阅读平台';
-            const text = `《道德经》81章完整版，支持王弼、河上公、王夫之、帛书、楚简多版本对照。`;
-
-            navigator.clipboard.writeText(`${title}\n${text}\n${shareUrl}`).then(() => {
-                // 显示提示
-                const shareBtn = document.getElementById('shareLink');
-                const originalHTML = shareBtn.innerHTML;
-                shareBtn.innerHTML = '<span class="share-icon">✓</span><span>已复制</span>';
-                setTimeout(() => {
-                    shareBtn.innerHTML = originalHTML;
-                }, 2000);
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                this.showToast('链接已复制到剪贴板');
             }).catch(() => {
-                // 备用方案
-                const textArea = document.createElement('textarea');
-                textArea.value = `${title}\n${text}\n${shareUrl}`;
-                document.body.appendChild(textArea);
-                textArea.select();
+                // 降级方案
+                const textarea = document.createElement('textarea');
+                textarea.value = window.location.href;
+                document.body.appendChild(textarea);
+                textarea.select();
                 document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert('链接已复制！');
+                document.body.removeChild(textarea);
+                this.showToast('链接已复制到剪贴板');
             });
+        },
+
+        showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'position-fixed top-0 end-0 p-3';
+            toast.style.zIndex = '9999';
+            toast.innerHTML = `
+                <div class="toast show align-items-center text-white bg-success">
+                    <div class="d-flex">
+                        <div class="toast-body">${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.parentElement.parentElement.parentElement.remove()"></button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
         }
     };
 
-    // ==================== AI助手管理 ====================
+    // ==================== AI 管理器 ====================
     const AIManager = {
-        API_KEY_STORAGE: 'daodejing_ai_keys',
-        messages: [],
-        isGenerating: false,
-
         init() {
-            this.aiToggle = document.getElementById('aiToggle');
-            this.aiSidebar = document.getElementById('aiSidebar');
-            this.aiOverlay = document.getElementById('aiOverlay');
-            this.aiCloseSidebar = document.getElementById('aiCloseSidebar');
-            this.aiNewChat = document.getElementById('aiNewChat');
-            this.aiMessages = document.getElementById('aiMessages');
-            this.aiInput = document.getElementById('aiInput');
-            this.aiSend = document.getElementById('aiSend');
-            this.aiModel = document.getElementById('aiModel');
-            this.aiSuggestions = document.getElementById('aiSuggestions');
+            this.sidebar = document.getElementById('aiSidebar');
+            this.toggle = document.getElementById('aiToggle');
+            this.closeBtn = document.getElementById('aiCloseSidebar');
+            this.newChatBtn = document.getElementById('aiNewChat');
+            this.overlay = document.getElementById('aiOverlay');
+            this.messages = document.getElementById('aiMessages');
+            this.input = document.getElementById('aiInput');
+            this.sendBtn = document.getElementById('aiSend');
+            this.modelSelect = document.getElementById('aiModel');
+            this.suggestions = document.getElementById('aiSuggestions');
 
+            if (!this.sidebar) return;
+
+            this.chatHistory = [];
             this.bindEvents();
-            this.loadApiKeys();
         },
 
         bindEvents() {
-            // 打开AI侧边栏
-            this.aiToggle?.addEventListener('click', () => this.toggleSidebar());
+            this.toggle?.addEventListener('click', () => this.toggleSidebar());
+            this.closeBtn?.addEventListener('click', () => this.closeSidebar());
+            this.overlay?.addEventListener('click', () => this.closeSidebar());
 
-            // 关闭侧边栏
-            this.aiCloseSidebar?.addEventListener('click', () => this.closeSidebar());
+            this.newChatBtn?.addEventListener('click', () => this.newChat());
 
-            // 点击遮罩关闭
-            this.aiOverlay?.addEventListener('click', () => this.closeSidebar());
-
-            // 新对话
-            this.aiNewChat?.addEventListener('click', () => this.newChat());
-
-            // 发送消息
-            this.aiSend?.addEventListener('click', () => this.sendMessage());
-
-            // 回车发送
-            this.aiInput?.addEventListener('keydown', (e) => {
+            this.sendBtn?.addEventListener('click', () => this.sendMessage());
+            this.input?.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     this.sendMessage();
@@ -1470,376 +1192,302 @@
             });
 
             // 快捷问题
-            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
+            this.suggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const question = btn.dataset.question;
-                    this.aiInput.value = question;
-                    this.sendMessage();
+                    if (this.input) {
+                        this.input.value = question;
+                        this.sendMessage();
+                    }
                 });
             });
         },
 
         toggleSidebar() {
-            this.aiSidebar.classList.toggle('show');
-            this.aiOverlay.classList.toggle('show', this.aiSidebar.classList.contains('show'));
+            this.sidebar?.classList.toggle('show');
+            this.overlay?.classList.toggle('show');
         },
 
         closeSidebar() {
-            this.aiSidebar.classList.remove('show');
-            this.aiOverlay.classList.remove('show');
+            this.sidebar?.classList.remove('show');
+            this.overlay?.classList.remove('show');
         },
 
         newChat() {
-            this.messages = [];
-            this.updateMessagesDisplay();
+            this.chatHistory = [];
             this.showWelcome();
         },
 
         showWelcome() {
-            if (this.aiMessages) {
-                this.aiMessages.innerHTML = `
-                    <div class="ai-welcome">
-                        <div class="ai-welcome-icon">🤖</div>
-                        <h6>道德经AI助手</h6>
-                        <p>您可以：</p>
-                        <ul>
-                            <li>点击下方快捷问题开始</li>
-                            <li>或直接输入您的问题</li>
-                        </ul>
-                    </div>
-                `;
-            }
+            if (!this.messages) return;
+            this.messages.innerHTML = `
+                <div class="ai-welcome">
+                    <div class="ai-welcome-icon">🤖</div>
+                    <h6>道德经AI助手</h6>
+                    <p>您可以：</p>
+                    <ul>
+                        <li>点击下方快捷问题开始</li>
+                        <li>或直接输入您的问题</li>
+                    </ul>
+                </div>
+            `;
         },
 
         async sendMessage() {
-            const question = this.aiInput?.value.trim();
-            if (!question || this.isGenerating) return;
-
-            // 隐藏欢迎界面
-            const welcome = this.aiMessages?.querySelector('.ai-welcome');
-            if (welcome) welcome.remove();
+            const message = this.input?.value.trim();
+            if (!message) return;
 
             // 添加用户消息
-            this.messages.push({ role: 'user', content: question });
-            this.addMessageToDisplay('user', question);
-            this.aiInput.value = '';
-
-            // 清空快捷问题
-            this.aiSuggestions?.querySelectorAll('.ai-suggestion-btn').forEach(btn => {
-                btn.style.display = 'none';
-            });
-
-            // 显示加载动画
-            this.showTyping();
+            this.addMessage('user', message);
+            this.input.value = '';
 
             // 获取当前章节内容
-            const chapterContent = this.getChapterContent();
+            const chapterInfo = this.getChapterInfo();
 
-            // 调用AI API
-            const response = await this.callAI(question, chapterContent);
+            // 显示输入状态
+            this.showTyping();
 
-            // 移除加载动画
-            this.hideTyping();
-
-            // 添加AI响应
-            this.messages.push({ role: 'assistant', content: response });
-            this.addMessageToDisplay('assistant', response);
-        },
-
-        addMessageToDisplay(role, content) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `ai-message ${role}`;
-
-            if (role === 'user') {
-                messageDiv.innerHTML = `
-                    <div class="ai-message-content">${this.escapeHtml(content)}</div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="ai-message-header">🤖 道德经AI助手</div>
-                    <div class="ai-message-content">${this.formatContent(content)}</div>
-                `;
-            }
-
-            this.aiMessages.appendChild(messageDiv);
-            this.scrollToBottom();
-        },
-
-        showTyping() {
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'ai-message assistant';
-            typingDiv.id = 'aiTyping';
-            typingDiv.innerHTML = `
-                <div class="ai-typing">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            `;
-            this.aiMessages.appendChild(typingDiv);
-            this.scrollToBottom();
-        },
-
-        hideTyping() {
-            const typing = document.getElementById('aiTyping');
-            if (typing) typing.remove();
-        },
-
-        updateMessagesDisplay() {
-            this.aiMessages.innerHTML = '';
-            this.messages.forEach(msg => {
-                this.addMessageToDisplay(msg.role, msg.content);
-            });
-            if (this.messages.length === 0) {
-                this.showWelcome();
-            }
-        },
-
-        scrollToBottom() {
-            this.aiMessages.scrollTop = this.aiMessages.scrollHeight;
-        },
-
-        getChapterContent() {
-            // 获取当前章节的原文内容
-            const originalText = document.querySelector('.original-text');
-            const chapterTitle = document.querySelector('.breadcrumb .active')?.textContent || '当前章节';
-
-            return {
-                title: chapterTitle,
-                content: originalText?.textContent || ''
-            };
-        },
-
-        async callAI(question, chapterContent) {
-            const model = this.aiModel?.value || 'auto';
-
-            // 构建提示词
-            const prompt = this.buildPrompt(question, chapterContent);
-
-            // 尝试不同的API
-            let response = '';
+            // 获取 API 配置
+            const model = this.modelSelect?.value || 'auto';
+            let apiKey, apiUrl;
 
             if (model === 'deepseek' || model === 'auto') {
-                const deepseekKey = this.apiKeys?.deepseek;
-                if (deepseekKey) {
-                    response = await this.callDeepSeek(prompt, deepseekKey);
-                    if (response) return response;
+                apiKey = localStorage.getItem('daodejing_deepseek_key');
+                if (apiKey) {
+                    apiUrl = 'https://api.deepseek.com/v1/chat/completions';
                 }
             }
 
-            if (model === 'openai' || model === 'auto') {
-                const openaiKey = this.apiKeys?.openai;
-                if (openaiKey) {
-                    response = await this.callOpenAI(prompt, openaiKey);
-                    if (response) return response;
+            if (!apiKey && (model === 'openai' || model === 'auto')) {
+                apiKey = localStorage.getItem('daodejing_openai_key');
+                if (apiKey) {
+                    apiUrl = 'https://api.openai.com/v1/chat/completions';
                 }
             }
 
-            // 没有可用的API Key，返回预设响应
-            return this.getFallbackResponse(question, chapterContent);
-        },
+            if (!apiKey || !apiUrl) {
+                this.hideTyping();
+                this.addMessage('assistant', '请先在设置中配置 API Key（支持 DeepSeek 或 OpenAI）。');
+                return;
+            }
 
-        buildPrompt(question, chapterContent) {
-            return `你是《道德经》的解读助手，请基于以下内容回答问题。
-
-【章节】${chapterContent.title}
-【原文】${chapterContent.content}
-
-【问题】${question}
-
-请用简洁、通俗易懂的语言回答，突出道德经的智慧和现代应用价值。`;
-        },
-
-        async callDeepSeek(prompt, apiKey) {
             try {
-                const response = await fetch('https://api.deepseek.com/chat/completions', {
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${apiKey}`
                     },
                     body: JSON.stringify({
-                        model: 'deepseek-chat',
+                        model: apiUrl.includes('deepseek') ? 'deepseek-chat' : 'gpt-3.5-turbo',
                         messages: [
-                            { role: 'user', content: prompt }
+                            {
+                                role: 'system',
+                                content: `你是《道德经》研究专家。用户正在阅读第${chapterInfo.number}章"${chapterInfo.title}"。
+                                请用通俗易懂的语言，结合现代生活，为用户解读《道德经》。
+                                回答要简洁深入，一般在200字以内。`
+                            },
+                            ...this.chatHistory,
+                            { role: 'user', content: message }
                         ],
-                        stream: false
+                        max_tokens: 500,
+                        temperature: 0.7
                     })
                 });
 
-                if (!response.ok) {
-                    throw new Error('API请求失败');
-                }
-
                 const data = await response.json();
-                return data.choices[0]?.message?.content || '';
+                this.hideTyping();
+
+                if (data.choices && data.choices[0]) {
+                    const reply = data.choices[0].message.content;
+                    this.addMessage('assistant', reply);
+                    this.chatHistory.push({ role: 'user', content: message });
+                    this.chatHistory.push({ role: 'assistant', content: reply });
+                } else {
+                    this.addMessage('assistant', '抱歉，AI 解读暂时不可用，请稍后重试。');
+                }
             } catch (error) {
-                console.error('DeepSeek API错误:', error);
-                return '';
+                this.hideTyping();
+                this.addMessage('assistant', '网络请求失败，请检查 API Key 配置或网络连接。');
             }
         },
 
-        async callOpenAI(prompt, apiKey) {
-            try {
-                const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`
-                    },
-                    body: JSON.stringify({
-                        model: 'gpt-3.5-turbo',
-                        messages: [
-                            { role: 'user', content: prompt }
-                        ],
-                        stream: false
-                    })
-                });
+        addMessage(role, content) {
+            if (!this.messages) return;
 
-                if (!response.ok) {
-                    throw new Error('API请求失败');
-                }
+            // 移除欢迎界面
+            const welcome = this.messages.querySelector('.ai-welcome');
+            if (welcome) welcome.remove();
 
-                const data = await response.json();
-                return data.choices[0]?.message?.content || '';
-            } catch (error) {
-                console.error('OpenAI API错误:', error);
-                return '';
-            }
-        },
-
-        getFallbackResponse(question, chapterContent) {
-            // 没有API Key时的预设响应
-            const responses = {
-                '解读本章核心思想': `根据"${chapterContent.title}"的内容，本章的核心思想是...\n\n💡 要使用AI解读功能，请在设置中配置API Key（DeepSeek或OpenAI）\n\n配置后可获得更深入的AI解读和个性化回答。`,
-                '本章在现代生活中的应用': `道德经的智慧在现代生活中有很多应用...\n\n💡 配置API Key后可获得更详细的应用案例解读`,
-                '解释疑难词句的含义': `本章中的疑难词句包含丰富的哲学内涵...\n\n💡 配置API Key后可获得专业的词语解释`
-            };
-
-            return responses[question] || `感谢您的问题：「${question}」\n\n💡 要获得AI智能回答，请在设置中配置API Key：\n\n1. DeepSeek API (推荐，价格优惠)\n2. OpenAI API (GPT-3.5)\n\nAPI Key仅存储在您本地浏览器中，安全可靠。`;
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `ai-message ${role}`;
+            msgDiv.innerHTML = `
+                <div class="ai-message-content">${this.formatContent(content)}</div>
+            `;
+            this.messages.appendChild(msgDiv);
+            this.messages.scrollTop = this.messages.scrollHeight;
         },
 
         formatContent(content) {
-            // 简单的Markdown格式化
+            // 简单格式化
             return content
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/`([^`]+)`/g, '<code>$1</code>');
+                .replace(/\n/g, '<br>')
+                .replace(/《([^》]+)》/g, '<strong>《$1》</strong>')
+                .replace(/「([^」]+)」/g, '<em>「$1」</em>');
         },
 
-        escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
+        showTyping() {
+            if (!this.messages) return;
+            const typing = document.createElement('div');
+            typing.className = 'ai-message assistant';
+            typing.id = 'aiTyping';
+            typing.innerHTML = `
+                <div class="ai-typing">
+                    <span></span><span></span><span></span>
+                </div>
+            `;
+            this.messages.appendChild(typing);
+            this.messages.scrollTop = this.messages.scrollHeight;
         },
 
-        loadApiKeys() {
-            const saved = localStorage.getItem(this.API_KEY_STORAGE);
-            this.apiKeys = saved ? JSON.parse(saved) : { deepseek: '', openai: '', fish: '' };
-
-            // 填充已保存的API Key
-            const deepseekInput = document.getElementById('deepseekKey');
-            const openaiInput = document.getElementById('openaiKey');
-            if (deepseekInput) deepseekInput.value = this.apiKeys.deepseek || '';
-            if (openaiInput) openaiInput.value = this.apiKeys.openai || '';
-
-            // 监听API Key变化
-            deepseekInput?.addEventListener('change', (e) => {
-                this.apiKeys.deepseek = e.target.value;
-                this.saveApiKeys();
-            });
-
-            openaiInput?.addEventListener('change', (e) => {
-                this.apiKeys.openai = e.target.value;
-                this.saveApiKeys();
-            });
-
-            // Fish Audio API Key
-            const fishApiKeyInput = document.getElementById('fishApiKey');
-            const fishVoiceIdInput = document.getElementById('fishVoiceId');
-            if (fishApiKeyInput) fishApiKeyInput.value = this.apiKeys.fish || '';
-            if (fishVoiceIdInput) fishVoiceIdInput.value = this.apiKeys.fishVoiceId || '';
-
-            fishApiKeyInput?.addEventListener('change', (e) => {
-                this.apiKeys.fish = e.target.value;
-                this.saveApiKeys();
-            });
-
-            fishVoiceIdInput?.addEventListener('change', (e) => {
-                this.apiKeys.fishVoiceId = e.target.value;
-                this.saveApiKeys();
-            });
-
-            // TTS引擎选择
-            const ttsEngineSelect = document.getElementById('ttsEngine');
-            const fishSettings = document.getElementById('fishAudioSettings');
-            const edgeSettings = document.getElementById('edgeAudioSettings');
-
-            // 加载保存的TTS引擎设置
-            const savedTtsEngine = localStorage.getItem('daodejing_tts_engine');
-            if (ttsEngineSelect && savedTtsEngine) {
-                ttsEngineSelect.value = savedTtsEngine;
-            }
-
-            // 显示/隐藏对应的设置面板
-            const updateSettingsPanel = () => {
-                if (!ttsEngineSelect) return;
-                const engine = ttsEngineSelect.value;
-
-                // 隐藏所有面板
-                if (fishSettings) fishSettings.classList.remove('show');
-                if (edgeSettings) edgeSettings.classList.remove('show');
-
-                // 显示选中的面板
-                if (engine === 'fish' && fishSettings) {
-                    fishSettings.classList.add('show');
-                } else if (engine === 'edge' && edgeSettings) {
-                    edgeSettings.classList.add('show');
-                }
-            };
-
-            // 初始化显示
-            updateSettingsPanel();
-
-            // 监听引擎选择变化
-            if (ttsEngineSelect) {
-                ttsEngineSelect.addEventListener('change', (e) => {
-                    localStorage.setItem('daodejing_tts_engine', e.target.value);
-                    updateSettingsPanel();
-                });
-            }
-
-            // 加载保存的Edge声音设置
-            const savedEdgeVoice = localStorage.getItem('daodejing_edge_voice');
-            const edgeVoiceSelect = document.getElementById('edgeVoice');
-            if (edgeVoiceSelect && savedEdgeVoice) {
-                edgeVoiceSelect.value = savedEdgeVoice;
-            }
-
-            // 监听Edge声音选择变化
-            if (edgeVoiceSelect) {
-                edgeVoiceSelect.addEventListener('change', (e) => {
-                    localStorage.setItem('daodejing_edge_voice', e.target.value);
-                });
-            }
+        hideTyping() {
+            document.getElementById('aiTyping')?.remove();
         },
 
-        saveApiKeys() {
-            localStorage.setItem(this.API_KEY_STORAGE, JSON.stringify(this.apiKeys));
+        getChapterInfo() {
+            const breadcrumb = document.querySelector('.breadcrumb .active');
+            const title = document.querySelector('h1, h2, h3, h4, h5')?.textContent || '';
+            let number = 1, chapterTitle = '';
+
+            if (breadcrumb) {
+                const match = breadcrumb.textContent.match(/第(\d+)章/);
+                if (match) number = parseInt(match[1]);
+            }
+
+            const originalText = document.querySelector('.original-text');
+            if (originalText) {
+                chapterTitle = originalText.textContent.substring(0, 20) + '...';
+            }
+
+            return { number, title: chapterTitle };
         }
     };
 
-    // ==================== 初始化 ====================
-    document.addEventListener('DOMContentLoaded', () => {
-        ThemeManager.init();
-        SidebarManager.init();
-        // SearchManager.init();  // 静态版本禁用搜索
-        MusicManager.init();
-        SpeechManager.init();
-        ScrollHighlight.init();
-        SettingsManager.init();
-        ShareManager.init();
-        AIManager.init();
-    });
+    // ==================== 生僻字管理器 ====================
+    const DifficultCharManager = {
+        init() {
+            // 疑难字标注通过CSS实现
+            // 这里可以添加额外的交互功能
+            this.enhanceTooltips();
+        },
+
+        enhanceTooltips() {
+            // 为移动端添加点击显示功能
+            if ('ontouchstart' in window) {
+                document.querySelectorAll('.difficult').forEach(char => {
+                    char.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showMobileTooltip(char);
+                    });
+                });
+            }
+        },
+
+        showMobileTooltip(element) {
+            const pinyin = element.dataset.pinyin;
+            const meaning = element.dataset.meaning;
+
+            // 移除之前的提示
+            document.querySelectorAll('.mobile-tooltip').forEach(t => t.remove());
+
+            const tooltip = document.createElement('div');
+            tooltip.className = 'mobile-tooltip';
+            tooltip.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(44, 24, 16, 0.95);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                z-index: 9999;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            `;
+            tooltip.innerHTML = `
+                <div style="font-size: 24px; margin-bottom: 8px;">${pinyin}</div>
+                <div style="font-size: 14px; opacity: 0.8;">${meaning}</div>
+                <button style="margin-top: 12px; padding: 4px 12px; background: var(--accent-color); border: none; border-radius: 4px; color: white;">关闭</button>
+            `;
+
+            tooltip.querySelector('button').addEventListener('click', () => tooltip.remove());
+            document.body.appendChild(tooltip);
+
+            // 3秒后自动关闭
+            setTimeout(() => tooltip.remove(), 3000);
+        }
+    };
+
+    // ==================== 应用初始化 ====================
+    function init() {
+        console.log('[App] 开始初始化, readyState:', document.readyState);
+        console.log('[App] 当前页面:', window.location.pathname);
+
+        // 初始化各模块（只初始化本文件中定义的管理器）
+        const modules = [
+            { name: 'SearchManager', init: () => SearchManager?.init() },
+            { name: 'ProgressManager', init: () => ProgressManager?.init() },
+            { name: 'CopyManager', init: () => CopyManager?.init() },
+            { name: 'QuoteCardManager', init: () => QuoteCardManager?.init() },
+            { name: 'SpeechManager', init: () => SpeechManager?.init() },
+            { name: 'SettingsManager', init: () => SettingsManager?.init() },
+            { name: 'ShareManager', init: () => ShareManager?.init() },
+            { name: 'AIManager', init: () => AIManager?.init() },
+            { name: 'DifficultCharManager', init: () => DifficultCharManager?.init() }
+        ];
+
+        modules.forEach(module => {
+            try {
+                console.log('[App] 初始化模块:', module.name);
+                module.init();
+            } catch (e) {
+                console.warn(`模块 ${module.name} 初始化失败:`, e);
+            }
+        });
+
+        console.log('[App] 道德经应用初始化完成');
+    }
+
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // 导出到全局
+    window.DaoDeJingApp = {
+        SearchManager,
+        ProgressManager,
+        CopyManager,
+        QuoteCardManager,
+        SpeechManager,
+        SettingsManager,
+        ShareManager,
+        AIManager,
+        DifficultCharManager,
+        init
+    };
+
+    // 兼容性别名
+    window.SearchManager = SearchManager;
+    window.ProgressManager = ProgressManager;
+    window.CopyManager = CopyManager;
+    window.QuoteCardManager = QuoteCardManager;
+    window.SpeechManager = SpeechManager;
+    window.SettingsManager = SettingsManager;
+    window.ShareManager = ShareManager;
+    window.AIManager = AIManager;
 
 })();
