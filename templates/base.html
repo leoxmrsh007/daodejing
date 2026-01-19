@@ -17,6 +17,16 @@
     <meta property="og:title" content="道德经多版本对照阅读平台">
     <meta property="og:description" content="王弼、河上公、王夫之、帛书、英文多版本并列，疑难字注音，暗黑模式，支持手机阅读。">
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#d4a574">
+
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="道德经">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4a574%22>☯</text></svg>">
+
     <!-- 百度统计 -->
     <script>
     var _hmt = _hmt || [];
@@ -545,6 +555,10 @@
     <script src="{{ url_for('static', filename='js/modules/sidebar.js') }}"></script>
     <script src="{{ url_for('static', filename='js/modules/music.js') }}"></script>
     <script src="{{ url_for('static', filename='js/modules/shortcuts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/pwa.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/local-search.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/notes.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/quote-card.js') }}"></script>
 
     <!-- 主应用 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

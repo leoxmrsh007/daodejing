@@ -17,12 +17,22 @@ from services.annotation_service import annotate_difficult_chars
 # 静态生成器专用配置
 OUTPUT_DIR = BASE_DIR / 'dist'
 DATA_FILE = DATA_DIR / 'daodejing.json'
+IDIOMS_FILE = DATA_DIR / 'idioms.json'
 
 
 def load_data():
     """加载道德经数据"""
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def load_idioms():
+    """加载成语数据"""
+    try:
+        with open(IDIOMS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f).get('idioms', [])
+    except FileNotFoundError:
+        return []
 
 
 # ==================== HTML 模板 ====================
@@ -506,6 +516,17 @@ document.getElementById('copyOriginal')?.addEventListener('click', function() {
         setTimeout(() => this.textContent = '复制', 2000);
     });
 });
+
+// 成语标签悬停效果
+document.querySelectorAll('.idiom-tag').forEach(tag => {
+    tag.addEventListener('click', function() {
+        // 点击成语时显示详细信息（可选功能）
+        const meaning = this.getAttribute('title');
+        if (meaning) {
+            alert(meaning.replace(/&#10;/g, '\\n'));
+        }
+    });
+});
 '''
 
 
@@ -600,7 +621,7 @@ def generate_all_chapters_page(data):
     return html
 
 
-def generate_chapter_page(data, chapter_id):
+def generate_chapter_page(data, chapter_id, idioms=None):
     """生成单章页面"""
     chapter = next((c for c in data['chapters'] if c['chapter'] == chapter_id), None)
     if not chapter:
@@ -616,6 +637,29 @@ def generate_chapter_page(data, chapter_id):
 
     chapter_list = generate_chapter_list_html(data['chapters'], chapter_id)
 
+    # 筛选当前章节相关的成语
+    related_idioms = []
+    if idioms:
+        related_idioms = [idiom for idiom in idioms if idiom.get('chapter') == chapter_id]
+
+    # 生成成语展示HTML
+    idioms_html = ''
+    if related_idioms:
+        idioms_html = '<div class="idioms-container d-flex flex-wrap gap-2">'
+        for idiom in related_idioms:
+            safe_meaning = idiom.get('meaning', '').replace('"', '&quot;')
+            safe_source = idiom.get('source', '').replace('"', '&quot;')
+            idioms_html += f'''
+            <span class="idiom-tag" title="{safe_meaning}&#10;原文：{safe_source}">
+                <span class="idiom-word">{idiom.get('word', '')}</span>
+                <span class="idiom-chapter">📖</span>
+            </span>'''
+        idioms_html += '</div>'
+    else:
+        idioms_html = '<span class="text-muted">本章暂无收录相关成语</span>'
+
+    idioms_json = json.dumps(related_idioms, ensure_ascii=False)
+
     # 构建内容
     content = f'''
     <nav aria-label="章节导航" class="chapter-nav mb-3">
@@ -624,6 +668,19 @@ def generate_chapter_page(data, chapter_id):
             <li class="breadcrumb-item active">第{chapter['chapter']}章</li>
         </ol>
     </nav>
+
+    <section class="idioms-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">📖 相关成语</h5>
+            </div>
+            <div class="card-body">
+                <div id="idiomsContainer">
+                    {idioms_html}
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="original-section mb-4">
         <div class="card">
@@ -677,6 +734,15 @@ def generate_chapter_page(data, chapter_id):
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian" type="button">郭店异文</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#xianger" type="button">想尔注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#yanzun" type="button">严遵注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wanganshi" type="button">王安石注</button>
+                    </li>
                 </ul>
                 <div class="tab-content p-3">
                     <div class="tab-pane fade show active" id="wangbi">
@@ -713,6 +779,18 @@ def generate_chapter_page(data, chapter_id):
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="xianger">
+                        <h6 class="text-muted mb-2">老子想尔注（东汉·张陵/张道陵）</h6>
+                        <p class="note-text mb-0">{chapter.get('xianger_note', '此版本暂未收录')}</p>
+                    </div>
+                    <div class="tab-pane fade" id="yanzun">
+                        <h6 class="text-muted mb-2">道德真经指归（汉·严遵）</h6>
+                        <p class="note-text mb-0">{chapter.get('yanzun_note', '此版本暂未收录')}</p>
+                    </div>
+                    <div class="tab-pane fade" id="wanganshi">
+                        <h6 class="text-muted mb-2">临川集·老子注（宋·王安石）</h6>
+                        <p class="note-text mb-0">{chapter.get('wanganshi_note', '此版本暂未收录')}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -732,6 +810,12 @@ def generate_chapter_page(data, chapter_id):
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#waley" type="button">Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#mitchell" type="button">Mitchell</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#addiss" type="button">Addiss & Lombardo</button>
                     </li>
                 </ul>
@@ -741,6 +825,12 @@ def generate_chapter_page(data, chapter_id):
                     </div>
                     <div class="tab-pane fade" id="henricks">
                         <p class="english-text mb-0 fst-italic">{chapter.get('english_henricks', '')}</p>
+                    </div>
+                    <div class="tab-pane fade" id="waley">
+                        <p class="english-text mb-0 fst-italic">{chapter.get('english_waley', '')}</p>
+                    </div>
+                    <div class="tab-pane fade" id="mitchell">
+                        <p class="english-text mb-0 fst-italic">{chapter.get('english_mitchell', '')}</p>
                     </div>
                     <div class="tab-pane fade" id="addiss">
                         <p class="english-text mb-0 fst-italic">{chapter.get('english_addiss', '')}</p>
@@ -778,15 +868,32 @@ def copy_assets():
     # 创建assets目录
     assets_css_dir = OUTPUT_DIR / 'assets' / 'css'
     assets_js_dir = OUTPUT_DIR / 'assets' / 'js'
+    assets_js_modules_dir = assets_js_dir / 'modules'
     assets_audio_dir = OUTPUT_DIR / 'assets' / 'audio'
     assets_css_dir.mkdir(parents=True, exist_ok=True)
     assets_js_dir.mkdir(parents=True, exist_ok=True)
+    assets_js_modules_dir.mkdir(parents=True, exist_ok=True)
     assets_audio_dir.mkdir(parents=True, exist_ok=True)
 
     # 复制CSS
     shutil.copy(BASE_DIR / 'static' / 'css' / 'style.css', assets_css_dir / 'style.css')
 
-    # 复制并修改JS (移除API搜索功能)
+    # 复制JS模块
+    modules_dir = BASE_DIR / 'static' / 'js' / 'modules'
+    if modules_dir.exists():
+        for module_file in modules_dir.glob('*.js'):
+            shutil.copy(module_file, assets_js_modules_dir / module_file.name)
+
+    # 复制Service Worker和Manifest
+    sw_src = BASE_DIR / 'static' / 'js' / 'sw.js'
+    if sw_src.exists():
+        shutil.copy(sw_src, assets_js_dir / 'sw.js')
+
+    manifest_src = BASE_DIR / 'static' / 'manifest.json'
+    if manifest_src.exists():
+        shutil.copy(manifest_src, OUTPUT_DIR / 'manifest.json')
+
+    # 复制并修改main.js (移除API搜索功能)
     js_content = (BASE_DIR / 'static' / 'js' / 'main.js').read_text(encoding='utf-8')
     # 静态版本不需要搜索功能，注释掉
     static_js = js_content.replace(
@@ -799,10 +906,11 @@ def copy_assets():
     (assets_js_dir / 'main.js').write_text(static_js, encoding='utf-8')
 
     # 复制音频文件
-    audio_src = BASE_DIR / 'static' / 'audio' / 'gaoshanliushui.mp3'
-    if audio_src.exists():
-        shutil.copy(audio_src, assets_audio_dir / 'gaoshanliushui.mp3')
-        print("      音频文件已复制")
+    audio_dir = BASE_DIR / 'static' / 'audio'
+    if audio_dir.exists():
+        for audio_file in audio_dir.glob('*.mp3'):
+            shutil.copy(audio_file, assets_audio_dir / audio_file.name)
+        print(f"      复制了 {len(list(assets_audio_dir.glob('*.mp3')))} 个音频文件")
 
 
 def generate_site():
@@ -817,31 +925,36 @@ def generate_site():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # 加载数据
-    print("\n[1/4] 加载数据...")
+    print("\n[1/5] 加载数据...")
     data = load_data()
     print(f"      加载了 {len(data['chapters'])} 章内容")
 
+    # 加载成语数据
+    print("\n[2/5] 加载成语数据...")
+    idioms = load_idioms()
+    print(f"      加载了 {len(idioms)} 个成语")
+
     # 复制静态资源
-    print("\n[2/4] 复制静态资源...")
+    print("\n[3/5] 复制静态资源...")
     copy_assets()
     print("      CSS 和 JS 文件已复制")
 
     # 生成首页
-    print("\n[3/4] 生成首页...")
+    print("\n[4/5] 生成首页...")
     index_html = generate_index_page(data)
     (OUTPUT_DIR / 'index.html').write_text(index_html, encoding='utf-8')
     print("      index.html 已生成")
 
     # 生成全部章节页
-    print("\n[3/4] 生成全部章节页...")
+    print("\n[4/5] 生成全部章节页...")
     all_html = generate_all_chapters_page(data)
     (OUTPUT_DIR / 'all-chapters.html').write_text(all_html, encoding='utf-8')
     print("      all-chapters.html 已生成")
 
     # 生成章节页面
-    print("\n[4/4] 生成章节页面...")
+    print("\n[5/5] 生成章节页面...")
     for ch in data['chapters']:
-        html = generate_chapter_page(data, ch['chapter'])
+        html = generate_chapter_page(data, ch['chapter'], idioms)
         if html:
             (OUTPUT_DIR / f'chapter{ch["chapter"]}.html').write_text(html, encoding='utf-8')
     print(f"      生成了 {len(data['chapters'])} 个章节页面")

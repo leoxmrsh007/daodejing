@@ -1570,3 +1570,120 @@ body {
 .edge-audio-settings a:hover {
     text-decoration: underline;
 }
+
+/* ==================== 离线模式样式 ==================== */
+.offline-mode::after {
+    content: "🔴 离线模式";
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(220, 38, 38, 0.95);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* PWA 更新横幅样式 */
+.update-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.update-banner-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* PWA 安装按钮样式 */
+@keyframes installPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(102, 126, 234, 0);
+    }
+}
+
+/* ==================== 加载状态优化 ==================== */
+.loading-skeleton {
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border-color) 50%, var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================== 触摸反馈 ==================== */
+@media (hover: none) and (pointer: coarse) {
+    /* 移动端触摸反馈 */
+    .btn:active,
+    .card:active,
+    .chapter-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* 增大触摸区域 */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .chapter-item {
+        padding: 12px 8px;
+    }
+
+    /* 优化触摸滚动 */
+    .sidebar,
+    .ai-sidebar,
+    .settings-panel {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+}
+
+/* ==================== 安全区域适配（刘海屏） ==================== */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .settings-panel,
+    .ai-sidebar,
+    .speech-panel,
+    .volume-panel {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .footer {
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
+
+    .navbar {
+        padding-top: env(safe-area-inset-top);
+    }
+}
