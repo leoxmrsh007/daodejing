@@ -121,18 +121,6 @@
                                 type="button">河上公注</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#xianger"
-                                type="button">想尔注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#yanzun"
-                                type="button">严遵注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wanganshi"
-                                type="button">王安石注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#suzhe"
                                 type="button">苏辙注</button>
                     </li>
@@ -143,6 +131,18 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan"
                                 type="button">憨山德清注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#lihanxu"
+                                type="button">李涵虚注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#huangyuanji"
+                                type="button">黄元吉注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#weiyuan"
+                                type="button">魏源注</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#postsilk"
@@ -166,18 +166,6 @@
                         <h6 class="text-muted mb-2">河上公注（汉）</h6>
                         <p class="note-text mb-0">{{ chapter.heshanggong_note }}</p>
                     </div>
-                    <div class="tab-pane fade" id="xianger">
-                        <h6 class="text-muted mb-2">老子想尔注（东汉末/天师道）</h6>
-                        <p class="note-text mb-0">{% if chapter.xianger_note %}{{ chapter.xianger_note }}{% else %}此版本暂未收录{% endif %}</p>
-                    </div>
-                    <div class="tab-pane fade" id="yanzun">
-                        <h6 class="text-muted mb-2">严遵《道德指归》（西汉）</h6>
-                        <p class="note-text mb-0">{% if chapter.yanzun_note %}{{ chapter.yanzun_note }}{% else %}此版本暂未收录{% endif %}</p>
-                    </div>
-                    <div class="tab-pane fade" id="wanganshi">
-                        <h6 class="text-muted mb-2">王安石《老子注》（北宋）</h6>
-                        <p class="note-text mb-0">{% if chapter.wanganshi_note %}{{ chapter.wanganshi_note }}{% else %}此版本暂未收录{% endif %}</p>
-                    </div>
                     <div class="tab-pane fade" id="suzhe">
                         <h6 class="text-muted mb-2">苏辙《老子解》（北宋）</h6>
                         <p class="note-text mb-0">{% if chapter.suzhe_note %}{{ chapter.suzhe_note }}{% else %}此版本暂未收录{% endif %}</p>
@@ -189,6 +177,18 @@
                     <div class="tab-pane fade" id="hanshan">
                         <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
                         <p class="note-text mb-0">{{ chapter.hanshandeqing_note }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="lihanxu">
+                        <h6 class="text-muted mb-2">李涵虚《道德经注释》（清）</h6>
+                        <p class="note-text mb-0">{% if chapter.lihanxu_note %}{{ chapter.lihanxu_note }}{% else %}此版本暂未收录{% endif %}</p>
+                    </div>
+                    <div class="tab-pane fade" id="huangyuanji">
+                        <h6 class="text-muted mb-2">黄元吉《道德经真义》（清）</h6>
+                        <p class="note-text mb-0">{% if chapter.huangyuanji_note %}{{ chapter.huangyuanji_note }}{% else %}此版本暂未收录{% endif %}</p>
+                    </div>
+                    <div class="tab-pane fade" id="weiyuan">
+                        <h6 class="text-muted mb-2">魏源《老子本义》（清）</h6>
+                        <p class="note-text mb-0">{% if chapter.weiyuan_note %}{{ chapter.weiyuan_note }}{% else %}此版本暂未收录{% endif %}</p>
                     </div>
                     <div class="tab-pane fade" id="postsilk">
                         <h6 class="text-muted mb-2">马王堆帛书异文（西汉）</h6>
