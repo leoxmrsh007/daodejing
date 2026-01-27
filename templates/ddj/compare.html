@@ -13,8 +13,8 @@
     <!-- 章节导航 -->
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
-            <li class="breadcrumb-item"><a href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}">第{{ chapter.chapter }}章</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('pages.daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('pages.daodejing_chapter_view', chapter_id=chapter.chapter) }}">第{{ chapter.chapter }}章</a></li>
             <li class="breadcrumb-item active">版本对照</li>
         </ol>
     </nav>
@@ -200,7 +200,7 @@
 
     <!-- 返回按钮 -->
     <div class="text-center mt-4">
-        <a href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+        <a href="{{ url_for('pages.daodejing_chapter_view', chapter_id=chapter.chapter) }}"
            class="btn btn-outline-primary">
             ← 返回阅读页
         </a>

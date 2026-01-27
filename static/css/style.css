@@ -1687,3 +1687,137 @@ body {
         padding-top: env(safe-area-inset-top);
     }
 }
+
+/* ==================== 横屏模式优化 ==================== */
+@media (orientation: landscape) and (max-height: 600px) {
+    .modal-dialog {
+        max-height: 95vh;
+    }
+
+    .modal-body {
+        max-height: calc(95vh - 140px);
+        overflow-y: auto;
+    }
+
+    .modal .modal-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal .modal-footer {
+        padding: 0.5rem 1rem;
+    }
+
+    /* 知识图谱横屏优化 */
+    #knowledgeGraphModal .modal-body {
+        padding: 0.5rem;
+    }
+
+    #graphContainer {
+        height: calc(95vh - 180px) !important;
+    }
+}
+
+/* ==================== 知识图谱移动端优化 ==================== */
+@media (max-width: 768px) {
+    /* 知识图谱模态框全屏显示 */
+    #knowledgeGraphModal .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+        height: 100vh;
+    }
+
+    #knowledgeGraphModal .modal-content {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+    }
+
+    #knowledgeGraphModal .modal-body {
+        padding: 0;
+        height: calc(100% - 120px);
+    }
+
+    #graphContainer {
+        height: calc(100% - 60px) !important;
+    }
+
+    /* 图谱控制按钮优化 */
+    .graph-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1060;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .graph-controls button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 概念列表移动端优化 */
+    .concept-list-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 40vh;
+        z-index: 1055;
+        border-radius: 16px 16px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .concept-list-panel.show {
+        transform: translateY(0);
+    }
+}
+
+/* ==================== 虚拟键盘处理 ==================== */
+@supports (-webkit-touch-callout: none) {
+    /* 防止iOS缩放 */
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* ==================== 小屏设备字体优化 ==================== */
+@media (max-width: 375px) {
+    body {
+        font-size: 14px;
+    }
+
+    .chapter-num {
+        font-size: 1rem;
+    }
+
+    .original-text {
+        font-size: 1.1rem;
+    }
+
+    .note-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== 平板竖屏优化 ==================== */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .chapter-item {
+        padding: 0.4rem 0.8rem;
+    }
+}

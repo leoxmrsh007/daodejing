@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>道德经多版本对照阅读 - 王弼·河上公·王夫之·帛书·英文译本在线</title>
+    <title>
+        {%- block title %}{{ classic.short_name if classic else '古籍经典' }} - 多版本对照阅读{% endblock -%}
+    </title>
 
-    <meta name="description" content="免费在线阅读《道德经》81章，支持王弼注、河上公注、王夫之《老子衍》、憨山德清注、马王堆帛书、郭店楚简、D.C. Lau/Henricks/Addiss&Lombardo英文译本、白话译文，多版本并列对照，疑难字注音，暗黑模式。">
+    <meta name="description" content="免费在线阅读《{{ classic.short_name if classic else '古籍经典' }}》{{ classic.chapters if classic else 81 }}{{ '篇' if classic and classic.id == 'zzj' else '章' }}，支持多版本对照、注释、英文译本，疑难字注音，暗黑模式。">
 
-    <meta name="keywords" content="道德经,老子,道家经典,多版本对照,王弼注,河上公注,王夫之,憨山德清,帛书本,郭店楚简,英文译本,在线阅读">
+    <meta name="keywords" content="{{ classic.short_name if classic else '古籍经典' }},{{ classic.author if classic else '' }},道家经典,多版本对照,在线阅读">
 
     <!-- 网站图标 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
@@ -24,8 +26,8 @@
     <!-- PWA Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="道德经">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4a574%22>☯</text></svg>">
+    <meta name="apple-mobile-web-app-title" content="{{ classic.short_name if classic else '古籍经典' }}">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4a574%22>{{ classic.icon if classic else '☯' }}</text></svg>">
 
     <!-- 百度统计 -->
     <script>
@@ -56,9 +58,9 @@
             </button>
 
             <!-- 品牌标题 -->
-            <a class="navbar-brand" href="{{ url_for('daodejing_index') }}">
-                <span class="brand-icon">☯</span>
-                <span class="brand-text">道德经</span>
+            <a class="navbar-brand" href="{{ url_for('pages.classic_index', classic_id=(classic.id if classic else 'ddj')) }}">
+                <span class="brand-icon">{{ classic.icon if classic else '☯' }}</span>
+                <span class="brand-text">{{ classic.short_name if classic else '道德经' }}</span>
             </a>
 
             <!-- 当前章节标题（动态显示） -->
@@ -105,6 +107,65 @@
                         <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                     </svg>
                 </button>
+
+                <!-- AI创新功能下拉菜单 -->
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" title="AI创新功能">
+                        <span>✨</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">AI创新功能</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="knowledgeGraphBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
+                                </svg>
+                                概念关系图谱
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="commentaryChatBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                与注释家对话
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="philosophyDialogueBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                跨文明哲学对话
+                            </button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">实用工具</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="noteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                阅读笔记
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="quoteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                    <polyline points="16 6 12 2 8 6"></polyline>
+                                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                                </svg>
+                                生成引用卡片
+                            </button>
+                        </li>
+                    </ul>
+                </div>
                 <!-- AI解读按钮 -->
                 <button class="btn btn-sm btn-outline-primary ai-btn" id="aiToggle" title="AI解读">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -457,10 +518,11 @@
                     <h6 class="sidebar-title">目录</h6>
                     <div class="chapter-list" id="chapterList">
                         <nav class="nav flex-column">
+                            {% set chapter_endpoint = 'pages.daodejing_chapter_view' if classic and classic.id == 'ddj' else 'pages.chapter_view' %}
                             {% if data and data.chapters %}
                                 {% for chapter in data.chapters %}
                                 <a class="nav-link chapter-item"
-                                   href="{{ url_for('chapter_view', chapter_id=chapter.chapter) }}"
+                                   href="{% if classic and classic.id == 'ddj' %}{{ url_for('pages.daodejing_chapter_view', chapter_id=chapter.chapter) }}{% else %}{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.chapter) }}{% endif %}"
                                    data-chapter="{{ chapter.chapter }}">
                                     <span class="chapter-num">第{{ chapter.chapter }}章</span>
                                 </a>
@@ -481,7 +543,7 @@
     <!-- 底部 -->
     <footer class="footer mt-auto py-3">
         <div class="container text-center text-muted">
-            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+            <small>{{ classic.short_name if classic else '古籍经典' }}多版本对照平台 | {{ classic.author if classic else '老子' }}著 | {{ classic.era if classic else '春秋末期' }}</small>
         </div>
     </footer>
 
@@ -559,6 +621,30 @@
     <script src="{{ url_for('static', filename='js/modules/local-search.js') }}"></script>
     <script src="{{ url_for('static', filename='js/modules/notes.js') }}"></script>
     <script src="{{ url_for('static', filename='js/modules/quote-card.js') }}"></script>
+
+    <!-- AI创新功能模块 -->
+    <script src="{{ url_for('static', filename='js/modules/knowledge-graph.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/commentary-chat.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modules/philosophy-dialogue.js') }}"></script>
+
+    <!-- 经典配置注入 -->
+    <script>
+    // 经典配置（从服务端注入）
+    window.CLASSIC_CONFIG = {
+        id: '{{ classic.id if classic else "ddj" }}',
+        name: '{{ classic.name if classic else "道德经" }}',
+        shortName: '{{ classic.short_name if classic else "道德经" }}',
+        author: '{{ classic.author if classic else "老子" }}',
+        era: '{{ classic.era if classic else "春秋末期" }}',
+        chapters: {{ classic.chapters if classic else 81 }},
+        icon: '{{ classic.icon if classic else "☯" }}',
+        color: '{{ classic.color if classic else "#d4a574" }}',
+        chapterUnit: '{{ "篇" if classic and classic.id == "zzj" else "章" }}',
+        apiBaseUrl: '/api/{{ classic.id if classic else "ddj" }}',
+        commentators: {{ classic.commentators|tojson if classic and classic.commentators else '[]' }},
+        translators: {{ classic.translators|tojson if classic and classic.translators else '[]' }}
+    };
+    </script>
 
     <!-- 主应用 -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

@@ -13,7 +13,7 @@
     <!-- 章节导航 -->
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url_for('daodejing_index') }}">目录</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('pages.daodejing_index') }}">目录</a></li>
             <li class="breadcrumb-item active">第{{ chapter.chapter }}章</li>
         </ol>
     </nav>
@@ -152,8 +152,20 @@
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#guodian"
                                 type="button">郭店异文</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#xianger"
+                                type="button">想尔注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#yanzun"
+                                type="button">严遵注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wanganshi"
+                                type="button">王安石注</button>
+                    </li>
                     <li class="nav-item ms-auto">
-                        <a href="{{ url_for('compare_view', chapter_id=chapter.chapter) }}"
+                        <a href="{{ url_for('pages.daodejing_compare_view', chapter_id=chapter.chapter) }}"
                            class="btn btn-sm btn-outline-primary mt-1">全屏对照</a>
                     </li>
                 </ul>
@@ -215,6 +227,18 @@
                                 <small class="text-muted">{{ chapter.guodian_diff }}</small>
                             </div>
                         </div>
+                    </div>
+                    <div class="tab-pane fade" id="xianger">
+                        <h6 class="text-muted mb-2">老子想尔注（东汉·张陵/张道陵）</h6>
+                        <p class="note-text mb-0">{% if chapter.xianger_note %}{{ chapter.xianger_note }}{% else %}此版本暂未收录（现存考古残本，仅存{{ chapter.chapter }}章中部分章节）{% endif %}</p>
+                    </div>
+                    <div class="tab-pane fade" id="yanzun">
+                        <h6 class="text-muted mb-2">道德真经指归（汉·严遵）</h6>
+                        <p class="note-text mb-0">{% if chapter.yanzun_note %}{{ chapter.yanzun_note }}{% else %}此版本暂未收录{% endif %}</p>
+                    </div>
+                    <div class="tab-pane fade" id="wanganshi">
+                        <h6 class="text-muted mb-2">临川集·老子注（宋·王安石）</h6>
+                        <p class="note-text mb-0">{% if chapter.wanganshi_note %}{{ chapter.wanganshi_note }}{% else %}此版本暂未收录{% endif %}</p>
                     </div>
                 </div>
             </div>
@@ -297,7 +321,7 @@
         <ul class="pagination justify-content-center">
             {% if chapter.prev_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('pages.daodejing_chapter_view', chapter_id=chapter.prev_chapter.chapter) }}">
                     ← 第{{ chapter.prev_chapter.chapter }}章
                 </a>
             </li>
@@ -313,7 +337,7 @@
 
             {% if chapter.next_chapter %}
             <li class="page-item">
-                <a class="page-link" href="{{ url_for('chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
+                <a class="page-link" href="{{ url_for('pages.daodejing_chapter_view', chapter_id=chapter.next_chapter.chapter) }}">
                     第{{ chapter.next_chapter.chapter }}章 →
                 </a>
             </li>

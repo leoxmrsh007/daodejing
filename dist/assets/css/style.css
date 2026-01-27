@@ -1570,3 +1570,254 @@ body {
 .edge-audio-settings a:hover {
     text-decoration: underline;
 }
+
+/* ==================== 离线模式样式 ==================== */
+.offline-mode::after {
+    content: "🔴 离线模式";
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(220, 38, 38, 0.95);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* PWA 更新横幅样式 */
+.update-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.update-banner-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* PWA 安装按钮样式 */
+@keyframes installPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(102, 126, 234, 0);
+    }
+}
+
+/* ==================== 加载状态优化 ==================== */
+.loading-skeleton {
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border-color) 50%, var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==================== 触摸反馈 ==================== */
+@media (hover: none) and (pointer: coarse) {
+    /* 移动端触摸反馈 */
+    .btn:active,
+    .card:active,
+    .chapter-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* 增大触摸区域 */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .chapter-item {
+        padding: 12px 8px;
+    }
+
+    /* 优化触摸滚动 */
+    .sidebar,
+    .ai-sidebar,
+    .settings-panel {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+}
+
+/* ==================== 安全区域适配（刘海屏） ==================== */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .settings-panel,
+    .ai-sidebar,
+    .speech-panel,
+    .volume-panel {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .footer {
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
+
+    .navbar {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+/* ==================== 横屏模式优化 ==================== */
+@media (orientation: landscape) and (max-height: 600px) {
+    .modal-dialog {
+        max-height: 95vh;
+    }
+
+    .modal-body {
+        max-height: calc(95vh - 140px);
+        overflow-y: auto;
+    }
+
+    .modal .modal-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal .modal-footer {
+        padding: 0.5rem 1rem;
+    }
+
+    /* 知识图谱横屏优化 */
+    #knowledgeGraphModal .modal-body {
+        padding: 0.5rem;
+    }
+
+    #graphContainer {
+        height: calc(95vh - 180px) !important;
+    }
+}
+
+/* ==================== 知识图谱移动端优化 ==================== */
+@media (max-width: 768px) {
+    /* 知识图谱模态框全屏显示 */
+    #knowledgeGraphModal .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+        height: 100vh;
+    }
+
+    #knowledgeGraphModal .modal-content {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+    }
+
+    #knowledgeGraphModal .modal-body {
+        padding: 0;
+        height: calc(100% - 120px);
+    }
+
+    #graphContainer {
+        height: calc(100% - 60px) !important;
+    }
+
+    /* 图谱控制按钮优化 */
+    .graph-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1060;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .graph-controls button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 概念列表移动端优化 */
+    .concept-list-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 40vh;
+        z-index: 1055;
+        border-radius: 16px 16px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .concept-list-panel.show {
+        transform: translateY(0);
+    }
+}
+
+/* ==================== 虚拟键盘处理 ==================== */
+@supports (-webkit-touch-callout: none) {
+    /* 防止iOS缩放 */
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* ==================== 小屏设备字体优化 ==================== */
+@media (max-width: 375px) {
+    body {
+        font-size: 14px;
+    }
+
+    .chapter-num {
+        font-size: 1rem;
+    }
+
+    .original-text {
+        font-size: 1.1rem;
+    }
+
+    .note-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== 平板竖屏优化 ==================== */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .chapter-item {
+        padding: 0.4rem 0.8rem;
+    }
+}

@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}{{ classic.short_name }} - {{ data.subtitle }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <!-- 经典选择器 -->
+    <div class="classic-selector mb-4">
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="classicDropdown" data-bs-toggle="dropdown">
+                <span class="me-1">{{ classic.icon }}</span>
+                <span>{{ classic.short_name }}</span>
+            </button>
+            <ul class="dropdown-menu">
+                {% for c in all_classics %}
+                <li>
+                    <a class="dropdown-item {{ 'active' if c.id == classic.id else '' }}"
+                       href="{{ url_for('pages.classic_index', classic_id=c.id) }}">
+                        <span class="me-2">{{ c.icon }}</span>
+                        <span>{{ c.short_name }}</span>
+                        <small class="text-muted d-block ms-4">{{ c.author }} · {{ c.era }}</small>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- 首页头部 -->
+    <header class="page-header text-center py-5" style="--accent-color: {{ classic.color }}">
+        <div class="classic-icon-large mb-3">{{ classic.icon }}</div>
+        <h1 class="display-4 mb-2">{{ data.title }}</h1>
+        <p class="lead text-muted">{{ data.subtitle }}</p>
+        <p class="text-white-80">{{ classic.description }}</p>
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=1) }}" class="btn btn-light btn-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                开始阅读
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg d-none" id="continueReadingBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>
+                继续阅读
+            </a>
+        </div>
+        <div class="mt-3 text-white-60">
+            <small>{{ classic.author }} 著 · {{ classic.era }}</small>
+        </div>
+    </header>
+
+    <!-- 阅读进度 -->
+    <section class="progress-section mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                            <span>📊 阅读进度</span>
+                            <span class="badge bg-primary" id="readPercentage">0%</span>
+                        </h5>
+                        <div class="progress mb-3" style="height: 10px;">
+                            <div class="progress-bar bg-success" id="progressBar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <p class="card-text text-muted small mb-0">
+                            已阅读 <strong id="readCount">0</strong> / {{ classic.chapters }} {{ '篇' if classic.id == 'zzj' else '章' }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 平台介绍 -->
+    <section class="intro-section mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">内容说明</h5>
+                        <p class="card-text">
+                            本平台提供《{{ classic.short_name }}》{{ classic.chapters }}{{ '篇' if classic.id == 'zzj' else '章' }}的多版本对照阅读：
+                        </p>
+                        <ul class="card-text">
+                            {% if classic.id == 'ddj' %}
+                            <li><strong>通行本原文</strong>：王弼注本为底本</li>
+                            <li><strong>十一家注解</strong>：王弼、河上公、王夫之、憨山德清、苏辙、李涵虚、黄元吉、魏源、想尔、严遵、王安石</li>
+                            <li><strong>异文对照</strong>：马王堆帛书、郭店楚简</li>
+                            <li><strong>英文译本</strong>：D.C. Lau、Henricks、Addiss、Waley、林语堂、Mitchell</li>
+                            <li><strong>现代白话</strong>：便于理解的现代汉语译文</li>
+                            {% elif classic.id == 'zzj' %}
+                            <li><strong>通行本原文</strong>：郭象注本为底本</li>
+                            <li><strong>多家注解</strong>：成玄英疏、郭象注、王夫之</li>
+                            <li><strong>英文译本</strong>：Burton Watson、Brook Ziporyn</li>
+                            <li><strong>现代白话</strong>：便于理解的现代汉语译文</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 章节目录网格 -->
+    <section class="chapters-section">
+        <h3 class="mb-4">全部{{ classic.chapters }}{{ '篇' if classic.id == 'zzj' else '章' }}</h3>
+        <div class="row g-2">
+            {% for chapter in data.chapters %}
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <a href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.chapter) }}"
+                   class="chapter-card text-decoration-none">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <span class="chapter-number">{{ chapter.chapter }}</span>
+                            <p class="card-text small text-truncate">
+                                {{ chapter.original[:20] }}...
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- 版本说明 -->
+    {% if classic.id == 'ddj' %}
+    <section class="versions-section mt-5 mb-4">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h5 class="mb-3">版本说明</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="version-card p-3">
+                            <h6>通行本（王弼本）</h6>
+                            <small class="text-muted">魏晋时期王弼注本，后世最流行版本</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="version-card p-3">
+                            <h6>河上公本</h6>
+                            <small class="text-muted">汉代黄老学派注本，侧重养生治国</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="version-card p-3">
+                            <h6>马王堆帛书本</h6>
+                            <small class="text-muted">西汉早期写本，避讳较少，更接近原貌</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="version-card p-3">
+                            <h6>郭店楚简本</h6>
+                            <small class="text-muted">战国中期简本，目前最早版本</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% elif classic.id == 'zzj' %}
+    <section class="versions-section mt-5 mb-4">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h5 class="mb-3">篇章说明</h5>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="version-card p-3">
+                            <h6>内篇（1-7篇）</h6>
+                            <small class="text-muted">庄子本人所作，核心思想</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="version-card p-3">
+                            <h6>外篇（8-22篇）</h6>
+                            <small class="text-muted">庄子弟子或后学所作</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="version-card p-3">
+                            <h6>杂篇（23-33篇）</h6>
+                            <small class="text-muted">庄子学派作品汇编</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.classic-selector {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--accent-color, #d4a574) 0%, #8b6914 100%);
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.page-header .text-muted,
+.page-header .text-white-80 {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.page-header .text-white-60 {
+    color: rgba(255,255,255,0.6) !important;
+}
+
+.page-header .btn-light {
+    background-color: white;
+    color: var(--accent-color, #d4a574);
+    border: none;
+}
+
+.page-header .btn-light:hover {
+    background-color: #f0f0f0;
+}
+
+.classic-icon-large {
+    font-size: 4rem;
+}
+
+.chapter-card .card {
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.chapter-card:hover .card {
+    border-color: var(--accent-color, #d4a574);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.chapter-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color, #d4a574);
+    color: white;
+    font-weight: bold;
+}
+
+.version-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+.dropdown-item.active {
+    background-color: var(--accent-color, #d4a574);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    // 经典配置
+    const CLASSIC_CONFIG = {
+        id: '{{ classic.id }}',
+        name: '{{ classic.short_name }}',
+        chapters: {{ classic.chapters }},
+        chapterUnit: '{{ "篇" if classic.id == "zzj" else "章" }}'
+    };
+
+    // 从本地存储加载阅读进度
+    const PROGRESS_KEY = `${CLASSIC_CONFIG.id}_reading_progress`;
+    const HISTORY_KEY = `${CLASSIC_CONFIG.id}_reading_history`;
+
+    function loadReadingProgress() {
+        const progress = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        const uniqueChapters = new Set(history.map(h => h.chapter));
+        const readCount = uniqueChapters.size;
+        const percentage = Math.round((readCount / CLASSIC_CONFIG.chapters) * 100);
+
+        // 更新进度条
+        document.getElementById('readCount').textContent = readCount;
+        document.getElementById('readPercentage').textContent = percentage + '%';
+        document.getElementById('progressBar').style.width = percentage + '%';
+
+        // 更新"继续阅读"按钮
+        if (progress.chapter) {
+            const continueBtn = document.getElementById('continueReadingBtn');
+            const chapterUnit = CLASSIC_CONFIG.chapterUnit;
+            continueBtn.href = `/${CLASSIC_CONFIG.id}/chapter/${progress.chapter}`;
+            continueBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>
+                继续阅读 第${progress.chapter}${chapterUnit}
+            `;
+            continueBtn.classList.remove('d-none');
+        }
+    }
+
+    // 页面加载时执行
+    document.addEventListener('DOMContentLoaded', loadReadingProgress);
+})();
+</script>
+{% endblock %}

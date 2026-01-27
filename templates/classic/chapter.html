@@ -1,0 +1,608 @@
+{% extends "base.html" %}
+
+{% block title %}{{ chapter.title or '第' + chapter.chapter|string + '章' }} - {{ classic.short_name }}{% endblock %}
+
+{% block page_title %}
+<span class="navbar-text ms-3 d-none d-md-block">
+    {{ chapter.title or '第' + chapter.chapter|string + ('篇' if classic.id == 'zzj' else '章') }}
+</span>
+{% endblock %}
+
+{% block content %}
+<div class="chapter-view container-fluid px-4">
+    <!-- 经典选择器 -->
+    <div class="classic-selector mb-3">
+        <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="classicDropdown" data-bs-toggle="dropdown">
+                <span class="me-1">{{ classic.icon }}</span>
+                <span>{{ classic.short_name }}</span>
+            </button>
+            <ul class="dropdown-menu">
+                {% for c in all_classics %}
+                <li>
+                    <a class="dropdown-item {{ 'active' if c.id == classic.id else '' }}"
+                       href="{{ url_for('pages.classic_index', classic_id=c.id) }}">
+                        <span class="me-2">{{ c.icon }}</span>
+                        {{ c.short_name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- 章节导航 -->
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('pages.classic_index', classic_id=classic.id) }}">目录</a></li>
+            <li class="breadcrumb-item active">{{ chapter.title or '第' + chapter.chapter|string + ('篇' if classic.id == 'zzj' else '章') }}</li>
+        </ol>
+    </nav>
+
+    <!-- 操作按钮栏 -->
+    <div class="action-bar mb-3 d-flex justify-content-between align-items-center">
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-outline-primary" id="bookmarkBtn" title="收藏本章">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">收藏</span>
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="noteBtn" title="添加笔记">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <span class="ms-1">笔记</span>
+            </button>
+            <button type="button" class="btn btn-outline-success" id="quoteBtn" title="生成引用卡片">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span class="ms-1">引用卡片</span>
+            </button>
+        </div>
+        <div class="chapter-id-badge">
+            <span class="badge bg-secondary">{{ chapter.title or '第' + chapter.chapter|string + ('篇' if classic.id == 'zzj' else '章') }}</span>
+        </div>
+    </div>
+
+    <!-- 原文卡片 -->
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">{{ chapter.title or '第' + chapter.chapter|string + ('篇' if classic.id == 'zzj' else '章') }} · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" data-copy-target="originalText" title="复制原文">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    {{ chapter.original_annotated|safe if chapter.original_annotated else chapter.original }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 现代白话译文 -->
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">现代白话译文</h5>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-copy-target="translationText" title="复制译文">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0" id="translationText">{{ chapter.modern_chinese }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 多版本对照 Tabs (动态生成) -->
+    {% if classic.commentators and classic.commentitors|length > 0 %}
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    {% for commentator in classic.commentators[:8] %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {{ 'active' if loop.first else '' }}"
+                                data-bs-toggle="tab"
+                                data-bs-target="#{{ commentator.id }}"
+                                type="button">{{ commentator.name }}</button>
+                    </li>
+                    {% endfor %}
+                    {% if classic.variants and classic.variants|length > 0 %}
+                        {% for variant in classic.variants %}
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#{{ variant.id }}" type="button">{{ variant.name }}</button>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                    <li class="nav-item ms-auto">
+                        <a href="{{ url_for('pages.compare_view', classic_id=classic.id, chapter_id=chapter.chapter) }}"
+                           class="btn btn-sm btn-outline-primary mt-1">全屏对照</a>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    {% for commentator in classic.commentators[:8] %}
+                    <div class="tab-pane fade {{ 'show active' if loop.first else '' }}" id="{{ commentator.id }}">
+                        <h6 class="text-muted mb-2">{{ commentator.name }}（{{ commentator.era }}）</h6>
+                        <p class="note-text mb-0">
+                            {{ chapter[commentator.id + '_note'] or '此版本暂未收录' }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                    {% if classic.variants and classic.variants|length > 0 %}
+                        {% for variant in classic.variants %}
+                        <div class="tab-pane fade" id="{{ variant.id }}">
+                            <h6 class="text-muted mb-2">{{ variant.name }}（{{ variant.era }}）</h6>
+                            <div class="version-content mb-0">
+                                {% if chapter[variant.id + '_text'] %}
+                                <div class="version-original-text mb-3">
+                                    <p class="note-text mb-0 fst-italic">{{ chapter[variant.id + '_text'] }}</p>
+                                </div>
+                                {% endif %}
+                                <div class="version-explanation">
+                                    <small class="text-muted">{{ chapter[variant.id + '_diff'] or '' }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- 英文译本 -->
+    {% if classic.translators and classic.translators|length > 0 %}
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">英文译本 / English Translations</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    {% for translator in classic.translators[:6] %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {{ 'active' if loop.first else '' }}"
+                                data-bs-toggle="pill"
+                                data-bs-target="#{{ translator.id }}"
+                                type="button">{{ translator.name }}</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content p-3">
+                    {% for translator in classic.translators[:6] %}
+                    <div class="tab-pane fade {{ 'show active' if loop.first else '' }}" id="{{ translator.id }}">
+                        <h6 class="text-muted mb-2">{{ translator.name }}</h6>
+                        <p class="english-text mb-0 fst-italic">
+                            {{ chapter['english_' + translator.id] or 'This version is not yet available.' }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- 章节导航按钮 -->
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            {% if chapter.prev_chapter %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.prev_chapter.chapter) }}">
+                    ← 上一篇
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">← 上一篇</span>
+            </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">{{ chapter.chapter }} / {{ chapter.total_chapters }}</span>
+            </li>
+
+            {% if chapter.next_chapter %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.next_chapter.chapter) }}">
+                    下一篇 →
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">下一篇 →</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- 笔记模态框 -->
+    <div class="modal fade" id="noteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📝 阅读笔记 - {{ chapter.title or '第' + chapter.chapter|string + ('篇' if classic.id == 'zzj' else '章') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="noteTextarea" class="form-control" rows="6"
+                              placeholder="写下你的阅读心得..."></textarea>
+                    <div class="form-text text-muted mt-2">
+                        笔记保存在本地浏览器中
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveNoteBtn">保存笔记</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引用卡片模态框 -->
+    <div class="modal fade" id="quoteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📜 引用卡片</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="quotePreview" class="mb-3">
+                        <canvas id="quoteCanvas" class="img-fluid border rounded"></canvas>
+                    </div>
+                    <p class="text-muted small">生成包含本章原文的精美引用卡片</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id="downloadQuoteBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                        </svg>
+                        下载图片
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.classic-selector {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+}
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* 疑难字标注 */
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.15);
+}
+
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
+}
+
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.note-text {
+    line-height: 1.8;
+}
+
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+
+.version-content {
+    line-height: 1.8;
+}
+
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.version-explanation {
+    padding: 0.5rem 0;
+}
+
+.action-bar {
+    background-color: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+#bookmarkBtn.active svg {
+    fill: var(--accent-color);
+}
+
+#bookmarkBtn.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 经典配置
+const CLASSIC_CONFIG = {
+    id: '{{ classic.id }}',
+    name: '{{ classic.short_name }}',
+    chapters: {{ classic.chapters }},
+    chapterUnit: '{{ "篇" if classic.id == "zzj" else "章" }}'
+};
+
+// 当前章节号
+const CURRENT_CHAPTER = {{ chapter.chapter }};
+
+// localStorage keys
+const BOOKMARKS_KEY = `${CLASSIC_CONFIG.id}_bookmarks`;
+const NOTES_KEY = `${CLASSIC_CONFIG.id}_notes`;
+const PROGRESS_KEY = `${CLASSIC_CONFIG.id}_reading_progress`;
+const HISTORY_KEY = `${CLASSIC_CONFIG.id}_reading_history`;
+
+// ==================== 阅读进度追踪 ====================
+function trackReadingProgress() {
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    const now = new Date().toISOString();
+
+    // 添加当前章节到历史记录
+    history.push({ chapter: CURRENT_CHAPTER, timestamp: now });
+
+    // 只保留最近100条记录
+    if (history.length > 100) {
+        history.splice(0, history.length - 100);
+    }
+
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+
+    // 更新进度
+    const uniqueChapters = new Set(history.map(h => h.chapter));
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+        chapter: CURRENT_CHAPTER,
+        count: uniqueChapters.size,
+        timestamp: now
+    }));
+}
+
+// 页面加载时追踪进度
+document.addEventListener('DOMContentLoaded', function() {
+    trackReadingProgress();
+});
+
+// ==================== 书签功能 ====================
+function initBookmarks() {
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    if (!bookmarkBtn) return;
+
+    const getBookmarks = () => JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || '[]');
+    const isBookmarked = () => getBookmarks().includes(CURRENT_CHAPTER);
+
+    function updateBookmarkButton() {
+        if (isBookmarked()) {
+            bookmarkBtn.classList.add('active');
+            bookmarkBtn.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">已收藏</span>
+            `;
+        } else {
+            bookmarkBtn.classList.remove('active');
+            bookmarkBtn.innerHTML = `
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="ms-1">收藏</span>
+            `;
+        }
+    }
+
+    bookmarkBtn.addEventListener('click', function() {
+        let bookmarks = getBookmarks();
+        if (isBookmarked()) {
+            bookmarks = bookmarks.filter(id => id !== CURRENT_CHAPTER);
+            showToast('已取消收藏');
+        } else {
+            bookmarks.push(CURRENT_CHAPTER);
+            showToast('已收藏本章');
+        }
+        localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+        updateBookmarkButton();
+    });
+
+    updateBookmarkButton();
+}
+
+// ==================== 笔记功能 ====================
+function initNotes() {
+    const noteBtn = document.getElementById('noteBtn');
+    const noteModal = document.getElementById('noteModal');
+    const noteTextarea = document.getElementById('noteTextarea');
+    const saveNoteBtn = document.getElementById('saveNoteBtn');
+
+    if (!noteBtn || !noteModal) return;
+
+    const getNotes = () => JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+
+    noteBtn.addEventListener('click', function() {
+        const notes = getNotes();
+        const chapterNote = notes[CURRENT_CHAPTER] || '';
+        noteTextarea.value = chapterNote;
+
+        if (chapterNote) {
+            noteBtn.classList.add('active');
+            noteBtn.querySelector('span').textContent = '编辑笔记';
+        } else {
+            noteBtn.classList.remove('active');
+            noteBtn.querySelector('span').textContent = '笔记';
+        }
+
+        const modal = new bootstrap.Modal(noteModal);
+        modal.show();
+    });
+
+    saveNoteBtn.addEventListener('click', function() {
+        const notes = getNotes();
+        notes[CURRENT_CHAPTER] = noteTextarea.value.trim();
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+
+        if (notes[CURRENT_CHAPTER]) {
+            noteBtn.classList.add('active');
+            noteBtn.querySelector('span').textContent = '编辑笔记';
+            showToast('笔记已保存');
+        } else {
+            noteBtn.classList.remove('active');
+            noteBtn.querySelector('span').textContent = '笔记';
+        }
+
+        const modal = bootstrap.Modal.getInstance(noteModal);
+        if (modal) modal.hide();
+    });
+
+    const notes = getNotes();
+    if (notes[CURRENT_CHAPTER]) {
+        noteBtn.classList.add('active');
+        noteBtn.querySelector('span').textContent = '编辑笔记';
+    }
+}
+
+// ==================== 工具函数 ====================
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'position-fixed bottom-0 end-0 p-3';
+    toast.style.zIndex = '1100';
+    toast.innerHTML = `
+        <div class="toast show">
+            <div class="toast-body">${message}</div>
+        </div>
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2000);
+}
+
+// ==================== 初始化 ====================
+document.addEventListener('DOMContentLoaded', function() {
+    initBookmarks();
+    initNotes();
+});
+
+// 键盘导航
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        const prevLink = document.querySelector('.chapter-navigation .page-item:first-child a');
+        if (prevLink) prevLink.click();
+    } else if (e.key === 'ArrowRight') {
+        const nextLink = document.querySelector('.chapter-navigation .page-item:last-child a');
+        if (nextLink) nextLink.click();
+    } else if (e.key === 'Escape') {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('noteModal'));
+        if (modal) modal.hide();
+    }
+});
+</script>
+{% endblock %}

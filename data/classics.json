@@ -1,0 +1,64 @@
+{
+  "classics": [
+    {
+      "id": "ddj",
+      "name": "道德经",
+      "short_name": "道德经",
+      "author": "老子",
+      "era": "春秋末期",
+      "chapters": 81,
+      "data_file": "data/daodejing/chapters.json",
+      "icon": "☯",
+      "color": "#d4a574",
+      "description": "道家哲学奠基之作，五千余言阐述宇宙本源与人生智慧",
+      "commentators": [
+        {"id": "wangbi", "name": "王弼注", "era": "三国魏"},
+        {"id": "heshanggong", "name": "河上公注", "era": "西汉"},
+        {"id": "wangfuzhi", "name": "王夫之", "era": "明末清初"},
+        {"id": "hanshandeqing", "name": "憨山德清注", "era": "明末"},
+        {"id": "suzhe", "name": "苏辙注", "era": "北宋"},
+        {"id": "lihanxu", "name": "李涵虚注", "era": "清"},
+        {"id": "huangyuanji", "name": "黄元吉注", "era": "清"},
+        {"id": "weiyuan", "name": "魏源注", "era": "清"},
+        {"id": "xianger", "name": "想尔注", "era": "东汉"},
+        {"id": "yanzun", "name": "严遵注", "era": "西汉"},
+        {"id": "wanganshi", "name": "王安石注", "era": "北宋"}
+      ],
+      "translators": [
+        {"id": "lau", "name": "D.C. Lau", "lang": "en"},
+        {"id": "henricks", "name": "Robert Henricks", "lang": "en"},
+        {"id": "addiss", "name": "Addiss & Lombardo", "lang": "en"},
+        {"id": "waley", "name": "Arthur Waley", "lang": "en"},
+        {"id": "lin", "name": "林语堂", "lang": "en"},
+        {"id": "mitchell", "name": "Stephen Mitchell", "lang": "en"}
+      ],
+      "variants": [
+        {"id": "postsilk", "name": "马王堆帛书", "era": "西汉"},
+        {"id": "guodian", "name": "郭店楚简", "era": "战国中期"}
+      ]
+    },
+    {
+      "id": "zzj",
+      "name": "庄子",
+      "short_name": "庄子",
+      "author": "庄周",
+      "era": "战国中期",
+      "chapters": 33,
+      "data_file": "data/zhuangzi/chapters.json",
+      "icon": "🦋",
+      "color": "#7cb9a8",
+      "description": "道家哲学经典，内篇七篇为庄子本人所作，汪洋恣肆，想象丰富",
+      "commentators": [
+        {"id": "chengxuanying", "name": "成玄英疏", "era": "唐"},
+        {"id": "guoxiang", "name": "郭象注", "era": "西晋"},
+        {"id": "wangfuzhi", "name": "王夫之", "era": "明末清初"}
+      ],
+      "translators": [
+        {"id": "watson", "name": "Burton Watson", "lang": "en"},
+        {"id": "ziporyn", "name": "Brook Ziporyn", "lang": "en"}
+      ],
+      "variants": []
+    }
+  ],
+  "default_classic": "ddj"
+}
