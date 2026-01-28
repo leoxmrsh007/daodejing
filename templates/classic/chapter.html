@@ -110,7 +110,7 @@
     </section>
 
     <!-- 多版本对照 Tabs (动态生成) -->
-    {% if classic.commentators and classic.commentitors|length > 0 %}
+    {% if classic.commentators and classic.commentators|length > 0 %}
     <section class="versions-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -118,7 +118,7 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    {% for commentator in classic.commentators[:8] %}
+                    {% for commentator in classic.commentators %}
                     <li class="nav-item" role="presentation">
                         <button class="nav-link {{ 'active' if loop.first else '' }}"
                                 data-bs-toggle="tab"
@@ -139,7 +139,7 @@
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    {% for commentator in classic.commentators[:8] %}
+                    {% for commentator in classic.commentators %}
                     <div class="tab-pane fade {{ 'show active' if loop.first else '' }}" id="{{ commentator.id }}">
                         <h6 class="text-muted mb-2">{{ commentator.name }}（{{ commentator.era }}）</h6>
                         <p class="note-text mb-0">
@@ -179,7 +179,7 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-                    {% for translator in classic.translators[:6] %}
+                    {% for translator in classic.translators %}
                     <li class="nav-item" role="presentation">
                         <button class="nav-link {{ 'active' if loop.first else '' }}"
                                 data-bs-toggle="pill"
@@ -189,7 +189,7 @@
                     {% endfor %}
                 </ul>
                 <div class="tab-content p-3">
-                    {% for translator in classic.translators[:6] %}
+                    {% for translator in classic.translators %}
                     <div class="tab-pane fade {{ 'show active' if loop.first else '' }}" id="{{ translator.id }}">
                         <h6 class="text-muted mb-2">{{ translator.name }}</h6>
                         <p class="english-text mb-0 fst-italic">
