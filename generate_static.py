@@ -1059,29 +1059,226 @@ def generate_site():
     print(f"\n总大小: {total_size / 1024:.1f} KB")
 
 
-def generate_main_index_page(_classics, default_classic):  # noqa: U101
-    """生成总首页（重定向到默认经典）"""
-    return (
-        """<!DOCTYPE html>
-<html lang="zh-CN">
+def generate_main_index_page(classics, default_classic):
+    """生成总首页（多经典目录）"""
+
+    # 生成经典卡片
+    classic_cards = []
+    for classic in classics:
+        card_html = f"""
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 classic-card">
+                <div class="card-body text-center">
+                    <div class="classic-icon mb-3" style="font-size: 4rem;">{classic.get("icon", "📖")}</div>
+                    <h3 class="card-title">{classic.get("name", "")}</h3>
+                    <p class="card-text text-muted">{classic.get("description", "")}</p>
+                    <div class="classic-meta mb-3">
+                        <span class="badge bg-secondary">{classic.get("author", "")}</span>
+                        <span class="badge bg-light text-dark">{classic.get("era", "")}</span>
+                        <span class="badge bg-info">{classic.get("chapters", 0)}章</span>
+                    </div>
+                    <a href="./{classic.get("id", "")}/index.html" class="btn btn-primary w-100">
+                        开始阅读
+                    </a>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">
+                        注释: {len(classic.get("commentators", []))}家
+                        译本: {len(classic.get("translators", []))}种
+                    </small>
+                </div>
+            </div>
+        </div>
+        """
+        classic_cards.append(card_html)
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=./"""
-        + default_classic
-        + """/index.html">
-    <script>window.location.href="./"""
-        + default_classic
-        + """/index.html";</script>
-    <title>古籍经典平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古籍经典平台 - 道德经 · 庄子</title>
+    <meta name="description" content="多版本对照学习平台 - 支持多种注释版本、英文翻译、古籍版本对比">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {{
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --bg-color: #f5f5dc;
+            --card-bg: #fff;
+        }}
+        [data-theme="dark"] {{
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            color: #e0e0e0;
+        }}
+        body {{
+            background: var(--bg-color);
+            min-height: 100vh;
+        }}
+        .hero-section {{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }}
+        .classic-card {{
+            background: var(--card-bg);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }}
+        .classic-card:hover {{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }}
+        .classic-icon {{
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }}
+        .features-section {{
+            padding: 3rem 0;
+        }}
+        .feature-item {{
+            text-align: center;
+            padding: 1.5rem;
+        }}
+        .feature-icon {{
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }}
+        .footer {{
+            background: rgba(0,0,0,0.05);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }}
+    </style>
 </head>
 <body>
-    <p>正在跳转...</p>
-    <p>如果页面没有自动跳转，<a href="./"""
-        + default_classic
-        + """/index.html">请点击这里</a></p>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span style="font-size: 1.5rem;">☯</span>
+                <span class="ms-2">古籍经典平台</span>
+            </a>
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-light btn-sm" id="themeToggle" title="切换主题">
+                    🌓
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">古籍经典学习平台</h1>
+            <p class="lead mb-4">多版本对照 · 深度注释 · AI辅助理解</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="mb-0 opacity-75">
+                        支持王弼注、河上公注、王夫之、憨山德清等历代名家注释<br>
+                        提供D.C. Lau、Henricks、Addiss & Lombardo等权威英译对照
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典目录 -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5">📚 经典目录</h2>
+        <div class="row">
+            {"".join(classic_cards)}
+        </div>
+    </section>
+
+    <!-- 功能特性 -->
+    <section class="features-section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">✨ 平台特色</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">📖</div>
+                        <h4>多版本对照</h4>
+                        <p class="text-muted">原文、注释、英译并列展示，便于比较研究</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <h4>智能搜索</h4>
+                        <p class="text-muted">支持全文检索，快速定位相关内容</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <h4>阅读笔记</h4>
+                        <p class="text-muted">添加个人笔记，书签收藏，支持数据导出</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <h4>AI解读</h4>
+                        <p class="text-muted">知识图谱、语义考古、跨文明对话</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔊</div>
+                        <h4>语音朗读</h4>
+                        <p class="text-muted">TTS语音合成，支持原文朗读</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌙</div>
+                        <h4>暗黑模式</h4>
+                        <p class="text-muted">护眼的深色主题，夜间阅读更舒适</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted mb-2">古籍经典学习平台 © 2026</p>
+            <p class="text-muted small">
+                Made with ❤️ and ☯️ | 
+                <a href="https://github.com/yourusername/daodejing" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- 主题切换脚本 -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // 加载保存的主题
+        const savedTheme = localStorage.getItem('theme') || 'auto';
+        html.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {{
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }});
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>"""
-    )
 
 
 if __name__ == "__main__":
