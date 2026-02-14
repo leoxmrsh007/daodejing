@@ -119,11 +119,13 @@
             {% for chapter in data.chapters %}
             <a href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.chapter) }}"
                class="chapter-item text-decoration-none"
-               title="{{ chapter.title }}">
+               title="{{ chapter.title or ('第' + chapter.chapter|string + '章') }}">
                 <div class="chapter-content">
                     <div class="chapter-number">{{ chapter.chapter }}</div>
                     {% if chapter.title and chapter.title != '第' + chapter.chapter|string + '章' and chapter.title != '第' + chapter.chapter|string + '篇' %}
                     <div class="chapter-title">{{ chapter.title }}</div>
+                    {% elif chapter.original %}
+                    <div class="chapter-title">{{ chapter.original[:20] }}...</div>
                     {% endif %}
                 </div>
             </a>
@@ -304,32 +306,6 @@
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
-    .chapters-two-col {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-    
-    .chapter-item {
-        padding: 0.85rem;
-    }
-    
-    .chapter-number {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
-    }
-    
-    .chapter-title {
-        font-size: 0.9rem;
-        white-space: normal;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        display: -webkit-box;
-        overflow: hidden;
-    }
-}
-
 @media (min-width: 1200px) {
     .chapters-two-col {
         gap: 1.25rem;
