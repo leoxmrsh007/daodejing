@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}中华古籍多版本对照研究平台{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <!-- 平台标题 -->
+    <header class="platform-header text-center py-5 mb-4">
+        <h1 class="display-3 mb-3">中华古籍<br><span class="text-muted">多版本对照研究平台</span></h1>
+        <p class="lead text-muted">道法自然 · 经典传承 · 智慧永恒</p>
+    </header>
+
+    <!-- 经典选择器 - 三个并列按钮 -->
+    <section class="classics-selector mb-5">
+        <div class="row justify-content-center g-4">
+            {% for c in all_classics %}
+            <div class="col-12 col-md-4">
+                <a href="{{ url_for('pages.classic_index', classic_id=c.id) }}"
+                   class="classic-card-link text-decoration-none">
+                    <div class="classic-card h-100 text-center"
+                         style="--card-accent: {{ c.color }}; --card-icon: '{{ c.icon }}'">
+                        <div class="card-body p-4">
+                            <div class="classic-icon mb-3">{{ c.icon }}</div>
+                            <h3 class="classic-title mb-2">{{ c.short_name }}</h3>
+                            <p class="classic-author text-muted mb-2">{{ c.author }} · {{ c.era }}</p>
+                            <p class="classic-desc small text-muted">{{ c.description }}</p>
+                            <div class="classic-meta mt-3">
+                                <span class="badge bg-light text-dark">
+                                    {{ c.chapters }}{{ '篇' if c.id == 'zzj' else '章' }}
+                                </span>
+                                {% if c.commentators|length > 0 %}
+                                <span class="badge bg-light text-dark">
+                                    {{ c.commentators|length }} 家注解
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- 平台介绍 -->
+    <section class="intro-section mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">平台特色</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="feature-item p-2">
+                                    <div class="feature-icon">📜</div>
+                                    <div class="feature-content">
+                                        <h6>通行原文</h6>
+                                        <small class="text-muted">权威版本底本</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item p-2">
+                                    <div class="feature-icon">📖</div>
+                                    <div class="feature-content">
+                                        <h6>多家注解</h6>
+                                        <small class="text-muted">历代名家注释</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item p-2">
+                                    <div class="feature-icon">📚</div>
+                                    <div class="feature-content">
+                                        <h6>异文对照</h6>
+                                        <small class="text-muted">出土文献比对</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item p-2">
+                                    <div class="feature-icon">🌐</div>
+                                    <div class="feature-content">
+                                        <h6>英文译本</h6>
+                                        <small class="text-muted">多版本译文</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.platform-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.platform-header .text-muted {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.classic-card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.classic-card:hover {
+    border-color: var(--card-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.classic-card-link:hover {
+    text-decoration: none;
+}
+
+.classic-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.classic-title {
+    color: var(--card-accent);
+    margin-bottom: 0.5rem;
+}
+
+.classic-author {
+    font-size: 0.9rem;
+}
+
+.classic-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    min-height: 3em;
+}
+
+.classic-meta .badge {
+    background-color: var(--card-accent);
+    color: white;
+    opacity: 0.85;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.feature-content h6 {
+    margin-bottom: 0;
+}
+
+.feature-content small {
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .classic-icon {
+        font-size: 3rem;
+    }
+    
+    .feature-item {
+        padding: 0.75rem;
+    }
+}
+</style>
+{% endblock %}
