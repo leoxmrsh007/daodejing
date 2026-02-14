@@ -128,28 +128,40 @@ body {
 .chapter-list {
     max-height: calc(100vh - 120px);
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .chapter-item {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 0.5rem;
     color: var(--text-primary);
-    border-radius: 0;
+    border-radius: 0.5rem;
     transition: all 0.2s ease;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .chapter-item:hover {
     background-color: rgba(212, 165, 116, 0.1);
     color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .chapter-item.active {
     background-color: var(--accent-color);
     color: white;
+    border-color: var(--accent-color);
 }
 
 .chapter-num {
     font-family: 'KaiTi', '楷体', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* 主内容区 */
@@ -191,6 +203,38 @@ body {
 
 #themeToggle:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 侧边栏章节列表响应式 */
+@media (max-width: 768px) {
+    .chapter-list {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+        padding: 0.4rem;
+    }
+    
+    .chapter-item {
+        padding: 0.6rem 0.4rem;
+    }
+    
+    .chapter-num {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .chapter-list {
+        gap: 0.6rem;
+        padding: 0.6rem;
+    }
+    
+    .chapter-item {
+        padding: 0.85rem 0.6rem;
+    }
+    
+    .chapter-num {
+        font-size: 1.05rem;
+    }
 }
 
 /* 移动端侧边栏 */
