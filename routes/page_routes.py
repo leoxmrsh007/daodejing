@@ -9,9 +9,12 @@ from typing import Any, Optional
 
 from flask import Blueprint, redirect, render_template, url_for
 
-from services.classic_service import (ClassicService, get_all_classics,
-                                      get_default_classic_id,
-                                      validate_classic_id)
+from services.classic_service import (
+    ClassicService,
+    get_all_classics,
+    get_default_classic_id,
+    validate_classic_id,
+)
 
 bp = Blueprint("pages", __name__)
 
@@ -35,8 +38,16 @@ def get_classic_from_request(default: Optional[str] = None) -> str:
 
 @bp.route("/")
 def index() -> Any:
-    """首页重定向到默认经典"""
-    return redirect(url_for("pages.classic_index", classic_id=get_default_classic_id()))
+    """平台首页 - 展示所有经典"""
+    all_classics = get_all_classics()
+    return render_template("index.html", all_classics=all_classics)
+
+
+@bp.route("/platform/")
+def platform() -> Any:
+    """平台首页 - 保留路由兼容性"""
+    all_classics = get_all_classics()
+    return redirect(url_for("pages.index"))
 
 
 @bp.route("/<classic_id>/")
