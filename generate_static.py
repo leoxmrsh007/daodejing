@@ -1253,7 +1253,7 @@ def generate_main_index_page(classics, default_classic):
         <div class="container text-center">
             <p class="text-muted mb-2">古籍经典学习平台 © 2026</p>
             <p class="text-muted small">
-                Made with ❤️ and ☯️ | 
+                Made with ❤️ and ☯️ |
                 <a href="https://github.com/yourusername/daodejing" target="_blank">GitHub</a>
             </p>
         </div>

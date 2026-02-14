@@ -46,7 +46,6 @@ def index() -> Any:
 @bp.route("/platform/")
 def platform() -> Any:
     """平台首页 - 保留路由兼容性"""
-    all_classics = get_all_classics()
     return redirect(url_for("pages.index"))
 
 
