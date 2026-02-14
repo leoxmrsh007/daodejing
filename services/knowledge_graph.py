@@ -536,7 +536,7 @@ class KnowledgeGraphBuilder:
             {"type": "中性", "members": clusters["中性"]},
         ]
 
-    def _generate_summary(self, commentaries: Dict, _: List) -> str:
+    def _generate_summary(self, commentaries: Dict, _unused: List) -> str:
         """生成注释概要"""
         count = len(commentaries)
         if count == 0:

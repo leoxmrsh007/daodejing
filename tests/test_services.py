@@ -15,55 +15,32 @@ import requests
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from app import app  # noqa: E402
-from services.annotation_service import (
-    DIFFICULT_CHARS,  # noqa: E402
-    annotate_difficult_chars,
-)
-from services.classic_service import (
-    ClassicService,  # noqa: E402
-    get_all_classics,
-    get_classic_metadata,
-    load_classics_metadata,
-    validate_classic_id,
-)
+from services.annotation_service import DIFFICULT_CHARS  # noqa: E402
+from services.annotation_service import annotate_difficult_chars
+from services.classic_service import ClassicService  # noqa: E402
+from services.classic_service import (get_all_classics, get_classic_metadata,
+                                      load_classics_metadata,
+                                      validate_classic_id)
 from services.cross_civilization_dialogue import (  # noqa: E402
-    CROSS_CIVILIZATION_PHILOSOPHERS,
-    ConceptMapper,
-    DialogueEngine,
-    PhilosopherType,
-    get_available_philosophers,
-    get_comparative_analysis,
-    start_philosophy_dialogue,
-)
+    CROSS_CIVILIZATION_PHILOSOPHERS, ConceptMapper, DialogueEngine,
+    PhilosopherType, get_available_philosophers, get_comparative_analysis,
+    start_philosophy_dialogue)
 from services.data_service import DataService  # noqa: E402
-from services.knowledge_graph import (
-    CommentryAnalyzer,  # noqa: E402
-    ConceptExtractor,
-    KnowledgeGraphBuilder,
-    get_all_concepts,
-    get_chapter_knowledge_graph,
-)
-from services.semantic_archaeology import (
-    SemanticArchaeology,  # noqa: E402
-    VectorSemanticAnalyzer,
-)
-from services.tts_service import (
-    EdgeTTSService,  # noqa: E402
-    FishAudioService,
-    TTSService,
-)
-from services.virtual_commentator import (
-    COMMENTATOR_PERSONAS,  # noqa: E402
-    SocraticDialogue,
-    VirtualCommentator,
-    generate_commentary_response,
-    get_available_commentators,
-    get_commentator_persona,
-)
-from utils.validators import (
-    validate_chapter_id,  # noqa: E402
-    validate_search_query,
-)
+from services.knowledge_graph import CommentryAnalyzer  # noqa: E402
+from services.knowledge_graph import (ConceptExtractor, KnowledgeGraphBuilder,
+                                      get_all_concepts,
+                                      get_chapter_knowledge_graph)
+from services.semantic_archaeology import SemanticArchaeology  # noqa: E402
+from services.semantic_archaeology import VectorSemanticAnalyzer
+from services.tts_service import EdgeTTSService  # noqa: E402
+from services.tts_service import FishAudioService, TTSService
+from services.virtual_commentator import COMMENTATOR_PERSONAS  # noqa: E402
+from services.virtual_commentator import (SocraticDialogue, VirtualCommentator,
+                                          generate_commentary_response,
+                                          get_available_commentators,
+                                          get_commentator_persona)
+from utils.validators import validate_chapter_id  # noqa: E402
+from utils.validators import validate_search_query
 
 
 @pytest.fixture

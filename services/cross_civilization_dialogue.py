@@ -450,7 +450,7 @@ class DialogueEngine:
 
         return commonalities
 
-    def _find_differences(self, _: str, philosopher_ids: List[str]) -> List[str]:
+    def _find_differences(self, _unused: str, philosopher_ids: List[str]) -> List[str]:
         """找出差异点"""
         differences = []
 
