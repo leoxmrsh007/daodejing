@@ -4,8 +4,7 @@
 """
 
 from utils.security import get_client_ip, get_security_headers, rate_limit
-from utils.validators import (sanitize_text, validate_chapter_id,
-                              validate_search_query)
+from utils.validators import sanitize_text, validate_chapter_id, validate_search_query
 
 __all__ = [
     "validate_chapter_id",

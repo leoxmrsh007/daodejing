@@ -8,20 +8,28 @@ from typing import Any, Tuple, Union
 
 from flask import Blueprint, Response, jsonify, request
 
-from services.classic_service import (ClassicService, get_all_classics,
-                                      get_default_classic_id)
-from services.cross_civilization_dialogue import (get_available_philosophers,
-                                                  get_comparative_analysis,
-                                                  get_concept_correspondences,
-                                                  start_philosophy_dialogue)
-from services.knowledge_graph import (get_all_concepts,
-                                      get_chapter_knowledge_graph)
-from services.semantic_archaeology import (get_chapter_archaeology,
-                                           get_concept_interpretation_history)
+from services.classic_service import (
+    ClassicService,
+    get_all_classics,
+    get_default_classic_id,
+)
+from services.cross_civilization_dialogue import (
+    get_available_philosophers,
+    get_comparative_analysis,
+    get_concept_correspondences,
+    start_philosophy_dialogue,
+)
+from services.knowledge_graph import get_all_concepts, get_chapter_knowledge_graph
+from services.semantic_archaeology import (
+    get_chapter_archaeology,
+    get_concept_interpretation_history,
+)
 from services.tts_service import edge_tts_service, fish_audio_service
-from services.virtual_commentator import (generate_commentary_response,
-                                          get_available_commentators,
-                                          get_commentator_persona)
+from services.virtual_commentator import (
+    generate_commentary_response,
+    get_available_commentators,
+    get_commentator_persona,
+)
 from utils.security import rate_limit
 from utils.validators import validate_search_query
 

@@ -583,7 +583,7 @@ def get_all_concepts() -> List[Dict]:
             {
                 "concept": concept,
                 "chapter_count": len(chapters),
-                "chapters": sorted(list(chapters)),
+                "chapters": sorted(chapters),
             }
         )
 

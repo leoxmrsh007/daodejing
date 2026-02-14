@@ -222,7 +222,8 @@ class DeployConfigGenerator:
         instructions = [f"## 检测到的项目类型: {ptype}\n"]
 
         if ptype == ProjectType.FLASK:
-            instructions.append("""
+            instructions.append(
+                """
 ### Vercel 部署
 
 1. 安装 Vercel CLI:
@@ -240,24 +241,30 @@ class DeployConfigGenerator:
    ```bash
    vercel alias set <deployment-url> your-domain.com
    ```
-""")
-            instructions.append("""
+"""
+            )
+            instructions.append(
+                """
 ### GitHub 自动部署
 
 1. 推送代码到 GitHub
 2. 在 Vercel Dashboard 导入仓库
 3. Vercel 自动检测 Python 并部署
-""")
-            instructions.append("""
+"""
+            )
+            instructions.append(
+                """
 ### 环境变量建议
 
 - `FLASK_ENV=production`
 - `SECRET_KEY` (生成: `python -c "import secrets; print(secrets.token_hex(32))"`)
 
-""")
+"""
+            )
 
         elif ptype == ProjectType.DJANGO:
-            instructions.append("""
+            instructions.append(
+                """
 ### Vercel 部署 (Django)
 
 1. 确保已安装依赖:
@@ -273,8 +280,10 @@ class DeployConfigGenerator:
 3. 注意 Django 需要额外的:
    - ALLOWED_HOSTS 配置
    - 静态文件处理 (whitenoise)
-""")
-            instructions.append("""
+"""
+            )
+            instructions.append(
+                """
 ### 推荐的 Django 生产配置
 
 ```python
@@ -290,10 +299,12 @@ MIDDLEWARE = [
 ]
 ```
 
-""")
+"""
+            )
 
         elif ptype == ProjectType.STATIC:
-            instructions.append("""
+            instructions.append(
+                """
 ### 静态站点部署选项
 
 #### Vercel
@@ -317,10 +328,12 @@ git add . && git commit -m "Deploy"
 git push origin gh-pages
 ```
 
-""")
+"""
+            )
 
         elif ptype == ProjectType.NEXT_JS:
-            instructions.append("""
+            instructions.append(
+                """
 ### Next.js 部署
 
 #### Vercel (推荐)
@@ -334,10 +347,12 @@ npm run build
 # 上传 .next 目录
 ```
 
-""")
+"""
+            )
 
         elif ptype == ProjectType.VITE:
-            instructions.append("""
+            instructions.append(
+                """
 ### Vite 项目部署
 
 #### Vercel
@@ -352,10 +367,12 @@ npm run build
 netlify deploy --prod --dir=dist
 ```
 
-""")
+"""
+            )
 
         else:
-            instructions.append("""
+            instructions.append(
+                """
 ### 未知项目类型
 
 请手动配置部署。支持的类型:
@@ -365,7 +382,8 @@ netlify deploy --prod --dir=dist
 - Next.js (next.config.js)
 - Vite (vite.config.js)
 
-""")
+"""
+            )
 
         return "".join(instructions)
 

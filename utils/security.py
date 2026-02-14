@@ -165,7 +165,8 @@ def get_cors_config() -> Dict:
 
         warnings.warn(
             "生产环境CORS配置允许所有来源('*')，存在安全风险。"
-            "请设置ALLOWED_ORIGINS环境变量限制具体域名。"
+            "请设置ALLOWED_ORIGINS环境变量限制具体域名。",
+            stacklevel=2,
         )
 
     return {
