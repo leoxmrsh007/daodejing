@@ -7,26 +7,25 @@
 
 import json
 import shutil
-from pathlib import Path
 
 # 从服务层导入共享逻辑
-from config import DATA_DIR, BASE_DIR
+from config import BASE_DIR, DATA_DIR
 from services.annotation_service import annotate_difficult_chars
-from services.classic_service import get_all_classics, load_classics_metadata
+from services.classic_service import load_classics_metadata
 
 # 静态生成器专用配置
-OUTPUT_DIR = BASE_DIR / 'dist'
-CLASSICS_FILE = DATA_DIR / 'classics.json'
-IDIOMS_FILE = DATA_DIR / 'idioms.json'
+OUTPUT_DIR = BASE_DIR / "dist"
+CLASSICS_FILE = DATA_DIR / "classics.json"
+IDIOMS_FILE = DATA_DIR / "idioms.json"
 
 
 def load_classic_data(classic_id):
     """加载指定经典的数据"""
     metadata = load_classics_metadata()
-    for classic in metadata.get('classics', []):
-        if classic['id'] == classic_id:
-            data_file = BASE_DIR / classic['data_file']
-            with open(data_file, 'r', encoding='utf-8') as f:
+    for classic in metadata.get("classics", []):
+        if classic["id"] == classic_id:
+            data_file = BASE_DIR / classic["data_file"]
+            with open(data_file, "r", encoding="utf-8") as f:
                 return json.load(f), classic
     return None, None
 
@@ -34,15 +33,15 @@ def load_classic_data(classic_id):
 def load_idioms():
     """加载成语数据"""
     try:
-        with open(IDIOMS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f).get('idioms', [])
+        with open(IDIOMS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f).get("idioms", [])
     except FileNotFoundError:
         return []
 
 
 # ==================== HTML 模板 ====================
 
-HTML_TEMPLATE = '''<!DOCTYPE html>
+HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="zh-CN" data-theme="auto">
 <head>
     <meta charset="UTF-8">
@@ -437,9 +436,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     </script>
 </body>
 </html>
-'''
+"""
 
-INDEX_EXTRA_CSS = '''
+INDEX_EXTRA_CSS = """
 .index-page .chapters-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -485,9 +484,9 @@ INDEX_EXTRA_CSS = '''
     font-family: 'KaiTi', '楷体', serif;
     color: var(--accent-color);
 }
-'''
+"""
 
-CHAPTER_EXTRA_CSS = '''
+CHAPTER_EXTRA_CSS = """
 .original-text {
     font-family: 'KaiTi', '楷体', serif;
     font-size: clamp(1.5rem, 2.8vw, 2.2rem);
@@ -580,9 +579,9 @@ CHAPTER_EXTRA_CSS = '''
     border-left: 3px solid var(--accent-color);
     border-radius: 4px;
 }
-'''
+"""
 
-CHAPTER_EXTRA_JS = '''
+CHAPTER_EXTRA_JS = """
 // 复制原文
 document.getElementById('copyOriginal')?.addEventListener('click', function() {
     const text = document.getElementById('originalText').innerText;
@@ -602,60 +601,62 @@ document.querySelectorAll('.idiom-tag').forEach(tag => {
         }
     });
 });
-'''
+"""
 
 
-def generate_chapter_list_html(chapters, classic_id, active_id=None):
+def generate_chapter_list_html(chapters, _classic_id, active_id=None):  # noqa: U101
     """生成章节目录HTML"""
     items = []
     for ch in chapters:
-        active_class = 'active' if ch['chapter'] == active_id else ''
-        items.append(f'<a class="nav-link chapter-item {active_class}" href="./chapter{ch["chapter"]}.html">')
+        active_class = "active" if ch["chapter"] == active_id else ""
+        items.append(
+            f'<a class="nav-link chapter-item {active_class}" href="./chapter{ch["chapter"]}.html">'
+        )
         items.append(f'    <span class="chapter-num">第{ch["chapter"]}章</span>')
-        items.append('</a>')
-    return '\n'.join(items)
+        items.append("</a>")
+    return "\n".join(items)
 
 
 def generate_index_page(data, classic_meta):
     """生成经典首页"""
-    classic_id = classic_meta['id']
-    short_name = classic_meta['short_name']
-    icon = classic_meta.get('icon', '☯')
-    color = classic_meta.get('color', '#d4a574')
-    chapter_unit = '篇' if classic_id == 'zzj' else '章'
-    total_chapters = classic_meta.get('chapters', len(data['chapters']))
+    classic_id = classic_meta["id"]
+    short_name = classic_meta["short_name"]
+    icon = classic_meta.get("icon", "☯")
+    color = classic_meta.get("color", "#d4a574")
+    chapter_unit = "篇" if classic_id == "zzj" else "章"
+    total_chapters = classic_meta.get("chapters", len(data["chapters"]))
 
-    chapter_list = generate_chapter_list_html(data['chapters'], classic_id)
+    chapter_list = generate_chapter_list_html(data["chapters"], classic_id)
 
     # 生成章节卡片
     cards = []
-    for ch in data['chapters'][:20]:  # 首页显示前20章
-        preview = ch.get('modern_chinese', '')[:30]
-        ch_title = ch.get('title', f'第{ch["chapter"]}{chapter_unit}')
+    for ch in data["chapters"][:20]:  # 首页显示前20章
+        preview = ch.get("modern_chinese", "")[:30]
+        ch_title = ch.get("title", f"第{ch['chapter']}{chapter_unit}")
         cards.append(f'<a href="./chapter{ch["chapter"]}.html" class="chapter-card">')
         cards.append(f'    <div class="chapter-num">{ch_title}</div>')
         cards.append(f'    <div class="chapter-preview">{preview}...</div>')
-        cards.append('</a>')
+        cards.append("</a>")
 
     # 生成版本标签
-    version_badges = ''
-    if classic_id == 'ddj':
-        version_badges = '''
+    version_badges = ""
+    if classic_id == "ddj":
+        version_badges = """
             <span class="badge bg-secondary me-1">王弼注</span>
             <span class="badge bg-secondary me-1">河上公注</span>
             <span class="badge bg-secondary me-1">王夫之</span>
             <span class="badge bg-secondary me-1">憨山德清</span>
             <span class="badge bg-info me-1">帛书</span>
             <span class="badge bg-info">郭店简</span>
-        '''
-    elif classic_id == 'zzj':
-        version_badges = '''
+        """
+    elif classic_id == "zzj":
+        version_badges = """
             <span class="badge bg-secondary me-1">成玄英疏</span>
             <span class="badge bg-secondary me-1">郭象注</span>
             <span class="badge bg-secondary">王夫之</span>
-        '''
+        """
 
-    content = f'''
+    content = f"""
     <div class="intro-section">
         <h1 class="text-center mb-4">{icon} {short_name}</h1>
         <p class="text-center text-muted mb-4">多版本对照研究平台</p>
@@ -666,23 +667,23 @@ def generate_index_page(data, classic_meta):
 
     <h4 class="mb-3">章节目录</h4>
     <div class="chapters-grid index-page">
-{''.join(cards)}
+{"".join(cards)}
     </div>
 
     <div class="text-center mt-4">
         <a href="./all-chapters.html" class="btn btn-outline-primary">查看全部{total_chapters}{chapter_unit} →</a>
     </div>
-'''
+"""
 
-    extra_css = INDEX_EXTRA_CSS.replace('#d4a574', color)
+    extra_css = INDEX_EXTRA_CSS.replace("#d4a574", color)
 
     html = HTML_TEMPLATE.format(
-        title=f'{short_name} - 多版本对照平台',
-        page_title='首页',
+        title=f"{short_name} - 多版本对照平台",
+        page_title="首页",
         extra_css=extra_css,
         chapter_list=chapter_list,
         content=content,
-        extra_js=''
+        extra_js="",
     )
 
     return html
@@ -690,36 +691,36 @@ def generate_index_page(data, classic_meta):
 
 def generate_all_chapters_page(data, classic_meta):
     """生成全部章节页面"""
-    classic_id = classic_meta['id']
-    short_name = classic_meta['short_name']
-    total_chapters = classic_meta.get('chapters', len(data['chapters']))
-    chapter_unit = '篇' if classic_id == 'zzj' else '章'
+    classic_id = classic_meta["id"]
+    short_name = classic_meta["short_name"]
+    total_chapters = classic_meta.get("chapters", len(data["chapters"]))
+    chapter_unit = "篇" if classic_id == "zzj" else "章"
 
-    chapter_list = generate_chapter_list_html(data['chapters'], classic_id)
+    chapter_list = generate_chapter_list_html(data["chapters"], classic_id)
 
     cards = []
-    for ch in data['chapters']:
-        preview = ch.get('modern_chinese', '')[:30]
-        ch_title = ch.get('title', f'第{ch["chapter"]}{chapter_unit}')
+    for ch in data["chapters"]:
+        preview = ch.get("modern_chinese", "")[:30]
+        ch_title = ch.get("title", f"第{ch['chapter']}{chapter_unit}")
         cards.append(f'<a href="./chapter{ch["chapter"]}.html" class="chapter-card">')
         cards.append(f'    <div class="chapter-num">{ch_title}</div>')
         cards.append(f'    <div class="chapter-preview">{preview}...</div>')
-        cards.append('</a>')
+        cards.append("</a>")
 
-    content = f'''
+    content = f"""
     <h4 class="mb-3">全部{total_chapters}{chapter_unit}</h4>
     <div class="chapters-grid index-page">
-{''.join(cards)}
+{"".join(cards)}
     </div>
-'''
+"""
 
     html = HTML_TEMPLATE.format(
-        title=f'全部章节 - {short_name}',
-        page_title='全部章节',
+        title=f"全部章节 - {short_name}",
+        page_title="全部章节",
         extra_css=INDEX_EXTRA_CSS,
         chapter_list=chapter_list,
         content=content,
-        extra_js=''
+        extra_js="",
     )
 
     return html
@@ -727,54 +728,55 @@ def generate_all_chapters_page(data, classic_meta):
 
 def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
     """生成单章页面"""
-    classic_id = classic_meta['id']
-    short_name = classic_meta['short_name']
-    icon = classic_meta.get('icon', '☯')
-    color = classic_meta.get('color', '#d4a574')
-    chapter_unit = '篇' if classic_id == 'zzj' else '章'
-    total_chapters = classic_meta.get('chapters', len(data['chapters']))
+    classic_id = classic_meta["id"]
+    short_name = classic_meta["short_name"]
+    color = classic_meta.get("color", "#d4a574")
+    chapter_unit = "篇" if classic_id == "zzj" else "章"
+    total_chapters = classic_meta.get("chapters", len(data["chapters"]))
 
-    chapter = next((c for c in data['chapters'] if c['chapter'] == chapter_id), None)
+    chapter = next((c for c in data["chapters"] if c["chapter"] == chapter_id), None)
     if not chapter:
         return None
 
     # 获取相邻章节
-    idx = data['chapters'].index(chapter)
-    prev_chapter = data['chapters'][idx - 1] if idx > 0 else None
-    next_chapter = data['chapters'][idx + 1] if idx < len(data['chapters']) - 1 else None
+    idx = data["chapters"].index(chapter)
+    prev_chapter = data["chapters"][idx - 1] if idx > 0 else None
+    next_chapter = (
+        data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
+    )
 
     # 使用服务层的标注函数
-    original_annotated = annotate_difficult_chars(chapter.get('original', ''))
+    original_annotated = annotate_difficult_chars(chapter.get("original", ""))
 
-    chapter_list = generate_chapter_list_html(data['chapters'], classic_id, chapter_id)
+    chapter_list = generate_chapter_list_html(data["chapters"], classic_id, chapter_id)
 
     # 筛选当前章节相关的成语
     related_idioms = []
     if idioms:
-        related_idioms = [idiom for idiom in idioms if idiom.get('chapter') == chapter_id]
+        related_idioms = [
+            idiom for idiom in idioms if idiom.get("chapter") == chapter_id
+        ]
 
     # 生成成语展示HTML
-    idioms_html = ''
+    idioms_html = ""
     if related_idioms:
         idioms_html = '<div class="idioms-container d-flex flex-wrap gap-2">'
         for idiom in related_idioms:
-            safe_meaning = idiom.get('meaning', '').replace('"', '&quot;')
-            safe_source = idiom.get('source', '').replace('"', '&quot;')
-            idioms_html += f'''
+            safe_meaning = idiom.get("meaning", "").replace('"', "&quot;")
+            safe_source = idiom.get("source", "").replace('"', "&quot;")
+            idioms_html += f"""
             <span class="idiom-tag" title="{safe_meaning}&#10;原文：{safe_source}">
-                <span class="idiom-word">{idiom.get('word', '')}</span>
+                <span class="idiom-word">{idiom.get("word", "")}</span>
                 <span class="idiom-chapter">📖</span>
-            </span>'''
-        idioms_html += '</div>'
+            </span>"""
+        idioms_html += "</div>"
     else:
         idioms_html = '<span class="text-muted">本章暂无收录相关成语</span>'
 
-    idioms_json = json.dumps(related_idioms, ensure_ascii=False)
-
-    ch_title = chapter.get('title', f'第{chapter_id}{chapter_unit}')
+    ch_title = chapter.get("title", f"第{chapter_id}{chapter_unit}")
 
     # 构建内容
-    content = f'''
+    content = f"""
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
@@ -817,15 +819,15 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">{chapter.get('modern_chinese', '')}</p>
+                <p class="modern-text mb-0">{chapter.get("modern_chinese", "")}</p>
             </div>
         </div>
     </section>
-'''
+"""
 
     # 根据经典类型添加不同的注释版本
-    if classic_id == 'ddj':
-        content += f'''
+    if classic_id == "ddj":
+        content += f"""
     <section class="versions-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -849,28 +851,28 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 <div class="tab-content p-3">
                     <div class="tab-pane fade show active" id="wangbi">
                         <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">{chapter.get('wangbi_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("wangbi_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="heshanggong">
                         <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">{chapter.get('heshanggong_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("heshanggong_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="wangfuzhi">
                         <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">{chapter.get('wangfuzhi_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("wangfuzhi_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="hanshan">
                         <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">{chapter.get('hanshandeqing_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("hanshandeqing_note", "")}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-'''
+"""
 
     # 添加英文译本
-    content += f'''
+    content += f"""
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -887,19 +889,19 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 </ul>
                 <div class="tab-content p-3">
                     <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic">{chapter.get('english_lau', '')}</p>
+                        <p class="english-text mb-0 fst-italic">{chapter.get("english_lau", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic">{chapter.get('english_henricks', '')}</p>
+                        <p class="english-text mb-0 fst-italic">{chapter.get("english_henricks", "")}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-'''
+"""
 
     # 添加导航
-    content += f'''
+    content += f"""
     <nav class="chapter-navigation" aria-label="章节翻页">
         <ul class="pagination justify-content-center">
             {f'<li class="page-item"><a class="page-link" href="./chapter{prev_chapter["chapter"]}.html">← 第{prev_chapter["chapter"]}{chapter_unit}</a></li>' if prev_chapter else '<li class="page-item disabled"><span class="page-link">← 上一篇</span></li>'}
@@ -909,17 +911,17 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
             {f'<li class="page-item"><a class="page-link" href="./chapter{next_chapter["chapter"]}.html">第{next_chapter["chapter"]}{chapter_unit} →</a></li>' if next_chapter else '<li class="page-item disabled"><span class="page-link">下一篇 →</span></li>'}
         </ul>
     </nav>
-'''
+"""
 
-    extra_css = CHAPTER_EXTRA_CSS.replace('#d4a574', color)
+    extra_css = CHAPTER_EXTRA_CSS.replace("#d4a574", color)
 
     html = HTML_TEMPLATE.format(
-        title=f'{ch_title} - {short_name}',
+        title=f"{ch_title} - {short_name}",
         page_title=ch_title,
         extra_css=extra_css,
         chapter_list=chapter_list,
         content=content,
-        extra_js=CHAPTER_EXTRA_JS
+        extra_js=CHAPTER_EXTRA_JS,
     )
 
     return html
@@ -928,49 +930,48 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
 def copy_assets():
     """复制静态资源文件"""
     # 创建assets目录
-    assets_css_dir = OUTPUT_DIR / 'assets' / 'css'
-    assets_js_dir = OUTPUT_DIR / 'assets' / 'js'
-    assets_js_modules_dir = assets_js_dir / 'modules'
-    assets_audio_dir = OUTPUT_DIR / 'assets' / 'audio'
+    assets_css_dir = OUTPUT_DIR / "assets" / "css"
+    assets_js_dir = OUTPUT_DIR / "assets" / "js"
+    assets_js_modules_dir = assets_js_dir / "modules"
+    assets_audio_dir = OUTPUT_DIR / "assets" / "audio"
     assets_css_dir.mkdir(parents=True, exist_ok=True)
     assets_js_dir.mkdir(parents=True, exist_ok=True)
     assets_js_modules_dir.mkdir(parents=True, exist_ok=True)
     assets_audio_dir.mkdir(parents=True, exist_ok=True)
 
     # 复制CSS
-    shutil.copy(BASE_DIR / 'static' / 'css' / 'style.css', assets_css_dir / 'style.css')
+    shutil.copy(BASE_DIR / "static" / "css" / "style.css", assets_css_dir / "style.css")
 
     # 复制JS模块
-    modules_dir = BASE_DIR / 'static' / 'js' / 'modules'
+    modules_dir = BASE_DIR / "static" / "js" / "modules"
     if modules_dir.exists():
-        for module_file in modules_dir.glob('*.js'):
+        for module_file in modules_dir.glob("*.js"):
             shutil.copy(module_file, assets_js_modules_dir / module_file.name)
 
     # 复制Service Worker和Manifest
-    sw_src = BASE_DIR / 'static' / 'js' / 'sw.js'
+    sw_src = BASE_DIR / "static" / "js" / "sw.js"
     if sw_src.exists():
-        shutil.copy(sw_src, assets_js_dir / 'sw.js')
+        shutil.copy(sw_src, assets_js_dir / "sw.js")
 
-    manifest_src = BASE_DIR / 'static' / 'manifest.json'
+    manifest_src = BASE_DIR / "static" / "manifest.json"
     if manifest_src.exists():
-        shutil.copy(manifest_src, OUTPUT_DIR / 'manifest.json')
+        shutil.copy(manifest_src, OUTPUT_DIR / "manifest.json")
 
-    # 复制并修改main.js (移除API搜索功能)
-    js_content = (BASE_DIR / 'static' / 'js' / 'main.js').read_text(encoding='utf-8')
+    # 复制并修改main.js (移除API搜索功能)  # noqa: E800
+    js_content = (BASE_DIR / "static" / "js" / "main.js").read_text(encoding="utf-8")
     # 静态版本不需要搜索功能，注释掉
     static_js = js_content.replace(
-        'SearchManager.init();',
-        '// SearchManager.init();  // 静态版本禁用搜索'
+        "SearchManager.init();", "// SearchManager.init();  // 静态版本禁用搜索"
     ).replace(
         "API_ENDPOINT: '/api/daodejing/search',",
-        "// API_ENDPOINT: '/api/daodejing/search',  // 静态版本"
+        "// API_ENDPOINT: '/api/daodejing/search',  // 静态版本",
     )
-    (assets_js_dir / 'main.js').write_text(static_js, encoding='utf-8')
+    (assets_js_dir / "main.js").write_text(static_js, encoding="utf-8")
 
     # 复制音频文件
-    audio_dir = BASE_DIR / 'static' / 'audio'
+    audio_dir = BASE_DIR / "static" / "audio"
     if audio_dir.exists():
-        for audio_file in audio_dir.glob('*.mp3'):
+        for audio_file in audio_dir.glob("*.mp3"):
             shutil.copy(audio_file, assets_audio_dir / audio_file.name)
         print(f"      复制了 {len(list(assets_audio_dir.glob('*.mp3')))} 个音频文件")
 
@@ -989,8 +990,8 @@ def generate_site():
     # 获取所有经典
     print("\n[1/6] 加载经典元数据...")
     metadata = load_classics_metadata()
-    classics = metadata.get('classics', [])
-    default_classic = metadata.get('default_classic', 'ddj')
+    classics = metadata.get("classics", [])
+    default_classic = metadata.get("default_classic", "ddj")
     print(f"      发现 {len(classics)} 部经典")
 
     # 加载成语数据
@@ -1008,7 +1009,7 @@ def generate_site():
     total_html_files = 0
 
     for classic in classics:
-        classic_id = classic['id']
+        classic_id = classic["id"]
         print(f"\n      正在处理 {classic['name']} ({classic_id})...")
 
         data, classic_meta = load_classic_data(classic_id)
@@ -1022,56 +1023,66 @@ def generate_site():
 
         # 生成经典首页
         index_html = generate_index_page(data, classic_meta)
-        (classic_dir / 'index.html').write_text(index_html, encoding='utf-8')
+        (classic_dir / "index.html").write_text(index_html, encoding="utf-8")
 
         # 生成全部章节页
         all_html = generate_all_chapters_page(data, classic_meta)
-        (classic_dir / 'all-chapters.html').write_text(all_html, encoding='utf-8')
+        (classic_dir / "all-chapters.html").write_text(all_html, encoding="utf-8")
 
         # 生成章节页面
-        for ch in data['chapters']:
-            html = generate_chapter_page(data, ch['chapter'], classic_meta, idioms)
+        for ch in data["chapters"]:
+            html = generate_chapter_page(data, ch["chapter"], classic_meta, idioms)
             if html:
-                (classic_dir / f"chapter{ch['chapter']}.html").write_text(html, encoding='utf-8')
+                (classic_dir / f"chapter{ch['chapter']}.html").write_text(
+                    html, encoding="utf-8"
+                )
 
-        total_html_files += len(data['chapters']) + 2  # +2 for index and all-chapters
+        total_html_files += len(data["chapters"]) + 2  # +2 for index and all-chapters
         print(f"        生成完成：{len(data['chapters'])} 个章节 + 2 个导航页")
 
     # 生成总首页（重定向到默认经典）
     print("\n[5/6] 生成总首页...")
     index_html = generate_main_index_page(classics, default_classic)
-    (OUTPUT_DIR / 'index.html').write_text(index_html, encoding='utf-8')
+    (OUTPUT_DIR / "index.html").write_text(index_html, encoding="utf-8")
     total_html_files += 1
 
     print("\n[6/6] 完成！")
     print("\n" + "=" * 50)
-    print(f"✓ 静态网站生成完成！")
+    print("✓ 静态网站生成完成！")
     print(f"  输出目录: {OUTPUT_DIR}")
     print(f"  总文件数: {total_html_files} 个HTML文件")
     print(f"  包含经典: {', '.join([c['short_name'] for c in classics])}")
     print("=" * 50)
 
     # 统计信息
-    total_size = sum(f.stat().st_size for f in OUTPUT_DIR.rglob('*'))
+    total_size = sum(f.stat().st_size for f in OUTPUT_DIR.rglob("*"))
     print(f"\n总大小: {total_size / 1024:.1f} KB")
 
 
-def generate_main_index_page(classics, default_classic):
+def generate_main_index_page(_classics, default_classic):  # noqa: U101
     """生成总首页（重定向到默认经典）"""
-    return '''<!DOCTYPE html>
+    return (
+        """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=./''' + default_classic + '''/index.html">
-    <script>window.location.href="./''' + default_classic + '''/index.html";</script>
+    <meta http-equiv="refresh" content="0;url=./"""
+        + default_classic
+        + """/index.html">
+    <script>window.location.href="./"""
+        + default_classic
+        + """/index.html";</script>
     <title>古籍经典平台</title>
 </head>
 <body>
     <p>正在跳转...</p>
-    <p>如果页面没有自动跳转，<a href="./''' + default_classic + '''/index.html">请点击这里</a></p>
+    <p>如果页面没有自动跳转，<a href="./"""
+        + default_classic
+        + """/index.html">请点击这里</a></p>
 </body>
-</html>'''
+</html>"""
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     generate_site()

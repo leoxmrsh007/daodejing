@@ -5,19 +5,18 @@
 """
 
 import json
-import os
-from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Any, Dict, List, Optional, Tuple, cast
+
 from config import BASE_DIR, DATA_DIR
 
 # 经典元数据缓存
-_classics_metadata_cache = None
+_classics_metadata_cache: Optional[Dict[str, Any]] = None
 
 # 各经典数据缓存
-_classics_data_cache = {}
+_classics_data_cache: Dict[str, Dict[str, Any]] = {}
 
 
-def load_classics_metadata() -> Dict:
+def load_classics_metadata() -> Dict[str, Any]:
     """
     加载所有经典元数据（带缓存）
 
@@ -32,8 +31,9 @@ def load_classics_metadata() -> Dict:
     metadata_file = DATA_DIR / "classics.json"
 
     try:
-        with open(metadata_file, 'r', encoding='utf-8') as f:
+        with open(metadata_file, "r", encoding="utf-8") as f:
             _classics_metadata_cache = json.load(f)
+        assert _classics_metadata_cache is not None
         return _classics_metadata_cache
     except FileNotFoundError:
         # 默认返回道德经作为回退
@@ -49,16 +49,16 @@ def load_classics_metadata() -> Dict:
                     "data_file": "data/daodejing.json",
                     "icon": "☯",
                     "color": "#d4a574",
-                    "description": "道家哲学奠基之作"
+                    "description": "道家哲学奠基之作",
                 }
             ],
-            "default_classic": "ddj"
+            "default_classic": "ddj",
         }
     except json.JSONDecodeError:
         return {"classics": [], "default_classic": "ddj"}
 
 
-def get_classic_metadata(classic_id: str) -> Optional[Dict]:
+def get_classic_metadata(classic_id: str) -> Optional[Dict[str, Any]]:
     """
     获取指定经典的元数据
 
@@ -69,9 +69,10 @@ def get_classic_metadata(classic_id: str) -> Optional[Dict]:
         经典元数据字典，如果不存在则返回 None
     """
     metadata = load_classics_metadata()
-    for classic in metadata.get("classics", []):
+    classics = metadata.get("classics", [])
+    for classic in classics:
         if classic["id"] == classic_id:
-            return classic
+            return cast(Dict[str, Any], classic)
     return None
 
 
@@ -83,7 +84,7 @@ def get_all_classics() -> List[Dict]:
         经典元数据列表
     """
     metadata = load_classics_metadata()
-    return metadata.get("classics", [])
+    return cast(List[Dict], metadata.get("classics", []))
 
 
 def get_default_classic_id() -> str:
@@ -94,7 +95,7 @@ def get_default_classic_id() -> str:
         默认经典ID
     """
     metadata = load_classics_metadata()
-    return metadata.get("default_classic", "ddj")
+    return cast(str, metadata.get("default_classic", "ddj"))
 
 
 def validate_classic_id(classic_id: str) -> bool:
@@ -117,7 +118,9 @@ class ClassicService:
     支持加载和管理多部经典的数据
     """
 
-    def __init__(self, classic_id: str = None):
+    metadata: Optional[Dict]  # 经典元数据，可能为None但初始化后通常不为None
+
+    def __init__(self, classic_id: Optional[str] = None):
         """
         初始化经典服务
 
@@ -135,17 +138,21 @@ class ClassicService:
             self.classic_id = get_default_classic_id()
             self.metadata = get_classic_metadata(self.classic_id)
 
-        self.data_file = BASE_DIR / self.metadata.get("data_file", "data/daodejing.json")
+        assert self.metadata is not None
+        self.data_file = BASE_DIR / self.metadata.get(
+            "data_file", "data/daodejing.json"
+        )
         self.chapter_count = self.metadata.get("chapters", 81)
 
-    def load_data(self) -> Dict:
+    def load_data(self) -> Dict[str, Any]:
         """
         加载经典数据（带缓存）
 
         Returns:
-            包含所有章节数据的字典
+        包含所有章节数据的字典
         """
-        global _classics_data_cache
+        global _classics_data_cache  # noqa: F824
+        assert self.metadata is not None
 
         cache_key = f"{self.classic_id}"
 
@@ -153,30 +160,24 @@ class ClassicService:
             return _classics_data_cache[cache_key]
 
         try:
-            with open(self.data_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            with open(self.data_file, "r", encoding="utf-8") as f:
+                data: Dict[str, Any] = json.load(f)
             _classics_data_cache[cache_key] = data
             return data
         except FileNotFoundError:
-            return {
-                "title": self.metadata.get("name", ""),
-                "chapters": []
-            }
+            return {"title": self.metadata.get("name", ""), "chapters": []}
         except json.JSONDecodeError:
-            return {
-                "title": self.metadata.get("name", ""),
-                "chapters": []
-            }
+            return {"title": self.metadata.get("name", ""), "chapters": []}
 
-    def clear_cache(self):
+    def clear_cache(self) -> None:
         """清除当前经典的数据缓存"""
-        global _classics_data_cache
+        global _classics_data_cache  # noqa: F824
         cache_key = f"{self.classic_id}"
         if cache_key in _classics_data_cache:
             del _classics_data_cache[cache_key]
 
     @staticmethod
-    def clear_all_cache():
+    def clear_all_cache() -> None:
         """清除所有经典的数据缓存"""
         global _classics_data_cache, _classics_metadata_cache
         _classics_data_cache = {}
@@ -194,8 +195,7 @@ class ClassicService:
         """
         data = self.load_data()
         chapter = next(
-            (c for c in data['chapters'] if c['chapter'] == chapter_id),
-            None
+            (c for c in data["chapters"] if c["chapter"] == chapter_id), None
         )
         return chapter
 
@@ -213,22 +213,23 @@ class ClassicService:
 
         data = self.load_data()
         chapter = next(
-            (c for c in data['chapters'] if c['chapter'] == chapter_id),
-            None
+            (c for c in data["chapters"] if c["chapter"] == chapter_id), None
         )
 
         if chapter:
             # 为原文添加疑难字标注
-            if 'original' in chapter:
-                chapter['original_annotated'] = annotate_difficult_chars(
-                    chapter.get('original', '')
+            if "original" in chapter:
+                chapter["original_annotated"] = annotate_difficult_chars(
+                    chapter.get("original", "")
                 )
 
             # 获取相邻章节
-            idx = data['chapters'].index(chapter)
-            chapter['prev_chapter'] = data['chapters'][idx - 1] if idx > 0 else None
-            chapter['next_chapter'] = data['chapters'][idx + 1] if idx < len(data['chapters']) - 1 else None
-            chapter['total_chapters'] = len(data['chapters'])
+            idx = data["chapters"].index(chapter)
+            chapter["prev_chapter"] = data["chapters"][idx - 1] if idx > 0 else None
+            chapter["next_chapter"] = (
+                data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
+            )
+            chapter["total_chapters"] = len(data["chapters"])
 
         return chapter
 
@@ -240,7 +241,7 @@ class ClassicService:
             章节列表
         """
         data = self.load_data()
-        return data.get('chapters', [])
+        return cast(List[Dict], data.get("chapters", []))
 
     def search_chapters(self, query: str) -> List[Dict]:
         """
@@ -259,21 +260,25 @@ class ClassicService:
         results = []
         query_lower = query.lower()
 
-        for chapter in data['chapters']:
+        for chapter in data["chapters"]:
             # 在原文中搜索
-            if query_lower in chapter.get('original', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': chapter.get('title', f'第{chapter["chapter"]}章'),
-                    'excerpt': chapter.get('original', '')[:100] + '...'
-                })
+            if query_lower in chapter.get("original", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": chapter.get("title", f"第{chapter['chapter']}章"),
+                        "excerpt": chapter.get("original", "")[:100] + "...",
+                    }
+                )
             # 在现代译文中搜索
-            elif query_lower in chapter.get('modern_chinese', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': chapter.get('title', f'第{chapter["chapter"]}章'),
-                    'excerpt': chapter.get('modern_chinese', '')[:100] + '...'
-                })
+            elif query_lower in chapter.get("modern_chinese", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": chapter.get("title", f"第{chapter['chapter']}章"),
+                        "excerpt": chapter.get("modern_chinese", "")[:100] + "...",
+                    }
+                )
 
         return results
 
@@ -284,7 +289,8 @@ class ClassicService:
         Returns:
             注释家列表
         """
-        return self.metadata.get("commentators", [])
+        assert self.metadata is not None
+        return cast(List[Dict], self.metadata.get("commentators", []))
 
     def get_translators(self) -> List[Dict]:
         """
@@ -293,7 +299,8 @@ class ClassicService:
         Returns:
             翻译家列表
         """
-        return self.metadata.get("translators", [])
+        assert self.metadata is not None
+        return cast(List[Dict], self.metadata.get("translators", []))
 
     def get_variants(self) -> List[Dict]:
         """
@@ -302,32 +309,35 @@ class ClassicService:
         Returns:
             古籍版本列表
         """
-        return self.metadata.get("variants", [])
+        assert self.metadata is not None
+        return cast(List[Dict], self.metadata.get("variants", []))
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> Dict[str, Any]:
         """
         将服务配置转换为字典（用于模板渲染）
 
         Returns:
             配置字典
         """
+        assert self.metadata is not None
         return {
-            'id': self.classic_id,
-            'name': self.metadata.get('name', ''),
-            'short_name': self.metadata.get('short_name', ''),
-            'author': self.metadata.get('author', ''),
-            'era': self.metadata.get('era', ''),
-            'chapters': self.chapter_count,
-            'icon': self.metadata.get('icon', ''),
-            'color': self.metadata.get('color', ''),
-            'description': self.metadata.get('description', ''),
-            'commentators': self.get_commentators(),
-            'translators': self.get_translators(),
-            'variants': self.get_variants()
+            "id": self.classic_id,
+            "name": self.metadata.get("name", ""),
+            "short_name": self.metadata.get("short_name", ""),
+            "author": self.metadata.get("author", ""),
+            "era": self.metadata.get("era", ""),
+            "chapters": self.chapter_count,
+            "icon": self.metadata.get("icon", ""),
+            "color": self.metadata.get("color", ""),
+            "description": self.metadata.get("description", ""),
+            "commentators": self.get_commentators(),
+            "translators": self.get_translators(),
+            "variants": self.get_variants(),
         }
 
 
 # ============ 向后兼容的 DataService ============
+
 
 class DataService(ClassicService):
     """
@@ -337,7 +347,7 @@ class DataService(ClassicService):
 
     _data_cache = None
 
-    def __init__(self):
+    def __init__(self) -> None:
         """初始化道德经服务（默认）"""
         super().__init__("ddj")
 
@@ -351,7 +361,7 @@ class DataService(ClassicService):
         return service.load_data()
 
     @classmethod
-    def clear_cache(cls):
+    def clear_cache(cls) -> None:
         """清除数据缓存 - 类方法保持兼容"""
         cls._data_cache = None
         ClassicService.clear_all_cache()
@@ -383,12 +393,13 @@ class DataService(ClassicService):
 
 # ============ 函数别名（向后兼容） ============
 
-def load_data():
+
+def load_data() -> Dict[str, Any]:
     """向后兼容：加载数据"""
     return DataService.load_data()
 
 
-def get_chapter_content(chapter_id):
+def get_chapter_content(chapter_id: int) -> Tuple[Optional[Dict], Dict[str, Any]]:
     """向后兼容：获取章节内容"""
     service = ClassicService("ddj")
     chapter = service.get_chapter_with_annotation(chapter_id)

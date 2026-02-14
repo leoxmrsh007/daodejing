@@ -4,10 +4,10 @@
 """
 
 import re
-from typing import Optional
+from typing import Any, Optional
 
 
-def validate_chapter_id(chapter_id: int) -> bool:
+def validate_chapter_id(chapter_id: Any) -> bool:
     """
     验证章节 ID 是否有效
 
@@ -17,7 +17,18 @@ def validate_chapter_id(chapter_id: int) -> bool:
     Returns:
         是否有效
     """
-    return isinstance(chapter_id, int) and 1 <= chapter_id <= 81
+    try:
+        # 尝试转换为整数
+        if isinstance(chapter_id, str):
+            chapter_int = int(chapter_id)
+        elif isinstance(chapter_id, int):
+            chapter_int = chapter_id
+        else:
+            return False
+
+        return 1 <= chapter_int <= 81
+    except (ValueError, TypeError):
+        return False
 
 
 def validate_search_query(query: str) -> tuple[bool, Optional[str]]:
@@ -37,7 +48,7 @@ def validate_search_query(query: str) -> tuple[bool, Optional[str]]:
         return False, "查询长度不能超过100个字符"
 
     # 检测潜在的 XSS 攻击
-    xss_patterns = ['<', '>', '"', "'", '&', ';', 'javascript:', 'onerror=', 'onload=']
+    xss_patterns = ["<", ">", '"', "'", "&", ";", "javascript:", "onerror=", "onload="]
     query_lower = query.lower()
     for pattern in xss_patterns:
         if pattern in query_lower:
@@ -61,7 +72,7 @@ def sanitize_text(text: str, max_length: int = 1000) -> str:
         return ""
 
     # 移除控制字符
-    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', text)
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]", "", text)
 
     # 限制长度
     if len(text) > max_length:

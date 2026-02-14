@@ -123,3 +123,150 @@ python generate_static.py
 - Flask templates are in `templates/ddj/`
 - The difficult character annotation uses placeholder replacement to avoid nested replacements
 - Client-side AI keys are stored in localStorage only (never sent to server)
+
+## Code Quality & Testing
+
+The project has comprehensive code quality tools and testing infrastructure:
+
+### Quality Tools
+- **Flake8**: Python code style checking (PEP 8 compliance)
+- **Mypy**: Static type checking for Python 3.9+ compatibility
+- **Black**: Automatic code formatting
+- **isort**: Import statement sorting
+- **pre-commit**: Git hook automation
+
+### Testing
+- **pytest**: Test framework with coverage reporting
+- **Coverage Goal**: ≥80% for services/ directory (currently 81% achieved)
+- **Test Structure**: 111 tests across unit and integration tests
+- **Test Data**: Uses actual `data/daodejing.json` for realistic testing
+
+### Quality Commands
+```bash
+# Run all quality checks
+python scripts/check_code_quality.py
+
+# Run tests with coverage
+python -m pytest --cov=services --cov-report=term-missing tests/ -v
+
+# Type checking
+python -m mypy --config-file=mypy.ini services/ routes/ utils/
+
+# Code style checking
+python -m flake8 --config=.flake8 .
+
+# Format code
+python -m black .
+python -m isort .
+```
+
+## API Documentation
+
+The project now includes comprehensive OpenAPI/Swagger documentation:
+
+### Available Documentation
+1. **Interactive API Docs**: Access at `/docs` or `/docs/api`
+   - Swagger UI interface for exploring and testing endpoints
+   - Live documentation with request/response examples
+   - Try-it-out functionality for API testing
+
+2. **OpenAPI Specification**: `docs/openapi.yaml`
+   - Complete API specification in OpenAPI 3.0 format
+   - All endpoints documented with parameters, responses, and examples
+   - Rate limiting and security information included
+
+### API Categories
+- **Classic Management**: Multi-classic support (DDJ, ZZJ, etc.)
+- **Chapter Content**: Chapter retrieval, search, and navigation
+- **Backward Compatibility**: Legacy `/daodejing/*` endpoints
+- **TTS Services**: Fish Audio and Edge TTS proxies
+- **AI Features**: Knowledge graph, semantic archaeology, cross-civilization dialogue
+
+### Access Documentation
+```bash
+# Start development server
+python app.py
+
+# Access API docs at:
+# http://localhost:5000/docs
+# http://localhost:5000/docs/openapi.yaml
+```
+
+## Project Status & Recent Updates
+
+### Completed Milestones
+✅ **Code Quality Enhancement**: All 75 mypy errors fixed, 32 flake8 warnings resolved  
+✅ **Test Coverage Improvement**: Services directory coverage increased to 81% (15 new tests added)  
+✅ **Documentation Phase Started**: OpenAPI/Swagger documentation implemented  
+✅ **Development Standards**: Full quality toolchain established
+
+### Current Development Phase
+According to `DEVELOPMENT_GOALS.md`, the project is currently in:
+- **Short-term Goal 3**: Documentation completion (in progress)
+- Next: Performance optimization and feature enhancement phases
+
+### Architecture Updates
+- **Multi-classic Support**: Generalized `ClassicService` for multiple classical texts
+- **Modular Structure**: Clean separation of services, routes, and utilities
+- **Type Safety**: Full Python type annotations with mypy validation
+- **Security**: Input validation, rate limiting, and XSS protection
+
+## Development Workflow
+
+### Getting Started
+```bash
+# 1. Clone and install
+git clone <repository>
+cd daodejing
+pip install -r requirements.txt
+
+# 2. Run quality checks
+python scripts/check_code_quality.py
+
+# 3. Run tests
+python -m pytest tests/
+
+# 4. Start development server
+python app.py
+```
+
+### Common Tasks
+```bash
+# Add new tests
+python -m pytest tests/ -v -k "test_pattern"
+
+# Check coverage for specific module
+python -m pytest --cov=services.module_name tests/
+
+# Fix code style issues
+python -m black .
+python -m isort .
+
+# Pre-commit hooks (if configured)
+pre-commit run --all-files
+```
+
+### Documentation Updates
+When modifying APIs:
+1. Update the implementation in `routes/api_routes.py`
+2. Update corresponding service methods
+3. Update test files in `tests/`
+4. Update OpenAPI specification in `docs/openapi.yaml`
+5. Verify documentation at `/docs`
+
+## Troubleshooting
+
+### Common Issues
+1. **Type Errors**: Run `python -m mypy --config-file=mypy.ini .` to identify issues
+2. **Test Failures**: Check `tests/test_services.py` for specific test cases
+3. **API Changes**: Ensure backward compatibility for `/daodejing/*` endpoints
+4. **Documentation Sync**: Keep `docs/openapi.yaml` updated with API changes
+
+### Performance Tips
+- Data is cached in memory after first load
+- Use static site generation for production deployment
+- Enable gzip compression for API responses
+- Consider CDN for static assets in production
+
+---
+*Last Updated: 2026-01-29 | Project Phase: Documentation Completion*

@@ -1,0 +1,109 @@
+# pre-commit 配置文件
+# 自动代码质量检查和格式化
+
+repos:
+  # 通用代码检查
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: 移除行尾空格
+      - id: end-of-file-fixer
+        name: 确保文件以换行符结束
+      - id: check-yaml
+        name: 检查YAML语法
+      - id: check-json
+        name: 检查JSON语法
+      - id: check-added-large-files
+        name: 检查大文件
+        args: ['--maxkb=5000']
+      - id: check-merge-conflict
+        name: 检查合并冲突标记
+      - id: check-case-conflict
+        name: 检查大小写冲突
+      - id: detect-private-key
+        name: 检测私钥文件
+
+  # Python代码格式化
+  - repo: https://github.com/psf/black
+    rev: 24.1.0
+    hooks:
+      - id: black
+        name: Black格式化
+        language_version: python3
+        args: ['--line-length=88']
+
+  # Python代码检查
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        name: Flake8代码检查
+        additional_dependencies:
+          - flake8-bugbear
+          - flake8-comprehensions
+          - flake8-simplify
+        args: ['--config=.flake8', '--max-complexity=10']
+
+  # Python类型检查
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        name: Mypy类型检查
+        additional_dependencies:
+          - types-requests
+          - types-pyyaml
+        args: ['--config-file=mypy.ini', '--ignore-missing-imports']
+
+  # 导入排序和格式化
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort导入排序
+        args: ['--profile=black', '--line-length=88']
+
+  # 测试文件检查
+  - repo: local
+    hooks:
+      - id: pytest-check
+        name: 运行pytest测试
+        entry: python -m pytest tests/ -xvs
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [push]
+
+# 全局配置
+default_language_version:
+  python: python3
+
+# 默认阶段
+default_stages: [commit, push]
+
+# 文件排除模式
+exclude: |
+  (?x)^(
+    \.git|
+    __pycache__|
+    \.pytest_cache|
+    \.venv|
+    venv|
+    env|
+    \.env|
+    dist|
+    build|
+    .*\.egg-info|
+    migrations|
+    node_modules|
+    \.next|
+    \.nuxt|
+    \.vscode|
+    \.idea|
+    *.min\.(js|css)|
+    \.map$
+  )/
+
+# 跳过检查的文件类型
+files: \.(py|js|json|yaml|yml|md|txt)$

@@ -3,6 +3,8 @@
 疑难字标注服务
 """
 
+from typing import Dict
+
 # 疑难字标注配置
 DIFFICULT_CHARS = {
     "徼": {"pinyin": "jiào", "meaning": "边界，边际"},
@@ -68,12 +70,12 @@ def annotate_difficult_chars(text: str) -> str:
     sorted_chars = sorted(DIFFICULT_CHARS.items(), key=lambda x: -len(x[0]))
 
     # 使用占位符记录已标注的内容，避免嵌套
-    placeholders = {}
+    placeholders: Dict[str, str] = {}
     temp_text = text
 
     for char, info in sorted_chars:
-        pinyin = info['pinyin']
-        meaning = info['meaning']
+        pinyin = info["pinyin"]
+        meaning = info["meaning"]
 
         # 在临时文本中查找并替换
         start = 0
@@ -85,7 +87,7 @@ def annotate_difficult_chars(text: str) -> str:
             # 执行替换，使用占位符
             placeholder = f"___PH_{len(placeholders)}___"
             span_html = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
-            temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char):]
+            temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char) :]
             placeholders[placeholder] = span_html
             start = pos + len(placeholder)
 

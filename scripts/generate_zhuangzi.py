@@ -73,16 +73,12 @@ for num, title in ZHUANGZI_CHAPTERS[1:]:
         "chengxuanying_note": "此版本暂未收录",
         "wangfuzhi_note": "此版本暂未收录",
         "english_watson": "",
-        "english_ziporyn": ""
+        "english_ziporyn": "",
     }
     chapters.append(chapter)
 
 # 保存完整数据
-output = {
-    "title": "庄子",
-    "subtitle": "道家经典读本",
-    "chapters": chapters
-}
+output = {"title": "庄子", "subtitle": "道家经典读本", "chapters": chapters}
 
 output_file = Path("data/zhuangzi/chapters.json")
 with open(output_file, "w", encoding="utf-8") as f:

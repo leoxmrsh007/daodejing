@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 文档 - 道德经多版本对照平台</title>
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #d4a574 0%, #b38b5d 100%);
+            color: white;
+            padding: 2rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .info-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background: #f9f9f9;
+            border-left: 4px solid #d4a574;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .info-card h3 {
+            color: #d4a574;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .info-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .info-card ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+        
+        .info-card li {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .api-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .api-section h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            font-weight: 400;
+        }
+        
+        .server-info {
+            background: #e8f4f8;
+            border: 1px solid #c3e6f0;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .server-info h4 {
+            color: #31708f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .server-info p {
+            color: #31708f;
+            font-size: 0.9rem;
+        }
+        
+        .server-info code {
+            background: white;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #d4a574;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #b38b5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #d4a574;
+            border: 2px solid #d4a574;
+        }
+        
+        .btn-outline:hover {
+            background: #d4a574;
+            color: white;
+        }
+        
+        #swagger-ui {
+            margin-top: 2rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 1.5rem 0;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>📚 API 文档</h1>
+                <p>道德经多版本对照平台 RESTful API 完整文档</p>
+                <p class="version">版本：1.0.0 | 最后更新：{{ current_date }}</p>
+            </div>
+        </header>
+
+        <div class="info-panel">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📖 平台概述</h3>
+                    <p>道德经多版本对照学习平台是一个基于 Flask 的 Web 应用，支持多版本经典古籍的对照学习、搜索、TTS 服务和 AI 创新功能。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>⚡ 核心功能</h3>
+                    <ul>
+                        <li>多经典管理（道德经、庄子等）</li>
+                        <li>章节内容获取与搜索</li>
+                        <li>疑难字标注与注解</li>
+                        <li>TTS（文本转语音）服务代理</li>
+                        <li>AI 创新功能（知识图谱、语义考古等）</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🔧 技术栈</h3>
+                    <ul>
+                        <li>后端：Flask + Python 3.9+</li>
+                        <li>前端：Vanilla JavaScript + Bootstrap 5</li>
+                        <li>架构：模块化设计（services/, routes/, utils/）</li>
+                        <li>部署：支持 Flask 动态部署和静态站点生成</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🔒 安全特性</h3>
+                    <ul>
+                        <li>所有输入都经过验证</li>
+                        <li>搜索端点有速率限制</li>
+                        <li>XSS 防护</li>
+                        <li>CORS 配置支持</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="server-info">
+                <h4>🌐 API 服务器</h4>
+                <p>当前文档使用的 OpenAPI 规范：<code>{{ api_docs_url }}</code></p>
+                <p>您可以在下面的交互式文档中测试 API 端点，或下载完整的 OpenAPI 规范文件。</p>
+            </div>
+        </div>
+
+        <div class="api-section">
+            <h2>🛠️ 交互式 API 文档</h2>
+            <p>使用下面的 Swagger UI 交互式文档来探索和测试 API 端点：</p>
+            
+            <div id="swagger-ui"></div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="btn">🏠 返回首页</a>
+            <a href="/docs/openapi.yaml" class="btn btn-outline" download>📥 下载 OpenAPI 规范</a>
+            <a href="https://github.com/yourusername/daodejing" class="btn btn-outline" target="_blank">🐙 GitHub 仓库</a>
+        </div>
+
+        <footer>
+            <p>© 2026 道德经多版本对照平台 | 本 API 文档基于 OpenAPI 3.0 规范</p>
+            <p>使用 Swagger UI 渲染交互式文档</p>
+        </footer>
+    </div>
+
+    <!-- Swagger UI -->
+    <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js"></script>
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: "{{ api_docs_url }}",
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                validatorUrl: null,
+                docExpansion: 'list',
+                filter: true,
+                tagsSorter: 'alpha',
+                operationsSorter: 'alpha',
+                defaultModelsExpandDepth: 2,
+                defaultModelExpandDepth: 2,
+                displayRequestDuration: true
+            });
+            
+            window.ui = ui;
+        };
+    </script>
+</body>
+</html>

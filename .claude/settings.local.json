@@ -24,7 +24,21 @@
       "Bash(for f in youlan lisao yangguan dongting qinwang xiaoxiang)",
       "Bash(do echo:*)",
       "Bash(done)",
-      "Bash(node -c:*)"
+      "Bash(node -c:*)",
+      "Bash(dir:*)",
+      "Bash(vercel --prod)",
+      "Bash(move:*)",
+      "Bash(timeout:*)",
+      "Bash(findstr:*)",
+      "Bash(ping:*)",
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(flake8:*)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel env ls:*)",
+      "Bash(vercel env add:*)",
+      "Bash(vercel redeploy:*)"
     ]
   }
 }

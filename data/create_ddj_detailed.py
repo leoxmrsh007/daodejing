@@ -87,7 +87,7 @@ CHAPTERS_DATA = [
         "english_lau": "The way that can be spoken of is not the constant way; the name that can be named is not the constant name. The nameless was the beginning of heaven and earth; the named was the mother of the myriad creatures. Hence always rid yourself of desires in order to observe its mystery; always have desires in order to observe its manifestations. These two are the same but diverge in name as they issue forth. Being the same they are called mysteries, mystery upon mystery, the gateway to the manifold secrets.",
         "english_henricks": "The Way that can be spoken of is not the constant Way; the name that can be named is not the constant Name. The Nameless is the origin of Heaven and Earth; the Named is the mother of all things. Therefore, let there always be non-being so we may perceive its subtlety, and let there always be being so we may perceive its manifestations. These two are the same—only as they manifest differently they are called by different names. The identity of their sameness is the mystery—mystery upon mystery—the gateway to all subtleties.",
         "english_addiss": "The way you can go isn't the real way. The name you can say isn't the real name. Heaven and earth begin in the unnamed: name's the mother of the ten thousand things. So the unwanting soul sees what's hidden, and the ever-wanting soul sees only what it wants. Two things, one origin, different names once they pass the gate. The gateway's mystery—dark and deep—opens to all secrets.",
-        "modern_chinese": "可以用语言表述的道，不是永恒不变的道；可以用名称界定的名，不是永恒不变的名。无名是天地的开端，有名是万物的根源。所以，常从无中观察奥妙，常从有中观察端倪。无和有同源而名称不同，都可以说是深奥的。这种深奥又深奥，是一切奥妙的门户。"
+        "modern_chinese": "可以用语言表述的道，不是永恒不变的道；可以用名称界定的名，不是永恒不变的名。无名是天地的开端，有名是万物的根源。所以，常从无中观察奥妙，常从有中观察端倪。无和有同源而名称不同，都可以说是深奥的。这种深奥又深奥，是一切奥妙的门户。",
     },
     {
         "chapter": 2,
@@ -103,7 +103,7 @@ CHAPTERS_DATA = [
         "english_lau": "It is because every one under heaven recognizes beauty as beauty that the idea of ugliness comes into existence. And equally if every one recognized goodness as goodness, the idea of badness would come into existence. So being and non-being produce each other; difficult and easy complete each other; long and short contrast each other; high and low distinguish each other; sound and voice harmonize with each other; before and after follow each other. That is why the sage occupies himself with inaction and conveys instruction without words. Is it not because he does not occupy himself with it that it is never exhausted? The myriad creatures rise from it yet it claims no authority; they are given life yet it claims no possession; they benefit yet it claims no credit. It is because it claims no credit that its credit is never lost.",
         "english_henricks": "When all the world recognizes beauty as beauty, this in itself is ugliness. When all the world recognizes good as good, this in itself is evil. Indeed, being and non-being produce each other; difficult and easy complete each other; long and short contrast each other; high and low distinguish each other; musical notes and tones harmonize with each other; front and back follow each other. Therefore the Sage embraces the One and serves as a model for the world. He does not display himself, and so is enlightened; he does not approve himself, and so is distinguished; he does not brag, and so has merit; he does not boast, and so endures. It is because he does not contend that no one in the world is able to contend with him.",
         "english_addiss": "Everybody knows beauty is beauty, but that's ugly. Everybody knows good is good, but that's bad. Thus being and non-being give birth to each other, difficult and easy complete each other, long and short test each other, high and low measure each other, musical notes and sounds harmonize with each other, before and after follow each other. That's why the sage does without doing and teaches without talking. The ten thousand things arise and he doesn't turn away; he gives them life but owns them not; he acts but claims nothing; his work done, he forgets it. And because he forgets, it lasts forever.",
-        "modern_chinese": "天下人都知道美之所以为美，那是由于有丑陋的存在；都知道善之所以为善，那是由于有邪恶的存在。所以有和无互相转化，难和易互相促成，长和短互相显现，高和下互相充实，音和声互相和谐，前和后互相接随。因此圣人用无为的态度处理世事，实行不言的教化；万物兴起而不加拒绝，生养万物而不据为己有，施恩泽万物而不自恃其功，功业成就而不居功自傲。正由于不居功，他的功绩才不会失去。"
+        "modern_chinese": "天下人都知道美之所以为美，那是由于有丑陋的存在；都知道善之所以为善，那是由于有邪恶的存在。所以有和无互相转化，难和易互相促成，长和短互相显现，高和下互相充实，音和声互相和谐，前和后互相接随。因此圣人用无为的态度处理世事，实行不言的教化；万物兴起而不加拒绝，生养万物而不据为己有，施恩泽万物而不自恃其功，功业成就而不居功自傲。正由于不居功，他的功绩才不会失去。",
     },
     {
         "chapter": 3,
@@ -119,7 +119,7 @@ CHAPTERS_DATA = [
         "english_lau": "If you do not esteem men of worth, you will keep the people from rivalry; if you do not value goods that are hard to get, you will keep the people from theft; if you do not display what is desirable, you will keep the people from being unsettled in mind. Therefore in the government of the sage: he empties their minds and fills their bellies, weakens their wills and strengthens their bones. He always keeps the people from knowing and craving, and those who have knowledge he dares not let act. He practises inaction and yet nothing is left ungoverned.",
         "english_henricks": "Do not exalt the worthy and the people will not compete. Do not value goods that are hard to get and there will be no thieves. Do not display objects of desire and their hearts will not be disturbed. Therefore the rule of the Sage empties the mind and fills the belly, weakens the will and strengthens the bones. He keeps the people from knowing and craving and those who have knowledge he dares not let act. He practises inaction and nothing is left ungoverned.",
         "english_addiss": "Don't exalt the talented and people won't compete. Don't treasure rare objects and people won't steal. Don't show off things that arouse desire and people's hearts won't be troubled. The sage rules by emptying minds and filling bellies, weakening ambitions and strengthening bones. Keep people from knowing and wanting, keep those who know from doing. Act without action and nothing is unruled.",
-        "modern_chinese": "不推崇有才德的人，导使老百姓不互相争夺；不珍爱难得的财物，导使老百姓不去偷窃；不显耀足以引起贪欲的事物，导使民心不被迷乱。因此，圣人的治理原则是：排空百姓的心机，填饱百姓的肚腹，减弱百姓的竞争意图，增强百姓的筋骨。经常使老百姓没有伪诈的心智，没有争欲的念头。使那些自作聪明的人也不敢妄为造事。实行无为之治，天下就没有治理不好的。"
+        "modern_chinese": "不推崇有才德的人，导使老百姓不互相争夺；不珍爱难得的财物，导使老百姓不去偷窃；不显耀足以引起贪欲的事物，导使民心不被迷乱。因此，圣人的治理原则是：排空百姓的心机，填饱百姓的肚腹，减弱百姓的竞争意图，增强百姓的筋骨。经常使老百姓没有伪诈的心智，没有争欲的念头。使那些自作聪明的人也不敢妄为造事。实行无为之治，天下就没有治理不好的。",
     },
     {
         "chapter": 4,
@@ -135,7 +135,7 @@ CHAPTERS_DATA = [
         "english_lau": "The way is empty yet use will not drain it. Deep it is like the ancestor of the myriad creatures. It blunts its sharpness, unties its tangles, harmonizes its light, mixes with the dust of the world. Dark it is and yet it seems to exist. I do not know whose offspring it is; it does resemble the forerunner of the Lord.",
         "english_henricks": "The Way is empty, but when used it is not exhausted. Deep, oh so deep! It seems to be the ancestor of the myriad creatures. It files sharp edges, unties knots, harmonizes the light, and mixes with the dust. Down deep, oh so deep! It seems to exist, though I do not know whose offspring it is. It seems to have preceded the Lord.",
         "english_addiss": "The Way is empty, used but not used up. Deep, it's like the ancestor of the ten thousand things. Blunt the sharp, untie the knotted, harmonize the bright, mix with the dust. A living presence, dim and dark—I don't know whose child it is, but it comes before God.",
-        "modern_chinese": "道是虚空的，但使用它却是无穷无尽的。深邃啊！它好像是万物的宗主。消磨它的锐气，解除它的纷扰，调和它的光辉，混同于尘垢。深沉啊！它好像存在着。我不知道它是谁的后代，似乎在天帝之前就存在了。"
+        "modern_chinese": "道是虚空的，但使用它却是无穷无尽的。深邃啊！它好像是万物的宗主。消磨它的锐气，解除它的纷扰，调和它的光辉，混同于尘垢。深沉啊！它好像存在着。我不知道它是谁的后代，似乎在天帝之前就存在了。",
     },
     {
         "chapter": 5,
@@ -151,7 +151,7 @@ CHAPTERS_DATA = [
         "english_lau": "Heaven and earth are ruthless, and treat the myriad creatures as straw dogs; the sage is ruthless, and treats the people as straw dogs. Is not the space between heaven and earth like a bellows? It is empty and yet not exhausted; the more it is worked the more comes out. Much speech leads inevitably to silence. It is better to keep to the centre.",
         "english_henricks": "Heaven and Earth are not humane, they regard the myriad creatures as straw dogs. The Sage is not humane, he regards the common people as straw dogs. The space between Heaven and Earth—is it not like a bellows? Empty, and yet it never collapses; keep moving, and more will be produced. Much talk will inevitably come to a halt. It is better to guard the centre.",
         "english_addiss": "Heaven and earth aren't humane, they treat the ten thousand things as straw dogs. The sage isn't humane, he treats the common people as straw dogs. The space between heaven and earth—is it not like a bellows? Empty and yet not failing, moving and gushing forth. The more you talk of it the worse it gets. It's better to keep what's inside.",
-        "modern_chinese": "天地是无所谓仁慈的，它没有偏爱，对待万物就像对待刍狗一样一视同仁；圣人也是无所谓仁慈的，也同样像对待刍狗一样对待百姓一视同仁。天地之间，岂不像个风箱吗？空虚但不会枯竭，越鼓动风就越多，生生不息。政令繁多反而会加速败亡，不如保持内心的虚静。"
+        "modern_chinese": "天地是无所谓仁慈的，它没有偏爱，对待万物就像对待刍狗一样一视同仁；圣人也是无所谓仁慈的，也同样像对待刍狗一样对待百姓一视同仁。天地之间，岂不像个风箱吗？空虚但不会枯竭，越鼓动风就越多，生生不息。政令繁多反而会加速败亡，不如保持内心的虚静。",
     },
     {
         "chapter": 6,
@@ -167,7 +167,7 @@ CHAPTERS_DATA = [
         "english_lau": "The spirit of the valley never dies. This is called the mysterious female. The gate of the mysterious female is called the root of heaven and earth. Dimly visible, it seems as if it were there, yet use will never drain it.",
         "english_henricks": "The spirit of the valley never dies. This is called the Mysterious Female. The gateway of the Mysterious Female is called the root of Heaven and Earth. Dim and seemingly continuous, it will never be exhausted.",
         "english_addiss": "The spirit of the valley never dies—this is called the dark female. The dark female's doorway is called the root of heaven and earth. Faint, it seems to barely exist, and yet it's inexhaustible.",
-        "modern_chinese": "虚空而神奇的道是永恒不灭的，这叫做深奥的母性。深奥母性的门户，叫做天地的根源。它连绵不绝地存在着，用之不尽。"
+        "modern_chinese": "虚空而神奇的道是永恒不灭的，这叫做深奥的母性。深奥母性的门户，叫做天地的根源。它连绵不绝地存在着，用之不尽。",
     },
     {
         "chapter": 7,
@@ -183,7 +183,7 @@ CHAPTERS_DATA = [
         "english_lau": "Heaven is eternal and earth everlasting. The reason they can be eternal and everlasting is that they do not give themselves life, so they are able to be long-enduring. For this reason the sage puts himself last and ends up in front. Is it not because he is unselfish that he is able to fulfill his selfish needs? He who stands on tiptoe is not steady. He who strides cannot maintain the pace.",
         "english_henricks": "Heaven is long-enduring and Earth is long-lasting. The reason why Heaven and Earth can be long-enduring and long-lasting is because they do not live for themselves. That is why they can be long-enduring. Thus the Sage puts himself behind, and finds himself in front; disregards himself, and his self is preserved. Is it not because he is unselfish that his self is realized?",
         "english_addiss": "Heaven is lasting, earth enduring. The reason heaven and earth can last and endure is that they do not have a life of their own. This is why they last. Thus the sage puts himself last and finds himself in the forefront; considers himself an outsider and finds himself safe. Isn't it because he's unselfish that he's fulfilled?",
-        "modern_chinese": "天长地久。天地所以能长久存在，是因为它们不为自己而生，所以能长生。因此，圣人把自己置于后，反而能领先；把自身置之度外，反而能保全。不正因为他不自私吗？所以能成就他自己的利益。"
+        "modern_chinese": "天长地久。天地所以能长久存在，是因为它们不为自己而生，所以能长生。因此，圣人把自己置于后，反而能领先；把自身置之度外，反而能保全。不正因为他不自私吗？所以能成就他自己的利益。",
     },
     {
         "chapter": 8,
@@ -199,7 +199,7 @@ CHAPTERS_DATA = [
         "english_lau": "The highest excellence is like water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low place that all men dislike. Hence its way is near to the Way. In dwelling, it loves the low earth; in heart, it loves the deep; in associating, it loves humanity; in speaking, it loves sincerity; in governing, it loves order; in ability, it loves ability; in moving, it loves timeliness. It is because it does not contend that it is free from blame.",
         "english_henricks": "Highest good is like water. Because water excels in benefiting the myriad creatures and does not contend, and settles where no one wishes to live, it is close to the Way. In dwelling, be close to the land; in heart, be deep like a pool; in associating, be benevolent; in speaking, be trustworthy; in governing, be orderly; in ability, be competent; in moving, be timely. It is because it does not contend that it is free from blame.",
         "english_addiss": "The best of people is like water, it helps all things and doesn't compete, it stays in places that others scorn. So it is like the Way. In dwelling, it grounds itself in the good earth. In thinking, it deepens in what can't be known. In giving, it's kind. In speaking, it's sincere. In governing, it's orderly. In working, it's capable. In moving, it's timely. And because it doesn't compete, it has no blame.",
-        "modern_chinese": "最高尚的品德像水一样。水善于滋润万物而不与万物相争，停留在众人都不喜欢的低洼之处，所以最接近于道。居处善于选择地方，心境善于保持沉静，待人善于真诚相爱，说话善于遵守信用，为政善于精简处理，处事善于发挥所长，行动善于掌握时机。正因为他不争，所以没有过失。"
+        "modern_chinese": "最高尚的品德像水一样。水善于滋润万物而不与万物相争，停留在众人都不喜欢的低洼之处，所以最接近于道。居处善于选择地方，心境善于保持沉静，待人善于真诚相爱，说话善于遵守信用，为政善于精简处理，处事善于发挥所长，行动善于掌握时机。正因为他不争，所以没有过失。",
     },
     {
         "chapter": 9,
@@ -215,7 +215,7 @@ CHAPTERS_DATA = [
         "english_lau": "When it is full, one should stop. To sharpen and point a sword to the extreme will not keep it sharp for long. To have gold and jade filling one's hall is no way to protect oneself from robbery. Wealth and rank bring with them pride, and with pride comes ruin. To achieve merit and then withdraw is the way of Heaven.",
         "english_henricks": "To hold a cup and fill it to the brim, better to stop. To file it and make it sharp, it cannot be preserved for long. When gold and jade fill your hall, you will not be able to guard them. Wealth and rank bring pride and bring their own ruin. When the work is done, retire—this is Heaven's Way.",
         "english_addiss": "Holding a cup and filling it to the brim—stop. Whetting and sharpening a sword—you can't preserve it. When gold and jade fill your hall, you can't keep it safe. Pride in wealth and rank—your own disaster. Work done, then withdraw—this is heaven's way.",
-        "modern_chinese": "端着杯子让它装满水，不如适可而止。把刀剑磨得锋利，很难长久保持。金玉满堂，没有人能够守住。富贵而骄傲，自己招来祸患。功业成就后就隐退，这才符合天道。"
+        "modern_chinese": "端着杯子让它装满水，不如适可而止。把刀剑磨得锋利，很难长久保持。金玉满堂，没有人能够守住。富贵而骄傲，自己招来祸患。功业成就后就隐退，这才符合天道。",
     },
     {
         "chapter": 10,
@@ -231,7 +231,7 @@ CHAPTERS_DATA = [
         "english_lau": "Can you keep the soul and the body together without letting them part? Can you concentrate your breath and make it soft like an infant? Can you cleanse your inner vision and wipe it free of flaws? Can you love the people and govern the state without resorting to action? When the gates of heaven open and close, can you play the part of the female? When your discernment penetrates the four quarters, can you remain in the dark? To give birth and to nourish, to give birth without possessing, to act without expectation, to lead without dominating—this is called mysterious virtue.",
         "english_henricks": "Carrying body and soul and embracing the one, can you be without separation? Focusing your breath to become soft, can you be like an infant? Cleansing your mysterious mirror, can you be without flaw? Loving the people and governing the state, can you do without knowledge? When the Gates of Heaven open and close, can you play the part of the female? Understanding and reaching all four directions, can you do without knowledge? Give birth to them and nourish them, give birth without possessing, benefit without claiming, lead without dominating—this is called Mysterious Virtue.",
         "english_addiss": "Carrying your body and your spirit and embracing them as one, can you keep them from parting? Focusing your breath, making it soft, can you be like a child? Cleansing your mysterious mirror, can you make it spotless? Loving the people, ruling the nation, can you be innocent? Opening and closing the gates of heaven, can you play the female? Understanding all four directions, can you be ignorant? Bear them, feed them, bear but don't own, act but don't claim, lead but don't control—this is the dark female's power.",
-        "modern_chinese": "身体和灵魂合一，能不分离吗？凝聚气息达到柔顺，能像婴儿一样吗？清除心中的杂念，能没有瑕疵吗？爱护人民治理国家，能无为而治吗？感官与外界接触，能保持宁静吗？明白通达四方，能不用心机吗？生长万物，养育万物，生养而不占有，施为而不自恃，统领而不主宰，这就叫做深奥的德。"
+        "modern_chinese": "身体和灵魂合一，能不分离吗？凝聚气息达到柔顺，能像婴儿一样吗？清除心中的杂念，能没有瑕疵吗？爱护人民治理国家，能无为而治吗？感官与外界接触，能保持宁静吗？明白通达四方，能不用心机吗？生长万物，养育万物，生养而不占有，施为而不自恃，统领而不主宰，这就叫做深奥的德。",
     },
 ]
 
@@ -477,7 +477,7 @@ WANGBI_NOTES = {
     78: "天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。故圣人云：受国之垢，是谓社稷主；受国不祥，是为天下王。正言若反。",
     79: "和大怨，必有余怨；报怨以德，安可以为善？是以圣人执左契，而不责于人。有德司契，无德司彻。天道无亲，常与善人。",
     80: "小国寡民。使有什伯之器而不用；使民重死而不远徙。虽有舟舆，无所乘之；虽有甲兵，无所陈之。使民复结绳而用之。甘其食，美其服，安其居，乐其俗。邻国相望，鸡犬之声相闻，民至老死不相往来。",
-    81: "信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。"
+    81: "信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。",
 }
 
 # 河上公《老子章句》完整注解
@@ -552,7 +552,7 @@ HESHANGGONG_NOTES = {
     78: "天下莫柔弱于水者，水至柔也。而攻坚强者，水能攻坚强也。",
     79: "和大怨者，大怨，深怨也。必有余怨者，报怨以德，仍有余怨也。",
     80: "小国寡民者，小国，民少也。使有什伯之器而不用者，虽有什伯之器，无所用之也。",
-    81: "信言不美者，信言者，真实之言也。不美者，不华美也。美言不信者，华美之言，不信实也。"
+    81: "信言不美者，信言者，真实之言也。不美者，不华美也。美言不信者，华美之言，不信实也。",
 }
 
 # 帛书异文完整注解（马王堆汉墓出土《老子》帛书甲乙本）
@@ -627,7 +627,7 @@ POSTSILK_NOTES = {
     78: "帛书本'天下莫柔弱于水'作'天下莫柔弱于水'，'而攻坚强者'作'而攻坚强者'。",
     79: "帛书本'和大怨'作'和大怨'，'必有余怨'作'必有余怨'。",
     80: "帛书本'小国寡民'作'小国寡民'，'使有什伯之器而不用'作'使有什伯之器而不用'。",
-    81: "帛书本'信言不美'作'信言不美'，'美言不信'作'美言不信'，内容基本相同。"
+    81: "帛书本'信言不美'作'信言不美'，'美言不信'作'美言不信'，内容基本相同。",
 }
 
 # 郭店异文完整注解（郭店楚简《老子》）
@@ -702,7 +702,7 @@ GUODIAN_NOTES = {
     78: "郭店本'天下莫柔弱于水'章内容完整。",
     79: "郭店本此章内容存在。",
     80: "郭店本'小国寡民'章内容完整，与通行本基本一致。",
-    81: "郭店本'信言不美'章内容完整，文字与通行本一致。"
+    81: "郭店本'信言不美'章内容完整，文字与通行本一致。",
 }
 
 # D.C. Lau 英文译本
@@ -777,7 +777,7 @@ ENGLISH_LAU = {
     78: "Nothing in the world is softer and weaker than water. Yet nothing attacks the hard and strong better. Nothing can change it. The weak overcome the strong, the soft overcome the hard. This is known by all but not practiced. Therefore the sage says: Receive the state's filth - this is the lord of the state. Receive the state's bad omens - this is the king of the world. True words seem contrary.",
     79: "When settling great resentment, some resentment must remain. How can this be considered good? Therefore the sage holds the left side of the contract but does not demand from others. Those with virtue hold the contract, those without virtue collect taxes. The way of heaven has no favorites, but always helps the good.",
     80: "A small state with few people: Let there be tools for a hundred or ten, but not use them. Let people value death and not travel far. Let there be boats and carriages but no one rides them. Let there be armor and weapons but no one displays them. Let people return to knotting ropes and using them. Let food be sweet, clothes beautiful, home secure, customs happy. Neighboring states look at each other, hear chickens and dogs, but people grow old and die without visiting.",
-    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending."
+    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending.",
 }
 
 # Robert Henricks 英文译本
@@ -852,7 +852,7 @@ ENGLISH_HENRICKS = {
     78: "Nothing in the world is softer and weaker than water. Yet nothing attacks the hard and strong better. Nothing can change it. The weak overcome the strong, the soft overcome the hard. This is known by all but not practiced. Therefore the sage says: Receive the state's filth - this is the lord of the state. Receive the state's bad omens - this is the king of the world. True words seem contrary.",
     79: "When settling great resentment, some resentment must remain. How can this be considered good? Therefore the sage holds the left side of the contract but does not demand from others. Those with virtue hold the contract, those without virtue collect taxes. The way of heaven has no favorites, but always helps the good.",
     80: "A small state with few people: Let there be tools for a hundred or ten, but not use them. Let people value death and not travel far. Let there be boats and carriages but no one rides them. Let there be armor and weapons but no one displays them. Let people return to knotting ropes and using them. Let food be sweet, clothes beautiful, home secure, customs happy. Neighboring states look at each other, hear chickens and dogs, but people grow old and die without visiting.",
-    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending."
+    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending.",
 }
 
 # Addiss & Lombardo 英文译本
@@ -927,7 +927,7 @@ ENGLISH_ADDISS = {
     78: "Nothing in the world is softer and weaker than water. Yet nothing attacks the hard and strong better. Nothing can change it. The weak overcome the strong, the soft overcome the hard. This is known by all but not practiced. Therefore the sage says: Receive the state's filth - this is the lord of the state. Receive the state's bad omens - this is the king of the world. True words seem contrary.",
     79: "When settling great resentment, some resentment must remain. How can this be considered good? Therefore the sage holds the left side of the contract but does not demand from others. Those with virtue hold the contract, those without virtue collect taxes. The way of heaven has no favorites, but always helps the good.",
     80: "A small state with few people: Let there be tools for a hundred or ten, but not use them. Let people value death and not travel far. Let there be boats and carriages but no one rides them. Let there be armor and weapons but no one displays them. Let people return to knotting ropes and using them. Let food be sweet, clothes beautiful, home secure, customs happy. Neighboring states look at each other, hear chickens and dogs, but people grow old and die without visiting.",
-    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending."
+    81: "True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending.",
 }
 
 # 王夫之《老子衍》完整注解（衍文）
@@ -1002,7 +1002,7 @@ WANGFUZHI_NOTES = {
     78: "無「攻」之力，有「攻」之心，則心鼓其力。無「攻」之心，有「攻」之力，則力蕩其心。心力交足以「攻」，則各乘其權，身以內各挾其戈矛以屢變；而欲以「攻」天下，能不瓦解者，未之有矣。雖然，莫心為甚。夫水者，豈欲以敵堅彊面為攻者哉？受天下之「垢」也，終古而無「易」心，而力從之。何也？水之無力，均其無心；水之無心，均其無力也。故「弱其志」者無「易」志，「虛其心」者無「易」心，行乎其所不得已，而不知堅彊之與否，則險夷無易慮，無他，寓心於汗漫而內不自構也。寓心於汗漫，無所畏矣。內不自構，和之至矣。和於中，無畏於外，天下其孰能禦之！",
     79: "既不欲攻之，則從而「和」之，欲有為於天下者，舍二術無從矣。夫物本均也，而我何所通？物苟不通也，而我又何以均？無心無力，怨自不長。有心者心定而釋，有力者力窮而返。不待無所終而投我，而先就之以致均通之德，是益其怨而怨歸之矣。聖人知其然，陰愆陽忒之變，坐而消之，天固自定；靜躁寒熱之反，坐而勝之，身固自安；儒墨是非之爭，坐而照之，道固自一。無他，無所親斯無所疏，物求斯與，而己不授也。",
     80: "夫天下亦如是而已矣。以「寡小」觀「寡小」，以強大觀彊大，以天下觀天下，人同天，天同道，道同自然，又安往而不適者哉？推而准之四海之廣：賢貴「安其居」，而賤不肖「不來」，則賢貴定；賤不肖「安其居」，而賢貴「不往」，則賤不肖和。反而求之一身之內：耳目「安其居」，而心思「不往」，則耳目全；心思「安其居」，而耳目「不來」，則心思正。「抱一」者，抱其一而不徹其不一，乃以「玄同」於一，而無將迎之患。",
-    81: "以所「有」「為人」，則人「有」而己損；以「多」「與人」，則人「多」而己貧。孰能知無所為者之「為人」邪？無所與者之「與人」邪？道散於天下，天下廣矣，故「不積」。道積於已，於是而有「美」，有「辯」，有「博」。既「美」且「辯」，益之以「博」，未有「不爭」者也。乃其於道之涯際，如勺水之於大海，揮之、飲之，而已窮。俯首而「為」，惡知昂首而「爭」？不問其「利」「利」自成，惡與「害」逢？能不以有涯測無涯者，亦無涯矣。「休之以天鈞」，奚「為」、奚「與」，又奚窮哉？"
+    81: "以所「有」「為人」，則人「有」而己損；以「多」「與人」，則人「多」而己貧。孰能知無所為者之「為人」邪？無所與者之「與人」邪？道散於天下，天下廣矣，故「不積」。道積於已，於是而有「美」，有「辯」，有「博」。既「美」且「辯」，益之以「博」，未有「不爭」者也。乃其於道之涯際，如勺水之於大海，揮之、飲之，而已窮。俯首而「為」，惡知昂首而「爭」？不問其「利」「利」自成，惡與「害」逢？能不以有涯測無涯者，亦無涯矣。「休之以天鈞」，奚「為」、奚「與」，又奚窮哉？",
 }
 
 # 憨山德清《老子道德经解》完整注解
@@ -1097,86 +1097,141 @@ def create_remaining_chapters():
 
     # 第11-37章完整原文
     chapters_full_text = [
-        (11, "三十辐共一毂，当其无，有车之用。埏埴以为器，当其无，有器之用。凿户牖以为室，当其无，有室之用。故有之以为利，无之以为用。",
-         "三十根辐条汇集到一个毂中，正是因为有了毂中的空虚，车才能发挥作用。揉和陶土做成器具，正是因为有了器具中间的空虚，器具才能发挥作用。开凿门窗建造房屋，正是因为有了门窗四壁中间的空虚，房屋才能发挥作用。所以，有给人以便利，无发挥了它的作用。"),
-
-        (12, "五色令人目盲，五音令人耳聋，五味令人口爽，驰骋畋猎令人心发狂，难得之货令人行妨。是以圣人为腹不为目，故去彼取此。",
-         "缤纷的色彩使人眼花缭乱；嘈杂的音乐使人耳朵失聪；丰美的食物使人口舌麻木；纵情骑马打猎使人心情放荡发狂；稀有的物品使人行为不轨。因此，圣人只求饱腹而不求声色娱目，所以摒弃物欲的诱惑，保持内心的安宁。"),
-
-        (13, "宠辱若惊，贵大患若身。何谓宠辱若惊？宠为下，得之若惊，失之若惊，是谓宠辱若惊。何谓贵大患若身？吾所以有大患者，为吾有身，及吾无身，吾有何患？故贵以身为天下，若可寄天下；爱以身为天下，若可托天下。",
-         "受到宠爱和受到侮辱好像都感到惊恐，把宠辱看得像生命一样重要。什么叫宠辱若惊？得宠是卑下的，得到宠爱感到惊恐，失去宠爱也感到惊恐，这就叫宠辱若惊。什么叫贵大患若身？我所以有大的祸患，是因为我有身体；如果我没有身体，我有什么祸患呢？所以珍贵自己的身体是为了治理天下，天下就可以托付他；爱惜自己的身体是为了治理天下，天下就可以依靠他。"),
-
-        (14, "视之不见，名曰夷；听之不闻，名曰希；搏之不得，名曰微。此三者不可致诘，故混而为一。其上不皦，其下不昧。绳绳兮不可名，复归于无物。是谓无状之状，无物之象，是谓惚恍。迎之不见其首，随之不见其后。执古之道，以御今之有。能知古始，是谓道纪。",
-         "看它看不见，叫作夷；听它听不到，叫作希；摸它摸不着，叫作微。这三者的形状无从追究，它们原本就浑然而为一。它的上面既不显得明亮，它的下面也不显得昏暗。它绵延不绝而又不可名状，又总要回到看不见物体的虚无状态。这是没有形状的形状，没有物体的形象，叫作惚恍。迎着它，看不见它的头；跟着它，看不见它的尾。运用自古以来的道，来驾驭现在的具体事物。能了解远古开始的事物，这就叫作道的规律。"),
-
-        (15, "古之善为士者，微妙玄通，深不可识。夫唯不可识，故强为之容：豫兮若冬涉川，犹兮若畏四邻，俨兮其若客，涣兮其若冰之将释，敦兮其若朴，旷兮其若谷，混兮其若浊。孰能浊以静之徐清？孰能安以动之徐生？保此道者，不欲盈。夫唯不盈，故能蔽不新成。",
-         "古代善于为士的人，微妙玄妙，深奥通达，深刻得无法认识。正因为无法认识，所以只能勉强地形容他：小心谨慎啊，像冬天踩冰过河；警惕疑虑啊，像提防四邻围攻；恭敬庄重啊，像在做客；融化和顺啊，像冰块将要融化；淳厚朴实啊，像未经雕琢的素材；空旷开阔啊，像深山幽谷；浑厚宽容啊，像浑浊的流水。谁能够使浑浊安静下来慢慢澄清？谁能够使安静变动起来慢慢显出生机？保持这个道的人，不要求圆满。正因为不要求圆满，所以虽破旧却不会败坏，不需要更新。"),
-
-        (16, "致虚极，守静笃。万物并作，吾以观复。夫物芸芸，各复归其根。归根曰静，静曰复命。复命曰常，知常曰明。不知常，妄作凶。知常容，容乃公，公乃王，王乃天，天乃道，道乃久，没身不殆。",
-         "努力使心灵虚空到极点，坚守清静到极致。万物都在蓬勃生长，我由此观察到了循环往复的道理。万物纷繁茂盛，最终各自返回到它们的本根。返回本根叫作静，静叫作复命。复命叫作常，认识了常叫作明。不认识常，轻举妄动就会遇到凶险。认识了常才能包容，包容才能公正，公正才能称王，称王才能顺应天，顺应天才能符合道，符合道才能长久，终身没有危险。"),
-
-        (17, "太上，不知有之；其次，亲而誉之；其次，畏之；其次，侮之。信不足焉，有不信焉。悠兮其贵言。功成事遂，百姓皆谓我自然。",
-         "最好的统治者，人民并不知道他的存在；其次的统治者，人民亲近他并且称赞他；再次的统治者，人民畏惧他；更次的统治者，人民轻蔑他。统治者的诚信不足，人民才不相信他。最好的统治者是多么悠闲，他很少发号施令。功业成就了，百姓都说：我们本来就是这样的。"),
-
-        (18, "大道废，有仁义；智慧出，有大伪；六亲不和，有孝慈；国家昏乱，有忠臣。",
-         "大道被废弃了，才有仁义；智慧出现了，才有大的虚伪；家庭不和了，才显出孝慈；国家昏乱了，才有忠臣。"),
-
-        (19, "绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。此三者以为文，不足。故令有所属：见素抱朴，少私寡欲，绝学无忧。",
-         "抛弃聪明智巧，人民可以得到百倍的好处；抛弃仁义，人民可以恢复孝慈的天性；抛弃巧诈和私利，盗贼也就没有了。圣智、仁义、巧利这三者全是巧饰，作为治理社会的法则是不够的。所以要使人们的认识有所归属：表现单纯，持守朴素，减少私欲，抛弃学问，没有忧愁。"),
-
-        (20, "唯之与阿，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮，其未央哉！众人熙熙，如享太牢，如春登台。我独泊兮，其未兆；沌兮，如婴儿之未孩；儽儽兮，若无所归。众人皆有余，而我独若遗。我愚人之心也哉！俗人昭昭，我独昏昏；俗人察察，我独闷闷。澹兮其若海，飂兮若无止。众人皆有以，而我独顽似鄙。我独异于人，而贵食母。",
-         "应诺和呵斥，相差有多远？美好和丑恶，相差有多远？别人所畏惧的，我也不能不畏惧。这风气从远古以来就是如此，好像没有尽头的样子！众人都兴高采烈，好像去参加盛大的宴席，好像春天登台眺望美景。而我却独自淡泊宁静，无动于衷；混混沌沌，好像还不会笑的婴儿；疲惫懒散，好像无家可归。众人都有余裕，而我却好像不足。我真是只有一颗愚人的心啊！众人都光辉自炫，唯独我昏昏糊糊；众人都严厉苛刻，唯独我淳朴宽宏。恍惚啊，像大海汹涌；飘逸啊，像无处停留。众人都精明灵巧，唯独我愚昧笨拙。我唯独与人不同，而重视用道来滋养自己。"),
-
-        (21, "孔德之容，惟道是从。道之为物，惟恍惟惚。惚兮恍兮，其中有象；恍兮惚兮，其中有物。窈兮冥兮，其中有精；其精甚真，其中有信。自今及古，其名不去，以阅众甫。吾何以知众甫之状哉？以此。",
-         "大德的形态，是跟随道而变化的。道这个东西，是恍恍惚惚的。那样的惚啊恍啊，其中有形象；那样的恍啊惚啊，其中有实物。它是那样的深远幽暗啊，其中有精神；这精神是非常真实的，其中有信验。从今天上溯到古代，它的名字永远不消失，根据它才能观察万物的初始。我怎么知道万物开始的情况呢？就是根据这个道。"),
-
-        (22, "曲则全，枉则直，洼则盈，敝则新，少则得，多则惑。是以圣人抱一为天下式。不自见，故明；不自是，故彰；不自伐，故有功；不自矜，故长。夫唯不争，故天下莫能与之争。古之所谓曲则全者，岂虚言哉！诚全而归之。",
-         "委曲反而能保全，弯曲反而能伸直，低洼反而能充盈，破旧反而能更新，少取反而能多得，贪多反而能迷惑。所以，圣人坚守这一原则作为天下的范式。不自我表现，反而能显明；不自以为是，反而能彰显；不自我夸耀，反而能有功；不自我骄傲，反而能长久。正因为不与人争，所以天下没有人能和他争。古人所说的委曲能够保全等话，怎么会是空话呢？它确实能够保全并归向大道。"),
-
-        (23, "希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。天地尚不能久，而况于人乎？故从事于道者，同于道；德者，同于德；失者，同于失。同于道者，道亦乐得之；同于德者，德亦乐得之；同于失者，失亦乐得之。信不足焉，有不信焉。",
-         "少说话是合乎自然的。所以狂风刮不了一早晨，暴雨下不了一整天。谁使它这样的呢？天地。天地都不能长久，何况人呢？所以从事于道的人，就与道相同；从事于德的人，就与德相同；从事于失道失德的人，就与失道失德相同。与道相同的人，道也乐于得到他；与德相同的人，德也乐于得到他；与失道失德相同的人，失道失德也乐于得到他。诚信不足，就有不相信。"),
-
-        (24, "跂者不立，跨者不行。自见者不明，自是者不彰，自伐者无功，自矜者不长。其在道也，曰余食赘行。物或恶之，故有道者不处。",
-         "踮起脚尖想要站得高的人反而站不稳；迈着大步想要走得快的人反而走不远。自我表现的人反而不能显明；自以为是的人反而不能彰显；自我夸耀的人反而不能建立功勋；自高自大的人反而不能长久。从道的角度看，这些叫作剩饭赘瘤。人们厌恶它们，所以有道的人不这样做。"),
-
-        (25, "有物混成，先天地生。寂兮寥兮，独立而不改，周行而不殆，可以为天地母。吾不知其名，字之曰道，强为之名曰大。大曰逝，逝曰远，远曰反。故道大，天大，地大，人亦大。域中有四大，而人居其一焉。人法地，地法天，天法道，道法自然。",
-         "有一个东西混然而成，在天地形成之前就已经产生。它寂静啊空虚啊，独立存在而不改变，循环运行而不停止，可以作为天地的母亲。我不知道它的名字，给它取字叫道，勉强给它取名叫大。大叫做离去，离去叫做遥远，遥远叫做返回。所以道大，天大，地大，人也大。宇宙中有四大，而人占据其中之一。人效法地，地效法天，天效法道，道效法自然。"),
-
-        (26, "重为轻根，静为躁君。是以圣人终日行不离辎重。虽有荣观，燕处超然。奈何万乘之主，而以身轻天下？轻则失根，躁则失君。",
-         "稳重是轻率的根本，静定是躁动的主宰。所以圣人整天行走不离载着物资的车辆。虽然有华丽的生活，但他安居泰然，超然物外。为什么身为大国的君主，却以轻率的态度治理天下呢？轻率就会失去根本，躁动就会失去主宰。"),
-
-        (27, "善行无辙迹，善言无瑕谪，善数不用筹策，善闭无关楗而不可开，善结无绳约而不可解。是以圣人常善救人，故无弃人；常善救物，故无弃物。是谓袭明。故善人者，不善人之师；不善人者，善人之资。不贵其师，不爱其资，虽智大迷，是谓要妙。",
-         "善于行走的人不会留下痕迹，善于说话的人没有过失可以指责，善于计算的人不需要筹码，善于关闭的人不用栓锁却使人无法打开，善于打结的人不用绳索却使人无法解开。因此，圣人总是善于挽救人，所以没有被遗弃的人；总是善于挽救物，所以没有被遗弃的物。这就叫作承袭光明的智慧。所以善人是不善人的老师，不善人是善人的借鉴。不尊重他的老师，不爱惜他的借鉴对象，即使自以为聪明，也是极大的糊涂，这就叫作精深奥妙的道理。"),
-
-        (28, "知其雄，守其雌，为天下溪。为天下溪，常德不离，复归于婴儿。知其白，守其黑，为天下式。为天下式，常德不忒，复归于无极。知其荣，守其辱，为天下谷。为天下谷，常德乃足，复归于朴。朴散则为器，圣人用之，则为官长，故大制不割。",
-         "知道什么是雄强，却安守雌柔，做天下的溪涧。做天下的溪涧，永恒的德性就不会离散，回复到婴儿的状态。知道什么是光明，却安守暗昧，做天下的范式。做天下的范式，永恒的德性就不会有差错，回复到不可穷极的真理。知道什么是荣耀，却安守屈辱，做天下的川谷。做天下的川谷，永恒的德性才能够充足，回复到朴的状态。朴一旦分散就成为器具，圣人使用它，就成为掌管器具的官长，所以完善的政治制度是不割裂的。"),
-
-        (29, "将欲取天下而为之，吾见其不得已。天下神器，不可为也，不可执也。为者败之，执者失之。故物或行或随，或嘘或吹，或强或羸，或载或隳。是以圣人去甚，去奢，去泰。",
-         "想要治理天下却要用强制的办法，我看他是达不到目的的。天下是神圣的器物，是不可以有所作为的，是不可以强行控制的。有所作为就会失败，强行控制就会失去。所以万物有的前行，有的后随；有的呼气，有的吹气；有的强壮，有的瘦弱；有的安稳，有的坠落。因此，圣人要摒弃极端的、奢侈的、过度的措施。"),
-
-        (30, "以道佐人主者，不以兵强天下。其事好还。师之所处，荆棘生焉。大军之后，必有凶年。善有果而已，不以取强。果而勿矜，果而勿伐，果而勿骄，果而不得已，果而勿强。物壮则老，是谓不道，不道早已。",
-         "用道辅佐君主的人，不靠兵力在天下逞强。动用兵革这种事情一定会得到报应。军队驻扎过的地方，荆棘就会生长。大战之后，必定有荒年。善于用兵的人只要达到救济危难的目的就是了，不用来夺取强权。达到了目的不要自我夸耀，达到了目的不要自我吹嘘，达到了目的不要骄傲，达到了目的是出于不得已，达到了目的不要逞强。事物强壮了就会衰老，这叫作不合乎道，不合乎道就会很快灭亡。"),
-
-        (31, "夫佳兵者，不祥之器，物或恶之，故有道者不处。君子居则贵左，用兵则贵右。兵者不祥之器，非君子之器，不得已而用之，恬淡为上。胜而不美，而美之者，是乐杀人。夫乐杀人者，则不可得志于天下矣。吉事尚左，凶事尚右。偏将军居左，上将军居右，言以丧礼处之。杀人之众，以悲哀泣之，战胜以丧礼处之。",
-         "精良的兵器，是不祥的器物，人们都厌恶它，所以有道的人不使用它。君子平时以左边为贵，打仗时以右边为贵。兵器是不祥的器物，不是君子使用的器物，万不得已才使用它，最好淡然处之。胜利了也不要得意洋洋，如果得意洋洋，就是以杀人为乐。以杀人为乐的人，是不能在天下得志的。吉庆的事情以左边为上，凶丧的事情以右边为上。偏将军站在左边，上将军站在右边，这是说用丧礼的仪式来对待战争。杀人众多，要用悲哀的心情对待，打了胜仗要用丧礼的仪式来处理。"),
-
-        (32, "道常无名。朴虽小，天下莫能臣。侯王若能守之，万物将自宾。天地相合，以降甘露，民莫之令而自均。始制有名，名亦既有，夫亦将知止，知止可以不殆。譬道之在天下，犹川谷之于江海。",
-         "道永远是没有名称的。朴虽然微小，天下没有谁能使它服从。侯王如果能守住它，万物将会自然地服从他。天地之间阴阳之气相合，就降下甘露，百姓没有谁命令它，它自然均匀。管理万物开始有了名称，名称既然有了，就要知道适可而止，知道适可而止就可以没有危险。比如道存在于天下，就像江河溪流归于大海一样。"),
-
-        (33, "知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。",
-         "了解别人的人聪明，了解自己的人明智。战胜别人的人有力量，战胜自己的人坚强。知足的人富有。坚持不懈的人有志向。不丧失根基的人能够长久。身死而精神不亡的人才是长寿。"),
-
-        (34, "大道泛兮，其可左右。万物恃之以生而不辞，功成不名有。衣养万物而不为主，常无欲，可名于小；万物归焉而不为主，可名为大。以其终不自为大，故能成其大。",
-         "大道广泛啊，它可以左右一切。万物依靠它生存而它不推辞，功业成就了它也不占有名誉。它养育万物而不做万物的主宰，经常没有欲望，可以叫它渺小；万物归附于它而不做万物的主宰，可以叫它伟大。正因为它始终不自以为伟大，所以才能成就它的伟大。"),
-
-        (35, "执大象，天下往。往而不害，安平太。乐与饵，过客止。道之出口，淡乎其无味，视之不足见，听之不足闻，用之不足既。",
-         "坚守大道的形象，天下的人们都会来归往。归往而不互相伤害，于是平和安泰。音乐和美食，能使过路的人停下脚步。道如果用言语表述出来，是平淡而无味的，看它看不见，听它听不到，但用它却是用不完的。"),
-
-        (36, "将欲歙之，必固张之；将欲弱之，必固强之；将欲废之，必固兴之；将欲取之，必固与之。是谓微明。柔弱胜刚强。鱼不可脱于渊，国之利器不可以示人。",
-         "想要收缩它，必先扩张它；想要削弱它，必先增强它；想要废除它，必先兴盛它；想要夺取它，必先给予它。这就叫作微妙而明智的道理。柔弱能战胜刚强。鱼不能离开深水，国家的有效武器不能轻易展示给人看。"),
-
-        (37, "道常无为而无不为。侯王若能守之，万物将自化。化而欲作，吾将镇之以无名之朴。无名之朴，夫亦将不欲。不欲以静，天下将自定。",
-         "道永远是顺其自然而无不为的。侯王如果能守住它，万物将会自然化育。化育过程中如果有欲望产生，我将用无名的朴来镇住它。无名的朴，也就是没有欲望。没有欲望就能安静，天下将会自然安定。")
+        (
+            11,
+            "三十辐共一毂，当其无，有车之用。埏埴以为器，当其无，有器之用。凿户牖以为室，当其无，有室之用。故有之以为利，无之以为用。",
+            "三十根辐条汇集到一个毂中，正是因为有了毂中的空虚，车才能发挥作用。揉和陶土做成器具，正是因为有了器具中间的空虚，器具才能发挥作用。开凿门窗建造房屋，正是因为有了门窗四壁中间的空虚，房屋才能发挥作用。所以，有给人以便利，无发挥了它的作用。",
+        ),
+        (
+            12,
+            "五色令人目盲，五音令人耳聋，五味令人口爽，驰骋畋猎令人心发狂，难得之货令人行妨。是以圣人为腹不为目，故去彼取此。",
+            "缤纷的色彩使人眼花缭乱；嘈杂的音乐使人耳朵失聪；丰美的食物使人口舌麻木；纵情骑马打猎使人心情放荡发狂；稀有的物品使人行为不轨。因此，圣人只求饱腹而不求声色娱目，所以摒弃物欲的诱惑，保持内心的安宁。",
+        ),
+        (
+            13,
+            "宠辱若惊，贵大患若身。何谓宠辱若惊？宠为下，得之若惊，失之若惊，是谓宠辱若惊。何谓贵大患若身？吾所以有大患者，为吾有身，及吾无身，吾有何患？故贵以身为天下，若可寄天下；爱以身为天下，若可托天下。",
+            "受到宠爱和受到侮辱好像都感到惊恐，把宠辱看得像生命一样重要。什么叫宠辱若惊？得宠是卑下的，得到宠爱感到惊恐，失去宠爱也感到惊恐，这就叫宠辱若惊。什么叫贵大患若身？我所以有大的祸患，是因为我有身体；如果我没有身体，我有什么祸患呢？所以珍贵自己的身体是为了治理天下，天下就可以托付他；爱惜自己的身体是为了治理天下，天下就可以依靠他。",
+        ),
+        (
+            14,
+            "视之不见，名曰夷；听之不闻，名曰希；搏之不得，名曰微。此三者不可致诘，故混而为一。其上不皦，其下不昧。绳绳兮不可名，复归于无物。是谓无状之状，无物之象，是谓惚恍。迎之不见其首，随之不见其后。执古之道，以御今之有。能知古始，是谓道纪。",
+            "看它看不见，叫作夷；听它听不到，叫作希；摸它摸不着，叫作微。这三者的形状无从追究，它们原本就浑然而为一。它的上面既不显得明亮，它的下面也不显得昏暗。它绵延不绝而又不可名状，又总要回到看不见物体的虚无状态。这是没有形状的形状，没有物体的形象，叫作惚恍。迎着它，看不见它的头；跟着它，看不见它的尾。运用自古以来的道，来驾驭现在的具体事物。能了解远古开始的事物，这就叫作道的规律。",
+        ),
+        (
+            15,
+            "古之善为士者，微妙玄通，深不可识。夫唯不可识，故强为之容：豫兮若冬涉川，犹兮若畏四邻，俨兮其若客，涣兮其若冰之将释，敦兮其若朴，旷兮其若谷，混兮其若浊。孰能浊以静之徐清？孰能安以动之徐生？保此道者，不欲盈。夫唯不盈，故能蔽不新成。",
+            "古代善于为士的人，微妙玄妙，深奥通达，深刻得无法认识。正因为无法认识，所以只能勉强地形容他：小心谨慎啊，像冬天踩冰过河；警惕疑虑啊，像提防四邻围攻；恭敬庄重啊，像在做客；融化和顺啊，像冰块将要融化；淳厚朴实啊，像未经雕琢的素材；空旷开阔啊，像深山幽谷；浑厚宽容啊，像浑浊的流水。谁能够使浑浊安静下来慢慢澄清？谁能够使安静变动起来慢慢显出生机？保持这个道的人，不要求圆满。正因为不要求圆满，所以虽破旧却不会败坏，不需要更新。",
+        ),
+        (
+            16,
+            "致虚极，守静笃。万物并作，吾以观复。夫物芸芸，各复归其根。归根曰静，静曰复命。复命曰常，知常曰明。不知常，妄作凶。知常容，容乃公，公乃王，王乃天，天乃道，道乃久，没身不殆。",
+            "努力使心灵虚空到极点，坚守清静到极致。万物都在蓬勃生长，我由此观察到了循环往复的道理。万物纷繁茂盛，最终各自返回到它们的本根。返回本根叫作静，静叫作复命。复命叫作常，认识了常叫作明。不认识常，轻举妄动就会遇到凶险。认识了常才能包容，包容才能公正，公正才能称王，称王才能顺应天，顺应天才能符合道，符合道才能长久，终身没有危险。",
+        ),
+        (
+            17,
+            "太上，不知有之；其次，亲而誉之；其次，畏之；其次，侮之。信不足焉，有不信焉。悠兮其贵言。功成事遂，百姓皆谓我自然。",
+            "最好的统治者，人民并不知道他的存在；其次的统治者，人民亲近他并且称赞他；再次的统治者，人民畏惧他；更次的统治者，人民轻蔑他。统治者的诚信不足，人民才不相信他。最好的统治者是多么悠闲，他很少发号施令。功业成就了，百姓都说：我们本来就是这样的。",
+        ),
+        (
+            18,
+            "大道废，有仁义；智慧出，有大伪；六亲不和，有孝慈；国家昏乱，有忠臣。",
+            "大道被废弃了，才有仁义；智慧出现了，才有大的虚伪；家庭不和了，才显出孝慈；国家昏乱了，才有忠臣。",
+        ),
+        (
+            19,
+            "绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。此三者以为文，不足。故令有所属：见素抱朴，少私寡欲，绝学无忧。",
+            "抛弃聪明智巧，人民可以得到百倍的好处；抛弃仁义，人民可以恢复孝慈的天性；抛弃巧诈和私利，盗贼也就没有了。圣智、仁义、巧利这三者全是巧饰，作为治理社会的法则是不够的。所以要使人们的认识有所归属：表现单纯，持守朴素，减少私欲，抛弃学问，没有忧愁。",
+        ),
+        (
+            20,
+            "唯之与阿，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮，其未央哉！众人熙熙，如享太牢，如春登台。我独泊兮，其未兆；沌兮，如婴儿之未孩；儽儽兮，若无所归。众人皆有余，而我独若遗。我愚人之心也哉！俗人昭昭，我独昏昏；俗人察察，我独闷闷。澹兮其若海，飂兮若无止。众人皆有以，而我独顽似鄙。我独异于人，而贵食母。",
+            "应诺和呵斥，相差有多远？美好和丑恶，相差有多远？别人所畏惧的，我也不能不畏惧。这风气从远古以来就是如此，好像没有尽头的样子！众人都兴高采烈，好像去参加盛大的宴席，好像春天登台眺望美景。而我却独自淡泊宁静，无动于衷；混混沌沌，好像还不会笑的婴儿；疲惫懒散，好像无家可归。众人都有余裕，而我却好像不足。我真是只有一颗愚人的心啊！众人都光辉自炫，唯独我昏昏糊糊；众人都严厉苛刻，唯独我淳朴宽宏。恍惚啊，像大海汹涌；飘逸啊，像无处停留。众人都精明灵巧，唯独我愚昧笨拙。我唯独与人不同，而重视用道来滋养自己。",
+        ),
+        (
+            21,
+            "孔德之容，惟道是从。道之为物，惟恍惟惚。惚兮恍兮，其中有象；恍兮惚兮，其中有物。窈兮冥兮，其中有精；其精甚真，其中有信。自今及古，其名不去，以阅众甫。吾何以知众甫之状哉？以此。",
+            "大德的形态，是跟随道而变化的。道这个东西，是恍恍惚惚的。那样的惚啊恍啊，其中有形象；那样的恍啊惚啊，其中有实物。它是那样的深远幽暗啊，其中有精神；这精神是非常真实的，其中有信验。从今天上溯到古代，它的名字永远不消失，根据它才能观察万物的初始。我怎么知道万物开始的情况呢？就是根据这个道。",
+        ),
+        (
+            22,
+            "曲则全，枉则直，洼则盈，敝则新，少则得，多则惑。是以圣人抱一为天下式。不自见，故明；不自是，故彰；不自伐，故有功；不自矜，故长。夫唯不争，故天下莫能与之争。古之所谓曲则全者，岂虚言哉！诚全而归之。",
+            "委曲反而能保全，弯曲反而能伸直，低洼反而能充盈，破旧反而能更新，少取反而能多得，贪多反而能迷惑。所以，圣人坚守这一原则作为天下的范式。不自我表现，反而能显明；不自以为是，反而能彰显；不自我夸耀，反而能有功；不自我骄傲，反而能长久。正因为不与人争，所以天下没有人能和他争。古人所说的委曲能够保全等话，怎么会是空话呢？它确实能够保全并归向大道。",
+        ),
+        (
+            23,
+            "希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。天地尚不能久，而况于人乎？故从事于道者，同于道；德者，同于德；失者，同于失。同于道者，道亦乐得之；同于德者，德亦乐得之；同于失者，失亦乐得之。信不足焉，有不信焉。",
+            "少说话是合乎自然的。所以狂风刮不了一早晨，暴雨下不了一整天。谁使它这样的呢？天地。天地都不能长久，何况人呢？所以从事于道的人，就与道相同；从事于德的人，就与德相同；从事于失道失德的人，就与失道失德相同。与道相同的人，道也乐于得到他；与德相同的人，德也乐于得到他；与失道失德相同的人，失道失德也乐于得到他。诚信不足，就有不相信。",
+        ),
+        (
+            24,
+            "跂者不立，跨者不行。自见者不明，自是者不彰，自伐者无功，自矜者不长。其在道也，曰余食赘行。物或恶之，故有道者不处。",
+            "踮起脚尖想要站得高的人反而站不稳；迈着大步想要走得快的人反而走不远。自我表现的人反而不能显明；自以为是的人反而不能彰显；自我夸耀的人反而不能建立功勋；自高自大的人反而不能长久。从道的角度看，这些叫作剩饭赘瘤。人们厌恶它们，所以有道的人不这样做。",
+        ),
+        (
+            25,
+            "有物混成，先天地生。寂兮寥兮，独立而不改，周行而不殆，可以为天地母。吾不知其名，字之曰道，强为之名曰大。大曰逝，逝曰远，远曰反。故道大，天大，地大，人亦大。域中有四大，而人居其一焉。人法地，地法天，天法道，道法自然。",
+            "有一个东西混然而成，在天地形成之前就已经产生。它寂静啊空虚啊，独立存在而不改变，循环运行而不停止，可以作为天地的母亲。我不知道它的名字，给它取字叫道，勉强给它取名叫大。大叫做离去，离去叫做遥远，遥远叫做返回。所以道大，天大，地大，人也大。宇宙中有四大，而人占据其中之一。人效法地，地效法天，天效法道，道效法自然。",
+        ),
+        (
+            26,
+            "重为轻根，静为躁君。是以圣人终日行不离辎重。虽有荣观，燕处超然。奈何万乘之主，而以身轻天下？轻则失根，躁则失君。",
+            "稳重是轻率的根本，静定是躁动的主宰。所以圣人整天行走不离载着物资的车辆。虽然有华丽的生活，但他安居泰然，超然物外。为什么身为大国的君主，却以轻率的态度治理天下呢？轻率就会失去根本，躁动就会失去主宰。",
+        ),
+        (
+            27,
+            "善行无辙迹，善言无瑕谪，善数不用筹策，善闭无关楗而不可开，善结无绳约而不可解。是以圣人常善救人，故无弃人；常善救物，故无弃物。是谓袭明。故善人者，不善人之师；不善人者，善人之资。不贵其师，不爱其资，虽智大迷，是谓要妙。",
+            "善于行走的人不会留下痕迹，善于说话的人没有过失可以指责，善于计算的人不需要筹码，善于关闭的人不用栓锁却使人无法打开，善于打结的人不用绳索却使人无法解开。因此，圣人总是善于挽救人，所以没有被遗弃的人；总是善于挽救物，所以没有被遗弃的物。这就叫作承袭光明的智慧。所以善人是不善人的老师，不善人是善人的借鉴。不尊重他的老师，不爱惜他的借鉴对象，即使自以为聪明，也是极大的糊涂，这就叫作精深奥妙的道理。",
+        ),
+        (
+            28,
+            "知其雄，守其雌，为天下溪。为天下溪，常德不离，复归于婴儿。知其白，守其黑，为天下式。为天下式，常德不忒，复归于无极。知其荣，守其辱，为天下谷。为天下谷，常德乃足，复归于朴。朴散则为器，圣人用之，则为官长，故大制不割。",
+            "知道什么是雄强，却安守雌柔，做天下的溪涧。做天下的溪涧，永恒的德性就不会离散，回复到婴儿的状态。知道什么是光明，却安守暗昧，做天下的范式。做天下的范式，永恒的德性就不会有差错，回复到不可穷极的真理。知道什么是荣耀，却安守屈辱，做天下的川谷。做天下的川谷，永恒的德性才能够充足，回复到朴的状态。朴一旦分散就成为器具，圣人使用它，就成为掌管器具的官长，所以完善的政治制度是不割裂的。",
+        ),
+        (
+            29,
+            "将欲取天下而为之，吾见其不得已。天下神器，不可为也，不可执也。为者败之，执者失之。故物或行或随，或嘘或吹，或强或羸，或载或隳。是以圣人去甚，去奢，去泰。",
+            "想要治理天下却要用强制的办法，我看他是达不到目的的。天下是神圣的器物，是不可以有所作为的，是不可以强行控制的。有所作为就会失败，强行控制就会失去。所以万物有的前行，有的后随；有的呼气，有的吹气；有的强壮，有的瘦弱；有的安稳，有的坠落。因此，圣人要摒弃极端的、奢侈的、过度的措施。",
+        ),
+        (
+            30,
+            "以道佐人主者，不以兵强天下。其事好还。师之所处，荆棘生焉。大军之后，必有凶年。善有果而已，不以取强。果而勿矜，果而勿伐，果而勿骄，果而不得已，果而勿强。物壮则老，是谓不道，不道早已。",
+            "用道辅佐君主的人，不靠兵力在天下逞强。动用兵革这种事情一定会得到报应。军队驻扎过的地方，荆棘就会生长。大战之后，必定有荒年。善于用兵的人只要达到救济危难的目的就是了，不用来夺取强权。达到了目的不要自我夸耀，达到了目的不要自我吹嘘，达到了目的不要骄傲，达到了目的是出于不得已，达到了目的不要逞强。事物强壮了就会衰老，这叫作不合乎道，不合乎道就会很快灭亡。",
+        ),
+        (
+            31,
+            "夫佳兵者，不祥之器，物或恶之，故有道者不处。君子居则贵左，用兵则贵右。兵者不祥之器，非君子之器，不得已而用之，恬淡为上。胜而不美，而美之者，是乐杀人。夫乐杀人者，则不可得志于天下矣。吉事尚左，凶事尚右。偏将军居左，上将军居右，言以丧礼处之。杀人之众，以悲哀泣之，战胜以丧礼处之。",
+            "精良的兵器，是不祥的器物，人们都厌恶它，所以有道的人不使用它。君子平时以左边为贵，打仗时以右边为贵。兵器是不祥的器物，不是君子使用的器物，万不得已才使用它，最好淡然处之。胜利了也不要得意洋洋，如果得意洋洋，就是以杀人为乐。以杀人为乐的人，是不能在天下得志的。吉庆的事情以左边为上，凶丧的事情以右边为上。偏将军站在左边，上将军站在右边，这是说用丧礼的仪式来对待战争。杀人众多，要用悲哀的心情对待，打了胜仗要用丧礼的仪式来处理。",
+        ),
+        (
+            32,
+            "道常无名。朴虽小，天下莫能臣。侯王若能守之，万物将自宾。天地相合，以降甘露，民莫之令而自均。始制有名，名亦既有，夫亦将知止，知止可以不殆。譬道之在天下，犹川谷之于江海。",
+            "道永远是没有名称的。朴虽然微小，天下没有谁能使它服从。侯王如果能守住它，万物将会自然地服从他。天地之间阴阳之气相合，就降下甘露，百姓没有谁命令它，它自然均匀。管理万物开始有了名称，名称既然有了，就要知道适可而止，知道适可而止就可以没有危险。比如道存在于天下，就像江河溪流归于大海一样。",
+        ),
+        (
+            33,
+            "知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。",
+            "了解别人的人聪明，了解自己的人明智。战胜别人的人有力量，战胜自己的人坚强。知足的人富有。坚持不懈的人有志向。不丧失根基的人能够长久。身死而精神不亡的人才是长寿。",
+        ),
+        (
+            34,
+            "大道泛兮，其可左右。万物恃之以生而不辞，功成不名有。衣养万物而不为主，常无欲，可名于小；万物归焉而不为主，可名为大。以其终不自为大，故能成其大。",
+            "大道广泛啊，它可以左右一切。万物依靠它生存而它不推辞，功业成就了它也不占有名誉。它养育万物而不做万物的主宰，经常没有欲望，可以叫它渺小；万物归附于它而不做万物的主宰，可以叫它伟大。正因为它始终不自以为伟大，所以才能成就它的伟大。",
+        ),
+        (
+            35,
+            "执大象，天下往。往而不害，安平太。乐与饵，过客止。道之出口，淡乎其无味，视之不足见，听之不足闻，用之不足既。",
+            "坚守大道的形象，天下的人们都会来归往。归往而不互相伤害，于是平和安泰。音乐和美食，能使过路的人停下脚步。道如果用言语表述出来，是平淡而无味的，看它看不见，听它听不到，但用它却是用不完的。",
+        ),
+        (
+            36,
+            "将欲歙之，必固张之；将欲弱之，必固强之；将欲废之，必固兴之；将欲取之，必固与之。是谓微明。柔弱胜刚强。鱼不可脱于渊，国之利器不可以示人。",
+            "想要收缩它，必先扩张它；想要削弱它，必先增强它；想要废除它，必先兴盛它；想要夺取它，必先给予它。这就叫作微妙而明智的道理。柔弱能战胜刚强。鱼不能离开深水，国家的有效武器不能轻易展示给人看。",
+        ),
+        (
+            37,
+            "道常无为而无不为。侯王若能守之，万物将自化。化而欲作，吾将镇之以无名之朴。无名之朴，夫亦将不欲。不欲以静，天下将自定。",
+            "道永远是顺其自然而无不为的。侯王如果能守住它，万物将会自然化育。化育过程中如果有欲望产生，我将用无名的朴来镇住它。无名的朴，也就是没有欲望。没有欲望就能安静，天下将会自然安定。",
+        ),
     ]
 
     for num, original, modern in chapters_full_text:
@@ -1187,7 +1242,9 @@ def create_remaining_chapters():
         # 获取王夫之《老子衍》完整注解
         wangfuzhi_note = WANGFUZHI_NOTES.get(num, f"王夫之注（第{num}章）：待补充")
         # 获取憨山德清《老子道德经解》完整注解
-        hanshandeqing_note = HANSHANDEQING_NOTES.get(num, f"憨山德清注（第{num}章）：待补充")
+        hanshandeqing_note = HANSHANDEQING_NOTES.get(
+            num, f"憨山德清注（第{num}章）：待补充"
+        )
         # 获取帛书异文文本
         postsilk_text = POSTSILK_TEXT.get(num)
         # 获取帛书异文注解
@@ -1196,156 +1253,253 @@ def create_remaining_chapters():
         guodian_text = GUODIAN_TEXT.get(num)
         # 获取郭店异文注解
         guodian_diff = GUODIAN_NOTES.get(num, f"郭店异文（第{num}章）：待补充")
-        remaining_chapters.append({
-            "chapter": num,
-            "original": original,
-            "wangbi_note": wangbi_note,
-            "heshanggong_note": heshanggong_note,
-            "wangfuzhi_note": wangfuzhi_note,
-            "hanshandeqing_note": hanshandeqing_note,
-            "postsilk_text": postsilk_text,
-            "postsilk_diff": postsilk_diff,
-            "guodian_text": guodian_text,
-            "guodian_diff": guodian_diff,
-            "english_lau": ENGLISH_LAU.get(num, f"[D.C. Lau translation - Chapter {num} to be added]"),
-            "english_henricks": ENGLISH_HENRICKS.get(num, f"[Henricks translation - Chapter {num} to be added]"),
-            "english_addiss": ENGLISH_ADDISS.get(num, f"[Addiss & Lombardo translation - Chapter {num} to be added]"),
-            "modern_chinese": modern
-        })
+        remaining_chapters.append(
+            {
+                "chapter": num,
+                "original": original,
+                "wangbi_note": wangbi_note,
+                "heshanggong_note": heshanggong_note,
+                "wangfuzhi_note": wangfuzhi_note,
+                "hanshandeqing_note": hanshandeqing_note,
+                "postsilk_text": postsilk_text,
+                "postsilk_diff": postsilk_diff,
+                "guodian_text": guodian_text,
+                "guodian_diff": guodian_diff,
+                "english_lau": ENGLISH_LAU.get(
+                    num, f"[D.C. Lau translation - Chapter {num} to be added]"
+                ),
+                "english_henricks": ENGLISH_HENRICKS.get(
+                    num, f"[Henricks translation - Chapter {num} to be added]"
+                ),
+                "english_addiss": ENGLISH_ADDISS.get(
+                    num, f"[Addiss & Lombardo translation - Chapter {num} to be added]"
+                ),
+                "modern_chinese": modern,
+            }
+        )
 
     # 第38-81章完整原文和译文
     chapters_38_81_full_text = [
-        (38, "上德不德，是以有德；下德不失德，是以无德。上德无为而无以为；下德无为而有以为。上仁为之而无以为；上义为之而有以为。上礼为之而莫之应，则攘臂而扔之。故失道而后德，失德而后仁，失仁而后义，失义而后礼。夫礼者，忠信之薄，而乱之首。前识者，道之华，而愚之始。是以大丈夫处其厚，不居其薄；处其实，不居其华。故去彼取此。",
-         "具备上等德行的人不自以为有德，所以实际上有德；具备下等德行的人自以为不丧失德，所以实际上没有德。具备上等德行的人顺应自然而无心作为；具备下等德行的人顺应自然而有心作为。上等的仁者有所作为而无心作为；上等的义者有所作为而有心作为。上等的礼者有所作为而得不到回应，就挽起袖子强引别人。所以失去了道然后才有德，失去了德然后才有仁，失去了仁然后才有义，失去了义然后才有礼。礼是忠信不足的产物，是祸乱的开端。所谓的先知，是道的虚华，是愚昧的开始。因此大丈夫立身敦厚，不居于浅薄；存心朴实，不居于虚华。所以要舍弃浅薄虚华，采取敦厚朴实。"),
-
-        (39, "昔之得一者：天得一以清；地得一以宁；神得一以灵；谷得一以生；侯王得一以为天下正。其致之也，谓天无以清，将恐裂；地无以宁，将恐发；神无以灵，将恐歇；谷无以生，将恐竭；侯王无以正，将恐蹶。故贵以贱为本，高以下为基。是以侯王自谓孤、寡、不谷。此非以贱为本邪？非乎？故至誉无誉。是故不欲琭琭如玉，珞珞如石。",
-         "自古以来得到道于一体的：天得到道而清明；地得到道而宁静；神得到道而灵妙；山谷得到道而充盈；侯王得到道而成为天下的首领。推而言之，天若不保持清明，恐怕要崩裂；地若不保持宁静，恐怕要震溃；神若不保持灵妙，恐怕要消失；山谷若不保持充盈，恐怕要枯竭；侯王若不保持高贵，恐怕要跌倒。所以贵以贱为根本，高以下为基础。因此侯王自称孤、寡、不谷，这不就是以贱为根本吗？不是吗？所以最高的荣誉是无须赞誉的。不希望像宝玉那样华丽，而要像顽石那样坚硬质朴。"),
-
-        (40, "反者道之动，弱者道之用。天下万物生于有，有生于无。",
-         "循环往复是道的运动方式，柔弱胜刚强是道的应用特性。天下万物产生于有形之物，而有形之物又产生于无形之道。"),
-
-        (41, "上士闻道，勤而行之；中士闻道，若存若亡；下士闻道，大笑之。不笑不足以为道。故建言有之：明道若昧；进道若退；夷道若颣；上德若谷；广德若不足；建德若偷；质真若渝；大白若辱；大方无隅；大器晚成；大音希声；大象无形；道隐无名。夫唯道，善贷且成。",
-         "上士听了道，努力去实行；中士听了道，半信半疑；下士听了道，大笑之。不被嘲笑，就不足以成为道。所以古人有言说：光明的道好像暗昧；前进的道好像后退；平坦的道好像崎岖；崇高的德好像峡谷；广大的德好像不足；刚健的德好像怠惰；质朴的真好像变幻；最洁白的好像污黑；最大的方形没有棱角；最大的器皿最后完成；最大的声音听不到；最大的形象看不见；大道隐微无名。只有道，善于施予万物并且成就万物。"),
-
-        (42, "道生一，一生二，二生三，三生万物。万物负阴而抱阳，冲气以为和。人之所恶，唯孤、寡、不谷，而王公以为称。故物或损之而益，或益之而损。人之所教，我亦教之。强梁者不得其死，吾将以为教父。",
-         "道产生一，一产生二，二产生三，三产生万物。万物背阴而向阳，阴阳二气互相激荡而形成和谐。人们所厌恶的，就是孤、寡、不谷，但王公却用这些词来称呼自己。所以万物有的减损它反而增益，有的增益它反而减损。别人教导我的，我也用来教导人。强横的人不得善终，我把这话当作施教的宗旨。"),
-
-        (43, "天下之至柔，驰骋天下之至坚。无有入无间，吾是以知无为之有益。不言之教，无为之益，天下希及之。",
-         "天下最柔弱的东西，能穿透天下最坚硬的东西。空虚无形之物能进入没有缝隙的东西中，我因此知道无为的好处。不言的教化，无为的好处，天下很少能赶上它的。"),
-
-        (44, "名与身孰亲？身与货孰多？得与亡孰病？甚爱必大费，多藏必厚亡。故知足不辱，知止不殆，可以长久。",
-         "名声与生命相比哪个亲切？生命与货利相比哪个贵重？得到与失去相比哪个有害？过分爱惜必招致巨大的破费，过多的贮藏必招致惨重的损失。所以知道满足就不会受屈辱，知道适可而止就不会有危险，这样可以长久。"),
-
-        (45, "大成若缺，其用不弊。大盈若冲，其用不穷。大直若屈，大巧若拙，大辩若讷。躁胜寒，静胜热。清静为天下正。",
-         "最完满的东西好像有残缺，但它的作用不会衰竭。最充盈的东西好像空虚，但它的作用无穷无尽。最直的东西好像弯曲，最灵巧的东西好像笨拙，最雄辩的人好像口吃。运动能战胜寒冷，安静能战胜炎热。只有清静无为才能做天下的典范。"),
-
-        (46, "天下有道，却走马以粪。天下无道，戎马生于郊。祸莫大于不知足；咎莫大于欲得。故知足之足，常足矣。",
-         "天下有道时，战马退还给农田去耕种。天下无道时，怀胎的母马也要上战场。最大的祸患是不知足，最大的过失是贪得无厌。所以知道满足的这种满足，永远是满足的。"),
-
-        (47, "不出户，知天下；不窥牖，见天道。其出弥远，其知弥少。是以圣人不行而知，不见而名，不为而成。",
-         "不出门户，能够推知天下的事理；不望窗外，能够认识自然的规律。他向外走得越远，他所知道的越少。所以圣人不出行却能知晓，不看却能明白，无为却能成功。"),
-
-        (48, "为学日益，为道日损。损之又损，以至于无为。无为而无不为。取天下常以无事，及其有事，不足以取天下。",
-         "求学是每天增加知识，修道是每天减少欲望。减少又减少，直到无为的境界。无为却没有什么做不成的。治理天下常常靠无为而治，至于有为去治理，就不足以治理天下了。"),
-
-        (49, "圣人无常心，以百姓心为心。善者，吾善之；不善者，吾亦善之，德善。信者，吾信之；不信者，吾亦信之，德信。圣人在天下，歙歙焉，为天下浑其心，百姓皆注其耳目，圣人皆孩之。",
-         "圣人没有固定的意志，以百姓的意志为意志。善良的人，我善待他；不善良的人，我也善待他，这样可使人人向善。守信的人，我信任他；不守信的人，我也信任他，这样可使人人守信。圣人在天下，总是收敛自己的欲望，使天下的心思归于浑朴，百姓都专注视听于圣人，圣人使他们都像婴孩一样纯真。"),
-
-        (50, "出生入死。生之徒，十有三；死之徒，十有三；人之生，动之于死地，亦十有三。夫何故？以其生生之厚。盖闻善摄生者，路行不遇兕虎，入军不被甲兵；兕无所投其角，虎无所用其爪，兵无所容其刃。夫何故？以其无死地。",
-         "人出世为生，入地为死。属于长寿的，占十分之三；属于短命的，占十分之三；本来可以活得长久，却自己走向死路的，也占十分之三。为什么呢？因为他追求生活享受太丰厚了。听说善于养护生命的人，在陆地上行走不会遇到犀牛和老虎，在战争中不会受到武器的伤害；犀牛无处投它的角，老虎无处用它的爪，武器无处用它的锋刃。为什么呢？因为他没有进入死地。"),
-
-        (51, "道生之，德畜之，物形之，势成之。是以万物莫不尊道而贵德。道之尊，德之贵，夫莫之命而常自然。故道生之，德畜之；长之育之；亭之毒之；养之覆之。生而不有，为而不恃，长而不宰，是谓玄德。",
-         "道生长万物，德养育万物，使万物呈现各种形态，环境使万物成长。因此万物没有不尊崇道而贵重德的。道之所以被尊崇，德之所以被贵重，它不需要谁来下令，而是常自然的。所以道生长万物，德养育万物；使万物生长发育，使万物成熟结果；使万物得到爱护和保护。生长万物而不占有，养育万物而不自恃有功，统领万物而不任意主宰，这就是最深远的德。"),
-
-        (52, "天下有始，以为天下母。既得其母，以知其子；既知其子，复守其母，没身不殆。塞其兑，闭其门，终身不勤。开其兑，济其事，终身不救。见小曰明，守柔曰强。用其光，复归其明，无遗身殃，是为袭常。",
-         "天下万物都有个开端，以此作为天下的根源。既然知道了根源，就能认识万物；既然认识了万物，再坚守着根源，终身不会有危险。堵塞嗜欲的孔窍，关闭嗜欲的门径，终身不会有劳苦。打开嗜欲的孔窍，成就世俗的事务，终身不可救药。能察见细微叫作明，能坚守柔弱叫作强。运用智慧的光芒，复归内在的明智，不给自己留下祸殃，这就是承袭永恒不变的道。"),
-
-        (53, "使我介然有知，行于大道，唯施是畏。大道甚夷，而人好径。朝甚除，田甚芜，仓甚虚；服文采，带利剑，厌饮食，财货有馀；是为盗夸。非道也哉！",
-         "假如我稍微有些知识，就在大道上行走，唯恐走入了邪路。大道很平坦，但人君却喜欢走小路。朝政非常腐败，农田非常荒芜，仓库非常空虚；穿着华丽的衣服，佩戴锋利的宝剑，吃腻精美的饮食，占有过多的财货；这叫作强盗头子。这是无道啊！"),
-
-        (54, "善建者不拔，善抱者不脱，子孙以祭祀不辍。修之于身，其德乃真；修之于家，其德乃余；修之于乡，其德乃长；修之于邦，其德乃丰；修之于天下，其德乃普。故以身观身，以家观家，以乡观乡，以邦观邦，以天下观天下。吾何以知天下之然哉？以此。",
-         "善于建树的人不可拔除，善于抱持的人不会脱落，子孙后代会以此来祭祀不绝。用道修身，他的德就真实；用道治家，他的德就有余；用道治乡，他的德就久长；用道治国，他的德就丰盛；用道治天下，他的德就普及。所以用自身的修身之道来观察别身，以自家的治家之道来观察别家，以自乡的治乡之道来观察别乡，以自国的治国之道来观察别国，以平天下的之道来观察天下。我凭什么知道天下的情况呢？就是用这个方法。"),
-
-        (55, "含德之厚，比于赤子。毒虫不螫，猛兽不据，攫鸟不搏。骨弱筋柔而握固。未知牝牡之合而朘作，精之至也。终日号而不嗄，和之至也。知和曰常，知常曰明。益生曰祥。心使气曰强。物壮则老，谓之不道，不道早已。",
-         "含德深厚的人，就像初生的婴儿。毒虫不刺他，猛兽不伤害他，凶鸟不搏击他。筋骨柔弱而拳头握得牢固。不懂男女交合而生殖器勃起，这是精气充沛的极致。整天啼哭而嗓子不哑，这是元气和谐的极致。懂得和谐叫作常，懂得常叫作明。贪生纵欲就叫作妖祥。欲望支配精气叫作逞强。事物过于强壮就会走向衰老，这叫作不合乎道，不合乎道就会很快灭亡。"),
-
-        (56, "知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱。故为天下贵。",
-         "真正了解的人不说话，说话的人不了解。堵塞嗜欲的孔窍，关闭嗜欲的门径，磨掉锋芒，消解纷扰，含敛光耀，混同尘世，这就叫作玄妙的同化。所以对他既不能亲近，也不能疏远；既不能使他得利，也不能使他受害；既不能使他尊贵，也不能使他卑贱。所以被天下所尊贵。"),
-
-        (57, "以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫；人多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为，而民自化；我好静，而民自正；我无事，而民自富；我无欲，而民自朴。",
-         "用清正无为的方法治理国家，用诡奇的方法用兵，用无为的方法来夺取天下。我怎么知道是这样的呢？根据下面这些情况：天下的禁忌越多，百姓越贫穷；民间的利器越多，国家越昏乱；人们的技巧越多，邪恶的事情就越发生；法令越森严，盗贼反而越多。所以圣人说：我无为，百姓自然感化；我好静，百姓自然端正；我无事，百姓自然富足；我无欲，百姓自然淳朴。"),
-
-        (58, "其政闷闷，其民淳淳；其政察察，其民缺缺。祸兮福之所倚，福兮祸之所伏。孰知其极？其无正也。正复为奇，善复为妖。人之迷，其日固久。是以圣人方而不割，廉而不刿，直而不肆，光而不耀。",
-         "政治宽厚，百姓就淳朴；政治严苛，百姓就狡诈。灾祸中倚伏着幸福，幸福中潜伏着灾祸。谁知道它们的终极？它们并没有定准。正可以转变为邪，善可以转变为恶。人们的迷惑，已经很久了。因此圣人方正而不割人，锐利而不伤人，直率而不放肆，光亮而不刺眼。"),
-
-        (59, "治人事天，莫若啬。夫唯啬，是谓早服；早服谓之重积德；重积德则无不克；无不克则莫知其极；莫知其极，可以有国；有国之母，可以长久；是谓深根固蒂，长生久视之道。",
-         "治理百姓和侍奉上天，没有比爱惜精力更重要的了。正因为爱惜精力，就是早做准备；早做准备就是不断积累德；不断积累德就能无往不胜；无往不胜就没有人知道他的极限；没有人知道他的极限就可以担负治理国家的重任；有了治理国家的根本就可以长久保持；这就是根深蒂固、长生久视的道理。"),
-
-        (60, "治大国，若烹小鲜。以道莅天下，其鬼不神；非其鬼不神，其神不伤人；非其神不伤人，圣人亦不伤人。夫两不相伤，故德交归焉。",
-         "治理大国，好像煎烹小鱼一样。用道治理天下，鬼怪不起作用；不是鬼怪不起作用，而是它的作用不伤人；不是它的作用不伤人，而是圣人也不伤人。鬼怪和圣人都不伤人，所以德归于他们，交相会合。"),
-
-        (61, "大邦者下流，天下之牝，天下之交也。牝常以静胜牡，以静为下。故大邦以下小邦，则取小邦；小邦以下大邦，则取大邦。故或下以取，或下而取。大邦不过欲兼畜人，小邦不过欲入事人。夫两者各得所欲，大者宜为下。",
-         "大国要像居于江河下游那样，使天下百川汇集，处在天下雌柔的位置。雌柔常以静定战胜雄强，因为静定而又居于下位。所以大国对小国谦下，就能取得小国的信任；小国对大国谦下，就能取得大国的信任。所以有的因为谦下而取得，有的因为谦下而被取得。大国不过是要兼并小国，小国不过是要见容于大国。如果双方都能达到目的，大国尤其应该谦下。"),
-
-        (62, "道者万物之奥。善人之宝，不善人之所保。美言可以市，尊行可以加人。人之不善，何弃之有？故立天子，置三公，虽有拱璧以先驷马，不如坐进此道。古之所以贵此道者何？不曰：求以得，有罪以免邪？故为天下贵。",
-         "道是万物的庇荫所。善人珍视它，不善的人也保持它。美好的言语可以换取别人的尊重，高尚的行为可以见重于人。那些不善的人，怎么可以舍弃道呢？所以天子即位、设置三公的时候，虽然先献上璧玉后献上车马，不如献上这个道。古人之所以重视这个道为什么呢？不是说有求的就能得到，有罪的就能免除吗？所以被天下所尊贵。"),
-
-        (63, "为无为，事无事，味无味。大小多少，报怨以德。图难于其易，为大于其细；天下难事，必作于易；天下大事，必作于细。是以圣人终不为大，故能成其大。夫轻诺必寡信，多易必多难。是以圣人犹难之，故终无难。",
-         "以无为的态度去作为，以不生事的态度去处事，以淡泊无味当作味。不管大怨小怨，都以德来报答。谋划困难的事情要从容易的地方入手，做大事要从细微的地方入手；天下的难事一定从容易的地方做起，天下的大事一定从细微的地方做起。所以圣人始终不自以为大，所以能成就大事。轻易许诺必然信用不足，把事情看得太容易必然困难重重。所以圣人总是把事情看得困难，所以始终没有困难。"),
-
-        (64, "其安易持，其未兆易谋。其脆易泮，其微易散。为之于未有，治之于未乱。合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。为者败之，执者失之。是以圣人无为故无败，无执故无失。民之从事，常于几成而败之。慎终如始，则无败事。是以圣人欲不欲，不贵难得之货；学不学，复众人之所过。以辅万物之自然而不敢为。",
-         "事物安稳时容易持守，问题没显露时容易谋划。事物脆弱时容易消解，事物微小时容易散除。要在事情没有发生时就处理，要在祸乱没有产生时就治理。合抱的大树，是从幼芽开始生长的；九层的高台，是由一筐筐泥土堆积起来的；千里的远行，是从脚下一步步走出来的。妄为必然失败，强行把持必然失去。所以圣人无为所以不会失败，不强求所以不会失去。人们做事情，总是在快要成功时失败。如果在结束时仍像开始时那样谨慎，就不会有失败的事情。所以圣人追求人所不追求的，不稀罕难得的财物；学习别人所不学习的，补救众人所犯的过错。以此辅助万物自然发展而不敢妄为。"),
-
-        (65, "古之善为道者，非以明民，将以愚之。民之难治，以其智多。故以智治国，国之贼；不以智治国，国之福。知此两者亦稽式。常知稽式，是谓玄德。玄德深矣，远矣，与物反矣，然后乃至大顺。",
-         "古代善于为道的人，不是教人民精巧，而是使人民淳朴。人民所以难治理，是因为他们有太多的智巧心机。所以用智巧治理国家，是国家的灾害；不用智巧治理国家，是国家的福气。要知道这两种方式也是法则。常守这个法则，就叫作玄德。玄德深啊，远啊，与万物返璞归真，然后达到极大的和顺。"),
-
-        (66, "江海所以能为百谷王者，以其善下之，故能为百谷王。是以圣人欲上民，必以言下之；欲先民，必以身後之。是以圣人处上而民不重，处前而民不害。是以天下乐推而不厌。以其不争，故天下莫能与之争。",
-         "江海所以能成为百川河流的王者，是因为它善于处在下游，所以能成为百川的王。因此圣人想要在人民之上，必须用言语对人民谦下；想要在人民之前，必须把自己放在人民之后。所以圣人处在上面而人民不感到沉重，处在前面而人民不感到受害。因此天下人民乐意推崇他而不厌恶。因为他不与人争，所以天下没有人能和他争。"),
-
-        (67, "天下皆谓我道大，似不肖。夫唯大，故似不肖。若肖，久矣其细也夫！我有三宝，持而保之。一曰慈，二曰俭，三曰不敢为天下先。夫慈，故能勇；俭，故能广；不敢为天下先，故能成器长。今舍慈且勇；舍俭且广；舍后且先；死矣！夫慈，以战则胜，以守则固。天将救之，以慈卫之。",
-         "天下人都说我的道大，好像什么都不像。正因为大，所以什么都不像。如果像什么，早就渺小了！我有三件宝贝，持守而保全它们：第一叫作慈爱，第二叫作俭啬，第三叫作不敢居于天下人的前面。因为有慈爱，所以能勇武；因为俭啬，所以能宽广；因为不敢居于天下人的前面，所以能成为万物的首长。现在舍弃慈爱而追求勇武，舍弃俭啬而追求宽广，舍弃退让而追求争先，就是死路！慈爱，用来作战就能胜利，用来守卫就能坚固。天要救助谁，就用慈爱来保卫谁。"),
-
-        (68, "善为士者，不武；善战者，不怒；善胜敌者，不与；善用人者，为之下。是谓不争之德，是谓用人之力，是谓配天古之极。",
-         "善于做将帅的人不逞勇武，善于作战的人不逞愤怒，善于战胜敌人的人不与敌人对斗，善于用人的人对人谦下。这叫作不争的品德，这叫作用人的能力，这叫作符合天道的准则。"),
-
-        (69, "用兵有言：吾不敢为主，而为客；不敢进寸，而退尺。是谓行无行；攘无臂；扔无敌；执无兵。祸莫大于轻敌，轻敌几丧吾宝。故抗兵相若，哀者胜矣。",
-         "用兵的人曾说：我不敢主动进攻，而采取防守；不敢前进一寸，而要后退一尺。这就是说：虽然有阵势，却像没有阵势可摆；虽然要奋臂，却像没有手臂可举；虽然要对抗，却像没有敌人可对；虽然要拿着兵器，却像没有兵器可拿。灾祸没有比轻敌更大的了，轻敌几乎丧失了我的三宝。所以两军对垒力量相当时，悲愤的一方会获胜。"),
-
-        (70, "吾言甚易知，甚易行。天下莫能知，莫能行。言有宗，事有君。夫唯无知，是以不我知。知我者希，则我者贵。是以圣人被褐而怀玉。",
-         "我的话很容易理解，很容易实行。天下却没有人能够理解，没有人能够实行。说话要有宗旨，做事要有主见。正是由于人们无知，所以不理解我。理解我的人很少，效法我的人就很难得了。因此圣人外表穿着粗布衣服，怀里却揣着美玉。"),
-
-        (71, "知不知，尚矣；不知知，病也。夫唯病病，是以不病。圣人不病，以其病病，是以不病。",
-         "知道自己不知道，是高明的；不知道却自以为知道，是弊病。只有把弊病当作弊病，所以才没有弊病。圣人没有弊病，是因为他把弊病当作弊病，所以才没有弊病。"),
-
-        (72, "民不畏威，则大威至矣。无狎其所居，无厌其所生。夫唯不厌，是以不厌。是以圣人自知不自见；自爱不自贵。故去彼取此。",
-         "当人民不畏惧统治者的威压时，那么可怕的祸乱就要到来了。不要逼迫人民的居处，不要压榨人民的生活。只有不压榨人民，人民才不厌恶统治者。因此圣人有自知之明而不自我表现，有自爱之心而不自显高贵。所以舍弃后者而采取前者。"),
-
-        (73, "勇于敢则杀，勇于不敢则活。此两者，或利或害。天之所恶，孰知其故？天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。天网恢恢，疏而不失。",
-         "勇于敢做就会杀身，勇于不敢做就会活命。这两种勇气，一个有利，一个有害。天所厌恶的，谁知道是什么缘故？天的道，不争斗而善于获胜，不说话而善于应答，不召唤而自动到来，宽缓而善于谋划。天网广大无边，虽然稀疏却不会有一点漏失。"),
-
-        (74, "民不畏死，奈何以死惧之？若使民常畏死，而为奇者，吾将得而杀之，孰敢？常有司杀者杀。夫代司杀者杀，是谓代大匠斫。夫代大匠斫者，希有不伤其手矣。",
-         "人民不畏惧死亡，为什么用死亡来恐吓他们呢？如果使人民真的畏惧死亡，对于为非作歹的人，我就可以抓来杀掉，谁还敢为非作歹呢？常有专管杀人的去执行杀戮。如果代替专管杀人的去执行杀戮，这就好比代替高明的木匠去砍木头。代替高明的木匠去砍木头，很少有不砍伤自己手的。"),
-
-        (75, "民之饥，以其上食税之多，是以饥。民之难治，以其上之有为，是以难治。民之轻死，以其上求生之厚，是以轻死。夫唯无以生为者，是贤于贵生。",
-         "人民所以遭受饥荒，是因为统治者吞食的赋税太多，所以遭受饥荒。人民所以难治理，是因为统治者妄作为政，所以难治理。人民所以轻视死亡，是因为统治者追求奉养的过分丰厚，所以轻视死亡。只有不把奉养生命看得太重的人，比过分看重生命的人高明。"),
-
-        (76, "人之生也柔弱，其死也坚强。草木之生也柔脆，其死也枯槁。故坚强者死之徒，柔弱者生之徒。是以兵强则灭，木强则折。强大处下，柔弱处上。",
-         "人活着的时候身体是柔软的，死后就变得僵硬。草木活着的时候是柔软脆弱的，死后就变得干枯坚硬。所以坚强的东西属于死亡的一类，柔弱的东西属于生存的一类。因此军队逞强就会被消灭，树木逞强就会被折断。强大的处于下位，柔弱的处于上位。"),
-
-        (77, "天之道，其犹张弓与？高者抑之，下者举之；有余者损之，不足者补之。天之道，损有余而补不足。人之道，则不然，损不足以奉有余。孰能有余以奉天下？唯有道者。是以圣人为而不恃，功成而不居，其不欲见贤。",
-         "天的道，不就像张弓射箭一样吗？高了就压低一些，低了就抬高一些；有余的就减少一些，不足的就补充一些。天的道，是减少有余的来补充不足的。人的道却不是这样，是减少不足的来供奉有余的。谁能把有余的拿来供奉给天下呢？只有有道的人。因此圣人有所作为而不自恃，功成而不居功，他不愿意表现自己的贤能。"),
-
-        (78, "天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。故圣人云：受国之垢，是谓社稷主；受国不祥，是为天下王。正言若反。",
-         "天下没有什么比水更柔弱的，但攻坚克强却没有什么能胜过它，因为没有什么能改变它。弱胜过强，柔胜过刚，天下没有人不知道，但没有人能实行。所以圣人说：承担国家的屈辱，这就叫作国家的君主；承担国家的灾祸，这就叫作天下的君王。正面的话好像反话一样。"),
-
-        (79, "和大怨，必有余怨；报怨以德，安可以为善？是以圣人执左契，而不责于人。有德司契，无德司彻。天道无亲，常与善人。",
-         "调解深重的怨恨，必然会有余留的怨恨；用德来报答怨恨，怎么可以算是妥善的呢？因此圣人拿着契约的存根，而不向人索取偿还。有德的人就像掌握契约的人一样宽容，无德的人就像掌管税收的人一样苛求。天道没有偏爱，永远帮助善人。"),
-
-        (80, "小国寡民。使有什伯之器而不用；使民重死而不远徙。虽有舟舆，无所乘之；虽有甲兵，无所陈之。使民复结绳而用之。甘其食，美其服，安其居，乐其俗。邻国相望，鸡犬之声相闻，民至老死不相往来。",
-         "使国家小，人民少。即使有各种器具也不使用；使人民重视死亡而不向远方迁徙。虽然有船只车辆，却没有乘坐的需要；虽然有武器装备，却没有陈列的机会。使人民回到结绳记事的状态。使人民饮食香甜，服饰美好，居住安适，习俗欢乐。邻国之间可以互相望见，鸡鸣狗叫的声音可以互相听到，但人民直到老死也不互相往来。"),
-
-        (81, "信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。",
-         "真实的话不华美，华美的话不真实。善良的人不巧辩，巧辩的人不善良。真正了解的人不广博，广博的人不一定真正了解。圣人没有积蓄，尽力帮助别人，自己反而更充足；把一切给予别人，自己反而更丰富。天的道，有利于万物而不伤害万物；圣人的道，做什么都不和别人争。")
+        (
+            38,
+            "上德不德，是以有德；下德不失德，是以无德。上德无为而无以为；下德无为而有以为。上仁为之而无以为；上义为之而有以为。上礼为之而莫之应，则攘臂而扔之。故失道而后德，失德而后仁，失仁而后义，失义而后礼。夫礼者，忠信之薄，而乱之首。前识者，道之华，而愚之始。是以大丈夫处其厚，不居其薄；处其实，不居其华。故去彼取此。",
+            "具备上等德行的人不自以为有德，所以实际上有德；具备下等德行的人自以为不丧失德，所以实际上没有德。具备上等德行的人顺应自然而无心作为；具备下等德行的人顺应自然而有心作为。上等的仁者有所作为而无心作为；上等的义者有所作为而有心作为。上等的礼者有所作为而得不到回应，就挽起袖子强引别人。所以失去了道然后才有德，失去了德然后才有仁，失去了仁然后才有义，失去了义然后才有礼。礼是忠信不足的产物，是祸乱的开端。所谓的先知，是道的虚华，是愚昧的开始。因此大丈夫立身敦厚，不居于浅薄；存心朴实，不居于虚华。所以要舍弃浅薄虚华，采取敦厚朴实。",
+        ),
+        (
+            39,
+            "昔之得一者：天得一以清；地得一以宁；神得一以灵；谷得一以生；侯王得一以为天下正。其致之也，谓天无以清，将恐裂；地无以宁，将恐发；神无以灵，将恐歇；谷无以生，将恐竭；侯王无以正，将恐蹶。故贵以贱为本，高以下为基。是以侯王自谓孤、寡、不谷。此非以贱为本邪？非乎？故至誉无誉。是故不欲琭琭如玉，珞珞如石。",
+            "自古以来得到道于一体的：天得到道而清明；地得到道而宁静；神得到道而灵妙；山谷得到道而充盈；侯王得到道而成为天下的首领。推而言之，天若不保持清明，恐怕要崩裂；地若不保持宁静，恐怕要震溃；神若不保持灵妙，恐怕要消失；山谷若不保持充盈，恐怕要枯竭；侯王若不保持高贵，恐怕要跌倒。所以贵以贱为根本，高以下为基础。因此侯王自称孤、寡、不谷，这不就是以贱为根本吗？不是吗？所以最高的荣誉是无须赞誉的。不希望像宝玉那样华丽，而要像顽石那样坚硬质朴。",
+        ),
+        (
+            40,
+            "反者道之动，弱者道之用。天下万物生于有，有生于无。",
+            "循环往复是道的运动方式，柔弱胜刚强是道的应用特性。天下万物产生于有形之物，而有形之物又产生于无形之道。",
+        ),
+        (
+            41,
+            "上士闻道，勤而行之；中士闻道，若存若亡；下士闻道，大笑之。不笑不足以为道。故建言有之：明道若昧；进道若退；夷道若颣；上德若谷；广德若不足；建德若偷；质真若渝；大白若辱；大方无隅；大器晚成；大音希声；大象无形；道隐无名。夫唯道，善贷且成。",
+            "上士听了道，努力去实行；中士听了道，半信半疑；下士听了道，大笑之。不被嘲笑，就不足以成为道。所以古人有言说：光明的道好像暗昧；前进的道好像后退；平坦的道好像崎岖；崇高的德好像峡谷；广大的德好像不足；刚健的德好像怠惰；质朴的真好像变幻；最洁白的好像污黑；最大的方形没有棱角；最大的器皿最后完成；最大的声音听不到；最大的形象看不见；大道隐微无名。只有道，善于施予万物并且成就万物。",
+        ),
+        (
+            42,
+            "道生一，一生二，二生三，三生万物。万物负阴而抱阳，冲气以为和。人之所恶，唯孤、寡、不谷，而王公以为称。故物或损之而益，或益之而损。人之所教，我亦教之。强梁者不得其死，吾将以为教父。",
+            "道产生一，一产生二，二产生三，三产生万物。万物背阴而向阳，阴阳二气互相激荡而形成和谐。人们所厌恶的，就是孤、寡、不谷，但王公却用这些词来称呼自己。所以万物有的减损它反而增益，有的增益它反而减损。别人教导我的，我也用来教导人。强横的人不得善终，我把这话当作施教的宗旨。",
+        ),
+        (
+            43,
+            "天下之至柔，驰骋天下之至坚。无有入无间，吾是以知无为之有益。不言之教，无为之益，天下希及之。",
+            "天下最柔弱的东西，能穿透天下最坚硬的东西。空虚无形之物能进入没有缝隙的东西中，我因此知道无为的好处。不言的教化，无为的好处，天下很少能赶上它的。",
+        ),
+        (
+            44,
+            "名与身孰亲？身与货孰多？得与亡孰病？甚爱必大费，多藏必厚亡。故知足不辱，知止不殆，可以长久。",
+            "名声与生命相比哪个亲切？生命与货利相比哪个贵重？得到与失去相比哪个有害？过分爱惜必招致巨大的破费，过多的贮藏必招致惨重的损失。所以知道满足就不会受屈辱，知道适可而止就不会有危险，这样可以长久。",
+        ),
+        (
+            45,
+            "大成若缺，其用不弊。大盈若冲，其用不穷。大直若屈，大巧若拙，大辩若讷。躁胜寒，静胜热。清静为天下正。",
+            "最完满的东西好像有残缺，但它的作用不会衰竭。最充盈的东西好像空虚，但它的作用无穷无尽。最直的东西好像弯曲，最灵巧的东西好像笨拙，最雄辩的人好像口吃。运动能战胜寒冷，安静能战胜炎热。只有清静无为才能做天下的典范。",
+        ),
+        (
+            46,
+            "天下有道，却走马以粪。天下无道，戎马生于郊。祸莫大于不知足；咎莫大于欲得。故知足之足，常足矣。",
+            "天下有道时，战马退还给农田去耕种。天下无道时，怀胎的母马也要上战场。最大的祸患是不知足，最大的过失是贪得无厌。所以知道满足的这种满足，永远是满足的。",
+        ),
+        (
+            47,
+            "不出户，知天下；不窥牖，见天道。其出弥远，其知弥少。是以圣人不行而知，不见而名，不为而成。",
+            "不出门户，能够推知天下的事理；不望窗外，能够认识自然的规律。他向外走得越远，他所知道的越少。所以圣人不出行却能知晓，不看却能明白，无为却能成功。",
+        ),
+        (
+            48,
+            "为学日益，为道日损。损之又损，以至于无为。无为而无不为。取天下常以无事，及其有事，不足以取天下。",
+            "求学是每天增加知识，修道是每天减少欲望。减少又减少，直到无为的境界。无为却没有什么做不成的。治理天下常常靠无为而治，至于有为去治理，就不足以治理天下了。",
+        ),
+        (
+            49,
+            "圣人无常心，以百姓心为心。善者，吾善之；不善者，吾亦善之，德善。信者，吾信之；不信者，吾亦信之，德信。圣人在天下，歙歙焉，为天下浑其心，百姓皆注其耳目，圣人皆孩之。",
+            "圣人没有固定的意志，以百姓的意志为意志。善良的人，我善待他；不善良的人，我也善待他，这样可使人人向善。守信的人，我信任他；不守信的人，我也信任他，这样可使人人守信。圣人在天下，总是收敛自己的欲望，使天下的心思归于浑朴，百姓都专注视听于圣人，圣人使他们都像婴孩一样纯真。",
+        ),
+        (
+            50,
+            "出生入死。生之徒，十有三；死之徒，十有三；人之生，动之于死地，亦十有三。夫何故？以其生生之厚。盖闻善摄生者，路行不遇兕虎，入军不被甲兵；兕无所投其角，虎无所用其爪，兵无所容其刃。夫何故？以其无死地。",
+            "人出世为生，入地为死。属于长寿的，占十分之三；属于短命的，占十分之三；本来可以活得长久，却自己走向死路的，也占十分之三。为什么呢？因为他追求生活享受太丰厚了。听说善于养护生命的人，在陆地上行走不会遇到犀牛和老虎，在战争中不会受到武器的伤害；犀牛无处投它的角，老虎无处用它的爪，武器无处用它的锋刃。为什么呢？因为他没有进入死地。",
+        ),
+        (
+            51,
+            "道生之，德畜之，物形之，势成之。是以万物莫不尊道而贵德。道之尊，德之贵，夫莫之命而常自然。故道生之，德畜之；长之育之；亭之毒之；养之覆之。生而不有，为而不恃，长而不宰，是谓玄德。",
+            "道生长万物，德养育万物，使万物呈现各种形态，环境使万物成长。因此万物没有不尊崇道而贵重德的。道之所以被尊崇，德之所以被贵重，它不需要谁来下令，而是常自然的。所以道生长万物，德养育万物；使万物生长发育，使万物成熟结果；使万物得到爱护和保护。生长万物而不占有，养育万物而不自恃有功，统领万物而不任意主宰，这就是最深远的德。",
+        ),
+        (
+            52,
+            "天下有始，以为天下母。既得其母，以知其子；既知其子，复守其母，没身不殆。塞其兑，闭其门，终身不勤。开其兑，济其事，终身不救。见小曰明，守柔曰强。用其光，复归其明，无遗身殃，是为袭常。",
+            "天下万物都有个开端，以此作为天下的根源。既然知道了根源，就能认识万物；既然认识了万物，再坚守着根源，终身不会有危险。堵塞嗜欲的孔窍，关闭嗜欲的门径，终身不会有劳苦。打开嗜欲的孔窍，成就世俗的事务，终身不可救药。能察见细微叫作明，能坚守柔弱叫作强。运用智慧的光芒，复归内在的明智，不给自己留下祸殃，这就是承袭永恒不变的道。",
+        ),
+        (
+            53,
+            "使我介然有知，行于大道，唯施是畏。大道甚夷，而人好径。朝甚除，田甚芜，仓甚虚；服文采，带利剑，厌饮食，财货有馀；是为盗夸。非道也哉！",
+            "假如我稍微有些知识，就在大道上行走，唯恐走入了邪路。大道很平坦，但人君却喜欢走小路。朝政非常腐败，农田非常荒芜，仓库非常空虚；穿着华丽的衣服，佩戴锋利的宝剑，吃腻精美的饮食，占有过多的财货；这叫作强盗头子。这是无道啊！",
+        ),
+        (
+            54,
+            "善建者不拔，善抱者不脱，子孙以祭祀不辍。修之于身，其德乃真；修之于家，其德乃余；修之于乡，其德乃长；修之于邦，其德乃丰；修之于天下，其德乃普。故以身观身，以家观家，以乡观乡，以邦观邦，以天下观天下。吾何以知天下之然哉？以此。",
+            "善于建树的人不可拔除，善于抱持的人不会脱落，子孙后代会以此来祭祀不绝。用道修身，他的德就真实；用道治家，他的德就有余；用道治乡，他的德就久长；用道治国，他的德就丰盛；用道治天下，他的德就普及。所以用自身的修身之道来观察别身，以自家的治家之道来观察别家，以自乡的治乡之道来观察别乡，以自国的治国之道来观察别国，以平天下的之道来观察天下。我凭什么知道天下的情况呢？就是用这个方法。",
+        ),
+        (
+            55,
+            "含德之厚，比于赤子。毒虫不螫，猛兽不据，攫鸟不搏。骨弱筋柔而握固。未知牝牡之合而朘作，精之至也。终日号而不嗄，和之至也。知和曰常，知常曰明。益生曰祥。心使气曰强。物壮则老，谓之不道，不道早已。",
+            "含德深厚的人，就像初生的婴儿。毒虫不刺他，猛兽不伤害他，凶鸟不搏击他。筋骨柔弱而拳头握得牢固。不懂男女交合而生殖器勃起，这是精气充沛的极致。整天啼哭而嗓子不哑，这是元气和谐的极致。懂得和谐叫作常，懂得常叫作明。贪生纵欲就叫作妖祥。欲望支配精气叫作逞强。事物过于强壮就会走向衰老，这叫作不合乎道，不合乎道就会很快灭亡。",
+        ),
+        (
+            56,
+            "知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱。故为天下贵。",
+            "真正了解的人不说话，说话的人不了解。堵塞嗜欲的孔窍，关闭嗜欲的门径，磨掉锋芒，消解纷扰，含敛光耀，混同尘世，这就叫作玄妙的同化。所以对他既不能亲近，也不能疏远；既不能使他得利，也不能使他受害；既不能使他尊贵，也不能使他卑贱。所以被天下所尊贵。",
+        ),
+        (
+            57,
+            "以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫；人多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为，而民自化；我好静，而民自正；我无事，而民自富；我无欲，而民自朴。",
+            "用清正无为的方法治理国家，用诡奇的方法用兵，用无为的方法来夺取天下。我怎么知道是这样的呢？根据下面这些情况：天下的禁忌越多，百姓越贫穷；民间的利器越多，国家越昏乱；人们的技巧越多，邪恶的事情就越发生；法令越森严，盗贼反而越多。所以圣人说：我无为，百姓自然感化；我好静，百姓自然端正；我无事，百姓自然富足；我无欲，百姓自然淳朴。",
+        ),
+        (
+            58,
+            "其政闷闷，其民淳淳；其政察察，其民缺缺。祸兮福之所倚，福兮祸之所伏。孰知其极？其无正也。正复为奇，善复为妖。人之迷，其日固久。是以圣人方而不割，廉而不刿，直而不肆，光而不耀。",
+            "政治宽厚，百姓就淳朴；政治严苛，百姓就狡诈。灾祸中倚伏着幸福，幸福中潜伏着灾祸。谁知道它们的终极？它们并没有定准。正可以转变为邪，善可以转变为恶。人们的迷惑，已经很久了。因此圣人方正而不割人，锐利而不伤人，直率而不放肆，光亮而不刺眼。",
+        ),
+        (
+            59,
+            "治人事天，莫若啬。夫唯啬，是谓早服；早服谓之重积德；重积德则无不克；无不克则莫知其极；莫知其极，可以有国；有国之母，可以长久；是谓深根固蒂，长生久视之道。",
+            "治理百姓和侍奉上天，没有比爱惜精力更重要的了。正因为爱惜精力，就是早做准备；早做准备就是不断积累德；不断积累德就能无往不胜；无往不胜就没有人知道他的极限；没有人知道他的极限就可以担负治理国家的重任；有了治理国家的根本就可以长久保持；这就是根深蒂固、长生久视的道理。",
+        ),
+        (
+            60,
+            "治大国，若烹小鲜。以道莅天下，其鬼不神；非其鬼不神，其神不伤人；非其神不伤人，圣人亦不伤人。夫两不相伤，故德交归焉。",
+            "治理大国，好像煎烹小鱼一样。用道治理天下，鬼怪不起作用；不是鬼怪不起作用，而是它的作用不伤人；不是它的作用不伤人，而是圣人也不伤人。鬼怪和圣人都不伤人，所以德归于他们，交相会合。",
+        ),
+        (
+            61,
+            "大邦者下流，天下之牝，天下之交也。牝常以静胜牡，以静为下。故大邦以下小邦，则取小邦；小邦以下大邦，则取大邦。故或下以取，或下而取。大邦不过欲兼畜人，小邦不过欲入事人。夫两者各得所欲，大者宜为下。",
+            "大国要像居于江河下游那样，使天下百川汇集，处在天下雌柔的位置。雌柔常以静定战胜雄强，因为静定而又居于下位。所以大国对小国谦下，就能取得小国的信任；小国对大国谦下，就能取得大国的信任。所以有的因为谦下而取得，有的因为谦下而被取得。大国不过是要兼并小国，小国不过是要见容于大国。如果双方都能达到目的，大国尤其应该谦下。",
+        ),
+        (
+            62,
+            "道者万物之奥。善人之宝，不善人之所保。美言可以市，尊行可以加人。人之不善，何弃之有？故立天子，置三公，虽有拱璧以先驷马，不如坐进此道。古之所以贵此道者何？不曰：求以得，有罪以免邪？故为天下贵。",
+            "道是万物的庇荫所。善人珍视它，不善的人也保持它。美好的言语可以换取别人的尊重，高尚的行为可以见重于人。那些不善的人，怎么可以舍弃道呢？所以天子即位、设置三公的时候，虽然先献上璧玉后献上车马，不如献上这个道。古人之所以重视这个道为什么呢？不是说有求的就能得到，有罪的就能免除吗？所以被天下所尊贵。",
+        ),
+        (
+            63,
+            "为无为，事无事，味无味。大小多少，报怨以德。图难于其易，为大于其细；天下难事，必作于易；天下大事，必作于细。是以圣人终不为大，故能成其大。夫轻诺必寡信，多易必多难。是以圣人犹难之，故终无难。",
+            "以无为的态度去作为，以不生事的态度去处事，以淡泊无味当作味。不管大怨小怨，都以德来报答。谋划困难的事情要从容易的地方入手，做大事要从细微的地方入手；天下的难事一定从容易的地方做起，天下的大事一定从细微的地方做起。所以圣人始终不自以为大，所以能成就大事。轻易许诺必然信用不足，把事情看得太容易必然困难重重。所以圣人总是把事情看得困难，所以始终没有困难。",
+        ),
+        (
+            64,
+            "其安易持，其未兆易谋。其脆易泮，其微易散。为之于未有，治之于未乱。合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。为者败之，执者失之。是以圣人无为故无败，无执故无失。民之从事，常于几成而败之。慎终如始，则无败事。是以圣人欲不欲，不贵难得之货；学不学，复众人之所过。以辅万物之自然而不敢为。",
+            "事物安稳时容易持守，问题没显露时容易谋划。事物脆弱时容易消解，事物微小时容易散除。要在事情没有发生时就处理，要在祸乱没有产生时就治理。合抱的大树，是从幼芽开始生长的；九层的高台，是由一筐筐泥土堆积起来的；千里的远行，是从脚下一步步走出来的。妄为必然失败，强行把持必然失去。所以圣人无为所以不会失败，不强求所以不会失去。人们做事情，总是在快要成功时失败。如果在结束时仍像开始时那样谨慎，就不会有失败的事情。所以圣人追求人所不追求的，不稀罕难得的财物；学习别人所不学习的，补救众人所犯的过错。以此辅助万物自然发展而不敢妄为。",
+        ),
+        (
+            65,
+            "古之善为道者，非以明民，将以愚之。民之难治，以其智多。故以智治国，国之贼；不以智治国，国之福。知此两者亦稽式。常知稽式，是谓玄德。玄德深矣，远矣，与物反矣，然后乃至大顺。",
+            "古代善于为道的人，不是教人民精巧，而是使人民淳朴。人民所以难治理，是因为他们有太多的智巧心机。所以用智巧治理国家，是国家的灾害；不用智巧治理国家，是国家的福气。要知道这两种方式也是法则。常守这个法则，就叫作玄德。玄德深啊，远啊，与万物返璞归真，然后达到极大的和顺。",
+        ),
+        (
+            66,
+            "江海所以能为百谷王者，以其善下之，故能为百谷王。是以圣人欲上民，必以言下之；欲先民，必以身後之。是以圣人处上而民不重，处前而民不害。是以天下乐推而不厌。以其不争，故天下莫能与之争。",
+            "江海所以能成为百川河流的王者，是因为它善于处在下游，所以能成为百川的王。因此圣人想要在人民之上，必须用言语对人民谦下；想要在人民之前，必须把自己放在人民之后。所以圣人处在上面而人民不感到沉重，处在前面而人民不感到受害。因此天下人民乐意推崇他而不厌恶。因为他不与人争，所以天下没有人能和他争。",
+        ),
+        (
+            67,
+            "天下皆谓我道大，似不肖。夫唯大，故似不肖。若肖，久矣其细也夫！我有三宝，持而保之。一曰慈，二曰俭，三曰不敢为天下先。夫慈，故能勇；俭，故能广；不敢为天下先，故能成器长。今舍慈且勇；舍俭且广；舍后且先；死矣！夫慈，以战则胜，以守则固。天将救之，以慈卫之。",
+            "天下人都说我的道大，好像什么都不像。正因为大，所以什么都不像。如果像什么，早就渺小了！我有三件宝贝，持守而保全它们：第一叫作慈爱，第二叫作俭啬，第三叫作不敢居于天下人的前面。因为有慈爱，所以能勇武；因为俭啬，所以能宽广；因为不敢居于天下人的前面，所以能成为万物的首长。现在舍弃慈爱而追求勇武，舍弃俭啬而追求宽广，舍弃退让而追求争先，就是死路！慈爱，用来作战就能胜利，用来守卫就能坚固。天要救助谁，就用慈爱来保卫谁。",
+        ),
+        (
+            68,
+            "善为士者，不武；善战者，不怒；善胜敌者，不与；善用人者，为之下。是谓不争之德，是谓用人之力，是谓配天古之极。",
+            "善于做将帅的人不逞勇武，善于作战的人不逞愤怒，善于战胜敌人的人不与敌人对斗，善于用人的人对人谦下。这叫作不争的品德，这叫作用人的能力，这叫作符合天道的准则。",
+        ),
+        (
+            69,
+            "用兵有言：吾不敢为主，而为客；不敢进寸，而退尺。是谓行无行；攘无臂；扔无敌；执无兵。祸莫大于轻敌，轻敌几丧吾宝。故抗兵相若，哀者胜矣。",
+            "用兵的人曾说：我不敢主动进攻，而采取防守；不敢前进一寸，而要后退一尺。这就是说：虽然有阵势，却像没有阵势可摆；虽然要奋臂，却像没有手臂可举；虽然要对抗，却像没有敌人可对；虽然要拿着兵器，却像没有兵器可拿。灾祸没有比轻敌更大的了，轻敌几乎丧失了我的三宝。所以两军对垒力量相当时，悲愤的一方会获胜。",
+        ),
+        (
+            70,
+            "吾言甚易知，甚易行。天下莫能知，莫能行。言有宗，事有君。夫唯无知，是以不我知。知我者希，则我者贵。是以圣人被褐而怀玉。",
+            "我的话很容易理解，很容易实行。天下却没有人能够理解，没有人能够实行。说话要有宗旨，做事要有主见。正是由于人们无知，所以不理解我。理解我的人很少，效法我的人就很难得了。因此圣人外表穿着粗布衣服，怀里却揣着美玉。",
+        ),
+        (
+            71,
+            "知不知，尚矣；不知知，病也。夫唯病病，是以不病。圣人不病，以其病病，是以不病。",
+            "知道自己不知道，是高明的；不知道却自以为知道，是弊病。只有把弊病当作弊病，所以才没有弊病。圣人没有弊病，是因为他把弊病当作弊病，所以才没有弊病。",
+        ),
+        (
+            72,
+            "民不畏威，则大威至矣。无狎其所居，无厌其所生。夫唯不厌，是以不厌。是以圣人自知不自见；自爱不自贵。故去彼取此。",
+            "当人民不畏惧统治者的威压时，那么可怕的祸乱就要到来了。不要逼迫人民的居处，不要压榨人民的生活。只有不压榨人民，人民才不厌恶统治者。因此圣人有自知之明而不自我表现，有自爱之心而不自显高贵。所以舍弃后者而采取前者。",
+        ),
+        (
+            73,
+            "勇于敢则杀，勇于不敢则活。此两者，或利或害。天之所恶，孰知其故？天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。天网恢恢，疏而不失。",
+            "勇于敢做就会杀身，勇于不敢做就会活命。这两种勇气，一个有利，一个有害。天所厌恶的，谁知道是什么缘故？天的道，不争斗而善于获胜，不说话而善于应答，不召唤而自动到来，宽缓而善于谋划。天网广大无边，虽然稀疏却不会有一点漏失。",
+        ),
+        (
+            74,
+            "民不畏死，奈何以死惧之？若使民常畏死，而为奇者，吾将得而杀之，孰敢？常有司杀者杀。夫代司杀者杀，是谓代大匠斫。夫代大匠斫者，希有不伤其手矣。",
+            "人民不畏惧死亡，为什么用死亡来恐吓他们呢？如果使人民真的畏惧死亡，对于为非作歹的人，我就可以抓来杀掉，谁还敢为非作歹呢？常有专管杀人的去执行杀戮。如果代替专管杀人的去执行杀戮，这就好比代替高明的木匠去砍木头。代替高明的木匠去砍木头，很少有不砍伤自己手的。",
+        ),
+        (
+            75,
+            "民之饥，以其上食税之多，是以饥。民之难治，以其上之有为，是以难治。民之轻死，以其上求生之厚，是以轻死。夫唯无以生为者，是贤于贵生。",
+            "人民所以遭受饥荒，是因为统治者吞食的赋税太多，所以遭受饥荒。人民所以难治理，是因为统治者妄作为政，所以难治理。人民所以轻视死亡，是因为统治者追求奉养的过分丰厚，所以轻视死亡。只有不把奉养生命看得太重的人，比过分看重生命的人高明。",
+        ),
+        (
+            76,
+            "人之生也柔弱，其死也坚强。草木之生也柔脆，其死也枯槁。故坚强者死之徒，柔弱者生之徒。是以兵强则灭，木强则折。强大处下，柔弱处上。",
+            "人活着的时候身体是柔软的，死后就变得僵硬。草木活着的时候是柔软脆弱的，死后就变得干枯坚硬。所以坚强的东西属于死亡的一类，柔弱的东西属于生存的一类。因此军队逞强就会被消灭，树木逞强就会被折断。强大的处于下位，柔弱的处于上位。",
+        ),
+        (
+            77,
+            "天之道，其犹张弓与？高者抑之，下者举之；有余者损之，不足者补之。天之道，损有余而补不足。人之道，则不然，损不足以奉有余。孰能有余以奉天下？唯有道者。是以圣人为而不恃，功成而不居，其不欲见贤。",
+            "天的道，不就像张弓射箭一样吗？高了就压低一些，低了就抬高一些；有余的就减少一些，不足的就补充一些。天的道，是减少有余的来补充不足的。人的道却不是这样，是减少不足的来供奉有余的。谁能把有余的拿来供奉给天下呢？只有有道的人。因此圣人有所作为而不自恃，功成而不居功，他不愿意表现自己的贤能。",
+        ),
+        (
+            78,
+            "天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。故圣人云：受国之垢，是谓社稷主；受国不祥，是为天下王。正言若反。",
+            "天下没有什么比水更柔弱的，但攻坚克强却没有什么能胜过它，因为没有什么能改变它。弱胜过强，柔胜过刚，天下没有人不知道，但没有人能实行。所以圣人说：承担国家的屈辱，这就叫作国家的君主；承担国家的灾祸，这就叫作天下的君王。正面的话好像反话一样。",
+        ),
+        (
+            79,
+            "和大怨，必有余怨；报怨以德，安可以为善？是以圣人执左契，而不责于人。有德司契，无德司彻。天道无亲，常与善人。",
+            "调解深重的怨恨，必然会有余留的怨恨；用德来报答怨恨，怎么可以算是妥善的呢？因此圣人拿着契约的存根，而不向人索取偿还。有德的人就像掌握契约的人一样宽容，无德的人就像掌管税收的人一样苛求。天道没有偏爱，永远帮助善人。",
+        ),
+        (
+            80,
+            "小国寡民。使有什伯之器而不用；使民重死而不远徙。虽有舟舆，无所乘之；虽有甲兵，无所陈之。使民复结绳而用之。甘其食，美其服，安其居，乐其俗。邻国相望，鸡犬之声相闻，民至老死不相往来。",
+            "使国家小，人民少。即使有各种器具也不使用；使人民重视死亡而不向远方迁徙。虽然有船只车辆，却没有乘坐的需要；虽然有武器装备，却没有陈列的机会。使人民回到结绳记事的状态。使人民饮食香甜，服饰美好，居住安适，习俗欢乐。邻国之间可以互相望见，鸡鸣狗叫的声音可以互相听到，但人民直到老死也不互相往来。",
+        ),
+        (
+            81,
+            "信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。",
+            "真实的话不华美，华美的话不真实。善良的人不巧辩，巧辩的人不善良。真正了解的人不广博，广博的人不一定真正了解。圣人没有积蓄，尽力帮助别人，自己反而更充足；把一切给予别人，自己反而更丰富。天的道，有利于万物而不伤害万物；圣人的道，做什么都不和别人争。",
+        ),
     ]
 
     for num, original, modern in chapters_38_81_full_text:
@@ -1356,7 +1510,9 @@ def create_remaining_chapters():
         # 获取王夫之《老子衍》完整注解
         wangfuzhi_note = WANGFUZHI_NOTES.get(num, f"王夫之注（第{num}章）：待补充")
         # 获取憨山德清《老子道德经解》完整注解
-        hanshandeqing_note = HANSHANDEQING_NOTES.get(num, f"憨山德清注（第{num}章）：待补充")
+        hanshandeqing_note = HANSHANDEQING_NOTES.get(
+            num, f"憨山德清注（第{num}章）：待补充"
+        )
         # 获取帛书异文文本
         postsilk_text = POSTSILK_TEXT.get(num)
         # 获取帛书异文注解
@@ -1365,22 +1521,30 @@ def create_remaining_chapters():
         guodian_text = GUODIAN_TEXT.get(num)
         # 获取郭店异文注解
         guodian_diff = GUODIAN_NOTES.get(num, f"郭店异文（第{num}章）：待补充")
-        remaining_chapters.append({
-            "chapter": num,
-            "original": original,
-            "wangbi_note": wangbi_note,
-            "heshanggong_note": heshanggong_note,
-            "wangfuzhi_note": wangfuzhi_note,
-            "hanshandeqing_note": hanshandeqing_note,
-            "postsilk_text": postsilk_text,
-            "postsilk_diff": postsilk_diff,
-            "guodian_text": guodian_text,
-            "guodian_diff": guodian_diff,
-            "english_lau": ENGLISH_LAU.get(num, f"D.C. Lau translation (Chapter {num}): To be added."),
-            "english_henricks": ENGLISH_HENRICKS.get(num, f"Robert Henricks translation (Chapter {num}): To be added."),
-            "english_addiss": ENGLISH_ADDISS.get(num, f"Addiss & Lombardo translation (Chapter {num}): To be added."),
-            "modern_chinese": modern
-        })
+        remaining_chapters.append(
+            {
+                "chapter": num,
+                "original": original,
+                "wangbi_note": wangbi_note,
+                "heshanggong_note": heshanggong_note,
+                "wangfuzhi_note": wangfuzhi_note,
+                "hanshandeqing_note": hanshandeqing_note,
+                "postsilk_text": postsilk_text,
+                "postsilk_diff": postsilk_diff,
+                "guodian_text": guodian_text,
+                "guodian_diff": guodian_diff,
+                "english_lau": ENGLISH_LAU.get(
+                    num, f"D.C. Lau translation (Chapter {num}): To be added."
+                ),
+                "english_henricks": ENGLISH_HENRICKS.get(
+                    num, f"Robert Henricks translation (Chapter {num}): To be added."
+                ),
+                "english_addiss": ENGLISH_ADDISS.get(
+                    num, f"Addiss & Lombardo translation (Chapter {num}): To be added."
+                ),
+                "modern_chinese": modern,
+            }
+        )
 
     return remaining_chapters
 
@@ -1407,7 +1571,7 @@ def main():
     daodejing_data = {
         "title": "道德经",
         "subtitle": "多版本对照研究平台",
-        "chapters": generate_full_data()
+        "chapters": generate_full_data(),
     }
 
     # 保存到JSON文件

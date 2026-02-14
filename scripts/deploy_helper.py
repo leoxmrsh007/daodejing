@@ -4,11 +4,9 @@
 支持 Flask、静态站点等多种项目类型
 """
 
-import os
 import json
-import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 
 class ProjectType:
@@ -67,49 +65,46 @@ class DeployConfigGenerator:
                 "version": 2,
                 "builds": [
                     {
-                        "src": "app.py" if (self.project_dir / "app.py").exists() else "wsgi.py",
-                        "use": "@vercel/python"
+                        "src": (
+                            "app.py"
+                            if (self.project_dir / "app.py").exists()
+                            else "wsgi.py"
+                        ),
+                        "use": "@vercel/python",
                     }
                 ],
                 "rewrites": [
                     {
                         "source": "/(.*)",
-                        "destination": "/app.py" if (self.project_dir / "app.py").exists() else "/wsgi.py"
+                        "destination": (
+                            "/app.py"
+                            if (self.project_dir / "app.py").exists()
+                            else "/wsgi.py"
+                        ),
                     }
                 ],
                 "headers": [
                     {
                         "source": "/static/(.*)",
                         "headers": [
-                            {"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}
-                        ]
+                            {
+                                "key": "Cache-Control",
+                                "value": "public, max-age=31536000, immutable",
+                            }
+                        ],
                     }
-                ]
+                ],
             }
 
         elif ptype == ProjectType.DJANGO:
             return {
                 "version": 2,
-                "builds": [
-                    {
-                        "src": "manage.py",
-                        "use": "@vercel/python"
-                    }
-                ],
+                "builds": [{"src": "manage.py", "use": "@vercel/python"}],
                 "routes": [
-                    {
-                        "src": "/static/(.*)",
-                        "dest": "/static/$1"
-                    },
-                    {
-                        "src": "/media/(.*)",
-                        "dest": "/media/$1"
-                    },
-                    {
-                        "src": "/(.*)",
-                        "dest": "/manage.py"
-                    }
-                ]
+                    {"src": "/static/(.*)", "dest": "/static/$1"},
+                    {"src": "/media/(.*)", "dest": "/media/$1"},
+                    {"src": "/(.*)", "dest": "/manage.py"},
+                ],
             }
 
         elif ptype == ProjectType.STATIC:
@@ -118,30 +113,22 @@ class DeployConfigGenerator:
                 return {
                     "version": 2,
                     "public": True,
-                    "rewrites": [
-                        {
-                            "source": "/(.*)",
-                            "destination": "/dist/$1"
-                        }
-                    ]
+                    "rewrites": [{"source": "/(.*)", "destination": "/dist/$1"}],
                 }
-            return {
-                "version": 2,
-                "public": True
-            }
+            return {"version": 2, "public": True}
 
         elif ptype == ProjectType.NEXT_JS:
             return {
                 "version": 2,
                 "buildCommand": "npm run build",
-                "outputDirectory": ".next"
+                "outputDirectory": ".next",
             }
 
         elif ptype == ProjectType.VITE:
             return {
                 "version": 2,
                 "buildCommand": "npm run build",
-                "outputDirectory": "dist"
+                "outputDirectory": "dist",
             }
 
         return {"version": 2}
@@ -163,7 +150,7 @@ class DeployConfigGenerator:
         ptype = self.detect_project_type()
 
         if ptype == ProjectType.FLASK:
-            return '''[build]
+            return """[build]
   command = "pip install -r requirements.txt"
 
 [build.environment]
@@ -173,17 +160,17 @@ class DeployConfigGenerator:
   from = "/*"
   to = "/app.py"
   status = 200
-'''
+"""
 
         elif ptype == ProjectType.STATIC:
-            return '''[build]
+            return """[build]
   publish = "dist"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-'''
+"""
 
         return None
 
@@ -391,7 +378,10 @@ netlify deploy --prod --dir=dist
         if ptype == ProjectType.FLASK:
             if not (self.project_dir / "requirements.txt").exists():
                 issues.append("缺少 requirements.txt 文件")
-            if not (self.project_dir / "app.py").exists() and not (self.project_dir / "wsgi.py").exists():
+            if (
+                not (self.project_dir / "app.py").exists()
+                and not (self.project_dir / "wsgi.py").exists()
+            ):
                 issues.append("Flask 项目缺少 app.py 或 wsgi.py 入口文件")
 
         elif ptype == ProjectType.STATIC:
@@ -418,9 +408,13 @@ def main():
 
     parser = argparse.ArgumentParser(description="Web 项目部署配置生成器")
     parser.add_argument("--dir", "-d", default=".", help="项目目录 (默认: 当前目录)")
-    parser.add_argument("--dry-run", "-n", action="store_true", help="不写入文件，只显示")
+    parser.add_argument(
+        "--dry-run", "-n", action="store_true", help="不写入文件，只显示"
+    )
     parser.add_argument("--type", "-t", action="store_true", help="只检测项目类型")
-    parser.add_argument("--instructions", "-i", action="store_true", help="显示部署指导")
+    parser.add_argument(
+        "--instructions", "-i", action="store_true", help="显示部署指导"
+    )
     parser.add_argument("--check", "-c", action="store_true", help="检查配置问题")
     parser.add_argument("--write", "-w", action="store_true", help="写入配置文件")
 

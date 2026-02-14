@@ -1,0 +1,871 @@
+openapi: 3.0.0
+info:
+  title: 道德经多版本对照平台 API
+  description: |
+    道德经多版本对照学习平台的 RESTful API。
+    
+    平台支持：
+    - 多经典管理（道德经、庄子等）
+    - 章节内容获取与搜索
+    - 疑难字标注与注解
+    - TTS（文本转语音）服务代理
+    - AI 创新功能（知识图谱、语义考古、跨文明对话、虚拟注释家）
+    
+    项目结构：
+    - 后端：Flask + Python 3.9+
+    - 前端：Vanilla JavaScript + Bootstrap 5
+    - 架构：模块化设计（services/, routes/, utils/）
+    - 部署：支持 Flask 动态部署和静态站点生成
+    
+    重要说明：
+    1. API 端点前缀为 `/api`
+    2. 支持多经典架构，经典ID通过 URL 路径参数指定
+    3. 向后兼容：保留 `/api/daodejing/*` 路径
+    4. 安全性：所有输入都经过验证，搜索端点有速率限制
+  version: 1.0.0
+  contact:
+    name: 道德经平台开发团队
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://daodejing-api.vercel.app/api
+    description: 生产环境 API 服务器 (Vercel 部署)
+  - url: http://localhost:5000/api
+    description: 本地开发服务器
+
+paths:
+  # ============ 经典管理 API ============
+  /classics:
+    get:
+      tags:
+        - 经典管理
+      summary: 获取所有经典列表
+      description: 返回系统支持的所有经典古籍列表及其元数据
+      operationId: getClassics
+      responses:
+        '200':
+          description: 成功获取经典列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassicsResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /{classic_id}/meta:
+    get:
+      tags:
+        - 经典管理
+      summary: 获取指定经典的元数据
+      description: 根据经典ID获取特定经典的详细元数据信息
+      operationId: getClassicMetadata
+      parameters:
+        - name: classic_id
+          in: path
+          required: true
+          description: 经典ID (如 'ddj' 表示道德经, 'zzj' 表示庄子)
+          schema:
+            type: string
+            example: ddj
+      responses:
+        '200':
+          description: 成功获取经典元数据
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassicMetadata'
+        '404':
+          description: 未找到指定的经典
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ 章节内容 API ============
+  /{classic_id}/chapters:
+    get:
+      tags:
+        - 章节内容
+      summary: 获取经典所有章节列表
+      description: 获取指定经典的所有章节列表，包含章节ID和标题
+      operationId: getChapters
+      parameters:
+        - name: classic_id
+          in: path
+          required: true
+          description: 经典ID
+          schema:
+            type: string
+            example: ddj
+      responses:
+        '200':
+          description: 成功获取章节列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChaptersResponse'
+        '404':
+          description: 未找到指定的经典
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /{classic_id}/chapter/{chapter_id}:
+    get:
+      tags:
+        - 章节内容
+      summary: 获取单章数据
+      description: |
+        获取指定经典的单个章节的完整数据，包括：
+        - 原文（带疑难字标注）
+        - 现代译文
+        - 各种注释（王弼注、河上公注等）
+        - 古代版本（帛书本、楚简本）
+        - 英文翻译
+        - 相邻章节信息
+      operationId: getChapter
+      parameters:
+        - name: classic_id
+          in: path
+          required: true
+          description: 经典ID
+          schema:
+            type: string
+            example: ddj
+        - name: chapter_id
+          in: path
+          required: true
+          description: 章节编号 (1-81)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 81
+            example: 1
+      responses:
+        '200':
+          description: 成功获取章节数据
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterResponse'
+        '404':
+          description: 未找到指定的章节
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /{classic_id}/search:
+    get:
+      tags:
+        - 章节内容
+      summary: 搜索章节
+      description: |
+        在指定经典中搜索包含关键词的章节。
+        搜索范围包括原文和现代译文。
+        此端点有速率限制：30请求/60秒
+      operationId: searchChapters
+      parameters:
+        - name: classic_id
+          in: path
+          required: true
+          description: 经典ID
+          schema:
+            type: string
+            example: ddj
+        - name: q
+          in: query
+          required: true
+          description: 搜索关键词（中英文均可）
+          schema:
+            type: string
+            example: 道可道
+      responses:
+        '200':
+          description: 成功执行搜索
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: 搜索查询无效或包含不安全字符
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: 请求过于频繁，触发速率限制
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ 向后兼容 API ============
+  /daodejing/chapters:
+    get:
+      tags:
+        - 向后兼容
+      summary: 获取道德经所有章节列表（向后兼容）
+      description: 道德经专用端点，与 /ddj/chapters 功能相同
+      operationId: getDaodejingChapters
+      responses:
+        '200':
+          description: 成功获取道德经章节列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChaptersResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /daodejing/chapter/{chapter_id}:
+    get:
+      tags:
+        - 向后兼容
+      summary: 获取道德经单章数据（向后兼容）
+      description: 道德经专用端点，与 /ddj/chapter/{chapter_id} 功能相同
+      operationId: getDaodejingChapter
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          description: 章节编号 (1-81)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 81
+            example: 1
+      responses:
+        '200':
+          description: 成功获取道德经章节数据
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChapterResponse'
+        '404':
+          description: 未找到指定的章节
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /daodejing/search:
+    get:
+      tags:
+        - 向后兼容
+      summary: 搜索道德经章节（向后兼容）
+      description: |
+        在道德经中搜索包含关键词的章节。
+        与 /ddj/search 功能相同，有相同的速率限制：30请求/60秒
+      operationId: searchDaodejing
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: 搜索关键词（中英文均可）
+          schema:
+            type: string
+            example: 道可道
+      responses:
+        '200':
+          description: 成功执行搜索
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: 搜索查询无效或包含不安全字符
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: 请求过于频繁，触发速率限制
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ TTS 服务 API ============
+  /tts/fish-audio:
+    post:
+      tags:
+        - TTS服务
+      summary: Fish Audio TTS 代理
+      description: |
+        使用 Fish Audio 服务将文本转换为语音。
+        此端点有速率限制：10请求/60秒
+      operationId: synthesizeFishAudio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TTSRequest'
+      responses:
+        '200':
+          description: 成功生成语音
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: 请求参数无效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: 请求过于频繁，触发速率限制
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误或 TTS 服务失败
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /tts/edge:
+    post:
+      tags:
+        - TTS服务
+      summary: Edge TTS 代理
+      description: |
+        使用 Microsoft Edge TTS 服务将文本转换为语音。
+        此端点有速率限制：20请求/60秒
+      operationId: synthesizeEdgeTTS
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TTSRequest'
+      responses:
+        '200':
+          description: 成功生成语音
+          content:
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: 请求参数无效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: 请求过于频繁，触发速率限制
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误或 TTS 服务失败
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ AI 创新功能 API ============
+  # 注：以下端点根据项目架构定义，具体实现可能有所不同
+  
+  /knowledge/concepts:
+    get:
+      tags:
+        - AI创新功能
+        - 知识图谱
+      summary: 获取所有概念列表
+      description: 获取系统中定义的所有哲学概念列表
+      operationId: getConcepts
+      responses:
+        '200':
+          description: 成功获取概念列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConceptsResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /knowledge/graph/{chapter_id}:
+    get:
+      tags:
+        - AI创新功能
+        - 知识图谱
+      summary: 获取章节知识图谱
+      description: 获取指定章节的知识图谱，展示概念之间的关系
+      operationId: getKnowledgeGraph
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          description: 章节编号 (1-81)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 81
+            example: 1
+      responses:
+        '200':
+          description: 成功获取知识图谱
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeGraphResponse'
+        '404':
+          description: 未找到指定的章节
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # 其他AI功能端点占位符...
+  # 包括语义考古、跨文明对话、虚拟注释家等功能
+
+components:
+  schemas:
+    # 错误响应
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: 错误信息
+          example: "Chapter not found"
+      required:
+        - error
+
+    # 经典管理相关 Schema
+    ClassicInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 经典ID
+          example: ddj
+        name:
+          type: string
+          description: 经典名称
+          example: 道德经
+        short_name:
+          type: string
+          description: 简称
+          example: 道德经
+        author:
+          type: string
+          description: 作者
+          example: 老子
+        era:
+          type: string
+          description: 年代
+          example: 春秋末期
+        chapters:
+          type: integer
+          description: 章节数量
+          example: 81
+        data_file:
+          type: string
+          description: 数据文件路径
+          example: data/daodejing.json
+        icon:
+          type: string
+          description: 图标
+          example: "☯"
+        color:
+          type: string
+          description: 主题颜色
+          example: "#d4a574"
+        description:
+          type: string
+          description: 描述
+          example: 道家哲学奠基之作
+      required:
+        - id
+        - name
+        - short_name
+        - author
+        - era
+        - chapters
+        - data_file
+
+    ClassicsResponse:
+      type: object
+      properties:
+        classics:
+          type: array
+          description: 经典列表
+          items:
+            $ref: '#/components/schemas/ClassicInfo'
+        default:
+          type: string
+          description: 默认经典ID
+          example: ddj
+      required:
+        - classics
+        - default
+
+    ClassicMetadata:
+      type: object
+      properties:
+        classic:
+          $ref: '#/components/schemas/ClassicInfo'
+      required:
+        - classic
+
+    # 章节内容相关 Schema
+    ChapterInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 章节编号
+          example: 1
+        title:
+          type: string
+          description: 章节标题
+          example: "第1章"
+      required:
+        - id
+        - title
+
+    ChaptersResponse:
+      type: object
+      properties:
+        classic_id:
+          type: string
+          description: 经典ID
+          example: ddj
+        title:
+          type: string
+          description: 经典标题
+          example: 道德经
+        subtitle:
+          type: string
+          description: 副标题
+          example: 老子
+        chapters:
+          type: array
+          description: 章节列表
+          items:
+            $ref: '#/components/schemas/ChapterInfo'
+      required:
+        - classic_id
+        - title
+        - chapters
+
+    ChapterContent:
+      type: object
+      properties:
+        chapter:
+          type: integer
+          description: 章节编号
+          example: 1
+        original:
+          type: string
+          description: 原文
+          example: "道可道，非常道。名可名，非常名。"
+        original_annotated:
+          type: string
+          description: 带疑难字标注的原文
+          example: "道可道，非常道。名可名，非常名。"
+        modern_chinese:
+          type: string
+          description: 现代汉语译文
+          example: "道，可以说出来的，就不是永恒的道。名，可以叫出来的，就不是永恒的名。"
+        # 各种注释...
+        wangbi_note:
+          type: string
+          description: 王弼注
+        heshanggong_note:
+          type: string
+          description: 河上公注
+        wangfuzhi_note:
+          type: string
+          description: 王夫之注
+        hanshandeqing_note:
+          type: string
+          description: 憨山德清注
+        # 古代版本...
+        postsilk_text:
+          type: string
+          description: 帛书本
+        guodian_text:
+          type: string
+          description: 郭店楚简本
+        # 英文翻译...
+        english_lau:
+          type: string
+          description: D.C. Lau 英译
+        english_henricks:
+          type: string
+          description: Henricks 英译
+        english_addiss:
+          type: string
+          description: Addiss & Lombardo 英译
+        # 导航信息...
+        prev_chapter:
+          type: object
+          description: 前一章信息（如果存在）
+        next_chapter:
+          type: object
+          description: 后一章信息（如果存在）
+        total_chapters:
+          type: integer
+          description: 总章节数
+          example: 81
+      required:
+        - chapter
+        - original
+        - modern_chinese
+
+    ChapterResponse:
+      type: object
+      properties:
+        chapter:
+          $ref: '#/components/schemas/ChapterContent'
+      required:
+        - chapter
+
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 章节编号
+          example: 1
+        title:
+          type: string
+          description: 章节标题
+          example: "第1章"
+        excerpt:
+          type: string
+          description: 匹配片段
+          example: "道可道，非常道。名可名，非常名..."
+      required:
+        - id
+        - title
+        - excerpt
+
+    SearchResponse:
+      type: object
+      properties:
+        query:
+          type: string
+          description: 搜索关键词
+          example: 道可道
+        classic_id:
+          type: string
+          description: 经典ID
+          example: ddj
+        results:
+          type: array
+          description: 搜索结果列表
+          items:
+            $ref: '#/components/schemas/SearchResult'
+      required:
+        - query
+        - classic_id
+        - results
+
+    # TTS 服务相关 Schema
+    TTSRequest:
+      type: object
+      properties:
+        text:
+          type: string
+          description: 要转换为语音的文本
+          example: "道可道，非常道。"
+        voice:
+          type: string
+          description: 语音类型（可选）
+          example: "zh-CN-XiaoxiaoNeural"
+        speed:
+          type: number
+          description: 语速（可选）
+          example: 1.0
+      required:
+        - text
+
+    # AI 创新功能相关 Schema
+    ConceptInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 概念ID
+          example: dao
+        name:
+          type: string
+          description: 概念名称
+          example: 道
+        description:
+          type: string
+          description: 概念描述
+          example: 宇宙的本源和规律
+      required:
+        - id
+        - name
+
+    ConceptsResponse:
+      type: object
+      properties:
+        concepts:
+          type: array
+          description: 概念列表
+          items:
+            $ref: '#/components/schemas/ConceptInfo'
+      required:
+        - concepts
+
+    KnowledgeGraphNode:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 节点ID
+          example: dao
+        label:
+          type: string
+          description: 节点标签
+          example: 道
+        type:
+          type: string
+          description: 节点类型
+          example: concept
+      required:
+        - id
+        - label
+
+    KnowledgeGraphEdge:
+      type: object
+      properties:
+        source:
+          type: string
+          description: 源节点ID
+          example: dao
+        target:
+          type: string
+          description: 目标节点ID
+          example: de
+        label:
+          type: string
+          description: 关系标签
+          example: 包含
+      required:
+        - source
+        - target
+
+    KnowledgeGraphResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: integer
+          description: 章节编号
+          example: 1
+        nodes:
+          type: array
+          description: 知识图谱节点列表
+          items:
+            $ref: '#/components/schemas/KnowledgeGraphNode'
+        edges:
+          type: array
+          description: 知识图谱边列表
+          items:
+            $ref: '#/components/schemas/KnowledgeGraphEdge'
+      required:
+        - chapter_id
+        - nodes
+        - edges
+
+  securitySchemes:
+    # 目前API没有认证要求，但可以定义速率限制说明
+    RateLimit:
+      type: apiKey
+      in: header
+      name: X-RateLimit-Remaining
+      description: |
+        API 使用速率限制。部分端点有请求频率限制：
+        - 搜索端点：30请求/60秒
+        - Fish Audio TTS：10请求/60秒
+        - Edge TTS：20请求/60秒
+        
+        响应头包含速率限制信息：
+        - X-RateLimit-Limit: 时间段内允许的最大请求数
+        - X-RateLimit-Remaining: 剩余请求数
+        - X-RateLimit-Reset: 限制重置时间（Unix时间戳）
+
+tags:
+  - name: 经典管理
+    description: 经典古籍元数据管理相关接口
+  - name: 章节内容
+    description: 章节内容获取、搜索相关接口
+  - name: 向后兼容
+    description: 为保持兼容性而保留的专用道德经接口
+  - name: TTS服务
+    description: 文本转语音服务代理接口
+  - name: AI创新功能
+    description: 基于AI的扩展功能接口
+  - name: 知识图谱
+    description: 知识图谱相关接口（AI创新功能的子分类）

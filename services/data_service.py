@@ -4,7 +4,8 @@
 """
 
 import json
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple, cast
+
 from config import DATA_FILE
 from services.annotation_service import annotate_difficult_chars
 
@@ -12,10 +13,10 @@ from services.annotation_service import annotate_difficult_chars
 class DataService:
     """数据服务类"""
 
-    _data_cache = None
+    _data_cache: Optional[Dict[str, Any]] = None
 
     @classmethod
-    def load_data(cls) -> Dict:
+    def load_data(cls) -> Dict[str, Any]:
         """
         加载道德经数据（带缓存）
 
@@ -23,11 +24,13 @@ class DataService:
             包含所有章节数据的字典
         """
         if cls._data_cache is not None:
+            assert cls._data_cache is not None  # for type checking
             return cls._data_cache
 
         try:
-            with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            with open(DATA_FILE, "r", encoding="utf-8") as f:
                 cls._data_cache = json.load(f)
+            assert cls._data_cache is not None  # for type checking
             return cls._data_cache
         except FileNotFoundError:
             return {"title": "道德经", "chapters": []}
@@ -35,7 +38,7 @@ class DataService:
             return {"title": "道德经", "chapters": []}
 
     @classmethod
-    def clear_cache(cls):
+    def clear_cache(cls) -> None:
         """清除数据缓存"""
         cls._data_cache = None
 
@@ -52,8 +55,7 @@ class DataService:
         """
         data = cls.load_data()
         chapter = next(
-            (c for c in data['chapters'] if c['chapter'] == chapter_id),
-            None
+            (c for c in data["chapters"] if c["chapter"] == chapter_id), None
         )
         return chapter
 
@@ -70,21 +72,22 @@ class DataService:
         """
         data = cls.load_data()
         chapter = next(
-            (c for c in data['chapters'] if c['chapter'] == chapter_id),
-            None
+            (c for c in data["chapters"] if c["chapter"] == chapter_id), None
         )
 
         if chapter:
             # 为原文添加疑难字标注
-            chapter['original_annotated'] = annotate_difficult_chars(
-                chapter.get('original', '')
+            chapter["original_annotated"] = annotate_difficult_chars(
+                chapter.get("original", "")
             )
 
             # 获取相邻章节
-            idx = data['chapters'].index(chapter)
-            chapter['prev_chapter'] = data['chapters'][idx - 1] if idx > 0 else None
-            chapter['next_chapter'] = data['chapters'][idx + 1] if idx < len(data['chapters']) - 1 else None
-            chapter['total_chapters'] = len(data['chapters'])
+            idx = data["chapters"].index(chapter)
+            chapter["prev_chapter"] = data["chapters"][idx - 1] if idx > 0 else None
+            chapter["next_chapter"] = (
+                data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
+            )
+            chapter["total_chapters"] = len(data["chapters"])
 
         return chapter
 
@@ -97,7 +100,7 @@ class DataService:
             章节列表
         """
         data = cls.load_data()
-        return data.get('chapters', [])
+        return cast(List[Dict], data.get("chapters", []))
 
     @classmethod
     def search_chapters(cls, query: str) -> List[Dict]:
@@ -117,32 +120,36 @@ class DataService:
         results = []
         query_lower = query.lower()
 
-        for chapter in data['chapters']:
+        for chapter in data["chapters"]:
             # 在原文中搜索
-            if query_lower in chapter.get('original', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': f'第{chapter["chapter"]}章',
-                    'excerpt': chapter.get('original', '')[:100] + '...'
-                })
+            if query_lower in chapter.get("original", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": f"第{chapter['chapter']}章",
+                        "excerpt": chapter.get("original", "")[:100] + "...",
+                    }
+                )
             # 在现代译文中搜索
-            elif query_lower in chapter.get('modern_chinese', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': f'第{chapter["chapter"]}章',
-                    'excerpt': chapter.get('modern_chinese', '')[:100] + '...'
-                })
+            elif query_lower in chapter.get("modern_chinese", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": f"第{chapter['chapter']}章",
+                        "excerpt": chapter.get("modern_chinese", "")[:100] + "...",
+                    }
+                )
 
         return results
 
 
 # 向后兼容的函数别名
-def load_data():
+def load_data() -> Dict[str, Any]:
     """向后兼容：加载数据"""
     return DataService.load_data()
 
 
-def get_chapter_content(chapter_id):
+def get_chapter_content(chapter_id: int) -> Tuple[Optional[Dict], Dict[str, Any]]:
     """向后兼容：获取章节内容"""
     chapter = DataService.get_chapter_with_annotation(chapter_id)
     data = DataService.load_data()

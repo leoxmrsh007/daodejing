@@ -3,18 +3,19 @@
 道德经多版本对照平台 - Flask 主应用
 """
 
-import os
 import json
-import re
+import os
+
 import requests
-from flask import Flask, render_template, jsonify, request, redirect, url_for, Response
+from flask import (Flask, Response, jsonify, redirect, render_template,
+                   request, url_for)
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+app.config["JSON_AS_ASCII"] = False
 
 # 加载数据文件
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
-DATA_FILE = os.path.join(DATA_DIR, 'daodejing.json')
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+DATA_FILE = os.path.join(DATA_DIR, "daodejing.json")
 
 # 疑难字标注配置
 DIFFICULT_CHARS = {
@@ -70,7 +71,7 @@ DIFFICULT_CHARS = {
 def load_data():
     """加载道德经数据"""
     try:
-        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         return {"title": "道德经", "chapters": []}
@@ -86,8 +87,8 @@ def annotate_difficult_chars(text):
     temp_text = text
 
     for char, info in sorted_chars:
-        pinyin = info['pinyin']
-        meaning = info['meaning']
+        pinyin = info["pinyin"]
+        meaning = info["meaning"]
 
         # 在临时文本中查找并替换
         start = 0
@@ -99,7 +100,7 @@ def annotate_difficult_chars(text):
             # 执行替换，使用占位符
             placeholder = f"___PH_{len(placeholders)}___"
             span_html = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
-            temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char):]
+            temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char) :]
             placeholders[placeholder] = span_html
             start = pos + len(placeholder)
 
@@ -114,238 +115,250 @@ def annotate_difficult_chars(text):
 def get_chapter_content(chapter_id):
     """获取指定章节的内容，并处理疑难字标注"""
     data = load_data()
-    chapter = next((c for c in data['chapters'] if c['chapter'] == chapter_id), None)
+    chapter = next((c for c in data["chapters"] if c["chapter"] == chapter_id), None)
 
     if chapter:
         # 为原文添加疑难字标注
-        chapter['original_annotated'] = annotate_difficult_chars(chapter.get('original', ''))
+        chapter["original_annotated"] = annotate_difficult_chars(
+            chapter.get("original", "")
+        )
         # 获取相邻章节
-        idx = data['chapters'].index(chapter)
-        chapter['prev_chapter'] = data['chapters'][idx - 1] if idx > 0 else None
-        chapter['next_chapter'] = data['chapters'][idx + 1] if idx < len(data['chapters']) - 1 else None
-        chapter['total_chapters'] = len(data['chapters'])
+        idx = data["chapters"].index(chapter)
+        chapter["prev_chapter"] = data["chapters"][idx - 1] if idx > 0 else None
+        chapter["next_chapter"] = (
+            data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
+        )
+        chapter["total_chapters"] = len(data["chapters"])
 
     return chapter, data
 
 
 # ==================== 路由定义 ====================
 
-@app.route('/')
+
+@app.route("/")
 def index():
     """首页重定向"""
-    return redirect(url_for('daodejing_index'))
+    return redirect(url_for("daodejing_index"))
 
 
-@app.route('/daodejing/')
+@app.route("/daodejing/")
 def daodejing_index():
     """道德经首页 - 章节目录"""
     data = load_data()
-    return render_template('ddj/index.html', data=data)
+    return render_template("ddj/index.html", data=data)
 
 
-@app.route('/daodejing/chapter/<int:chapter_id>')
+@app.route("/daodejing/chapter/<int:chapter_id>")
 def chapter_view(chapter_id):
     """单章阅读页"""
     if chapter_id < 1 or chapter_id > 81:
-        return redirect(url_for('daodejing_index'))
+        return redirect(url_for("daodejing_index"))
 
     chapter, data = get_chapter_content(chapter_id)
-    return render_template('ddj/chapter.html', chapter=chapter, data=data)
+    return render_template("ddj/chapter.html", chapter=chapter, data=data)
 
 
-@app.route('/daodejing/compare/<int:chapter_id>')
+@app.route("/daodejing/compare/<int:chapter_id>")
 def compare_view(chapter_id):
     """多版本对照页"""
     if chapter_id < 1 or chapter_id > 81:
-        return redirect(url_for('daodejing_index'))
+        return redirect(url_for("daodejing_index"))
 
     chapter, data = get_chapter_content(chapter_id)
-    return render_template('ddj/compare.html', chapter=chapter, data=data)
+    return render_template("ddj/compare.html", chapter=chapter, data=data)
 
 
 # ==================== API 路由 ====================
 
-@app.route('/api/daodejing/chapters')
+
+@app.route("/api/daodejing/chapters")
 def api_chapters():
     """API: 获取所有章节列表"""
     data = load_data()
-    chapters_list = [{'id': c['chapter'], 'title': f'第{c["chapter"]}章'} for c in data['chapters']]
-    return jsonify({
-        'title': data['title'],
-        'subtitle': data.get('subtitle', ''),
-        'chapters': chapters_list
-    })
+    chapters_list = [
+        {"id": c["chapter"], "title": f"第{c['chapter']}章"} for c in data["chapters"]
+    ]
+    return jsonify(
+        {
+            "title": data["title"],
+            "subtitle": data.get("subtitle", ""),
+            "chapters": chapters_list,
+        }
+    )
 
 
-@app.route('/api/daodejing/chapter/<int:chapter_id>')
+@app.route("/api/daodejing/chapter/<int:chapter_id>")
 def api_chapter(chapter_id):
     """API: 获取单章数据"""
     chapter, _ = get_chapter_content(chapter_id)
     if chapter:
         return jsonify(chapter)
-    return jsonify({'error': 'Chapter not found'}), 404
+    return jsonify({"error": "Chapter not found"}), 404
 
 
-@app.route('/api/daodejing/search')
+@app.route("/api/daodejing/search")
 def api_search():
     """API: 搜索章节"""
-    query = request.args.get('q', '')
+    query = request.args.get("q", "")
     data = load_data()
     results = []
 
     if query:
         query_lower = query.lower()
-        for chapter in data['chapters']:
+        for chapter in data["chapters"]:
             # 在原文中搜索
-            if query_lower in chapter.get('original', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': f'第{chapter["chapter"]}章',
-                    'excerpt': chapter.get('original', '')[:100] + '...'
-                })
+            if query_lower in chapter.get("original", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": f"第{chapter['chapter']}章",
+                        "excerpt": chapter.get("original", "")[:100] + "...",
+                    }
+                )
             # 在现代译文中搜索
-            elif query_lower in chapter.get('modern_chinese', '').lower():
-                results.append({
-                    'id': chapter['chapter'],
-                    'title': f'第{chapter["chapter"]}章',
-                    'excerpt': chapter.get('modern_chinese', '')[:100] + '...'
-                })
+            elif query_lower in chapter.get("modern_chinese", "").lower():
+                results.append(
+                    {
+                        "id": chapter["chapter"],
+                        "title": f"第{chapter['chapter']}章",
+                        "excerpt": chapter.get("modern_chinese", "")[:100] + "...",
+                    }
+                )
 
-    return jsonify({'query': query, 'results': results})
+    return jsonify({"query": query, "results": results})
 
 
-@app.route('/api/tts/fish-audio', methods=['POST'])
+@app.route("/api/tts/fish-audio", methods=["POST"])
 def fish_audio_proxy():
     """Fish Audio TTS 代理端点 - 解决CORS问题"""
     try:
         # 获取请求数据
         data = request.get_json()
         if not data:
-            return jsonify({'error': 'No JSON data provided'}), 400
+            return jsonify({"error": "No JSON data provided"}), 400
 
-        api_key = data.get('api_key')
-        text = data.get('text')
-        model_id = data.get('model_id')
+        api_key = data.get("api_key")
+        text = data.get("text")
+        model_id = data.get("model_id")
 
         if not api_key or not text:
-            return jsonify({'error': 'Missing api_key or text'}), 400
+            return jsonify({"error": "Missing api_key or text"}), 400
 
         # 构建Fish Audio API请求
-        fish_api_url = 'https://api.fish.audio/v1/tts'
+        fish_api_url = "https://api.fish.audio/v1/tts"
 
         headers = {
-            'Authorization': f'Bearer {api_key}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
         }
 
-        request_body = {
-            'text': text,
-            'format': 'mp3'
-        }
+        request_body = {"text": text, "format": "mp3"}
 
         # 如果提供了model_id，添加到请求体
         if model_id:
-            request_body['model_id'] = model_id
+            request_body["model_id"] = model_id
 
         # 发送请求到Fish Audio API
         response = requests.post(
-            fish_api_url,
-            headers=headers,
-            json=request_body,
-            timeout=30
+            fish_api_url, headers=headers, json=request_body, timeout=30
         )
 
         # 如果请求成功，返回音频数据
         if response.status_code == 200:
             return Response(
                 response.content,
-                mimetype='audio/mpeg',
-                headers={
-                    'Content-Disposition': 'attachment; filename=tts.mp3'
-                }
+                mimetype="audio/mpeg",
+                headers={"Content-Disposition": "attachment; filename=tts.mp3"},
             )
         else:
             # 返回错误信息
-            return jsonify({
-                'error': f'Fish Audio API error: {response.status_code}',
-                'detail': response.text
-            }), response.status_code
+            return (
+                jsonify(
+                    {
+                        "error": f"Fish Audio API error: {response.status_code}",
+                        "detail": response.text,
+                    }
+                ),
+                response.status_code,
+            )
 
     except requests.exceptions.Timeout:
-        return jsonify({'error': 'Request timeout'}), 504
+        return jsonify({"error": "Request timeout"}), 504
     except requests.exceptions.RequestException as e:
-        return jsonify({'error': f'Request failed: {str(e)}'}), 502
+        return jsonify({"error": f"Request failed: {str(e)}"}), 502
     except Exception as e:
-        return jsonify({'error': f'Server error: {str(e)}'}), 500
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 
-@app.route('/api/tts/edge', methods=['POST'])
+@app.route("/api/tts/edge", methods=["POST"])
 def edge_tts_proxy():
     """Edge TTS 代理端点 - 微软免费TTS"""
     try:
         # 获取请求数据
         data = request.get_json()
         if not data:
-            return jsonify({'error': 'No JSON data provided'}), 400
+            return jsonify({"error": "No JSON data provided"}), 400
 
-        text = data.get('text')
-        voice = data.get('voice', 'zh-CN-XiaoxiaoNeural')
+        text = data.get("text")
+        voice = data.get("voice", "zh-CN-XiaoxiaoNeural")
 
         if not text:
-            return jsonify({'error': 'Missing text'}), 400
+            return jsonify({"error": "Missing text"}), 400
 
         # 使用Edge TTS的公共API
         # 构建SSML格式
         ssml = f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="zh-CN"><voice name="{voice}">{text}</voice></speak>'
 
         # Edge TTS API端点
-        edge_tts_url = 'https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1'
+        edge_tts_url = "https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1"
 
         headers = {
-            'Content-Type': 'application/ssml+xml',
-            'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            "Content-Type": "application/ssml+xml",
+            "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         }
 
         response = requests.post(
-            edge_tts_url,
-            headers=headers,
-            data=ssml.encode('utf-8'),
-            timeout=30
+            edge_tts_url, headers=headers, data=ssml.encode("utf-8"), timeout=30
         )
 
         if response.status_code == 200:
             return Response(
                 response.content,
-                mimetype='audio/mpeg',
-                headers={
-                    'Content-Disposition': 'attachment; filename=tts.mp3'
-                }
+                mimetype="audio/mpeg",
+                headers={"Content-Disposition": "attachment; filename=tts.mp3"},
             )
         else:
-            return jsonify({
-                'error': f'Edge TTS error: {response.status_code}',
-                'detail': response.text[:500]
-            }), response.status_code
+            return (
+                jsonify(
+                    {
+                        "error": f"Edge TTS error: {response.status_code}",
+                        "detail": response.text[:500],
+                    }
+                ),
+                response.status_code,
+            )
 
     except requests.exceptions.Timeout:
-        return jsonify({'error': 'Request timeout'}), 504
+        return jsonify({"error": "Request timeout"}), 504
     except requests.exceptions.RequestException as e:
-        return jsonify({'error': f'Request failed: {str(e)}'}), 502
+        return jsonify({"error": f"Request failed: {str(e)}"}), 502
     except Exception as e:
-        return jsonify({'error': f'Server error: {str(e)}'}), 500
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 
 # ==================== 错误处理 ====================
 
+
 @app.errorhandler(404)
-def not_found(error):
-    return render_template('ddj/index.html', data=load_data()), 404
+def not_found(_error):  # noqa: U101
+    return render_template("ddj/index.html", data=load_data()), 404
 
 
 @app.errorhandler(500)
-def server_error(error):
-    return render_template('ddj/index.html', data=load_data()), 500
+def server_error(_error):  # noqa: U101
+    return render_template("ddj/index.html", data=load_data()), 500
 
 
 # ==================== 启动配置 ====================
@@ -355,8 +368,8 @@ def server_error(error):
 # 不需要额外配置，Vercel会使用WSGI应用
 
 # 本地开发入口
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
 
 # Vercel部署入口 - 导出app供Vercel使用
 vercel_app = app

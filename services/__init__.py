@@ -3,14 +3,15 @@
 服务模块
 """
 
+from services.annotation_service import (DIFFICULT_CHARS,
+                                         annotate_difficult_chars)
 from services.data_service import DataService
-from services.annotation_service import annotate_difficult_chars, DIFFICULT_CHARS
-from services.tts_service import fish_audio_service, edge_tts_service
+from services.tts_service import edge_tts_service, fish_audio_service
 
 __all__ = [
-    'DataService',
-    'annotate_difficult_chars',
-    'DIFFICULT_CHARS',
-    'fish_audio_service',
-    'edge_tts_service',
+    "DataService",
+    "annotate_difficult_chars",
+    "DIFFICULT_CHARS",
+    "fish_audio_service",
+    "edge_tts_service",
 ]

@@ -1,0 +1,52 @@
+[flake8]
+# 基础配置
+max-line-length = 88
+extend-ignore = E203, W503
+exclude = 
+    .git,
+    __pycache__,
+    .pytest_cache,
+    .venv,
+    venv,
+    env,
+    .env,
+    dist,
+    build,
+    *.egg-info,
+    migrations,
+    _archive,
+    _archive/*,
+    data/*,
+    scripts/*
+
+# 导入检查
+import-order-style = google
+
+# 复杂度检查
+max-complexity = 10
+
+# 每个函数的行数限制
+max-function-length = 50
+
+# 每个类的行数限制  
+max-class-length = 200
+
+# 忽略的错误类型
+# E203: 空格在冒号前（与black兼容）
+# W503: 行尾的运算符（与black兼容）
+# E501: 行太长（由max-line-length控制）
+# E402: 模块级导入不在顶部（测试文件需要）
+ignore = 
+    E203,
+    W503,
+    E501,
+    E402
+
+# 每个文件的错误数限制
+max-errors = 100
+
+# 统计信息
+statistics = true
+
+# 输出格式
+format = default

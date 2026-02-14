@@ -3,10 +3,12 @@
 安全工具 - 速率限制、CORS、安全头
 """
 
+import os
 import time
 from functools import wraps
-from flask import request, jsonify
-from typing import Callable, Dict
+from typing import Any, Callable, Dict, Optional
+
+from flask import Flask, Response, jsonify, request
 
 
 class RateLimiter:
@@ -15,7 +17,7 @@ class RateLimiter:
     注意：生产环境应使用 Redis 等外部存储
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._requests: Dict[str, list] = {}
 
     def is_allowed(self, key: str, max_requests: int = 10, window: int = 60) -> bool:
@@ -37,8 +39,7 @@ class RateLimiter:
 
         # 清理过期记录
         self._requests[key] = [
-            timestamp for timestamp in self._requests[key]
-            if now - timestamp < window
+            timestamp for timestamp in self._requests[key] if now - timestamp < window
         ]
 
         # 检查是否超过限制
@@ -49,7 +50,7 @@ class RateLimiter:
         self._requests[key].append(now)
         return True
 
-    def clear(self, key: str = None):
+    def clear(self, key: Optional[str] = None) -> None:
         """清理记录"""
         if key:
             self._requests.pop(key, None)
@@ -61,7 +62,9 @@ class RateLimiter:
 _rate_limiter = RateLimiter()
 
 
-def rate_limit(max_requests: int = 10, window: int = 60):
+def rate_limit(
+    max_requests: int = 10, window: int = 60
+) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
     """
     速率限制装饰器
 
@@ -75,20 +78,23 @@ def rate_limit(max_requests: int = 10, window: int = 60):
         def search():
             ...
     """
-    def decorator(f: Callable) -> Callable:
+
+    def decorator(f: Callable[..., Any]) -> Callable[..., Any]:
         @wraps(f)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             # 使用 IP 地址作为标识符
-            key = request.remote_addr or 'unknown'
+            key = request.remote_addr or "unknown"
 
             if not _rate_limiter.is_allowed(key, max_requests, window):
-                return jsonify({
-                    'error': 'Too many requests',
-                    'retry_after': window
-                }), 429
+                return (
+                    jsonify({"error": "Too many requests", "retry_after": window}),
+                    429,
+                )
 
             return f(*args, **kwargs)
+
         return wrapper
+
     return decorator
 
 
@@ -100,11 +106,16 @@ def get_client_ip() -> str:
         IP 地址字符串
     """
     # 检查代理头
-    if request.headers.get('X-Forwarded-For'):
-        return request.headers.get('X-Forwarded-For').split(',')[0].strip()
-    if request.headers.get('X-Real-IP'):
-        return request.headers.get('X-Real-IP')
-    return request.remote_addr or 'unknown'
+    x_forwarded_for = request.headers.get("X-Forwarded-For")
+    if x_forwarded_for is not None:
+        return x_forwarded_for.split(",")[0].strip()
+    x_real_ip = request.headers.get("X-Real-IP")
+    if x_real_ip is not None:
+        return x_real_ip
+    remote_addr = request.remote_addr
+    if remote_addr is not None:
+        return remote_addr
+    return "unknown"
 
 
 def get_security_headers() -> Dict[str, str]:
@@ -115,15 +126,15 @@ def get_security_headers() -> Dict[str, str]:
         安全头字典
     """
     return {
-        'X-Content-Type-Options': 'nosniff',
-        'X-Frame-Options': 'SAMEORIGIN',
-        'X-XSS-Protection': '1; mode=block',
-        'Referrer-Policy': 'strict-origin-when-cross-origin',
-        'Permissions-Policy': 'geolocation=(), microphone=(), camera=()'
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
     }
 
 
-def add_security_headers(response):
+def add_security_headers(response: Response) -> Response:
     """
     为 Flask 响应添加安全头
 
@@ -145,34 +156,84 @@ def get_cors_config() -> Dict:
     Returns:
         CORS 配置字典
     """
+    # 从环境变量获取允许的来源
+    allowed_origins = os.environ.get("ALLOWED_ORIGINS", "*")
+
+    # 生产环境安全检查
+    if os.environ.get("FLASK_ENV") == "production" and allowed_origins == "*":
+        import warnings
+
+        warnings.warn(
+            "生产环境CORS配置允许所有来源('*')，存在安全风险。"
+            "请设置ALLOWED_ORIGINS环境变量限制具体域名。"
+        )
+
     return {
-        'origins': '*',  # 生产环境应限制为具体域名
-        'methods': ['GET', 'POST', 'OPTIONS'],
-        'allow_headers': ['Content-Type', 'Authorization'],
-        'max_age': 3600,
-        'vary_header': True
+        "origins": (
+            allowed_origins.split(",") if "," in allowed_origins else allowed_origins
+        ),
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "max_age": 3600,
+        "vary_header": True,
     }
 
 
-def init_security(app):
+def init_security(app: Flask) -> None:
     """
     初始化应用安全配置
 
     Args:
         app: Flask 应用实例
     """
+
     # 添加安全头到所有响应
     @app.after_request
-    def apply_security_headers(response):
+    def apply_security_headers(response: Response) -> Response:
         return add_security_headers(response)
 
-    # CORS 处理（简单实现）
+    # CORS 配置
+    cors_config = get_cors_config()
+
+    # CORS 处理
+    @app.after_request
+    def apply_cors_headers(response: Response) -> Response:
+        """为所有响应添加CORS头"""
+        origin = request.headers.get("Origin")
+        if origin:
+            # 检查来源是否在允许列表中
+            allowed_origins = cors_config["origins"]
+            if allowed_origins == "*" or origin in allowed_origins:
+                response.headers["Access-Control-Allow-Origin"] = origin
+                response.headers["Access-Control-Allow-Methods"] = ", ".join(
+                    cors_config["methods"]
+                )
+                response.headers["Access-Control-Allow-Headers"] = ", ".join(
+                    cors_config["allow_headers"]
+                )
+                response.headers["Access-Control-Max-Age"] = str(cors_config["max_age"])
+                response.headers["Vary"] = "Origin"
+        return response
+
+    # OPTIONS 预检请求处理
     @app.before_request
-    def handle_cors():
-        if request.method == 'OPTIONS':
-            response = jsonify({'status': 'ok'})
-            response.headers['Access-Control-Allow-Origin'] = '*'
-            response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-            response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-            response.headers['Access-Control-Max-Age'] = '3600'
+    def handle_options_request() -> Optional[Response]:
+        if request.method == "OPTIONS":
+            response = jsonify({"status": "ok"})
+            origin = request.headers.get("Origin")
+            if origin:
+                allowed_origins = cors_config["origins"]
+                if allowed_origins == "*" or origin in allowed_origins:
+                    response.headers["Access-Control-Allow-Origin"] = origin
+                    response.headers["Access-Control-Allow-Methods"] = ", ".join(
+                        cors_config["methods"]
+                    )
+                    response.headers["Access-Control-Allow-Headers"] = ", ".join(
+                        cors_config["allow_headers"]
+                    )
+                    response.headers["Access-Control-Max-Age"] = str(
+                        cors_config["max_age"]
+                    )
+                    response.headers["Vary"] = "Origin"
             return response
+        return None
