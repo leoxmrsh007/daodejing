@@ -1,0 +1,61 @@
+{
+  "title": "黄帝内经·素问",
+  "subtitle": "中医经典著作",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "上古天真论篇第一",
+      "original": "昔在黄帝，生而神灵，弱而能言，幼而徇齐，长而敦敏，成而登天。乃问于天师曰：余闻上古之人，春秋皆度百岁，而动作不衰；今时之人，年半百而动作皆衰者，时世异耶？人将失之耶？岐伯对曰：上古之人，其知道者，法于阴阳，和于术数，食饮有节，起居有常，不妄作劳，故能形与神俱，而尽终其天年，度百岁乃去。今时之人不然也，以酒为浆，以妄为常，醉以入房，以欲竭其精，以耗散其真，不知持满，不时御神，务快其心，逆于生乐，起居无节，故半百而衰也。\n\n夫上古圣人之教下也，皆谓之虚邪贼风，避之有时，恬惔虚无，真气从之，精神内守，病安从来。是以志闲而少欲，心安而不惧，形劳而不倦，气从以顺，各从其欲，皆得所愿。故美其食，任其服，乐其俗，高下不相慕，其民故曰朴。是以嗜欲不能劳其目，淫邪不能惑其心，愚智贤不肖，不惧于物，故合于道。所以能年皆度百岁，而动作不衰者，以其德全不危也。",
+      "modern_chinese": "远古时代的黄帝，生来就聪慧异常，幼年时便能言善辩，少年时反应敏捷，成年后敦厚勤勉，最终成就伟业。他向天师岐伯问道：我听说上古时代的人，都能活到百岁而行动不显衰老；现在的人，年过半百就动作衰退，这是时代不同了呢？还是人们违背了养生之道呢？岐伯回答说：上古时代懂得养生之道的人，效法阴阳变化规律，调和养生之术，饮食有节制，起居有规律，不妄自操劳，所以能够形体与精神协调统一，尽享自然寿命，活到百岁才去世。现在的人不是这样，把酒当作水浆来饮，把妄乱当作常态，醉后行房事，纵欲耗竭精气，耗散真元，不懂得保持精气充盈，不善于统摄精神，只顾一时之快，违背了生命的真正乐趣，起居没有规律，所以五十岁就衰老了。\n\n上古圣人教导人们说：虚邪贼风，要及时躲避，保持心境清静恬淡，使体内真气随从而顺调，精神守持于内，疾病哪里会产生呢？所以意志清闲而欲望减少，心境安宁而无恐惧，形体虽劳动而不疲倦，真气调顺，每个人都能随其所欲，满足心愿。所以吃什么都觉得甜美，穿什么衣服都安适，习惯什么样的风俗都快乐，不论地位高低都不相倾慕，这样的人民称为朴实。所以各种嗜好欲望不能劳伤他们的眼睛，淫乱邪说不能迷惑他们的心志，无论愚笨、聪明、贤能、不肖，都不追求外物，所以符合养生之道。所以他们都能活到百岁而动作不衰，是因为他们道德完备而不受危损。",
+      "wangbing_note": "上古天真论者，言上古之人天真未凿，故得终其天年。天真者，本性也。人能法阴阳之和，顺四时之序，则天真可保。今时之人嗜欲无节，劳役过度，故半百而衰。圣人教人以恬惔虚无，精神内守，此养生之要道也。",
+      "zhangjiebin_note": "此篇论养生当法上古天真之道。天真者，自然而然之性也。上古之人无为而治，与道合真，故得长寿。今人以妄为常，以欲竭精，与道相违，故早衰。所谓虚邪贼风，即非时之气，当避之。恬惔虚无，则真气自顺，精神内守，病无由入。",
+      "maqian_note": "上古之人，其知道者，法于阴阳，和于术数。阴阳者，天地之道也；术数者，养生之术也。食饮有节，起居有常，不妄作劳，此养生之三要。恬淡虚无，真气从之，精神内守，此养心之要。形神俱养，故尽天年。",
+      "english_wilson": "The Yellow Emperor asked: In ancient times people lived to be a hundred years old without signs of decline, but today people are decrepit at fifty. Is this because of changes in the environment or because people have lost the Way? Qi Bo replied: In ancient times those who understood the Way patterned themselves upon the yin and the yang and harmonized themselves through arts and measures. They ate and drank in moderation, rose and retired at regular hours, avoided overstraining themselves, and thus were able to preserve their health and live out their natural lifespan. Today people are not like this. They make wine into water, take disorder as normality, become drunk and enter the bedchamber, exhausting their essence with desire and dissipating their true qi. They do not know how to preserve fullness and do not know how to govern their spirit. They seek only to gratify their hearts and oppose the joy of life. Their rising and resting have no regularity, therefore they are decrepit at fifty.",
+      "english_unschuld": "The Yellow Emperor said: I have heard that in high antiquity the people lived to be one hundred years without any sign of aging in their movements. At present, people reach only half that age and their movements show signs of aging. Is this because the times have changed, or is it the fault of the people? Qi Bo replied: In high antiquity, those who knew the Way modeled their [behavior] on yin and yang and they lived in harmony with [the doctrines of] arts and calculations. Their intake of beverages and food was moderate; their rising and resting had regularity. They did not tax [themselves] with meaningless efforts. Hence they were able to keep physical appearance and spirit together and to exhaust the years [allotted by] heaven. They reached one hundred years [of age] before they departed."
+    },
+    {
+      "chapter": 2,
+      "title": "四气调神大论篇第二",
+      "original": "春三月，此谓发陈，天地俱生，万物以荣。夜卧早起，广步于庭，被发缓形，以使志生，生而勿杀，予而勿夺，赏而勿罚，此春气之应，养生之道也。逆之则伤肝，夏为寒变，奉长者少。\n\n夏三月，此谓蕃秀，天地气交，万物华实。夜卧早起，无厌于日，使志无怒，使华英成秀，使气得泄，若所爱在外，此夏气之应，养长之道也。逆之则伤心，秋为痎疟，奉收者少，冬至重病。\n\n秋三月，此谓容平，天气以急，地气以明。早卧早起，与鸡俱兴，使志安宁，以缓秋刑，收敛神气，使秋气平，无外其志，使肺气清，此秋气之应，养收之道也。逆之则伤肺，冬为飧泄，奉藏者少。\n\n冬三月，此谓闭藏，水冰地坼，无扰乎阳。早卧晚起，必待日光，使志若伏若匿，若有私意，若已有得，去寒就温，无泄皮肤，使气亟夺，此冬气之应，养藏之道也。逆之则伤肾，春为痿厥，奉生者少。",
+      "modern_chinese": "春季的三个月，称为发陈，天地万物都开始生发，万物欣欣向荣。人们应该晚睡早起，在庭院中漫步，披散头发，舒缓形体，使意志顺应生发之气而舒畅，生发而不杀伐，给予而不夺取，奖赏而不惩罚，这是顺应春气的养生之道。违背这个原则就会损伤肝脏，到夏天会发生寒性病变，供给夏季生长的基础就少了。\n\n夏季的三个月，称为蕃秀，天地阴阳之气交合，万物开花结实。人们应该晚睡早起，不要厌恶白天太长，使意志不要发怒，使花朵精华能够成熟，使体内之气得以宣泄，就像所爱之物在外面一样，这是顺应夏气的养长之道。违背这个原则就会损伤心脏，到秋天会发生疟疾，供给秋季收获的基础就少了，到冬天会加重病情。\n\n秋季的三个月，称为容平，天气劲急，地气清明。人们应该早睡早起，与鸡同时起床，使意志安宁平静，以缓和秋季的肃杀之气，收敛神气，使秋气平和，不要外泄意志，使肺气清肃，这是顺应秋气的养收之道。违背这个原则就会损伤肺脏，到冬天会发生泄泻，供给冬季收藏的基础就少了。\n\n冬季的三个月，称为闭藏，水结冰，地冻裂，不要扰动阳气。人们应该早睡晚起，一定要等到太阳出来再起床，使意志像潜伏藏匿一样，好像有私事，好像有所收获，避寒就温，不要使皮肤开泄，使阳气频繁耗散，这是顺应冬气的养藏之道。违背这个原则就会损伤肾脏，到春天会发生痿弱厥冷，供给春季生长的基础就少了。",
+      "wangbing_note": "四气调神者，调摄精神以顺四时之气也。春生夏长秋收冬藏，此天道之常，人当顺之。春气生发，故养生；夏气蕃秀，故养长；秋气容平，故养收；冬气闭藏，故养藏。逆之则伤五脏，而病随至。",
+      "zhangjiebin_note": "此篇论四时养生之法。四时之气，春温夏热秋凉冬寒，人当顺时而调摄。春养肝，夏养心，秋养肺，冬养肾，此五脏与四时相应也。起居有常，志意和畅，则真气内守，邪不能干。",
+      "maqian_note": "四气者，春夏秋冬四时之气也。调神者，调摄精神也。春气生，夏气长，秋气收，冬气藏，此自然之理。人法天地，故当顺四时以调神气。逆之则内伤五脏，外感六淫，疾病生焉。",
+      "english_wilson": "The three months of spring are the period of sprouting and opening. Heaven and earth are both giving forth life, and the ten thousand things are flourishing. One should retire late at night and rise early, walk leisurely in the courtyard, loosen the hair and relax the body, in order to allow the will to grow and expand. Let life flourish without killing, give without taking, reward without punishing. This is the response to the qi of spring and the art of nourishing life. To go against this will injure the liver, and in summer will result in cold changes with few to nourish growth.",
+      "english_unschuld": "The three months of spring, they denote effusion and spreading. In heaven and earth everything comes to life; the ten thousand creatures prosper. Go to rest late at night and rise early. Stroll through the courtyard with long, slow strides. loosen the hair and relax the body. Bring the will to life. Give life and do not kill. Give and do not take. Reward and do not punish. This is correspondence with the qi of spring and it is the Way to nourish life. To go contrary to this will harm the liver. In summer this will cause changes brought on by cold. One will have little to support growth."
+    },
+    {
+      "chapter": 3,
+      "title": "生气通天论篇第三",
+      "original": "黄帝曰：夫自古通天者，生之本，本于阴阳。天地之间，六合之内，其气九州、九窍、五脏、十二节，皆通乎天气。其生五，其气三，数犯此者，则邪气伤人，此寿命之本也。\n\n苍天之气，清净则志意治，顺之则阳气固，虽有贼邪，弗能害也，此因时之序。故圣人传精神，服天气，而通神明。失之则内闭九窍，外壅肌肉，卫气散解，此谓自伤，气之削也。",
+      "modern_chinese": "黄帝说：自古以来，通晓天道的人，认为生命的根本在于阴阳。天地之间，六合之内，无论是九州的地理之气，还是人的九窍、五脏、十二节，都与天气相通。天地之气化生五行，阴阳之气可分为三阴三阳，屡次触犯这些规律，邪气就会伤害人体，这是影响寿命的根本。\n\n苍天之气清净，人的意志就平和，顺应天道则阳气固守，即使有贼邪之气，也不能侵害，这是因为顺应了四时的顺序。所以圣人专守精神，顺应天气，而与神明相通。违背这个原则就会使九窍内闭，肌肉壅滞，卫气消散，这叫做自我伤害，会使正气削弱。",
+      "wangbing_note": "生气通天者，言人身之生气与天气相通也。生之本本于阴阳，故天地之间，六合之内，莫不禀天气而生。九窍五脏十二节，皆与天气相通。圣人传精神，服天气，故能与神明相通，而寿命无穷。",
+      "zhangjiebin_note": "此篇论人身生气与天气相通之理。阴阳者，天地之道也，万物之纲纪，变化之父母，生杀之本始。人禀天气而生，故当顺应天道，以保生气。逆之则邪气伤人，正气削弱，而疾病生焉。",
+      "maqian_note": "通天者，通于天道也。生气者，生生之气也。人禀天地之气而生，故生气通天。天地之间，六合之内，其气皆通于天。九窍五脏十二节，人身之要害也，皆与天气相应。故当顺天时，和阴阳，以全天年。",
+      "english_wilson": "The Yellow Emperor said: Since ancient times those who have communicated with heaven have taken life to be rooted in the yin and yang. Between heaven and earth, within the six directions, the qi of the nine regions, the nine orifices, the five viscera, and the twelve joints all communicate with heavenly qi. Its creations are five; its qi are three. If one frequently violates these, evil qi will injure the person. This is the root of life and longevity.",
+      "english_unschuld": "The Yellow Emperor said: All [creatures] that pass through [the cycle of] heaven, the root of their life is based in yin and yang. Between heaven and earth, within the six directions [i.e., the universe], the qi of the nine regions, of the nine orifices, of the five depots, and of the twelve joints, all communicate with the qi of heaven. Its creations are the five; its qi are three. If one repeatedly offends against these, evil qi will harm a person. This is the basis of [their] longevity."
+    },
+    {
+      "chapter": 4,
+      "title": "金匮真言论篇第四",
+      "original": "黄帝问曰：天有八风，经有五风，何谓？岐伯对曰：八风发邪，以为经风，触五脏，邪气发病。所谓得四时之胜者，春胜长夏，长夏胜冬，冬胜夏，夏胜秋，秋胜春，所谓四时之胜也。东风生于春，病在肝，俞在颈项；南风生于夏，病在心，俞在胸胁；西风生于秋，病在肺，俞在肩背；北风生于冬，病在肾，俞在腰股；中央为土，病在脾，俞在脊。",
+      "modern_chinese": "黄帝问道：天有八风，经脉有五风，是什么意思？岐伯回答说：八风产生邪气，成为经脉之风，触及五脏，邪气就会引发疾病。所谓得到四时相胜之气，春胜长夏，长夏胜冬，冬胜夏，夏胜秋，秋胜春，这就是四时相胜。东风生于春季，病在肝脏，腧穴在颈项；南风生于夏季，病在心脏，腧穴在胸胁；西风生于秋季，病在肺脏，腧穴在肩背；北风生于冬季，病在肾脏，腧穴在腰股；中央属土，病在脾脏，腧穴在脊背。",
+      "wangbing_note": "金匮真言论者，言五脏真气之所藏也。天有八风，经有五风，八风之邪，触五脏而为病。四时之气，各有所胜，春胜长夏，长夏胜冬，冬胜夏，夏胜秋，秋胜春。五脏之气，应于四时，故东风病肝，南风病心，西风病肺，北风病肾，中央病脾。",
+      "zhangjiebin_note": "此篇论五脏与四时八方相应之理。八风者，八方之风也；五风者，五脏之风也。八风发邪，触五脏而发病。四时相胜，五行相克之理也。五脏之气，外应八方，内通九窍，故病各有所在。",
+      "maqian_note": "金匮者，藏真之所也。真言者，至真之要言也。天有八风，地有五行，人有五脏。八风发邪，以为经风，触五脏而发病。四时之气，各有所胜，五脏之气，应于四时。故春病在肝，夏病在心，秋病在肺，冬病在肾，长夏病在脾。",
+      "english_wilson": "The Yellow Emperor asked: Heaven has eight winds; the channels have five winds. What does this mean? Qi Bo replied: The eight winds bring evil influences that become channel winds and strike the five viscera, causing disease through evil influences. What is called obtaining the conquest of the four seasons means: spring conquers late summer, late summer conquers winter, winter conquers summer, summer conquers autumn, and autumn conquers spring. These are called the conquests of the four seasons. The east wind arises in spring; the disease is in the liver and the transport point is at the neck and nape.",
+      "english_unschuld": "The Yellow Emperor asked: Heaven has the eight winds; the conduits have the five winds. What does that mean? Qi Bo responded: The eight winds give rise to evil. They constitute the winds of the conduits. They touch the five depots and evil qi generates disease. What is called 'obtaining the dominance of the four seasons' is: Spring dominates over long summer. Long summer dominates over winter. Winter dominates over summer. Summer dominates over autumn. Autumn dominates over spring. These are called 'dominance of the four seasons.' The east wind emerges in spring. Its disease is in the liver. Its confluence point is at the neck and nape."
+    },
+    {
+      "chapter": 5,
+      "title": "阴阳应象大论篇第五",
+      "original": "黄帝曰：阴阳者，天地之道也，万物之纲纪，变化之父母，生杀之本始，神明之府也。治病必求于本，本立而道生。故积阳为天，积阴为地。阴静阳躁，阳生阴长，阳杀阴藏。阳化气，阴成形。寒极生热，热极生寒。寒气生浊，热气生清。清气在下，则生飧泄；浊气在上，则生䐜胀。此阴阳反作，病之逆从也。",
+      "modern_chinese": "黄帝说：阴阳是天地之道，是万物的纲纪，是变化的根源，是生杀的根本，是神明之府。治病必须寻求根本，根本确立了，道就产生了。所以阳气积聚成为天，阴气积聚成为地。阴主静而阳主躁，阳主生发而阴主成长，阳主肃杀而阴主闭藏。阳能化生气，阴能构成形。寒到极点会生热，热到极点会生寒。寒气产生浊阴，热气产生清阳。清阳之气在下，就会产生飧泄；浊阴之气在上，就会产生胀满。这是阴阳反常，疾病的逆从变化。",
+      "wangbing_note": "阴阳应象者，言阴阳之气，应于万物之象也。阴阳者，天地之道，万物之纲纪。积阳为天，积阴为地，此阴阳之体也。阳化气，阴成形，此阴阳之用也。寒极生热，热极生寒，此阴阳之变也。治病必求于本，本于阴阳也。",
+      "zhangjiebin_note": "此篇论阴阳之理，而应于万物之象。阴阳者，一分为二，天地之道也。万物虽多，不能外阴阳。治病必求其本，本于阴阳。阳为天，阴为地；阳化气，阴成形。阴阳相反而相成，相消而相生，此天地自然之理也。",
+      "maqian_note": "阴阳者，天地之道也。天地之道，一阴一阳而已。万物之纲纪，变化之父母，生杀之本始，皆本于阴阳。积阳为天，积阴为地，阴阳之体也。阳化气，阴成形，阴阳之用也。寒极生热，热极生寒，阴阳之变也。",
+      "english_wilson": "The Yellow Emperor said: Yin and yang are the Way of heaven and earth, the principle and framework of the ten thousand things, the parents of change, the root and beginning of birth and death, and the palace of spirit and clarity. In treating disease one must seek the root. When the root is established, the Way is born. Therefore accumulated yang becomes heaven; accumulated yin becomes earth. Yin is stillness; yang is agitation. Yang gives birth; yin grows. Yang kills; yin stores. Yang transforms into qi; yin constitutes form. When cold reaches its extreme, it produces heat; when heat reaches its extreme, it produces cold. Cold qi produces turbidity; hot qi produces clarity.",
+      "english_unschuld": "The Yellow Emperor said: Yin and yang are the Way of heaven and earth; they are the fundamental principles and the net of the myriad things; they are the father and mother of change and transformation; they are the root and the beginning of generating and killing; they are the palace of the spirits and the illuminated. To treat diseases one must search for the root. Once the root is established, the Way comes to life. Hence yang accumulated [constitutes] heaven; yin accumulated [constitutes] earth. Yin is quiescent; yang is restless. Yang generates; yin grows. Yang kills; yin stores. Yang transforms [substances into] qi; yin gives [substances their] physical appearance. When cold has reached its climax, heat is generated. When heat has reached its climax, cold is generated. Cold qi generates turbidity; hot qi generates clarity."
+    }
+  ]
+}
