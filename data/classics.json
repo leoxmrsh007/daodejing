@@ -80,6 +80,78 @@
         {"id": "unschuld", "name": "Paul Unschuld", "lang": "en"}
       ],
       "variants": []
+    },
+    {
+      "id": "jgj",
+      "name": "金刚经",
+      "short_name": "金刚经",
+      "author": "达摩祖师传译",
+      "era": "后秦至北魏",
+      "chapters": 1,
+      "data_file": "data/jingangjing/chapters.json",
+      "icon": "💎",
+      "color": "#e07a5f",
+      "description": "大乘佛教核心经典，阐述空性智慧与般若波罗蜜多心要"
+    },
+    {
+      "id": "lztyj",
+      "name": "六祖坛经",
+      "short_name": "六祖坛经",
+      "author": "慧能",
+      "era": "唐代",
+      "chapters": 10,
+      "data_file": "data/liuzutan/chapters.json",
+      "icon": "🪷",
+      "color": "#8b5a2b",
+      "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性"
+    },
+    {
+      "id": "ws30",
+      "name": "唯识三十颂",
+      "short_name": "唯识三十颂",
+      "author": "世亲",
+      "era": "四至五世纪",
+      "chapters": 30,
+      "data_file": "data/weishi/chapters.json",
+      "icon": "🧘",
+      "color": "#f39c12",
+      "description": "大乘佛教论典，系统阐述唯识学三性相分与瑜伽行位"
+    },
+    {
+      "id": "zy",
+      "name": "周易",
+      "short_name": "周易",
+      "author": "文王、周公",
+      "era": "西周",
+      "chapters": 64,
+      "data_file": "data/zhouyi/chapters.json",
+      "icon": "☯",
+      "color": "#8e44ad",
+      "description": "群经之首，易经六十四卦，阐述天地万物变化之理"
+    },
+    {
+      "id": "ss",
+      "name": "四书",
+      "short_name": "四书",
+      "author": "朱熹",
+      "era": "南宋",
+      "chapters": 4,
+      "data_file": "data/sishu/chapters.json",
+      "icon": "📚",
+      "color": "#6c5ce7",
+      "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道"
+    },
+    {
+      "id": "cxl",
+      "name": "传习录",
+      "short_name": "传习录",
+      "author": "王阳明",
+      "era": "明代",
+      "chapters": 3,
+      "data_file": "data/chuanxilu/chapters.json",
+      "icon": "📖",
+      "color": "#06b6d4",
+      "description": "心学重要著作，阐述知行合一、致良知等哲学思想"
     }
   ],
   "default_classic": "ddj"
