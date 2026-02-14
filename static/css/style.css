@@ -142,6 +142,33 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 80px;
+}
+
+.chapter-item:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-hover-bg);
+}
+
+.chapter-num {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.chapter-item.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.chapter-item.active .chapter-num {
+    color: white;
 }
 
 .chapter-item:hover {
