@@ -182,10 +182,10 @@ Example:
 def test_chapter_search_returns_results():
     # Arrange
     query = "道可道"
-    
+
     # Act
     results = search_chapters(query)
-    
+
     # Assert
     assert len(results) > 0
     assert all(query in r['content'] for r in results)
@@ -210,14 +210,14 @@ Example:
 ```python
 def get_chapter(classic_id: str, chapter_id: int) -> Dict[str, Any]:
     """Retrieve a specific chapter by ID.
-    
+
     Args:
         classic_id: The classic identifier (e.g., 'ddj', 'zzj')
         chapter_id: The chapter number
-        
+
     Returns:
         Dictionary containing chapter data
-        
+
     Raises:
         ValueError: If chapter_id is out of range
         KeyError: If classic_id is not found

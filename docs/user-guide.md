@@ -15,7 +15,7 @@
 平台提供两种访问方式：
 
 1. **在线访问**: 访问 [https://your-domain.vercel.app](https://your-domain.vercel.app)
-2. **本地运行**: 
+2. **本地运行**:
    ```bash
    pip install -r requirements.txt
    python app.py
@@ -252,5 +252,5 @@
 
 **感谢使用道德经多版本对照学习平台！**
 
-*文档版本: 1.0*  
+*文档版本: 1.0*
 *最后更新: 2026-01-29*

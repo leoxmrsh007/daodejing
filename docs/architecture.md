@@ -133,22 +133,22 @@
 ### 3.1 章节内容获取流程
 
 ```
-用户请求 -> page_routes -> ClassicService.load_data() 
--> annotation_service.annotate_difficult_chars() 
+用户请求 -> page_routes -> ClassicService.load_data()
+-> annotation_service.annotate_difficult_chars()
 -> 模板渲染 -> HTML响应
 ```
 
 ### 3.2 API 请求处理流程
 
 ```
-HTTP请求 -> api_routes -> 参数验证 -> Service层处理 
+HTTP请求 -> api_routes -> 参数验证 -> Service层处理
 -> JSON序列化 -> HTTP响应
 ```
 
 ### 3.3 TTS 语音合成流程
 
 ```
-POST /api/tts/fish-audio -> rate_limit -> fish_audio_service.synthesize() 
+POST /api/tts/fish-audio -> rate_limit -> fish_audio_service.synthesize()
 -> 调用Fish Audio API -> 音频流响应
 ```
 

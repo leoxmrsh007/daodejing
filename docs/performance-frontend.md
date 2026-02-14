@@ -25,7 +25,7 @@ const PerformanceMonitor = {
         this.measureResourceTiming();
         this.measureUserInteraction();
     },
-    
+
     measurePageLoad() {
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -44,13 +44,13 @@ const PerformanceMonitor = {
                     // 首屏渲染时间 (FCP)
                     fcp: this.getFCP(),
                 };
-                
+
                 console.log('[Performance] Page Load Metrics:', metrics);
                 this.sendMetrics('page_load', metrics);
             }, 0);
         });
     },
-    
+
     measureResourceTiming() {
         const resources = performance.getEntriesByType('resource');
         const slowResources = resources
@@ -60,38 +60,38 @@ const PerformanceMonitor = {
                 duration: r.duration,
                 type: r.initiatorType
             }));
-        
+
         if (slowResources.length > 0) {
             console.warn('[Performance] Slow Resources:', slowResources);
         }
     },
-    
+
     measureUserInteraction() {
         // 测量关键交互的响应时间
         let lastClick = 0;
         document.addEventListener('click', () => {
             lastClick = performance.now();
         });
-        
+
         // 测量章节切换时间
         const originalPushState = history.pushState;
         history.pushState = function(...args) {
             const start = performance.now();
             originalPushState.apply(this, args);
-            
+
             requestAnimationFrame(() => {
                 const duration = performance.now() - start;
                 console.log(`[Performance] Navigation took ${duration.toFixed(2)}ms`);
             });
         };
     },
-    
+
     getFCP() {
         const entries = performance.getEntriesByType('paint');
         const fcp = entries.find(e => e.name === 'first-contentful-paint');
         return fcp ? fcp.startTime : null;
     },
-    
+
     sendMetrics(type, data) {
         // 发送到分析服务（如果配置）
         if (window.analyticsEnabled) {
@@ -122,7 +122,7 @@ const LazyLoader = {
         this.lazyLoadImages();
         this.lazyLoadScripts();
     },
-    
+
     lazyLoadImages() {
         const images = document.querySelectorAll('img[data-src]');
         const imageObserver = new IntersectionObserver((entries) => {
@@ -135,17 +135,17 @@ const LazyLoader = {
                 }
             });
         });
-        
+
         images.forEach(img => imageObserver.observe(img));
     },
-    
+
     lazyLoadScripts() {
         // 延迟加载非关键JavaScript
         const deferredScripts = [
             // 'analytics.js',
             // 'extra-features.js'
         ];
-        
+
         setTimeout(() => {
             deferredScripts.forEach(src => {
                 const script = document.createElement('script');
@@ -191,7 +191,7 @@ const FeatureLoader = {
         }
         return this.knowledgeGraphModule;
     },
-    
+
     async loadTTSPlayer() {
         if (!this.ttsModule) {
             const module = await import('./modules/tts-player.js');
@@ -255,5 +255,5 @@ if (typeof Sentry !== 'undefined') {
 
 ---
 
-*创建日期: 2026-01-29*  
+*创建日期: 2026-01-29*
 *下次评估: 2026-02-05*

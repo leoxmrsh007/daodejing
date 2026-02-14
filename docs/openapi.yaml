@@ -3,20 +3,20 @@ info:
   title: 道德经多版本对照平台 API
   description: |
     道德经多版本对照学习平台的 RESTful API。
-    
+
     平台支持：
     - 多经典管理（道德经、庄子等）
     - 章节内容获取与搜索
     - 疑难字标注与注解
     - TTS（文本转语音）服务代理
     - AI 创新功能（知识图谱、语义考古、跨文明对话、虚拟注释家）
-    
+
     项目结构：
     - 后端：Flask + Python 3.9+
     - 前端：Vanilla JavaScript + Bootstrap 5
     - 架构：模块化设计（services/, routes/, utils/）
     - 部署：支持 Flask 动态部署和静态站点生成
-    
+
     重要说明：
     1. API 端点前缀为 `/api`
     2. 支持多经典架构，经典ID通过 URL 路径参数指定
@@ -420,7 +420,7 @@ paths:
 
   # ============ AI 创新功能 API ============
   # 注：以下端点根据项目架构定义，具体实现可能有所不同
-  
+
   /knowledge/concepts:
     get:
       tags:
@@ -850,7 +850,7 @@ components:
         - 搜索端点：30请求/60秒
         - Fish Audio TTS：10请求/60秒
         - Edge TTS：20请求/60秒
-        
+
         响应头包含速率限制信息：
         - X-RateLimit-Limit: 时间段内允许的最大请求数
         - X-RateLimit-Remaining: 剩余请求数

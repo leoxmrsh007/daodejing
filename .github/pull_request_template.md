@@ -24,9 +24,9 @@ Fixes #
 
 <!-- List the main changes made in this PR -->
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Testing
 

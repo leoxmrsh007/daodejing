@@ -15,41 +15,41 @@ from flask import Flask, g, request
 
 def init_performance_monitoring(app: Flask) -> None:
     """初始化性能监控"""
-    
+
     @app.before_request
     def before_request():
         """请求开始计时"""
         g.start_time = time.time()
         g.request_id = f"{time.time():.6f}"
-    
+
     @app.after_request
     def after_request(response):
         """记录请求性能指标"""
         if hasattr(g, 'start_time'):
             duration = time.time() - g.start_time
-            
+
             # 记录慢请求
             if duration > 1.0:  # 超过1秒的请求
                 app.logger.warning(
                     f"Slow request: {request.method} {request.path} "
                     f"took {duration:.3f}s"
                 )
-            
+
             # 添加性能头部
             response.headers['X-Response-Time'] = f"{duration:.3f}s"
-            
+
             # 记录到日志
             app.logger.info(
                 f"{request.method} {request.path} - {response.status_code} "
                 f"- {duration:.3f}s"
             )
-        
+
         return response
 
 
 def performance_monitor(threshold: float = 0.5) -> Callable:
     """函数性能监控装饰器
-    
+
     Args:
         threshold: 慢函数阈值（秒）
     """
@@ -81,41 +81,41 @@ from typing import Dict, List, Optional
 
 class APIMetrics:
     """API性能指标收集器"""
-    
+
     def __init__(self):
         self.metrics: Dict[str, List[float]] = defaultdict(list)
         self.error_counts: Dict[str, int] = defaultdict(int)
-    
+
     def record_request(self, endpoint: str, duration: float, status_code: int) -> None:
         """记录请求指标"""
         self.metrics[endpoint].append(duration)
-        
+
         # 只保留最近1000个样本
         if len(self.metrics[endpoint]) > 1000:
             self.metrics[endpoint] = self.metrics[endpoint][-1000:]
-        
+
         if status_code >= 400:
             self.error_counts[endpoint] += 1
-    
+
     def get_stats(self, endpoint: Optional[str] = None) -> Dict:
         """获取性能统计"""
         if endpoint:
             return self._calc_stats(endpoint)
-        
+
         return {
             endpoint: self._calc_stats(endpoint)
             for endpoint in self.metrics.keys()
         }
-    
+
     def _calc_stats(self, endpoint: str) -> Dict:
         """计算端点统计信息"""
         times = self.metrics[endpoint]
         if not times:
             return {}
-        
+
         times.sort()
         n = len(times)
-        
+
         return {
             "count": n,
             "avg": sum(times) / n,
@@ -162,10 +162,10 @@ def health_check():
 def server_stats():
     """服务器统计信息"""
     import psutil
-    
+
     memory = psutil.virtual_memory()
     disk = psutil.disk_usage('/')
-    
+
     return jsonify({
         "memory": {
             "total": memory.total,
@@ -202,7 +202,7 @@ from flask import current_app
 
 def cached(timeout: int = 300, key_prefix: str = "") -> Callable:
     """函数结果缓存装饰器
-    
+
     Args:
         timeout: 缓存过期时间（秒）
         key_prefix: 缓存键前缀
@@ -212,21 +212,21 @@ def cached(timeout: int = 300, key_prefix: str = "") -> Callable:
         def wrapper(*args, **kwargs):
             # 生成缓存键
             cache_key = _generate_cache_key(key_prefix, func.__name__, args, kwargs)
-            
+
             # 尝试从缓存获取
             cache = current_app.config.get('CACHE')
             if cache:
                 cached_value = cache.get(cache_key)
                 if cached_value is not None:
                     return cached_value
-            
+
             # 执行函数
             result = func(*args, **kwargs)
-            
+
             # 存入缓存
             if cache:
                 cache.set(cache_key, result, timeout=timeout)
-            
+
             return result
         return wrapper
     return decorator
@@ -296,17 +296,17 @@ alerts:
     condition: error_rate > 5%
     duration: 5m
     severity: critical
-    
+
   - name: slow_api_response
     condition: p95_response_time > 500ms
     duration: 10m
     severity: warning
-    
+
   - name: high_cpu_usage
     condition: cpu_usage > 80%
     duration: 15m
     severity: warning
-    
+
   - name: memory_usage
     condition: memory_usage > 90%
     duration: 5m
@@ -324,7 +324,7 @@ from datetime import datetime
 
 class JSONFormatter(logging.Formatter):
     """JSON格式日志"""
-    
+
     def format(self, record):
         log_data = {
             "timestamp": datetime.utcnow().isoformat(),
@@ -334,13 +334,13 @@ class JSONFormatter(logging.Formatter):
             "function": record.funcName,
             "line": record.lineno,
         }
-        
+
         if hasattr(record, "request_id"):
             log_data["request_id"] = record.request_id
-        
+
         if record.exc_info:
             log_data["exception"] = self.formatException(record.exc_info)
-        
+
         return json.dumps(log_data, ensure_ascii=False)
 
 
@@ -391,5 +391,5 @@ def prometheus_metrics():
 
 ---
 
-*创建日期: 2026-01-29*  
+*创建日期: 2026-01-29*
 *下次评估: 2026-02-05*
