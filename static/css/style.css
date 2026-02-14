@@ -128,10 +128,45 @@ body {
 .chapter-list {
     max-height: calc(100vh - 120px);
     overflow-y: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
     padding: 0.5rem;
+}
+
+.chapter-item {
+    padding: 0.75rem 0.5rem;
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chapter-item:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: var(--card-hover-bg);
+}
+
+.chapter-num {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.chapter-item.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.chapter-item.active .chapter-num {
+    color: white;
 }
 
 .chapter-item {
@@ -205,35 +240,60 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* 侧边栏章节列表响应式 */
+/* 侧边栏章节列表响应式 - 单栏/双栏切换 */
+/* 移动端：单栏布局 */
 @media (max-width: 768px) {
     .chapter-list {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 0.4rem;
         padding: 0.4rem;
     }
     
     .chapter-item {
-        padding: 0.6rem 0.4rem;
+        padding: 0.7rem;
+        justify-content: flex-start;
     }
     
     .chapter-num {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 
+/* 平板：单栏或双栏布局 */
+@media (min-width: 769px) and (max-width: 991px) {
+    .chapter-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    
+    .chapter-item {
+        padding: 0.6rem 0.5rem;
+    }
+}
+
+/* 桌面：双栏布局 */
 @media (min-width: 992px) {
     .chapter-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 0.6rem;
-        padding: 0.6rem;
     }
     
     .chapter-item {
         padding: 0.85rem 0.6rem;
     }
+}
+
+/* 大屏优化 */
+@media (min-width: 1200px) {
+    .chapter-list {
+        gap: 0.75rem;
+    }
     
-    .chapter-num {
-        font-size: 1.05rem;
+    .chapter-item {
+        padding: 1rem 0.75rem;
     }
 }
 
