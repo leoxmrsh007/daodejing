@@ -63,24 +63,17 @@
                 <span class="brand-text">{{ classic.short_name if classic else '道德经' }}</span>
             </a>
 
-            <!-- 经典切换器 -->
+            <!-- 经典切换器 - 并列显示 -->
             {% if all_classics and all_classics.classics %}
-            <div class="classic-switcher dropdown ms-2">
-                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" id="classicSwitcher" data-bs-toggle="dropdown">
-                    切换经典
-                </button>
-                <ul class="dropdown-menu">
-                    {% for c in all_classics.classics %}
-                    <li>
-                        <a class="dropdown-item {{ 'active' if (classic and classic.id == c.id) or (not classic and c.id == 'ddj') else '' }}"
-                           href="{{ url_for('pages.classic_index', classic_id=c.id) }}">
-                            <span class="me-2">{{ c.icon }}</span>
-                            {{ c.short_name }}
-                            <small class="text-muted d-block ms-4">{{ c.chapters }}{{ '篇' if c.id == 'zzj' else '章' }}</small>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            <div class="classic-nav ms-2 d-flex gap-1">
+                {% for c in all_classics.classics %}
+                <a class="btn btn-sm {{ 'btn-light' if (classic and classic.id == c.id) or (not classic and c.id == 'ddj') else 'btn-outline-light' }}"
+                   href="{{ url_for('pages.classic_index', classic_id=c.id) }}"
+                   title="{{ c.name }} - {{ c.chapters }}{{ '篇' if c.id == 'zzj' else '章' }}">
+                    <span class="me-1">{{ c.icon }}</span>
+                    <span class="d-none d-md-inline">{{ c.short_name }}</span>
+                </a>
+                {% endfor %}
             </div>
             {% endif %}
 

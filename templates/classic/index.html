@@ -96,6 +96,11 @@
                             <li><strong>多家注解</strong>：成玄英疏、郭象注、王夫之</li>
                             <li><strong>英文译本</strong>：Burton Watson、Brook Ziporyn</li>
                             <li><strong>现代白话</strong>：便于理解的现代汉语译文</li>
+                            {% elif classic.id == 'hdnj' %}
+                            <li><strong>原文</strong>：《素问》八十一篇</li>
+                            <li><strong>三家注解</strong>：王冰注、张介宾注、马莳注</li>
+                            <li><strong>英文译本</strong>：Nelson Wu、Paul Unschuld</li>
+                            <li><strong>现代白话</strong>：便于理解的现代汉语译文</li>
                             {% endif %}
                         </ul>
                     </div>
@@ -104,20 +109,23 @@
         </div>
     </section>
 
-    <!-- 章节目录网格 -->
+    <!-- 章节目录网格 - 多栏布局 -->
     <section class="chapters-section">
         <h3 class="mb-4">全部{{ classic.chapters }}{{ '篇' if classic.id == 'zzj' else '章' }}</h3>
-        <div class="row g-2">
+        <div class="row g-2 chapters-grid">
             {% for chapter in data.chapters %}
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1">
                 <a href="{{ url_for('pages.chapter_view', classic_id=classic.id, chapter_id=chapter.chapter) }}"
-                   class="chapter-card text-decoration-none">
+                   class="chapter-card text-decoration-none"
+                   title="{{ chapter.title }}">
                     <div class="card h-100">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center p-2">
                             <span class="chapter-number">{{ chapter.chapter }}</span>
-                            <p class="card-text small text-truncate">
-                                {{ chapter.original[:20] }}...
+                            {% if chapter.title and chapter.title != '第' + chapter.chapter|string + '章' and chapter.title != '第' + chapter.chapter|string + '篇' %}
+                            <p class="card-text small text-truncate mt-1 mb-0" style="font-size: 0.7rem;">
+                                {{ chapter.title[:8] }}
                             </p>
+                            {% endif %}
                         </div>
                     </div>
                 </a>

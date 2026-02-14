@@ -58,6 +58,28 @@
         {"id": "ziporyn", "name": "Brook Ziporyn", "lang": "en"}
       ],
       "variants": []
+    },
+    {
+      "id": "hdnj",
+      "name": "黄帝内经",
+      "short_name": "黄帝内经",
+      "author": "黄帝",
+      "era": "战国至西汉",
+      "chapters": 81,
+      "data_file": "data/huangdi_neijing/chapters.json",
+      "icon": "🌿",
+      "color": "#5a9a8f",
+      "description": "中医经典著作，阐述阴阳五行、藏象经络、病因病机等中医理论体系",
+      "commentators": [
+        {"id": "wangbing", "name": "王冰注", "era": "唐"},
+        {"id": "zhangjiebin", "name": "张介宾注", "era": "明"},
+        {"id": "maqian", "name": "马莳注", "era": "明"}
+      ],
+      "translators": [
+        {"id": "wilson", "name": "Nelson Wu", "lang": "en"},
+        {"id": "unschuld", "name": "Paul Unschuld", "lang": "en"}
+      ],
+      "variants": []
     }
   ],
   "default_classic": "ddj"
