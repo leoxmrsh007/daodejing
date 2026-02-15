@@ -1,20 +1,25 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
+  "public": true,
+  "name": "daodejing",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/index.py"
+      "destination": "/dist/$1"
     }
   ],
   "headers": [
     {
-      "source": "/static/(.*)",
+      "source": "/dist/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/dist/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

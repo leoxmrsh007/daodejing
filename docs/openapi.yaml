@@ -1,28 +1,40 @@
-openapi: 3.0.0
-info:
-  title: 道德经多版本对照平台 API
-  description: |
-    道德经多版本对照学习平台的 RESTful API。
+ openapi: 3.0.0
+ info:
+   title: 古典文献多版本对照学习平台 API
+   description: |
+     古典文献多版本对照学习平台的 RESTful API。
 
-    平台支持：
-    - 多经典管理（道德经、庄子等）
-    - 章节内容获取与搜索
-    - 疑难字标注与注解
-    - TTS（文本转语音）服务代理
-    - AI 创新功能（知识图谱、语义考古、跨文明对话、虚拟注释家）
+     支持的经典（9部）：
+     - 道德经（道家）：81章，11家注释，6种英译
+     - 庄子（道家）：33章，3家注释，2种英译
+     - 黄帝内经素问（中医）：81章，3家注释，2种英译
+     - 金刚经（佛学）：1章
+     - 六祖坛经（佛学）：10章
+     - 唯识三十颂（佛学）：30颂
+     - 周易（易学）：64卦
+     - 四书（儒家）：4部
+     - 传习录（心学）：3卷
 
-    项目结构：
-    - 后端：Flask + Python 3.9+
-    - 前端：Vanilla JavaScript + Bootstrap 5
-    - 架构：模块化设计（services/, routes/, utils/）
-    - 部署：支持 Flask 动态部署和静态站点生成
+     平台功能：
+     - 多经典管理（经典列表、元数据）
+     - 章节内容获取与搜索
+     - 疑难字标注与注解
+     - TTS（文本转语音）服务代理（Fish Audio、Edge TTS）
+     - AI 创新功能（知识图谱、语义考古、跨文明对话、虚拟注释家）
 
-    重要说明：
-    1. API 端点前缀为 `/api`
-    2. 支持多经典架构，经典ID通过 URL 路径参数指定
-    3. 向后兼容：保留 `/api/daodejing/*` 路径
-    4. 安全性：所有输入都经过验证，搜索端点有速率限制
-  version: 1.0.0
+     项目结构：
+     - 后端：Flask + Python 3.9+
+     - 前端：Vanilla JavaScript + Bootstrap 5
+     - 架构：模块化设计（services/, routes/, utils/）
+     - 部署：支持 Flask 动态部署和静态站点生成
+
+     重要说明：
+     1. API 端点前缀为 `/api`
+     2. 支持多经典架构，经典ID通过 URL 路径参数指定（如 ddj, zzj, hdnj）
+     3. 向后兼容：保留 `/api/daodejing/*` 路径
+     4. 安全性：所有输入都经过验证，搜索端点有速率限制
+     5. 速率限制：搜索 30次/分钟，Fish Audio 10次/分钟，Edge TTS 20次/分钟
+   version: 2.0.0
   contact:
     name: 道德经平台开发团队
   license:

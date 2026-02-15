@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a multi-version comparative study platform for the Tao Te Ching (道德经). It's a Flask web application that can also generate static HTML files for deployment. The platform supports multiple commentaries, translations, and text versions including ancient manuscripts (Mawangdui silk text, Guodian bamboo slips).
+This is a **multi-classic comparative study platform** for classical Chinese literature. It's a Flask web application that can also generate static HTML files for deployment. The platform currently supports 9 classics including 道德经, 庄子, 黄帝内经, 金刚经, 六祖坛经, 唯识三十颂, 周易, 四书, and 传习录.
+
+Each classic supports multiple commentaries, translations, and text versions including ancient manuscripts (Mawangdui silk text, Guodian bamboo slips).
 
 ## Development Commands
 
@@ -25,20 +27,38 @@ python generate_static.py
 app.py                    # Flask application entry point (uses app factory pattern)
 config.py                 # Application configuration
 services/                 # Business logic layer
-  ├── data_service.py     # Data loading and chapter management
+  ├── classic_service.py  # Multi-classic data management (main service)
   ├── annotation_service.py # Difficult character annotation
-  └── tts_service.py      # TTS proxy services (Fish Audio, Edge TTS)
+  ├── tts_service.py      # TTS proxy services (Fish Audio, Edge TTS)
+  ├── knowledge_graph.py  # Knowledge graph generation
+  ├── semantic_archaeology.py # Semantic archaeology analysis
+  ├── cross_civilization_dialogue.py # Cross-civilization philosophy dialogue
+  ├── virtual_commentator.py # AI-powered virtual commentator
+  └── data_service.py     # Legacy data service (deprecated, kept for compatibility)
 routes/                   # Route handlers (Flask blueprints)
   ├── page_routes.py      # HTML page routes
   └── api_routes.py       # JSON API routes
 utils/                    # Utility functions
-  └── validators.py       # Input validation and sanitization
-data/daodejing.json       # All content data (81 chapters, commentaries, translations)
+  ├── validators.py       # Input validation and sanitization
+  ├── security.py         # Security decorators (rate limiting, headers)
+  └── cache.py            # Caching utilities
+data/                     # Content data
+  ├── classics.json       # Classic metadata configuration (9 classics)
+  ├── daodejing/chapters.json  # Tao Te Ching chapters
+  ├── zhuangzi/chapters.json  # Zhuangzi chapters
+  ├── huangdi_neijing/chapters.json  # Yellow Emperor's Inner Canon
+  ├── jingangjing/chapters.json  # Diamond Sutra
+  ├── liuzutan/chapters.json  # Platform Sutra
+  ├── weishi/chapters.json  # Thirty Verses of Consciousness Only
+  ├── zhouyi/chapters.json  # I Ching
+  ├── sishu/chapters.json  # Four Books
+  └── chuanxilu/chapters.json  # Instructions for Practical Living
 generate_static.py        # Static site generator
 static/                   # Source assets (CSS, JS, images, audio)
 templates/                # Jinja2 templates for Flask
 dist/                     # Generated static site (output of generate_static.py)
 scripts/                  # Utility scripts
+  ├── check_code_quality.py # Code quality checker
   └── deploy_helper.py    # Deployment configuration generator
 ```
 
@@ -47,15 +67,25 @@ scripts/                  # Utility scripts
 ### Backend (Flask)
 - **Modular architecture**: Separated into services, routes, and utils
 - **App factory pattern**: `create_app()` function for initialization
-- **No database**: All content stored in `data/daodejing.json`
+- **Multi-classic support**: Unified interface for 9+ classics via `ClassicService`
+- **Configuration-driven**: Classic metadata in `data/classics.json`
 - **Blueprint-based routing**:
-  - Pages: `/daodejing/`, `/daodejing/chapter/<id>`
-  - API: `/api/daodejing/*`, `/api/tts/*`
+  - Pages: `/` (platform home), `/{classic_id}/`, `/{classic_id}/chapter/<id>`
+  - API: `/api/classics`, `/api/{classic_id}/*`, `/api/tts/*`
+  - Backward compatibility: `/daodejing/*` routes preserved
 
 ### Service Layer
-- `DataService`: Load data with caching, get chapters, search
-- `annotate_difficult_chars()`: Add pinyin/meaning annotations
-- `FishAudioService`, `EdgeTTSService`: TTS proxy services
+- `ClassicService`: Multi-classic data management (main service)
+  - Load data with caching per classic
+  - Get chapters, search, annotations
+  - Support for multiple commentaries and translations
+- `annotation_service`: Add pinyin/meaning annotations to difficult characters
+- `tts_service`: `FishAudioService`, `EdgeTTSService` for text-to-speech
+- `knowledge_graph`: Generate knowledge graph for chapters
+- `semantic_archaeology`: Analyze semantic changes over time
+- `cross_civilization_dialogue`: Enable East-West philosophy dialogues
+- `virtual_commentator`: AI-powered commentary from historical figures
+- `data_service`: Legacy service (kept for backward compatibility)
 
 ### Security
 - Input validation in `utils/validators.py`
@@ -76,13 +106,30 @@ scripts/                  # Utility scripts
 
 ### Data Structure
 
-Each chapter in `daodejing.json` contains:
-- `chapter`: Chapter number (1-81)
+#### Classic Configuration (`data/classics.json`)
+Defines metadata for all supported classics (currently 9):
+- Classic ID, name, author, era
+- Chapter count and data file path
+- Commentators list (e.g., Wang Bi, He Shang Gong)
+- Translators list (e.g., D.C. Lau, Robert Henricks)
+- Ancient manuscript variants (Mawangdui, Guodian)
+- Icon and color for UI
+
+#### Chapter Data Structure
+Each chapter in a classic's JSON file contains:
+- `chapter`: Chapter number
+- `title`: Chapter title (if available)
 - `original`: Original classical Chinese text
 - `modern_chinese`: Modern Chinese translation
-- `wangbi_note`, `heshanggong_note`, `wangfuzhi_note`, `hanshandeqing_note`: Commentary notes
-- `postsilk_text`, `guodian_text`: Ancient manuscript variants
-- `english_lau`, `english_henricks`, `english_addiss`: English translations
+- Commentary notes (varies by classic):
+  - 道德经: `wangbi_note`, `heshanggong_note`, `wangfuzhi_note`, etc.
+  - 庄子: `chengxuanying_note`, `guoxiang_note`, etc.
+- Ancient manuscript variants (where available):
+  - `postsilk_text`: Mawangdui silk text
+  - `guodian_text`: Guodian bamboo slips
+- English translations (varies by classic):
+  - 道德经: `english_lau`, `english_henricks`, `english_addiss`
+  - 庄子: `english_watson`, `english_ziporyn`
 
 ### Character Annotations
 
@@ -137,9 +184,9 @@ The project has comprehensive code quality tools and testing infrastructure:
 
 ### Testing
 - **pytest**: Test framework with coverage reporting
-- **Coverage Goal**: ≥80% for services/ directory (currently 81% achieved)
-- **Test Structure**: 111 tests across unit and integration tests
-- **Test Data**: Uses actual `data/daodejing.json` for realistic testing
+- **Coverage Goal**: ≥80% for services/ directory (currently 86% achieved)
+- **Test Structure**: 125 tests across unit and integration tests
+- **Test Data**: Uses actual `data/classics.json` and classic-specific JSON files for realistic testing
 
 ### Quality Commands
 ```bash
@@ -196,7 +243,8 @@ python app.py
 
 ### Completed Milestones
 ✅ **Code Quality Enhancement**: All 75 mypy errors fixed, 32 flake8 warnings resolved
-✅ **Test Coverage Improvement**: Services directory coverage increased to 81% (15 new tests added)
+✅ **Test Coverage Improvement**: Services directory coverage increased to 86% (125 tests)
+✅ **Multi-classic Platform**: Extended from single classic to 9 classics
 ✅ **Documentation Phase Started**: OpenAPI/Swagger documentation implemented
 ✅ **Development Standards**: Full quality toolchain established
 
@@ -206,10 +254,11 @@ According to `DEVELOPMENT_GOALS.md`, the project is currently in:
 - Next: Performance optimization and feature enhancement phases
 
 ### Architecture Updates
-- **Multi-classic Support**: Generalized `ClassicService` for multiple classical texts
+- **Multi-classic Support**: Generalized `ClassicService` for 9 classical texts (道德经, 庄子, 黄帝内经, etc.)
 - **Modular Structure**: Clean separation of services, routes, and utilities
 - **Type Safety**: Full Python type annotations with mypy validation
 - **Security**: Input validation, rate limiting, and XSS protection
+- **API-First Design**: RESTful APIs supporting all classics with unified interface
 
 ## Development Workflow
 
@@ -269,4 +318,4 @@ When modifying APIs:
 - Consider CDN for static assets in production
 
 ---
-*Last Updated: 2026-01-29 | Project Phase: Documentation Completion*
+*Last Updated: 2026-02-15 | Project Phase: Multi-classic Platform Expansion*

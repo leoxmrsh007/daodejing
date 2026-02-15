@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉机真藏论篇 - 黄帝内经 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+/* 疑难字标注 - 纯CSS方案 */
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
+}
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.note-text {
+    line-height: 1.8;
+}
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+.version-content {
+    line-height: 1.8;
+}
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">玉机真藏论篇</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <!-- 音乐控制 -->
+                <div class="music-controls d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
+                        <span class="music-icon">🎵</span>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="musicLoop" title="循环播放">
+                        <span class="loop-icon">🔁</span>
+                    </button>
+                </div>
+
+                <div class="media-divider"></div>
+
+                <!-- 朗读控制 -->
+                <div class="speech-controls d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-light media-btn" id="speechToggle" title="朗读原文">
+                        <span class="speech-icon">🔊</span>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="speechStop" title="停止朗读">
+                        ⏹
+                    </button>
+                </div>
+
+                <!-- AI解读按钮 -->
+                <button class="btn btn-sm btn-outline-light ai-btn" id="aiToggle" title="AI解读">
+                    <span>🤖</span>
+                </button>
+
+                <!-- AI创新功能下拉菜单 -->
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" title="AI创新功能">
+                        <span>✨</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">AI创新功能</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="knowledgeGraphBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
+                                </svg>
+                                概念关系图谱
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="commentaryChatBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                与注释家对话
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="philosophyDialogueBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                跨文明哲学对话
+                            </button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">实用工具</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="noteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                阅读笔记
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="quoteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                    <polyline points="16 6 12 2 8 6"></polyline>
+                                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                                </svg>
+                                生成引用卡片
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 暗黑模式切换 -->
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item " href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item active" href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter34.html">
+    <span class="chapter-num">第34章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter35.html">
+    <span class="chapter-num">第35章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter36.html">
+    <span class="chapter-num">第36章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter37.html">
+    <span class="chapter-num">第37章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter38.html">
+    <span class="chapter-num">第38章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter39.html">
+    <span class="chapter-num">第39章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter40.html">
+    <span class="chapter-num">第40章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter41.html">
+    <span class="chapter-num">第41章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter42.html">
+    <span class="chapter-num">第42章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter43.html">
+    <span class="chapter-num">第43章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter44.html">
+    <span class="chapter-num">第44章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter45.html">
+    <span class="chapter-num">第45章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter46.html">
+    <span class="chapter-num">第46章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter47.html">
+    <span class="chapter-num">第47章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter48.html">
+    <span class="chapter-num">第48章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter49.html">
+    <span class="chapter-num">第49章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter50.html">
+    <span class="chapter-num">第50章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter51.html">
+    <span class="chapter-num">第51章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter52.html">
+    <span class="chapter-num">第52章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter53.html">
+    <span class="chapter-num">第53章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter54.html">
+    <span class="chapter-num">第54章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter55.html">
+    <span class="chapter-num">第55章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter56.html">
+    <span class="chapter-num">第56章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter57.html">
+    <span class="chapter-num">第57章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter58.html">
+    <span class="chapter-num">第58章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter59.html">
+    <span class="chapter-num">第59章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter60.html">
+    <span class="chapter-num">第60章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter61.html">
+    <span class="chapter-num">第61章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter62.html">
+    <span class="chapter-num">第62章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter63.html">
+    <span class="chapter-num">第63章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter64.html">
+    <span class="chapter-num">第64章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter65.html">
+    <span class="chapter-num">第65章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter66.html">
+    <span class="chapter-num">第66章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter67.html">
+    <span class="chapter-num">第67章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter68.html">
+    <span class="chapter-num">第68章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter69.html">
+    <span class="chapter-num">第69章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter70.html">
+    <span class="chapter-num">第70章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter71.html">
+    <span class="chapter-num">第71章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter72.html">
+    <span class="chapter-num">第72章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter73.html">
+    <span class="chapter-num">第73章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter74.html">
+    <span class="chapter-num">第74章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter75.html">
+    <span class="chapter-num">第75章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter76.html">
+    <span class="chapter-num">第76章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter77.html">
+    <span class="chapter-num">第77章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter78.html">
+    <span class="chapter-num">第78章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter79.html">
+    <span class="chapter-num">第79章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter80.html">
+    <span class="chapter-num">第80章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter81.html">
+    <span class="chapter-num">第81章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
+            <li class="breadcrumb-item active">玉机真藏论篇</li>
+        </ol>
+    </nav>
+
+    <section class="idioms-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">📖 相关成语</h5>
+            </div>
+            <div class="card-body">
+                <div id="idiomsContainer">
+                    <div class="idioms-container d-flex flex-wrap gap-2">
+            <span class="idiom-tag" title="减少私心和欲望&#10;原文：见素抱朴，少私寡欲">
+                <span class="idiom-word">少私寡欲</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="保持淳朴的本性，不炫耀&#10;原文：见素抱朴，少私寡欲">
+                <span class="idiom-word">抱朴守拙</span>
+                <span class="idiom-chapter">📖</span>
+            </span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">玉机真藏论篇 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    十九
+黄帝问曰：春脉如弦，何如而弦？岐伯对曰：春脉者肝也，东方木也，万物之所以始生也。故其气来，软弱轻虚而滑，端直以长，故曰弦，反此者病。帝曰：何如而反？岐伯曰：其气来实而强，此谓太过，病在外；其气来不实而微，此谓不及，病在中。帝曰：春脉太过与不及，其病皆何如？岐伯曰：太过则令人善忘，忽忽眩冒而巅疾；其不及则令人胸痛引背，下则两胁胠满。帝曰：善。夏脉如钩，何如而钩？岐伯曰：夏脉者心也，南方火也，万物之所以盛长也。故其气来盛去衰，故曰钩，反此者病。帝曰：何如而反？岐伯曰：其气来盛去亦盛，此谓太过，病在外；其气来不盛去反盛，此谓不及，病在中。帝曰：夏脉太过与不及，其病皆何如？岐伯曰：太过则令人身热而肤痛，为浸淫；其不及则令人烦心，上见咳唾，下为气泄。帝曰：善。秋脉如浮，何如而浮？岐伯曰：秋脉者肺也，西方金也，万物之所以收成也。故其气来，轻虚以浮，来急去散，故曰浮，反此者病。帝曰：何如而反？岐伯曰：其气来，毛而中央坚，两傍虚，此谓太过，病在外；其气来，毛而微，此谓不及，病在中。帝曰：秋脉太过与不及，其病皆何如？歧伯曰：太过则令人逆气而背痛，愠愠然；其不及则令人喘，呼吸少气而咳，上气见血，下闻病音。帝曰：善。冬脉如营，何如而营？岐伯曰：冬脉者肾也，北方水也，万物之所以合藏也。故其气来沉以搏，故曰营，反此者病。帝曰：何如而反？岐伯曰：其气来如弹石者，此谓太过，病在外；其去如数者，此谓不及，病在中。帝曰：冬脉太过与不及，其病皆何如？岐伯曰：太过则令人解亻亦，脊脉痛而少气不欲言；其不及则令人心悬如病饥，<月少>中清，脊中痛，少腹满，小便变。帝曰：善。帝曰：四时之序，逆从之变异也，然脾脉独何主？岐伯曰：脾脉者土也，孤藏以灌四傍者也。帝曰：然则脾善恶，可得见之乎？岐伯曰：善者不可得见，恶者可见。帝曰：恶者何如可见？岐伯曰：其来如水之流者，此谓太过，病在外；如乌之喙者，此谓不及，病在中。帝曰：夫子言脾为孤藏，中央土以灌四傍，其太过与不及，其病皆何如？岐伯曰：太过则令人四支不举；其不及，则令人九窍不通，名曰重强。帝瞿然而起，再拜而稽首曰：善。吾得脉之大要，天下至数，五色脉变，揆度奇恒，道在于一。神转不回，回则不转，乃失其机。至数之要，迫近以微，著之玉版，藏之藏府，每旦读之，名曰《玉机》。五藏受气于其所生，传之于其所胜，气舍于其所生，死于其所不胜。病之且死，必先传行至其所不胜，病乃死。此言气之逆行也，故死。肝受气于心，传之于脾，气舍于肾，至肺而死。心受气于脾，传之于肺，气舍于肝，至肾而死。脾受气于肺，传之于肾，气舍于心，至肝而死。肺受气于肾，传之于肝，气舍于脾，至心而死。肾受气于肝，传之于心，气舍于肺，至脾而死。此皆逆死也。一日一
+夜五分之，此所以占死生之早暮也。黄帝曰：五藏相通，移皆有次，五藏有病，则各传其所胜。不治，法三月若六月，若三日若六日，传五藏而当死，是顺传所胜之次。故曰：别于阳者，知病从来；别于阴者，知死生之期。言知至其所困而死。是故风者百病之长也，今风寒客于人，使人毫毛毕直，皮肤闭而为热，当是之时，可汗而发也；或痹不仁肿痛，当是之时，可汤熨及火灸刺而去之。弗治，病入舍于肺，名曰肺痹，发咳上气。弗治，肺即传而行之肝，病名曰肝痹，一名曰厥，胁痛出食，当是之时，可按若刺耳。弗治，肝传之脾，病名曰脾风，发瘅，腹中热，烦心出黄，当此之时，可按可药可浴。弗治，脾传之肾，病名曰疝瘕，少腹冤热而痛，出白，一名曰蛊，当此之时，可按可药。弗治，肾传之心，病筋脉相引而急，病名曰瘛，当此之时，可灸可药。弗治，满十日，法当死。肾因传之心，心即复反传而行之肺，发寒热，法当三岁死，此病之次也。然其卒发者，不必治于传，或其传化有不以次，不以次入者，忧恐悲喜怒，令不得以其次，故令人有大病矣。因而喜大虚则肾气乘矣，怒则肝气乘矣，悲则肺气乘矣，恐则脾气乘矣，忧则心气乘矣，此其道也。故病有五，五五二十五变，及其传化。传，乘之名也。大骨枯槁，大肉陷下，胸中气满，喘息不便，其气动形，期六月死，真藏脉见，乃予之期日。大骨枯槁，大肉陷下，胸中气满，喘息不便，内痛引肩项，期一月死，真藏见，乃予之期日。大骨枯槁，大肉陷下，胸中气满，喘息不便，内痛引肩项，身热，脱肉破<月囷>，真藏见，十月之内死。大骨枯槁，大肉陷下，肩髓内消，动作益衰，真藏来见，其一岁死，见其真藏，乃予之期日。大骨枯槁，大肉陷下，胸中气满，腹内痛，心中不便，肩项身热，破<月囷>脱肉，目匡陷，真藏见，目不见人，立死，其见人者，至其所不胜之时则死。急虚身中卒至，五藏绝闭，脉道不通，气不往来，譬于堕溺，不可为期。其脉绝不来，若人一息五六至，其形肉不脱，真藏虽不见，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>死也。真肝脉至，中外急，如循刀刃责责然，如按琴瑟弦，色青白不泽，毛折，乃死。真心脉至，坚而搏，如循薏苡子累累然，色赤黑不泽，毛折，乃死。真肺脉至，大而虚，如以毛羽中人肤，色白赤不泽，毛折，乃死。真肾脉至，搏而绝，如指弹石辟辟然，色黑黄不泽，毛折，乃死。真脾脉至，弱而乍数乍疏，色黄青不泽，毛折，乃死。诸真藏脉见者，皆死不治也。
+黄帝曰：见真藏曰死，何也？岐伯曰：五藏者皆禀气于胃，胃者五藏之本也。藏气者，不能自致于手太阴，必因于胃气，乃至于手太阴也。故五藏各以其时，自为而至于手太阴也。故邪气胜者，精气衰也；故病甚者，胃气不能与之俱至于手太阴，故真藏之气独见，独见者病胜藏也，故曰死。帝曰：善。黄帝曰：凡治病，察其形气色泽，脉之盛衰，病之新故，乃治之无后其时。形气相得，谓之可治；色泽以浮，谓之易已；脉从四时，谓之可治；脉弱以滑，是有胃气，命曰易治，取之以时。形气相失，谓之难治；色夭不泽，谓之难已；脉实以坚，谓之益甚；脉逆四时，为不可治。必察四难，而明告之。所谓逆四时者，春得肺脉，夏得肾脉，秋得心脉，冬得脾脉，其至皆悬绝沉涩者，命曰逆四时。未有藏形，于春夏而脉沉涩，秋冬而脉浮大，名曰逆四时也。病热脉静，泄而脉大，脱血而脉实，病在中脉实坚，病在外脉不实坚者，皆难治。
+黄帝曰：余闻虚实以决死生，愿闻其情。岐伯曰：五实死，五虚死。帝曰：愿闻五实五虚。岐伯曰：脉盛，皮热，腹胀，前后不通，闷瞀，此谓五实。脉细，皮寒，气少，泄利前后，饮食不入，此谓五虚。帝曰：其时有生者何也？岐伯曰：浆粥入胃，泄注止，则虚者活；身汗得后利，则实者活。此其候也。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic"></p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="./chapter18.html">← 第18章</a></li>
+            <li class="page-item disabled">
+                <span class="page-link">19 / 81</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="./chapter20.html">第20章 →</a></li>
+        </ul>
+    </nav>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 音乐音量控制面板 -->
+    <div class="volume-panel" id="volumePanel">
+        <div class="volume-panel-header">
+            <span>音量控制</span>
+            <button type="button" class="btn-close btn-close-white" id="closeVolumePanel"></button>
+        </div>
+        <div class="volume-panel-body">
+            <input type="range" class="form-range" id="volumeSlider" min="0" max="100" value="30">
+            <div class="volume-level">
+                <span id="volumeValue">30</span>%
+            </div>
+        </div>
+    </div>
+
+    <!-- 朗读控制面板 -->
+    <div class="speech-panel" id="speechPanel">
+        <div class="speech-panel-header">
+            <span>朗读设置</span>
+            <button type="button" class="btn-close btn-close-white" id="closeSpeechPanel"></button>
+        </div>
+        <div class="speech-panel-body">
+            <div class="speech-option mb-3">
+                <label class="form-label">朗读模式</label>
+                <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="speechMode" id="speechModeCurrent" value="current" checked>
+                    <label class="btn btn-outline-light" for="speechModeCurrent">当前章节</label>
+
+                    <input type="radio" class="btn-check" name="speechMode" id="speechModeAll" value="all">
+                    <label class="btn btn-outline-light" for="speechModeAll">连续朗读</label>
+                </div>
+            </div>
+            <div class="speech-option">
+                <label class="form-label">语速</label>
+                <input type="range" class="form-range" id="speechRate" min="50" max="150" value="80">
+                <div class="rate-level">
+                    <span id="rateValue">0.8</span>x
+                </div>
+            </div>
+            <div class="speech-status mt-3" id="speechStatus">
+                准备就绪
+            </div>
+        </div>
+    </div>
+
+    <!-- AI解读侧边栏 -->
+    <aside class="ai-sidebar" id="aiSidebar">
+        <div class="ai-sidebar-header">
+            <h6 class="ai-title">🤖 AI解读</h6>
+            <div class="ai-actions">
+                <button class="btn btn-sm btn-outline-light" id="aiNewChat" title="新对话">
+                    <span>➕</span>
+                </button>
+                <button class="btn btn-sm btn-outline-light" id="aiCloseSidebar" title="关闭">
+                    <span>✕</span>
+                </button>
+            </div>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-welcome">
+                <div class="ai-welcome-icon">🤖</div>
+                <h6>道德经AI助手</h6>
+                <p>您可以：</p>
+                <ul>
+                    <li>点击下方快捷问题开始</li>
+                    <li>或直接输入您的问题</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ai-suggestions">
+            <button class="ai-suggestion-btn">解释这一章的核心思想</button>
+            <button class="ai-suggestion-btn">这段话的哲学含义</button>
+            <button class="ai-suggestion-btn">如何在生活中应用</button>
+        </div>
+        <div class="ai-input-area">
+            <div class="ai-input-wrapper">
+                <textarea class="ai-input" id="aiInput" placeholder="输入您的问题..." rows="2"></textarea>
+                <button class="ai-send-btn" id="aiSendBtn">
+                    <span>📤</span>
+                </button>
+            </div>
+            <small class="ai-model-info">
+                模型: <span id="aiModelDisplay">自动检测</span>
+            </small>
+        </div>
+    </aside>
+
+    <!-- 设置面板 -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-panel-header">
+            <span>⚙️ 阅读设置</span>
+            <button type="button" class="btn-close btn-close-white" id="closeSettingsPanel"></button>
+        </div>
+        <div class="settings-panel-body">
+            <!-- 阅读模式 -->
+            <div class="setting-section">
+                <label class="setting-label">阅读模式</label>
+                <div class="setting-options">
+                    <button class="mode-btn active" data-mode="reading">
+                        <span class="mode-icon">📖</span>
+                        <span class="mode-text">阅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="zen">
+                        <span class="mode-icon">🧘</span>
+                        <span class="mode-text">禅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="recite">
+                        <span class="mode-icon">📝</span>
+                        <span class="mode-text">背诵</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 字体选择 -->
+            <div class="setting-section">
+                <label class="setting-label">字体选择</label>
+                <select class="form-select form-select-sm" id="fontSelect">
+                    <option value="default">系统默认</option>
+                    <option value="kaiti">楷体</option>
+                    <option value="songti">宋体</option>
+                    <option value="fangsong">仿宋</option>
+                    <option value="mingliu">明体</option>
+                    <option value="xkai">华文行楷</option>
+                </select>
+            </div>
+
+            <!-- 字体大小 -->
+            <div class="setting-section">
+                <label class="setting-label">字体大小</label>
+                <div class="font-size-control">
+                    <button class="size-btn" data-size="small">小</button>
+                    <button class="size-btn active" data-size="medium">中</button>
+                    <button class="size-btn" data-size="large">大</button>
+                </div>
+            </div>
+
+            <!-- 文字布局 -->
+            <div class="setting-section">
+                <label class="setting-label">文字布局</label>
+                <div class="setting-options">
+                    <button class="layout-btn active" data-layout="center">
+                        <span class="layout-icon">📍</span>
+                        <span class="layout-text">居中</span>
+                    </button>
+                    <button class="layout-btn" data-layout="left">
+                        <span class="layout-icon">⬅️</span>
+                        <span class="layout-text">靠左</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 背景音乐 -->
+            <div class="setting-section">
+                <label class="setting-label">背景音乐</label>
+                <select class="form-select form-select-sm mb-2" id="musicSelect">
+                    <option value="none">关闭</option>
+                    <option value="chinese">中国古典（古琴/琵琶）</option>
+                    <option value="western">西方古典（钢琴/小提琴）</option>
+                </select>
+                <div class="volume-control-inline">
+                    <span class="volume-label">音量</span>
+                    <input type="range" class="form-range form-range-sm" id="musicVolumeSlider" min="0" max="100" value="30">
+                    <span class="volume-value" id="musicVolumeValue">30%</span>
+                </div>
+            </div>
+
+            <!-- 显示选项 -->
+            <div class="setting-section">
+                <label class="setting-label">显示选项</label>
+                <div class="setting-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showPinyin" checked>
+                        <span>显示拼音</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showAnnotation" checked>
+                        <span>显示释义</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 版本选择 -->
+            <div class="setting-section">
+                <label class="setting-label">显示版本</label>
+                <div class="version-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showModern" checked>
+                        <span>白话译文</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showNotes" checked>
+                        <span>注解版本</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showEnglish">
+                        <span>英文译本</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- AI设置 -->
+            <div class="setting-section">
+                <label class="setting-label">AI API配置</label>
+                <input type="password" class="form-control form-control-sm mb-2" id="deepseekKey" placeholder="DeepSeek API Key (可选)">
+                <input type="password" class="form-control form-control-sm" id="openaiKey" placeholder="OpenAI API Key (可选)">
+                <small class="text-muted d-block mt-1">
+                    API Key仅存储在本地，不会上传服务器
+                </small>
+            </div>
+
+            <!-- 语音朗读设置 -->
+            <div class="setting-section">
+                <label class="setting-label">🎙️ 语音朗读设置</label>
+                <div class="mb-2">
+                    <label class="small text-muted">选择语音：</label>
+                    <select class="form-select form-select-sm" id="browserVoice">
+                        <option value="">正在加载可用语音...</option>
+                    </select>
+                    <small class="text-muted d-block">
+                        提示：Microsoft语音质量最佳，搜索"Microsoft"或"Chinese"
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/modules/sidebar.js"></script>
+    <script src="./assets/js/modules/music.js"></script>
+    <script src="./assets/js/modules/shortcuts.js"></script>
+    <script src="./assets/js/modules/pwa.js"></script>
+    <script src="./assets/js/modules/local-search.js"></script>
+    <script src="./assets/js/modules/notes.js"></script>
+    <script src="./assets/js/modules/quote-card.js"></script>
+    <script src="./assets/js/modules/knowledge-graph.js"></script>
+    <script src="./assets/js/modules/commentary-chat.js"></script>
+    <script src="./assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+
+// 成语标签悬停效果
+document.querySelectorAll('.idiom-tag').forEach(tag => {
+    tag.addEventListener('click', function() {
+        // 点击成语时显示详细信息（可选功能）
+        const meaning = this.getAttribute('title');
+        if (meaning) {
+            alert(meaning.replace(/&#10;/g, '\n'));
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

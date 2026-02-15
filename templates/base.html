@@ -425,12 +425,14 @@
                 <div class="modal-body text-center">
                     <p class="mb-3">如果这个平台对您有帮助，欢迎赞赏支持</p>
                     <div class="qr-codes-container">
-                        <div class="qr-code-item">
-                            <!-- 微信赞赏二维码 -->
-                            <img src="{{ url_for('static', filename='images/wechat-pay.jpg') }}"
-                                 alt="微信赞赏"
-                                 class="qr-code-img"
-                                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                         <div class="qr-code-item">
+                             <!-- 微信赞赏二维码 -->
+                             <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='%23ddd' width='100%25' height='100%25'/></svg>"
+                                  data-src="{{ url_for('static', filename='images/wechat-pay.jpg') }}"
+                                  alt="微信赞赏"
+                                  class="qr-code-img"
+                                  loading="lazy"
+                                  onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                             <div class="qr-placeholder" style="display:none">
                                 <svg width="120" height="120" viewBox="0 0 120 120">
                                     <rect fill="#07c160" width="120" height="120"/>
@@ -439,12 +441,14 @@
                             </div>
                             <small class="text-muted">微信赞赏</small>
                         </div>
-                        <div class="qr-code-item">
-                            <!-- 支付宝收款二维码 -->
-                            <img src="{{ url_for('static', filename='images/alipay.jpg') }}"
-                                 alt="支付宝"
-                                 class="qr-code-img"
-                                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                         <div class="qr-code-item">
+                             <!-- 支付宝收款二维码 -->
+                             <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='%23ddd' width='100%25' height='100%25'/></svg>"
+                                  data-src="{{ url_for('static', filename='images/alipay.jpg') }}"
+                                  alt="支付宝"
+                                  class="qr-code-img"
+                                  loading="lazy"
+                                  onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                             <div class="qr-placeholder" style="display:none">
                                 <svg width="120" height="120" viewBox="0 0 120 120">
                                     <rect fill="#1677ff" width="120" height="120"/>
@@ -469,12 +473,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <p class="mb-3">扫码加入《道德经》阅读交流群</p>
-                    <!-- 替换 src 为真实微信群二维码 -->
-                    <img src="{{ url_for('static', filename='images/wechat-group.png') }}"
-                         alt="微信群"
-                         class="qr-code-img-large"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                     <p class="mb-3">扫码加入《道德经》阅读交流群</p>
+                     <!-- 替换 src 为真实微信群二维码 -->
+                     <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='%23ddd' width='100%25' height='100%25'/></svg>"
+                          data-src="{{ url_for('static', filename='images/wechat-group.png') }}"
+                          alt="微信群"
+                          class="qr-code-img-large"
+                          loading="lazy"
+                          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                     <div class="qr-placeholder-large" style="display:none">
                         <svg width="200" height="200" viewBox="0 0 200 200">
                             <rect fill="#6c757d" width="200" height="200"/>
@@ -626,20 +632,49 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- 自定义模块 -->
-    <script src="{{ url_for('static', filename='js/modules/theme.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/sidebar.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/music.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/shortcuts.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/pwa.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/local-search.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/notes.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/quote-card.js') }}"></script>
+     <!-- 自定义模块 - 延迟加载优化 -->
+     <!-- 关键模块立即加载 -->
+     <script src="{{ url_for('static', filename='js/modules/theme.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/modules/sidebar.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/modules/music.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/modules/shortcuts.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/modules/pwa.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/modules/local-search.js') }}"></script>
 
-    <!-- AI创新功能模块 -->
-    <script src="{{ url_for('static', filename='js/modules/knowledge-graph.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/commentary-chat.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/modules/philosophy-dialogue.js') }}"></script>
+     <!-- 懒加载模块 -->
+     <script src="{{ url_for('static', filename='js/modules/lazy-load.js') }}"></script>
+
+     <!-- 非关键模块延迟加载 -->
+     <script>
+         // 延迟加载非关键模块
+         if ('requestIdleCallback' in window) {
+             requestIdleCallback(() => {
+                 importJsModule('{{ url_for('static', filename='js/modules/notes.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/quote-card.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/knowledge-graph.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/commentary-chat.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/philosophy-dialogue.js') }}');
+             }, { timeout: 2000 });
+         } else {
+             // 降级方案：延迟加载
+             setTimeout(() => {
+                 importJsModule('{{ url_for('static', filename='js/modules/notes.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/quote-card.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/knowledge-graph.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/commentary-chat.js') }}');
+                 importJsModule('{{ url_for('static', filename='js/modules/philosophy-dialogue.js') }}');
+             }, 100);
+         }
+
+         function importJsModule(src) {
+             const script = document.createElement('script');
+             script.src = src;
+             script.async = true;
+             document.head.appendChild(script);
+         }
+     </script>
+
+     <!-- AI创新功能模块 - 按需加载 -->
 
     <!-- 经典配置注入 -->
     <script>

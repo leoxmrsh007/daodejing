@@ -1,75 +1,6 @@
-/**
- * 跨文明哲学对话模块
- * 让老子与西方、印度哲学家进行对话
- */
-
-const PhilosophyDialogueManager = {
-    philosophers: null,
-    currentDialogue: null,
-    currentChapter: null,
-
-    init() {
-        this.dialogueBtn = document.getElementById('philosophyDialogueBtn');
-        if (!this.dialogueBtn) return;
-
-        this.dialogueBtn.addEventListener('click', () => this.openDialogueModal());
-    },
-
-    getCurrentChapter() {
-        const breadcrumb = document.querySelector('.breadcrumb .active');
-        if (breadcrumb) {
-            const match = breadcrumb.textContent.match(/第(\d+)章/);
-            return match ? parseInt(match[1]) : null;
-        }
-        return null;
-    },
-
-    async openDialogueModal() {
-        this.currentChapter = this.getCurrentChapter();
-        if (!this.currentChapter) return;
-
-        // 确保模态框存在
-        this.ensureModalExists();
-
-        // 加载哲学家列表
-        await this.loadPhilosophers();
-
-        // 显示模态框
-        const modal = document.getElementById('philosophyDialogueModal');
-        const bsModal = new bootstrap.Modal(modal);
-        bsModal.show();
-    },
-
-    async loadPhilosophers() {
-        try {
-            const response = await fetch('/api/dialogue/philosophers');
-            const data = await response.json();
-            this.philosophers = data.philosophers;
-        } catch (error) {
-            console.error('[PhilosophyDialogue] 加载哲学家失败:', error);
-            this.philosophers = this.getMockPhilosophers();
-        }
-
-        this.renderPhilosopherSelector();
-    },
-
-    getMockPhilosophers() {
-        return [
-            { id: 'zhuangzi', name: '庄子', culture: '中国', era: '战国中期', school: '道家' },
-            { id: 'plato', name: '柏拉图', culture: '古希腊', era: '古典时期', school: '理念论' },
-            { id: 'heidegger', name: '海德格尔', culture: '德国', era: '现代', school: '存在主义' },
-            { id: 'nagarjuna', name: '龙树', culture: '印度', era: '中世纪', school: '中观派' }
-        ];
-    },
-
-    ensureModalExists() {
-        let modal = document.getElementById('philosophyDialogueModal');
-
-        if (!modal) {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const modalClass = isDark ? 'bg-dark text-light border-secondary' : '';
-
-            const modalHtml = `
+const PhilosophyDialogueManager={philosophers:null,currentDialogue:null,currentChapter:null,init(){this.dialogueBtn=document.getElementById('philosophyDialogueBtn');if(!this.dialogueBtn)return;this.dialogueBtn.addEventListener('click',()=>this.openDialogueModal());},getCurrentChapter(){const breadcrumb=document.querySelector('.breadcrumb .active');if(breadcrumb){const match=breadcrumb.textContent.match(/第(\d+)章/);return match?parseInt(match[1]):null;}
+return null;},async openDialogueModal(){this.currentChapter=this.getCurrentChapter();if(!this.currentChapter)return;this.ensureModalExists();await this.loadPhilosophers();const modal=document.getElementById('philosophyDialogueModal');const bsModal=new bootstrap.Modal(modal);bsModal.show();},async loadPhilosophers(){try{const response=await fetch('/api/dialogue/philosophers');const data=await response.json();this.philosophers=data.philosophers;}catch(error){console.error('[PhilosophyDialogue] 加载哲学家失败:',error);this.philosophers=this.getMockPhilosophers();}
+this.renderPhilosopherSelector();},getMockPhilosophers(){return[{id:'zhuangzi',name:'庄子',culture:'中国',era:'战国中期',school:'道家'},{id:'plato',name:'柏拉图',culture:'古希腊',era:'古典时期',school:'理念论'},{id:'heidegger',name:'海德格尔',culture:'德国',era:'现代',school:'存在主义'},{id:'nagarjuna',name:'龙树',culture:'印度',era:'中世纪',school:'中观派'}];},ensureModalExists(){let modal=document.getElementById('philosophyDialogueModal');if(!modal){const isDark=document.documentElement.getAttribute('data-theme')==='dark';const modalClass=isDark?'bg-dark text-light border-secondary':'';const modalHtml=`
                 <div class="modal fade" id="philosophyDialogueModal" tabindex="-1">
                     <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content ${modalClass}" style="border: none;">
@@ -186,125 +117,14 @@ const PhilosophyDialogueManager = {
                         </div>
                     </div>
                 </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-            modal = document.getElementById('philosophyDialogueModal');
-
-            // 绑定事件
-            modal.querySelector('#startDialogueBtn').addEventListener('click', () => this.startDialogue());
-        }
-    },
-
-    renderPhilosopherSelector() {
-        const select1 = document.getElementById('philosopher1Select');
-        const select2 = document.getElementById('philosopher2Select');
-
-        if (!select1 || !select2 || !this.philosophers) return;
-
-        const options = this.philosophers.map(p =>
-            `<option value="${p.id}">${p.name}（${p.culture}·${p.school}）</option>`
-        ).join('');
-
-        select1.innerHTML = '<option value="">请选择...</option>' + options;
-        select2.innerHTML = '<option value="">请选择...</option>' + options;
-
-        // 默认选择
-        select1.value = 'zhuangzi';
-        select2.value = 'plato';
-
-        // 渲染快速对比选项
-        this.renderQuickCompare();
-    },
-
-    renderQuickCompare() {
-        const container = document.getElementById('quickCompare');
-        if (!container || !this.philosophers) return;
-
-        // 生成一些有趣的对比组合
-        const comparisons = [
-            { label: '道 vs Sein（存在）', p1: 'zhuangzi', p2: 'heidegger', topic: '道' },
-            { label: '道 vs Brahman（梵）', p1: 'zhuangzi', p2: 'nagarjuna', topic: '道' },
-            { label: '无为 vs Apatheia', p1: 'zhuangzi', p2: 'plato', topic: '无为' },
-            { label: '空性 vs 虚无', p1: 'nagarjuna', p2: 'heidegger', topic: '无' }
-        ];
-
-        container.innerHTML = comparisons.map((c, i) => `
+            `;document.body.insertAdjacentHTML('beforeend',modalHtml);modal=document.getElementById('philosophyDialogueModal');modal.querySelector('#startDialogueBtn').addEventListener('click',()=>this.startDialogue());}},renderPhilosopherSelector(){const select1=document.getElementById('philosopher1Select');const select2=document.getElementById('philosopher2Select');if(!select1||!select2||!this.philosophers)return;const options=this.philosophers.map(p=>`<option value="${p.id}">${p.name}（${p.culture}·${p.school}）</option>`).join('');select1.innerHTML='<option value="">请选择...</option>'+options;select2.innerHTML='<option value="">请选择...</option>'+options;select1.value='zhuangzi';select2.value='plato';this.renderQuickCompare();},renderQuickCompare(){const container=document.getElementById('quickCompare');if(!container||!this.philosophers)return;const comparisons=[{label:'道 vs Sein（存在）',p1:'zhuangzi',p2:'heidegger',topic:'道'},{label:'道 vs Brahman（梵）',p1:'zhuangzi',p2:'nagarjuna',topic:'道'},{label:'无为 vs Apatheia',p1:'zhuangzi',p2:'plato',topic:'无为'},{label:'空性 vs 虚无',p1:'nagarjuna',p2:'heidegger',topic:'无'}];container.innerHTML=comparisons.map((c,i)=>`
             <button class="list-group-item list-group-item-action quick-compare-btn" data-idx="${i}">
                 <small>${c.label}</small>
             </button>
-        `).join('');
-
-        container.querySelectorAll('.quick-compare-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const cmp = comparisons[btn.dataset.idx];
-                document.getElementById('philosopher1Select').value = cmp.p1;
-                document.getElementById('philosopher2Select').value = cmp.p2;
-                document.getElementById('dialogueTopic').value = cmp.topic;
-                this.startDialogue();
-            });
-        });
-    },
-
-    async startDialogue() {
-        const philosopher1 = document.getElementById('philosopher1Select').value;
-        const philosopher2 = document.getElementById('philosopher2Select').value;
-        const topic = document.getElementById('dialogueTopic').value;
-
-        if (!philosopher1 || !philosopher2) {
-            this.showToast('请选择两位哲学家', 'warning');
-            return;
-        }
-
-        if (philosopher1 === philosopher2) {
-            this.showToast('请选择两位不同的哲学家', 'warning');
-            return;
-        }
-
-        // 显示加载状态
-        document.getElementById('dialogueWelcome').style.display = 'none';
-        document.getElementById('dialogueLoading').style.display = 'block';
-        document.getElementById('dialogueArea').style.display = 'none';
-
-        try {
-            const response = await fetch('/api/dialogue/start', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chapter_id: this.currentChapter || 1,
-                    concept: topic,
-                    philosopher1: philosopher1,
-                    philosopher2: philosopher2
-                })
-            });
-
-            const data = await response.json();
-
-            // 隐藏加载状态
-            document.getElementById('dialogueLoading').style.display = 'none';
-
-            if (data.error) {
-                document.getElementById('dialogueArea').style.display = 'block';
-                document.getElementById('dialogueArea').innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
-                return;
-            }
-
-            this.currentDialogue = data;
-            this.renderDialogue(data);
-
-        } catch (error) {
-            console.error('[PhilosophyDialogue] 启动对话失败:', error);
-            document.getElementById('dialogueLoading').style.display = 'none';
-            this.renderOfflineDialogue(philosopher1, philosopher2, topic);
-        }
-    },
-
-    renderDialogue(data) {
-        const dialogueArea = document.getElementById('dialogueArea');
-
-        const p1 = data.participant1;
-        const p2 = data.participant2;
-
-        dialogueArea.innerHTML = `
+        `).join('');container.querySelectorAll('.quick-compare-btn').forEach(btn=>{btn.addEventListener('click',()=>{const cmp=comparisons[btn.dataset.idx];document.getElementById('philosopher1Select').value=cmp.p1;document.getElementById('philosopher2Select').value=cmp.p2;document.getElementById('dialogueTopic').value=cmp.topic;this.startDialogue();});});},async startDialogue(){const philosopher1=document.getElementById('philosopher1Select').value;const philosopher2=document.getElementById('philosopher2Select').value;const topic=document.getElementById('dialogueTopic').value;if(!philosopher1||!philosopher2){this.showToast('请选择两位哲学家','warning');return;}
+if(philosopher1===philosopher2){this.showToast('请选择两位不同的哲学家','warning');return;}
+document.getElementById('dialogueWelcome').style.display='none';document.getElementById('dialogueLoading').style.display='block';document.getElementById('dialogueArea').style.display='none';try{const response=await fetch('/api/dialogue/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chapter_id:this.currentChapter||1,concept:topic,philosopher1:philosopher1,philosopher2:philosopher2})});const data=await response.json();document.getElementById('dialogueLoading').style.display='none';if(data.error){document.getElementById('dialogueArea').style.display='block';document.getElementById('dialogueArea').innerHTML=`<div class="alert alert-danger">${data.error}</div>`;return;}
+this.currentDialogue=data;this.renderDialogue(data);}catch(error){console.error('[PhilosophyDialogue] 启动对话失败:',error);document.getElementById('dialogueLoading').style.display='none';this.renderOfflineDialogue(philosopher1,philosopher2,topic);}},renderDialogue(data){const dialogueArea=document.getElementById('dialogueArea');const p1=data.participant1;const p2=data.participant2;dialogueArea.innerHTML=`
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5>${data.topic}</h5>
                 <button class="btn btn-sm btn-outline-secondary" id="addExchangeBtn">
@@ -345,22 +165,7 @@ const PhilosophyDialogueManager = {
                     <!-- 概念对应关系 -->
                 </div>
             </div>
-        `;
-
-        // 绑定继续对话按钮
-        dialogueArea.querySelector('#addExchangeBtn')?.addEventListener('click', () => {
-            this.continueDialogue();
-        });
-    },
-
-    renderOfflineDialogue(p1, p2, topic) {
-        const dialogueArea = document.getElementById('dialogueArea');
-        dialogueArea.style.display = 'block';
-
-        const p1Info = this.philosophers.find(p => p.id === p1);
-        const p2Info = this.philosophers.find(p => p.id === p2);
-
-        dialogueArea.innerHTML = `
+        `;dialogueArea.querySelector('#addExchangeBtn')?.addEventListener('click',()=>{this.continueDialogue();});},renderOfflineDialogue(p1,p2,topic){const dialogueArea=document.getElementById('dialogueArea');dialogueArea.style.display='block';const p1Info=this.philosophers.find(p=>p.id===p1);const p2Info=this.philosophers.find(p=>p.id===p2);dialogueArea.innerHTML=`
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="text-warning">关于「${topic}」的跨文明对话</h5>
                 <button class="btn btn-sm btn-outline-warning" id="backToWelcomeBtn">
@@ -402,58 +207,10 @@ const PhilosophyDialogueManager = {
                 <strong>💡 提示</strong>：部署到Vercel后可获得完整的跨文明AI对话体验。
                 当前展示的是离线预览模式。
             </div>
-        `;
-
-        // 绑定返回按钮
-        dialogueArea.querySelector('#backToWelcomeBtn')?.addEventListener('click', () => {
-            dialogueArea.style.display = 'none';
-            document.getElementById('dialogueWelcome').style.display = 'block';
-        });
-    },
-
-    async continueDialogue() {
-        if (!this.currentDialogue) return;
-
-        // 这里可以调用AI继续生成对话
-        this.showToast('继续对话功能需要配置AI API', 'info');
-    },
-
-    showToast(message, type = 'info') {
-        const toast = document.createElement('div');
-        toast.className = `toast align-items-center text-white bg-${type} border-0`;
-        toast.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1100;';
-        toast.innerHTML = `
+        `;dialogueArea.querySelector('#backToWelcomeBtn')?.addEventListener('click',()=>{dialogueArea.style.display='none';document.getElementById('dialogueWelcome').style.display='block';});},async continueDialogue(){if(!this.currentDialogue)return;this.showToast('继续对话功能需要配置AI API','info');},showToast(message,type='info'){const toast=document.createElement('div');toast.className=`toast align-items-center text-white bg-${type} border-0`;toast.style.cssText='position: fixed; bottom: 20px; right: 20px; z-index: 1100;';toast.innerHTML=`
             <div class="d-flex">
                 <div class="toast-body">${message}</div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
-        `;
-        document.body.appendChild(toast);
-
-        const bsToast = new bootstrap.Toast(toast, { delay: 2000 });
-        bsToast.show();
-
-        toast.addEventListener('hidden.bs.toast', () => {
-            toast.remove();
-        });
-    }
-};
-
-// 导出模块
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = PhilosophyDialogueManager;
-}
-
-// 自动初始化 - 使用事件委托
-if (typeof window !== 'undefined') {
-    window.PhilosophyDialogueManager = PhilosophyDialogueManager;
-
-    // 使用事件委托，确保即使按钮是动态创建的也能工作
-    document.addEventListener('click', function(e) {
-        const btn = e.target.closest('#philosophyDialogueBtn');
-        if (btn) {
-            e.preventDefault();
-            PhilosophyDialogueManager.openDialogueModal();
-        }
-    });
-}
+        `;document.body.appendChild(toast);const bsToast=new bootstrap.Toast(toast,{delay:2000});bsToast.show();toast.addEventListener('hidden.bs.toast',()=>{toast.remove();});}};if(typeof module!=='undefined'&&module.exports){module.exports=PhilosophyDialogueManager;}
+if(typeof window!=='undefined'){window.PhilosophyDialogueManager=PhilosophyDialogueManager;document.addEventListener('click',function(e){const btn=e.target.closest('#philosophyDialogueBtn');if(btn){e.preventDefault();PhilosophyDialogueManager.openDialogueModal();}});}
