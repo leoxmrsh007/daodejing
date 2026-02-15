@@ -3,12 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>六微旨大论篇 - 黄帝内经 - 道德经</title>
-    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <title>六微旨大论篇 - 黄帝内经</title>
+    <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
     <style>
+/* 经典切换下拉菜单样式 */
+.classic-dropdown {
+    min-width: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.classic-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #fff;
+}
+.classic-dropdown .dropdown-item:hover,
+.classic-dropdown .dropdown-item.active {
+    background: rgba(255,255,255,0.1);
+}
+.classic-icon {
+    width: 24px;
+    text-align: center;
+    margin-right: 8px;
+}
+.classic-name {
+    flex: 1;
+}
+.classic-info {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    margin-left: 8px;
+}
+/* 设置按钮与功能栏并置 */
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.navbar-nav .btn {
+    white-space: nowrap;
+}
 
 .original-text {
     font-family: 'KaiTi', '楷体', serif;
@@ -106,17 +147,101 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <!-- 顶部导航栏 - 悬浮置顶 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="z-index: 1040;">
         <div class="container-fluid">
             <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="./index.html">
-                <span class="brand-icon">☯</span>
-                <span class="brand-text">道德经</span>
+                <span class="brand-icon">🌿</span>
+                <span class="brand-text">黄帝内经</span>
             </a>
-            <span class="navbar-text ms-3 d-none d-md-block">六微旨大论篇</span>
-            <div class="ms-auto d-flex align-items-center gap-2">
+            
+            <!-- 经典切换器 -->
+            
+    <!-- 经典切换器 - 下拉菜单 -->
+    <div class="classic-nav ms-2 me-auto">
+        <div class="dropdown">
+            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="me-1">🌿</span>
+                <span class="d-none d-sm-inline">黄帝内经</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
+                <li><h6 class="dropdown-header">📚 选择经典</h6></li>
+                
+        <li>
+            <a class="dropdown-item " href="../ddj/index.html">
+                <span class="classic-icon">☯</span>
+                <span class="classic-name">道德经</span>
+                <span class="classic-info">81章 · 老子</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../zzj/index.html">
+                <span class="classic-icon">🦋</span>
+                <span class="classic-name">庄子</span>
+                <span class="classic-info">33章 · 庄周</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item active" href="../hdnj/index.html">
+                <span class="classic-icon">🌿</span>
+                <span class="classic-name">黄帝内经</span>
+                <span class="classic-info">81章 · 黄帝</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../jgj/index.html">
+                <span class="classic-icon">💎</span>
+                <span class="classic-name">金刚经</span>
+                <span class="classic-info">32章 · 鸠摩罗什译</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../lztyj/index.html">
+                <span class="classic-icon">🪷</span>
+                <span class="classic-name">六祖坛经</span>
+                <span class="classic-info">10章 · 慧能</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../ws30/index.html">
+                <span class="classic-icon">🧘</span>
+                <span class="classic-name">唯识三十颂</span>
+                <span class="classic-info">30章 · 世亲</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../zy/index.html">
+                <span class="classic-icon">☯</span>
+                <span class="classic-name">周易</span>
+                <span class="classic-info">64章 · 文王、周公</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../ss/index.html">
+                <span class="classic-icon">📚</span>
+                <span class="classic-name">四书</span>
+                <span class="classic-info">4章 · 朱熹</span>
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item " href="../cxl/index.html">
+                <span class="classic-icon">📖</span>
+                <span class="classic-name">传习录</span>
+                <span class="classic-info">3章 · 王阳明</span>
+            </a>
+        </li>
+            </ul>
+        </div>
+    </div>
+    
+            
+            <span class="navbar-text ms-2 d-none d-md-block">六微旨大论篇</span>
+            
+            <!-- 设置栏和功能栏并置 -->
+            <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
                 <!-- 音乐控制 -->
                 <div class="music-controls d-flex align-items-center">
                     <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">

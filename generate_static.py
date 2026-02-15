@@ -39,6 +39,62 @@ def load_idioms():
         return []
 
 
+# 加载所有经典元数据（全局缓存）
+_ALL_CLASSICS = None
+
+
+def get_all_classics():
+    """获取所有经典元数据（带缓存）"""
+    global _ALL_CLASSICS
+    if _ALL_CLASSICS is None:
+        _ALL_CLASSICS = load_classics_metadata()
+    return _ALL_CLASSICS
+
+
+def generate_classic_switcher_html(current_classic_id):
+    """生成经典切换导航HTML"""
+    classics = get_all_classics().get("classics", [])
+    if not classics:
+        return ""
+
+    items = []
+    for c in classics:
+        is_active = c["id"] == current_classic_id
+        active_class = "active" if is_active else ""
+        # 计算相对路径
+        path_prefix = "../" + c["id"] + "/" if current_classic_id else "./"
+        items.append(f'''
+        <li>
+            <a class="dropdown-item {active_class}" href="{path_prefix}index.html">
+                <span class="classic-icon">{c.get("icon", "☯")}</span>
+                <span class="classic-name">{c["short_name"]}</span>
+                <span class="classic-info">{c.get("chapters", 0)}章 · {c.get("author", "")}</span>
+            </a>
+        </li>''')
+
+    current_classic = next((c for c in classics if c["id"] == current_classic_id), None)
+    current_icon = current_classic.get("icon", "☯") if current_classic else "☯"
+    current_name = (
+        current_classic.get("short_name", "经典") if current_classic else "经典"
+    )
+
+    return f"""
+    <!-- 经典切换器 - 下拉菜单 -->
+    <div class="classic-nav ms-2 me-auto">
+        <div class="dropdown">
+            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="me-1">{current_icon}</span>
+                <span class="d-none d-sm-inline">{current_name}</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
+                <li><h6 class="dropdown-header">📚 选择经典</h6></li>
+                {"".join(items)}
+            </ul>
+        </div>
+    </div>
+    """
+
+
 # ==================== HTML 模板 ====================
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -46,27 +102,75 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} - 道德经</title>
-    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <title>{title}</title>
+    <meta name="description" content="{classic_name}多版本对照平台 - {classic_desc}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{classic_icon}</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
     <style>
+/* 经典切换下拉菜单样式 */
+.classic-dropdown {{
+    min-width: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
+}}
+.classic-dropdown .dropdown-item {{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #fff;
+}}
+.classic-dropdown .dropdown-item:hover,
+.classic-dropdown .dropdown-item.active {{
+    background: rgba(255,255,255,0.1);
+}}
+.classic-icon {{
+    width: 24px;
+    text-align: center;
+    margin-right: 8px;
+}}
+.classic-name {{
+    flex: 1;
+}}
+.classic-info {{
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    margin-left: 8px;
+}}
+/* 设置按钮与功能栏并置 */
+.navbar-nav {{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}}
+.navbar-nav .btn {{
+    white-space: nowrap;
+}}
 {extra_css}
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <!-- 顶部导航栏 - 悬浮置顶 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="z-index: 1040;">
         <div class="container-fluid">
             <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="./index.html">
-                <span class="brand-icon">☯</span>
-                <span class="brand-text">道德经</span>
+                <span class="brand-icon">{classic_icon}</span>
+                <span class="brand-text">{classic_short_name}</span>
             </a>
-            <span class="navbar-text ms-3 d-none d-md-block">{page_title}</span>
-            <div class="ms-auto d-flex align-items-center gap-2">
+            
+            <!-- 经典切换器 -->
+            {classic_switcher}
+            
+            <span class="navbar-text ms-2 d-none d-md-block">{page_title}</span>
+            
+            <!-- 设置栏和功能栏并置 -->
+            <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
                 <!-- 音乐控制 -->
                 <div class="music-controls d-flex align-items-center">
                     <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
@@ -677,9 +781,26 @@ def generate_index_page(data, classic_meta):
 
     extra_css = INDEX_EXTRA_CSS.replace("#d4a574", color)
 
+    # 生成经典切换器
+    classic_switcher = generate_classic_switcher_html(classic_id)
+
+    # 构建经典描述
+    classic_desc_parts = []
+    if classic_id == "ddj":
+        classic_desc = "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
+    elif classic_id == "zzj":
+        classic_desc = "成玄英疏 · 郭象注 · 王夫之"
+    else:
+        classic_desc = f"{classic_meta.get('author', '')}著 · {short_name}"
+
     html = HTML_TEMPLATE.format(
         title=f"{short_name} - 多版本对照平台",
         page_title="首页",
+        classic_name=short_name,
+        classic_icon=icon,
+        classic_short_name=short_name,
+        classic_desc=classic_desc,
+        classic_switcher=classic_switcher,
         extra_css=extra_css,
         chapter_list=chapter_list,
         content=content,
@@ -714,9 +835,25 @@ def generate_all_chapters_page(data, classic_meta):
     </div>
 """
 
+    # 生成经典切换器
+    classic_switcher = generate_classic_switcher_html(classic_id)
+
+    # 构建经典描述
+    if classic_id == "ddj":
+        classic_desc = "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
+    elif classic_id == "zzj":
+        classic_desc = "成玄英疏 · 郭象注 · 王夫之"
+    else:
+        classic_desc = f"{classic_meta.get('author', '')}著 · {short_name}"
+
     html = HTML_TEMPLATE.format(
         title=f"全部章节 - {short_name}",
         page_title="全部章节",
+        classic_name=short_name,
+        classic_icon=classic_meta.get("icon", "☯"),
+        classic_short_name=short_name,
+        classic_desc=classic_desc,
+        classic_switcher=classic_switcher,
         extra_css=INDEX_EXTRA_CSS,
         chapter_list=chapter_list,
         content=content,
@@ -915,9 +1052,25 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
 
     extra_css = CHAPTER_EXTRA_CSS.replace("#d4a574", color)
 
+    # 生成经典切换器
+    classic_switcher = generate_classic_switcher_html(classic_id)
+
+    # 构建经典描述
+    if classic_id == "ddj":
+        classic_desc = "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
+    elif classic_id == "zzj":
+        classic_desc = "成玄英疏 · 郭象注 · 王夫之"
+    else:
+        classic_desc = f"{classic_meta.get('author', '')}著 · {short_name}"
+
     html = HTML_TEMPLATE.format(
         title=f"{ch_title} - {short_name}",
         page_title=ch_title,
+        classic_name=short_name,
+        classic_icon=classic_meta.get("icon", "☯"),
+        classic_short_name=short_name,
+        classic_desc=classic_desc,
+        classic_switcher=classic_switcher,
         extra_css=extra_css,
         chapter_list=chapter_list,
         content=content,

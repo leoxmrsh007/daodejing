@@ -85,13 +85,22 @@
       "id": "jgj",
       "name": "金刚经",
       "short_name": "金刚经",
-      "author": "达摩祖师传译",
-      "era": "后秦至北魏",
-      "chapters": 1,
+      "author": "鸠摩罗什译",
+      "era": "后秦",
+      "chapters": 32,
       "data_file": "data/jgj/chapters.json",
       "icon": "💎",
       "color": "#e07a5f",
-      "description": "大乘佛教核心经典，阐述空性智慧与般若波罗蜜多心要"
+      "description": "大乘佛教核心经典，阐述空性智慧与般若波罗蜜多心要",
+      "commentators": [
+        {"id": "kongzi", "name": "孔子注", "era": "春秋"},
+        {"id": "zhuanshi", "name": "传大士颂", "era": "南朝梁"}
+      ],
+      "translators": [
+        {"id": "kumarajiva", "name": "鸠摩罗什", "lang": "zh"},
+        {"id": "xuanzang", "name": "玄奘", "lang": "zh"},
+        {"id": "redpine", "name": "Bill Porter", "lang": "en"}
+      ]
     },
     {
       "id": "lztyj",
