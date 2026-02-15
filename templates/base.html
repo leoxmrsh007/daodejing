@@ -63,17 +63,29 @@
                 <span class="brand-text">{{ classic.short_name if classic else '道德经' }}</span>
             </a>
 
-            <!-- 经典切换器 - 并列显示 -->
+            <!-- 经典切换器 - 下拉菜单 -->
             {% if all_classics and all_classics.classics %}
-            <div class="classic-nav ms-2 d-flex gap-1">
-                {% for c in all_classics.classics %}
-                <a class="btn btn-sm {{ 'btn-light' if (classic and classic.id == c.id) or (not classic and c.id == 'ddj') else 'btn-outline-light' }}"
-                   href="{{ url_for('pages.classic_index', classic_id=c.id) }}"
-                   title="{{ c.name }} - {{ c.chapters }}{{ '篇' if c.id == 'zzj' else '章' }}">
-                    <span class="me-1">{{ c.icon }}</span>
-                    <span class="d-none d-md-inline">{{ c.short_name }}</span>
-                </a>
-                {% endfor %}
+            <div class="classic-nav ms-2">
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="me-1">{{ classic.icon if classic else '☯' }}</span>
+                        <span class="d-none d-sm-inline">{{ classic.short_name if classic else '道德经' }}</span>
+                        <span class="badge bg-light text-primary ms-1">{{ classic.chapters if classic else 81 }}{{ '篇' if classic and classic.id == 'zzj' else '章' }}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
+                        <li><h6 class="dropdown-header">📚 选择经典</h6></li>
+                        {% for c in all_classics.classics %}
+                        <li>
+                            <a class="dropdown-item {{ 'active' if (classic and classic.id == c.id) or (not classic and c.id == 'ddj') }}"
+                               href="{{ url_for('pages.classic_index', classic_id=c.id) }}">
+                                <span class="classic-icon">{{ c.icon }}</span>
+                                <span class="classic-name">{{ c.name }}</span>
+                                <span class="classic-info">{{ c.chapters }}{{ '篇' if c.id == 'zzj' else '章' }} · {{ c.author }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
             {% endif %}
 
@@ -535,7 +547,27 @@
             <!-- 左侧目录栏 -->
             <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
                 <div class="sidebar-content">
-                    <h6 class="sidebar-title">目录</h6>
+                    <!-- 经典快速切换 -->
+                    {% if all_classics and all_classics.classics %}
+                    <div class="sidebar-classic-switch">
+                        <div class="classic-switch-title">📚 经典切换</div>
+                        <div class="sidebar-classic-grid">
+                            {% for c in all_classics.classics %}
+                            <a class="sidebar-classic-item {{ 'active' if (classic and classic.id == c.id) or (not classic and c.id == 'ddj') }}"
+                               href="{{ url_for('pages.classic_index', classic_id=c.id) }}"
+                               title="{{ c.name }} - {{ c.author }}">
+                                <span class="sidebar-classic-icon">{{ c.icon }}</span>
+                                <span class="sidebar-classic-name">{{ c.short_name }}</span>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <h6 class="sidebar-title">
+                        📑 {{ classic.short_name if classic else '古籍' }}目录
+                        <span class="float-end badge bg-secondary">{{ data.chapters|length if data and data.chapters else 0 }}</span>
+                    </h6>
                     <div class="chapter-list" id="chapterList">
                         <nav class="nav flex-column">
                             {% set chapter_endpoint = 'pages.daodejing_chapter_view' if classic and classic.id == 'ddj' else 'pages.chapter_view' %}
