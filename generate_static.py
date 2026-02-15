@@ -706,6 +706,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script src="./assets/js/modules/knowledge-graph.js"></script>
     <script src="./assets/js/modules/commentary-chat.js"></script>
     <script src="./assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="./assets/js/modules/settings.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
 {extra_js}
