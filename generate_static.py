@@ -63,14 +63,16 @@ def generate_classic_switcher_html(current_classic_id):
         active_class = "active" if is_active else ""
         # 计算相对路径
         path_prefix = "../" + c["id"] + "/" if current_classic_id else "./"
-        items.append(f'''
+        items.append(
+            f"""
         <li>
             <a class="dropdown-item {active_class}" href="{path_prefix}index.html">
                 <span class="classic-icon">{c.get("icon", "☯")}</span>
                 <span class="classic-name">{c["short_name"]}</span>
                 <span class="classic-info">{c.get("chapters", 0)}章 · {c.get("author", "")}</span>
             </a>
-        </li>''')
+        </li>"""
+        )
 
     current_classic = next((c for c in classics if c["id"] == current_classic_id), None)
     current_icon = current_classic.get("icon", "☯") if current_classic else "☯"
@@ -287,12 +289,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <span class="brand-icon">{classic_icon}</span>
                 <span class="brand-text">{classic_short_name}</span>
             </a>
-            
+
             <!-- 经典切换器 -->
             {classic_switcher}
-            
+
             <span class="navbar-text ms-2 d-none d-md-block">{page_title}</span>
-            
+
             <!-- 设置栏和功能栏并置 -->
             <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
                 <!-- 音乐控制 -->

@@ -1,9 +1,6 @@
 {
   "version": 2,
   "public": true,
-  "buildCommand": "python generate_static.py",
-  "outputDirectory": "dist",
-  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
