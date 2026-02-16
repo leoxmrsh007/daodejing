@@ -85,7 +85,6 @@ vercel-live-feedback,
 .english-translation { display: none !important; }
 
 /* ===== 阅读模式 ===== */
-.mode-reading { /* 默认阅读模式 */ }
 .mode-zen { background: #1a1a1a !important; }
 .mode-zen .main-content { max-width: 800px; margin: 0 auto; }
 .mode-recite .original-text { font-size: 1.5rem !important; font-weight: 600 !important; }

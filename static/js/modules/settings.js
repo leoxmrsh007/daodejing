@@ -7,6 +7,10 @@
         // 从URL参数恢复设置
         loadSettingsFromUrl();
 
+        if (window.SettingsManager && typeof window.SettingsManager.init === 'function') {
+            return;
+        }
+
         initSettingsPanel();
         initFunctionButtons();
     });
