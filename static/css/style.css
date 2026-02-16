@@ -46,7 +46,25 @@
     }
 }
 
-/* ===== 字体设置 ===== */
+/* 隐藏 Vercel Toolbar */
+#vercel-toolbar, 
+vercel-live-feedback, 
+.vercel-toolbar, 
+[data-testid="vercel-toolbar"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    z-index: -1 !important;
+}
+
+/* 确保设置面板在最上层 */
+#settingsPanel {
+    z-index: 2147483647 !important; /* Max z-index */
+    display: flex !important; /* 确保不被意外隐藏 */
+    visibility: visible !important;
+    opacity: 1 !important; /* 强制不透明 */
+}
 .font-kaiti { font-family: "楷体", "KaiTi", "STKaiti", serif !important; }
 .font-songti { font-family: "宋体", "SimSun", "STSong", serif !important; }
 .font-fangsong { font-family: "仿宋", "FangSong", "STFangsong", serif !important; }
@@ -57,10 +75,6 @@
 .text-small { font-size: 0.875rem !important; }
 .text-medium { font-size: 1rem !important; }
 .text-large { font-size: 1.25rem !important; }
-
-/* ===== 文字布局 ===== */
-.layout-center { text-align: center !important; }
-.layout-left { text-align: left !important; }
 
 /* ===== 显示/隐藏选项 ===== */
 .hide-pinyin .pinyin { display: none !important; }
@@ -2211,9 +2225,8 @@ body {
     background: var(--card-bg);
     border-left: 1px solid var(--border-color);
     box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    z-index: 1050;
+    /* z-index: 1050; 移除这里的 z-index，统一使用上面的 #settingsPanel 规则 */
     transition: right 0.3s ease;
-    display: flex;
     flex-direction: column;
 }
 

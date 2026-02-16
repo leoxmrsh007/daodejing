@@ -112,7 +112,14 @@
       "data_file": "data/lztyj/chapters.json",
       "icon": "🪷",
       "color": "#8b5a2b",
-      "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性"
+      "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性",
+      "commentators": [
+        {"id": "huineng", "name": "慧能", "era": "唐代"},
+        {"id": "fahai", "name": "法海", "era": "唐代"}
+      ],
+      "translators": [
+        {"id": "redpine", "name": "Bill Porter", "lang": "en"}
+      ]
     },
     {
       "id": "ws30",
@@ -124,7 +131,9 @@
       "data_file": "data/ws30/chapters.json",
       "icon": "🧘",
       "color": "#f39c12",
-      "description": "大乘佛教论典，系统阐述唯识学三性相分与瑜伽行位"
+      "description": "大乘佛教论典，系统阐述唯识学三性相分与瑜伽行位",
+      "commentators": [],
+      "translators": []
     },
     {
       "id": "zy",
@@ -136,7 +145,15 @@
       "data_file": "data/zy/chapters.json",
       "icon": "☯",
       "color": "#8e44ad",
-      "description": "群经之首，易经六十四卦，阐述天地万物变化之理"
+      "description": "群经之首，易经六十四卦，阐述天地万物变化之理",
+      "commentators": [
+        {"id": "wangbi", "name": "王弼", "era": "三国"},
+        {"id": "chengyi", "name": "程颐", "era": "北宋"},
+        {"id": "zhuxi", "name": "朱熹", "era": "南宋"}
+      ],
+      "translators": [
+        {"id": "legge", "name": "James Legge", "lang": "en"}
+      ]
     },
     {
       "id": "ss",
@@ -148,7 +165,9 @@
       "data_file": "data/ss/chapters.json",
       "icon": "📚",
       "color": "#6c5ce7",
-      "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道"
+      "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道",
+      "commentators": [],
+      "translators": []
     },
     {
       "id": "cxl",
@@ -160,7 +179,9 @@
       "data_file": "data/cxl/chapters.json",
       "icon": "📖",
       "color": "#06b6d4",
-      "description": "心学重要著作，阐述知行合一、致良知等哲学思想"
+      "description": "心学重要著作，阐述知行合一、致良知等哲学思想",
+      "commentators": [],
+      "translators": []
     }
   ],
   "default_classic": "ddj"

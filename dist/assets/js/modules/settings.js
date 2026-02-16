@@ -6,7 +6,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         // 从URL参数恢复设置
         loadSettingsFromUrl();
-        
+
         initSettingsPanel();
         initFunctionButtons();
     });
@@ -14,7 +14,7 @@
     // 从URL参数加载设置
     function loadSettingsFromUrl() {
         const params = new URLSearchParams(window.location.search);
-        
+
         if (params.has('font')) {
             localStorage.setItem('daodejing_font', params.get('font'));
         }
@@ -22,7 +22,7 @@
             localStorage.setItem('daodejing_font_size', params.get('fontSize'));
         }
         if (params.has('layout')) {
-            localStorage.setItem('daodejing_layout', params.get('layout'));
+            localStorage.setItem('daodejing_text_layout', params.get('layout'));
         }
         if (params.has('mode')) {
             localStorage.setItem('daodejing_reading_mode', params.get('mode'));
@@ -39,7 +39,10 @@
         if (params.has('showAnnotation')) {
             localStorage.setItem('daodejing_show_annotation', params.get('showAnnotation'));
         }
-        
+        if (params.has('showEnglish')) {
+            localStorage.setItem('daodejing_show_english', params.get('showEnglish'));
+        }
+
         // 清除URL参数
         if (params.toString()) {
             const cleanUrl = window.location.pathname;
@@ -76,8 +79,8 @@
 
         // 点击面板外部关闭
         document.addEventListener('click', function(e) {
-            if (settingsPanel.classList.contains('show') && 
-                !settingsPanel.contains(e.target) && 
+            if (settingsPanel.classList.contains('show') &&
+                !settingsPanel.contains(e.target) &&
                 !settingsToggle.contains(e.target)) {
                 settingsPanel.classList.remove('show');
             }
@@ -91,7 +94,7 @@
                 modeBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 localStorage.setItem('daodejing_reading_mode', mode);
-                
+
                 // 应用阅读模式
                 applyReadingMode(mode);
                 console.log('阅读模式已切换为:', mode);
@@ -117,23 +120,24 @@
                 const layout = this.dataset.layout;
                 layoutBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                localStorage.setItem('daodejing_layout', layout);
-                
+                localStorage.setItem('daodejing_text_layout', layout);
+
                 // 应用布局
-                document.body.classList.remove('layout-center', 'layout-left');
-                document.body.classList.add('layout-' + layout);
+                document.body.classList.remove('text-layout-center', 'text-layout-left');
+                document.body.classList.add('text-layout-' + layout);
                 console.log('文字布局已切换为:', layout);
             });
         });
 
         // 恢复保存的布局
-        const savedLayout = localStorage.getItem('daodejing_layout');
+        const savedLayout = localStorage.getItem('daodejing_text_layout') || localStorage.getItem('daodejing_layout');
         if (savedLayout) {
             layoutBtns.forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.layout === savedLayout) {
                     btn.classList.add('active');
-                    document.body.classList.add('layout-' + savedLayout);
+                    document.body.classList.remove('text-layout-center', 'text-layout-left');
+                    document.body.classList.add('text-layout-' + savedLayout);
                 }
             });
         }
@@ -168,9 +172,9 @@
                 const size = this.dataset.size;
                 sizeBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
-                document.body.classList.remove('text-small', 'text-medium', 'text-large');
-                document.body.classList.add('text-' + size);
+
+                document.body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large');
+                document.body.classList.add('font-size-' + size);
                 localStorage.setItem('daodejing_font_size', size);
                 console.log('字体大小已切换为:', size);
             });
@@ -183,7 +187,7 @@
                 btn.classList.remove('active');
                 if (btn.dataset.size === savedSize) {
                     btn.classList.add('active');
-                    document.body.classList.add('text-' + savedSize);
+                    document.body.classList.add('font-size-' + savedSize);
                 }
             });
         }
@@ -191,33 +195,35 @@
         // ===== 背景音乐 =====
         const musicSelect = document.getElementById('musicSelect');
         const musicVolumeSlider = document.getElementById('musicVolumeSlider');
-        
+
         if (musicSelect) {
             musicSelect.addEventListener('change', function() {
                 localStorage.setItem('daodejing_music', this.value);
                 console.log('背景音乐已切换为:', this.value);
             });
-            
+
             // 恢复保存的音乐设置
             const savedMusic = localStorage.getItem('daodejing_music');
             if (savedMusic) {
                 musicSelect.value = savedMusic;
             }
         }
-        
+
         if (musicVolumeSlider) {
             const volumeValue = document.getElementById('musicVolumeValue');
             musicVolumeSlider.addEventListener('input', function() {
-                const volume = this.value;
-                if (volumeValue) volumeValue.textContent = volume + '%';
+                const volume = this.value / 100;
+                if (volumeValue) volumeValue.textContent = Math.round(volume * 100) + '%';
                 localStorage.setItem('daodejing_music_volume', volume);
             });
-            
+
             // 恢复保存的音量
             const savedVolume = localStorage.getItem('daodejing_music_volume');
             if (savedVolume) {
-                musicVolumeSlider.value = savedVolume;
-                if (volumeValue) volumeValue.textContent = savedVolume + '%';
+                const volumeNum = parseFloat(savedVolume);
+                const volumePercent = volumeNum > 1 ? Math.min(volumeNum, 100) : Math.round(volumeNum * 100);
+                musicVolumeSlider.value = volumePercent;
+                if (volumeValue) volumeValue.textContent = volumePercent + '%';
             }
         }
 
@@ -228,7 +234,7 @@
                 document.body.classList.toggle('hide-pinyin', !this.checked);
                 localStorage.setItem('daodejing_show_pinyin', this.checked);
             });
-            
+
             const savedShowPinyin = localStorage.getItem('daodejing_show_pinyin');
             if (savedShowPinyin !== null) {
                 showPinyin.checked = savedShowPinyin === 'true';
@@ -243,7 +249,7 @@
                 document.body.classList.toggle('hide-annotation', !this.checked);
                 localStorage.setItem('daodejing_show_annotation', this.checked);
             });
-            
+
             const savedShowAnnotation = localStorage.getItem('daodejing_show_annotation');
             if (savedShowAnnotation !== null) {
                 showAnnotation.checked = savedShowAnnotation === 'true';
@@ -285,40 +291,47 @@
         const showEnglish = document.getElementById('showEnglish');
         if (showEnglish) {
             showEnglish.addEventListener('change', function() {
-                document.body.classList.toggle('show-english', this.checked);
+                document.body.classList.toggle('hide-english', !this.checked);
                 localStorage.setItem('daodejing_show_english', this.checked);
             });
 
             const savedShowEnglish = localStorage.getItem('daodejing_show_english');
             if (savedShowEnglish !== null) {
                 showEnglish.checked = savedShowEnglish === 'true';
-                document.body.classList.toggle('show-english', showEnglish.checked);
+                document.body.classList.toggle('hide-english', !showEnglish.checked);
             }
         }
 
         // ===== 分享设置按钮 =====
         const shareSettingsBtn = document.getElementById('shareSettings');
         if (shareSettingsBtn) {
-            shareSettingsBtn.addEventListener('click', function() {
+            shareSettingsBtn.addEventListener('click', function(e) {
+                if (window.SettingsManager && typeof window.SettingsManager.shareSettings === 'function') {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    window.SettingsManager.shareSettings();
+                    return;
+                }
                 // 收集当前所有设置
                 const settings = {
                     font: localStorage.getItem('daodejing_font'),
                     fontSize: localStorage.getItem('daodejing_font_size'),
-                    layout: localStorage.getItem('daodejing_layout'),
+                    layout: localStorage.getItem('daodejing_text_layout'),
                     mode: localStorage.getItem('daodejing_reading_mode'),
                     showModern: localStorage.getItem('daodejing_show_modern'),
                     showNotes: localStorage.getItem('daodejing_show_notes'),
                     showPinyin: localStorage.getItem('daodejing_show_pinyin'),
-                    showAnnotation: localStorage.getItem('daodejing_show_annotation')
+                    showAnnotation: localStorage.getItem('daodejing_show_annotation'),
+                    showEnglish: localStorage.getItem('daodejing_show_english')
                 };
-                
+
                 // 生成分享链接
                 const baseUrl = window.location.origin + window.location.pathname;
                 const params = new URLSearchParams();
                 Object.entries(settings).forEach(([key, value]) => {
-                    if (value) params.set(key, value);
+                    if (value !== null && value !== undefined) params.set(key, value);
                 });
-                
+
                 const shareUrl = baseUrl + '?' + params.toString();
                 navigator.clipboard.writeText(shareUrl).then(function() {
                     alert('配置链接已复制到剪贴板！');
@@ -349,18 +362,18 @@
         // ===== AI API配置 =====
         const deepseekKey = document.getElementById('deepseekKey');
         const openaiKey = document.getElementById('openaiKey');
-        
+
         if (deepseekKey) {
-            deepseekKey.value = localStorage.getItem('deepseek_api_key') || '';
+            deepseekKey.value = localStorage.getItem('daodejing_deepseek_key') || '';
             deepseekKey.addEventListener('change', function() {
-                localStorage.setItem('deepseek_api_key', this.value);
+                localStorage.setItem('daodejing_deepseek_key', this.value);
             });
         }
-        
+
         if (openaiKey) {
-            openaiKey.value = localStorage.getItem('openai_api_key') || '';
+            openaiKey.value = localStorage.getItem('daodejing_openai_key') || '';
             openaiKey.addEventListener('change', function() {
-                localStorage.setItem('openai_api_key', this.value);
+                localStorage.setItem('daodejing_openai_key', this.value);
             });
         }
 
@@ -372,11 +385,11 @@
                 const loadVoices = function() {
                     const voices = window.speechSynthesis.getVoices();
                     browserVoice.innerHTML = '';
-                    
-                    const zhVoices = voices.filter(function(v) { 
-                        return v.lang.startsWith('zh') || v.lang.startsWith('cmn'); 
+
+                    const zhVoices = voices.filter(function(v) {
+                        return v.lang.startsWith('zh') || v.lang.startsWith('cmn');
                     });
-                    
+
                     if (zhVoices.length > 0) {
                         zhVoices.forEach(function(voice) {
                             const option = document.createElement('option');
@@ -391,18 +404,18 @@
                                                 '<option value="zh-HK">粤语</option>';
                     }
                 };
-                
+
                 // 某些浏览器需要等待
                 if (window.speechSynthesis.onvoiceschanged !== undefined) {
                     window.speechSynthesis.onvoiceschanged = loadVoices;
                 }
                 loadVoices();
             }
-            
+
             browserVoice.addEventListener('change', function() {
                 localStorage.setItem('daodejing_browser_voice', this.value);
             });
-            
+
             const savedVoice = localStorage.getItem('daodejing_browser_voice');
             if (savedVoice) {
                 browserVoice.value = savedVoice;
@@ -412,25 +425,29 @@
 
     // 应用阅读模式
     function applyReadingMode(mode) {
+        if (window.SettingsManager && typeof window.SettingsManager.setReadingMode === 'function') {
+            window.SettingsManager.setReadingMode(mode);
+            return;
+        }
         const body = document.body;
         const zenOverlay = document.getElementById('zenModeOverlay');
-        
+
         // 移除所有模式类
         body.classList.remove('mode-reading', 'mode-zen', 'mode-recite');
-        
+
         if (mode === 'zen') {
             // 禅读模式
             body.classList.add('mode-zen');
-            if (zenOverlay) zenOverlay.classList.add('show');
+            if (zenOverlay) zenOverlay.classList.add('active');
         } else if (mode === 'recite') {
             // 背诵模式 - 隐藏注释
             body.classList.add('mode-recite');
             body.classList.add('hide-notes', 'hide-annotation', 'hide-modern');
-            if (zenOverlay) zenOverlay.classList.remove('show');
+            if (zenOverlay) zenOverlay.classList.remove('active');
         } else {
             // 阅读模式 - 默认
             body.classList.add('mode-reading');
-            if (zenOverlay) zenOverlay.classList.remove('show');
+            if (zenOverlay) zenOverlay.classList.remove('active');
         }
     }
 
@@ -457,7 +474,7 @@
         // 音乐控制按钮
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
-        
+
         if (musicToggle && bgMusic) {
             musicToggle.addEventListener('click', function() {
                 if (bgMusic.paused) {
@@ -480,7 +497,7 @@
         // 朗读按钮
         const speechToggle = document.getElementById('speechToggle');
         const speechStop = document.getElementById('speechStop');
-        
+
         if (speechToggle) {
             let isSpeaking = false;
             let currentUtterance = null;
@@ -500,7 +517,7 @@
                             currentUtterance = new SpeechSynthesisUtterance(text);
                             currentUtterance.lang = 'zh-CN';
                             currentUtterance.rate = 0.8;
-                            
+
                             currentUtterance.onend = function() {
                                 isSpeaking = false;
                                 speechToggle.innerHTML = '<span class="speech-icon">🔊</span>';
@@ -578,7 +595,7 @@
         if (themeToggle) {
             const html = document.documentElement;
             const currentTheme = localStorage.getItem('theme') || 'auto';
-            
+
             // 恢复保存的主题
             if (currentTheme !== 'auto') {
                 html.setAttribute('data-theme', currentTheme);
@@ -588,7 +605,7 @@
             themeToggle.addEventListener('click', function() {
                 const currentTheme = html.getAttribute('data-theme') || 'auto';
                 let newTheme;
-                
+
                 if (currentTheme === 'light') {
                     newTheme = 'dark';
                 } else if (currentTheme === 'dark') {
@@ -596,7 +613,7 @@
                 } else {
                     newTheme = 'light';
                 }
-                
+
                 if (newTheme === 'auto') {
                     html.removeAttribute('data-theme');
                     localStorage.removeItem('theme');
@@ -604,7 +621,7 @@
                     html.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
                 }
-                
+
                 updateThemeIcon(newTheme);
                 console.log('主题已切换为:', newTheme);
             });
