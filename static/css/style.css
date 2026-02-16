@@ -46,6 +46,71 @@
     }
 }
 
+/* ===== 字体设置 ===== */
+.font-kaiti { font-family: "楷体", "KaiTi", "STKaiti", serif !important; }
+.font-songti { font-family: "宋体", "SimSun", "STSong", serif !important; }
+.font-fangsong { font-family: "仿宋", "FangSong", "STFangsong", serif !important; }
+.font-mingliu { font-family: "明体", "MingLiU", "PMingLiU", serif !important; }
+.font-xkai { font-family: "华文行楷", "STXingkai", cursive !important; }
+
+/* ===== 字体大小 ===== */
+.text-small { font-size: 0.875rem !important; }
+.text-medium { font-size: 1rem !important; }
+.text-large { font-size: 1.25rem !important; }
+
+/* ===== 文字布局 ===== */
+.layout-center { text-align: center !important; }
+.layout-left { text-align: left !important; }
+
+/* ===== 显示/隐藏选项 ===== */
+.hide-pinyin .pinyin { display: none !important; }
+.hide-annotation .annotation, .hide-annotation .meaning { display: none !important; }
+.hide-modern .modern-chinese { display: none !important; }
+.hide-notes .commentary-note { display: none !important; }
+.show-english .english-translation { display: block !important; }
+.english-translation { display: none !important; }
+
+/* ===== 阅读模式 ===== */
+.mode-reading { /* 默认阅读模式 */ }
+.mode-zen { background: #1a1a1a !important; }
+.mode-zen .main-content { max-width: 800px; margin: 0 auto; }
+.mode-recite .original-text { font-size: 1.5rem !important; font-weight: 600 !important; }
+
+/* 禅读模式遮罩 */
+.zen-mode-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.zen-mode-overlay.show {
+    display: flex;
+}
+
+.zen-exit-btn {
+    padding: 12px 32px;
+    font-size: 1.25rem;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.zen-exit-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
 /* 基础样式 */
 * {
     box-sizing: border-box;
@@ -2206,6 +2271,46 @@ body {
     background: var(--accent-color);
     color: #fff;
     border-color: var(--accent-color);
+}
+
+/* 阅读模式按钮 */
+.setting-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mode-btn, .layout-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 0.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    gap: 0.25rem;
+}
+
+.mode-btn:hover, .layout-btn:hover {
+    border-color: var(--accent-color);
+    background: var(--hover-bg);
+}
+
+.mode-btn.active, .layout-btn.active {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+.mode-icon, .layout-icon {
+    font-size: 1.25rem;
+}
+
+.mode-text, .layout-text {
+    font-size: 0.75rem;
 }
 
 .setting-toggles {
