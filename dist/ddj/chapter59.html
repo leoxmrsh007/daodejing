@@ -6,6 +6,21 @@
     <title>第59章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter59.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter59.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter59.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="根基牢固，不可动摇&#10;原文：深根固柢，长生久视之道">
-                <span class="idiom-word">深根固柢</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="根基牢固，不可动摇&#10;原文：深根固柢，长生久视之道">
+            <span class="idiom-word">深根固柢</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">莫若犹莫过也．啬农夫．农人之治田务去其殊类．归于齐一也．全其自然．不急其荒病．除其所以荒病．上承天命下绥百姓莫过于此．早服常也．唯重积徳不欲营速．故曰早服谓之重徳者也．道无穷也．以有穷而莅国非能有国也．国之所以安谓之母．重积徳是唯图其根．然后营末．乃得其终也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">治人謂人君欲治理人民。事天，事，用也。當用天道，順四時。莫若嗇。嗇，貪也。治國者當愛民財，不為奢泰。治身者當愛精氣，不放逸。○嗇，音色。夫唯嗇，是謂早服；早，先也。服，得也。夫獨愛民財，愛精氣，則能先得天道也。早服謂之重積德；先得天道，是謂重積德於己也。○重，平聲。重積德則無不剋；剋，勝也。重積德於己則無不勝。無不剋則莫知其極；無不剋勝，則莫有知己德之窮極也。莫知其極，可以有國；莫知己德有極，則可以有社稷為民致福。有國之母，可以長久；國身同也，母道也。人能保身中之道，使精氣不勞，五神不苦，則可以長久。是謂深根固蒂，人能以氣為根，以精為蔕，如樹根不深則枝蔕不堅則落，言深藏其氣，固守其精，使無漏泄。○蔕，音帝。長生久視之道。深根固蔕者乃長生久視之道。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">「人」之情無盡，取而「治」之，則不及情者多矣，「天」之數無極，往而「事」之，則無可極者遠矣。以其敝敝，從其浩浩，此冀彼之恩，而彼冀望此以為怨。怨不可以有國，而敝敝窮年，亦「根」敗「柢」枯，而其」生」不延。迨其不延，悔而思「服」，豈不晚與！守之圜中，鮮所「治」，鮮所「事」。情萬而情情者一，數萬而數數者並一不存。或疑其吝而不德，而不德之德，天人無所邀望於始，則亦無所怨恫於終。而批卻導窾，數給不窮者，寧有訖乎？故牡之觸有窮，而牝之受無所止。「重積德」者，天下歆其受而歸我，席虛以講天下，此「有國」之與「長久」兩難並者，而並之於此。並之於此，則豈有不并於此者哉？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章傷世人之難化，欲在上者當先自化，而後可以化民也。結句乃本意，上文皆借喻以明之耳。經曰，此土眾生，其性剛強，難調難化。故老子專以虛心無為不敢，為立教之本。全篇上下，專尚柔弱而斥剛強。故此云，堅強者死之徒，柔弱者生之徒，乃借人物草木為喻。是以兵喻戒懼，言兵若臨事而懼，不敢輕敵，故能全師以自勝。是以全生為上，而多死為下也。木之枝條，以沖氣為和。故欣欣向榮，而生意自見。是以虛心柔弱在上。若成拱把，則麤幹堅強者在下矣。以此足知戒懼虛心，柔弱翕受者，方可處於民上也。若夫堅強自用，敢於好為，則終無有生意矣。此語大可畏哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">In ruling the people and in serving heaven it is best for a ruler to be sparing. It is because he is sparing That he may be said to follow the way from the start; Following the way from the start he may be said to accumulate an abundance of virtue; Accumulating an abundance of virtue there is nothing he cannot overcome; When there is nothing he cannot overcome, no one knows his limit; When no one knows his limit He can possess a state; When he possesses the mother of a state He can then endure. This is called the way of deep roots and firm stems by which one lives to see many days.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. For ordering humanity and serving Heaven, nothing's so good as being sparing. 2. For only if you are sparing can you, therefore, early submit [to the Way]. 3. Early submission — this is called to repeatedly accumulate Virtue. 4. If you repeatedly accumulate Virtue, then there is nothing you can't overcome. 5. When there is nothing you can't overcome, no one knows where it will end. 6. When no one knows where it will end, you can possess the state. 7. And when you possess the mother of the state, you can last a very long time. 8. This is called [having] deep roots and a firm base, 9. It's the Way of long life and long-lasting vision.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">In governing people and serving heaven, nothing is better than frugality. Only through frugality can one submit early. Submitting early is called accumulating much virtue. Accumulating much virtue ensures nothing cannot be overcome. When nothing cannot be overcome, no one knows the limit. When no one knows the limit, one can possess the state. The mother of the state can last long. This is called deep roots and a solid foundation, the way of long life and eternal vision.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">You cannot rule men nor serve heaven unless you have laid up a store; This "laying up a store" means quickly absorbing, And "quickly absorbing" means doubling one's garnered "power". Double your garnered power and it acquires a strength that nothing can overcome. If there is nothing it cannot overcome, it know no bounds, And only what knows no bounds is huge enough to keep a whole kingdom in its grasp. But only he who having the kingdom goes to the Mother can keep it long. This is called the art of making the roots strike deep by fencing the trunk, Of making life long by fixed staring.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第59章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">For governing a country well there is nothing better than moderation. The mark of a moderate man is freedom from his own ideas. Tolerant like the sky, all-pervading like sunlight, firm like a mountain, supple like a tree in the wind, he has no destination in view and makes use of anything life happens to bring his way. Nothing is impossible for him. Because he has let go, he can care for the people's welfare as a mother cares for her child.</p>
                     </div>
                 </div>
             </div>

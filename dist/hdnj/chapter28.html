@@ -6,6 +6,21 @@
     <title>通评虚实论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter28.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter28.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter28.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter28.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter28.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter28.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     二十八
-黄帝问曰：何谓虚实？岐伯对曰：邪气盛则实，精气夺则虚。帝曰：虚实何如？岐伯曰：气虚者肺虚也，气逆者足寒也，非其时则生，当其时则死。余藏皆如此。帝曰：何谓重实？岐伯曰：所谓重实者，言大热病，气热脉满，是谓重实。
+黄帝问曰：何谓虚实？岐伯对曰：邪气盛则实，<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>夺则虚。帝曰：虚实何如？岐伯曰：气虚者肺虚也，气逆者足寒也，非其时则生，当其时则死。余藏皆如此。帝曰：何谓重实？岐伯曰：所谓重实者，言大热病，气热脉满，是谓重实。
 帝曰：经络俱实何如？何以治之？岐伯曰：经络皆实，是寸脉急而尺缓也，皆当治之，故曰滑则从，涩则逆也。夫虚实者，皆从其物类始，故五藏骨肉滑利，可以长久也。
 帝曰：络气不足，经气有余，何如？岐伯曰：络气不足，经气有余者，脉口热而尺寒也，秋冬为逆，春夏为从，治主病者。帝曰：经虚络满何如？岐伯曰：经虚络满者，尺热满脉口寒涩也，此春夏死秋冬生也。帝曰：治此者奈何？岐伯曰：络满经虚，灸阴刺阳；经满络虚，刺阴灸阳。
 帝曰：何谓重虚？岐伯曰：脉气上虚尺虚，是谓重虚。帝曰：何以治之？岐伯曰：所谓气虚者，言无常也。尺虚者，行步恇然。脉虚者，不象阴也。如此者，滑则生，涩则死也。
@@ -688,9 +703,9 @@
 帝曰：癫疾何如？岐伯曰：脉搏大滑，久自已；脉小坚急，死不治。帝曰：癫疾之脉，虚实何如？岐伯曰：虚则可治，实则死。帝曰：消瘅虚实何如？岐伯曰：虚则可治，实则死，
 帝曰：消瘅虚实何如？岐伯曰：脉实大，病久可治；脉悬小坚，病久不可治。
 帝曰：形度骨度脉度筋度，何以知其度也？
-帝曰：春亟治经络，夏亟治经俞，秋亟治六府，冬则闭塞。闭塞者，用药而少针石也。所谓少针石者，非痈疽之谓也，痈疽不得顷时回。痈不知所，按之不应手，乍来乍已，刺手太阴傍三痏与缨脉各二。掖痈大热，刺足少阳五，刺而热不止，刺手心主三，刺手太阴经络者大骨之会各三。暴痈筋緛，随分而痛，魄汗不尽，胞气不足，治在经俞。腹暴满，按之不下，取手太阳经络者，胃之募也，少阴俞去脊椎三寸傍五，用员利针。霍乱，刺俞傍五，足阳明及上傍三。刺痫惊脉五，针手太阴各五，刺经太阳五，刺手少阴经络傍者一，足阳明一，上踝五寸刺三针。凡治消瘅、仆击、偏枯、痿厥，气满发逆，甘肥贵人，则高梁之疾也。隔塞
-闭绝，上下不通，则暴忧之病也。暴厥而聋，偏塞闭不通，内气暴薄也。不从内外中风之病，故瘦留着也。蹠跛，寒风湿之病也。
-黄帝曰：黄疸暴痛，癫疾厥狂，久逆之所生也。五藏不平，六府闭塞之所生也。头痛耳鸣，九窍不利，肠胃之所生也。
+帝曰：春亟治经络，夏亟治经俞，秋亟治六府，冬则闭塞。闭塞者，用药而少针石也。所谓少针石者，非<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>疽之谓也，<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>疽不得顷时回。<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>不知所，按之不应手，乍来乍已，刺手<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>傍三痏与缨脉各二。掖<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>大热，刺足<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>五，刺而热不止，刺手心主三，刺手<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>经络者大骨之会各三。暴<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>筋緛，随分而痛，魄汗不尽，胞气不足，治在经俞。腹暴满，按之不下，取手<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>经络者，胃之募也，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>俞去脊椎三寸傍五，用员利针。霍乱，刺俞傍五，足<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>及上傍三。刺痫惊脉五，针手<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>各五，刺经<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>五，刺手<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>经络傍者一，足<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>一，上踝五寸刺三针。凡治消瘅、仆击、偏枯、<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，气满发逆，甘肥贵人，则高梁之疾也。隔塞
+闭绝，上下不通，则暴忧之病也。暴<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>而聋，偏塞闭不通，内气暴薄也。不从内外中风之病，故瘦留着也。蹠跛，寒风湿之病也。
+黄帝曰：黄疸暴痛，癫疾<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>狂，久逆之所生也。五藏不平，六府闭塞之所生也。头痛耳鸣，九窍不利，肠胃之所生也。
                 </div>
             </div>
         </div>
@@ -702,7 +717,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇总评虚实：以脉、色、形、声与病势消长判虚实寒热，定‘补其不足、泻其有余’之法。临床意义：虚实通评先于取穴用药，兼顾根与标、里与表，防偏补偏泻。</p>
             </div>
         </div>
     </section>
@@ -714,19 +729,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">A general appraisal of vacuity and repletion using pulse, complexion, form, and voice to decide cold/heat and root/branch, then choosing supplementation for lack and draining for excess.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Presents comprehensive criteria for emptiness and fullness and their seasonal and constitutional frames. Treatment balances branch and root and avoids one‑sided tonification or purgation.</p>
                     </div>
                 </div>
             </div>

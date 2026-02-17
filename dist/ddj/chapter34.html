@@ -6,6 +6,21 @@
     <title>第34章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter34.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter34.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter34.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">言道泛滥无所不适．过左右上下周旋而用．则无所不至也．万物皆由道而生．既生而不知其所由．故天下常无欲之时．万物各得其所．若道无施于物．故名于小矣．万物皆归之以生．而力使不知其所由．此不为小．故复可名于大矣．为大于其细．图难于其易.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">大道氾兮，言道氾氾若浮若沉，若有若無，視之不見，說之難殊。○氾，音泛。其可左右。道可左右，無所不宜。萬物恃之而生，恃，待也。萬物皆恃道而生。而不辭，道不辭謝而逆止也。功成不名有。有道不名其有功也。愛養萬物而不為主，道雖愛養萬物，不如人主有所放取。常無欲，可名於小；道匿德藏名，恒然無為，似若微小也。萬物歸焉而不為主，萬物皆歸道受氣，道非如人主有所禁止也。可名為大。萬物橫來橫去，使各自在，故不若於大也。是以聖人終不為大，聖人法道，匿德藏名，不為滿大。故能成其大。聖人以身師導，不言而化，萬事修治，故能成其大。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">誰能以生恩天地乎，則誰能以死怨天地。天地者，與物為往來而聊以自壽也。天地且然，而況於道？荒荒乎其未有畔也，脈脈乎其有以通也；故東西無方，功名無繫，賓主無適，己生貴而物生不逆。誠然，則不見可欲，非以窒欲也；迭與為主，非以辭主也。彼亟欲成其大者，惡足以知之！</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言道為天地萬物之本，欲人體道虛懷，而造乎至德也。謂道本無名，強名之一。故曰道生一。然天地人物，皆從此生。故曰一生二，二生三，三生萬物。是則萬物莫不負陰而抱陽也。所以得遂其生，不致夭折者，以物各含一沖虛之體也。和氣積中，英華昭著，秀實生成，皆道力也。故云沖氣以為和。是則物物皆以沖虛為本也。且沖虛柔弱，與物不類，似乎無用，人皆惡之而不取。殊不知無用之用為大用也。即如世人之所惡者，唯孤寡不穀，以為不美。而王公返以此為稱者，豈不以柔弱為天下之利器耶。且孤寡不穀，皆自損之辭也。然而侯王不自損，則天下不歸。故堯舜有天下而不與，至今稱之，澤流無窮，此自損而人益之。故曰或損之而益。若夫桀紂以天下奉一己，暴戾恣睢，但知有己，而不知有人。故雖有天下，而天下叛之，此自益者而人損之。故曰或益之而損。以人人皆具此道，但日用不知，須待教而後能。且人之所教者，我亦未嘗不教之也。惟人不善教人，祇知增益知見，使之矯矜恃氣，好為強梁。殊不知強梁者，不得其死。我唯教人以日損其欲，謙虛自守，以全沖和之德。是故吾將以為教父。而風天下以謙虛之德也。教父，猶木鐸意。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The way is broad, reaching left as well as right. The myriad creatures depend on it for life yet it claims no authority. It accomplishes its task yet lays claim to no merit. It clothes and feeds the myriad creatures yet lays no claim to being their master. For ever free of desire, it can be called small; Yet as it lays no claim to being master when the myriad creatures turn to it, it can be called great. It is because it never attempts itself to become great that it succeeds in becoming great.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Way floats and drifts; 2. It can go left or right. 3. It accomplishes its tasks and completes its affairs, and yet for this it is not given a name. 4. The ten thousand things entrust their lives to it, and yet it does not act as their master. 5. Thus it is constantly without desires. 6. It can be named with the things that are small. 7. The ten thousand things entrust their lives to it, and yet it does not not act as their master. 8. It can be named with the things that are great. 9. Therefore the Sage's ability to accomplish the great 10. Comes from his not playing the role of the great. 11. Therefore he is able to accomplish the great.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The great way overflows, to left and right. Ten thousand things rely on it to live, and it does not refuse them. It achieves its work but does not dwell on it. It clothes and feeds the ten thousand things but does not rule them. This can be called small. The ten thousand things return to it but it does not rule them. This can be called great. Because it does not strive to be great, it can achieve greatness.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Great Tao is like a boat that drifts; It can go this way; it can go that. The ten thousand creatures owe their existence to it and it does not disown them; Yet having produced them, it does not take possession of them. Makes no claim to be master over them, (And asks for nothing from them.) Therefore it may be called the Lowly. The ten thousand creatures obey it, Though they know not that they have a master; Therefore it is called the Great. So too the Sage just because he never at any time makes a show of greatness In fact achieves greatness.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第34章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The great Tao flows everywhere. All things are born from it, yet it doesn't create them. It pours itself into its work, yet it makes no claim. It nourishes infinite worlds, yet it doesn't hold on to them. Since it is merged with all things and hidden in their hearts, it can be called humble. Since all things vanish into it and it alone endures, it can be called great. It isn't aware of its greatness; thus it is truly great.</p>
                     </div>
                 </div>
             </div>

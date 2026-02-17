@@ -6,6 +6,21 @@
     <title>第77章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter77.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter77.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">与天地合徳．乃能包之如天之道．如人之量则各有其身．不得相均．如惟无身无私乎．自然然后乃能与天地合徳．言谁能处盈而然虚．损有以补无．和光同尘．荡而均者．唯有道者也．是以圣人不欲示其贤．以均天下.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">天下柔弱莫過於水，圓中則圓，方中則方，擁之則止，決之則行。而攻堅強者，莫知能勝，水能懷山襄陵，磨鐵消銅，莫能勝水而成功也。其無以易之。夫攻堅強者，無以易於水。○易，入聲。弱之勝強，水能滅火，陰能消陽。柔之勝剛，舌柔齒剛，齒先舌亡。天下莫不知，知柔弱者長久，剛強者折傷也。莫能行。恥謙卑，好強梁。故聖人云，謂下事也。受國之垢，是謂社稷主；君能受國垢濁者，若江海不逆小流，則能長保其社稷，為一國君主也。○垢，音荀。受國之不祥，是為天下王。君能引過自與，代民受不祥之殃，則可以王有天下。正言若反。此乃正直之言，世人不知以為反言。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">唯弓有「高」「下」，而後人得施其「抑」「舉」；唯人有「有餘」「不足」，而後天得施其「損」「補」。夫自損者固未嘗無損，而受天損者，其禍烈矣。聖人之能不禍於天者，無禍地也。夫豈但勞天下以自奉者為奉有餘哉？人未嘗不肖而欲賢之，人未嘗亂而欲治之，美譽來歸而腥聞贈物，非樂天下之敗以自成乎？故一人安位，天下失據；一日行志，百夫傷心；殺機發於誥誓，而戎馬生於勛名，然則庸人之自奉儉，而賢者之自奉奢，可不畏哉！</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章傷世人之難化，欲在上者當先自化，而後可以化民也。結句乃本意，上文皆借喻以明之耳。經曰，此土眾生，其性剛強，難調難化。故老子專以虛心無為不敢，為立教之本。全篇上下，專尚柔弱而斥剛強。故此云，堅強者死之徒，柔弱者生之徒，乃借人物草木為喻。是以兵喻戒懼，言兵若臨事而懼，不敢輕敵，故能全師以自勝。是以全生為上，而多死為下也。木之枝條，以沖氣為和。故欣欣向榮，而生意自見。是以虛心柔弱在上。若成拱把，則麤幹堅強者在下矣。以此足知戒懼虛心，柔弱翕受者，方可處於民上也。若夫堅強自用，敢於好為，則終無有生意矣。此語大可畏哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Is not the way of heaven like the stretching of a bow? The high it presses down, The low it lifts up. The excessive it takes from, The deficient it gives to. It is the way of heaven to take from what has in excess in order to make good what is deficient. The way of man is otherwise: it takes from those who are in want in order to offer this to those who already have more than enough. Who is there that can take what he himself has in excess and offer this to the empire? Only he who has the way. Therefore the sage benefits them yet exacts no gratitude, Accomplishes his task yet lays claim to no merit. Is this not because he does not wish to be considered a better man than others?</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Way of Heaven is like the flexing of a bow. 2. The high it presses down; the low it raises up. 3. From those with a surplus it takes away; to those without enough it adds on. 4. Therefore the way of Heaven — 5. Is to reduce the excessive and increase the insufficient; 6. The Way of Man — 7. Is to reduce the insufficient and offer more to the excessive. 8. Now, who is able to have a surplus and use it to offer to Heaven? 9. Clearly, it's only the one who possesses the Way. 10. Therefore the Sage — 11. Take actions but does not possess them; 12. Accomplishes his tasks but does not dwell on them. 13. Like this, is his desire not to make a display of his worthiness.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The way of heaven is like drawing a bow. The high is lowered, the low is raised. The excessive is reduced, the insufficient is supplemented. The way of heaven reduces the excessive and supplements the insufficient. The way of man is not so, it reduces the insufficient to serve the excessive. Who can have the excess to serve the world? Only those with the way. Therefore the sage acts but does not rely, achieves but does not dwell. He does not wish to show his worth.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Heaven's way is like the bending of a bow. When a bow is bent the top comes down and the bottom-end comes up. So too does Heaven take away from those who have too much, And give to those that have not enough. But if it is Heaven's way to take from those who have too much And give to those that have not enough, this is far from being man's way. He takes away from those that have not-enough in order To make offering to those who already have too much. One there is and one only, so rich that he the possessor of Tao. (If, then, the Sage "though he controls does not lean, And when he has achieved his aim does not linger", It is because he does not wish to reveal himself as better than others.)</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第77章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">As it acts in the world, the Tao is like the bending of a bow. The top is bent downward; the bottom is bent up. It adjusts excess and deficiency so that there is perfect balance. It takes from what is too much and give to what isn't enough. Those who try to control, who use force to protect their power, go against the direction of the Tao. They take from those who don't have enough and give to those who have far too much. The Master can keep giving because there is no end to her wealth. She acts without expectation, succeeds without taking credit, and doesn't think that she is better than anyone else.</p>
                     </div>
                 </div>
             </div>

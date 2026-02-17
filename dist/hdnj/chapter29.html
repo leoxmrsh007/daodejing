@@ -6,6 +6,21 @@
     <title>太阴阳明论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter29.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter29.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter29.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter29.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter29.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter29.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,10 +691,10 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     二十九
-黄帝问曰：太阴阳明为表里，脾胃脉也，生病而异者何也？岐伯对曰：阴阳异位，更虚更实，更逆更从，或从内，或从外，所从不同，故病异名也。帝曰：愿闻其异状也。岐伯曰：阳者，天气也，主外；阴者，地气也，主内。故阳道实，阴道虚。故犯贼风虚邪者，阳受之；食饮不节，起居不时者，阴受之。阳受之则入六府，阴受之则入五藏。入六府则身热不时卧，上为喘呼；入五藏则<月真>满闭塞，下为飧泄，久为肠澼。故喉主天气，咽主地气，故阳受风气，阴受湿气。故阴气从足上行至头，而下行循臂至指端；阳气从手上行至头，而下行至足。故曰阳病者上行极而下，阴病者下行极而上。故伤于风者，上先受之；伤于湿者，下
+黄帝问曰：太<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>明为表里，脾胃脉也，生病而异者何也？岐伯对曰：<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>异位，更虚更实，更逆更从，或从内，或从外，所从不同，故病异名也。帝曰：愿闻其异状也。岐伯曰：阳者，天气也，主外；阴者，地气也，主内。故阳道实，阴道虚。故犯贼风虚邪者，阳受之；食饮不节，起居不时者，阴受之。阳受之则入六府，阴受之则入五藏。入六府则身热不时卧，上为喘呼；入五藏则<月真>满闭塞，下为飧泄，久为肠澼。故喉主天气，咽主地气，故阳受风气，阴受湿气。故阴气从足上行至头，而下行循臂至指端；阳气从手上行至头，而下行至足。故曰阳病者上行极而下，阴病者下行极而上。故伤于风者，上先受之；伤于湿者，下
 先受之。
 帝曰：脾病而四支不用何也？岐伯曰：四支皆禀气于胃，而不得至经，必因于脾，乃得禀也。今脾病不能为胃行其津液，四支不得禀水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气，气日以衰，脉道不利，筋骨肌肉，皆无气以生，故不用焉。帝曰：脾不主时何也？岐伯曰：脾者土也，治中央，常以四时长四藏，各十八日寄治，不得独主于时也。脾藏者常著胃土之精也，土者生万物而法天地，故上下至纷？，不得主时也。
-帝曰：脾与胃以膜相连耳，而能为之行其津液何也？岐伯曰：足太阴者三阴也，其脉贯胃属脾络嗌，故太阴为之行气于三阴。阳明者表也，五藏六府之海也，亦为之行气于三阳。藏府各因其经而受气于阳明，故为胃行其津液。四支不得禀水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气，日以益衰，阴道不利，筋骨肌肉无气以生，故不用焉。
+帝曰：脾与胃以膜相连耳，而能为之行其津液何也？岐伯曰：足<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>者三阴也，其脉贯胃属脾络嗌，故<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>为之行气于三阴。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>者表也，五藏六府之海也，亦为之行气于三阳。藏府各因其经而受气于<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>，故为胃行其津液。四支不得禀水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气，日以益衰，阴道不利，筋骨肌肉无气以生，故不用焉。
                 </div>
             </div>
         </div>
@@ -691,7 +706,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇论太阴—阳明轴：脾胃为后天之本，湿与热错杂易见，太阴主开、阳明主合之枢机需协调。临床意义：治当理中运脾、和胃降逆，湿重先化湿，阳明实热则清泄，辨表里同治或分治。</p>
             </div>
         </div>
     </section>
@@ -703,19 +718,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Explains the Taiyin–Yangming axis (spleen–stomach) as the postnatal root. Damp–heat mixtures are common; Taiyin opens and Yangming closes—both must coordinate. Treat by fortifying center, harmonizing stomach, transforming damp, or clearing Yangming repletion as indicated.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A discussion of Taiyin and Yangming: the center that nourishes, with dampness and heat as frequent admixtures. Regulation consists in rectifying opening/closing and in choosing between transformation and purgation according to signs.</p>
                     </div>
                 </div>
             </div>

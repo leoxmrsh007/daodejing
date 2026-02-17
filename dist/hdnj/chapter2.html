@@ -6,6 +6,21 @@
     <title>四气调神大论篇第二 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,63 +233,63 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter2.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter2.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter2.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter2.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter2.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter2.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter2.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ss/index.html">
+            <a class="dropdown-item " href="../ss/chapter2.html">
                 <span class="classic-icon">📚</span>
                 <span class="classic-name">四书</span>
                 <span class="classic-info">4章 · 朱熹</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../cxl/index.html">
+            <a class="dropdown-item " href="../cxl/chapter2.html">
                 <span class="classic-icon">📖</span>
                 <span class="classic-name">传习录</span>
                 <span class="classic-info">3章 · 王阳明</span>
@@ -681,7 +696,7 @@
 
 秋三月，此谓容平，天气以急，地气以明。早卧早起，与鸡俱兴，使志安宁，以缓秋刑，收敛神气，使秋气平，无外其志，使肺气清，此秋气之应，养收之道也。逆之则伤肺，冬为飧泄，奉藏者少。
 
-冬三月，此谓闭藏，水冰地坼，无扰乎阳。早卧晚起，必待日光，使志若伏若匿，若有私意，若已有得，去寒就温，无泄皮肤，使气亟夺，此冬气之应，养藏之道也。逆之则伤肾，春为痿厥，奉生者少。
+冬三月，此谓闭藏，水冰地坼，无扰乎阳。早卧晚起，必待日光，使志若伏若匿，若有私意，若已有得，去寒就温，无泄皮肤，使气亟夺，此冬气之应，养藏之道也。逆之则伤肾，春为<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，奉生者少。
                 </div>
             </div>
         </div>
@@ -711,19 +726,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">The three months of spring are the period of sprouting and opening. Heaven and earth are both giving forth life, and the ten thousand things are flourishing. One should retire late at night and rise early, walk leisurely in the courtyard, loosen the hair and relax the body, in order to allow the will to grow and expand. Let life flourish without killing, give without taking, reward without punishing. This is the response to the qi of spring and the art of nourishing life. To go against this will injure the liver, and in summer will result in cold changes with few to nourish growth.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">The three months of spring, they denote effusion and spreading. In heaven and earth everything comes to life; the ten thousand creatures prosper. Go to rest late at night and rise early. Stroll through the courtyard with long, slow strides. loosen the hair and relax the body. Bring the will to life. Give life and do not kill. Give and do not take. Reward and do not punish. This is correspondence with the qi of spring and it is the Way to nourish life. To go contrary to this will harm the liver. In summer this will cause changes brought on by cold. One will have little to support growth.</p>
                     </div>
                 </div>
             </div>

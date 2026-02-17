@@ -6,6 +6,21 @@
     <title>解精微论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter81.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter81.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="真实的话不华丽&#10;原文：信言不美，美言不信">
-                <span class="idiom-word">信言不美</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="华丽的话不真实&#10;原文：信言不美，美言不信">
-                <span class="idiom-word">美言不信</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="真实的话不华丽&#10;原文：信言不美，美言不信">
+            <span class="idiom-word">信言不美</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="华丽的话不真实&#10;原文：信言不美，美言不信">
+            <span class="idiom-word">美言不信</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -684,7 +699,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     八十一
-黄帝在明堂，雷公请曰：臣授业传之，行教以经论，从容形法，阴阳刺灸，汤药所滋。行治有贤不肖，未必能十全。若先言悲哀喜怒，燥湿寒暑，阴阳妇女，请问其所以然者，卑贱富贵，人之形体所从，群下通使，临事以适道术，谨闻命矣。请问有毚愚仆漏之问，不在经者，欲闻其状。帝曰：大矣。公请问：哭泣而泪不出者，若出而少涕，其故何也？帝曰：在经有也。复问：不知水所从生，涕所从出也。帝曰：若问此者，无益于治也，工之所知，道之所生也。夫心者，五藏之专精也，目者其窍也，华色者其荣也，是以人有德也，则气和于目，有亡，忧知于色。是以悲哀则泣下，泣下水所由生。水宗者积水也，积水者至阴也，至阴者肾之精也。宗精之水所以不出者，是精持之也，辅之裹之，故水不行也。夫水之精为志，火之精为神，水火相感，神志俱悲，是以目之水生也。故谚言曰：心悲名曰志悲。志与心精，共凑于目也。是以俱悲则神气传于心精，上不传于志而志独悲，故泣出也。泣涕者脑也，脑者阴也。髓者骨之充也，故脑渗为涕。志者骨之主也，是以水流而涕从之者，其行类也。夫涕之与泣者，譬如人之兄弟，急则俱死，生则俱生，其志以早悲，是以涕泣俱出而横行也。夫人涕泣俱出而相从者，所属之类也。雷公曰：大矣。请问人哭泣而泪不出者，若出而少，涕不从之何也？帝曰：夫泣不出者，哭不悲也。不泣者，神不慈也。神不慈则志不悲，阴阳相持，泣安能独来。夫志悲者惋，惋则<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>阴，<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>阴则志去目，志去则神不守精，精神去目，涕泣出也。且子独不诵不念夫经言乎，厥则目无所见。夫人厥则阳气并于上，阴气并于下。阳并于上，则火独光也；阴并于下，则足寒，足寒则胀也。夫一水不胜五火，故目眦盲。是以<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>风，泣下而不止。夫风之中目也，阳气内守于精，是火气燔目，故见风则泣下也。有以比之，夫火疾风生乃能雨，此之类也。〔家大人未供奉内药院时，见从德少喜医方术，为语曰：世无长桑君指授，不得饮上池水，尽见人五脏，必从黄帝之脉书，五色诊候，始知逆顺阴阳，按奇络活人；不然者，虽圣儒无所从精也。今世所传内经素问，即黄帝之脉书，广衍于秦越人、阳庆、淳于意诸长老，其文遂似汉人语，而旨意所从来远矣。客岁以试事北上，问视之暇，遂以宋刻善本见授曰：广其传非细事也，汝图之。从德窍惟吴儒者王光庵宾，尝学内经素问于戴原礼，可一年所，即治病辄验，晚岁以其学授盛启东、韩叔阳，后被荐文皇帝，召对称旨，俱留御药院供御，一日入见便殿，上语次偶及白沟之胜，为识长蛇阵耳。启东以天命对，是不但慷慨敢言，抑学术之正见于天人之际亦微矣。秦太医令所谓上医医国，殆如此耶。故吴中多上医，实出原礼，为上古自来之正派，以从授是书也。家大人仰副今上仁寿天下之意甚切，亟欲广其佳本，公暇校仇，至忘寝食，予小子敢遂翻刻以见承训之私云。嘉靖庚戌秋八月既望武陵顾从德谨识〕
+黄帝在明堂，雷公请曰：臣授业传之，行教以经论，从容形法，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>刺灸，汤药所滋。行治有贤不肖，未必能十全。若先言悲哀喜怒，燥湿寒暑，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>妇女，请问其所以然者，卑贱富贵，人之形体所从，群下通使，临事以适道术，谨闻命矣。请问有毚愚仆漏之问，不在经者，欲闻其状。帝曰：大矣。公请问：哭泣而泪不出者，若出而少涕，其故何也？帝曰：在经有也。复问：不知水所从生，涕所从出也。帝曰：若问此者，无益于治也，工之所知，道之所生也。夫心者，五藏之专精也，目者其窍也，华色者其荣也，是以人有德也，则气和于目，有亡，忧知于色。是以悲哀则泣下，泣下水所由生。水宗者积水也，积水者至阴也，至阴者肾之精也。宗精之水所以不出者，是精持之也，辅之裹之，故水不行也。夫水之精为志，火之精为神，水火相感，神志俱悲，是以目之水生也。故谚言曰：心悲名曰志悲。志与心精，共凑于目也。是以俱悲则神气传于心精，上不传于志而志独悲，故泣出也。泣涕者脑也，脑者阴也。髓者骨之充也，故脑渗为涕。志者骨之主也，是以水流而涕从之者，其行类也。夫涕之与泣者，譬如人之兄弟，急则俱死，生则俱生，其志以早悲，是以涕泣俱出而横行也。夫人涕泣俱出而相从者，所属之类也。雷公曰：大矣。请问人哭泣而泪不出者，若出而少，涕不从之何也？帝曰：夫泣不出者，哭不悲也。不泣者，神不慈也。神不慈则志不悲，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>相持，泣安能独来。夫志悲者惋，惋则<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>阴，<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>阴则志去目，志去则神不守精，精神去目，涕泣出也。且子独不诵不念夫经言乎，<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>则目无所见。夫人<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>则阳气并于上，阴气并于下。阳并于上，则火独光也；阴并于下，则足寒，足寒则胀也。夫一水不胜五火，故目眦盲。是以<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>风，泣下而不止。夫风之中目也，阳气内守于精，是火气燔目，故见风则泣下也。有以比之，夫火疾风生乃能雨，此之类也。〔家大人未供奉内药院时，见从德少喜医方术，为语曰：世无长桑君指授，不得饮上池水，尽见人<span class="difficult" data-pinyin="wǔ zàng" data-meaning="心、肝、脾、肺、肾五脏">五脏</span>，必从黄帝之脉书，五色诊候，始知逆顺<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，按奇络活人；不然者，虽圣儒无所从精也。今世所传内经素问，即黄帝之脉书，广衍于秦越人、阳庆、淳于意诸长老，其文遂似汉人语，而旨意所从来远矣。客岁以试事北上，问视之暇，遂以宋刻善本见授曰：广其传非细事也，汝图之。从德窍惟吴儒者王光庵宾，尝学内经素问于戴原礼，可一年所，即治病辄验，晚岁以其学授盛启东、韩叔阳，后被荐文皇帝，召对称旨，俱留御药院供御，一日入见便殿，上语次偶及白沟之胜，为识长蛇阵耳。启东以天命对，是不但慷慨敢言，抑学术之正见于天人之际亦微矣。秦太医令所谓上医医国，殆如此耶。故吴中多上医，实出原礼，为上古自来之正派，以从授是书也。家大人仰副今上仁寿天下之意甚切，亟欲广其佳本，公暇校仇，至忘寝食，予小子敢遂翻刻以见承训之私云。嘉靖庚戌秋八月既望武陵顾从德谨识〕
 附：黄帝内经素问遗篇
                 </div>
             </div>
@@ -697,7 +712,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇以解说泣与涕的精微生理为线索，阐明心为五藏之专精、目为其窍，肾精为水宗，脑髓化涕；悲哀则心神与志水同动，故泣涕俱出，而哭不悲则泪不下。文中并引厥证、风中目等病机，说明水火、心肾、脑髓之间的精微关联。临床意义：通过细致分析情志、泪涕与脏腑精气的关系，提醒医者在诊治眼目与神志相关疾病时，兼顾心肾与脑髓，理解“神志所系，非但局部”的整体观。</p>
             </div>
         </div>
     </section>
@@ -709,19 +724,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Explains in fine detail how tears and nasal mucus arise from the interaction of heart, kidney, and brain essence. Sorrow moves both spirit and志; when spirit and志 are fully engaged, tears and mucus flow together, whereas in insincere weeping tears do not appear.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A subtle anatomical and emotional exegesis. Taking crying as its thread, it links the ‘exclusive essence’ of the heart, the ancestral water of the kidneys, and the brain‑marrow that seeps as mucus, to show how affect, vision, and bodily fluids belong to a single 精微 economy.</p>
                     </div>
                 </div>
             </div>

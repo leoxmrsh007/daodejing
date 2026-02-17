@@ -6,6 +6,21 @@
     <title>咳论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter38.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter38.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter38.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -677,8 +692,8 @@
                 <div class="original-text" id="originalText">
                     三十八
 黄帝问曰：肺之令人咳何也？岐伯对曰：五藏六府皆令人咳，非独肺也。帝曰：愿闻其状。岐伯曰：皮毛者肺之合也，皮毛先受邪气，邪气以从其合也。其寒饮食入胃，从肺脉上至于肺则肺寒，肺寒则外内合邪，因而客之，则为肺咳。五藏各以其时受病，非其时各传以与之。人与天地相参，故五藏各以治时感于寒则受病，微则为咳，甚者为泄、为痛。乘秋则肺先受邪，乘春则肝先受之，乘夏则心先受之，乘至阴则脾先受之，乘冬则肾先受之。
-帝曰：何以异之？岐伯曰：肺咳之状，咳而喘息有音，甚则唾血。心咳之状，咳则心痛，喉中介介如梗状，甚则咽肿喉痹。肝咳之状，咳则两胁下痛，甚则不可以转，转则两胠下满。脾咳之状，咳则右胁下痛阴阴引肩背，甚则不可以动，动则咳剧。肾咳之状，咳则腰背相引而痛，甚则咳涎。
-帝曰：六府之咳奈何？安所受病？岐伯曰：五藏之久咳，乃移于六府。脾咳不已，则胃受之，胃咳之状，咳而呕，呕甚则长虫出。肝咳不已，则胆受之，胆咳之状，咳呕胆汁。肺咳不已，则大肠受之，大肠咳状，咳而遗失。心咳不已，则小肠受之，小肠咳状，咳而失气，气与咳俱失。肾咳不已，则膀胱受之，膀胱咳状，咳而遗溺。久咳不已，则三焦受之，三焦咳状，咳而腹满，不欲食饮，此皆聚于胃，关于肺，使人多涕唾而面浮肿气逆也。
+帝曰：何以异之？岐伯曰：肺咳之状，咳而喘息有音，甚则唾血。心咳之状，咳则心痛，喉中介介如梗状，甚则咽肿喉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>。肝咳之状，咳则两胁下痛，甚则不可以转，转则两<span class="difficult" data-pinyin="qū" data-meaning="胠胁，肋下两侧">胠</span>下满。脾咳之状，咳则右胁下痛阴阴引肩背，甚则不可以动，动则咳剧。肾咳之状，咳则腰背相引而痛，甚则咳涎。
+帝曰：六府之咳奈何？安所受病？岐伯曰：五藏之久咳，乃移于六府。脾咳不已，则胃受之，胃咳之状，咳而呕，呕甚则长虫出。肝咳不已，则胆受之，胆咳之状，咳呕胆汁。肺咳不已，则大肠受之，大肠咳状，咳而遗失。心咳不已，则小肠受之，小肠咳状，咳而失气，气与咳俱失。肾咳不已，则膀胱受之，膀胱咳状，咳而遗溺。久咳不已，则<span class="difficult" data-pinyin="sān jiāo" data-meaning="上中下三焦，总领气机与水液代谢">三焦</span>受之，<span class="difficult" data-pinyin="sān jiāo" data-meaning="上中下三焦，总领气机与水液代谢">三焦</span>咳状，咳而腹满，不欲食饮，此皆聚于胃，关于肺，使人多涕唾而面浮肿气逆也。
 帝曰：治之奈何？岐伯曰：治藏者治其俞，治府者治其合，浮肿者治其经。帝曰：善。
 卷十一
                 </div>
@@ -692,7 +707,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇条辨五脏咳：肺咳主表里之失肃降，肝咳多气逆胁痛，心咳见心悸胸闷，脾咳痰饮中阻，肾咳腰膝酸软久咳。临床意义：循脏辨证，或肃肺降逆、或理气疏肝、或温阳化饮、或益气健脾，兼顾痰饮与火邪。</p>
             </div>
         </div>
     </section>
@@ -704,19 +719,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Differentiates coughs by viscera: lung failure to downbear, liver counterflow, cardiac involvement, spleen phlegm–damp, kidney vacuity. Treat by restoring descent, soothing liver, transforming fluids, fortifying spleen, or warming kidney as needed.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A viscus‑based typology of cough with associated signs. Therapy follows the viscus: descend, soothe, transform, support, or warm.</p>
                     </div>
                 </div>
             </div>

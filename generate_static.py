@@ -6,6 +6,7 @@
 """
 
 import json
+import re
 import shutil
 
 # 从服务层导入共享逻辑
@@ -51,7 +52,7 @@ def get_all_classics():
     return _ALL_CLASSICS
 
 
-def generate_classic_switcher_html(current_classic_id):
+def generate_classic_switcher_html(current_classic_id, current_chapter_id=None):
     """生成经典切换导航HTML"""
     classics = get_all_classics().get("classics", [])
     if not classics:
@@ -61,12 +62,22 @@ def generate_classic_switcher_html(current_classic_id):
     for c in classics:
         is_active = c["id"] == current_classic_id
         active_class = "active" if is_active else ""
-        # 计算相对路径
-        path_prefix = "../" + c["id"] + "/" if current_classic_id else "./"
+        target_path = ""
+        if (
+            current_chapter_id
+            and c.get("chapters")
+            and current_chapter_id <= c.get("chapters", 0)
+        ):
+            target_path = f"../{c['id']}/chapter{current_chapter_id}.html"
+        else:
+            if current_classic_id:
+                target_path = f"../{c['id']}/index.html"
+            else:
+                target_path = f"./{c['id']}/index.html"
         items.append(
             f"""
         <li>
-            <a class="dropdown-item {active_class}" href="{path_prefix}index.html">
+            <a class="dropdown-item {active_class}" href="{target_path}">
                 <span class="classic-icon">{c.get("icon", "☯")}</span>
                 <span class="classic-name">{c["short_name"]}</span>
                 <span class="classic-info">{c.get("chapters", 0)}章 · {c.get("author", "")}</span>
@@ -107,6 +118,21 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <title>{title}</title>
     <meta name="description" content="{classic_name}多版本对照平台 - {classic_desc}">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{classic_icon}</text></svg>">
+    <script>
+    (function(){{
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){{
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){{
+                theme='dark';
+            }}else{{
+                theme='light';
+            }}
+        }}
+        document.documentElement.setAttribute('data-theme',theme);
+    }})();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -840,7 +866,6 @@ def generate_index_page(data, classic_meta):
     classic_switcher = generate_classic_switcher_html(classic_id)
 
     # 构建经典描述
-    classic_desc_parts = []
     if classic_id == "ddj":
         classic_desc = "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
     elif classic_id == "zzj":
@@ -918,8 +943,8 @@ def generate_all_chapters_page(data, classic_meta):
     return html
 
 
-def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
-    """生成单章页面"""
+def _get_chapter_metadata(data, chapter_id, classic_meta):
+    """获取章节元数据和相邻章节"""
     classic_id = classic_meta["id"]
     short_name = classic_meta["short_name"]
     color = classic_meta.get("color", "#d4a574")
@@ -937,37 +962,250 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
         data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
     )
 
-    # 使用服务层的标注函数
-    original_annotated = annotate_difficult_chars(chapter.get("original", ""))
-
-    chapter_list = generate_chapter_list_html(data["chapters"], classic_id, chapter_id)
-
-    # 筛选当前章节相关的成语
-    related_idioms = []
-    if idioms:
-        related_idioms = [
-            idiom for idiom in idioms if idiom.get("chapter") == chapter_id
-        ]
-
-    # 生成成语展示HTML
-    idioms_html = ""
-    if related_idioms:
-        idioms_html = '<div class="idioms-container d-flex flex-wrap gap-2">'
-        for idiom in related_idioms:
-            safe_meaning = idiom.get("meaning", "").replace('"', "&quot;")
-            safe_source = idiom.get("source", "").replace('"', "&quot;")
-            idioms_html += f"""
-            <span class="idiom-tag" title="{safe_meaning}&#10;原文：{safe_source}">
-                <span class="idiom-word">{idiom.get("word", "")}</span>
-                <span class="idiom-chapter">📖</span>
-            </span>"""
-        idioms_html += "</div>"
-    else:
-        idioms_html = '<span class="text-muted">本章暂无收录相关成语</span>'
-
     ch_title = chapter.get("title", f"第{chapter_id}{chapter_unit}")
 
-    # 构建内容
+    return {
+        "classic_id": classic_id,
+        "short_name": short_name,
+        "color": color,
+        "chapter_unit": chapter_unit,
+        "total_chapters": total_chapters,
+        "chapter": chapter,
+        "prev_chapter": prev_chapter,
+        "next_chapter": next_chapter,
+        "ch_title": ch_title,
+        "chapter_id": chapter_id,
+    }
+
+
+def _clean_original_text(classic_id, original_text):
+    """清理原文文本（处理特定经典格式）"""
+    if classic_id == "huangdi_neijing" and original_text:
+        cleaned = original_text.lstrip()
+        cleaned = re.sub(
+            r"^[一二三四五六七八九十百千]{1,3}[ 　\.．、篇章回节]*", "", cleaned
+        )
+        if "\n" in cleaned:
+            header, rest = cleaned.split("\n", 1)
+            if not header.strip():
+                cleaned = rest
+        return cleaned
+    return original_text
+
+
+def _generate_idioms_html(idioms, chapter_id):
+    """生成成语展示HTML"""
+    if not idioms:
+        return '<span class="text-muted">本章暂无收录相关成语</span>'
+
+    related_idioms = [idiom for idiom in idioms if idiom.get("chapter") == chapter_id]
+
+    if not related_idioms:
+        return '<span class="text-muted">本章暂无收录相关成语</span>'
+
+    idioms_html = '<div class="idioms-container d-flex flex-wrap gap-2">'
+    for idiom in related_idioms:
+        safe_meaning = idiom.get("meaning", "").replace('"', "&quot;")
+        safe_source = idiom.get("source", "").replace('"', "&quot;")
+        idioms_html += f"""
+        <span class="idiom-tag" title="{safe_meaning}&#10;原文：{safe_source}">
+            <span class="idiom-word">{idiom.get("word", "")}</span>
+            <span class="idiom-chapter">📖</span>
+        </span>"""
+    idioms_html += "</div>"
+    return idioms_html
+
+
+def _build_commentary_section(meta, chapter):
+    """构建注释家版本对照section"""
+    commentators = meta.get("commentators", [])
+    if not commentators:
+        return ""
+
+    version_tabs = ""
+    version_panes = ""
+    for idx, commentator in enumerate(commentators):
+        cid = commentator.get("id")
+        cname = commentator.get("name", "")
+        era = commentator.get("era", "")
+        if not cid:
+            continue
+        active_class = "active" if idx == 0 else ""
+        pane_class = "tab-pane fade show active" if idx == 0 else "tab-pane fade"
+        note_field = f"{cid}_note"
+        note_text = chapter.get(note_field)
+        if not note_text or note_text.strip() in {
+            "此版本暂未收录完整注释",
+            "暂无注释",
+        }:
+            summary = chapter.get("modern_chinese", "")
+            if summary:
+                note_text = f"{cname}义理可参考本篇白话概述：{summary}"
+            else:
+                note_text = f"[{cname} 注释正在整理中]"
+        version_tabs += f"""
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link {active_class}" data-bs-toggle="tab" data-bs-target="#note-{cid}" type="button">{cname}</button>
+                </li>"""
+        subtitle = f"{cname}（{era}）" if era else cname
+        version_panes += f"""
+                <div class="{pane_class}" id="note-{cid}">
+                    <h6 class="text-muted mb-2">{subtitle}</h6>
+                    <p class="note-text mb-0">{note_text}</p>
+                </div>"""
+
+    if not version_tabs or not version_panes:
+        return ""
+
+    return f"""
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+{version_tabs}
+                </ul>
+                <div class="tab-content p-3">
+{version_panes}
+                </div>
+            </div>
+        </div>
+    </section>
+"""
+
+
+def _build_english_section(meta, chapter, classic_meta):
+    """构建英文译本section"""
+    translators = classic_meta.get("translators", [])
+    english_tabs = ""
+    english_panes = ""
+
+    short_name = meta["short_name"]
+    chapter_id = meta["chapter_id"]
+    chapter_unit = meta["chapter_unit"]
+
+    if translators:
+        for idx, translator in enumerate(translators):
+            tid = translator.get("id")
+            tname = translator.get("name", "")
+            if not tid:
+                continue
+            active_class = "active" if idx == 0 else ""
+            pane_class = "tab-pane fade show active" if idx == 0 else "tab-pane fade"
+            field_name = f"english_{tid}"
+            text = chapter.get(field_name)
+            if not text:
+                text = f"[{tname} {short_name} 第{chapter_id}{chapter_unit} 英文译本正在整理中]"
+            english_tabs += f"""
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {active_class}" data-bs-toggle="pill" data-bs-target="#en-{tid}" type="button">{tname}</button>
+                    </li>"""
+            english_panes += f"""
+                    <div class="{pane_class}" id="en-{tid}">
+                        <p class="english-text mb-0 fst-italic">{text}</p>
+                    </div>"""
+    else:
+        text = chapter.get("english")
+        if not text:
+            text = f"[{short_name} 第{chapter_id}{chapter_unit} 的英文译本正在整理中]"
+        english_tabs += """
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-generic" type="button">English</button>
+                    </li>"""
+        english_panes += f"""
+                    <div class="tab-pane fade show active" id="en-generic">
+                        <p class="english-text mb-0 fst-italic">{text}</p>
+                    </div>"""
+
+    return f"""
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+{english_tabs}
+                </ul>
+                <div class="tab-content p-3">
+{english_panes}
+                </div>
+            </div>
+        </div>
+    </section>
+"""
+
+
+def _build_navigation_html(meta):
+    """构建章节导航HTML"""
+    prev_chapter = meta["prev_chapter"]
+    next_chapter = meta["next_chapter"]
+    chapter_id = meta["chapter_id"]
+    total_chapters = meta["total_chapters"]
+    chapter_unit = meta["chapter_unit"]
+
+    prev_link = (
+        f'<li class="page-item"><a class="page-link" href="./chapter{prev_chapter["chapter"]}.html">← 第{prev_chapter["chapter"]}{chapter_unit}</a></li>'
+        if prev_chapter
+        else '<li class="page-item disabled"><span class="page-link">← 上一篇</span></li>'
+    )
+    next_link = (
+        f'<li class="page-item"><a class="page-link" href="./chapter{next_chapter["chapter"]}.html">第{next_chapter["chapter"]}{chapter_unit} →</a></li>'
+        if next_chapter
+        else '<li class="page-item disabled"><span class="page-link">下一篇 →</span></li>'
+    )
+
+    return f"""
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            {prev_link}
+            <li class="page-item disabled">
+                <span class="page-link">{chapter_id} / {total_chapters}</span>
+            </li>
+            {next_link}
+        </ul>
+    </nav>
+"""
+
+
+def _get_classic_description(classic_id, classic_meta):
+    """获取经典描述"""
+    short_name = classic_meta["short_name"]
+    if classic_id == "ddj":
+        return "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
+    elif classic_id == "zzj":
+        return "成玄英疏 · 郭象注 · 王夫之"
+    else:
+        return f"{classic_meta.get('author', '')}著 · {short_name}"
+
+
+def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
+    """生成单章页面"""
+    # 获取章节元数据
+    meta = _get_chapter_metadata(data, chapter_id, classic_meta)
+    if not meta:
+        return None
+
+    chapter = meta["chapter"]
+
+    # 处理原文文本
+    original_text = chapter.get("original", "")
+    original_text = _clean_original_text(meta["classic_id"], original_text)
+    original_annotated = annotate_difficult_chars(original_text)
+
+    # 生成章节列表
+    chapter_list = generate_chapter_list_html(
+        data["chapters"], meta["classic_id"], chapter_id
+    )
+
+    # 生成成语HTML
+    idioms_html = _generate_idioms_html(idioms, chapter_id)
+
+    ch_title = meta["ch_title"]
+
+    # 构建内容 - 基础sections
     content = f"""
     <nav aria-label="章节导航" class="chapter-nav mb-3">
         <ol class="breadcrumb">
@@ -1017,113 +1255,29 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
     </section>
 """
 
-    # 根据经典类型添加不同的注释版本
-    if classic_id == "ddj":
-        content += f"""
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">{chapter.get("wangbi_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">{chapter.get("heshanggong_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">{chapter.get("wangfuzhi_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">{chapter.get("hanshandeqing_note", "")}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-"""
+    # 添加注释家版本对照section
+    content += _build_commentary_section(meta, chapter)
 
-    # 添加英文译本
-    content += f"""
-    <section class="english-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">English Translations / 英文译本</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic">{chapter.get("english_lau", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic">{chapter.get("english_henricks", "")}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-"""
+    # 添加英文译本section
+    content += _build_english_section(meta, chapter, classic_meta)
 
-    # 添加导航
-    content += f"""
-    <nav class="chapter-navigation" aria-label="章节翻页">
-        <ul class="pagination justify-content-center">
-            {f'<li class="page-item"><a class="page-link" href="./chapter{prev_chapter["chapter"]}.html">← 第{prev_chapter["chapter"]}{chapter_unit}</a></li>' if prev_chapter else '<li class="page-item disabled"><span class="page-link">← 上一篇</span></li>'}
-            <li class="page-item disabled">
-                <span class="page-link">{chapter_id} / {total_chapters}</span>
-            </li>
-            {f'<li class="page-item"><a class="page-link" href="./chapter{next_chapter["chapter"]}.html">第{next_chapter["chapter"]}{chapter_unit} →</a></li>' if next_chapter else '<li class="page-item disabled"><span class="page-link">下一篇 →</span></li>'}
-        </ul>
-    </nav>
-"""
+    # 添加导航section
+    content += _build_navigation_html(meta)
 
-    extra_css = CHAPTER_EXTRA_CSS.replace("#d4a574", color)
+    extra_css = CHAPTER_EXTRA_CSS.replace("#d4a574", meta["color"])
 
     # 生成经典切换器
-    classic_switcher = generate_classic_switcher_html(classic_id)
+    classic_switcher = generate_classic_switcher_html(meta["classic_id"], chapter_id)
 
     # 构建经典描述
-    if classic_id == "ddj":
-        classic_desc = "王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简"
-    elif classic_id == "zzj":
-        classic_desc = "成玄英疏 · 郭象注 · 王夫之"
-    else:
-        classic_desc = f"{classic_meta.get('author', '')}著 · {short_name}"
+    classic_desc = _get_classic_description(meta["classic_id"], classic_meta)
 
     html = HTML_TEMPLATE.format(
-        title=f"{ch_title} - {short_name}",
+        title=f"{ch_title} - {meta['short_name']}",
         page_title=ch_title,
-        classic_name=short_name,
+        classic_name=meta["short_name"],
         classic_icon=classic_meta.get("icon", "☯"),
-        classic_short_name=short_name,
+        classic_short_name=meta["short_name"],
         classic_desc=classic_desc,
         classic_switcher=classic_switcher,
         extra_css=extra_css,

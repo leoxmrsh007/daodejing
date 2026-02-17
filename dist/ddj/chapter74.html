@@ -6,6 +6,21 @@
     <title>第74章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter74.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter74.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">诡异乱羣谓之奇也．为逆顺者之所恶忿也．不仁者人之所疾也．故曰常有司杀者.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">民之饑，以其上食稅之多，人民所以饑深者，以其君上稅食下大多。是以饑。民皆化上為矣，叛道違德，故饑。民之難治，以其上之有為，民之不可治者，以其君上多欲好有為也。是以難治。是以其民化上有為，情偽難治。民之輕死，以其求生之厚，人民輕犯死者，以其求生活之道太厚，貪利以自危。是以輕死。以求生太厚之故，輕入死地也。夫唯無以生為者，是賢於貴生。夫唯獨無以生為務者，爵祿不干於意，財利不入於身，天子不得臣，諸侯不得使，則賢於貴生也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">木當其「斲」，豈有避其堅脆者哉？故盜跖、鮑焦相笑而無已時也。揀其所笑，以為或是或非，執秕糠以強人之所固不信，遂將乘人之死以驗己之得，而要之為利，則於殺有喜心，於殺有喜心者，於天下未有損，而徒自剝其和也。聖人知理勢之且然，故哀天而目擊夫化。化日遷而不得不聽，聽化而哀之也抑深矣。豈求以近仁名邪？近仁名者，是有司生者而代之生也。代之生，代之殺，皆愚也。聖人終不為愚，故似不肖。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言天命可畏，報應昭然，教人不可輕忽也。勇者，決定之志也。敢者，不計利害而決於為也。殺活，死生也。謂凡世人作事，不顧利害，不怕死生，而敢為之。然敢乃必死之地。故曰勇於敢則殺。若用志於不敢為，是足以保身全生。故曰勇於不敢則活。此天道必然之理也。且此二者，亦有敢而生，不敢而死者。至若顏子夭，而盜蹤壽，此乃當害而利，當利而反害者，何耶。況天道好謙而惡盈，與善而惡惡。是則為惡者，當惡而不惡，斯豈報應差舛耶。世皆疑之。故解之曰，天之所惡，孰能知其故。故，所以然也。孔子曰，無求生以害仁，有殺身以成仁。由此觀之，生存而仁害，雖生亦死。身滅而仁成，雖死亦生。斯則蹠非壽，顏非夭矣。此乃天道所以然之妙，而非世人所易知。是以聖人於此猶難之，不敢輕忽，而敬畏之。所謂畏天之威，於時保之也。故下文歷示天道之所以。逆天者亡，故不爭而善勝。感應冥符，故不言而善應。吉凶禍福如影響，故不召而自來。然報愈遲，而惡愈深，禍愈慘，故繟然而善謀。以報速者有所警，報緩則不及悔，必至盡絕而後已。此所謂善謀也。是則天道昭昭在上，如網之四張，雖恢恢廣大，似乎疏闊。其實善惡感應，毫髮不遺。此所謂疏而不失也。世人不知天命之如此，乃以敢以強以爭競於名利之場。將謂一身之謀，不顧利害死生而為之，自謂智力以致之。蓋不知命之過，皆取死之道也。可不畏哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">When the people are not afraid of death, wherefore frighten them with death? Were the people always afraid of death, and were I able to arrest and put to death those who innovate, then who would dare? There is a regular executioner whose charge it is to kill. To kill on behalf of the executioner is what is described as chopping wood on behalf of the master carpenter. In chopping wood on behalf of the master carpenter, there are few who escape hurting their own hands instead.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. If the people were constant [in their behavior] and yet did not fear death, 2. How could you use execution to intimidate them? 3. If you brought it about that the people were constant [in their behavior] and moreover feared, and [we] took those who behaved in abnormal ways and killed them — who would dare act in this way?! 4. If the people are constant and moreover necessarily fear death, then we constantly have the one in charge of executions. 5. Now killing people in place of the one in charge of executions, this [is like] cutting wood in place of the head carpenter. 6. And of those who cut wood in place of the head carpenter, very few do not hurt their hands!</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">If people do not fear death, how can you threaten them with death? If people always fear death, and I catch and kill those who do strange things, who would dare? There is always the executioner who kills. To replace the executioner in killing is like replacing the master carpenter in chopping. Those who replace the master carpenter rarely avoid hurting their hands.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The people are not frightened of death. What then is the use of trying to intimidate them with the death-penalty? And even supposing people were generally frightened of death And did not regard it as an everyday thing, Which of us would dare to seize them and slay them? There is the Lord of Slaughter always ready for this task, And to do it in his stead is like thrusting oneself into the master-carpenter's place And doing his chipping for him. Now "he who tries to do the master-carpenter's chipping for him is lucky if he does not cut his hand."</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第74章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">If you realize that all things change, there is nothing you will try to hold on to. If you aren't afraid of dying, there is nothing you can't achieve. Trying to control the future is like trying to take the master carpenter's place. When you handle the master carpenter's tools, chances are that you'll cut your hand.</p>
                     </div>
                 </div>
             </div>

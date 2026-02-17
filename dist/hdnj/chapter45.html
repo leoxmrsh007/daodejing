@@ -6,6 +6,21 @@
     <title>厥论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter45.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter45.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter45.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="真正聪明的人不显露，表面看起来笨拙&#10;原文：大巧若拙，大辩若讷">
-                <span class="idiom-word">大巧若拙</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="真正聪明的人不显露，表面看起来笨拙&#10;原文：大巧若拙，大辩若讷">
+            <span class="idiom-word">大巧若拙</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,12 +695,12 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     四十五
-黄帝问曰：厥之寒热者何也？岐伯对曰：阳气衰于下，则为寒厥；阴气衰于下，则为热厥。
-帝曰：热厥之为热也，必起于足下者何也？岐伯曰：阳气起于足五指之表，阴脉者集于足下而聚于足心，故阳气胜则足下热也。
-帝曰：寒厥之为寒也，必从五指而上于膝者何也？岐伯曰：阴气起于五指之里，集于膝下而聚于膝上，故阴气胜则从五指至膝上寒，其寒也，不从外，皆从内也。
-帝曰：寒厥何失而然也？岐伯曰：前阴者，宗筋之所聚，太阴阳明之所合也。春夏则阳气多而阴气少，秋冬则阴气盛而阳气衰。此人者质壮，以秋冬夺于所用，下气上争，不能复，精气溢下，邪气因从之而上也，气因于中，阳气衰，不能渗营其经络，阳气日损，阴气独在，故手足为之寒也。
-帝曰：热厥何如而然也？岐伯曰：酒入于胃，则络脉满而经脉虚，脾主为胃行其津液者也，阴气虚则阳气入，阳气入则胃不和，胃不和则精气竭，精气竭则不营其四支也。此人必数醉若饱以入房，气聚于脾中不得散，酒气与<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气相薄，热盛于中，故热遍于身，内热而溺赤也。夫酒气盛而剽悍，肾气有衰，阳气独胜，故手足为之热也。
-帝曰：厥或令人腹满，或令人暴不知人，或至半日远至一日乃知人者何也？岐伯曰：阴气盛于上则为下虚，下虚则腹胀满，阳气盛于上则下气重上而邪气逆，逆则阳气乱，阳气乱则不知人也。帝曰：善。愿闻六经脉之厥状病能也。岐伯曰：巨阳之厥，则肿首头重，足不能行，发为眴仆。阳明之厥，则癫疾欲走呼，腹满不得卧，面赤而热，妄见而妄言。少阳之厥，则暴聋颊肿而热，胁痛，<骨行>不可以运。太阴之厥，则腹满<月真>胀，后不利，不欲食，食则呕，不得卧。少阴之厥，则口干溺赤，腹满心痛。厥阴之厥，则少腹肿痛，腹胀泾溲不利，好卧屈膝，阴缩肿，<骨行>内热。盛则泻之，虚则补之，不盛不虚，以经取之。太阴厥逆，<骨行>急挛，心痛引腹，治主病者。少阴厥逆，虚满呕变，下泄清，治主病者。厥阴厥逆，挛腰痛，虚满前闭谵言，治主病者。三阴俱逆，不得前后，使人手足寒，三日死。太阳厥逆，僵仆呕血善衄，治主病者。少阳厥逆，机关不利，机关不利者，腰不可以行，项不可以顾。发肠痈不可治，惊者死。阳明厥逆，喘咳身热，善惊衄呕血。手太阴厥逆，虚满而咳，善呕沫，治主病者。手心主少阴厥逆，心痛引喉，身热，死不可治。手太阳厥逆，耳聋泣出，项不可以顾，腰不可以俯仰，治主病者。手阳明少阳厥逆，发喉痹，嗌肿，痉，治主病者。
+黄帝问曰：<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>之寒热者何也？岐伯对曰：阳气衰于下，则为寒<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>；阴气衰于下，则为热<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。
+帝曰：热<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>之为热也，必起于足下者何也？岐伯曰：阳气起于足五指之表，阴脉者集于足下而聚于足心，故阳气胜则足下热也。
+帝曰：寒<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>之为寒也，必从五指而上于膝者何也？岐伯曰：阴气起于五指之里，集于膝下而聚于膝上，故阴气胜则从五指至膝上寒，其寒也，不从外，皆从内也。
+帝曰：寒<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>何失而然也？岐伯曰：前阴者，宗筋之所聚，太<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>明之所合也。春夏则阳气多而阴气少，秋冬则阴气盛而阳气衰。此人者质壮，以秋冬夺于所用，下气上争，不能复，<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>溢下，邪气因从之而上也，气因于中，阳气衰，不能渗营其经络，阳气日损，阴气独在，故手足为之寒也。
+帝曰：热<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>何如而然也？岐伯曰：酒入于胃，则<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>满而<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>虚，脾主为胃行其津液者也，阴气虚则阳气入，阳气入则胃不和，胃不和则<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>竭，<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>竭则不营其四支也。此人必数醉若饱以入房，气聚于脾中不得散，酒气与<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气相薄，热盛于中，故热遍于身，内热而溺赤也。夫酒气盛而剽悍，肾气有衰，阳气独胜，故手足为之热也。
+帝曰：<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>或令人腹满，或令人暴不知人，或至半日远至一日乃知人者何也？岐伯曰：阴气盛于上则为下虚，下虚则腹胀满，阳气盛于上则下气重上而邪气逆，逆则阳气乱，阳气乱则不知人也。帝曰：善。愿闻六<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>状病能也。岐伯曰：巨阳之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则肿首头重，足不能行，发为眴仆。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则癫疾欲走呼，腹满不得卧，面赤而热，妄见而妄言。<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则暴聋颊肿而热，胁痛，<骨行>不可以运。<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则腹满<月真>胀，后不利，不欲食，食则呕，不得卧。<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则口干溺赤，腹满心痛。<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，则少腹肿痛，腹胀泾溲不利，好卧屈膝，阴缩肿，<骨行>内热。盛则泻之，虚则补之，不盛不虚，以经取之。<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，<骨行>急挛，心痛引腹，治主病者。<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，虚满呕变，下泄清，治主病者。<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，挛腰痛，虚满前闭谵言，治主病者。三阴俱逆，不得前后，使人手足寒，三日死。<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，僵仆呕血善衄，治主病者。<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，机关不利，机关不利者，腰不可以行，项不可以顾。发肠<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>不可治，惊者死。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，喘咳身热，善惊衄呕血。手<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，虚满而咳，善呕沫，治主病者。手心主<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，心痛引喉，身热，死不可治。手<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，耳聋泣出，项不可以顾，腰不可以俯仰，治主病者。手<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span><span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆，发喉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，嗌肿，痉，治主病者。
 卷十三
                 </div>
             </div>
@@ -698,7 +713,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇综述厥证：寒厥、热厥、气血厥等分型与救逆要点。临床意义：急则回阳救逆或清热开窍，继则调理中焦、复气血运行，注意病因病机的再评估。</p>
             </div>
         </div>
     </section>
@@ -710,19 +725,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Surveys collapse patterns—cold, heat, qi, and blood ‘jue’—with rescue priorities: restore yang, clear heat, open orifices; then reestablish central regulation and circulation.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">An overview of ‘jue’ categories and their management from emergency reversal to convalescent rectification.</p>
                     </div>
                 </div>
             </div>

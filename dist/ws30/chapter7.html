@@ -6,6 +6,21 @@
     <title>第7颂 - 唯识三十颂</title>
     <meta name="description" content="唯识三十颂多版本对照平台 - 世亲著 · 唯识三十颂">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,49 +233,49 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter7.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter7.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter7.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter7.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../ws30/index.html">
+            <a class="dropdown-item active" href="../ws30/chapter7.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -507,10 +522,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
-                <span class="idiom-word">天长地久</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
+            <span class="idiom-word">天长地久</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -526,7 +541,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    【第7颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。
+                    有覆无记摄  随所生所系  阿罗汉灭定  出世道无有
                 </div>
             </div>
         </div>
@@ -538,7 +553,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">第7颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。</p>
+                <p class="modern-text mb-0">末那识被归入“有覆无记”：虽不直接造善恶业，却恒常被我执烦恼所覆，成为一切染污的根本支点。它随众生所受生处与系属而存在，在凡夫与有学圣者位中不断运作；唯有在阿罗汉的灭尽定与出世间道中，末那识不再现起，自我执着暂时或究竟止息。</p>
             </div>
         </div>
     </section>
@@ -550,19 +565,15 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-generic" type="button">English</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-generic">
+                        <p class="english-text mb-0 fst-italic">Manas is classed as defiled yet morally indeterminate: by itself it does not immediately produce good or bad acts, but it is always covered by self-centered afflictions and so supports all defilement. It follows beings into whatever realm and destiny they are born, operating throughout the path of worldlings and trainees. Only in the arhat’s attainment of cessation and on the supramundane path does this mental consciousness cease, and the self-grasping it sustains comes to rest.</p>
                     </div>
                 </div>
             </div>

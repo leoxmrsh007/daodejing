@@ -6,6 +6,21 @@
     <title>第61章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter61.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter61.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter61.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">江海居大而处下则百川流之．大国居大而处下则天下流之．故曰大国者下流．天下之所归会者也．静而不求．物自归之也．以其静故能为下．牝雌也．雄躁动贪欲．雌常以静故能胜雄也．以其静复能为下故物归之也．大国以下犹云以大国下小国．小国则附之．大国纳之也．言唯修卑下然后乃各得其所欲．小国修下自全而已．不能令天下归之．大国修下则天下归之．故曰各得其所欲则大者宜为下也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">道者萬物之奧。奧，藏也。道為萬物之藏，無所不容也。善人之寶，善人以道為身寶，不敢違。不善人之所保。道者不善人之保倚也，遭患逢急，猶自知悔卑下。美言可以市，美言者，獨可於市耳。夫市，交易而退不相宜，善言美語，求者欲疾得，賣者欲疾售也。尊行可以加人。加，別也。人有尊貴之行，可以別異於几，人未足以尊道。○行，去聲。人之不善，何棄之有？人雖不善，當以道化之。蓋三皇之前，無有棄民，德化淳也。故立天子，置三公，欲使教化不善之人。雖有拱璧以先駟馬，不如坐進此道。雖有美璧先駟馬而至，故不如坐進此道。○先，去聲。古之所以貴此道者何？不日以求得，古之所以貴此道者，不日日遠行求索，近得之於身。有罪以免邪？有罪，謂遭亂世闇君，妄行刑誅，修道則可以解死，免於罪耶。故為天下貴。道德洞遠，無不覆濟，全身治國，恬然無為，故可為天下貴也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">道莫妙於受。受而動，是名受而實不受也。欲受而動，是實受而名不受也。天下相報以實，而相爭以名，陰陽之於人固然，況人事乎？語其極，則欲「兼畜人」，非能畜人；欲「入事人」，非能事人。何也？實元動也，況欲之而又不能靜乎？愈大則愈可受。人能為陰陽之歸，其處下尤甚。靜其欲，靜其動，江海之所以為百谷王也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言無為之益，福利於民，反顯有為之害也。凡治大國，以安靜無擾為主，行其所無事，則民自安居樂業，而蒙其福利矣。故曰若烹小鮮。烹小鮮，則不可撓。撓，則靡爛而不全矣。治民亦然。夫虐政害民，災害並至，民受其殃。不知為政之道，乃以鬼神為厲而傷人，反以祭祀以要其福。其實君人者不道所致也。若以道德君臨天下，則和氣致祥，雖有鬼而亦不神矣。不神，謂不能為禍福也。且鬼神非無，然洋洋乎如在其上，如在其左右，豈不昭格於上下耶。第雖靈爽赫然，但只為民之福，不為民害。故曰非其鬼不神，但其神不傷人耳。然非其神不傷人，實由聖人含哺百姓，如保赤子。與天地合其德，鬼神合其吉凶，而絕無傷民之意，故鬼神協和而致福也。故曰非其神不傷人，聖人亦不傷之。如湯之時，七年大旱。湯以身代犧牲，藉茅以禱，致雨三尺。故民皆以湯王克誠感格所致，斯蓋由夫兩不相傷，故其德交歸焉。此無為之德，福民如此。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">A large state is the lower reaches of a river: The place where all the streams of the world unite. In the union of the world, The female always gets the better of the male by stillness. Being still, she takes the lower position. Hence the large state, by taking the lower position, annexes the small state; The small state, by taking the lower position, affiliates itself to the large state. Thus the one, by taking the lower position, annexes; The other, by taking the lower position, is annexed. All that the large state wants is to take the other under its wing; All that the small state wants is to have its services accepted by the other. If each of the two wants to find its proper place, It is meet that the large should take the lower position.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The large state is like the lower part of a river; 2. It is the female of the world; 3. It is the meeting point of the world. 4. The female constantly overcomes the male with tranquility. 5. Because she is tranquil, therefore she is fittingly underneath. 6. The large state — if it is below the small state, then it takes over the small state; 7. The small state — if it is below the large state, then it is taken over by the large state. 8. Therefore some by being low take over, 9. And some by being low are taken over. 10. Therefore the large state merely desires to unite and rear others; 11. While the small state merely desires to enter and serve others. 12. If both get what they want, 13. Then the large state should fittingly be underneath.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">A large state is like a lower river, the meeting place of the world, the female of the world. The female always overcomes the male through stillness. Through stillness she takes the lower position. Therefore if a large state serves a small state, it gains the small state. If a small state serves a large state, it gains the large state. Therefore some serve to gain, others serve to be served. The large state only wishes to gather and protect people. The small state only wishes to enter and serve people. If each gets what it wants, the large should especially take the lower position.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">A large kingdom must be like the low ground towards which all streams flows down. It must be a point towards which all things under heaven converge. Its part must be that of the female in its dealings with all things under heaven. The female by quiescence conquers the male; by quiescence gets underneath. If a large kingdom can in the same way succeed in getting underneath a small kingdom Then it will win the adherence of the small kingdom; And it is because small kingdoms are by nature in this way underneath large kingdoms That they win the adherence of large kingdoms. The one must get underneath in order to do it; The other is underneath and therefore does it. (What large countries really need is more inhabitants; And what small countries need is some place Where their surplus inhabitants can go and get employment.) Thus each gets what it needs. That is why I say the large kingdom must "get underneath".</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第61章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">When a country obtains great power, it becomes like the sea: all streams run downward into it. The more powerful it grows, the greater the need for humility. Humility means trusting the Tao, thus never needing to be defensive. A great nation is like a great man: When he makes a mistake, he realizes it. Having realized it, he admits it. Having admitted it, he corrects it. He considers those who point out his faults as his most benevolent teachers. He thinks of his enemy as the shadow that he himself casts. If a nation is centered in the Tao, if it nourishes its own people and doesn't meddle in the affairs of others, it will be a light to all nations in the world.</p>
                     </div>
                 </div>
             </div>

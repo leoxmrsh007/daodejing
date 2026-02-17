@@ -3,6 +3,34 @@
   "public": true,
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/dist/index.html"
+    },
+    {
+      "source": "/ddj",
+      "destination": "/dist/ddj/index.html"
+    },
+    {
+      "source": "/ddj/",
+      "destination": "/dist/ddj/index.html"
+    },
+    {
+      "source": "/ddj/chapter/:id",
+      "destination": "/dist/ddj/chapter:id.html"
+    },
+    {
+      "source": "/daodejing",
+      "destination": "/dist/ddj/index.html"
+    },
+    {
+      "source": "/daodejing/",
+      "destination": "/dist/ddj/index.html"
+    },
+    {
+      "source": "/daodejing/chapter/:id",
+      "destination": "/dist/ddj/chapter:id.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/dist/$1"
     }

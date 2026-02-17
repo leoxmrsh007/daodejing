@@ -6,6 +6,21 @@
     <title>第63章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter63.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter63.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter63.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">以无为为居．以不言为教．以恬淡为味．治之极也．小怨则不足以报．大怨则天下之所欲诛．顺天下之所同者徳也．以圣人之才犹尚难于细易．况非圣人之才而欲忽于此乎．故曰犹难之也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">其安易持，治身治國，安靜者易守持也。其未兆易謀。情欲禍患，未有形兆時，易謀正也。其脆易破，禍亂未動於朝，情欲未見於色，如脆弱易除破。○脆，七歲反。其微易散。其未彰著，微小易散去也。為之於未有，欲有所為，當於未有萌芽之時，塞其端也。治之於未亂。治身治國於未亂之時，當豫閉其門也。合抱之木生於毫末，從小成大。九層之臺起於累土，從卑至高。千里之行始於足下。從近至遠。為者敗之，有為於事，廢於自然，有為於義，反於仁，有為於色，廢於精神也。執者失之。執利遇患，執道全身，堅持不得，推讓反還。聖人無為故無敗，聖人不為華文，不為色利，不為殘賊，故無壤敗。無執故無失。聖人有德以教愚，有財以與貧，無所執藏，故無所失於人也。民之從事常於幾成而敗之。從，為也。民人為事，常於功德幾成而貪位好名，奢泰盈滿而自敗也。慎終如始，則無敗事。終當如始，不當懈怠。是以聖人欲不欲，聖人欲人所不欲，人欲彰顯，聖人欲伏光，人欲文飾，聖人欲質朴，人欲色，聖人欲於德也。不貴難得之貨；聖人不眩為服，不賤石而貴王。學不學，聖人學人所不能學，人學智詐，聖人學自然，人學治世，聖人學治身，守道真也。復眾人之所過。眾人學問反，過本為末，過實為華，復之者使反本也。以輔萬物之自然，教人反本實者，欲以輔助萬物自然之性也。而不敢為。聖人動作，因循不敢有所造為，恐遠本也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">憤興長養者，人之所見「大」也。恩怨酬酢者，人之所見「難」也。秋脫之葉，春之所榮；重雲之屯，雨之所消；非果為「大」而為「難」，審矣。道其猶水乎！微出於險，昌流非盈。盈，循末而見其盈，不知其始之有以持之也。如是，則聖人勞矣乎！而能不勞者，託於無也。無「大」則若「細」，無「易」則若「難」，保其無而無往不得。所難者，保無而已矣。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言道之為貴，誡人當勉力求之也。道者，萬物之奧。奧者，室之西南隅。有室必有奧。但人雖居其室，而不知奧之深邃。以譬道在萬物，施之日用尋常之間，人日用而不知，故如奧也。然道既在萬物，足知人性皆同。雖有善惡之差，而性未嘗異，以其俗習之偏耳。故善人得之以為寶。惡人雖失，亦賴此道保之以有生。故曰所保。苟非其道以保之，則同無情瓦石矣。足見理本同也，所謂堯舜與人同耳。由此觀之，天下豈有可棄之人耶。且一言之美，則可以市。市，利也。一行之尊，則可以加於人之上。況大道之貴，豈止一言之美，一行之尊。且人之全具而不欠缺一毫者，斯則不善之人，又何棄之有耶。故立天子，置三公，雖有拱璧以先駟馬，不如坐進此道，此古語也。老子解之曰，然天子三公，不足為尊貴。拱璧駟馬，不足為榮觀。總不如坐進此道。所以貴此道者，何耶。豈不曰，求道以得之，縱有罪亦可以免之耶。是知桀紂，天子也，不免其誅。四凶，三公也，不免其戮。非無拱璧駟馬，而竟不能免其罪。故夷齊諫武王而不兵，巢許傲天子而不譴，豈非求以得有罪以免耶。況夫一念復真，諸罪頓滅。苟求而得，立地超凡。故為天下貴也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Do that which consists in taking no action; Pursue that which is not meddlesome; Savor that which has no flavor. Make the small big and the few many; Do good to him who has done you an injury. Lay plans for the accomplishment of the difficult before it becomes difficult; Make something big by starting with it when small. Difficult things in the word must needs have their beginnings in the easy; Big things must needs have their beginnings in the small. Therefore it is because the sage never attempts to be great that he succeeds in becoming great. One who makes promises rashly rarely keeps good faith; One who is in the habit of considering things easy meets with frequent difficulties. Therefore even the sage treats some things as difficult. That is why in the end no difficulties can get the better of him.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Act without acting; 2. Serve without concern for affairs; 3. Find flavor in what has no flavor. 4. Regard the small as large and the few as many, 5. And repay resentment with kindness. 6. Plan for the difficult while it is easy; 7. Act on the large while it's minute. 8. The most difficult things in the world begin as things that are easy; 9. The largest things in the world arise from the minute. 10. Therefore the Sage, to the end does not strive to do the great, 11. And as a result, he is able to accomplish the great; 12. Those who too lightly agree will necessarily be trusted by few; 13. And those who regard many things as easy will necessarily [end up] with many difficulties. 14. Therefore, even the Sage regards things as difficult, 15. And as a result, in the end he has no difficulty.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Act without acting, work without working, taste without tasting. Whether big or small, many or few, repay resentment with virtue. Plan for the difficult while it is easy. Handle the big while it is small. The world's difficult things must be done while easy. The world's big things must be done while small. Therefore the sage never attempts to be great, and thus can achieve greatness. Light promises lead to little trust. Many easy things lead to many difficulties. Therefore the sage treats things as difficult, and thus has no difficulty.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">It acts without action, does without doing, Finds flavour in what is flavourless, Can make the small great and the few many, "Requites injuries with good deeds, Deals with the hard while it is still easy, With the great while it is still small." In the governance of empire everything difficult Must be dealt with while it is still easy, Everything great must be dealt with while it is still small. Therefore the Sage never has to deal with the great; And so achieves greatness. But again "Light assent inspires little confidence And 'many easies' means many a hard." Therefore the Sage knows too how to make the easy difficult, And by doing so avoid all difficulties!</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第63章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Act without doing; work without effort. Think of the small as large and the few as many. Confront the difficult while it is still easy; accomplish the great task by a series of small acts. The Master never reaches for the great; thus she achieves greatness. When she runs into a difficulty, she stops and gives herself to it. She doesn't cling to her own comfort; thus problems are no problem for her.</p>
                     </div>
                 </div>
             </div>

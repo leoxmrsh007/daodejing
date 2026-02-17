@@ -6,6 +6,21 @@
     <title>气厥论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter37.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter37.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter37.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     三十七
-黄帝问曰：五藏六府，寒热相移者何？岐伯曰：肾移寒于肝，痈肿少气。脾移寒于肝，痈肿筋挛。肝移寒于心，狂隔中。心移寒于肺，肺消，肺消者饮一溲二，死不治。肺移寒于肾，为涌水，涌水者，按腹不坚，水气客于大肠，疾行则鸣濯濯如囊裹浆，水之病也。脾移热于肝，则为惊衄。肝移热于心，则死。心移热于肺，传为鬲消。肺移热于肾，传为柔疒至。肾移热于脾，传为虚，肠澼，死，不可治。胞移热于膀胱，则癃溺血。膀胱移热于小肠，鬲肠不便，上为口麋。小肠移热于大肠，为虑瘕，为沉。大肠移热于胃，善食而瘦，又谓之食亦。胃移热于胆，亦曰食亦。胆移热于脑，则辛頞鼻<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>，鼻<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>者，<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>涕下不止也，传为衄衊瞑目，故得之气厥也。
+黄帝问曰：五藏六府，寒热相移者何？岐伯曰：肾移寒于肝，<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>肿少气。脾移寒于肝，<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>肿筋挛。肝移寒于心，狂隔中。心移寒于肺，肺消，肺消者饮一溲二，死不治。肺移寒于肾，为涌水，涌水者，按腹不坚，水气客于大肠，疾行则鸣濯濯如囊裹浆，水之病也。脾移热于肝，则为惊衄。肝移热于心，则死。心移热于肺，传为鬲消。肺移热于肾，传为柔疒至。肾移热于脾，传为虚，肠澼，死，不可治。胞移热于膀胱，则癃溺血。膀胱移热于小肠，鬲肠不便，上为口麋。小肠移热于大肠，为虑瘕，为沉。大肠移热于胃，善食而瘦，又谓之食亦。胃移热于胆，亦曰食亦。胆移热于脑，则辛頞鼻<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>，鼻<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>者，<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>涕下不止也，传为衄衊瞑目，故得之气<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>也。
                 </div>
             </div>
         </div>
@@ -688,7 +703,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇论气厥与暴厥：气机暴逆、闭厥/脱厥之候与救治。临床意义：急当开阖、温通与回阳救逆，继则调中复元，审寒热虚实与脏所涉。</p>
             </div>
         </div>
     </section>
@@ -700,19 +715,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">On syncopal upsurges of qi. Emergency measures open the orifices and restore yang; subsequent care rectifies the center and the organ implicated.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Describes closure and collapse forms of ‘jue’. Resuscitation and warming are followed by regulation of the pivot and viscera according to signs.</p>
                     </div>
                 </div>
             </div>

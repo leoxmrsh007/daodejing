@@ -6,6 +6,21 @@
     <title>六微旨大论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter68.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter68.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -677,11 +692,11 @@
                 <div class="original-text" id="originalText">
                     六十八
 黄帝问曰：呜呼远哉！天之道也，如迎浮云，若视深<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>，视深<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>尚可测，迎浮云莫知其极。夫子数言谨奉天道，余闻而藏之，必私异之，不知其所谓也。愿夫子溢志尽言其事，令终不灭，久而不绝，天之道可得闻乎？岐伯稽首再拜对曰：明乎哉问天之道也！此因天之序，盛衰之时也。
-帝曰：愿闻天道六六之节盛衰何也？岐伯曰：上下有位，左右有纪。故少阳之右，阳明治之；阳明之右，太阳治之；太阳之右，厥阴治之；厥阴之右，少阴治之；少阴之右，太阴治之；太阴之右，少阳治之。此所谓气之标，盖南面而待也。故曰：因天之序，盛衰之时，移光定位，正立而待之。此之谓也。少阳之上，火气治之，中见厥阴；阳明之上，燥气治之，中见太阴；太阳之上，寒气治之，中见少阴；厥阴之上，风气治之，中见少阳；少阴之上，热气治之，中见太阳；太阴之上，湿气治之，中见阳明。所谓本也，本之下，中之见也，见之下，气之标也，本标不同，气应异象。
+帝曰：愿闻天道六六之节盛衰何也？岐伯曰：上下有位，左右有纪。故<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>之右，<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>治之；<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>之右，<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>治之；<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>之右，<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>治之；<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之右，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>治之；<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>之右，<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>治之；<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>之右，<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>治之。此所谓气之标，盖南面而待也。故曰：因天之序，盛衰之时，移光定位，正立而待之。此之谓也。<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>之上，火气治之，中见<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>；<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>之上，燥气治之，中见<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>；<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>之上，寒气治之，中见<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>；<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之上，风气治之，中见<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>；<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>之上，热气治之，中见<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>；<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>之上，湿气治之，中见<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>。所谓本也，本之下，中之见也，见之下，气之标也，本标不同，气应异象。
 帝曰：其有至而至，有至而不至，有至而太过，何也？岐伯曰：至而至者和；至而不至，来气不及也；未至而至，来气有余也。帝曰：至而不至，未至而至如何？岐伯曰：应则顺，否则逆，逆则变生，变则病。帝曰：善。请言其应。岐伯曰：物生其应也，气脉其应也。
 帝曰：善。愿闻地理之应六节气位何如？岐伯曰：显明之右，君火之位也；君火之右，退行一步，相火治之；复行一步，土气治之；复行一步，金气治之；复行一步，水气治之；复行一步，木气治之；复行一步，君火治之。相火之下，水气承之；水位之下，土气承之；土位之下，风气承之；风位之下，金气承之；金位之下，火气承之；君火之下，阴精承之。帝曰：何也？岐伯曰：亢则害，承乃制，制则生化，外列盛衰，害则败乱，生化大病。
 帝曰：盛衰何如？岐伯曰：非其位则邪，当其位则正，邪则变甚，正则微。
-帝曰：何谓当位？岐伯曰：木运临卯，火运临午，土运临四季，金运临酉，水运临子，所谓岁会，气之平也。帝曰：非位何如？岐伯曰：岁不与会也。帝曰：土运之岁，上见太阴；火运之岁，上见少阳、少阴；金运之岁，上见阳明；木运之岁，上见厥阴；水运之岁，上见太阳，奈何？岐伯曰：天之与会也。故《天元册》曰天符。天符、岁会何如？岐伯曰：太乙天符之会也。
+帝曰：何谓当位？岐伯曰：木运临卯，火运临午，土运临四季，金运临酉，水运临子，所谓岁会，气之平也。帝曰：非位何如？岐伯曰：岁不与会也。帝曰：土运之岁，上见<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>；火运之岁，上见<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>、<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>；金运之岁，上见<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>；木运之岁，上见<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>；水运之岁，上见<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>，奈何？岐伯曰：天之与会也。故《天元册》曰天符。天符、岁会何如？岐伯曰：太乙天符之会也。
 帝曰：其贵贱何如？岐伯曰：天符为执法，岁会为行令，太乙天符为贵人。
 帝曰：邪之中也奈何？岐伯曰：中执法者，其病速而危；中行令者，其病徐而持；中贵人者，其病暴而死。帝曰：位之易也何如？岐伯曰：君位臣则顺，臣位君则逆。逆则其病近，其害速；顺则其病远，其害微。所谓二火也。
 帝曰：善。愿闻其步何如？岐伯曰：所谓步者，六十度而有奇，故二十四步积盈百刻而成日也。
@@ -701,7 +716,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇阐述六气位次与“本标”“承制”“亢害”之机，提出岁会、天符、贵贱之序及六气应五行、岁候步移等。临床意义：识别至而不至、未至而至之偏，顺位从治，逆位审变，防亢为害、承制以化。</p>
             </div>
         </div>
     </section>
@@ -713,19 +728,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Explains positions of the six qi, ruler/minister dynamics, and the notions of excess harm and controlling relief; offers timing and rank to interpret ‘arrives/not‑arrive’ anomalies for treatment.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On subtle principles of the six qi—station, succession, and control—to choose compliant therapies and avert harm when qi deviates.</p>
                     </div>
                 </div>
             </div>

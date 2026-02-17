@@ -6,6 +6,21 @@
     <title>第69章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter69.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter69.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">进遂不止．行谓行陈也．言以谦退爱慈．不敢为物先．用战犹行无行．攘无臂．执无兵．扔无敌也．言无有与之抗也．言吾哀慈谦退．非欲以取强无敌于天下也．不得已而卒至于无敌．斯乃吾之所以为大祸也．宝三宝也．故曰几亡吾宝．抗举也．若当也．哀者必相惜而不趣利避害故必胜.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">吾言甚易知，甚易行。老子言：吾所言，省而易知，約而易行。○易，並去聲。天下莫能知，莫能行。人惡柔弱，好剛強也。言有宗，事有君。我所言有宗祖根本，事有君臣上下，世人不知者，非我之無德，不與我反。夫唯無知，是以不我知。夫唯聖人也，是我德之暗，不見於外，窮極微妙，故無知也。知我者希，則我者貴。希少也。惟達道者乃能知我，故為貴也。是以聖人被褐懷玉。被褐者，薄外；懷玉者，厚內。匿寶藏懷，不以示人也。褐，音曷。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">居道之宮，非「主」非「客」；乘道之機，亦「進」亦「退」。而「主」不知「客」，「客」能知「主」，繇其相知，因以測非「主」非「客」之用；「進」無「退」地，「退」有「進」地，因其餘地，遂以襲亦「進」亦「退」之妙。「主客」之間有宮焉，「進退」之外有用焉。「無行」、「無臂」、「無敵」、」無兵」者，如斯也。遠死地而致「微明」，不「勝」其何俟焉？欲猝得此機而不能，將如之何？無亦姑反其勢而用其情乎！以「哀」行其「不得已」，所以斂吾怒而不喪吾「三寶」也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人善於下人，以明不爭之德，釋上三寶之意也。一章主意，只在善用人者為之下一句。乃假兵家戰勝之事，以形容其慈，乃不爭之至耳。士者，介胄之士。武者，武勇。然士以武為主。戰以怒為主。勝敵以爭為主。三者又以氣為主。況善於為士者不用武。善於戰者不在怒。善勝敵者不必爭。即前所云以慈用兵也。意謂武怒爭三者，獨兵事所必用。若用之而必死，故善者皆不用。何況常人，豈可恃之以為用耶。乃驕矜恃氣，不肯下人，故人不樂其用，乃不善用人耳。故古之善用人者，必為之下，即此是謂不爭之德也。若以力驅人，能驅幾何。若以下驅人，則天下歸之。是以下用人，最有力也。所謂上善若水，水善利萬物而不爭，以其有力也。是謂配天古之極者。乾天，坤地。若天地正位，則為否，而萬物不生。若乾下坤上，則為泰。是知天在上而用在下也。聖人處民上而心在下，可謂配天之德。此古皇維極之道，置百姓於熙皞至樂之中。斯豈不爭之德以治天下，而為力之大者與。此章主意，全在不用氣上做工夫。即前云專氣致柔，能如嬰兒。純和之至，則形化而心忘。不見物為對，則不期下而自下矣。殆非有心要下，而為用人之術也。然學人有志於謙德，則必尊而光，況聖人無我之至乎。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The strategists have a saying, I dare not play the host but play the guest, I dare not advance an inch but retreat a foot instead. This is known as marching forward when there is no road, Rolling up one's sleeves when there is no arm, Dragging one's adversary by force when there is no adversary, And taking up arms when there are no arms. There is no disaster greater than taking on an enemy too easily. So doing nearly cost me my treasure. Thus of two sides raising arms against each other, It is the one that is sorrow-stricken that wins.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Those who use weapons have a saying which goes: 2. "I don't presume to act like the host, and instead play the part of the guest; 3. I don't advance an inch, but rather retreat a foot." 4. This is called moving forward without moving forword — 5. Rolling up one's sleeves without baring one's arms — 6. Grasping firmly without holding a weapon — 7. And enticing to fight when there's no opponent. 8. Of disasters, none is greater than [thinking] you have no rival. 9. To think you have no rival is to come close to losing my treasures. 10. Therefore, when weapons are raised and [the opponents] are farily well matched, 11. Then it's the one who feels grief that will win.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The words of strategy are: I dare not be the host but rather the guest. I dare not advance an inch but rather retreat a foot. This is called marching without marching, rolling up sleeves without arms, grasping without weapons, confronting without enemies. No disaster is greater than underestimating the enemy. Underestimating the enemy nearly loses my treasures. Therefore when armies oppose each other, the grieving one will win.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The strategists have the sayings: "When you doubt your ability to meet the enemy's attack, Take the offensive yourself" And "If you doubt your ability to advance an inch, then retreat a foot". This latter is what we call to march without moving, To roll the sleeve, but present no bare arm, The hand that seems to hold, yet had no weapon in it, A host that can confront, yet presents no battle-front. Now the greatest of all calamities is to attack and find no enemy. I can have no enemy only at the price of losing my treasure. Therefore when armies are raised And issues joined it is he who does not delight in war that wins.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第69章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The generals have a saying: "Rather than make the first move it is better to wait and see. Rather than advance an inch it is better to retreat a foot." This is called going forward without advancing, pushing back without using weapons. There is no greater misfortune than underestimating your enemy. Underestimating your enemy means thinking that he is evil. Thus you destroy your three treasures and become an enemy yourself. When two great forces oppose each other, the victory will go to the one that knows how to yield.</p>
                     </div>
                 </div>
             </div>

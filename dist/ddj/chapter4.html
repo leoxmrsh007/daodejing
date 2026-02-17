@@ -6,6 +6,21 @@
     <title>第4章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,56 +233,56 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter4.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter4.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter4.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter4.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter4.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter4.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter4.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ss/index.html">
+            <a class="dropdown-item " href="../ss/chapter4.html">
                 <span class="classic-icon">📚</span>
                 <span class="classic-name">四书</span>
                 <span class="classic-info">4章 · 朱熹</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="收敛锋芒，与尘俗相融合，不露锋芒&#10;原文：和其光，同其尘">
-                <span class="idiom-word">和光同尘</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="收敛锋芒，与尘俗相融合，不露锋芒&#10;原文：和其光，同其尘">
+            <span class="idiom-word">和光同尘</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">夫执一家之量者．不能全家．执一国之量者．不能成国．穷力举重．不能为用．故人虽知万物治也．治而不以二仪之道．则不能赡也．地虽形魄．不法于天则不能全其宁．天虽精象．不法于道则不能保其精．冲而用之．用乃不能穷．满以造实．实来则溢．故冲而用之又复不盈．其为无穷亦已极矣．形虽大不能累其体．事虽殷不能充其量．万物舍此而求主．主其安在乎．不亦渊兮似万物之宗乎．鋭挫而无损．纷解而不劳．和光而不污其体．同尘而不渝其眞．不亦湛兮似或存乎．地守其形．徳不能过其载．天慊其象．徳不能过其覆．天地莫能及之．不亦似帝之先乎．帝天帝也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">道沖而用之沖，中也。道匿名藏譽，其用在中。○沖音虫（虫上一撇）或不盈，或常也。道常謙虛不盈滿。淵兮似萬物之宗；道淵深不可知也，似為萬物之宗祖。挫其銳，銳，進也。人欲銳精，進取功名，當挫止之。法道不同也。○挫，子臥反。銳，音睿。解其紛，紛，結根也。當念道無為以解釋。和其光，言雖有獨見之明，當知闇昧不當，以曜亂人也。同其塵，當與眾庶同垢塵，不當自別殊。湛兮似若存。言當湛然安靜，故能長存不忘。吾不知誰之子，老子言我不知道所從生。象帝之先。道自在天地之前，此言道乃先天地生也。至今在者，以能安靜湛然，不勞煩欲，使人脩身法道。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">用者無不盈也，其惟「沖而用之或不盈」乎！用之為數，出乎「紛」、「塵」，入乎「銳」、「光」；出乎「銳」、「光」，入乎「紛」、「塵」。唯衝也，可銳，可光，可紛，可塵，受四數之歸，而四數不留。故盛氣來爭，而寒心退處，雖有亢子，不能背其宗；雖有泰帝，不能軼其先。豈嘗歆彼之俎豆，而競彼之步趨哉？似而象之，因物之不能違，以為之名也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此讚道之體用微妙，而不可測知也。沖，虛也。盈，充滿也。淵，靜深不動也。宗，猶依歸也。謂道體至虛，其實充滿天地萬物。但無形而不可見，故曰用之或不盈。道體淵深寂漠，其實能發育萬物，而為萬物所依歸。但生而不有，為而不宰，故曰似萬物之宗。或，似，皆不定之辭。老子恐人將言語為實，不肯離言體道，故以此等疑辭以遣其執耳。銳，即剛勇精銳。謂人剛銳之志，勇銳之氣，精銳之智，此皆無物可挫。唯有道者能挫之，故曰挫其銳。如子房之博浪，其剛勇可知。大索天下而不得，其精銳可知。此其無可挫之者，唯見挫於圯上老人一草履耳。由子房得此而進之於漢，卒以無事取天下。吾意自莊周以下，而功名之士，得老氏之精者，唯子房一人而已。以此較之，周善體而良善用，方朔得之，則流為詭矣。其他何足以知之。紛，謂是非紛擾。即百氏眾口之辯也。然各是其是，各非其非，此皆無人解之者。唯有道者，以不言之辯而解之。所謂大辯若訥。以道本無言，而是非自泯，故曰解其紛。和，混融也。光，智識衒耀於外。即所謂飾智驚愚，修身明汙者，是也。唯有道者，韜光內照，光而不耀。所謂眾人昭昭，我獨若昏。眾人察察，我獨悶悶。故曰和其光。與俗混一而不分。正謂呼我以牛，以牛應之。呼我以馬，以馬應之。故曰同其塵。然其道妙用如此，變化無方。而其體則湛然不動，雖用而無跡。故曰湛兮或存。要妙如此，而不知其所從來。故曰吾不知誰之子。且而不是有形之物，或象帝之先耶。帝，即天帝。象，或似也。愚謂此章讚道體用之妙，且兼人而釋者。蓋老子凡言道妙，全是述自己胸中受用境界。故愚亦兼人而解之。欲學者知此，可以體認做工夫。方見老子妙處。宇宇皆有指歸，庶不肖虛無孟浪之談也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The way is empty, yet use will not drain it. Deep, it is like the ancestor of the myriad creatures. Blunt the sharpness; Untangle the knots; Soften the glare; Let your wheels move only along old ruts. Darkly visible, it only seems as if it were there. I know not whose son it is. It images the forefather of God.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Way is empty; 2. Yet when you use it, you never need fill it again. 3. Like an abyss! It seems to be the ancestor of the ten thousand things. 4. If files down sharp edges; 5. Unties the tangles; 6. Softens the glare; 7. And settles the dust. 8. Submerged! It seems perhaps to exist. 9. We don't know whose child it is; 10. It seems to have [even] preceded the Lord.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The Way is empty, used but not used up. Deep, it's like the ancestor of the ten thousand things. Blunt the sharp, untie the knotted, harmonize the bright, mix with the dust. A living presence, dim and dark—I don't know whose child it is, but it comes before God.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The Way is like an empty vessel That yet may be drawn from Without ever needing to be filled. It is bottomless; the very progenitor of all things in the world. In it all sharpness is blunted, All tangles untied, All glare tempered, All dust soothed. It is like a deep pool that never dries. Was it too the child of something else? We cannot tell. But as a substanceless image it existed before the Ancestor.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第4章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Tao is like a well: used but never used up. It is like the eternal void: filled with infinite possibilities. It is hidden but always present. I don't know who gave birth to it. It is older than God.</p>
                     </div>
                 </div>
             </div>

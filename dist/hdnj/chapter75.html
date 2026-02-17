@@ -6,6 +6,21 @@
     <title>著至教论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter75.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter75.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     七十五
-黄帝坐明堂，召雷公而问之曰：子知医之道乎？雷公对曰：诵而未能解，解而未能别，别而未能明，明而未能彰，足以治群僚，不足治侯王。愿得受树天之度，四时阴阳合之，别星辰与日月光，以彰经术，后世益明，上通神农，著至教疑于二皇。帝曰：善。无失之，此皆阴阳表里上下<span class="difficult" data-pinyin="cí" data-meaning="鸟兽的雌性，柔弱">雌</span><span class="difficult" data-pinyin="xióng" data-meaning="雄性，刚强">雄</span>相输应也，而道上知天文，下知地理，中知人事，可以长久，以教众庶，亦不疑殆，医道论篇，可传后世，可以为宝。雷公曰：请受道，讽诵用解。帝曰：子不闻《阴阳传》乎？曰：不知。曰：夫三阳天为业，上下无常，合而病至，偏害阴阳。雷公曰：三阳莫当，请闻其解。帝曰：三阳独至者，是三阳并至，并至如风雨，上为巅疾，下为漏病。外无期，内无正，不中经纪，诊无上下，以书别。雷公曰：臣治疏愈，说意而已。帝曰：三阳者，至阳也，积并则为惊，病起疾风，至如石辟砺，九窍皆塞，阳气滂溢，干嗌喉塞。并于阴，则上下无常，薄为肠澼。此谓三阳直心，坐不得起，卧者便身全，三阳之病。且以知天下，何以别阴阳，应四时，合之五行。雷公曰：阳言不别，阴言不理，请起受解，以为至道。帝曰：子若受传，不知合至道以惑师教，语子至道之要。病伤五藏，筋骨以消，子言不明不别，是世主学尽矣。肾且绝，惋惋日暮，从容不出，人事不殷。
+黄帝坐明堂，召雷公而问之曰：子知医之道乎？雷公对曰：诵而未能解，解而未能别，别而未能明，明而未能彰，足以治群僚，不足治侯王。愿得受树天之度，四时<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>合之，别星辰与日月光，以彰经术，后世益明，上通神农，著至教疑于二皇。帝曰：善。无失之，此皆<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>表里上下<span class="difficult" data-pinyin="cí" data-meaning="鸟兽的雌性，柔弱">雌</span><span class="difficult" data-pinyin="xióng" data-meaning="雄性，刚强">雄</span>相输应也，而道上知天文，下知地理，中知人事，可以长久，以教众庶，亦不疑殆，医道论篇，可传后世，可以为宝。雷公曰：请受道，讽诵用解。帝曰：子不闻《<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>传》乎？曰：不知。曰：夫三阳天为业，上下无常，合而病至，偏害<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>。雷公曰：三阳莫当，请闻其解。帝曰：三阳独至者，是三阳并至，并至如风雨，上为巅疾，下为漏病。外无期，内无正，不中经纪，诊无上下，以书别。雷公曰：臣治疏愈，说意而已。帝曰：三阳者，至阳也，积并则为惊，病起疾风，至如石辟砺，九窍皆塞，阳气滂溢，干嗌喉塞。并于阴，则上下无常，薄为肠澼。此谓三阳直心，坐不得起，卧者便身全，三阳之病。且以知天下，何以别<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，应四时，合之五行。雷公曰：阳言不别，阴言不理，请起受解，以为至道。帝曰：子若受传，不知合至道以惑师教，语子至道之要。病伤五藏，筋骨以消，子言不明不别，是世主学尽矣。肾且绝，惋惋日暮，从容不出，人事不殷。
                 </div>
             </div>
         </div>
@@ -688,7 +703,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇以黄帝与雷公问答的形式，阐发“著至教”的要旨：医者不可只停留在背诵经文，而须透彻理解阴阳表里、上下雌雄之相输应，尤其要掌握“三阳为业”的病机，如三阳独至、积并为惊、上为巅疾、下为漏病等，并由此推及四时、五行与阴阳盛衰的辨别。临床意义：强调读经当“解而能别，别而能明，明而能彰”，在临证时以阴阳消长和三阳三阴之合离为纲，方能处理危重病证并教化后学。</p>
             </div>
         </div>
     </section>
@@ -700,19 +715,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Sets out the ‘supreme teaching’ for physicians. Using the motif of the three yang as heaven’s enterprise, it describes dangerous patterns such as ‘three yang arriving together’ with storm‑like onset, sealing of the orifices, and intestinal damage, urging precise discrimination of yin–yang in accord with seasons and phases.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A didactic dialogue in which the Yellow Emperor presses Lei Gong beyond recitation toward understanding. By unpacking enigmatic sayings on the three yang and their diseases, it demonstrates how one must link textual formulas to cosmic process, lest medicine remain shallow and unfit for governing lords and peoples.</p>
                     </div>
                 </div>
             </div>

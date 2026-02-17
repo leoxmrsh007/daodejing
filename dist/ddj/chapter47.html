@@ -6,6 +6,21 @@
     <title>第47章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter47.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter47.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter47.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">事有宗而物有主．途虽殊而其归同也．虑虽百而其致一也．道有大常．理有大致．执古之道可以御今．虽处于今可以知古始．故不出戸窥牖而可知也．无在于一而求之于众也．道视之不可见．听之不可得．抟之不可得．如其知之不须出戸．若其不知出愈远愈迷也．得物之致．故虽不行而虑可知也．识物之宗．故虽不见而是非之理可得而名也．明物之性因之而已．故虽不为而使之成矣.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">不出戶，知天下；聖人不出戶，以知天下者，以己身知人身，以己家知人家，所以見天下也。不窺牖，見天道。天道與人道同，天人相通，精氣相貫，人君清淨。天氣自正，人君多欲，天氣煩濁。吉凶利害皆由於己。○牖，音酉。其出彌遠，其知彌少。謂去其家觀人家，去其身觀人身，所觀益遠，所用益少也。是以聖人不行而知，聖人不上天，不入淵，能知天地，以心知之。不見而名，上好道，下好德；上好武，下好力。聖人原小知大，察內知外。不為而成。上無所為則下無事，家給人足，萬物自化成也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">道盈於向背之間。有所向，斯有所背矣。無所向，無所背，可名之中。乃使人貿貿然終日求中而不得，為天下笑。無已，姑試而反之。反非中也．而漸見其際。有欻乎，如光之投隙；有約乎，如絲之就絡。物授我知而我不勤，乃知昔之逐亡子而追奔馬者，勞而愚矣。非然，則天下豈有「不行而知，不見而名，不為而成」者哉？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此釋上章圖難於易為大於細之意，以示聖人之要妙，只在為人之所不為，以為學道之捷徑也。治人事天工夫，全在於此。安與未兆。蓋一念不生。喜怒未形。寂然不動之時。吉凶未見之地。乃禍福之先。所謂幾先也。持字，全是用心力量。謂聖人尋常心心念念，朗然照於一念未生之前，持之不失。此中但有一念動作，當下就見就知。是善則容，是惡則止，所謂早復。孔子所謂知幾其神乎，此中下手甚易，用力少而收功多。故曰其安易持。兆，是念之初起。未兆，即未起。此中喜怒未形，而言謀者。此謀，非機謀之謀，乃戒慎恐懼之意。於此著力，圖其早復。蓋第一念為之於未有也。若脆與微，乃一念始萌，乃第二念耳。然一念雖動，善惡未著，甚脆且微。於此著力，所謂治之於未亂也。合抱之木以下，三句皆譬喻。毫末，喻最初一念。累土足下，喻最初一步工夫也。上言用心於內，下言作事於外。為執二句，言常人不知著力於未然之前，卻在既發之後用心。為之則反敗，執之則反失矣。聖人見在幾先，安然於無事之時，故無所為，而亦無所敗。虛心鑑照，故無所執，而亦無所失。以其聖人因理以達事耳。常民不知在心上做，卻從事上做，費盡許多力氣，且每至於幾成而敗之。此特機巧智謀，有心做來，不但不成，縱成亦不能久，以不知聽其自然耳。慎終如始。始，乃事之初。終，乃事之成。天下之事，縱然盈乎天地之間。聖人之見，察其始也本來不有。以本不有，故將有也，任其自然，而無作為之心。及其終也，事雖已成，觀之亦似未成之始，亦無固執不化之念，此所謂慎終如始，故無敗事也。是以聖人欲不欲，不貴難得之貨。學不學，復眾人之所過。以輔萬物之自然。而不敢為。莊子內聖外王學問，全出於此。吾人日用明此，可以坐進此道。以此用世，則功大名顯。伊周事業，特緒餘耳。豈不至易哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Without stirring abroad One can know the whole world; Without looking out the window One can see the way of heaven. The further one goes The less one knows. Therefore the sage knows without having to stir, Identifies without having to see, Accomplishes without having to act.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. No need to leave your door to know the whole world; 2. No need to peer through your windows to know the Way of Heaven. 3. The farther you go, the less you know. 4. Therefore the Sage knows without going, 5. Names without seeing, 6. And completes without doing a thing.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Without going out the door, know the world. Without looking out the window, see the way of heaven. The farther one travels, the less one knows. Therefore the sage knows without traveling, names without seeing, achieves without acting.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Without leaving his door He knows everything under heaven. Without looking out of his window He knows all the ways of heaven. For the further one travels The less one knows. Therefore the Sage arrives without going, Sees all without looking, Does nothing, yet achieves everything.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第47章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Without opening your door, you can open your heart to the world. Without looking out your window, you can see the essence of the Tao. The more you know, the less you understand. The Master arrives without leaving, sees the light without looking, achieves without doing a thing.</p>
                     </div>
                 </div>
             </div>

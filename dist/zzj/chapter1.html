@@ -6,6 +6,21 @@
     <title>逍遥游 - 庄子</title>
     <meta name="description" content="庄子多版本对照平台 - 成玄英疏 · 郭象注 · 王夫之">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,63 +233,63 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter1.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../zzj/index.html">
+            <a class="dropdown-item active" href="../zzj/chapter1.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter1.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter1.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter1.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter1.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter1.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ss/index.html">
+            <a class="dropdown-item " href="../ss/chapter1.html">
                 <span class="classic-icon">📚</span>
                 <span class="classic-name">四书</span>
                 <span class="classic-info">4章 · 朱熹</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../cxl/index.html">
+            <a class="dropdown-item " href="../cxl/chapter1.html">
                 <span class="classic-icon">📖</span>
                 <span class="classic-name">传习录</span>
                 <span class="classic-info">3章 · 王阳明</span>
@@ -575,19 +590,25 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-watson" type="button">Burton Watson</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-ziporyn" type="button">Brook Ziporyn</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-watson">
+                        <p class="english-text mb-0 fst-italic">In the northern darkness there is a fish and his name is Kun. The Kun is so huge that no one knows how many thousand li he measures. He changes and becomes a bird whose name is Peng. The back of the Peng measures I don't know how many thousand li across and, when he rises up and flies away, his wings are like clouds hanging from the sky. When the sea begins to move, this bird sets off for the southern darkness, which is the Lake of Heaven.
+
+The Universal Harmony records: When the Peng sets off for the southern darkness, he strikes the water for three thousand li and mounts the whirlwind up to ninety thousand li. He departs on the morning wind and returns in the evening. Above him are the mists and vapors, below him are the living things. And then he glories in the six-way freedom of journeying.
+
+The cicada and the little dove laugh at this, saying: We dash up to the elm and sandalwood tree, and sometimes we don't reach and just fall to the ground. What's the use of going up ninety thousand li?</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-ziporyn">
+                        <p class="english-text mb-0 fst-italic">In the darkness of the North, there is a fish, and its name is Kun. The Kun is huge-I do not know how many thousands of li it measures. Changing, it becomes a bird, called the Peng. The Peng's back-I do not know how many thousands of li it measures. When it rouses itself and flies, its wings are like clouds hanging from the sky. When the ocean moves, this bird travels to the Southern Ocean, which is the Lake of Heaven.</p>
                     </div>
                 </div>
             </div>

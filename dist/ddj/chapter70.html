@@ -6,6 +6,21 @@
     <title>第70章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter70.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter70.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">可不出戸窥牖而知．故曰甚易知也．无为而成．故曰甚易行也．惑于躁欲．故曰莫之能知也．明于荣利．故曰莫之能行也．宗万物之宗也．万事之主也．以其言有宗．事有君之故．故有知之人．不得不知之也．唯深故知之者希也．知我益希．我亦无匹．故曰知我者希则我者贵也．被褐者同其尘．怀玉者宝其眞也．圣人之所以难知．以其同尘而不殊．怀玉而不渝.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">知不知上，知道言不知，是乃德之上。不知知病。不知道言知，是德之病。夫唯病病，是以不病。夫唯能病苦眾人有強知之病，是以不自病也。聖人不病，以其病病。聖人無此強知之病者，以其常苦眾人有此病。是以不病以此非人也，故不自病。夫聖人懷通達之知，託於不知者，欲使天下質朴忠正，各守純性，小人不知道意而妄行強知之爭，以自顯著，內傷精神，減壽消年也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">大喧生於大寂，大生肇於無生。乘其喧而和之，不勝和也。逐其化而育之，不勝育也。唇吹竽，則指不能拊瑟；仰承蟬，則俯不能掇螬。故天下之言，為唇為指；天下之事，為承為掇。逐逐其難而終不遇，乃枵然以自侈其知之多，豈有能知我者哉？我之自居於「希」也，天下能勿「希」乎？故大谷無纖音，而大化無乳字。謝其喧而不敏於化，蓋披褐以樂居其「易」，而懷玉以潛襲其「希」也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此重明前章不爭之德，以釋上三寶以慈為本之意也。然慈，乃至仁之全德也。所謂大仁不仁。以其物我兼忘，內不見有施仁之心，外不見有受施之地。故凡應物而動，皆非出於有心好為，蓋迫不得已而後應。故借用兵以明慈德之至也。何以知之。且如古之用兵者有言曰，吾不敢為主而為客，不敢進寸而退尺。以此觀之，足可知也。古之用兵，如涿鹿孟津之師是也。兵主，如春秋征伐之盟主。蓋專征伐，主於兵者，言以必爭必殺為主也。客，如諸侯應援之師。本意絕無好殺之心。今雖迫不得已而應之，然亦聽之待之，若可已則已。以無心於功利，故絕無爭心，所以進之難而退之易。故曰不敢進寸而退尺。言身進而心不進，是以退心進也。以無爭心，故雖行而如不在行陣，雖攘而若無臂之人。仍，相仍，猶就也。言彼以我為敵，而我以彼為敵也。雖就，亦似無敵可對。雖執，猶若無兵可揮。戒懼之至，而不敢輕於敵。由不敢輕敵，所以能保全民命，不傷好生之仁。然禍之大者莫大於輕敵。以輕敵則多殺，多殺則傷慈，故幾喪吾寶矣。抗兵，乃兩敵相當，不相上下，難於決勝。但有慈心哀之者，則自勝矣。何則，以天道好生，助勝於慈者也。由是觀之，兵者對敵，必爭必殺以取勝。今乃以不爭不殺而勝之，蓋以慈為本故也。足見慈乃不爭之德，施於必爭地，而以不爭勝之，豈非大有力乎。用之於敵尚如此。況乎聖人無物為敵，而以平等大慈，并包萬物，又何物而可勝之耶。故前云不爭之德，是謂用人之力，是謂配天古之極。此章舊解多在用兵上說，全不得老子主意。今觀初一句，乃借用兵之言。至輕敵喪寶，則了然明白。是釋上慈字，以明不爭之德耳。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">My words are very easy to understand and very easy to put into practice, Yet no one in the world can understand them or put them into practice. Words have an ancestor and affairs have a sovereign. It is because people are ignorant that they fail to understand me. Those who understand me are few; Those who harm me are honoured. Therefore the sage, while clad in homespun, conceals on his person a priceless piece of jade.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. My words are easy to understand, 2. And easy to put into practice. 3. Yet no one in the world can understand them, 4. And no one can put them into practice. 5. Now my words have an ancestor, and my deeds have a lord, 6. And it's simply because [people] have no understanding [of them], that they therefore don't understand me. 7. But when those who understand me are few, then I'm of great value. 8. Therefore the Sage wears coarse woolen cloth, but inside it he holds on to jade.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">My words are very easy to understand and very easy to practice. Yet the world cannot understand them or practice them. Words have ancestors, deeds have masters. Because they do not understand, they do not understand me. Those who understand me are few. Therefore the sage wears coarse clothes but holds jade in his bosom.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">My words are very easy to understand And very easy to put into practice. Yet no one under heaven understands them; No one puts them into practice. But my words have an ancestry, my deeds have a lord; And it is precisely because men do not understand this That they are unable to understand me. Few then understand me, but it is upon this very fact my value depends. It is indeed in this sense that "the Sage wears hair-cloth on top, But carries jade under neath his dress."</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第70章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">My teachings are easy to understand and easy to put into practice. Yet your intellect will never grasp them, and if you try to practice them, you'll fail. My teachings are older than the world. How can you grasp their meaning? If you want to know me, look inside your heart.</p>
                     </div>
                 </div>
             </div>

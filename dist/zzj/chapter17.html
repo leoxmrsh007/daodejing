@@ -6,6 +6,21 @@
     <title>秋水 - 庄子</title>
     <meta name="description" content="庄子多版本对照平台 - 成玄英疏 · 郭象注 · 王夫之">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter17.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../zzj/index.html">
+            <a class="dropdown-item active" href="../zzj/chapter17.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter17.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter17.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter17.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter17.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -531,7 +546,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    秋水时至，百川灌河；泾流之大，两涘渚崖之间不辩牛马。于是焉河伯欣然自喜，以天下之美为尽在己。顺流而东行，至于北海，东面而视，不见水端。于是焉河伯始旋其面目，望洋向若而叹曰：野语有之曰闻道百以为莫己若者，我之谓也。且夫我尝闻少仲尼之闻而轻伯夷之义者，始吾弗信；今我睹子之难穷也，吾非至于子之门则殆矣，吾长见笑于大方之家。北海若曰：井蛙不可以语于海者，拘于虚也；夏虫不可以语于冰者，笃于时也；曲士不可以语于道者，束于教也。今尔出于崖涘，观于大海，乃知尔丑，尔将可与语大理矣。天下之水，莫大于海，万川归之，不知何时止而不盈；尾闾泄之，不知何时已而不虚；春秋不变，水旱不知。此其过江河之流，不可为量数。而吾未尝以此自多者，自以比形于天地而受气于阴阳，吾在于天地之间，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>小石小木之在大山也。方存乎见少，又奚以自多！
+                    秋水时至，百川灌河；泾流之大，两涘渚崖之间不辩牛马。于是焉河伯欣然自喜，以天下之美为尽在己。顺流而东行，至于北海，东面而视，不见水端。于是焉河伯始旋其面目，望洋向若而叹曰：野语有之曰闻道百以为莫己若者，我之谓也。且夫我尝闻少仲尼之闻而轻伯夷之义者，始吾弗信；今我睹子之难穷也，吾非至于子之门则殆矣，吾长见笑于大方之家。北海若曰：井蛙不可以语于海者，拘于虚也；夏虫不可以语于冰者，笃于时也；曲士不可以语于道者，束于教也。今尔出于崖涘，观于大海，乃知尔丑，尔将可与语大理矣。天下之水，莫大于海，万川归之，不知何时止而不盈；尾闾泄之，不知何时已而不虚；春秋不变，水旱不知。此其过江河之流，不可为量数。而吾未尝以此自多者，自以比形于天地而受气于<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，吾在于天地之间，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>小石小木之在大山也。方存乎见少，又奚以自多！
                 </div>
             </div>
         </div>
@@ -555,19 +570,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-watson" type="button">Burton Watson</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-ziporyn" type="button">Brook Ziporyn</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-watson">
+                        <p class="english-text mb-0 fst-italic">[Burton Watson 庄子 第17篇 英文译本正在整理中]</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-ziporyn">
+                        <p class="english-text mb-0 fst-italic">[Brook Ziporyn 庄子 第17篇 英文译本正在整理中]</p>
                     </div>
                 </div>
             </div>

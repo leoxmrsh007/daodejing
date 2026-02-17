@@ -6,6 +6,21 @@
     <title>第48章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter48.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter48.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter48.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">务欲进其所能益其所习．务欲反虚无也．有为则有所失．故无为乃无所不为也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">為學日益，學，謂政教禮樂之學也。日益者，情欲文飾，日以益多。為道日損。道謂自然之道也。日損者，情欲文飾，日以消損。損之又損，損情欲又損之，所以漸去。以至於無為。當恬淡如嬰兒，無所造為。無為而無不為。情欲斷絕，德與道合，則無所不施，無所不為也。取天下常以無事，取，治也。治天下，常當以無事，不畜煩勞也。及其有事，不足以取天下。及其好有事，則政教煩民，不安故不足以治天下也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">損於有者，益於無。去其所取，全其未有取。未有取，則未有失。故賓百為，而天下來賓。猶且詹詹然以前識之得為墨守，則日見益而所失者積矣。故月取明於日，明日生而真月日死。安能舍此無盡藏，以取恩於天下之耳目哉？夫天下無窮，取者恩而失者怨，取者得而失者喪，此上禮之不免於攘臂，而致數輿之無輿也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人治國之要，當以樸實為本，不可以智誇民也。明者，昭然揭示之意。愚者，民可使由之，不可使知之意。夫民之所趨，皆觀望於上也，所謂百姓皆注其耳目。凡民之欲蔽，皆上有以啟之。故上有好者，下必有甚焉者也。故聖人在上，善能以斯道覺斯民，當先身以教之。上先不用智巧，離欲清淨，一無所好，若無所知者。則民自各安其日用之常，絕無一念好尚之心。而黠滑之智自消，奸盜之行自絕矣。所謂我好靜而民自正，我無為而民自化。故曰非以明民，將以愚之。此重在以字。前云眾人皆有以。以，如春秋以某師之以。謂左右之也。此其上不用智，故民易治耳。然民之難治者，皆用智之過也。足知以智治國者，反為害也，乃國之賊。不用智而民自安，則為國之福矣。人能知此兩者，可為治國之楷式也。楷式，好規模也。苟能知此楷式，是謂之玄德矣。玄德，謂德之玄妙，而人不測識也。故歎之曰，玄德深矣遠矣。非淺識者所可知也。民之欲，火馳而不返。唯以此化民，則民自然日與物相反，而大順於妙道之域矣。語曰，齊一變至於魯，魯一變至於道，猶有智也。況玄德乎。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">In the pursuit of learning one knows more every day; In the pursuit of the way one does less every day. One does less and less until one does nothing at all, and when one does nothing at all there is nothing that is left undone. It is always through not meddling that the empire is won. Should you meddle, then you are not equal to the task of winning the empire.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Those who work at their studies increase day after day; 2. Those who have heard the Dao decrease day after day. 3. They decrease and decrease, till they get to the point where they do nothing. 4. They do nothing and yet there's nothing left undone. 5. When someone wants to take control of the world, he must always be unconcerned with affairs. 6. For in a case where he's concerned with affairs, 7. He'll be unworthy, as well, of taking control of the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">For learning, daily increase. For the way, daily decrease. Decrease and again decrease, until reaching non-action. Through non-action, nothing is left undone. Taking the world is always through non-action. As for acting, one is not enough to take the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Learning consists in adding to one's stock day by day; The practice of Tao consists in "subtracting day by day, Subtracting and yet again subtracting Till one has reached inactivity. But by this very inactivity Everything can be activated." Those who of old won the adherence of all who live under heaven All did so not interfering. Had they interfered, They would never have won this adherence.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第48章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">In pursuit of knowledge, every day something is added. In the practice of the Tao, every day something is dropped. Less and less do you need to force things, until finally you arrive at non-action. When nothing is done, nothing is left undone. True mastery can be gained by letting things go their own way. It can't be gained by interfering.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>第7章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,49 +233,49 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter7.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter7.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter7.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter7.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter7.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
-                <span class="idiom-word">天长地久</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
+            <span class="idiom-word">天长地久</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">自生则与物争．不自生则物归也．无私者无为于身也．身先身存．故曰能成其私也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">天長地久。說天地長生久壽，以喻教人也。天地所以能長且久者，以其不自生，天地所以獨長且久者，以其安靜施，不責報，不如人居處汲汲求自饒之私，奪人以自與。故能長生。以其不求生，故能長生不終也。是以聖人後其身先人而後己者也。而身先；天下敬之，先以為長。外其身薄己而厚人也。而身存。百姓愛之如父母，神明祐之若赤子，故身常存。非以其無私邪，聖人為人所愛，神明所祐，非以其公正無私所致乎。故能成其私。人以為私者，欲以厚己也。聖人無私而己自厚，故能成其私也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">夫胎壯則母羸．實登則莖獲，其不疑天地之羸且獲者鮮也。乃天地不得不食萬物矣，而未嘗為之食。胎各有元，荄各有蕾，遊其虛中，而究取資於自有。聖人不以身犯准，是後之也；不以身入中，是外之也。食萬物而不恩，食於萬物而萬物不怨。故無所施功，而功灌於苴鹵；無所期穗，而德行於曾玄；而乃以配天地之長久。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言天地以不生故長生，以比聖人忘身故身存也。意謂世人各圖一己之私，以為長久計。殊不知有我之私者，皆不能長久也。何物長久，唯天地長久。然天地所以長久者，以其不自私其生，故能長生。其次則聖人長久，是以聖人體天地之德，不私其身以先人，故人樂推而不厭。故曰後其身而身先。聖人不愛身以喪道，故身死而道存。道存則千古如生，即身存也。故曰外其身而身存。老子言此，乃審問之曰，此豈不是聖人以無私而返成其私耶。且世人營營為一身之謀，欲作千秋之計者，身死而名滅。是雖私，不能成其私，何長久之有。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Heaven and earth are enduring. The reason why heaven and earth can be enduring is that they do not give themselves life. Hence they are able to be long-lived. Therefore the sage puts his person last and it comes first, Treats it as extraneous to himself and it is preserved. Is it not because he is without thought of self that he is able to accomplish his private ends?</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Heaven endures; Earth lasts a long time. 2. The reason why Heaven and Earth can endure and last a long time — 3. Is that they do not live for themselves. 4. Therefore they can long endure. 5. Therefore the Sage: 6. Puts himself in the background yet finds himself in the foreground; 7. Puts self-concern out of [his mind], yet finds self-concern in the fore; 8. Puts self-concern out of [his mind], yet finds that his self-concern is preserved. 9. Is it not because he has no self-interest, 10. That he is therefore able to realize his self-interest?</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Heaven is lasting, earth enduring. The reason heaven and earth can last and endure is that they do not have a life of their own. This is why they last. Thus the sage puts himself last and finds himself in the forefront; considers himself an outsider and finds himself safe. Isn't it because he's unselfish that he's fulfilled?</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Heaven is eternal, the Earth everlasting. How come they to be so? It is because they do not foster their own lives; That is why they live so long. Therefore the Sage Puts himself in the background; but is always to the fore. Remains outside; but is always there. Is it not just because he does not strive for any personal end That all his personal ends are fulfilled?</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第7章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Tao is infinite, eternal. Why is it eternal? It was never born; thus it can never die. Why is it infinite? It has no desires for itself; thus it is present for all beings. The Master stays behind; that is why she is ahead. She is detached from all things; that is why she is one with them. Because she has let go of herself, she is perfectly fulfilled.</p>
                     </div>
                 </div>
             </div>

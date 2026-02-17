@@ -6,6 +6,21 @@
     <title>第8章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,49 +233,49 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter8.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter8.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter8.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter8.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter8.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter8.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter8.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="最高尚的品德像水一样，滋润万物而不争&#10;原文：上善若水。水善利万物而不争">
-                <span class="idiom-word">上善若水</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="最高尚的品德像水一样，滋润万物而不争&#10;原文：上善若水。水善利万物而不争">
+            <span class="idiom-word">上善若水</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">人恶卑也．道无水有．故曰几也．言人皆应于此道也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">上善若水。上善之人，如水之性。水善利萬物水在天為霧露，在地為泉源也。而不爭，處眾人之所惡，眾人惡卑濕垢濁，水獨靜流居之也。○惡，去聲。故幾於道。水性幾與道同。○幾，音機。居善地，水性善喜於地，草木之上，即流而下，有似於牝動而下人也。心善淵，水深空虛，淵深清明。與善仁，萬物得水以生，與虛不與盈也。言善信，水內影照形，不失其情也。正善治，無有不洗，清且平也。事善能，能方能圓，曲直隨形。動善時。夏散冬凝，應期而動，不失天時。夫唯不爭，壅之則止，決之則流，聽從人也。故無尤。水性如是，故天下無有怨尤，水者也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">五行之體，水為最微。善居道者，為其微，不為其著；處眾人之後，而常得眾之先。何也？眾人方惡之，而不知其早至也。逆計其不爭而徐收之，無損而物何爭？而我何尤？使眾人能知其所惡者之為善，亦將群爭之矣。然而情之所必不然也，故聖人擅利。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言不爭之德，無往而不善也。上，最上。謂謙虛不爭之德最為上善，譬如水也，故曰上善若水。水之善，妙在利萬物而不爭。不爭，謂隨方就圓，無可不可，唯處於下。然世人皆好高而惡下。唯聖人處之。故曰處眾人之所惡，故幾於道。幾，近也。由聖人處謙下不爭之德，故無往而不善。居則止於至善，故曰善地。心則淵靜深默，無往而不定，故曰善淵。與，猶相與。謂與物相與，無往而非仁愛之心，故曰與善仁。言無不誠，故曰善信。為政不爭，則行其所無事，故曰善治。為事不爭，則事無不理，故曰善能。不爭，則用捨隨時，迫不得已而後動，故曰善時。不爭之德如此，則無人怨，無鬼責。故曰夫惟不爭，故無尤矣。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Highest good is like water. Because water excels in benefiting the myriad creatures without contending with them and settles where none would like to be, it comes close to the way. In a home it is the site that matters; In quality of mind it is depth that matters; In an ally it is benevolence that matters; In speech it is good faith that matters; In government it is order that matters; In affairs it is ability that matters; In action it is timeliness that matters. It is because it does not contend that it is never at fault.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The highest good is like water; 2. Water is good at benefiting the ten thousand things and yet it [does not] compete [with them]. 3. It dwells in places the masses of people detest, 4. Therefore it is close to the Way. 5. In dwelling, the good thing is the land; 6. In the mind, the good thing is depth; 7. In giving, the good thing is [being like] Heaven; 8. In speaking, the good thing is sincerity; 9. In governing, the good thing is order; 10. In affairs, the good thing is ability; 11. In activity, the good thing is timeliness. 12. It is only because it does not compete, that therefore it is without fault.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The best of people is like water, it helps all things and doesn't compete, it stays in places that others scorn. So it is like the Way. In dwelling, it grounds itself in the good earth. In thinking, it deepens in what can't be known. In giving, it's kind. In speaking, it's sincere. In governing, it's orderly. In working, it's capable. In moving, it's timely. And because it doesn't compete, it has no blame.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The highest good is like that of water. The goodness of water is that it benefits the ten thousand creatures; Yet itself does not scramble, But is content with the places that all men disdain. It is this makes water so near to the Way. And if men think the ground the best place for building a house upon, If among thoughts they value those that are profound, If in friendship they value gentleness, In words, truth; in government, good order; In deeds, effectiveness; in actions, timeliness - In each case it is because they prefer what does not lead to strife, And therefore does not go amiss.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第8章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The supreme good is like water, which nourishes all things without trying to. It is content with the low places that people disdain. Thus it is like the Tao. In dwelling, live close to the ground. In thinking, keep to the simple. In conflict, be fair and generous. In governing, don't try to control. In work, do what you enjoy. In family life, be completely present. When you are content to be simply yourself and don't compare or compete, everybody will respect you.</p>
                     </div>
                 </div>
             </div>

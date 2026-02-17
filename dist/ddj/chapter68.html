@@ -6,6 +6,21 @@
     <title>第68章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter68.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter68.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">士卒之帅也．武尚先陵人也．后而不先．应而不唱．故不在怒．不与争也．用人而不为之下．则力不为用也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">用兵有言，陳用兵之道，老子疾時用兵，故託己設其義也。吾不敢為主，主，先也，不敢先舉兵。而為客；客者，和而不倡，用兵當承天而後動。不敢進寸，而退尺。侵人境界，利人財寶，為進；閉門，守城，為退。是謂行無行；彼遂不止，為天下賊，雖行誅之，不行誅也。○無行，音杭。攘無臂；雖欲大怒，若無臂可攘也。○攘，音禳。仍無敵；雖欲仍引之心，若無敵可仍也。執無兵。雖欲執持之，若無兵刃可持用也何者？傷彼之民，罹罪於天，遭不道之君，愍忍喪之痛也。禍莫大於輕敵，夫禍亂之害，莫大於欺輕敵家，侵取不休，輕戰貪財。輕敵幾喪吾寶。幾，近也。寶，身也。欺輕敵者，近喪身也。○幾，音祈音機。故抗兵相加，兩敵戰也。哀者勝矣。哀者慈仁士卒，不遠於死。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">避殺者不可為，猶之樂殺者不可長也。或以有所樂，或以有所避，皆謂生殺之在己而操縱之，是謂竊天。不致其樂，避於何庸？故「以正治國」者，將以弭兵而兵愈起；「善為士」者，可以用兵而兵不傷。知天之化迹，有露雷而無喜怒；知古之「楷式」，有消長而無殺生，有道者之善用人，豈立我以用人哉？人已然而因用之也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章老子自言所得之道至大，世人不知，其實所守者至約也。道大，如巍巍乎惟天為大，蕩蕩乎民無稱焉，言其廣大難以名狀也。不肖，如孔子云不器。大史公謂孟子迂遠而不切於事情之意。即莊子所謂大有徑庭，不近人情也。此蓋當時人見老子其道廣大，皆如下文所云，以勇廣器長稱之，且不得而名，故又為不肖，即若孔子稱之猶龍也。故老子因時人之言，乃自解之曰，天下人皆謂我之道大，似乎不肖，無所可用。惟其大，所以似不肖耳。肖者，與物相似。如俗云一樣也。若肖，作一句。久矣其細，作一句。倒文法耳。謂我若是與世人一樣，則成細人久矣，又安得以道大稱之哉。下文釋其大之所以。謂世人皆見其物莫能勝我，遂以我為勇。見我寬裕有餘，遂以我為廣。見其人皆推我為第一等人，遂以我為器長。器者，人物之通稱也。以此故，皆謂我道大，其實似無所肖。殊不知我所守者至約。乃慈，儉，不敢為天下先，三法而已。慈者，并包萬物，覆育不遺，如慈母之育嬰兒。儉者，嗇也，有而不敢盡用。不敢為天下先者，虛懷游世，無我而不與物對。然以慈育物，物物皆己。且無己與物敵，物自莫能勝矣。故曰慈故能勇。心常自足，雖有餘而不用，所處無不裕然寬大矣。故曰儉故能廣。物我兩忘，超然獨立，而不見有己以處人前。故人皆以我為畸人，推為人中之最上者矣。故曰不敢為天下先，故能成器長。以此故，皆以我為道大似不肖耳。以我所守者如此，即前所云我獨異於人，而貴求食於母也。以此三者，乃大道之要妙耳。且今世人，捨慈而言勇，捨儉而言廣，捨後而言先，死矣。此死字，非生死之死，如禪家所云死在句下。蓋死活之死，言其無生意也。以世人不知大道之妙，但以血氣誇侈爭勝做工夫。故一毫沒用頭，皆死法，非活法也。且此三者之中，又以慈為主。不但學道，即治天下國家莫不皆然。若以戰則勝，以守則固，故王師無敵，民效死而勿去，皆仁慈素有所孚，故為戰勝守固之道。此所謂道之真以治身，其緒餘以為天下國家。以天地之大德曰生。故天將救斯民，而純以慈衛之。故聖人法天利用，而以慈為第一也，世俗惡足以知之。故知治世能用老氏之術，坐觀三代之化。所以漢之文景，得糟粕之餘，施於治道，迴超百代耳。此老子言言皆真實工夫，切於人事，故云甚易知易行。學人視太高，類以虛玄談之，不能身體而力行，故不得其受用耳。惜哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">One who excels as a warrior does not appear formidable; One who excels in fighting is never roused in anger; One who excels in defeating his enemy does not join issue; One who excels in employing others humbles himself before them. This is known as the virtue of non-contention; This is known as making use of the efforts of others; This is known as matching the sublimity of heaven.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Therefore, one who is good at being a warrior doesn't make a show of his might; 2. One who is good in battle doesn't get angry; 3. One who is good at defeating the enemy doesn't engage him. 4. And one who is good at using men places himself below them. 5. This is called the virtue of not competing; 6. This is called [correctly] using men; 7. This is called matching Heaven. 8. It's the high point of the past.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">A good warrior is not martial. A good fighter is not angry. A good conqueror is not contentious. A good employer is humble. This is called not contending, this is called employing others, this is called matching heaven, the ancient extreme.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The best charioteers do not rush ahead; The best fighters do not make displays of wrath. The greatest conqueror wins without joining issue; The best user of men acts as though he were their inferior. This is called the power that comes of not contending, Is called the capacity to use men, The secret of being mated to heaven, to what was of old.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第68章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The best athlete wants his opponent at his best. The best general enters the mind of his enemy. The best businessman serves the communal good. The best leader follows the will of the people. All of them embody the virtue of non-competition. Not that they don't love to compete, but they do it in the spirit of play. In this they are like children and in harmony with the Tao.</p>
                     </div>
                 </div>
             </div>

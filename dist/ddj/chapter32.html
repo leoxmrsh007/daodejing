@@ -6,6 +6,21 @@
     <title>第32章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter32.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter32.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter32.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter32.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter32.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">道无形不形．常不可名．以无名为常．故曰道常无名也．朴之为物．以无为心也．亦无名．故将得道．莫若守朴．夫智者可以能臣也．勇者可以武使也．巧者可以事役也．力者可以重任也．朴之为物．愦然不偏．近于无有．故曰莫能臣也．抱朴无为．不以物累其眞．不以欲害其神．则物自宾而道自得也．言天地相合．则甘露不求而自降．我守其眞性无为．则民不令而自均也．始制谓朴散始为官长之时也．始制官长．不可不立名分以定尊卑．故始制有名也．过此以往．将争锥刀之末．故曰名亦既有夫亦将知止也．遂任名以号物．则失治之母也．故知止所以不始也．川谷之与江与海．非江海召之．不召不求而自归者也．行道于天下者．不令而自均．不求而自得．故曰犹川谷之与江海也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">道常無名，道能陰能陽，能弛能張，能存能亡，故無常名也。朴雖小，天下不敢臣。道朴雖小，微妙無形，天下不敢有臣使道者也。侯王若能守之，萬物將自賓。侯王若能守道無為，萬物將自賓，服從於德也。天地相合，以降甘露，侯王動作能與天相應合，天即下甘露善瑞也。民莫之令而自均。天降善瑞則萬物莫有教令之者，皆自均調若一也。始制有名，始道也有名，萬物也，道無名能制於有名，無形能制於有形也。名亦既有，既，盡也。有名之物，盡有情欲，判道離德，故身毀辱也。天亦將知之，人能去道行德，天亦將自知之。知之所以不殆。天知之則神靈祐助，不復危殆。譬道之在天下，猶川谷之與江海。言道之在天下，與人相應和，如川谷與江海相流通也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">因於大始者無名，止於己然者有名。然既有名而能止之，則前名成而後名猶不立，過此以往，仍可為大始。天地，質也；甘露，沖也；升於地而地不居功，降自天而天不終有，是既止以後之自然，且莫令而自均，後天之衝，合於先天，況夫未始有夫有止者乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上章不以兵強天下，因言人主當守道無為，則萬物賓而四海服，天地合而人民和，自然利濟無窮也。常者，終古不變之義。凡有名者，必遷變。道之所以不變者，以其無名也。故曰道常無名。樸，乃無名之譬。木之未制成器者，謂之樸。若制而成器，則有名矣。小，猶眇小。謂不足視也。且如合抱之材，智者所不顧。若取徑寸以為冠，則愚者亦尊焉。是以名為大，而以無名為小。甚言世人貴名，概以樸為不足視。故以道曰樸曰小也。然道雖樸小，而為天地萬物之本。即愚夫愚婦，而亦知所尊。故曰天下不敢臣。但侯王不能守耳。藉使侯王若能守，則萬物自然賓服矣，奚假兵力哉。然兵者凶器，未必賓服一國。且上干和氣，必有凶年。若以道服之，不但萬物來賓。抑且和氣致祥，天地相合以降甘露。兵來未必盡和民人，若以道宥之，則民莫之令而自然均調，各遂其生。無名之樸，利濟如此，惜乎侯王不能守之善用耳。若散樸為器，始制則有名矣。始，猶方纔也。謂樸本無名，方纔制作，則有名生焉。且從無名而有名。既有名，而名又有名，將不知其所止矣。莊子所謂從有適有，巧歷不能得，故曰名亦既有。而殉名者愈流愈下，逐末忘本，不知其返矣。故老子戒之曰，夫名者，不可馳騖而不返。亦將知止而自足。苟不知止足，則危殆而不安。知止所以不殆也。由是而知道在天下，為萬物之宗，流潤無窮，猶川谷之於江海也。然江海所以流潤於川谷，川谷無不歸宗於江海。以譬道散於萬物，萬物莫不賓服於大道。此自然之勢也。意明侯王若能守，其效神速於此。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The way is for ever nameless. Though the uncarved block is small No one in the world dare claim its allegiance. Should lords and princes be able to hold fast to it The myriad creatures would submit of their own accord, Heaven and earth would unite and sweet dew would fall, And the people would be equitable, though no one so decrees. Only when it is cut are there names. As soon as there are names One ought to know that it is time to stop. Knowing when to stop one can be free from danger. The way is to the world as the River and the Sea are to rivulets and streams.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Dao is constantly nameless. 2. Though in its natural state it seems small, no one in the world dares to treat it as a subject. 3. Were marquises and kings able to maintain it, 4. The ten thousand things would submit to them on their own, 5. And Heaven and Earth would unite to send forth sweet dew. 6. By nature it would fall equally on all things, with no one among the people ordering that it be so. 7. As soon as we start to establish a system, we have names. 8. And as soon as there are set names, 9. Then you must also know that it's time to stop. 10. By knowing to stop — in this way you'll come to no harm. 11. The Way's presence in the world 12. Is like the relationship of small valley [streams] to rivers and seas.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The way is ever nameless. Though simplicity is small, the world cannot subordinate it. If lords and kings can hold to it, the ten thousand things will submit themselves. Heaven and earth join together to send down sweet dew, not commanded by people but naturally equal. When there is division, names arise. When names have arisen, know also to stop. Knowing to stop prevents danger. It is like the way in the world, like the streams and valleys flowing into rivers and seas.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Tao is eternal, but has no fame (name); The Uncarved Block, though seemingly of small account, Is greater than anything that is under heaven. If kings and barons would but possess themselves of it, The ten thousand creatures would flock to do them homage; Heaven-and-earth would conspire To send Sweet Dew, Without law or compulsion, men would dwell in harmony. Once the block is carved, there will be names, And so soon as there are names, Know that it is time to stop. Only by knowing when it is time to stop can danger be avoided. To Tao all under heaven will come As streams and torrents flow into a great river or sea.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第32章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Tao can't be perceived. Smaller than an electron, it contains uncountable galaxies. If powerful men and women could remain centered in the Tao, all things would be in harmony. The world would become a paradise. All people would be at peace, and the law would be written in their hearts. When you have names and forms, know that they are provisional. When you have institutions, know where their functions should end. Knowing when to stop, you can avoid any danger. All things end in the Tao as rivers flow into the sea.</p>
                     </div>
                 </div>
             </div>

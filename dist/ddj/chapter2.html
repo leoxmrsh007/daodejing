@@ -6,6 +6,21 @@
     <title>第2章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,63 +233,63 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter2.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter2.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter2.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter2.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter2.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter2.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter2.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ss/index.html">
+            <a class="dropdown-item " href="../ss/chapter2.html">
                 <span class="classic-icon">📚</span>
                 <span class="classic-name">四书</span>
                 <span class="classic-info">4章 · 朱熹</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../cxl/index.html">
+            <a class="dropdown-item " href="../cxl/chapter2.html">
                 <span class="classic-icon">📖</span>
                 <span class="classic-name">传习录</span>
                 <span class="classic-info">3章 · 王阳明</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">美者人心之所进乐也．恶者人心之所恶疾也．美恶犹喜怒也．善不善犹是非也．喜怒同根．是非同门．故不可得而偏举也．此六者皆陈自然．不可偏举之名数也．自然已足．为则败也．知慧自备．为则伪也．因物而用．功自彼成．故不居也．使功在己．则功不可久也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">天下皆知美之為美，自揚己美，使顯彰也。斯惡已。有危亡也。皆知善之為善，有功名也。斯不善已。人所爭也。故有無相生，見有而為無也。難易相成，見難而為易也。長短相形，見短而為長也。高下相傾，見高而為下也。音聲相和，上唱下必和也。前後相隨。上行下必隨也。是以聖人處無為之事，以道治也。行不言之教；以身師導之也。萬物作焉各自動也。而不辭，不辭謝而逆止。生而不有，元氣生萬物而不有。為而不恃，道所施為，不恃望其報也。功成而弗居。功成事就，退避不居其位。夫惟弗居，夫惟功成不居其位。是以不去。福德常在，不去其身也，此言：不行不可隨，不言不可知，即上六句，有高下長短，若開一源，下生百端。百端之變，無不動亂。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">天下之變萬，而要歸於兩端。兩端生於一致，故方有「美」而方有「惡」，方有「善」而方有「不善」。據一以概乎彼之不一，則白黑競而毀譽雜。聖人之「抱一」也，方其一與一為二，而我徐處於中；故彼一與此一為壘，乃知其本無壘也，遂坐而收之。壘立者「居」，而坐收者「不去」，是之謂善爭。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此釋前章可名非常名，以明世人居有為之跡，虛名不足尚。聖人處無為之道以御世，功不朽而真名常存之意也。意謂天下事物之理，若以大道而觀，本無美與不美，善與不善之跡。良由人不知道，而起分別取捨好尚之心，故有美惡之名耳。然天下之人，但知適己意者為美。殊不知在我以為美，自彼觀之，則又為不美矣。譬如西施顰美，東施愛而效之，其醜益甚。此所謂知美之為美，斯惡已。惡，醜也。又如比干，天下皆知為賢善也，紂執而殺之。後世效之以為忠，殺身而不悔。此所謂知善之為善，斯不善已。此皆尚名之過也。是則善惡之名，因對待而有。故名則有無相生，事則難易相成，物則長短相形，位則高下相傾，言則音聲相和，行則前後相隨，此乃必然之勢。譬如世人以尺為長，以寸為短。假若積寸多於尺，則又名寸為長，而尺為短矣。凡物皆然，斯皆有為之跡耳。凡可名者，皆可去。此所謂名可名，非常名也。是以聖人知虛名之不足尚，故處無為之道以應事。知多言之不可用，故行不言之教以化民。如天地以無心而生物，即萬物皆往資焉，不以物多而故辭。雖生成萬物，而不以萬物為己有。雖能生物，而不自恃其能。且四時推移，雖有成物之功，功成而不居。夫惟不居其功，故至功不朽。不尚其名，故真名常存。聖人處無為之道，亦由是也。蓋萬物作焉已下，皆是說天地之德，以比聖人之德。文意雙關，莊子釋此意極多。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The whole world recognizes the beautiful as the beautiful, yet this is only the ugly; the whole world recognizes the good as the good, yet this is only the bad. Thus Something and Nothing produce each other; The difficult and the easy complement each other; The long and the short off-set each other; The high and the low incline towards each other; Note and sound harmonize with each other; Before and after follow each other. Therefore the sage keeps to the deed that consists in taking no action and practises the teaching that uses no words. The myriad creatures rise from it yet it claims no authority; It gives them life yet claims no possession; It benefits them yet exacts no gratitude; It accomplishes its task yet lays claim to no merit. It is because it lays claim to no merit That its merit never deserts it.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. When everyone in the world knows the beautiful as beautiful, ugliness comes into being; 2. When everyone knows the good, then the not good comes to be. 3. The mutual production of being and nonbeing, 4. The mutual completion of difficult and easy, 5. The mutual formation of long and short, 6. The mutual filling of high and low, 7. The mutual harmony of tone and voice, 8. The mutual following of front and back — 9. These are all constants. 10. Therefore the Sage dwells in nonactive affairs and practices the wordless teaching. 11. The ten thousand things arise, but he doesn't begin them; 12. He acts on their behalf, but he doesn't make them dependent; 13. He accomplishes his tasks, but he doesn't dwell on them; 14. It is only because he doesn't dwell on them, that they therefore do not leave them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Everybody knows beauty is beauty, but that's ugly. Everybody knows good is good, but that's bad. Thus being and non-being give birth to each other, difficult and easy complete each other, long and short test each other, high and low measure each other, musical notes and sounds harmonize with each other, before and after follow each other. That's why the sage does without doing and teaches without talking. The ten thousand things arise and he doesn't turn away; he gives them life but owns them not; he acts but claims nothing; his work done, he forgets it. And because he forgets, it lasts forever.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">It is because every one under Heaven recognizes beauty as beauty, That the idea of ugliness exists. And equally if every one recognized virtue as virtue, this would merely create fresh conceptions of wickedness. For truly, Being and Not-being grow out of one another; Difficult and easy complete one another. Long and short test one another; High and low determine one another. Pitch and mode give harmony to one another. Front and back give sequence to one another. Therefore the Sage relies on actionless activity, Carries on wordless teaching, But the myriad creatures are worked upon by him; He does not disown them. He rears them, but does not lay claim to them, Controls them, but does not lean upon them, Achieves his aim, but does not call attention to what he does; And for the very reason that he does not call attention to what he does He is not ejected from fruition of what he has done.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第2章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">When people see some things as beautiful, other things become ugly. When people see some things as good, other things become bad. Being and non-being create each other. Difficult and easy support each other. Long and short define each other. High and low depend on each other. Before and after follow each other. Therefore the Master acts without doing anything and teaches without saying anything. Things arise and she lets them come; things disappear and she lets them go. She has but doesn't possess, acts but doesn't expect. When her work is done, she forgets it. That is why it lasts forever.</p>
                     </div>
                 </div>
             </div>

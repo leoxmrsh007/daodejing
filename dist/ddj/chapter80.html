@@ -6,6 +6,21 @@
     <title>第80章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter80.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter80.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">国既小．民又寡．尚可使反古．况国大民众乎．故举小国而言也．言使民虽有什伯之器．而无所用．何患不足也．使民不用．惟身是宝．不贪货赂．故各安其居．重死而不远徙也．无所欲求.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">信言不美，信者，如其實不美者，朴且質也。美言不信。滋美之言者，孳孳華詞，不信者，飾偽多空虛也。善者不辯，善者以道修身，不綵文也。辯者不善。辯者謂巧言也，不善者，舌致患也。山有玉，掘其山，水有珠，濁其淵，辯口多言，亡其身。知者不博，知者謂知道之士，不博者，守一元也。博者不知。博者，多見聞，不知者，失要真也。聖人不積，聖人積德不積財，有德以教愚，有財以與貧也。既以為人己愈有，既以為人施設德化，己愈有德。既以與人己愈多。既以財賄布施與人，而財益多，如日月之光，無有盡時也。天之道，利而不害；天生萬物，愛育之，令長大無所傷害也。聖人之道，為而不爭。聖人法天所施為，化成事就，不與下爭功名，故能全其聖功也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">夫天下亦如是而已矣。以「寡小」觀「寡小」，以強大觀彊大，以天下觀天下，人同天，天同道，道同自然，又安往而不適者哉？推而准之四海之廣：賢貴「安其居」，而賤不肖「不來」，則賢貴定；賤不肖「安其居」，而賢貴「不往」，則賤不肖和。反而求之一身之內：耳目「安其居」，而心思「不往」，則耳目全；心思「安其居」，而耳目「不來」，則心思正。「抱一」者，抱其一而不徹其不一，乃以「玄同」於一，而無將迎之患。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人無心之恩，但施而不責報，此為當時計利者發也。然恩生於怨，怨生於恩。當時諸侯兩相搆怨，霸者主盟而為和之。大怨既和，而必責報。報之不至，而怨亦隨之，是有餘怨也。莊子云，賊莫大於德有心。故曰安可以為善。是以聖人無心之德，但施而不責報。故如貸之執左契，雖有而若無也。契，貸物之符券也。合同剖之，而有左右。貸者執右，物主執左，所以責其報也。有德司契，但與而不取，徒存虛契。無德司徹，不計彼之有無，必征其餘，如賦徹耳。徹，周之賦法。謂時至必取於民，而無一毫假借之意。然上責報而下計利，將謂與而不取，為失利也。殊不知失於人，而得於天。故曰天道無親，常與善人。且施而不取，我既善矣。人不與而天必與之，所謂自天佑之，吉無不利。豈常人所易知哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Reduce the size of the population and the state. Ensure that even though the people have tools of war for a troop or a battalion they will not use them; And also that they will be reluctant to move to distant places because they look on death as no light matter. Even when they have ships and carts, they will have no use for them; And even when they have armor and weapons, they will have no occasion to make a show of them. Bring it about that the people will return to the use of the knotted rope, Will find relish in their food And beauty in their clothes, Will be content in their abode And happy in the way they live. Though adjoining states are within sight of one another, And the sound of dogs barking and cocks crowing in one state can be heard in another, yet the people of one state will grow old and die without having had any dealings with those of another.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Let the country be small and people few — 2. Bring it about that there are weapons for "tens" and "hundreds," yet let no one use them; 3. Have the people regard death gravely and put migrating far from their minds. 4. Though they might have boats and carriages, no one will ride them; 5. Though they might have armor and spears, no one will display them. 6. Have the people return to knotting cords and using them. 7. They will relish their food, 8. Regard their clothing as beautiful, 9. Delight in their customs, 10. And feel safe and secure in their homes. 11. Neighboring states might overlook one another, 12. And the sounds of chickens and dogs might be overheard, 13. Yet the people will arrive at old age and death with no comings and goings between them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">A small state with few people: Let there be tools for a hundred or ten, but not use them. Let people value death and not travel far. Let there be boats and carriages but no one rides them. Let there be armor and weapons but no one displays them. Let people return to knotting ropes and using them. Let food be sweet, clothes beautiful, home secure, customs happy. Neighboring states look at each other, hear chickens and dogs, but people grow old and die without visiting.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Given a small country with few inhabitants, He could bring it about that through There should be among the people contrivances requiring ten times, A hundred times less labour, they would not use them. He could bring it about that the people would be ready To lay down their lives and lay them down again in defence of their homes, Rather than emigrate. There might still be boats and carriage, But no one would go in them; There might still be weapons of war, But no one would drill with them. He could bring it about that "The people should have no use for any from of writing save knotted ropes, Should be contented with their food, pleased with their clothing, Satisfied with their homes, Should take pleasure in their rustic tasks. The next place might be so near at hand That one could one could hear the cocks crowing in it, the dogs barking; But the people would grow old and die without ever having been there".</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第80章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">If a country is governed wisely, its inhabitants will be content. They enjoy the labor of their hands and don't waste time inventing labor-saving machines. Since they dearly love their homes, they aren't interested in travel. There may be a few wagons and boats, but these don't go anywhere. There may be an arsenal of weapons, but nobody ever uses them. People enjoy their food, take pleasure in being with their families, spend weekends working in their gardens, delight in the doings of the neighborhood. And even though the next country is so close that people can hear its roosters crowing and its dogs barking, they are content to die of old age without ever having gone to see it.</p>
                     </div>
                 </div>
             </div>

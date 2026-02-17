@@ -6,6 +6,21 @@
     <title>示从容论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter76.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter76.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -677,7 +692,7 @@
                 <div class="original-text" id="originalText">
                     七十六
 黄帝燕坐，召雷公而问之曰：汝受术诵书者，若能览观杂学，及于比类，通合道理，为余言子所长。五藏六府，胆胃大小肠脾胞膀胱，脑髓涕唾，哭泣悲哀，水所从行，此皆人之所生，治之过失，子务明之，可以十全，即不能知，为世所怨。雷公曰：臣请诵《脉经》上下篇，甚众多矣，别异比类，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>未能以十全，又安足以明之。
-帝曰：子别试通五藏之过，六府之所不和，针石之败，毒药所宜，汤液滋味，具言其状，悉言以对，请问不知。雷公曰：肝虚肾虚脾虚，皆令人体重烦冤，当投毒药刺灸砭石汤液，或已或不已，愿闻其解。帝曰：公何年之长而问之少，余真问以自谬也。吾问子<span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，子言上下篇以对，何也？夫脾虚浮似肺，肾小浮似脾，肝急沉散似肾，此皆工之所时乱也，然从容得之。若夫三藏土木水参居，此童子之所知，问之何也？雷公曰：于此有人，头痛筋挛骨重，怯然少气，哕噫腹满，时惊不嗜卧，此何藏之发也？脉浮而弦，切之石坚，不知其解，复问所以三藏者，以知其比类也。帝曰：夫从容之谓也。夫年长则求之于府，年少则求之于经，年壮则求之于藏。今子所言皆失，八风菀热，五藏消烁，传邪相受。夫浮而弦者，是肾不足也。沉而石者，是肾气内著也。怯然少气者，是水道不行，形气消索也。咳嗽烦冤者，是肾气之逆也。一人之气，病在一藏也。若言三藏俱行，不在法也。雷公曰：于此有人，四支解堕，喘咳血泄，而愚诊之，以为伤肺，切脉浮大而紧，愚不敢治，粗工下砭石，病愈多出血，血止身轻，此何物也？帝曰：子所能治，知亦众多，与此病失矣。譬以鸿飞，亦<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>于天。夫圣人之治病，循法守度，援物比类，化之<span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，循上及下，何必守经。今夫脉浮大虚者，是脾气之外绝，去胃外归阳明也。夫二火不胜三水，是以脉乱而无常也。四支解堕，此脾精之不行也。喘咳者，是水气并阳明也。血泄者，脉急血无所行也。若夫以为伤肺者，由失以狂也。不引比类，是知不明也。夫伤肺者，脾气不守，胃气不清，经气不为使，真藏坏决，经脉傍绝，五藏漏泄，不衄则呕，此二者不相类也。譬如天之无形，地之无理，白与黑相去远矣。是失吾过矣，以子知之，故不告子，明引比类从容，是以名曰诊轻，是谓至道也。
+帝曰：子别试通五藏之过，六府之所不和，针石之败，毒药所宜，汤液滋味，具言其状，悉言以对，请问不知。雷公曰：肝虚肾虚脾虚，皆令人体重烦冤，当投毒药刺灸砭石汤液，或已或不已，愿闻其解。帝曰：公何年之长而问之少，余真问以自谬也。吾问子<span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，子言上下篇以对，何也？夫脾虚浮似肺，肾小浮似脾，肝急沉散似肾，此皆工之所时乱也，然从容得之。若夫三藏土木水参居，此童子之所知，问之何也？雷公曰：于此有人，头痛筋挛骨重，怯然少气，哕噫腹满，时惊不嗜卧，此何藏之发也？脉浮而弦，切之石坚，不知其解，复问所以三藏者，以知其比类也。帝曰：夫从容之谓也。夫年长则求之于府，年少则求之于经，年壮则求之于藏。今子所言皆失，八风菀热，五藏消烁，传邪相受。夫浮而弦者，是肾不足也。沉而石者，是肾气内著也。怯然少气者，是水道不行，形气消索也。咳嗽烦冤者，是肾气之逆也。一人之气，病在一藏也。若言三藏俱行，不在法也。雷公曰：于此有人，四支解堕，喘咳血泄，而愚诊之，以为伤肺，切脉浮大而紧，愚不敢治，粗工下砭石，病愈多出血，血止身轻，此何物也？帝曰：子所能治，知亦众多，与此病失矣。譬以鸿飞，亦<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>于天。夫圣人之治病，循法守度，援物比类，化之<span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，循上及下，何必守经。今夫脉浮大虚者，是脾气之外绝，去胃外归<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>也。夫二火不胜三水，是以脉乱而无常也。四支解堕，此脾精之不行也。喘咳者，是水气并<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>也。血泄者，脉急血无所行也。若夫以为伤肺者，由失以狂也。不引比类，是知不明也。夫伤肺者，脾气不守，胃气不清，经气不为使，真藏坏决，<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>傍绝，五藏漏泄，不衄则呕，此二者不相类也。譬如天之无形，地之无理，白与黑相去远矣。是失吾过矣，以子知之，故不告子，明引比类从容，是以名曰诊轻，是谓至道也。
                 </div>
             </div>
         </div>
@@ -689,7 +704,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇通过黄帝教诲雷公诊治案例，强调临证要“示以从容”：既要熟悉《脉经》等经典，又不能拘泥于条文，而须援物比类、通权达变。文中对肝脾肾虚、伤肺与脾精不守等脉象和症候进行辨析，指出若不审藏府所主、只凭表象妄断，往往误治。临床意义：提醒医者在把握脉象时要结合年龄、体质、病位等综合判断，以从容之心统筹全局，而非执一脉一症。</p>
             </div>
         </div>
     </section>
@@ -701,19 +716,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Uses case discussions between the Yellow Emperor and Lei Gong to illustrate how to read pulses and symptoms without rigidity. It contrasts superficial pattern naming with deep assessment of zang–fu relations, encouraging a relaxed but penetrating style of clinical reasoning.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">An essay on diagnostic comportment. ‘From容’ here denotes calm, analogical thinking that moves beyond the letter of the pulse canons. The text warns against mistaking similar pulses for identical diseases and exhorts the practitioner to situate findings within age, constitution, and systemic context.</p>
                     </div>
                 </div>
             </div>

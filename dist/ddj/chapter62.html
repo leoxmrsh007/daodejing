@@ -6,6 +6,21 @@
     <title>第62章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter62.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter62.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter62.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">奥犹暧也．可得庇荫之辞．宝以为用也．保以全也．言道无所不先．物无有贵于此也．虽有珍宝璧马无以匹之．美言之则可以夺众货之贾．故曰美言可以市也．尊行之则千里之外应之．故曰可以可于人也．不善当保道以免放．言以尊行道也．此道上之所云也．言故立天子置三公尊其位重其人所以为道也．物无有贵于此者．故虽有抱宝璧以先驷马而进之不如坐而进此道也．以求则得求以免则得免．无所而不施故为天下贵也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">為無為，因成脩故，無所造作。事無事，豫有備，除煩省事也。味無味。深思遠慮，味道意也。大小多少，陳其戒令也。欲大反小，欲多反少，自然之道也。報怨以德。修道行善，絕禍於未生也。圖難於其易，欲圖難事，先於易者。未及成也。○易，去聲。為大於其細；欲為大事必作於小，禍亂從小來也。天下難事，必作於易，天下大事，必作於細。是以聖人終不為大，故能成其大。天下共歸之也。夫輕諾必寡信，不重言也。多易必多難。不慎患也。○難，去聲。是以聖人猶難之，聖人動作舉事猶進退，重難之欲塞其源。故終無難。聖人終身無患難之事，猶避害深也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">繇此驗之，則有道者不必無求，而亦未嘗諱罪耶？無求則亢，諱罪則易污，有道者不處。天下皆在道之中，善不善者其化跡，而道其橐籥。是故無所擇，而聊以之深其息。知有所擇也，是天子三公之為貴，而拱璧駟馬之為文矣，豈道也哉？時有所求，終不懷寶以自封；或欲免罪，終不失保以孤立。和是非而休之以天鈞，天下皆同乎道，而孰能賤之？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言君天下者，當以靜勝為主，不可以力相尚也。夫流之在下者，如江海，眾水歸之。故大國之在天下，眾望歸之。故如流之在下，以為天下之交。納汙含垢，無所不容。又虛而能受，如天下之牝也。凡物之雌曰牝，雄曰牡，牡動而牝靜。動則不育，靜能有生，是牝以靜勝牡也。以此譬喻聖人之德。然聖人為天下牝者。以天下之人，衣食皆賴之以生，爵祿皆賴之以榮，萬幾並集於一人。故君道無為，而皆任其所欲，各遂其所生。所謂萬物皆往資焉而不匱，此似牝以靜勝牡也。是則靜為群動之歸趨，故以靜為下。大字小，如母育子。小事大，如子奉母。精神相孚，相得最易，故如掇之也。然大字小，必有所容。故曰或下以取。以，猶左右之也。小事大，必有所忍。故曰或下而取。而，因而取之也。皆無妄動之過，故交歸焉。且大國之欲，不過兼畜人，非容無以成其大。小國之欲，不過入事人，非忍無以濟其事。兩者既各得其所欲，而大者更宜下。何也。以大國素尊，難於下耳，故特勉之。此老子見當時諸侯，專於征伐，以力不以德，知動不知靜，徒見相服之難，而不知下之一字，為至簡之術。蓋傷時之論也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The way is the refuge for the myriad creatures. It is that by which the good man protects, And that by which the bad is protected. Beautiful words when offered will win high rank in return; Beautiful deeds can raise a man above others. Even if a man is not good, why should he be abandoned? Hence when the emperor is set up and the three ducal ministers are appointed, he who makes a present of the way without stirring from his seat is preferable to one who offers presents of jade disks followed by a team of four horses. Why was this way valued of old? Was it not said that by means of it one got what one wanted and escaped the consequences when one transgressed? Therefore it is valued by the empire.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Way is that toward which all things flow. 2. It is the treasure of the good man, 3. And that which protects the bad. 4. Beautiful words can be bought and sold; 5. Honored deeds can be presented to others as gifts; 6. [Even with] things that people regard as no good — will they be rejected? 7. Therefore, when the So of Heaven is being enthroned or the Three Ministers installed, 8. Though you might salture them which disks of jade preceded by teams of four horses, 9. That's not so good as sitting still and offering this. 10. The reason why the ancients valued this — what was it? 11. Did they not say, "Those who seek, with this will attain, and those who commit offenses, with this will escape"?! 12. Therefore, it's the most valued thing in the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The way is the refuge of the ten thousand things. It is the treasure of the good, the refuge of the not good. Fine words can gain respect in the market, fine deeds can gain people's support. How can we abandon bad people? Therefore set up the emperor and appoint the three ministers, though presenting jade before four horses, is not as good as sitting and advancing this way. Why did the ancients value this way? Did they not say: Seek and you will find, have sin and be forgiven? Therefore it is the treasure of the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Tao in the Universe is like the south-west corner in the house. It is the treasure of the good man, The support of the bad. There is a traffic in speakers of fine words; Persons of grave demeanour are accepted as gifts; Even the bad let slip no opportunity to acquire them. Therefore on the day of an Emperor's enthronement Or at the installation of the three officers of State Rather than send a team of four horses, preceded by a disc of jade, Better were it, as can be done without moving from one's seat, To send this Tao. For what did the ancients say of this Tao, How did they prize it? Did they not say of those that have it "Pursuing, they shall catch; pursued, they shall escape?" They thought it, indeed, most precious of all things under heaven.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第62章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Tao is the center of the universe, the good man's treasure, the bad man's refuge. Honors can be bought with fine words, respect can be won with good deeds; but the Tao is beyond all value, and no one can achieve it. Thus, when a new leader is chosen, don't offer to help him with your wealth or your expertise. Offer instead to teach him about the Tao. Why did the ancient Masters esteem the Tao? Because, being one with the Tao, when you seek, you find; and when you make a mistake, you are forgiven. That is why everybody loves it.</p>
                     </div>
                 </div>
             </div>

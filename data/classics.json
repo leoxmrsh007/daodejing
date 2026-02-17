@@ -71,9 +71,9 @@
       "color": "#5a9a8f",
       "description": "中医经典著作，阐述阴阳五行、藏象经络、病因病机等中医理论体系",
       "commentators": [
-        {"id": "wangbing", "name": "王冰注", "era": "唐"},
-        {"id": "zhangjiebin", "name": "张介宾注", "era": "明"},
-        {"id": "maqian", "name": "马莳注", "era": "明"}
+        {"id": "wangbing", "name": "王冰补注", "era": "唐"},
+        {"id": "zhangzhicong", "name": "张志聪集注", "era": "清"},
+        {"id": "gaoshizong", "name": "高士宗直解", "era": "清"}
       ],
       "translators": [
         {"id": "wilson", "name": "Nelson Wu", "lang": "en"},

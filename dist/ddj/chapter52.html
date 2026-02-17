@@ -6,6 +6,21 @@
     <title>第52章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter52.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter52.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter52.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">善始之则善养畜之矣故天下有始则可以为天下母矣．母本也．子末也．得本以知末．不舍本以逐末也．兑事欲之所由生．门事欲之所从也．无事永逸故终身不勤也．不闭其原而济其事．故虽终身不救．为治之功不在大．见大不明见小乃明．守强不强守柔乃强也．显道以去民迷．不明察也．道之常也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">天下有始，始有道也。以為天下母。道為天下萬物之母。既知其母，復知其子，子，一也。既知道已，當復立一也。既知其子，復守其母，已知一，當復守道反無為。沒身不殆。不危殆也。塞其兌，兌，目也。目不妄視也。閉其門，門，口也，使口不妄言。終身不勤。人當塞目不妄視，閉口不妄言，則終身不勤苦。開其兌，開目視情欲也。濟其事，濟，益也。益情欲之事。終身不救。禍亂成也。見小曰明，萌芽未動，禍亂未見，為小昭然，獨見為明。守柔日強。守柔弱，日以強大也。用其光，用其日光於外，視時世之利害。復歸其明，復當反其光明於內，無使精神泄也。無遺身殃；內視存神，不為漏失。是謂習常。人能行此，是謂習脩常道。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">言「始」者有三：君子之言始、言其主持也；釋氏之言始，言其涵合也；此之言「始」，言其生動也。夫生動者氣，而非徒氣也。但以氣，則方其生動於彼，而此已枵然矣。盈於彼，不虛於此；先天地生，而即後天地死；其息極微，用之無迹。小且無所執，而況於大？弱且不必「用」，而況於「彊」？將孰從而致吾「見」與「守」乎？故方其「守」而「知」，「知」之在「守」；方其「知」而「守」，」守」之在「知」。生息無窮，機漾於渺。欲執之而已逝矣，欲審之而已遷矣，欻忽蕭散，何所為「常」？於其不「常」，而陰尸其「常」，豈複在「子」」母」之涯涘邪？不然，以己之知與力，有涯之用，追隨「子」」母」之變，末見其免於殃也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此重明前章不爭之德，以釋上三寶以慈為本之意也。然用兵有言，吾不敢為主而為客，不敢進寸而退尺。以此觀之，足可知也。古之用兵，如涿鹿孟津之師是也。兵主，如春秋征伐之盟主。蓋專征伐，主於兵者，言以必爭必殺為主也。客，如諸侯應援之師。本意絕無好殺之心。今雖迫不得已而應之，然亦聽之待之，若可已則已。以無心於功利，故絕無爭心，所以進之難而退之易。故曰不敢進寸而退尺。言身進而心不進，是以退心進也。以無爭心，故雖行而如不在行陣，雖攘而若無臂之人。仍，相仍，猶就也。言彼以我為敵，而我以彼為敵也。雖就，亦似無敵可對。雖執，猶若無兵可揮。戒懼之至，而不敢輕於敵。由不敢輕敵，所以能保全民命，不傷好生之仁。然禍之大者莫大於輕敵。以輕敵則多殺，多殺則傷慈，故幾喪吾寶矣。抗兵，乃兩敵相當，不相上下，難於決勝。但有慈心哀之者，則自勝矣。何則，以天道好生，助勝於慈者也。由是觀之，兵者對敵，必爭必殺以取勝。今乃以不爭不殺而勝之，蓋以慈為本故也。足見慈乃不爭之德，施於必爭地，而以不爭勝之，豈非大有力乎。用之於敵尚如此，況乎聖人無物為敵，而以平等大慈，并包萬物，又何物而可勝之耶。故前云不爭之德，是謂用人之力，是謂配天古之極。此章舊解多在用兵上說，全不得老子主意。今觀初一句，乃借用兵之言。至輕敵喪寶，則了然明白。是釋上慈字，以明不爭之德耳。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The world had a beginning And this beginning could be the mother of the world. When you know the mother Go on to know the child. After you have known the child Go back to holding fast to the mother, And to the end of your days you will not meet with danger. Block the openings, Shut the doors, And all your life you will not run dry. Unblock the openings, Add to your troubles, And to the end of your days you will be beyond salvation. To see the small is called discernment; To hold fast to the submissive is called strength. Use the light But give up the discernment. Bring not misfortune upon yourself. This is known as following the constant.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The world had a beginning, 2. Which can be considered the mother of the world. 3. Having attained the mother, in order to understand her children. 4. If you return and hold on to the mother, till the end of your life you'll suffer no harm. 5. Block up the holes; 6. Close the doors; 7. And till the end of your life you'll not labor. 8. Open the holes; 9. Meddle in affairs; 10. And till the end of your life you'll not be saved. 11. To receive the small is called "discernment." 12. To hold on to the pliant is called "strength." 13. If you use the rays to return to the bright light, 14. You'll not abandon your life to peril. 15. This is called Following the Constant.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The world has a beginning, which is the mother of the world. Once the mother is found, we know her children. Knowing the children but holding to the mother, one will not risk danger even to the end of life. Block the openings, close the doors, and to the end of life there is no exhaustion. Open the openings, do the work, and to the end of life there is no salvation. Seeing the small is called enlightenment. Keeping the weak is called strength. Use the light but return to wisdom, and do not bring disaster to oneself. This is called practicing the constant.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">That which was the beginning of all things under heaven We may speak of as the "mother" of all things. He who apprehends the mother Thereby knows the sons. And he who has known the sons, Will hold all the tighter to the mother, And to the end of his days suffer no harm; "Block the passages, shut the doors, And till the end your strength shall not fail. Open up the passages, increase your doings, And till your last day no help shall come to you." As good sight means seeing what is very small So strength means holding on to what is weak. He who having used the outer-light can return to the inner-light Is thereby preserved from all harm. This is called resorting to the always-so.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第52章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">In the beginning was the Tao. All things issue from it; all things return to it. To find the origin, trace back the manifestations. When you recognize the children and find the mother, you will be free of sorrow. If you close your mind in judgements and traffic with desires, your heart will be troubled. If you keep your mind from judging and aren't led by the senses, your heart will find peace. Seeing into darkness is clarity. Knowing how to yield is strength. Use your own light and return to the source of light. This is called practicing eternity.</p>
                     </div>
                 </div>
             </div>

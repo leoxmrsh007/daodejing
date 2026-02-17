@@ -6,6 +6,21 @@
     <title>阴阳别论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,49 +233,49 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter7.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter7.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter7.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter7.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter7.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter7.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
-                <span class="idiom-word">天长地久</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="像天地一样长久&#10;原文：天长地久。天地所以能长且久者，以其不自生，故能长生">
+            <span class="idiom-word">天长地久</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,7 +695,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     七
-黄帝问曰：人有四经十二从，何谓？岐伯对曰：四经应四时，十二从应十二月，十二月应十二脉。脉有阴阳，知阳者知阴，知阴者知阳。凡阳有五，五五二十五阳。所谓阴者，真藏也，见则为败，败必死也。所谓阳者，胃脘之阳也。别于阳者，知病处也；别于阴者，知死生之期。三阳在头，三阴在手，所谓一也。别于阳者，知病忌时；别于阴者，知死生之期。谨熟阴阳，无与众谋。所谓阴阳者，去者为阴，至者为阳；静者为阴，动者为阳；迟者为阴，数者为阳。凡持真脉之藏脉者，肝至悬绝，十八日死；心至悬绝，九日死；肺至悬绝，十二日死；肾至悬绝，七日死；脾至悬绝，四日死。曰：二阳之病发心脾，有不得隐曲，女子不月；其传为风消，其传为息贲者，死不治。曰：三阳为病发寒热，下为痈肿，及为痿厥腨；其传为索泽，其传为颓疝。曰：一阳发病，少气善咳、善泄；其传为心掣，其传为隔。二阳一阴发病，主惊骇、背痛、善噫、善欠，名曰风厥。二阴一阳发病，善胀、心满、善气。三阳三阴发病，为偏枯痿易，四支不举。鼓一阳曰钩，鼓一阴曰毛，鼓阳胜急曰弦，鼓阳至而绝曰石，阴阳相过曰溜。阴争于内，阳扰于外，魄汗未藏，四逆而起，起则熏肺，使人喘鸣。阴之所生，和本曰和。是故刚与刚，阳气破散，阴气乃消亡。淖则刚柔不和，经气乃绝。死阴之属，不过三日而死；生阳之属，不过四日而已。所谓生阳死阴者，肝之心谓之生阳，心之肺谓之死阴，肺之肾谓之重阴，肾之脾谓之辟阴，死不治。结阳者，肿四支。结阴者，便血一升，再结二升，三结三升。阴阳结斜，多阴少阳曰石水，少腹肿。二阳结谓之消，三阳结谓之隔，三阴结谓之水，一阴一阳结谓之喉痹。阴搏阳别谓之有子。阴阳虚肠澼死。阳加于阴谓之汗。阴虚阳搏谓之崩。三阴俱搏，二十日夜半死。二阴俱搏，十三日夕时死。一阴俱搏，十日死。三阳俱搏且鼓，三日死。三阴三阳俱搏，心腹满，发尽，不得隐曲，五日死。二阳俱搏，其病温，死不治，不过十日死。
+黄帝问曰：人有四经十二从，何谓？岐伯对曰：四经应四时，十二从应十二月，十二月应十二脉。脉有<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，知阳者知阴，知阴者知阳。凡阳有五，五五二十五阳。所谓阴者，真藏也，见则为败，败必死也。所谓阳者，胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span>之阳也。别于阳者，知病处也；别于阴者，知死生之期。三阳在头，三阴在手，所谓一也。别于阳者，知病忌时；别于阴者，知死生之期。谨熟<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，无与众谋。所谓<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>者，去者为阴，至者为阳；静者为阴，动者为阳；迟者为阴，数者为阳。凡持真脉之藏脉者，肝至悬绝，十八日死；心至悬绝，九日死；肺至悬绝，十二日死；肾至悬绝，七日死；脾至悬绝，四日死。曰：二阳之病发心脾，有不得隐曲，女子不月；其传为风消，其传为息贲者，死不治。曰：三阳为病发寒热，下为<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>肿，及为<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>腨；其传为索泽，其传为颓<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>。曰：一阳发病，少气善咳、善泄；其传为心掣，其传为隔。二阳一阴发病，主惊骇、背痛、善噫、善欠，名曰风<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。二阴一阳发病，善胀、心满、善气。三阳三阴发病，为偏枯<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>易，四支不举。鼓一阳曰钩，鼓一阴曰毛，鼓阳胜急曰弦，鼓阳至而绝曰石，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>相过曰溜。阴争于内，阳扰于外，魄汗未藏，四逆而起，起则熏肺，使人喘鸣。阴之所生，和本曰和。是故刚与刚，阳气破散，阴气乃消亡。淖则刚柔不和，经气乃绝。死阴之属，不过三日而死；生阳之属，不过四日而已。所谓生阳死阴者，肝之心谓之生阳，心之肺谓之死阴，肺之肾谓之重阴，肾之脾谓之辟阴，死不治。结阳者，肿四支。结阴者，便血一升，再结二升，三结三升。<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>结斜，多阴<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>曰石水，少腹肿。二阳结谓之消，三阳结谓之隔，三阴结谓之水，一阴一阳结谓之喉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>。阴搏阳别谓之有子。<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>虚肠澼死。阳加于阴谓之汗。阴虚阳搏谓之崩。三阴俱搏，二十日夜半死。二阴俱搏，十三日夕时死。一阴俱搏，十日死。三阳俱搏且鼓，三日死。<span class="difficult" data-pinyin="sān yīn sān yáng" data-meaning="手足三阴三阳六经的总称">三阴三阳</span>俱搏，心腹满，发尽，不得隐曲，五日死。二阳俱搏，其病温，死不治，不过十日死。
 卷三
                 </div>
             </div>
@@ -693,7 +708,11 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇讨论汤液与醪醴（米酒）之设与世代应用差异：上古作汤液醪醴以备非常，未必常服；中古道德渐衰，邪气时至，服则多效；至当世，须内以齐毒药、外用针石艾灸并举。要点：
+- 成药之材：以稻米为主、稻薪为薪，得天地高下之宜，伐取合时；
+- 神志为本：形弊血尽而功不立者，神不使也；精神不进、志意不治，则针石亦难效；
+- 标本权衡：病为本、工为标，标本不得则邪不服；危重者“开鬼门、洁净府”，平治权衡、温衣缪刺，使五阳布、五藏疏涤。
+临床意义：内外合治而以神志统摄，遵时选材配伍；危重时先整“府”“门”与权衡，再行药针，重建精气与形神之保合。</p>
             </div>
         </div>
     </section>
@@ -705,19 +724,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Differentiates yin–yang through channels and pulses to infer site, timing, and prognosis. It enumerates single, double, and triple yang patterns and yin–yang mixtures, matching them to symptom groups (warm disease, abscess and swelling, paralysis, hemorrhage, knotted accumulations). It emphasizes mastering slow/rapid, movement/stillness in pulse appraisal to determine taboo times, disease location, and life–death assessments.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">This discourse distinguishes the manifold expressions of yin and yang in the channels and pulses. The four great tracts and twelve collaterals correspond to seasons, months, and vessels; true yin藏脏 is never to appear, and yang of the stomach guides diagnosis of site and timing. By analyzing combinations of yang and yin in the pulse, one can foresee disease location, severity, and even life or death. Various patterns—one yang, two yang, three yang, mixtures of yin and yang, and their ‘knotted’ or ‘congested’ forms—yield distinct symptom clusters such as warmth, swelling, paralysis, or hemorrhage. Clinically it teaches that only by being thoroughly conversant with yin–yang, speed and slowness, movement and stillness of the pulse can a physician determine prognosis and avoid grave mistakes.</p>
                     </div>
                 </div>
             </div>

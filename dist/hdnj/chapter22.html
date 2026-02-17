@@ -6,6 +6,21 @@
     <title>藏气法时论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter22.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter22.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter22.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter22.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter22.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter22.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="明智的人善于保护自己&#10;原文：曲则全，枉则直">
-                <span class="idiom-word">明哲保身</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="明智的人善于保护自己&#10;原文：曲则全，枉则直">
+            <span class="idiom-word">明哲保身</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -681,7 +696,7 @@
                 <div class="original-text" id="originalText">
                     二十二
 黄帝问曰：合人形以法四时五行而治，何如而从？何如而逆？得失之意，愿闻其事。岐伯对曰：五行者，金木水火土也，更贵更贱，以知死生，以决成败，而定五藏之气，间甚之时，死生之期也。
-帝曰：愿卒闻之。岐伯曰：肝主春，足厥阴少阳主治，其日甲乙，肝苦急，急食甘以缓之。心主夏，手少阴太阳主治，其日丙丁，心苦缓，急食酸以收之。脾主长夏，足太阴阳明主治，其日戊已，脾苦湿，急食苦以燥之。肺主秋，手太阴阳明主治，其日庚辛，肺苦气上逆，急食苦以泄之。肾主冬，足少阴太阳主治，其日壬癸，肾苦燥，急食辛以润之，开腠理，致津液，通气也。病在肝，愈于夏，夏不愈，甚于秋，秋不死，持于冬，起于春，禁当风。肝病者，愈在丙丁，丙丁不愈，加于庚辛，庚辛不死，持于壬癸，起于甲乙，肝病者，平旦慧，下晡甚，夜半静。肝欲散，急食辛以散之，用辛补之，酸泻之。病在心，愈在长夏，长夏不愈，甚于冬，冬不死，持于春，起于夏，禁温食热衣。心病者，愈在戊己，戊己不愈，加于壬癸，壬癸不死，持于甲乙，起于丙丁。心病者，日中慧，夜半甚，平旦静。心欲软，急食咸以软之，用咸补之，甘泻之。病在脾，愈在秋，秋不愈，甚于春，春不死，持于夏，起于长夏，禁温食饱食湿地濡衣。脾病者，愈在庚辛，庚辛不愈，加于甲乙，甲乙不死，持于丙丁，起于戊己。脾病者，日昳慧，日出甚，下晡静。脾欲缓，急食甘以缓之，用苦泻之，甘补之。病在肺，愈在冬，冬不愈，甚于夏，夏不死，持于长夏，起于秋，禁寒饮食寒衣。肺病者，愈在壬癸，壬癸不愈，加于丙丁，丙丁不死，持于戊己，起于庚辛。肺病者，下晡慧，日中甚，夜半静。肺欲收，急食酸以收之，用酸补之，辛泻之。病在肾，愈在春，春不愈，甚于长夏，长夏不死，持于秋，起于冬，禁犯焠<火矣>热食温炙衣。肾病者，愈在甲乙，甲乙不愈，甚于戊己，戊己不死，持于庚辛，起于壬癸。肾病者，夜半慧，四季甚，下晡静。肾欲坚，急食苦以坚之，用苦补之，咸泻之。夫邪气之客于身也，以胜相加，至其所生而愈，至其所不胜而甚，至于所生而持，自得其位而起。必先定五藏之脉，乃可言间甚之时，死生之期也。肝病者，两胁下痛引少腹，令人善怒；虚则目々无所见，耳无所闻，善恐如人将捕之，取其经，厥阴与少阳，气逆，则头痛耳聋不聪颊肿。取血者。心病者，胸中痛，胁支满，胁下痛，膺背肩甲间痛，两臂内痛；虚则胸腹大，胁下与腰相引而痛，取其经，少阴太阳，舌下血者。其变病，刺郄中血者。脾病者，身重善肌肉痿，足不收，行善瘛，脚下痛；虚则腹满肠鸣，飧泄食不化，取其经，太阴阳明少阴血者。肺病者，喘咳逆气，肩背痛，汗出，尻阴股膝髀腨胻足皆痛；虚则少气不能报息，耳聋嗌干，取其经，太阴足太阳之外、厥阴内血者。肾病者，腹大胫肿，喘咳身重，寝汗出憎风；虚则胸中痛，大腹小腹痛，清厥意不乐，取其经，少阴太阳血者。肝色青，宜食甘，粳米牛肉枣葵皆甘。心色赤，宜食酸，小豆犬肉李韭皆酸。肺色白，宜食苦，麦羊肉杏薤皆苦。脾色黄，宜食咸，大豆豕肉栗藿皆咸。肾色黑，宜食辛，黄黍鸡肉桃葱皆辛。辛散，酸收，甘缓，苦坚，咸软。毒药攻邪，五<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>为养，五果为助，五畜为益，五菜为充，气味合而服之，以补精益气。此五者，有辛酸甘苦咸，各有所利，或散或收，或缓或急，或坚或软，四时五藏，病随五味所宜也。
+帝曰：愿卒闻之。岐伯曰：肝主春，足<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span><span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>主治，其日甲乙，肝苦急，急食甘以缓之。心主夏，手<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>主治，其日丙丁，心苦缓，急食酸以收之。脾主长夏，足太<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>明主治，其日戊已，脾苦湿，急食苦以燥之。肺主秋，手太<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>明主治，其日庚辛，肺苦气上逆，急食苦以泄之。肾主冬，足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>主治，其日壬癸，肾苦燥，急食辛以润之，开<span class="difficult" data-pinyin="còu lǐ" data-meaning="皮肤与肌肉之间的空隙，为邪气出入之处">腠理</span>，致津液，通气也。病在肝，愈于夏，夏不愈，甚于秋，秋不死，持于冬，起于春，禁当风。肝病者，愈在丙丁，丙丁不愈，加于庚辛，庚辛不死，持于壬癸，起于甲乙，肝病者，平旦慧，下晡甚，夜半静。肝欲散，急食辛以散之，用辛补之，酸泻之。病在心，愈在长夏，长夏不愈，甚于冬，冬不死，持于春，起于夏，禁温食热衣。心病者，愈在戊己，戊己不愈，加于壬癸，壬癸不死，持于甲乙，起于丙丁。心病者，日中慧，夜半甚，平旦静。心欲软，急食咸以软之，用咸补之，甘泻之。病在脾，愈在秋，秋不愈，甚于春，春不死，持于夏，起于长夏，禁温食饱食湿地濡衣。脾病者，愈在庚辛，庚辛不愈，加于甲乙，甲乙不死，持于丙丁，起于戊己。脾病者，日昳慧，日出甚，下晡静。脾欲缓，急食甘以缓之，用苦泻之，甘补之。病在肺，愈在冬，冬不愈，甚于夏，夏不死，持于长夏，起于秋，禁寒饮食寒衣。肺病者，愈在壬癸，壬癸不愈，加于丙丁，丙丁不死，持于戊己，起于庚辛。肺病者，下晡慧，日中甚，夜半静。肺欲收，急食酸以收之，用酸补之，辛泻之。病在肾，愈在春，春不愈，甚于长夏，长夏不死，持于秋，起于冬，禁犯焠<火矣>热食温炙衣。肾病者，愈在甲乙，甲乙不愈，甚于戊己，戊己不死，持于庚辛，起于壬癸。肾病者，夜半慧，四季甚，下晡静。肾欲坚，急食苦以坚之，用苦补之，咸泻之。夫邪气之客于身也，以胜相加，至其所生而愈，至其所不胜而甚，至于所生而持，自得其位而起。必先定五藏之脉，乃可言间甚之时，死生之期也。肝病者，两胁下痛引少腹，令人善怒；虚则目々无所见，耳无所闻，善恐如人将捕之，取其经，<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>与<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>，气逆，则头痛耳聋不聪颊肿。取血者。心病者，胸中痛，胁支满，胁下痛，膺背肩甲间痛，两臂内痛；虚则胸腹大，胁下与腰相引而痛，取其经，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>，舌下血者。其变病，刺郄中血者。脾病者，身重善肌肉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>，足不收，行善瘛，脚下痛；虚则腹满肠鸣，飧泄食不化，取其经，太<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>明<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>血者。肺病者，喘咳逆气，肩背痛，汗出，尻阴股膝髀腨胻足皆痛；虚则少气不能报息，耳聋嗌干，取其经，<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>之外、<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>内血者。肾病者，腹大胫肿，喘咳身重，寝汗出憎风；虚则胸中痛，大腹小腹痛，清<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>意不乐，取其经，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span><span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>血者。肝色青，宜食甘，粳米牛肉枣葵皆甘。心色赤，宜食酸，小豆犬肉李韭皆酸。肺色白，宜食苦，麦羊肉杏薤皆苦。脾色黄，宜食咸，大豆豕肉栗藿皆咸。肾色黑，宜食辛，黄黍鸡肉桃葱皆辛。辛散，酸收，甘缓，苦坚，咸软。毒药攻邪，五<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>为养，五果为助，五畜为益，五菜为充，气味合而服之，以补精益气。此五者，有辛酸甘苦咸，各有所利，或散或收，或缓或急，或坚或软，四时五藏，病随五味所宜也。
                 </div>
             </div>
         </div>
@@ -693,7 +708,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇明确五藏与四时、五味之从治规律：肝主春急食甘以缓，心主夏急食咸以软，脾主长夏急食苦以燥，肺主秋急食酸以收，肾主任冬急食辛以润，并指出病在各藏随时令转归之“愈/甚/持/起”。临床意义：按时审味以调藏气，定病程节点与禁忌（如当风、温热、寒湿等），以“至其所生则愈，至其所不胜则甚”为纲，选经配食疗以裁补泻。</p>
             </div>
         </div>
     </section>
@@ -705,19 +720,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Seasonal governance of the viscera with flavor therapy: sweet to relax liver in spring, salty to soften heart in summer, bitter to dry spleen in long summer, sour to collect lung in autumn, acrid to moisten kidney in winter. Charts remission/aggravation cycles by season and prescribes do’s/don’ts and channel selections accordingly.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Sets out rules for conducting visceral qi in time. Each viscus has its season and a corrective flavor; prognoses (‘remit, worsen, persist, arise’) follow seasonal turns. Treatment combines dietetics with channel selection, guided by the maxims that conditions ease in their season of birth and worsen in the domain they do not overcome.</p>
                     </div>
                 </div>
             </div>

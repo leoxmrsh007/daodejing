@@ -6,6 +6,21 @@
     <title>阳明脉解篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter30.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter30.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter30.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter30.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter30.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter30.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,8 +691,8 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     三十
-黄帝问曰：足阳明之脉病，恶人与火，闻木音则惕然而惊，钟鼓不为动，闻木音而惊何也？愿闻其故。岐伯对曰：阳阴者胃脉也，胃者土也，故闻木音而惊者，土恶木也。帝曰：善。其恶火何也？岐伯曰：阳明主肉，其脉血气盛，邪客之则热，热甚则恶火。帝曰：其恶人何也？岐伯曰：阳明厥则喘而惋，惋则恶人。
-帝曰：或喘而死者，或喘而生者，何也？岐伯曰：厥逆连藏则死，连经则生。帝曰：善。病甚则弃衣而走，登高而歌，或至不食数日，逾垣上屋，所上之处，皆非其素所能也，病反能者何也？岐伯曰：四支者诸阳之本也，阳盛则四支实，实则能登高也。帝曰：其弃衣而走者何也？岐伯曰：热盛于身，故弃衣欲走也。帝曰：其妄言骂詈不避亲疏而歌者何也？岐伯曰：阳盛则使人妄言骂詈不避亲疏而不欲食，不欲食故妄走也。
+黄帝问曰：足<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>之脉病，恶人与火，闻木音则惕然而惊，钟鼓不为动，闻木音而惊何也？愿闻其故。岐伯对曰：阳阴者胃脉也，胃者土也，故闻木音而惊者，土恶木也。帝曰：善。其恶火何也？岐伯曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>主肉，其脉血气盛，邪客之则热，热甚则恶火。帝曰：其恶人何也？岐伯曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>则喘而惋，惋则恶人。
+帝曰：或喘而死者，或喘而生者，何也？岐伯曰：<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>逆连藏则死，连经则生。帝曰：善。病甚则弃衣而走，登高而歌，或至不食数日，逾垣上屋，所上之处，皆非其素所能也，病反能者何也？岐伯曰：四支者诸阳之本也，阳盛则四支实，实则能登高也。帝曰：其弃衣而走者何也？岐伯曰：热盛于身，故弃衣欲走也。帝曰：其妄言骂詈不避亲疏而歌者何也？岐伯曰：阳盛则使人妄言骂詈不避亲疏而不欲食，不欲食故妄走也。
 卷九
                 </div>
             </div>
@@ -690,7 +705,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇专解阳明之脉与病机：脉多浮大而短，为阳明气血盛之象；病多热盛、胃实、肠腑不通等。临床意义：以寸口寸关尺与人迎对读定部位，宜清热通腑、和胃降逆，慎辨虚实与里证。</p>
             </div>
         </div>
     </section>
@@ -702,19 +717,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Analyzes Yangming pulse—often floating, large, and short—and its syndromes of replete heat, stomach–intestinal excess, and impaired downbearing. Clinically harmonize the stomach and clear the bowels while judging interior repletion vs. vacuity.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">An explication of Yangming pulse forms and their implications: abundance of qi and blood with heat and closure below. Diagnosis pairs renying and the气口; treatment clears and descends while preserving the center.</p>
                     </div>
                 </div>
             </div>

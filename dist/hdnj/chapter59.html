@@ -6,6 +6,21 @@
     <title>气府论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter59.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter59.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter59.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="根基牢固，不可动摇&#10;原文：深根固柢，长生久视之道">
-                <span class="idiom-word">深根固柢</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="根基牢固，不可动摇&#10;原文：深根固柢，长生久视之道">
+            <span class="idiom-word">深根固柢</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,8 +695,8 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     五十九
-足太阳脉气所发者七十八穴：两眉头各一，入发至顶三寸半，傍五，相去三寸，其浮气在皮中者凡五行，行五，五五二十五，项中大筋两傍各一，风府两傍各一，侠背以下至尻尾二十一节十五间各一，五藏之俞各五，六府之俞各六，委中以下至足小指傍各六俞。足少阳脉气所发者六十二穴：两角上各二，直目上发际内各五，耳前角上各一，耳前角下各一，锐发下各一，客主人各一，耳后陷中各一，下关各一，耳下牙车之后各一，缺盆各一，掖下三寸，胁下至胠，入间各一，髀枢中，傍各一，膝以下至足小指次指各六俞。足阳明脉气所发者六十八穴：额颅发际傍各三，面鼽骨空各一，大迎之骨空各一，人迎各一，缺盆外骨空各一，膺中骨间各一，侠鸠尾之外，当乳下三寸，侠胃脘各五，侠脐广三寸各三，下脐二寸侠之各三，气街动脉各一，伏菟上各一，三里以下至足中指各八俞，分之所在穴空。手太阳脉气所发者三十六穴：目内眦各一，目外各一，鼽骨下各一，耳郭上各一，耳中各一，巨骨穴各一，曲掖上骨穴各一，柱骨上陷者各一，上天窗四寸各一，肩解各一，肩解下三寸各一，肘以下至手小指本各六俞。手阳明脉气所发者二十二穴：鼻空外廉项上各二，大迎骨空各一，柱骨之会各一，髃骨之会各一，肘以下至手大指次指本各六俞。手少阳脉气所发者三十二穴：鼽骨下各一，眉后各一，角上各一，下完骨后各一，项中足太阳之前各一，侠扶突各一，肩贞各一，肩贞下三寸分间各一，肘以下至手小指次指本各六俞。督脉气所发者二十八穴：项中央二，发际后中八，面中三，大椎以下至尻尾及傍十五穴，至骶下凡二十一节，脊椎法也。
-任脉气之所发者二十八穴：喉中央二，膺中骨陷中各一，鸠尾下三寸，胃脘五寸，胃脘以下至横骨六寸半一。腹脉法也。下阴别一，目下各一，下唇一，断交一。<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>脉气所发者二十二穴：侠鸠尾外各半寸至脐寸一，侠脐下傍各五分至横骨寸一，腹脉法也。足少阴舌下，厥阴毛中急脉各一，手少阴各一，阴阳跷各一，手足诸鱼际脉气所发者，凡三百六十五穴也。
+足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>脉气所发者七十八穴：两眉头各一，入发至顶三寸半，傍五，相去三寸，其浮气在皮中者凡五行，行五，五五二十五，项中大筋两傍各一，风府两傍各一，侠背以下至尻尾二十一节十五间各一，五藏之俞各五，六府之俞各六，委中以下至足小指傍各六俞。足<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>脉气所发者六十二穴：两角上各二，直目上发际内各五，耳前角上各一，耳前角下各一，锐发下各一，客主人各一，耳后陷中各一，下关各一，耳下牙车之后各一，缺盆各一，掖下三寸，胁下至<span class="difficult" data-pinyin="qū" data-meaning="胠胁，肋下两侧">胠</span>，入间各一，髀枢中，傍各一，膝以下至足小指次指各六俞。足<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>脉气所发者六十八穴：额颅发际傍各三，面鼽骨空各一，大迎之骨空各一，人迎各一，缺盆外骨空各一，膺中骨间各一，侠鸠尾之外，当乳下三寸，侠胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span>各五，侠脐广三寸各三，下脐二寸侠之各三，气街动脉各一，伏菟上各一，三里以下至足中指各八俞，分之所在穴空。手<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>脉气所发者三十六穴：目内眦各一，目外各一，鼽骨下各一，耳郭上各一，耳中各一，巨骨穴各一，曲掖上骨穴各一，柱骨上陷者各一，上天窗四寸各一，肩解各一，肩解下三寸各一，肘以下至手小指本各六俞。手<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>脉气所发者二十二穴：鼻空外廉项上各二，大迎骨空各一，柱骨之会各一，髃骨之会各一，肘以下至手大指次指本各六俞。手<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>脉气所发者三十二穴：鼽骨下各一，眉后各一，角上各一，下完骨后各一，项中足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>之前各一，侠扶突各一，肩贞各一，肩贞下三寸分间各一，肘以下至手小指次指本各六俞。督脉气所发者二十八穴：项中央二，发际后中八，面中三，大椎以下至尻尾及傍十五穴，至骶下凡二十一节，脊椎法也。
+任脉气之所发者二十八穴：喉中央二，膺中骨陷中各一，鸠尾下三寸，胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span>五寸，胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span>以下至横骨六寸半一。腹脉法也。下阴别一，目下各一，下唇一，断交一。<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>脉气所发者二十二穴：侠鸠尾外各半寸至脐寸一，侠脐下傍各五分至横骨寸一，腹脉法也。足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>舌下，<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>毛中急脉各一，手<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>各一，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>跷各一，手足诸鱼际脉气所发者，凡三百六十五穴也。
 卷十六
                 </div>
             </div>
@@ -694,7 +709,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇述“气府”：要害区域与腑脏之会。临床意义：识别要冲与汇聚之所，治疗既可直达枢纽亦可遥应通关。</p>
             </div>
         </div>
     </section>
@@ -706,19 +721,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Describes ‘palaces of qi’—critical hubs and confluences—so therapy can strike the pivot or open gates at a distance.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On nodal regions where qi converges, guiding strategic access for regulation.</p>
                     </div>
                 </div>
             </div>

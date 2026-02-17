@@ -6,6 +6,21 @@
     <title>灵兰秘典论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,49 +233,49 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter8.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter8.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter8.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter8.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter8.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter8.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter8.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="最高尚的品德像水一样，滋润万物而不争&#10;原文：上善若水。水善利万物而不争">
-                <span class="idiom-word">上善若水</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="最高尚的品德像水一样，滋润万物而不争&#10;原文：上善若水。水善利万物而不争">
+            <span class="idiom-word">上善若水</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,7 +695,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     八
-黄帝问曰：愿闻十二藏之相使，贵贱何如？岐伯对曰：悉乎哉问也，请遂言之。心者，君主之官也，神明出焉。肺者，相傅之官，治节出焉。肝者，将军之官，谋虑出焉。胆者，中正之官，决断出焉。膻中者，臣使之官，喜乐出焉。脾胃者，仓廪之官，五味出焉。大肠者，传道之官，变化出焉。小肠者，受盛之官，化物出焉。肾者，作强之官，伎巧出焉。三焦者，决渎之官，水道出焉。膀胱者，州都之官，津液藏焉，气化则能出矣。凡此十二官者，不得相失也。故主明则下安，以此养生则寿，殁世不殆，以为天下则大昌。主不明则十二官危，使道闭塞而不通，形乃大伤，以此养生则殃，以为天下者，其宗大危，戒之戒之！至道在微，变化无穷，孰知其原！窘乎哉，消者瞿瞿，孰知其要！闵闵之当，孰者为良！<span class="difficult" data-pinyin="huǎng" data-meaning="惚恍，不分明">恍</span><span class="difficult" data-pinyin="hū" data-meaning="惚恍，不分明">惚</span>之数，生于毫厘，毫厘之数，起于度量，千之万之，可以益大，推之大之，其形乃制。黄帝曰：善哉。余闻精光之道，大圣之业，而宣明大道，非斋戒择吉日，不敢受也。黄帝乃择吉日良兆，而藏灵兰之室，以传保焉。
+黄帝问曰：愿闻十二藏之相使，贵贱何如？岐伯对曰：悉乎哉问也，请遂言之。心者，君主之官也，神明出焉。肺者，相傅之官，治节出焉。肝者，将军之官，谋虑出焉。胆者，中正之官，决断出焉。膻中者，臣使之官，喜乐出焉。脾胃者，仓廪之官，五味出焉。大肠者，传道之官，变化出焉。小肠者，受盛之官，化物出焉。肾者，作强之官，伎巧出焉。<span class="difficult" data-pinyin="sān jiāo" data-meaning="上中下三焦，总领气机与水液代谢">三焦</span>者，决渎之官，水道出焉。膀胱者，州都之官，津液藏焉，气化则能出矣。凡此十二官者，不得相失也。故主明则下安，以此养生则寿，殁世不殆，以为天下则大昌。主不明则十二官危，使道闭塞而不通，形乃大伤，以此养生则殃，以为天下者，其宗大危，戒之戒之！至道在微，变化无穷，孰知其原！窘乎哉，消者瞿瞿，孰知其要！闵闵之当，孰者为良！<span class="difficult" data-pinyin="huǎng" data-meaning="惚恍，不分明">恍</span><span class="difficult" data-pinyin="hū" data-meaning="惚恍，不分明">惚</span>之数，生于毫厘，毫厘之数，起于度量，千之万之，可以益大，推之大之，其形乃制。黄帝曰：善哉。余闻精光之道，大圣之业，而宣明大道，非斋戒择吉日，不敢受也。黄帝乃择吉日良兆，而藏灵兰之室，以传保焉。
                 </div>
             </div>
         </div>
@@ -692,7 +707,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇以“官府比类”阐明十二藏府之职：心为君主出神明，肺为相傅司治节，肝为将军主谋虑，胆为中正主决断，脾胃为仓廪出五味，肠为传化，肾为作强，三焦主决渎，膀胱主津液。临床意义：以君主清明为总纲，守脏腑职司之和则百官安，故治须先明神明与秩序之复位。</p>
             </div>
         </div>
     </section>
@@ -704,19 +719,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Presents the twelve organs as government officials—heart as ruler (spirit clarity), lungs as minister (regulation), liver as general (planning), gallbladder as upright decider, spleen–stomach as granaries, intestines as transmission, kidneys as strength, triple burner as waterways, bladder as reservoir. When the ruler is clear, the realm is at peace; when dim, pathways block and harm follows. A constitutional blueprint for governing the viscera.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Here the twelve organs are presented as officials in a political hierarchy: the heart is the ruler from whom spirit clarity issues; the lungs are the prime minister in charge of regulation; the liver is the general planning strategy; the gallbladder is the upright official deciding; the spleen and stomach are granaries producing the five flavors; the large and small intestines transmit and transform; the kidneys store strength and skill; the triple burner governs waterways; the bladder stores and excretes fluids. When the ruler is enlightened, the officials are secure and life can be nourished to its full span; when the ruler is dim, the offices are in danger, pathways are blocked, and both body and state are imperiled. The chapter concludes that the Way is subtle and must be stored and transmitted with reverence, underscoring the importance of governing the viscera as one would govern a country.</p>
                     </div>
                 </div>
             </div>

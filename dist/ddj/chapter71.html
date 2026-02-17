@@ -6,6 +6,21 @@
     <title>第71章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter71.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter71.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">故难知而为贵也．不知知之不足任则病也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">民不畏威，大威至矣。威，害也。人不畏小害，則大害至，謂死亡也。畏之者當愛精神，承天順地也。無狹其所居，謂心居神，當寬柔，不當急狹也。無厭其所生。人所以生者，為有精神，託空虛，喜清淨，飲食不節，忽道念色，邪僻滿腹，為伐本厭神。○厭，去聲。夫唯不厭，是以不厭。夫唯獨不厭精神之人，洗心濯垢，恬泊無欲，則精神居之不厭也。是以聖人自知自知己之得失。不自見；不自顯見，德美於外，藏之於內。○見，音現。自愛自愛其身以保精氣也。不自貴。不自貴高，榮名於世。故去彼取此。去彼自見自貴，取此自知自愛。○去，上聲。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">府天下以勞我，唯其知我；官我以割天下，唯其知天下。夫豈特天下之不勝知？而知者，亦將倚畔際而失遷流。故聖人於牛忘耜，於馬忘駕，於原忘田，於材忘器，悶悶於己而不見其府，悶悶於天下而無以為官。若夫制萬族之宇而效百骸之位，已有前我而市其餘知者，方敩之以為勞，而苦其多遺，沉浮新知，以遁故器，而曾莫之病乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章示人立言之指，使知而行之，欲其深造而自得也。老子自謂我所言者，皆人人日用中最省力一著工夫。明明白白，甚容易知，容易行。只是人不能知，不能行耳。以我言言事事，皆以大道為主，非是漫衍荒唐之說。故曰言有宗，事有君。宗，君，皆主也。且如一往所說，絕聖棄智，虛心無我，謙下不爭，忘形釋智，件件都是最省力工夫，放下便是，全不用你多知多解。只在休心二字，豈不最易知最易行耶。然人之所以不能知者，因從來人人都在知見上用心。除卻知字，便無下落。以我無知無識一著，極難湊泊，所以人不知我耳。故曰夫惟無知，是以不我知。然無知一著，不獨老子法門宗旨，即孔子亦同。如曰吾有知乎哉，無知也，有鄙夫問於我空空如也，此豈不是孔聖亦以無知為心宗耶。此夫子見老子後，方得妙悟如此。故稱猶龍，正謂此耳。然以無知契無知，如以空合空。若以有知求無知，如以水投石。所以孔老心法，千古罕明。故曰知我者希。若能當下頓悟此心，則立地便是聖人，故曰則我者貴。則，謂法則。言取法也。聖人懷此虛心妙道以遊世。則終日與人周旋，對面不識。故如披褐懷王。永嘉云，貧則身常披縷褐，道則心藏無價珍。此一章書，當在末後結束。蓋老子向上一往所言天人之蘊，至此已發露太盡，故著此語。後章只是要人在日用著力做工夫，以至妙悟而後已。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">To know yet to think that one does not know is best; Not to know yet to think that one knows will lead to difficulty. It is by being alive to difficulty that one can avoid it. The sage meets with no difficulty. It is because he is alive to it that he meets with no difficulty.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. To know you don't know is best. 2. Not to know you [don't] know is a flaw. 3. Therefore, the Sage's not being flawed 4. Stems from his recognizing a flaw as a flaw. 5. Therefore, he is flawless.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">To know not to know is best. Not to know but to know is sickness. Only by being sick of sickness can one be not sick. The sage is not sick because he is sick of sickness, and thus not sick.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">"To know when one does not know is best. To think one knows when one does not know is a dire disease. Only he who recognizes this disease as a disease Can cure himself of the disease. The Sage's way of curing disease Also consists in making people recognize their diseases as diseases And thus ceasing to be diseased.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第71章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Not-knowing is true knowledge. Presuming to know is a disease. First realize that you are sick; then you can move toward health. The Master is her own physician. She has healed herself of all knowing. Thus she is truly whole.</p>
                     </div>
                 </div>
             </div>

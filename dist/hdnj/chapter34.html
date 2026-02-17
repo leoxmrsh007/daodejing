@@ -6,6 +6,21 @@
     <title>逆调论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter34.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter34.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter34.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,11 +691,11 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     三十四
-黄帝问曰：人身非常温也，非常热也，为之热而烦满者何也？岐伯对曰：阴气少而阳气胜，故热而烦满也。帝曰：人身非衣寒也，中非有寒气也，寒从中生者何？岐伯曰：是人多痹气也，阳气少，阴气多，故身寒如从水中出。
+黄帝问曰：人身非常温也，非常热也，为之热而烦满者何也？岐伯对曰：阴气少而阳气胜，故热而烦满也。帝曰：人身非衣寒也，中非有寒气也，寒从中生者何？岐伯曰：是人多<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>气也，阳气少，阴气多，故身寒如从水中出。
 帝曰：人有四支热，逢风寒如炙如火者何也？岐伯曰：是人者，阴气虚，阳气盛，四支者阳也，两阳相得而阴气虚少，少水不能灭盛火，而阳独治，独治者不能生长也，独胜而止耳，逢风而如炙如火者，是人当肉烁也。
-帝曰：人有身寒，汤火不能热，厚衣不能温，然不冻栗，是为何病？岐伯曰：是人者，素肾气胜，以水为事，太阳气衰，肾脂枯不长，一水不能胜两火，肾者水也，而生于骨，肾不生则髓不能满，故寒甚至骨也。所以不能冻栗者，肝一阳也，心二阳也，肾孤藏也，一水不能胜二火，故不能冻栗，病名曰骨痹，是人当挛节也。
-帝曰：人之肉苛者，虽近衣絮，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>尚苛也，是谓何疾？岐伯曰：荣气虚，卫气实也，荣气虚则不仁，卫气虚则不用，荣卫俱虚，则不仁且不用，肉如故也，人身与志不相有，曰死。
-帝曰：人有逆气不得卧而息有音者，有不得卧而息无音者，有起居如故而息有音者，有得卧得卧行而喘者，有不得卧不能行而喘者，有不得卧卧而喘者，皆何藏使然？愿闻其故。岐伯曰：不得卧而息有音者，是阳明之逆也，足三阳者下行，今逆而上行，故息有音也。阳明者胃脉也，胃者六府之海，其气亦下行，阳明逆不得从其道，故不得卧也。《下经》曰：胃不和则卧不安。此之谓也。夫起居如故而息有音者，此肺之络脉逆也，络脉不得随经上下，故留经而不行，络脉之病人也微，故起居如故而息有音也。夫不得卧卧则喘者，是水气之客也，夫水者循津液而流也，肾者水藏，主津液，主卧与喘也。帝曰：善。
+帝曰：人有身寒，汤火不能热，厚衣不能温，然不冻栗，是为何病？岐伯曰：是人者，素肾气胜，以水为事，<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>气衰，肾脂枯不长，一水不能胜两火，肾者水也，而生于骨，肾不生则髓不能满，故寒甚至骨也。所以不能冻栗者，肝一阳也，心二阳也，肾孤藏也，一水不能胜二火，故不能冻栗，病名曰骨<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，是人当挛节也。
+帝曰：人之肉苛者，虽近衣絮，<span class="difficult" data-pinyin="yóu" data-meaning="犹豫，警惕">犹</span>尚苛也，是谓何疾？岐伯曰：<span class="difficult" data-pinyin="róng qì" data-meaning="循行于脉中，营养脏腑的气">荣气</span>虚，<span class="difficult" data-pinyin="wèi qì" data-meaning="循行于脉外，护卫肌表的阳气">卫气</span>实也，<span class="difficult" data-pinyin="róng qì" data-meaning="循行于脉中，营养脏腑的气">荣气</span>虚则不仁，<span class="difficult" data-pinyin="wèi qì" data-meaning="循行于脉外，护卫肌表的阳气">卫气</span>虚则不用，荣卫俱虚，则不仁且不用，肉如故也，人身与志不相有，曰死。
+帝曰：人有逆气不得卧而息有音者，有不得卧而息无音者，有起居如故而息有音者，有得卧得卧行而喘者，有不得卧不能行而喘者，有不得卧卧而喘者，皆何藏使然？愿闻其故。岐伯曰：不得卧而息有音者，是<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>之逆也，足三阳者下行，今逆而上行，故息有音也。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>者胃脉也，胃者六府之海，其气亦下行，<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>逆不得从其道，故不得卧也。《下经》曰：胃不和则卧不安。此之谓也。夫起居如故而息有音者，此肺之<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>逆也，<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>不得随经上下，故留经而不行，<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>之病人也微，故起居如故而息有音也。夫不得卧卧则喘者，是水气之客也，夫水者循津液而流也，肾者水藏，主津液，主卧与喘也。帝曰：善。
 卷十
                 </div>
             </div>
@@ -693,7 +708,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇重在升降出入之机枢：上逆下陷、内闭外脱、寒热错杂。临床意义：调中枢之‘权衡’，使清阳升、浊阴降，气机出入得常，避免逆调致危。</p>
             </div>
         </div>
     </section>
@@ -705,19 +720,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">On counter‑regulations of ascent/descent and in/out. Restore the pivot so that pure rises and turbid descends; correct misdirected movement that endangers the patient.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Analyzes disordered movement—upflow, collapse, closure—and prescribes measures to reestablish the central balance and proper traffic of qi.</p>
                     </div>
                 </div>
             </div>

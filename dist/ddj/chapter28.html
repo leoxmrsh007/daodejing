@@ -6,6 +6,21 @@
     <title>第28章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter28.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter28.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter28.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter28.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter28.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter28.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">雄先之属．雌后之属也．智为天下之先者必后也．是以圣人后其身而身先也．溪不求物．而物自归之．婴儿不用智．而合自然之智．式模则也．忒差也．不可穷也．此三者．言常反终．后乃徳全其所处也．下章云反者道之动也．功不可取．常处其母也．朴眞也．眞散则百行出．殊类生．若器也．圣人因其分散．故为之立官长．以善为师．不善为资．移风易俗．复使归于一也．大制者．以天下之心为心．故无割也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">知其雄，守其雌，為天下谿。雄以喻尊，雌以喻卑。人雖知自尊顯，當復守之以卑微，去雄之強梁，就雌之柔和，如是則天下歸之，如水流入深谿也。○谿，音溪。為天下谿，常德不離，人能謙下如深谿，則德常在不復離於己。○離，去聲。復歸於孾兒。常復歸志於孾兒，惷然而無所知也。知其白，守其黑，為天下式。白以喻昭昭，黑以喻默默。人雖自知昭昭明白，當復守之以默默如闇昧，無所見如，是則可為天下法式，則德常在。為天下式，常德不忒，人能為天下法則，德常在於己，不復差忒。復歸於無極。德不差忒，則長生久壽，歸身於無窮極也。知其榮，守其辱，為天下谷，榮以喻尊貴，辱以喻污濁，知己之有榮貴，當守之以污濁，如是則天下歸之，如水流入深谷也。為天下谷，常德乃足，足，止也。人能為天下谷，德乃止於己。復歸於朴，復當歸身於質朴，不復為文飾。朴散則為器，萬物之朴，散則為器用也。若道散則為神明，流為日月，分為五行也。聖人用之，則為官長，聖人升用，則為百官之元長也。○長，上聲。故大制不割。聖人用之，則以大道制御，天下無所傷割；治身則以天道制情欲，不害精神也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">或雌或雌，或白或黑，或榮或辱，各有對待，不能相通，則我道蓋幾於窮，而我之有知有守亦不一矣。知者歸清，守者歸濁，兩術剖分，各歸其肖，游環中者可知已。然致意於知矣，而收功於守，則何也？賓清而主濁，以物極之必反，反者之可長主也。故嬰兒可壯，壯不可稚；無極可有，有不可無；樸可琢，琢不可樸。然聖人非於可不可斤斤以辨之。環中以游，如霖雨之灌蟻封，如原燎之灼積莽，無首無尾，至實至虛，制定而清濁各歸其墟，赫然大制而已矣。雖然，不得已而求其用，則雌也，黑也，辱也，執其權以老天下之器也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上章行道之妙，而言聖人不以知道為難，而以守道為要妙也。古德云，學道，悟之為難。既悟，守之為難。然行道之妙，實出於守道之要耳。蓋此中知字，即悟也。知雄守雌者，物無與敵謂之雄，柔伏處下謂之雌。谿，乃窊下之地。眾水所歸之處也。嬰兒者，柔和之至也。前云專氣致柔，能如嬰兒乎。然氣雖勝物，物有以敵之。而道超萬物，物無與敵者。故謂之雄。聖人氣與道合，心超物表，無物與敵，而能順物委蛇，與時俱化，不與物競，故曰知其雄，守其雌。由守其雌，故眾德交歸，如水之就下，故為天下谿也。由乎處下如谿，故但受而不拒，應而不藏，流潤而不竭，故曰常德不離。以入物而物不知，如嬰兒終日號而嗌不嗄，和之至也。以能勝物而不傷，故曰復歸於嬰兒。知白守黑者。白，謂昭然明白。智無不知之意。黑，昏悶無知之貌。式，謂法則。忒，差謬也。謂聖人智包天地，明並日月，而不自用其知。所謂明白四達，能無知乎。故曰知其白，守其黑。由其真知而不用其知，故無強知之過謬，故可為天下式。然強知則有謬，謬則有所不知。既有所不知，則知不極矣。今知既無謬，則知無不極，故曰復歸於無極。知榮守辱者。榮，乃光榮貴高。辱，乃汙辱賤下。谷，乃虛而能應者也。樸，謂樸素。乃木之未雕斲也。謂聖人自知道光一世，德貴人臣，而不自有其德。乃以汙辱賤下，蒙恥含垢以守之。所謂光而不耀，仁常而不居者，虛之至也。故為天下谷。由其虛，故常德乃足。德自足於中，則不緣飾於外，故復歸於樸素也。以虛而能應物，故樸散則為器。聖人以此應運出世，則可以官天地府萬物。故能範圍天地而不過。曲成萬物而不遺。化行於世而無棄人棄物。故曰大制不割。割，截斷也。不割者，不分彼此界限之意。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Know the male But keep to the role of the female And be a ravine to the empire. If you are a ravine to the empire, Then the constant virtue will not desert you And you will again return to being a babe. Know the white But keep to the role of the sullied And be a model to the empire. If you are a model to the empire, Then the constant virtue will not be wanting And you will return to the infinite, Know honour But keep to the role of the disgraced And be a valley to the empire. If you are a valley to the empire, Then the constant virtue will be sufficient And you will return to being the uncarved block. When the uncarved block shatters it becomes vessels. The sage makes use of these and becomes the lord over the officials. Hence the greatest cutting does not sever.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. When you know the male yet hold on to the female, 2. You'll be the ravine of the country. 3. When you're the ravine of the country, 4. Your constant virtue will not leave. 5. And when your constant virtue doesn't leave, 6. You'll return to the state of the infant. 7. When you know the pure yet hold on to the soiled, 8. You'll be the valley of the country. 9. When you're the valley of the country, 10. Your constant virtue is complete. 11. And when your constant virtue is complete, 12. You'll return to the state of uncarved wood. 13. When you know the white yet hold on to the black, 14. You'll be the model for the country. 15. And when you're the model for the country, 16. Your constant virtue will not go astray. 17. And when your constant virtue does not go astray, 18. You'll return to the condition which has no limit. 19. When uncarved wood is cut up, it's turned into vessels; 20. When the Sage is used, he becomes the Head of Officials. 21. Truly, great carving is done without splitting up.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Know the male, keep the female - be the ravine of the world. Being the ravine of the world, constant virtue does not leave, return to infancy. Know the white, keep the black - be the model of the world. Being the model of the world, constant virtue does not err, return to the limitless. Know the glory, keep the disgrace - be the valley of the world. Being the valley of the world, constant virtue is sufficient, return to simplicity. Simplicity breaks into vessels, the sage uses them and becomes the leader. Therefore the great carving does not cut.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">"He who knows the males, yet cleaves to what is female Because like a ravine, receiving all things under heaven," And being such a ravine He knows all the time a power that he never calls upon in vain. This is returning to the state of infancy. He who knows the white, (yet cleaves to the black Becomes the standard by which all things are tested; And being such a standard He has all the time a power that never errs, He returns to the Limitless. He who knows glory,) yet cleaves to ignominy Become like a valley that receives into it all things under heaven, And being such a valley He has all the time a power that suffices; He returns to the state of the Uncarved Block. Now when a block is sawn up it is made into implements; But when the Sage uses it, it becomes Chief of all Ministers. Truly, "The greatest carver does the least cutting".</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第28章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Know the male, yet keep to the female: receive the world in your arms. If you receive the world, the Tao will never leave you and you will be like a little child. Know the white, yet keep to the black: be a pattern for the world. If you are a pattern for the world, the Tao will be strong inside you and there will be nothing you can't do. Know the personal, yet keep to the impersonal: accept the world as it is. If you accept the world, the Tao will be luminous inside you and you will return to your primal self. The world is formed from the void, like utensils from a block of wood. The Master knows the utensils, yet keeps to the block: thus she can use all things.</p>
                     </div>
                 </div>
             </div>

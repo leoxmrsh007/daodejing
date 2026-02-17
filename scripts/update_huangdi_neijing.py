@@ -102,8 +102,8 @@ def generate_chapter_content(chapter_num, title):
         "original": f"《{title}》是《黄帝内经·素问》的第{chapter_num}篇。\n\n此篇内容阐述中医基础理论，包括阴阳五行、脏腑经络、病因病机等重要医学思想。",
         "modern_chinese": f"《{title}》是《黄帝内经·素问》的第{chapter_num}篇，主要论述中医基本理论和临床诊治原则。",
         "wangbing_note": "此版本暂未收录完整注释",
-        "zhangjiebin_note": "此版本暂未收录完整注释",
-        "maqian_note": "此版本暂未收录完整注释",
+        "zhangzhicong_note": "此版本暂未收录完整注释",
+        "gaoshizong_note": "此版本暂未收录完整注释",
         "english_wilson": f"Chapter {chapter_num}: {title}. This chapter discusses fundamental theories of traditional Chinese medicine.",
         "english_unschuld": f"Chapter {chapter_num}: {title}. This section covers essential concepts of Chinese medical theory.",
     }

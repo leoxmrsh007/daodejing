@@ -6,6 +6,21 @@
     <title>长刺节论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter55.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter55.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter55.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="事物发展到极端就会向反面转化&#10;原文：物壮则老，谓之不道">
-                <span class="idiom-word">物极必反</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="事物发展到极端就会向反面转化&#10;原文：物壮则老，谓之不道">
+            <span class="idiom-word">物极必反</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,7 +695,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     五十五
-刺家不诊，听病者言，在头，头疾痛，为藏针之，刺至骨，病已，上无伤骨肉及皮，皮者道也。阴刺，入一傍四处。治寒热深专者，刺大藏，迫藏刺背，背俞也，刺之迫藏，藏会，腹中寒热去而止，与刺之要，发针而浅出血。治腐肿者刺腐上，视痈小大深浅刺，刺大者多血，小者深之，必端内针为故止。病在少腹有积，刺皮<骨盾>以下，至少腹而止，刺侠脊两傍四椎间，刺两髂髎季胁肋间，导腹中气热下已。病在少腹，腹痛不得大小便，病名曰疝，得之寒，刺少腹两股间，刺腰髁骨间，刺而多之，尽炅病已。病在筋，筋挛节痛，不可以行，名曰筋痹，刺筋上为故，刺分肉间，不可中骨也，病起筋炅，病已止。病在肌肤，肌肤尽痛，名曰肌痹，伤于寒湿，刺大分小分，多发针而深之，以热为故，无伤筋骨，伤筋骨，痈发若变，诸分尽热，病已止。病在骨，骨重不可举，骨髓酸痛，寒气至，名曰骨痹，深者刺无伤脉肉为故，其道大分小分，骨热病已止。病在诸阳脉，且寒且热，诸分且寒且热，名曰狂，刺之虚脉，视分尽热病已止。病初发，岁一发，不治，月一发，不治，月四五发，名曰癫病，刺诸分诸脉，其无寒者以针调之，病已止。病风且寒且热，炅汗出，一日数过，先刺诸分理络脉；汗出且寒且热，三日一刺，百日而已。病大风，骨节重，须眉堕，名曰大风，刺肌肉为故，汗出百日，刺骨髓，汗出百日，凡二百日，须眉生而止针。
+刺家不诊，听病者言，在头，头疾痛，为藏针之，刺至骨，病已，上无伤骨肉及皮，皮者道也。阴刺，入一傍四处。治寒热深专者，刺大藏，迫藏刺背，背俞也，刺之迫藏，藏会，腹中寒热去而止，与刺之要，发针而浅出血。治腐肿者刺腐上，视<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>小大深浅刺，刺大者多血，小者深之，必端内针为故止。病在少腹有积，刺皮<骨盾>以下，至少腹而止，刺侠脊两傍四椎间，刺两髂髎季胁肋间，导腹中气热下已。病在少腹，腹痛不得大小便，病名曰<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，得之寒，刺少腹两股间，刺腰髁骨间，刺而多之，尽炅病已。病在筋，筋挛节痛，不可以行，名曰筋<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，刺筋上为故，刺分肉间，不可中骨也，病起筋炅，病已止。病在肌肤，肌肤尽痛，名曰肌<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，伤于寒湿，刺大分小分，多发针而深之，以热为故，无伤筋骨，伤筋骨，<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>发若变，诸分尽热，病已止。病在骨，骨重不可举，骨髓酸痛，寒气至，名曰骨<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，深者刺无伤脉肉为故，其道大分小分，骨热病已止。病在诸阳脉，且寒且热，诸分且寒且热，名曰狂，刺之虚脉，视分尽热病已止。病初发，岁一发，不治，月一发，不治，月四五发，名曰癫病，刺诸分诸脉，其无寒者以针调之，病已止。病风且寒且热，炅汗出，一日数过，先刺诸分理<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>；汗出且寒且热，三日一刺，百日而已。病大风，骨节重，须眉堕，名曰大风，刺肌肉为故，汗出百日，刺骨髓，汗出百日，凡二百日，须眉生而止针。
 卷十五
                 </div>
             </div>
@@ -693,7 +708,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇述长刺与节刺：入针深浅与层次选择，循皮肉筋骨分层取效。临床意义：辨病位定层次，长刺达深部痹阻，节刺调筋骨关节之病。</p>
             </div>
         </div>
     </section>
@@ -705,19 +720,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Long‑needle and joint‑segment techniques: layer by layer to reach skin, flesh, sinew, and bone according to lesion depth.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On depth and targeting—deep for deep obstructions, joint‑focused for articular disease.</p>
                     </div>
                 </div>
             </div>

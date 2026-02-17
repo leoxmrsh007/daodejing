@@ -6,6 +6,21 @@
     <title>病能论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter46.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter46.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter46.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,11 +691,11 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     四十六
-黄帝问曰：人病胃脘痈者，诊当何如？岐伯对曰：诊此者当候胃脉，其脉当沉细，沉细者气逆，逆者人迎甚盛，甚盛则热。人迎者胃脉也，逆而盛，则热聚于胃口而不行，故胃脘为痈也。帝曰：善。人有卧而有所不安者何也？岐伯曰：藏有所伤，及精有所之寄，则安，故人不能悬其病也。
-帝曰：人之不得偃卧者何也？岐伯曰：肺者藏之盖也，肺气盛则脉大，脉大则不得偃卧，论在《奇恒阴阳》中。
-帝曰：有病厥者，诊右脉沉而紧，左脉浮而迟，不然，病主安在？岐伯曰：冬诊之，右脉固当沉紧，此应四时，左脉浮而迟，此逆四时，在左当主病在肾，颇关在肺，当腰痛也。帝曰：何以言之？岐伯曰：少阴脉贯肾络肺，今得肺脉，肾为之病，故肾为腰痛之病也。
-帝曰：善。有病颈痈者，或石治之，或针灸治之，而皆已，其真安在？岐伯曰：此同名异等者也。夫痈气之息者，宜以针开除去之。夫气盛血聚者，宜石而泻之。此所谓同病异治也。
-帝曰：有病怒狂者，此病安生？岐伯曰：生于阳也。帝曰：阳何以使人狂？岐伯曰：阳气者，因暴折而难决，故善怒也，病名曰阳厥。帝曰：何以知之？岐伯曰：阳明者常动，巨阳少阳不动，不动而动大疾，此其候也。帝曰：治之奈何？岐伯曰：夺其食即已。夫食入于阴，长气于阳，故夺其食即已。使之服以生铁洛为饮。夫生铁洛者，下气疾也。帝曰：善。有病身热解墯，汗出如浴，恶风少气，此为何病？岐伯曰：病名曰酒风。帝曰：治之奈何？岐伯曰：以泽泻、术各十分，麋衔五分，合以三指撮为后饭。所谓深之细者，其中手如针也，摩之切之，聚者坚也，博者大也。《上经》者，言气之通天也。《下经》者，言病之变化也。《金匮》者，决死生也。《揆度》者，切度之也。《奇恒》者，言奇病也。所谓奇者，使奇病不得以四时死也。恒者，得以四时死也。所谓揆者，方切求之也，言切求其脉理也。度者，得其病处，以四时度之也。
+黄帝问曰：人病胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span><span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>者，诊当何如？岐伯对曰：诊此者当候胃脉，其脉当沉细，沉细者气逆，逆者人迎甚盛，甚盛则热。人迎者胃脉也，逆而盛，则热聚于胃口而不行，故胃<span class="difficult" data-pinyin="wǎn" data-meaning="胃脘，心下部位">脘</span>为<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>也。帝曰：善。人有卧而有所不安者何也？岐伯曰：藏有所伤，及精有所之寄，则安，故人不能悬其病也。
+帝曰：人之不得偃卧者何也？岐伯曰：肺者藏之盖也，肺气盛则脉大，脉大则不得偃卧，论在《奇恒<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>》中。
+帝曰：有病<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>者，诊右脉沉而紧，左脉浮而迟，不然，病主安在？岐伯曰：冬诊之，右脉固当沉紧，此应四时，左脉浮而迟，此逆四时，在左当主病在肾，颇关在肺，当腰痛也。帝曰：何以言之？岐伯曰：<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>脉贯肾络肺，今得肺脉，肾为之病，故肾为腰痛之病也。
+帝曰：善。有病颈<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>者，或石治之，或针灸治之，而皆已，其真安在？岐伯曰：此同名异等者也。夫<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>气之息者，宜以针开除去之。夫气盛血聚者，宜石而泻之。此所谓同病异治也。
+帝曰：有病怒狂者，此病安生？岐伯曰：生于阳也。帝曰：阳何以使人狂？岐伯曰：阳气者，因暴折而难决，故善怒也，病名曰阳<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。帝曰：何以知之？岐伯曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>者常动，巨阳<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>不动，不动而动大疾，此其候也。帝曰：治之奈何？岐伯曰：夺其食即已。夫食入于阴，长气于阳，故夺其食即已。使之服以生铁洛为饮。夫生铁洛者，下气疾也。帝曰：善。有病身热解墯，汗出如浴，恶风少气，此为何病？岐伯曰：病名曰酒风。帝曰：治之奈何？岐伯曰：以泽泻、术各十分，麋衔五分，合以三指撮为后饭。所谓深之细者，其中手如针也，摩之切之，聚者坚也，博者大也。《上经》者，言气之通天也。《下经》者，言病之变化也。《金匮》者，决死生也。《揆度》者，切度之也。《奇恒》者，言奇病也。所谓奇者，使奇病不得以四时死也。恒者，得以四时死也。所谓揆者，方切求之也，言切求其脉理也。度者，得其病处，以四时度之也。
                 </div>
             </div>
         </div>
@@ -692,7 +707,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇述疾病之“能”：病势所及之处与相互牵连的能力与限度，提示辨位与辨因并重，防治误判迁延。临床意义：据病所能达之范围与传变方向，预置防守与截断策略。</p>
             </div>
         </div>
     </section>
@@ -704,19 +719,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">On what disease ‘can do’—its reach and limits across regions and organs. Diagnose by location and cause together to prevent misdirection and delay; plan to block likely routes of spread.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Explores the capacities of illness and its lines of transmission. Prognosis and treatment rest on delimiting scope and anticipating progression.</p>
                     </div>
                 </div>
             </div>

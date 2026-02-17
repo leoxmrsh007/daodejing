@@ -6,6 +6,21 @@
     <title>第21章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter21.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter21.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter21.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter21.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter21.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter21.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">孔空也．惟以空为徳．然后乃能动作从道．恍惚无形不繋之叹．以无形始物．不繋成物．万物以始以成．而不知其所以然．故曰恍兮惚兮其中有物．惚兮恍兮其中有象也．窈冥深远之叹．深远不可得而见．然而万物由之．不可得见．以定其眞．故曰窈兮冥兮其中有精也．信信验也．物反窈冥．则眞精之极得．万物之性定．故曰其精甚眞其中有信也．至眞之极．不可得名．无名则是其名也．自古及今．无不由此而成．故曰自古及今其名不去也．众甫物之始也．以无名说．阅万物始也．此上之所云也．言吾何以知万物之始于无哉．以此知之也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">孔德之容，孔，大也。有大德之人，無所不容，能受垢濁，處謙卑也。唯道是從。唯，獨也。大德之人，不隨世俗所行，獨從於道也。道之為物，唯恍唯忽。道之於萬物，獨恍忽往來，於其無所定也。忽兮恍兮，其中有像；道唯忽恍，無形之中，獨為萬物法像。恍兮忽兮，其中有物。道唯恍忽，其中有一，經營主化，因氣立質。窈兮冥兮，其中有精；道唯窈冥無形，其中有精實，神明相薄，陰陽交會也。○窈，音杳。其精甚真，言存精氣，其妙甚真，非有飾也。其中有信。道匿功藏名，其信在中也。自今及古，其名不去，自，從也。自古至今，道常在不去。以閱眾甫。閱，稟也。甫，始也。言道稟與萬物始生，從道受氣。吾何以知眾甫之然哉？我何以知從道受氣。以此。此，今也。以今萬物皆得道精炁而生，動作起居，非道不然。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">兩者相耦而有「中」。「恍惚」無耦，無耦無「中」。而惡知介乎耦，則非左即右，而不得為「中」也？「中」者，入乎耦而含耦者也。雖有堅金，可鍛而液；雖有積土，可漂而夷；然則金土不能保其性矣。既有溫泉，亦有寒火；然則水火不能守其真矣。不銑而堅於金，不厚而敦於土，不暄而炎於火，不潤而寒於水者，誰耶？閱其變而不遷，知其然而不往；故真莫尚於無實，信莫大於不復，名莫永於彼此不易，而容莫美於萬一不殊。私天之機，棄道之似，夫乃可字之曰「孔德」。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章言道乃無形名之形名也。孔，猶盛也。謂道本無形，而有道之士，和氣集於中，英華發現於外，而為盛德之容。且此德容，皆從道體所發，即是道之形容也。故曰孔德之容，惟道是從。然此道體本自無形，又無一定之象可見。故曰道之為物，惟恍惟惚。恍惚，謂似有若無，不可定指之意。然且無象之中，似有物象存焉。故曰惚兮恍，其中有象。恍兮惚，其中有物。其體至深至幽，不可窺測。且此幽深窈冥之中，而有至精無妄之體存焉。故曰窈兮冥，其中有精。其精甚真，此正楞嚴所謂唯一精真。精色不沈，發現幽秘，此則名為識陰區宇也。學者應知。然此識體雖是無形，而於六根門頭，應用不失其時。故曰其中有信。此上皆無形之形。下言無名之名。謂世間眾美之名自外來者，皆是假名無實，故其名易去。惟此道體有實有名，故自古及今，其名不去，以閱眾甫也。閱，猶經歷。甫，美也。謂眾美皆具。是以聖人功流萬世而名不朽者，以其皆從至道體中流出故耳。其如世間王侯將相之名，皆從人欲中來，故其功亦朽，而名亦安在哉。唯有道者，不期於功而功自大，不期於名而名不朽。是知聖人內有大道之實，外有盛德之容，眾美皆具，惟自道中而發也。故曰吾何以知眾甫之然哉，以此。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">In his every movement a man of great virtue Follows the way and the way only. As a thing the way is Shadowy and indistinct. Indistinct and shadowy, Yet within it is an image; Shadowy and indistinct, Yet within it is a substance. Dim and dark, Yet within it is an essence. This essence is quite genuine And within it is something that can be tested. From the present back to antiquity, Its name never deserted it. It serves as a means for inspecting the fathers of the multitude. How do I know that the fathers of the multitude are like that? By means of this.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The character of great virtue follows alone from the Way. 2. As for the nature of the Way — it's shapeless and formless. 3. Formless! Shapeless! Inside there are images. 4. Shapeless! Formless! Inside there are things. 5. Hidden! Obscure! Inside there are essences. 6. These essences are very real; 7. Inside them is the proof. 8. From the present back to the past, 9. Its name has never gone away. 10. It is by this that we comply with the father of the multitude [of things]. 11. How do I know that the father of the multitude is so? 12. By this.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Great virtue follows the way. The way as a thing is vague and elusive. Elusive and vague, there are images in it. Vague and elusive, there are things in it. Deep and obscure, there is essence in it. The essence is very real, and within it is trust. From ancient times to now, its name never leaves. Through it we see the beginning of all things. How do I know the beginning of all things? Through this.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Such the scope of the All-pervading Power. That it alone can act through the Way. For the Way is a thing impalpable, incommensurable. Incommensurable, impalpable. Yet latent in it are forms; Impalpable, incommensurable Yet within it are entities. Shadowy it is and dim; Yet within it there is a force, Is none the less efficacious. From the times of old till now Its charge has not departed But cheers onward the many warriors. How do I know that the many warriors are so? Through this.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第21章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Master keeps her mind always at one with the Tao; that is what gives her her radiance. The Tao is ungraspable. How can her mind be at one with it? Because she doesn't cling to ideas. The Tao is dark and unfathomable. How can it make her radiant? Because she lets it. Since before time and space were, the Tao is. It is beyond is and is not. How do I know this is true? I look inside myself and see.</p>
                     </div>
                 </div>
             </div>

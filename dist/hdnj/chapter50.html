@@ -6,6 +6,21 @@
     <title>刺要论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter50.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter50.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter50.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     五十
-黄帝问曰：愿闻刺要。岐伯对曰：病有浮沉，刺有浅深，各至其理，无过其道。过之则内伤，不及则生外壅，壅则邪从之。浅深不得，反为大贼，内动五藏，后生大病。故曰：病有在毫毛腠理者，有在皮肤者，有在肌肉者，有在脉者，有在筋者，有在骨者，有在髓者。是故刺毫毛腠理无伤皮，皮伤则内动肺，肺动则秋病温疟，溯溯然寒栗。刺皮无伤肉，肉伤则内动脾，脾动则七十二日四季之月，病腹胀烦不嗜食。刺肉无伤脉，脉伤则内动心，心动则夏病心痛。刺脉无伤筋，筋伤则内动肝，肝动则春病热而筋弛。刺筋无伤骨，骨伤则内动肾，肾动则冬病胀腰痛。刺骨无伤髓，髓伤则销铄胻酸，体解亻亦然不去矣。
+黄帝问曰：愿闻刺要。岐伯对曰：病有浮沉，刺有浅深，各至其理，无过其道。过之则内伤，不及则生外壅，壅则邪从之。浅深不得，反为大贼，内动五藏，后生大病。故曰：病有在毫毛<span class="difficult" data-pinyin="còu lǐ" data-meaning="皮肤与肌肉之间的空隙，为邪气出入之处">腠理</span>者，有在皮肤者，有在肌肉者，有在脉者，有在筋者，有在骨者，有在髓者。是故刺毫毛<span class="difficult" data-pinyin="còu lǐ" data-meaning="皮肤与肌肉之间的空隙，为邪气出入之处">腠理</span>无伤皮，皮伤则内动肺，肺动则秋病温疟，溯溯然寒栗。刺皮无伤肉，肉伤则内动脾，脾动则七十二日四季之月，病腹胀烦不嗜食。刺肉无伤脉，脉伤则内动心，心动则夏病心痛。刺脉无伤筋，筋伤则内动肝，肝动则春病热而筋弛。刺筋无伤骨，骨伤则内动肾，肾动则冬病胀腰痛。刺骨无伤髓，髓伤则销铄胻酸，体解亻亦然不去矣。
                 </div>
             </div>
         </div>
@@ -688,7 +703,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇提纲挈领针刺要义：取穴、补泻、迎随、提插、深浅、留针时机等操作规范与禁忌。临床意义：依法度行针，合天时人机，避禁忌而得其效。</p>
             </div>
         </div>
     </section>
@@ -700,19 +715,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Essentials of acupuncture technique—selection, tonify/drain, following/against, depth and retention, and timing—tied to efficacy and safety.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A concise canon of puncture: rules of engagement for points, manipulation, and timing, with cautions to secure effect and avert harm.</p>
                     </div>
                 </div>
             </div>

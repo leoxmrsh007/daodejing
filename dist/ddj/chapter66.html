@@ -6,6 +6,21 @@
     <title>第66章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter66.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter66.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">江海所以能为百谷王者，以其善下之，故能为百谷王。是以圣人欲上民，必以言下之；欲先民，必以身後之。是以圣人处上而民不重，处前而民不害。是以天下乐推而不厌。以其不争，故天下莫能与之争。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">天下皆謂我大似不肖。老子言，天下謂我德大，我則佯愚似不肖。夫唯大，故似不肖。唯獨名德大者，為身害，故佯愚似若不肖，無所分別，無所割截，不賤人而自貴。若肖，久矣肖，善也。謂辨惠也。若夫辨惠之人，身高自貴，行察察之政，所從來久矣。其細言辨惠者唯如小人也，非長者。夫我有三寶，持而寶之。老子言我有三寶，抱持而保倚。一曰慈，愛百姓若赤子。二曰儉，賦斂若取之於己也。三曰不敢為天下先。執謙退不敢倡始也。慈故能勇，以為仁故能勇於忠孝也。儉故能廣，天子身能節儉，故民日用廣矣。不敢為天下先，不為天下首先。故能成器長。成器長謂得道人也。我能為道人之長也。○長，上聲。今捨慈且勇；今世人舍慈仁，但為勇武也。舍儉且廣；舍其儉約，但為奢泰。舍後且先；舍其後己，但為人先。死矣﹗所行如此，動入死地。夫慈以戰則勝，以守則固。夫慈仁者，百姓親附，并心一意，故以戰則勝敵，以守衛則堅固。天將救之，以慈衛之。天將救助善人，必與慈仁之性使能自當助也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">未易下，尤未易「善下」，故天下之為江誨者鮮矣：將欲抑之，而激之必亢；將欲浚之，而祗以不平。而不但此也。獨立而為物所歸，則積之必厚；積厚而無所輸，則欲抑之、浚之而不能。故唯江海者，「善下」者也。江則有海，海則有尾閭。聖人有善，則過而不留。受天下之歸而自不饜，天下亦孰得而厭之？故返息於踵，返踵於天，照之以自然，而推移其宿氣，乃入於」寥天一」。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人治國之要，當以樸實為本，不可以智誇民也。明者，昭然揭示之意。愚者，民可使由之，不可使知之之意。夫民之所趨，皆觀望於上也，所謂百姓皆注其耳目。凡民之欲蔽，皆上有以啟之。故上有好者，下必有甚焉者也。故聖人在上，善能以斯道覺斯民，當先身以教之。上先不用智巧，離欲清淨，一無所好，若無所知者。則民自各安其日用之常，絕無一念好尚之心。而黠滑之智自消，奸盜之行自絕矣。所謂我好靜而民自正，我無為而民自化。故曰非以明民，將以愚之。此重在以字。前云眾人皆有以。以，如春秋以某師之以。謂左右之也。此其上不用智，故民易治耳。然民之難治者，皆用智之過也。足知以智治國者，反為害也，乃國之賊。不用智而民自安，則為國之福矣。人能知此兩者，可為治國之楷式也。楷式，好規模也。苟能知此楷式，是謂之玄德矣。玄德，謂德之玄妙，而人不測識也。故歎之曰，玄德深矣遠矣。非淺識者所可知也。民之欲，火馳而不返。唯以此化民，則民自然日與物相反，而大順於妙道之域矣。語曰，齊一變至於魯，魯一變至於道，猶有智也。況玄德乎。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The reason why the River and the Sea are able to be king of the hundred valleys is that they excel in taking the lower position. Hence they are able to be king of the hundred valleys. Therefore, desiring to rule over the people, One must in one's words humble oneself before them; And, desiring to lead the people, One must, in one's person, follow behind them. Therefore the sage takes his place over the people yet is no burden; takes his place ahead of the people yet causes no obstruction. That is why the empire supports him joyfully and never tires of doing so. It is because he does not contend that no one in the empire is in a position to contend with him.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The reason why rivers and oceans are able to be the kings of the one hundred valleys is that they are good at being below them. 2. for this reason they are able to be the kings of the one hundred valleys. 3. Therefore in the Sage's desire to be above the people, 4. He must in his speech be below them. 5. And in his desire to be at the front of the people, 6. He must in his person be behind them. 7. Thus he dwells above, yet the people do not regard him as heavey; 8. And he dwells in front, yet the people do not see him as posing a threat. 9. The whole world delights in his praise and never tires of him. 10. Is it not because he is not contentious, 11. That, as a result, no one in the world can contend with him?!</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Why do rivers and seas become kings of the hundred valleys? Because they are good at being below them. Therefore they become kings of the hundred valleys. Therefore if sages wish to be above the people, they must speak humbly to them. If they wish to be in front, they must place themselves behind. Therefore sages are above but people do not feel their weight, in front but people do not suffer harm. Therefore the world happily promotes them without resentment. Because they do not contend, no one in the world can contend with them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">How did the great rivers and seas get their kingship Over the hundred lesser streams? Through the merit of being lower than they; That was how they got their kingship. Therefore the Sage In order to be above the people Must speak as though he were lower than the people. In order to guide them He must put himself behind them. Only thus can the Sage be on top and the people not be crushed by his weight. Only thus can he guide, and the people not be led into harm Indeed in this way everything under heaven will into harm be pushed by him And will not find his guidance irksome. This he does by not striving; And because he does not strive, none can contend with him.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第66章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">All streams flow to the sea because it is lower than they are. Humility gives it its power. If you want to govern the people, you must place yourself below them. If you want to lead the people, you must learn how to follow them. The Master is above the people, and no one feels oppressed. She goes ahead of the people, and no one feels manipulated. The whole world is grateful to her. Because she competes with no one, no one can compete with her.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>刺腰痛篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter41.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter41.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter41.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,18 +675,18 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="大的器物需要长时间才能制成，比喻人才成就较晚&#10;原文：大方无隅，大器晚成">
-                <span class="idiom-word">大器晚成</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="最大的声音反而听不到&#10;原文：大音希声，大象无形">
-                <span class="idiom-word">大音希声</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="最大的形象反而看不见&#10;原文：大音希声，大象无形">
-                <span class="idiom-word">大象无形</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="大的器物需要长时间才能制成，比喻人才成就较晚&#10;原文：大方无隅，大器晚成">
+            <span class="idiom-word">大器晚成</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="最大的声音反而听不到&#10;原文：大音希声，大象无形">
+            <span class="idiom-word">大音希声</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="最大的形象反而看不见&#10;原文：大音希声，大象无形">
+            <span class="idiom-word">大象无形</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -688,9 +703,9 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     四十一
-足太阳脉令人腰痛，引项脊尻背如重状，刺其郄中。太阳正经出血，春无见血。
-少阳令人腰痛，如以针刺其皮中，循循然不可以俯仰，不可以顾，刺少阳成骨之端出血，成骨在膝外廉之骨独起者，夏无见血。阳明令人腰痛，不可以顾，顾如有见者，善悲，刺阳明于<骨行>前三痏，上下和之出血，秋无见血。足少阴令人腰痛，痛引脊内廉，刺少阴于内踝上二痏，春无见血，出血太多，不可复也。厥阴之脉令人腰痛，腰中如<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>弓弩弦，刺厥阴之脉，在腨踵鱼腹之外，循之累累然，乃刺之，其病令人善言默默然不慧，刺之三痏。解脉令人腰痛，痛引肩，目々然，时遗溲，刺解脉，在膝筋肉分间郄外廉之横脉出血，血变而止。解脉令人腰痛如引带，常如折腰状，善恐，刺解脉，在郄中结络如黍米，刺之血射以黑，见赤血而已。同阴之脉，令人腰痛，痛如小锤居其中，怫然肿，刺同阴之脉，在外踝上绝骨之端，为三痏。阳维之脉令人腰痛，痛上怫然肿，刺阳维之脉，脉与太阳合腨下间，去地
-一尺所。衡络之脉令人腰痛，不可以俯仰，仰则恐仆，得之举重伤腰，衡络绝，恶血归之，刺之在郄阳筋之间，上郄数寸，横居为二痏出血。会阴之脉令人腰痛，痛上漯漯然汗出，汗干令人欲饮，饮已欲走，刺直阳之脉上三痏，在跷上郄下五寸横居，视其盛者出血。飞阳之脉令人腰痛，痛上拂拂然，甚则悲以恐，刺飞阳之脉，在内踝上五寸，少阴之前，与阴维之会。昌阳之脉令人腰痛，痛引膺，目（左目右流没水）々然，甚则反折，舌卷不能言，刺内筋为二痏，在内踝上大筋前太阴后，上踝二寸所。散脉令人腰痛而热，热甚生烦，腰下如有横木居其中，甚则遗溲，刺散脉，在膝前骨肉分间，络外廉束脉为三痏。肉里之脉令人腰痛，不可以咳，咳则筋缩急，刺肉里之脉为二痏，在太阳之外，少阳绝骨之后。腰痛侠脊而痛至头几几然，目（左目右流没水）々欲僵仆，刺足太阳郄中出血。腰痛上寒，刺足太阳阳明；上热，刺足厥阴；不可以俯仰，刺足少阳；中热而喘，刺足少阴，刺郄中出血。腰痛，上寒不可顾，刺足阳明；上热，刺足太阴；中热而喘，刺足少阴。大便难，刺足少阴。少腹满，刺足厥阴。如折不可以俯仰，不可举，刺足太阳。引脊内廉，刺足少阴。腰痛引少腹控眇，不可以仰，刺腰尻交者，两踝胂上，以月生死为痏数，发针立已，左取右，右取左。
+足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>脉令人腰痛，引项脊尻背如重状，刺其郄中。<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>正经出血，春无见血。
+<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>令人腰痛，如以针刺其皮中，循循然不可以俯仰，不可以顾，刺<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>成骨之端出血，成骨在膝外廉之骨独起者，夏无见血。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>令人腰痛，不可以顾，顾如有见者，善悲，刺<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>于<骨行>前三痏，上下和之出血，秋无见血。足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>令人腰痛，痛引脊内廉，刺<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>于内踝上二痏，春无见血，出血太多，不可复也。<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之脉令人腰痛，腰中如<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>弓弩弦，刺<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之脉，在腨踵鱼腹之外，循之累累然，乃刺之，其病令人善言默默然不慧，刺之三痏。解脉令人腰痛，痛引肩，目々然，时遗溲，刺解脉，在膝筋肉分间郄外廉之横脉出血，血变而止。解脉令人腰痛如引带，常如折腰状，善恐，刺解脉，在郄中结络如黍米，刺之血射以黑，见赤血而已。同阴之脉，令人腰痛，痛如小锤居其中，怫然肿，刺同阴之脉，在外踝上绝骨之端，为三痏。阳维之脉令人腰痛，痛上怫然肿，刺阳维之脉，脉与<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>合腨下间，去地
+一尺所。衡络之脉令人腰痛，不可以俯仰，仰则恐仆，得之举重伤腰，衡络绝，恶血归之，刺之在郄阳筋之间，上郄数寸，横居为二痏出血。会阴之脉令人腰痛，痛上漯漯然汗出，汗干令人欲饮，饮已欲走，刺直阳之脉上三痏，在跷上郄下五寸横居，视其盛者出血。飞阳之脉令人腰痛，痛上拂拂然，甚则悲以恐，刺飞阳之脉，在内踝上五寸，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>之前，与阴维之会。昌阳之脉令人腰痛，痛引膺，目（左目右流没水）々然，甚则反折，舌卷不能言，刺内筋为二痏，在内踝上大筋前<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>后，上踝二寸所。散脉令人腰痛而热，热甚生烦，腰下如有横木居其中，甚则遗溲，刺散脉，在膝前骨肉分间，络外廉束脉为三痏。肉里之脉令人腰痛，不可以咳，咳则筋缩急，刺肉里之脉为二痏，在<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>之外，<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>绝骨之后。腰痛侠脊而痛至头几几然，目（左目右流没水）々欲僵仆，刺足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>郄中出血。腰痛上寒，刺足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span><span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>；上热，刺足<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>；不可以俯仰，刺足<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>；中热而喘，刺足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>，刺郄中出血。腰痛，上寒不可顾，刺足<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>；上热，刺足<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>；中热而喘，刺足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>。大便难，刺足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>。少腹满，刺足<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>。如折不可以俯仰，不可举，刺足<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>。引脊内廉，刺足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>。腰痛引少腹控眇，不可以仰，刺腰尻交者，两踝胂上，以月生死为痏数，发针立已，左取右，右取左。
 卷十二
                 </div>
             </div>
@@ -703,7 +718,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇专论腰痛针刺：辨寒湿痹、挫闪瘀滞、肾虚失养等不同病机与路径（足太阳、足少阴等），据痛位和兼证选背俞、夹脊与循经阿是穴施治。临床意义：寒湿者温散通络，瘀滞者活血止痛，肾虚者温补肾阳或滋肾养阴，动静结合调护腰背。</p>
             </div>
         </div>
     </section>
@@ -715,19 +730,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Needling strategies for lumbago by pattern—cold‑damp obstruction, contusion‑stasis, kidney vacuity—using bladder and kidney pathways, back‑shu, and夹脊 points; warm and move, quicken blood, or tonify kidney as indicated.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A manual for low‑back pain: differentiate channels and causes, then warm, move, or supplement with points along bladder/kidney and adjacent paraspinals.</p>
                     </div>
                 </div>
             </div>

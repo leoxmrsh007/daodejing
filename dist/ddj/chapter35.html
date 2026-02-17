@@ -6,6 +6,21 @@
     <title>第35章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter35.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter35.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter35.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">大象天象之母也．不炎不寒．不温不凉．故能包统万物．无所犯伤．主若执之．则天下往也．无形无识．不偏不彰．故万物得往而不害妨也．言道之深大．人闻道之言．乃更不如学与饵．应时感悦人心也．乐与饵则能令过客止．而道之出言淡然无味．视之不足见．则不足以悦其目．听之不足闻．则不足以娯其耳．若无所中然．乃用之不可穷极也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">執大象，天下往。執，守也。象，道也。聖人守大道，則天下萬物移心歸往之也。治身則天降神明，往來於己也。往而不害，安平太。萬物歸往而不傷害，則國家安寧而致太平矣，治身不害神明，則身安而大壽也。樂與餌，過客止。餌，美也。過客，一也。人能樂美於道，則一留止也，一者去盈而處虛，忽忽如過客。○樂，音岳。餌，音珥。道之出口，淡乎其無味，道出入於口，淡淡非如五味有酸鹹苦甘辛也。○出，去聲。視之不足見，足，得也。道無形，非若五色有青黃赤白黑可得見也。聽之不足聞，道非若五音，有宮商角徵羽可得聽聞也。用之不可既。用道治國則國安民昌，治身則壽命延長，無有既盡時也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">蛇之制在項，人之制在限。繫其項，則廢其螫；」艮其限」，則「列其夤」矣。其象甚微，制之甚大。故清虛者物之湊，而重濁者物之司也。不棄其司，不奔其湊；於空得實，於實得空；扼其重濁，以致其清虛。嘗試念之：樂作餌熟，則雖有遄行之客，而游情以止，非以其歸於情耶？所謂「常有欲以觀其徼」也。然項之與限，非有情者也。無情者不可強納有情以為之主，則衝淡晦寂而用無方，斯亦無欲之至矣。始乎重濁，反乎清虛；得乎清虛，順乎重濁；有欲無欲，而常者未有變焉；斯執大象者之所獨得與！</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上言無為之益，以明不言之教也。然天下之至堅，非至柔不足以馳騁之。如水之穿山透地，浸潤金石是已。若以有入有，即相觸而有間。若以空入有，則細無不入。如虛空偏入一切有形，即纖塵芒芴，無所不入，以其虛也。若知虛無之有用，足知無為之有益矣。前云人不善教人者，以其有言也。有言則有跡，有跡則恃智，恃智則自多。自多者則矜能而好為。凡好為者必易敗。此蓋有言之教，有為之無益也，如此。則知不言之教，無為之益，天下希及之矣。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Have in your hold the great image And the empire will come to you. Coming to you and meeting with no harm It will be safe and sound. Music and food Will induce the wayfarer to stop. The way in its passage through the mouth is without flavor. It cannot be seen, It cannot be heard, Yet it cannot be exhausted by use.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Hold on to the Great Image and the whole world will come to you. 2. Come to you and suffer no harm; but rather know great safety and peace. 3. Music and food — for these passing travelers stop. 4. Therefore, of the Dao's speaking, we say: 5. Insipid, it is! It's lack of flavor. 6. When you look at it, it's not sufficient to be seen; 7. When you listen to it, it's not sufficient to be heard; 8. Yet when you use it, it can't be used up.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Hold the great image, and the world comes. Comes without harm, peaceful and at ease. Music and food make passing guests stop. But when the way is spoken, it is tasteless. Look, it cannot be seen. Listen, it cannot be heard. Use, it cannot be exhausted.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">He who holding the Great Form goes about his work in the empire Can go about his, yet do no harm. All is peace, quietness and security. Sound of music, smell of good dishes Will make the passing stranger pause. How difference the words that Tao gives forth! So thin, so flavourless! If one looks for Tao, there is nothing solid to see; If one listens for it, there is nothing loud enough to hear. Yet if one uses it, it is inexhaustible.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第35章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">She who is centered in the Tao can go where she wishes, without danger. She perceives the universal harmony, even amid great pain, because she has found peace in her heart. Music or the smell of good cooking may make people stop and enjoy. But words that point to the Tao seem monotonous and without flavor. When you look for it, there is nothing to see. When you listen for it, there is nothing to hear. When you use it, it is inexhaustible.</p>
                     </div>
                 </div>
             </div>

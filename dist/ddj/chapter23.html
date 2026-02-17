@@ -6,6 +6,21 @@
     <title>第23章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter23.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter23.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter23.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter23.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter23.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter23.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">听之不闻名曰希．下章言．道之出言．淡兮其无味也．视之不足见．听之不足闻．然则无味不足听之言．乃是自然之至言也．言暴疾美兴不长也．从事谓举动从事于道者也．道以无形无为成济万物．故从事于道者以无为为君．不言为教．绵绵若存．而物得其眞．与道同体．故曰同于道．得少也．少则得故曰得也．行得则与得同体．故曰同于得也．失累多也．累多则失．故曰失也．行失则与失同体．故曰同于失也．言随其所行．故同而应之．忠信不足于下．焉有不信焉.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">希言自然。希言者，是愛言也。愛言者，自然之道。飄風不終朝，驟雨不終日。飄風，疾風也。驟雨，暴雨也。言疾不能長，暴不能久也。孰為此者？天地。孰，誰也。誰為此飄風暴雨者乎，天地所為。天地尚不能久，不終於朝暮也。而況於人乎？天地至神，合為飄風暴雨，尚不能使終朝至暮，何況人欲為暴卒乎。故從事於道者，從，為也。人為事當如道安靜，不當如飄風驟雨。道者同於道；道者，謂好道人也。同於道者，所謂與道同。德者同於德；德謂好德人也，同於德者，所謂與德同也。失者同於失。失謂任己失人也，同於失者，所謂與失同也。同於道者，道亦樂得之；與道同者，道亦樂得之也。同於德者，德亦樂得之；與德同者，德亦樂得之也。同於失者，失亦樂失之。與失同者，失亦樂失之也。信不足焉，君信不足於下下，則應君以不足也。有不信焉。此言物類相歸，同聲相應，雲從龍，風從虎，水流濕，火就燥，自然之類也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">天地違其和，則能天，能地，而不能久。人違其和，則能得，能失，而不能同。暢於陽，鬱於陰；暢於陰，鬱於陽。言過則跲，樂極則悲；一心數變，寢寐自驚。不知廣大一同，多所不信，坐失常道，何望自然哉？凡道皆道，凡德皆德，凡失皆失。道德樂游於同，久亦奚渝？喜怒不至，何風雨之愆乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章言聖人忘言體道，與時俱化也。希，少也。希言，猶寡言也。以前云多言數窮，不如守中。由其勉強好辯，去道轉遠，不能合乎自然。惟希言者，合乎自然耳。向下以飄風不終朝，驟雨不終日，以比好辯者之不能久。然好辯者，蓋出憤激不平之氣。如飄風驟雨，亦乃天地不平之氣。非不迅激如人，特無終朝之久。且天地不平之氣，尚不能久，而況於人乎。此甚言辯之不足恃也。蓋好辯者，只為信道不篤，不能從事於道，未得玄同故耳。惟聖人從事於道，妙契玄同，無入而不自得。故在於有道者，則同於道。在於有德者，則同於德。失者，指世俗無道德者。謂至於世俗庸人，亦同於俗。即所謂呼我以牛，以牛應之，呼我以馬，以馬應之，無可不可。且同於道德，固樂得之。即同於世俗，亦樂而自得。此無他，蓋自信之真，雖不言，而世人亦未有不信者。且好辯之徒，曉曉多言，強聾而不休，人轉不信。此無他，以自信不足，所以人不信耳。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">To use words but rarely Is to be natural. Hence a gusty wind cannot last all morning, and a sudden downpour cannot last all day. Who is it that produces these? Heaven and earth. If even heaven and earth cannot go on forever, much less can man. That is why one follows the way. A man of the way conforms to the way; A man of virtue conforms to virtue; A man of loss conforms to loss. He who conforms to the way is gladly accepted by the way; He who conforms to virtue is gladly accepted by virtue; He who conforms to loss is gladly accepted by loss. When there is not enough faith, there is lack of good faith.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. To rarely speak — such is [the way of] Nature. 2. Fierce winds don't last the whole morning; 3. Torrential rains don't last the whole day. 4. Who makes these things? 5. If even Heaven and Earth can't make these last long — 6. How much the more is this true for man?! 7. Therefore, one who devotes himself to the Way is one with the Way; 8. One who [devotes himself to] Virtue is one with that Virtue; 9. And one who [devotes himself to] losing is one with that loss. 10. To the one who is one with Virtue, the Way also gives Virtue; 11. While for the one who is one with his loss, the Way also disregards him.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Nature speaks few words. A whirlwind does not last the morning, a rainstorm does not last the day. Who makes this? Heaven and earth. If heaven and earth cannot last long, how can humans? Therefore those who follow the way become one with the way. Those who follow virtue become one with virtue. Those who follow loss become one with loss. Those who become one with the way, the way gladly welcomes them. Those who become one with virtue, virtue gladly welcomes them. Those who become one with loss, loss gladly welcomes them. If trust is insufficient, there is distrust.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">To be always talking is against nature. For the same reason a hurricane never lasts a whole morning, Nor a rainstorm all day. Who is it that makes the wind and rain? It is Heaven-and Earth. And if even Heaven-and Earth cannot blow or pour for long, How much less in his utterance should man? Truly, if one uses the Way as one's instrument, The results will be like the Way; If one uses the "power" as instrument, The results will be like the "power". If one uses what is the reverse of the "power", The results will be the reverse of the "power". For to those who have conformed themselves to the Way, The Way readily lends its power. To those who have conformed themselves to the power, The power readily lends more power. While to those who conform themselves to inefficacy, Inefficacy readily lends its ineffectiveness. "It is by not believing in people that you turn them into liars."</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第23章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Express yourself completely, then keep quiet. Be like the forces of nature: when it blows, there is only wind; when it rains, there is only rain; when the clouds pass, the sun shines through. If you open yourself to the Tao, you are at one with the Tao and you can embody it completely. If you open yourself to insight, you are at one with insight and you can use it completely. If you open yourself to loss, you are at one with loss and you can accept it completely. Open yourself to the Tao, then trust your natural responses; and everything will fall into place.</p>
                     </div>
                 </div>
             </div>

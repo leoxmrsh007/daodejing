@@ -6,6 +6,21 @@
     <title>玉版论要篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter15.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter15.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter15.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter15.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter15.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter15.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="胸怀像山谷一样开阔，形容十分谦虚&#10;原文：保此道者不欲盈，夫唯不盈，故能蔽不新成">
-                <span class="idiom-word">虚怀若谷</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="胸怀像山谷一样开阔，形容十分谦虚&#10;原文：保此道者不欲盈，夫唯不盈，故能蔽不新成">
+            <span class="idiom-word">虚怀若谷</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -680,7 +695,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     十五
-黄帝问曰：余闻揆度奇恒，所指不同，用之奈何？岐伯对曰：揆度者，度病之浅深也。奇恒者，言奇病也。请言道之至数，五色脉变，揆度奇恒，道在于一。神转不回，回则不转，乃失其机，至数之要，迫近以微，著之玉版，命曰合玉机。容色见上下左右，各在其要。其色见浅者，汤液主治，十日已。其见深者，必齐主治，二十一日已。其见大深者，醪酒主治，百日已。色夭面脱，不治，百日尽已。脉短气绝死，病温虚甚死。色见上下左右，各在其要。上为逆，下为从。女子右为逆，左为从；男子左为逆，右为从。易，重阳死，重阴死。阴阳反他，治在权衡相夺，奇恒事也，揆度事也。搏脉痹躄，寒热之交。脉孤为消气，虚泄为夺血。孤为逆，虚为从。行奇恒之法，以太阴始。行所不胜曰逆，逆则死；行所胜曰从，从则活。八风四时之胜，终而复始，逆行一过，不复可数，论要毕矣。
+黄帝问曰：余闻揆度奇恒，所指不同，用之奈何？岐伯对曰：揆度者，度病之浅深也。奇恒者，言奇病也。请言道之至数，五色脉变，揆度奇恒，道在于一。神转不回，回则不转，乃失其机，至数之要，迫近以微，著之玉版，命曰合玉机。容色见上下左右，各在其要。其色见浅者，汤液主治，十日已。其见深者，必齐主治，二十一日已。其见大深者，醪酒主治，百日已。色夭面脱，不治，百日尽已。脉短气绝死，病温虚甚死。色见上下左右，各在其要。上为逆，下为从。女子右为逆，左为从；男子左为逆，右为从。易，重阳死，重阴死。<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>反他，治在权衡相夺，奇恒事也，揆度事也。搏脉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>躄，寒热之交。脉孤为消气，虚泄为夺血。孤为逆，虚为从。行奇恒之法，以<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>始。行所不胜曰逆，逆则死；行所胜曰从，从则活。八风四时之胜，终而复始，逆行一过，不复可数，论要毕矣。
                 </div>
             </div>
         </div>
@@ -692,7 +707,12 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇为“合玉机”的诊治总纲：以容色与脉象之浅深、上下左右定位治则，判逆从、生死与疗程。要点：
+- 揆度奇恒：揆度为病势之浅深，奇恒为非常之病；道在“一”，神转不回，机要在微；
+- 色脉与疗程：色浅者用汤液十日，色深者用齐二十一日，色大深者用醪酒百日；色夭面脱与脉短气绝者死候；
+- 逆从与性别：上为逆、下为从；男女左右逆从相反；行所不胜为逆则死，行所胜为从则活；
+- 行法起点：以太阴始，配合八风四时之胜，逆行一过，不复可数。
+临床意义：以细微之色脉与天时相校，确定从逆与用药程次，抓住“机微”与“一”之法度，避免失机。</p>
             </div>
         </div>
     </section>
@@ -704,19 +724,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">A compendium (‘Jade Register’) on correlating complexion and pulse depth/locale with choice of therapy and duration: shallow color → decoctions (~10 days), deeper color →齐 prescriptions (~21 days), great depth → fermented preparations (~100 days). Defines ‘up is counter, down is following,’ gender‑specific left/right, and the rule that acting against what one does not overcome is death, acting along what one overcomes is life. The method begins with Taiyin and conforms to seasonal prevailing winds.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">Sets out micro‑diagnosis: minimal but decisive signs govern prognosis and regimen. It integrates ‘gauging and measuring’ with the distinction between routine and unusual disorders, fixes time courses from complexion depth, and frames ‘counter’ and ‘following’ with sex‑specific laterality. The principle of ‘one’ and the subtle pivot govern; to miss the moment is to lose the mechanism.</p>
                     </div>
                 </div>
             </div>

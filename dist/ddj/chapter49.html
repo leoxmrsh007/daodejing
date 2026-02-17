@@ -6,6 +6,21 @@
     <title>第49章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter49.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter49.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter49.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">动常因也．各因其用则善不失也．无弃人也．各用聪明．皆使和而无欲如婴儿也．夫天地设位圣人成能人谋鬼谋百姓与能者．能者与之资者取之．能大则大资贵则贵．物有其宗事有其主．如此则可冕旒充目而不惧于欺．黈纩塞耳而无戚于慢．亦何为劳一身之聪明．以察百姓之情哉．夫以明察物物亦竞以其明应之．以不信察求物物亦竞以其不信应之．夫天下之心不必同．其所应不敢异．则莫肯用其情矣．甚矣害之大也．莫大于用其明矣．夫在智则人之讼．在力则人与之争．智不出于人而立乎讼地则穷矣．力不出于人而立乎争地则危矣．未有能使人无用其智力乎于己者也．如此则己以一敌人而人以千万敌己也．若乃多其法网烦其刑罚塞其径路攻其幽宅．则万物失其自然百姓丧其手足．鸟乱于上鱼乱于下．是以圣人之于天下歙歙焉心无所主也．为天下浑心焉意无所适莫也．无所察焉百姓何避．无所求焉百姓何应．无避无应则莫不用其情矣．人无为舍其所能而为其所不能．舍其所长而为其所短．如此则言者言其所知行者行其所能．百姓各皆注其耳目焉．吾皆孩之而已.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">聖人無常心，聖人重改更貴，因循若自無心。以百姓心為心。百姓心之所便，因而從之。善者，吾善之；百姓為善，聖人因而善之。不善者，吾亦善之；百姓雖有不善者，聖人化之使善也。德善。百姓德化，聖人為善。信者，吾信之；百姓為信，聖人因而信之。不信者，吾亦信之；百姓為不信，聖人化之使信也。德信。百姓德化，聖人為信。聖人在天下，怵怵聖人在天下，怵怵常恐怖，富貴不敢驕奢。為天下渾其心，言聖人為天下百姓渾濁其心，若愚闇不通也。○渾，音混。百姓皆注其耳目，注，用也。百姓皆用其耳目，為聖人視聽也。聖人皆孩之。聖人愛念百姓，如孩嬰赤子，長養之而不責望其報。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">即有聖人，豈能使天下之皆孩邪？一生二而有陰陽，有陰陽而有性情，有性隋而有是非。夫性情之凝滯以幹陰陽之肖者而執之，將遂以為常乎？常於此者，不常於彼矣。唯執大常以無所常，故恣陽亢陰凝之極，而百姓可坐待其及，我為焦土，百姓為灌潦；我為和風，百姓為笙竽。有漬而不受，有聲而不留，則善之來投，若稚子學語於翁嫗之側，而況夫不善之注耳目者乎？嗚呼！天下之有目而注者多矣，與之為目者，則亦注也。聖人不為目，而天下自此孩矣。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此教君天下者，以無我之德，故天下歸之如水之就下也。百川之水，不拘淨穢，總歸於江海。江海而能容納之，以其善下也。此喻聖人在上，天下歸之，以其無我也。欲上民，必以言下之。言者，心之聲也。故君天下者，尊為天子。聖人虛心應物，而不見其尊，故凡出言必謙下。如日孤寡不穀，不以尊陵天下也。欲先人，必以身後之者，身者，心之表也。君天下者，貴為天子，天下推之以為先。聖人忘己與人，而不自見有其貴。故凡於物欲，澹然無所嗜好，不以一己之養害天下也。重者，猶不堪也。是則聖人之心，有天下而不與。故雖處上，而民自堪命，不以為重。雖處前，而民自遂生，不以為害。此所以天下樂推而不厭。蓋無我之至，乃不爭之德也。此爭非爭鬥之謂，蓋言心不馳競於物也。以其不爭，故天下莫能與之爭。莊子所謂兼忘天下易，使天下忘己難。此則能使天下忘己，故莫能與之爭耳。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The sage has no mind of his own. He takes as his own the mind of the people. Those who are good I treat as good. Those who are not good I also treat as good. In so doing I gain in goodness. Those who are of good faith I have faith in. Those who are lacking in good faith I also have faith in. In so doing I gain in good faith. The sage in his attempt to distract the mind of the empire seeks urgently to muddle it. The people all have something to occupy their eyes and ears, and the sage treats them all like children.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The Sage constantly has no [set] mind; 2. He takes the mind of the common people as his mind. 3. Those who are good he regards as good; 4. Those who are not good he also regards as good. 5. [In this way] he attains goodness. 6. Those who are trustworthy he trusts; 7. And those who are not trustworthy he also trusts. 8. [In this way] he gets their trust. 9. As for the Sage's presence in the world — he is one with it. 10. And with the world he merges his mind. 11. The common people all fix their eyes and ears on him. 12. And the Sage treats them all as his children.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">The sage has no fixed mind. He takes the mind of the people as his mind. The good I treat with goodness. The not good I also treat with goodness, thus gaining goodness. The trustworthy I trust. The untrustworthy I also trust, thus gaining trust. The sage dwells in the world, cautiously and harmoniously blending with the world. The people all focus their ears and eyes, and the sage treats them like children.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The Sage has no heart of his own; He uses the heart of the people as his heart. Of the good man I approve, But of the bad I also approve, And thus he gets goodness. The truthful man I believe, but the liar I also believe, And thus he gets truthfulness. The Sage, in the dealings with the world, seems like one dazed with fright; For the world's sake be dulls his wits. The Hundred Families all the time strain their eyes and ears, The Sage all the time sees and hears no more than an infant sees and hears.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第49章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Master has no mind of her own. She works with the mind of the people. She is good to people who are good. She is also good to people who aren't good. This is true goodness. She trusts people who are trustworthy. She also trusts people who aren't trustworthy. This is true trust. The Master's mind is like space. People don't understand her. They look to her and wait. She treats them like her own children.</p>
                     </div>
                 </div>
             </div>

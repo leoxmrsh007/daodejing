@@ -4,182 +4,242 @@
     {
       "chapter": 1,
       "title": "第1颂",
-      "original": "由假说我法，有种种相转，彼依识所变。此能变唯三，谓异熟、思量、及了别境识。",
-      "modern_chinese": "第一颂开宗明义，指出我和法都是假名，有种种相状显现，这些都是依识所变。能变的识只有三种：异熟识（第八识）、思量识（第七识）、了别境识（前六识）。"
+      "original": "由假说我法  有种种相转  彼依识所变  此能变唯三",
+      "modern_chinese": "第一颂说明：所谓“我”和“法”只是安立的假名，由此产生种种身心与世界的相状，而这一切都依识的变现而起。能起变现作用的识只有三类：阿赖耶识（异熟识，作为一切种子的所依）、末那识（思量识，恒常执我）、以及前六识（了别境识，直接缘取诸境）。",
+      "english": "Because what we call “self” and “dharmas” is only conventionally designated, various appearances arise and transform. They depend on transformations within consciousness. Only three kinds of consciousness actually perform this transformation: the storehouse consciousness which carries all seeds of karma, the afflicted mental consciousness which constantly grasps at a self, and the six manifest consciousnesses which directly cognize their objects.",
+      "sanskrit": ""
     },
     {
       "chapter": 2,
       "title": "第2颂",
-      "original": "【第2颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第2颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "谓异熟思量  及了别境识  初阿赖耶识  异熟一切种",
+      "modern_chinese": "本颂先点出这三识的名称：一是“异熟识”，即阿赖耶识，含藏一切业力种子，是身心果报的根本依止；二是“思量识”，即末那识，常常执持阿赖耶识中“我”的影像而起分别；三是“了别境识”，即前六识，对色声香味触法等境界起认识与取舍。阿赖耶识作为根本异熟，含摄一切种子，支配生命流转。",
+      "english": "This verse names the three: the first is the ripening consciousness, the storehouse consciousness which contains all karmic seeds and supports the continuity of body and mind. The second is the thinking consciousness, the mental consciousness that constantly takes the storehouse as its object and measures it as a real self. The third is the consciousnesses which discriminate objects, the six manifest consciousnesses that know sights, sounds, smells, tastes, tangibles, and mental objects.",
+      "sanskrit": ""
     },
     {
       "chapter": 3,
       "title": "第3颂",
-      "original": "【第3颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第3颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "不可知执受  处了常与触  作意受想思  相应唯舍受",
+      "modern_chinese": "本颂描述阿赖耶识的特征：它对所执受的身心果报不可由凡夫直观了知，只是潜伏为深层的执受力；它安住在身心诸处，恒常相续，并与触、作意、受、想、思等心所相应，却只是“捨受”，既非苦受也非乐受。阿赖耶识因此像无形的背景，不断执持我们的生命与世界。",
+      "english": "The storehouse consciousness has an appropriating function that cannot be directly known by ordinary beings. It abides in all the bases of body and mind, constantly continuing together with contact, attention, feeling, perception, and volition, yet its feeling-tone is neutral rather than pleasant or painful. In this way it silently appropriates our psychophysical continuity without ever appearing clearly in the foreground of experience.",
+      "sanskrit": ""
     },
     {
       "chapter": 4,
       "title": "第4颂",
-      "original": "【第4颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第4颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "是无覆无记  触等亦如是  恒转如瀑流  阿罗汉位舍",
+      "modern_chinese": "阿赖耶识属于“无覆无记”法，不被烦恼所染，也无善恶可记之性，其所相应的触等心所同样如此。它的相续如同不断奔流的瀑布，在凡夫位乃至圣者未断种子之前恒常流注。只有到阿罗汉等究竟解脱位，阿赖耶识才随同一切烦恼习气一起舍去，不再作为生死的根本依止。",
+      "english": "The storehouse consciousness is morally indeterminate and not directly covered by defilements; the associated mental factors like contact share this same neutral quality. Its flow is continuous like a waterfall throughout saṃsāra, supporting every moment of experience. Only at the stage of an arhat, when all defiled seeds have been exhausted, is this stream of storehouse consciousness finally relinquished and no longer serves as the basis for further rebirth.",
+      "sanskrit": ""
     },
     {
       "chapter": 5,
       "title": "第5颂",
-      "original": "【第5颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第5颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "次第二能变  是识名末那  依彼转缘彼  思量为性相",
+      "modern_chinese": "接下来第二能变者是末那识。它依阿赖耶识而转，又以阿赖耶识为所缘境，恒常在深处“思量”其中的我法影像。它的自性就是对“我”的执持与揣度，把本来只是种子流的阿赖耶识误认成真实常一的主体。",
+      "english": "Next, the second that transforms is the mental consciousness called manas. It arises in dependence on the storehouse consciousness and takes that very consciousness as its object. Its nature is constant self-referential reflection, misconceiving the neutral flow of seeds in the storehouse as a real, enduring self. Through this mis-taking it binds beings to the illusion of an inner owner behind experience.",
+      "sanskrit": ""
     },
     {
       "chapter": 6,
       "title": "第6颂",
-      "original": "【第6颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第6颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "四烦恼常俱  谓我痴我见  并我慢我爱  及馀触等俱",
+      "modern_chinese": "末那识恒常与四种根本我执烦恼相应：一是我痴，对“我”的实有执迷；二是我见，建立种种关于我的邪见；三是我慢，在我执基础上生出优劣比较；四是我爱，对所执为我的身心强烈贪着。此外它也与触、作意等诸心所相应，使一切经验都被染上“属于我”的色彩。",
+      "english": "This manas is always accompanied by four fundamental afflictions: ignorance regarding the self, wrong views about the self, pride based on the self, and attachment or love for the self. Along with these, it is associated with contact, attention, and the other mental factors, so that every arising experience is immediately appropriated as “mine,” strengthening the deep habit of self-grasping.",
+      "sanskrit": ""
     },
     {
       "chapter": 7,
       "title": "第7颂",
-      "original": "【第7颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第7颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "有覆无记摄  随所生所系  阿罗汉灭定  出世道无有",
+      "modern_chinese": "末那识被归入“有覆无记”：虽不直接造善恶业，却恒常被我执烦恼所覆，成为一切染污的根本支点。它随众生所受生处与系属而存在，在凡夫与有学圣者位中不断运作；唯有在阿罗汉的灭尽定与出世间道中，末那识不再现起，自我执着暂时或究竟止息。",
+      "english": "Manas is classed as defiled yet morally indeterminate: by itself it does not immediately produce good or bad acts, but it is always covered by self-centered afflictions and so supports all defilement. It follows beings into whatever realm and destiny they are born, operating throughout the path of worldlings and trainees. Only in the arhat’s attainment of cessation and on the supramundane path does this mental consciousness cease, and the self-grasping it sustains comes to rest.",
+      "sanskrit": ""
     },
     {
       "chapter": 8,
       "title": "第8颂",
-      "original": "【第8颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第8颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "次第三能变  差别有六种  了境为性相  善不善俱非",
+      "modern_chinese": "第三能变的是前六识：眼识、耳识、鼻识、舌识、身识、意识，依六根而起，对色声香味触法六境起了别，这是它们的根本性相。它们本身可以是善、是不善，也可以是无记，随所缘境界与所起心行而有差别，因此成为日常经验中最鲜明、最多样的意识层面。",
+      "english": "The third kind of transformation consists of the six manifest consciousnesses: visual, auditory, olfactory, gustatory, tactile, and mental. Distinct in function, they arise based on the six faculties and discriminate their respective objects. By nature they are simply cognition of objects, but according to the intentions and mental factors with which they are conjoined they may become wholesome, unwholesome, or neutral. They make up the vivid, ever-changing surface of our everyday experience.",
+      "sanskrit": ""
     },
     {
       "chapter": 9,
       "title": "第9颂",
-      "original": "【第9颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第9颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "此心所遍行  别境善烦恼  随烦恼不定  皆三受相应",
+      "modern_chinese": "前六识与种种心所法相应：有“遍行”心所，如触、作意、受、想、思，任何识起都一定具足；有“别境”心所，如欲、胜解、念、定、慧，分别不同所缘而生；还有善心所、根本烦恼、随烦恼及不定心所等。它们可以与苦受、乐受、捨受三种感受配合，构成复杂多变的心理活动。",
+      "english": "The six consciousnesses are conjoined with many kinds of mental factors. There are the universal factors such as contact, attention, feeling, perception, and volition that accompany every moment of consciousness. There are specific-object factors like desire for an aim, firm conviction, mindfulness, concentration, and wisdom. In addition there are wholesome factors, root afflictions, secondary afflictions, and variable factors. Together they can be associated with pleasant, painful, or neutral feelings, producing the intricate patterns of mental life.",
+      "sanskrit": ""
     },
     {
       "chapter": 10,
       "title": "第10颂",
-      "original": "【第10颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第10颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "初遍行触等  次别境谓欲  胜解念定慧  所缘事不同",
+      "modern_chinese": "本颂进一步分列心所：第一类是遍行心所——触、作意、受、想、思，任何识起必定具足；第二类是别境心所——欲、胜解、念、定、慧，它们各自缘取不同的对象与任务：欲令心趣向所求之境，胜解决定认定所缘，念令心不忘失所缘，定令心专注安住，慧则正观抉择诸法实相。",
+      "english": "Here the verse enumerates the first two groups of mental factors. The universal factors—contact, attention, feeling, perception, and volition—pervade every moment of consciousness. The specific-object factors—aspiration, firm resolve, mindfulness, concentration, and discriminating insight—have distinct functions and objects: aspiration directs the mind toward a goal, resolve firmly affirms its object, mindfulness keeps the object from being lost, concentration gathers the mind into one-pointedness, and insight discerns the true nature of phenomena.",
+      "sanskrit": ""
     },
     {
       "chapter": 11,
       "title": "第11颂",
-      "original": "【第11颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第11颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "善谓信惭愧  无贪等三根  勤安不放逸  行舍及不害",
+      "modern_chinese": "本颂总摄善心所：其一是信、惭、愧三善根，使心能信正法、知羞耻而自制；其二是无贪、无瞋、无痴三善根，对境不贪著、不瞋恚、能如实了知；其三是精进、轻安、不放逸、行舍与不害，使身心勤奋安稳，不纵逸放肆，能舍离执著，不损害众生。这些善心所若与诸识相应，就成为修道的力量。",
+      "english": "This verse summarizes the wholesome mental factors. Faith, a sense of shame, and moral dread support respect for the Dharma and self-restraint. Non-greed, non-hatred, and non-delusion loosen clinging, aversion, and confusion toward phenomena. Diligence, pliancy, non-carelessness, equanimous letting-go, and non-harming keep body and mind energetic, at ease, and harmless. When these wholesome factors accompany consciousness, they become the very forces that carry practice along the path.",
+      "sanskrit": ""
     },
     {
       "chapter": 12,
       "title": "第12颂",
-      "original": "【第12颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第12颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "烦恼谓贪瞋  痴慢疑恶见  随烦恼谓忿  恨覆恼嫉悭",
+      "modern_chinese": "本颂首先列出六种根本烦惱：贪、瞋、痴、慢、疑、恶见，它们直接扰乱身心，是流转生死的主因。接着提出一部分随烦恼：忿、恨、覆、恼、嫉、悭等，它们依附根本烦恼而起，使心更为局促粗恶。根本烦恼与随烦恼一起覆盖心识，让众生无法如实观见唯识之理。",
+      "english": "Here six root afflictions are named: craving, aversion, delusion, pride, doubt, and wrong views. These are the primary poisons that directly disturb body and mind and drive cyclic existence. Alongside them arise secondary afflictions like anger, resentment, concealment, vexation, jealousy, and stinginess, which depend on the roots and further coarsen the mind. Together they obscure awareness so that the principle of consciousness-only cannot be clearly seen.",
+      "sanskrit": ""
     },
     {
       "chapter": 13,
       "title": "第13颂",
-      "original": "【第13颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第13颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "诳谄与害㤭  无惭及无愧  掉举与昏沈  不信并懈怠",
+      "modern_chinese": "本颂继续列举随烦恼：诳与谄是欺诳谄媚，害与嫉是损人妒贤，无惭、无愧则是毫无羞耻感；掉举使心浮躁外散，昏沉使心沉闷不明，不信则对真理与善法毫无信受，懈怠则不肯精进用功。这些心所一旦与识相应，就让生命流变得更加迷乱而难以调伏。",
+      "english": "Further secondary afflictions are listed: deceit and flattery distort one’s speech and behavior to mislead others; harmfulness and envy delight in others’ loss; lack of shame and lack of moral dread remove all inner restraint. Restlessness scatters the mind outward, while sloth makes it heavy and dull. Disbelief rejects truth and virtue, and laziness refuses to make effort. When such factors accompany consciousness, the flow of experience becomes ever more confused and difficult to train.",
+      "sanskrit": ""
     },
     {
       "chapter": 14,
       "title": "第14颂",
-      "original": "【第14颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第14颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "放逸及失念  散乱不正知  不定谓悔眠  寻伺二各二",
+      "modern_chinese": "本颂补足其余不善与不定心所：放逸是放纵身口意，使善根日渐退失；失念使心不断忘失所缘与本愿；散乱使心追逐境界，难以安住；不正知使心对境界起颠倒了知。不定心所有悔与睡眠，以及寻与伺两对：悔是追悔已作之业，睡眠是昏沉入睡，寻是初步粗略的思惟，伺是随后的细密观察。它们随境而起，若不善加调御，就成为修行的障碍。",
+      "english": "This verse completes the list with further unwholesome and variable factors. Carelessness indulges body, speech, and mind so that wholesome roots are gradually lost. Forgetfulness allows the chosen object and one’s original resolve to slip away. Distraction chases after many things, and incorrect knowing misunderstands what is experienced. Among the variable factors are remorse and sleep, as well as the pair of applied and sustained thought: remorse broods over past deeds, sleep sinks into oblivion, applied thought initiates coarse examination, and sustained thought continues subtle probing. If these are not skillfully managed, they become serious hindrances to cultivation.",
+      "sanskrit": ""
     },
     {
       "chapter": 15,
       "title": "第15颂",
-      "original": "【第15颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第15颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "依止根本识  五识随缘现  或俱或不俱  如波涛依水",
+      "modern_chinese": "本颂说明五识与阿赖耶识的关系：眼耳鼻舌身五识都依止于根本识阿赖耶而有，在因缘具足时随缘现起，有时与阿赖耶识的活动较为显著地同时出现，有时则并不明显同现。它们就好像水面上时起时伏的波浪，始终不离大海一般的阿赖耶识。",
+      "english": "Here the relation between the five sensory consciousnesses and the storehouse is clarified. Visual, auditory, olfactory, gustatory, and tactile consciousness all depend on the root consciousness, the ālaya, for their very existence. When appropriate conditions gather they arise in dependence on it; sometimes their activity is clearly evident together with the storehouse, sometimes it is not. They are like waves that rise and fall upon the surface of water, never separate from the ocean of the storehouse consciousness.",
+      "sanskrit": ""
     },
     {
       "chapter": 16,
       "title": "第16颂",
-      "original": "【第16颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第16颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "意识常现起  除生无想天  及无心二定  睡眠与闷绝",
+      "modern_chinese": "本颂指出：在一般众生与大多数境界中，第六意识几乎是恒常现起的，时时刻刻在分别筹量。只有在特殊情形下，它才暂时不现行，例如生于无想天众生、入灭尽定与无想定两种无心定，以及睡眠与昏厥闷绝之时。由此可见意识在凡夫生命中占据极为核心的地位。",
+      "english": "The verse states that for ordinary beings, the sixth consciousness is almost always manifest, constantly engaged in discriminating and calculating. Only in special situations does it temporarily cease: for beings born in the peak of neither-perception-nor-non-perception, in the two states of cessation without consciousness, and during sleep or fainting. This shows how central mental consciousness is in structuring the ordinary flow of experience.",
+      "sanskrit": ""
     },
     {
       "chapter": 17,
       "title": "第17颂",
-      "original": "【第17颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第17颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "是诸识转变  分别所分别  由此彼皆无  故一切唯识",
+      "modern_chinese": "本颂总结前面的说明：一切识的转变分成“能分别”的心与“所分别”的境，看似彼此对立、互为因果。但从唯识的立场看，能分别与所分别都只是识的自体相分、见分，离识并无别有实在的心与境可得。因此从胜义上说，一切法皆唯识所变现。",
+      "english": "This verse gathers the discussion so far: the transformations of consciousness appear as a subject that discriminates and objects that are discriminated. They seem opposed and mutually conditioning. Yet from the standpoint of consciousness-only, both subject and object are nothing but aspects of the same consciousness—the subjective and objective portions of its own activity. Apart from consciousness there is no truly existent mind or world to be found; in the ultimate sense all phenomena are only consciousness.",
+      "sanskrit": ""
     },
     {
       "chapter": 18,
       "title": "第18颂",
-      "original": "【第18颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第18颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "由一切种识  如是如是变  以展转力故  彼彼分别生",
+      "modern_chinese": "本颂从因缘流转面说明唯识：正因为有含藏无尽种子的“一切种识”，才会如是如是地起种种变现。由这些变现再相互熏习、展转增上，就产生无数差别的分别与经验世界。也就是说，境界是识中种子不断熏习、现行、再熏习的结果，而不是离识自存的实体。",
+      "english": "From the perspective of causal flow, it is because there is a storehouse consciousness containing all seeds that such-and-such transformations occur. As these manifestations arise, they in turn condition and reinforce one another, so that further and further discriminations and worlds of experience are produced. The diversity of appearances is thus the outcome of seeds in consciousness repeatedly ripening and being replanted, not of self-existent things standing apart from awareness.",
+      "sanskrit": ""
     },
     {
       "chapter": 19,
       "title": "第19颂",
-      "original": "【第19颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第19颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "由诸业习气  二取习气俱  前异熟既尽  复生馀异熟",
+      "modern_chinese": "本颂说明业力与二取（能取之我、所取之法）习气的作用：由身口意诸业的熏习，再加上对能取之我、所取之法的分别执著，两类习气共同存在于阿赖耶识中。当前一生的异熟果报尽时，这些习气仍未断绝，于是又引生新的异熟身心与世界，令生死流转不息。",
+      "english": "Here the roles of karmic and duality habits are explained. Actions of body, speech, and mind plant karmic tendencies in the storehouse, and grasping at a perceiving self and perceived objects plants the habits of the twofold grasping. When the present life’s ripened result is exhausted, these intertwined seeds have not yet been used up. They then give rise to further ripening—new bodies and worlds—thus perpetuating the ceaseless round of birth and death.",
+      "sanskrit": ""
     },
     {
       "chapter": 20,
       "title": "第20颂",
-      "original": "【第20颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第20颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "由彼彼遍计  遍计种种物  此遍计所执  自性无所有",
+      "modern_chinese": "本颂转入“三性”之中的遍计所执性：由二取习气的推动，意识对境界作种种遍计与虚妄分别，遍计种种“我”、“人”、“众生”、“寿者”以及一切实有的物。其实这些被遍计所执的相状，在胜义上都没有自性，只是识上虚妄安立的名相，并无独立自存的实体可得。",
+      "english": "The discussion now turns to the imagined nature. Driven by the habits of dualistic grasping, consciousness projects and imputes all sorts of things: selves, persons, living beings, life-spans, and substantial entities of every kind. These are the imagined objects grasped by conceptual construction. In ultimate truth they have no self-nature at all; they are merely names and notions falsely superimposed upon the flow of consciousness.",
+      "sanskrit": ""
     },
     {
       "chapter": 21,
       "title": "第21颂",
-      "original": "【第21颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第21颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "依他起自性  分别缘所生  圆成实于彼  常远离前性",
+      "modern_chinese": "本颂正式引出三性中的依他起性与圆成实性：依他起性是指诸法因缘和合、相依而起的层面，一切分别与境界都从这里生起；而圆成实性则是在依他起流中，被正智所证得的真实理体，它本身恒常远离前面所说的遍计所执之虚妄相。也就是说，依他起中既含虚妄的遍计所执，也含可以被证成的真实圆成实。",
+      "english": "This verse explicitly brings in the dependent and the perfected natures. The dependent nature is the flow of phenomena arising in mutual dependence on causes and conditions, the basis upon which all conceptual discrimination appears. Within that flow, the perfected nature is the true reality realized by correct insight, which is always free from the falsely imagined characteristics. In other words, what is dependently arisen contains both the imagined overlays and the genuinely established suchness.",
+      "sanskrit": ""
     },
     {
       "chapter": 22,
       "title": "第22颂",
-      "original": "【第22颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第22颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "故此与依他  非异非不异  如无常等性  非不见此彼",
+      "modern_chinese": "本颂说明遍计所执性与依他起性的关系：二者既不能说完全相同，也不能说完全相异，就像无常与有为法的关系一样。若离开依他起的相续，就无从安立遍计所执的妄相；而若不透过观照遍计所执的虚妄，也就无法显现依他起中本具的真实。二者相即相待，却又在胜义上有虚实之分。",
+      "english": "Here the relation between the imagined and the dependent natures is clarified. They are neither absolutely the same nor entirely different, just as impermanence is neither identical with nor separate from conditioned things. Without the dependent flow there would be no basis for imagined projections, yet without analyzing and seeing through those projections the dependent flow would not reveal its deeper truth. The two thus mutually entail one another, while still being distinguished as false and true on the level of ultimate analysis.",
+      "sanskrit": ""
     },
     {
       "chapter": 23,
       "title": "第23颂",
-      "original": "【第23颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第23颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "即依此三性  立彼三无性  故佛密意说  一切法无性",
+      "modern_chinese": "本颂由三性进而建立三无性：依前说遍计所执、依他起、圆成实三性，分别安立相无性、生无性、胜义无性三种“无性”。因此，佛陀以密意宣说“一切法无自性”：不是落入断灭，而是从不同角度解除对相状、因生、自性的执著，使行者得入中道正观。",
+      "english": "On the basis of the three natures the three kinds of non-nature are posited. Corresponding to the imagined, dependent, and perfected natures are the absence of characteristics, the absence of arising, and the absence of ultimate nature. Thus the Buddha, with a hidden intention, teaches that all dharmas are without self-nature. This is not nihilism, but a skillful way to free practitioners from clinging to appearances, production, and any fixed essence, guiding them into the middle way.",
+      "sanskrit": ""
     },
     {
       "chapter": 24,
       "title": "第24颂",
-      "original": "【第24颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第24颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "初即相无性  次无自然性  后由远离前  所执我法性",
+      "modern_chinese": "本颂逐一解释三无性：第一“相无性”，是说诸法一切可被分别的相状，原本就不具自立的实体；第二“生无性”，是说从胜义观之，一切法并无自性生起的真实过程，只是因缘假名；第三“胜义无性”，是说在远离前面所执的我与诸法自性之后，所证得的真如胜义本身也不可执为某种固定的有性。三无性层层破除执著，引向究竟空义。",
+      "english": "This verse unpacks the three non-natures. First, the absence of characteristics means that the various discernible marks of phenomena lack any self-established substance. Second, the absence of arising means that, in the ultimate sense, there is no truly existent process of production—what we call arising is only a provisional designation for dependent conditions. Third, the absence of ultimate nature means that even the realized suchness, once it is free from all grasping at self and dharmas, cannot be seized as some fixed existent. Step by step these negations dismantle attachment and lead to the realization of emptiness.",
+      "sanskrit": ""
     },
     {
       "chapter": 25,
       "title": "第25颂",
-      "original": "由一切种识，如是如是变，以辗转力故，彼彼分别生。",
-      "modern_chinese": "第二十五颂阐明阿赖耶识的功能。由一切种识（阿赖耶识）的种子变现，以辗转起现行的力量，产生各种分别。"
+      "original": "此诸法胜义  亦即是真如  常如其性故  即唯识实性",
+      "modern_chinese": "本颂指出：诸法的胜义实相就是所谓真如，它从来如其本性，不因凡夫分别而增减改变。就唯识家看来，这个真如正是唯识之实性——当一切遍计所执都被遣除，依他起流中所显现的，就是圆成实性的如如。由此可知，“唯识”并非仅指识之流动，也包括识所证得的不二真如。",
+      "english": "This verse identifies the ultimate truth of phenomena with suchness. Suchness is always thus by its very nature; it does not arise or cease with our confused discriminations. From the Yogācāra viewpoint, this suchness is the true nature of consciousness-only: when all imagined constructions have been eliminated, what appears within the dependent flow is the perfected nature, the suchness of consciousness itself. Consciousness-only therefore encompasses not just the moving stream of mind, but also the non-dual reality realized within it.",
+      "sanskrit": ""
     },
     {
       "chapter": 26,
       "title": "第26颂",
-      "original": "【第26颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第26颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "乃至未起识  求住唯识性  于二取随眠  犹未能伏灭",
+      "modern_chinese": "本颂提醒修行的微细关卡：纵使行者已经欣求住于唯识真如之性，如果对于能取之我、所取之法两种深细随眠习气还未真正伏灭，那么在未起分别识的境界中，这些习气仍可能潜伏，随时复起。故修行不能只停留在观理与一时的寂静，还须长时熏修，渐次伏灭二取根本。",
+      "english": "This verse warns of subtle obstacles on the path. Even when a practitioner aspires to abide in the nature of consciousness-only and seems to rest in a state where discriminating consciousness has not yet arisen, the latent tendencies of grasping at subject and object may still not be fully subdued. As long as these twofold grasping habits remain, they can re-emerge. Practice therefore cannot stop at occasional calm or intellectual understanding; it must be sustained until the very roots of duality are weakened.",
+      "sanskrit": ""
     },
     {
       "chapter": 27,
       "title": "第27颂",
-      "original": "【第27颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第27颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "现前立少物  谓是唯识性  以有所得故  非实住唯识",
+      "modern_chinese": "本颂进一步指出偏差：若在定境中现前安立某种“少分境界”，认为那就是唯识真性，并对此境生起“我已得”的心，这仍属于有所得的执著，并非真正住于唯识。因为只要尚有一法可得、一境可安立，就仍然带有遍计所执的影子，未能彻底离相。",
+      "english": "The verse further clarifies this mistake: if, when a quiet state appears, one takes some limited experience and sets it up as the nature of consciousness-only, thinking “this is it, I have attained it,” this is still grasping at an attainment. So long as there remains anything that is set up and clung to as an object, traces of the imagined nature linger, and one has not genuinely dwelt in consciousness-only.",
+      "sanskrit": ""
     },
     {
       "chapter": 28,
       "title": "第28颂",
-      "original": "【第28颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第28颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "若时于所缘  智都无所得  尔时住唯识  离二取相故",
+      "modern_chinese": "本颂给出真正住唯识的标准：当观智对于一切所缘境都不再有所可得——既不执有境可取，也不执有能取之我——二取相完全止息时，才名为真正住于唯识。此时心不落于有与无、得与不得，而是直证识性本空、万法唯识的中道实相。",
+      "english": "Here the genuine criterion is stated: when wisdom regards whatever appears and finds nothing that can be appropriated—no object to seize and no subject that seizes—then the marks of the twofold grasping have fallen away. At that time one truly abides in consciousness-only, not leaning toward existence or non-existence, gain or loss, but directly realizing the empty nature of consciousness and the middle way reality of all dharmas.",
+      "sanskrit": ""
     },
     {
       "chapter": 29,
       "title": "第29颂",
-      "original": "【第29颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。",
-      "modern_chinese": "第29颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。"
+      "original": "无得不思议  是出世间智  舍二粗重故  便证得转依",
+      "modern_chinese": "本颂说明这种智慧的特点与果德：这种不取一法、无所得的智慧，是出世间无漏智，超出凡情思量，属于“不思议”境界。由于在此智慧中舍离了能取、所取二种粗重执著，原本作为染污根本的阿赖耶识，即得转成清净无漏的根本智，这就叫做“转依”。",
+      "english": "This verse describes the character and fruit of such wisdom. It is a supramundane, non-outflowing knowing that cannot be captured by ordinary thought—it is truly inconceivable. Because in this wisdom the coarse heaviness of grasping at subject and object has been abandoned, the very storehouse consciousness that previously served as the basis of defilement is transformed into a pure, non-outflowing foundational wisdom. This is what is called transformation of the basis.",
+      "sanskrit": ""
     },
     {
       "chapter": 30,
       "title": "第30颂",
-      "original": "即依此三性，立彼三无性，故佛密意说，一切法无性。",
-      "modern_chinese": "第三十颂总结三性与三无性的关系。即依遍计所执性、依他起性、圆成实性这三种性，建立相无性、生无性、胜义无性这三种无性。这是佛陀的密意说，所以说一切法无性。"
+      "original": "此即无漏界  不思议善常  安乐解脱身  大牟尼名法",
+      "modern_chinese": "最后一颂总结果德：转依之后所显现的，就是无漏法界——一种超越分别、不可思议而又极致善妙、恒常安稳的境界。由此所成就的是安乐解脱之身，即佛陀与菩萨所证得的法身果德。佛陀、大牟尼所宣说的正法，正是引导众生由识之流转，入于此无漏界的道路。",
+      "english": "The final verse summarizes the fruit. What appears after the transformation of the basis is the non-outflowing realm, an inconceivable, supremely wholesome, and enduringly peaceful domain. On its foundation arises the body of liberation, the joyful freedom of the Buddha and great bodhisattvas—the Dharma body endowed with all qualities. The teaching of the Great Sage, the Buddha, is precisely the path that leads beings from the shifting stream of consciousness into this stainless realm.",
+      "sanskrit": ""
     }
   ]
 }

@@ -6,6 +6,21 @@
     <title>第60章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter60.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter60.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter60.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="治理大国要像烹小鱼一样，不能经常翻动&#10;原文：治大国，若烹小鲜">
-                <span class="idiom-word">治大国若烹小鲜</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="治理大国要像烹小鱼一样，不能经常翻动&#10;原文：治大国，若烹小鲜">
+            <span class="idiom-word">治大国若烹小鲜</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,50 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">不扰也．躁则多害静则全眞．故其国弥大而其主弥静．然后乃能广得众心矣．治大国则若烹小鲜．以道莅天下则其鬼不神也．神不害自然也．物守自然则神无所加．神无所加则不知神之为神也．道洽则神不伤人．神不伤人则不知神之为神也．道洽则圣人亦不伤人．圣人不伤人则亦不知圣人之为圣也．犹云非独不知神之为神．亦不知圣人之为圣也．夫恃威网以使物者治之衰也．使不知神圣之为神圣道之极也．神不伤人圣人亦不伤人．圣人不伤人神亦不伤人．故曰两不相伤也．神圣合道交归之也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">治大國若烹小鮮。鮮，魚。烹小魚不去腸，不去鱗，不敢撓，恐其糜也。治國煩則下亂，治身煩則精散。以道涖天下，其鬼不神；以道德居位，治天下則鬼不敢見，其精神以犯人也。非其鬼不神，其神不傷人；其鬼非無精神也，邪不入正，不能傷自然之人。非其神不傷人，聖人亦不傷人。非鬼神不能傷害人，以聖人在位，不傷害人，故鬼不敢干之也。夫兩不相傷，鬼與聖人俱，兩不相傷也。故德交歸焉。夫兩不相傷，人得治於陽，鬼得治於陰，人得全其性命，鬼得保其精神，故德交歸焉。
-謙德六十一
-大國者下流，治大國，當如居下流，不逆細微。天下之交。大國天下士民之所交會。天下之牝，牝者，陰類也。柔謙和而不昌也。牝常以靜勝牡，女所以勝屈於男，陰勝陽以安靜，不先求之也。以靜為下。陰道以安靜為謙下。故大國以下小國，則取小國；能謙下之，則常有之。○下，去聲。取，平聲，又去聲。小國以下大國，則取大國。此言國無大小，能執謙畜，人則無過失也。故或下以取，或下而取。下者謂大國以下小國，小國以下大國，更以義相取。大國不過欲兼畜人，大過不可失則，兼并人國，而牧畜之。○過，平聲，又去聲。小國不過欲入事人。使為臣僕。夫兩者各得其所欲，大者宜為下。大國小國，各欲得其所。大國又宜為謙下。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">動天下之形，猶餘其氣；動天下之氣，動無餘矣。「烹小鮮」而撓之，未嘗傷小鮮也，而氣已傷矣。傷其氣，氣遂逆起而報之。夫天下有「鬼神」，揉治亂於無形；吾身有「鬼神」，燥生死於無形。殺機一動，龍蛇起陸，而生德戕焉。靜則無，動則有，神則「傷人」，可畏哉！「載營魄抱一而不離」，與相保於水之未波。豈有以治天下哉？「蒞」之而已。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言天道之妙，以明聖人法天以制用也。弓之為物，本弣高而有餘，弰下而不足，乃弛而不用也。及張而用之，則抑高舉下，損弣有餘之力，以補弰之不足。上下均停，然後巧於中的。否則由基逢蒙，無所施其巧矣。天之道亦猶是也。以其但施而不受，皆損一氣之有餘，以補萬物之不足，均調適可，故各遂其生。人道但受而不施，故人主以天下奉一己。皆損百姓之不足，以補一人之有餘，裒寡益多，故民不堪其命。誰能損有餘以奉天下哉。唯有道者，達性分之至足，一身之外皆餘物也。故堯舜有天下而不與，即以所養而養民，乃能以有餘奉不足也。是以聖人與道為一，與天為徒。故法天制用，雖為而不恃其能，雖成而不居其功，此損之至也。損之至，故天下樂推而不厭。雖不欲見賢，不可得也。其不欲見賢耶一句，謂我心本不欲見賢，而人自以我為賢矣。此益也，由損而至。故唯天為大，唯堯則之，此之謂也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -747,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Governing a large state is like boiling a small fish. When the empire is ruled in accordance with the way, The spirits lose their potencies. Or rather, it is not that they lose their potencies, But that, though they have their potencies, they do not harm the people. It is not only they who, having their potencies, do not harm the people, The sage, also, does not harm the people. As neither does any harm, each attributes the merit to the other.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Ruling a large state is like cooking small fish. 2. When you use the Way to govern the world, evil spirits won't have godlike power. 3. Actually, it's not that evil spirits won't have godlike power, 4. It's that their power will not harm men. 5. But it's not [just] that their power won't harm men, 6. The Sage, also, will not harm them. 7. Since these two do not harm others, 8. Therefore their Virtues intermingle and return to them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Governing a large state is like cooking a small fish. When the way is used to approach the world, ghosts have no power. Not only do ghosts have no power, but the spirits do not harm people. Not only do spirits not harm people, but the sage also does not harm people. When neither harms the other, virtue converges and returns to its root.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Ruling a large kingdom is indeed like cooking small fish. They who by Tao all that is under heaven Did not let an evil spirit within them display its powers. Nay, it was not only that the evil spirit did not display its powers; Neither was the Sage's good spirit used to the hurt of other men. Nor was it only that his good spirit was not used to harm other men, The Sage himself was thus saved from harm. And so, each being saved from harm, Their "powers" could converge towards a common end.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第60章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Governing a large country is like frying a small fish. You spoil it with too much poking. Center your country in the Tao and evil will have no power. Not that it isn't there, but you'll be able to step out of its way. Give evil nothing to oppose and it will disappear by itself.</p>
                     </div>
                 </div>
             </div>

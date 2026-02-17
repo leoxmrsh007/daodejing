@@ -6,6 +6,21 @@
     <title>宝命全形论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter25.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter25.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter25.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter25.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter25.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter25.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="指大道的运行法则遵循自然规律，不加人为干预&#10;原文：人法地，地法天，天法道，道法自然">
-                <span class="idiom-word">道法自然</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="指大道的运行法则遵循自然规律，不加人为干预&#10;原文：人法地，地法天，天法道，道法自然">
+            <span class="idiom-word">道法自然</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -681,8 +696,8 @@
                 <div class="original-text" id="originalText">
                     二十五
 黄帝问曰：天复地载，万物悉备，莫贵于人。人以天地之气生，四时之法成，君王众庶，尽欲全形，形之疾病，莫知其情，留淫日深，着于骨髓，心私虑之。余欲针除其疾病，为之奈何？岐伯对曰：夫盐之味咸者，其气令<span class="difficult" data-pinyin="qì" data-meaning="器具">器</span>津泄；弦绝者，其音嘶败；木敷者，其叶发；病深者，其声哕。人有此三者，是谓坏府，毒药无治，短针无取，此皆绝皮伤肉，血气争黑。
-帝曰：余念其痛，心为之乱惑，反甚其病，不可更代，百姓闻之，以为残贼，为之奈何？岐伯曰：夫人生于地，悬命于天，天地合气，命之曰人。人能应四时者，天地为之父母；知万物者，谓之天子。天有阴阳，人有十二节；天有寒暑，人有虚实。能经天地阴阳之化者，不失四时；知十二节之理者，圣智不能欺也；能存八动之变，五胜更立；能达虚实之数者，独出独入，呿吟至微，秋毫在目。
-帝曰：人生有形，不离阴阳，天地合气，别为九野，分为四时，月有小大，日有短长，万物并至，不可胜量，虚实呿吟，敢问其方？岐伯曰：木得金而伐，火得水而灭，土得木而达，金得火而缺，水得土而绝，万物尽然，不可胜竭。故针有悬布天下者五，黔首共余食，莫知之也。一曰治神，二曰知养身，三曰知毒药为真，四曰制砭石小大，五曰知府藏血气之诊。五法俱立，各有所先。今末世之刺也，虚者实之，满者泄之，此皆众工所共知也。若夫法天则地，随应而动，和之者若响，随之者若影，道无鬼神，独来独往。
+帝曰：余念其痛，心为之乱惑，反甚其病，不可更代，百姓闻之，以为残贼，为之奈何？岐伯曰：夫人生于地，悬命于天，天地合气，命之曰人。人能应四时者，天地为之父母；知万物者，谓之天子。天有<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，人有十二节；天有寒暑，人有虚实。能经天地<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>之化者，不失四时；知十二节之理者，圣智不能欺也；能存八动之变，五胜更立；能达虚实之数者，独出独入，呿吟至微，秋毫在目。
+帝曰：人生有形，不离<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，天地合气，别为九野，分为四时，月有小大，日有短长，万物并至，不可胜量，虚实呿吟，敢问其方？岐伯曰：木得金而伐，火得水而灭，土得木而达，金得火而缺，水得土而绝，万物尽然，不可胜竭。故针有悬布天下者五，黔首共余食，莫知之也。一曰治神，二曰知养身，三曰知毒药为真，四曰制砭石小大，五曰知府藏血气之诊。五法俱立，各有所先。今末世之刺也，虚者实之，满者泄之，此皆众工所共知也。若夫法天则地，随应而动，和之者若响，随之者若影，道无鬼神，独来独往。
 帝曰：愿闻其道。岐伯曰：凡刺之真，必先治神，五藏已定，九候已备，后乃存针，众脉不见，众凶弗闻，外内相得，无以形先，可玩往来，乃施于人。人有虚实，五虚勿近，五实勿远，至其当发，间不容瞚。手动若务，针耀而匀，静意视义，观适之变，是谓<span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，莫知其形，见其乌乌，见其稷稷，从见其飞，不知其谁，伏如横弩，起如发机。
 帝曰：何如而虚？何如而实？岐伯曰：刺实者须其虚，刺虚者须其实，经气已至，慎守勿失，深浅在志，远近若一，如临深<span class="difficult" data-pinyin="yuān" data-meaning="深沉，深潭">渊</span>，手如握虎，神无营于众物。
                 </div>
@@ -696,7 +711,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇以“保命全形”为宗，主张顺四时、节嗜欲、调情志、慎起居以保全形神；观色脉以早识吉凶，治当从根本以和营卫、通闭塞。临床意义：倡导治未病与治已病并重，重生活方式与医药同轨，循时令设补泻，使形神相保、寿命延长。</p>
             </div>
         </div>
     </section>
@@ -708,19 +723,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">A regimen for preserving life and the intact form: align with seasons, moderate flavors and desires, regulate emotions and daily conduct, and read color‑pulse for auspicious and ominous signs. Therapy seeks the root, harmonizing ying and wei and opening blockages.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">An exhortation to ‘preserve mandate and keep the full form’: conform to time, govern intake and feelings, and watch colors and pulses for portents. Treatment rectifies the root and restores harmony between construction and defense, joining lifestyle and medicine.</p>
                     </div>
                 </div>
             </div>

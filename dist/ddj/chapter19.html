@@ -6,6 +6,21 @@
     <title>第19章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter19.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter19.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter19.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter19.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter19.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter19.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="减少私心和欲望&#10;原文：见素抱朴，少私寡欲">
-                <span class="idiom-word">少私寡欲</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="保持淳朴的本性，不炫耀&#10;原文：见素抱朴，少私寡欲">
-                <span class="idiom-word">抱朴守拙</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="减少私心和欲望&#10;原文：见素抱朴，少私寡欲">
+            <span class="idiom-word">少私寡欲</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="保持淳朴的本性，不炫耀&#10;原文：见素抱朴，少私寡欲">
+            <span class="idiom-word">抱朴守拙</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -700,48 +715,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">圣智才之善也．仁义行之善也．巧利用之善也．而直云絶．文甚不足．不令之有所属．无以见其指．故曰此三者以为文而未足．故令人有所属．属之于素朴寡欲.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">絕聖絕聖制作，反初守元，五帝垂象，蒼頡作書，不如三皇結繩無文。棄智，棄智惠，反無為。民利百倍；農事脩，公無私。絕仁棄義，絕仁之見恩惠，棄義之尚華信。民復孝慈；德化淳也。絕巧棄利，絕巧者，詐偽亂真也。棄利者，塞貪路，閉權門也。盜賊無有。上化公政，下無邪私。此三者謂上三事所棄絕也。以為文不足。以為文不足者，文不足以教民。故令有所屬﹕當如下句。○令，平聲。屬，音燭。見素抱朴，見素者，當抱素守真，不尚文飾也，抱朴者，當見其篤朴以示下，故可法則。○見，音現。少私寡欲。少私者，正無私也。寡欲者，當知足也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">「綿綿若存」，其有所屬乎！故魚遊而水乘之，鳥飛而空憑之。含天下之文者，莫大乎素；資天下之不足者，莫大於樸。以為有，而固未親乎用；以為無，而人與天之相親者在此也。綴乎和以致生，是以能長生。離乎和以專用，是以無大用。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承前章而言智不可用，亦不足以治天下也。然中古聖人，將謂百姓不利，乃為斗斛權衡符璽仁義之事，將利於民，此所謂聖人之智巧矣。殊不知民情日鑿，因法作奸。就以斗斛權衡符璽仁義之事，竊以為亂。方今若求復古之治，須是一切盡去，端拱無為，而天下自治矣。且聖智本欲利民，今既竊以為亂，反為民害。棄而不用，使民各安其居，樂其業，則享百倍之利矣。且仁義本為不孝不慈者勸，今既竊之以為亂，苟若棄之，則民有天性自然之孝慈可復矣。此即莊子所謂虎狼仁也。意謂虎狼亦有天性之孝慈，不待教而後能。況其人為物之靈乎。且智巧本為安天下，今既竊為盜賊之資，苟若棄之，則盜賊無有矣。然聖智仁義智巧之事，皆非樸素，乃所以文飾天下也。今皆去之，似乎於文則不定，於樸素則有餘。因世人不知樸素渾全之道，故逐逐於外物，故多思多欲。今既去華取實，故令世人心志，有所係屬於樸素之道。若人人果能見素抱樸，則自然少思寡欲矣。若知老子此中道理，只以莊子馬蹄胠篋作註解，自是超足。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -749,19 +722,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Exterminate learning and there will no longer be worries. Exterminate the sage, discard the wise, And the people will benefit a hundredfold; Exterminate benevolence, discard rectitude, And the people will again be filial; Exterminate ingenuity, discard profit, And there will be no more thieves and bandits. These three, being false adornments, are not enough And the people must have something to which they can attach themselves: Exhibit the unadorned and embrace the uncarved block, Have little thought of self and as few desires as possible.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Eliminate sageliness, throw away knowledge, 2. And the people will benefit a hundredfold. 3. Eliminate humanity, throw away righteousness, 4. And the people will return to filial piety and compassion. 5. Eliminate craftiness, throw away profit, 6. Then we will have no robbers and thieves. 7. These three sayings — 8. Regard as a text are not yet complete. 9. Thus, we must see to it that they have the following appended: 10. Manifest plainness and embrace the genuine; 11. Lessen self-interest and make few your desires; 12. Eliminate learning and have no undue concern.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Reject wisdom, discard intelligence, the people benefit a hundredfold. Reject benevolence, discard righteousness, the people return to filial piety and compassion. Reject skill, discard profit, thieves and robbers disappear. These three are not enough. Therefore let people belong to this: see simplicity, embrace the uncarved block, reduce selfishness, decrease desire.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Banish wisdom, discard knowledge, And the people will be benefited a hundredfold. Banish human kindness, discard morality, And the people will be dutiful and compassionate. Banish skill, discard profit, And thieves and robbers will disappear. If when these three things are done they find life too plain and unadorned, Then let them have accessories; Give them Simplicity to look at, the Uncarved Block to hold, Give them selflessness and fewness of desires. Banish learning, and there will be no more grieving.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第19章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Throw away holiness and wisdom, and people will be a hundred times happier. Throw away morality and justice, and people will do the right thing. Throw away industry and profit, and there won't be any thieves. If these three aren't enough, just stay at the center of the circle and let all things take their course.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>征四失论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter78.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter78.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="柔弱的东西能战胜刚强的东西&#10;原文：天下莫柔弱于水，而攻坚强者莫之能胜">
-                <span class="idiom-word">弱之胜强</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="用柔弱战胜刚强&#10;原文：天下莫柔弱于水，而攻坚强者莫之能胜">
-                <span class="idiom-word">以柔克刚</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="柔弱的东西能战胜刚强的东西&#10;原文：天下莫柔弱于水，而攻坚强者莫之能胜">
+            <span class="idiom-word">弱之胜强</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="用柔弱战胜刚强&#10;原文：天下莫柔弱于水，而攻坚强者莫之能胜">
+            <span class="idiom-word">以柔克刚</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -684,7 +699,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     七十八
-黄帝在明堂，雷公侍坐，黄帝曰：夫子所通书受事众多矣，试言得失之意，所以得之，所以失之。雷公对曰：循经受业，皆言十全，其时有过失者，请闻其事解也。帝曰：子年少智未及邪？将言以杂合耶？夫经脉十二，络脉三百六十五，此皆人之所明知，工之所循用也。所以不十全者，精神不专，志意不理，外内相失，故时疑殆。诊不知阴阳逆从之理，此治之一失矣。受师不卒，妄作杂术，谬言为道，更名自功，妄用砭石，后遗身咎，此治之二失也。不适贫富贵贱之居，坐之薄厚，形之寒温，不适饮食之宜，不别人之勇怯，不知比类，足以自乱，不足以自明，此治之三失也。诊病不问其始，忧患饮食之失节，起居之过度，或伤于毒，不先言此，卒持寸口，何病能中，妄言作名，为粗所穷，此治之四失也。是以世人之语者，驰千里之外，不明尺寸之论，诊无人事。治数之道，从容之葆，坐持寸口，诊不中五脉，百病所起，始以自怨，遗师其咎。是故治不能循理，弃术于市，妄治时愈，愚心自得。呜呼！<span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，孰知其道？！道之大者，拟于天地，配于四海，汝不知道之谕，受以明为晦。
+黄帝在明堂，雷公侍坐，黄帝曰：夫子所通书受事众多矣，试言得失之意，所以得之，所以失之。雷公对曰：循经受业，皆言十全，其时有过失者，请闻其事解也。帝曰：子年少智未及邪？将言以杂合耶？夫<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>十二，<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>三百六十五，此皆人之所明知，工之所循用也。所以不十全者，精神不专，志意不理，外内相失，故时疑殆。诊不知<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>逆从之理，此治之一失矣。受师不卒，妄作杂术，谬言为道，更名自功，妄用砭石，后遗身咎，此治之二失也。不适贫富贵贱之居，坐之薄厚，形之寒温，不适饮食之宜，不别人之勇怯，不知比类，足以自乱，不足以自明，此治之三失也。诊病不问其始，忧患饮食之失节，起居之过度，或伤于毒，不先言此，卒持寸口，何病能中，妄言作名，为粗所穷，此治之四失也。是以世人之语者，驰千里之外，不明尺寸之论，诊无人事。治数之道，从容之葆，坐持寸口，诊不中五脉，百病所起，始以自怨，遗师其咎。是故治不能循理，弃术于市，妄治时愈，愚心自得。呜呼！<span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="yǎo" data-meaning="深远，不见踪影">窈</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span><span class="difficult" data-pinyin="míng" data-meaning="幽暗，深不可测">冥</span>，孰知其道？！道之大者，拟于天地，配于四海，汝不知道之谕，受以明为晦。
 第二十四
                 </div>
             </div>
@@ -697,7 +712,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇进一步总结医道实践中的“四失”：不明阴阳逆从之理；学未卒业而妄作杂术、自立名目；诊治时不顾贫富寒温、勇怯差异；以及不问发病之始与饮食起居失节，只是仓促持寸口立名。作者慨叹世人不求尺寸之论，而驰想千里之外。临床意义：提醒学习与行医之人要扎实根基、循经守数，重视问诊与病史收集，因人制宜，方能避免治病反伤与弃术于市的悲剧。</p>
             </div>
         </div>
     </section>
@@ -709,19 +724,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Identifies four kinds of failure among physicians: ignorance of yin–yang order, incomplete training coupled with arrogant innovation, disregard for patients’ conditions and resources, and neglect of careful inquiry into the beginnings of illness. All result in unreliable diagnosis and therapy.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A companion to the ‘five excesses’ chapter, this text laments four ‘losses’ in the transmission of the art. It rebukes those who seize on fashion and reputation instead of studying the canons, questioning patients, and aligning practice with the fine measures of pulse and conduct.</p>
                     </div>
                 </div>
             </div>

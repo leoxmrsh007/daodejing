@@ -6,6 +6,21 @@
     <title>标本病传论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter65.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter65.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     六十五
-黄帝问曰：病有标本，刺有逆从奈何？岐伯对曰：凡刺之方，必别阴阳，前后相应，逆从得施，标本相移，故曰有其在标而求之于标，有其在本而求之于本，有其在本而求之于标，有其在标而求之于本。故治有取标而得者，有取本而得者，有逆取而得者，有从取而得者。故知逆与从，正行无问，知标本者，万举万当，不知标本，是谓妄行。夫阴阳逆从标本之为道也，小而大，言一而知百病之害，少而多，浅而博，可以言一而知百也。以浅而知深，察近而知远，言标与本，易而勿及。治反为逆，治得为从。先病而后逆者治其本，先逆而后病者治其本；先寒而后生病者治其本，先病而后生寒者治其本；先热而后生病者治其本，先热而后生中满者治其标；先病而后泄者治其本，先泄而后生他病者治其本，必且调之，乃治其他病；先病而后生中满者治其标，先中满而后烦心者治其本。人有客气有同气。小大不利治其标，小大利治其本。病发而有余，本而标之，先治其本，后治其标。病发而不足，标而本之，先治其标，后治其本。谨察间甚，以意调之，间者并行，甚者独行。先小大不利而后生病者治其本。夫病传者，心病先心痛，一日而咳，三日胁支痛，五日闭塞不通，身痛体重，三日不已死，冬夜半，夏日中。肺病喘咳，三日而胁支满痛，一日身重体痛，五日而胀，十日不已死，冬日入，夏日出。肝病头目眩胁支满，三日体重身痛，五日而胀，三日腰脊少腹痛，胫痠，三日不已死，冬日入，夏早食。脾病身痛体重，一日而胀，二日少腹腰脊痛，胫痠，三日背<月吕>筋痛，小便闭，十日不已死，冬人定，夏晏食。肾病少腹腰脊痛，<骨行>痠，三日背<月吕>筋痛，小便闭，三日腹胀，三日两胁支痛，三日不已死，冬大晨，夏晏晡。胃病胀满，五日少腹腰脊痛，<骨行>痠，三日背<月吕>筋痛，小便闭，五日身体重，六日不已死，冬夜半后，夏日昳。膀胱病小便闭，五日少腹胀，腰脊痛，<骨行>痠，一日腹胀，一日身体痛，二日不已死，冬鸡鸣，夏下晡。诸病以次相传，如是者，皆有死期，不可刺。间一藏止，及至三四藏者，乃可刺也。
+黄帝问曰：病有标本，刺有逆从奈何？岐伯对曰：凡刺之方，必别<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，前后相应，逆从得施，标本相移，故曰有其在标而求之于标，有其在本而求之于本，有其在本而求之于标，有其在标而求之于本。故治有取标而得者，有取本而得者，有逆取而得者，有从取而得者。故知逆与从，正行无问，知标本者，万举万当，不知标本，是谓妄行。夫<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>逆从标本之为道也，小而大，言一而知百病之害，少而多，浅而博，可以言一而知百也。以浅而知深，察近而知远，言标与本，易而勿及。治反为逆，治得为从。先病而后逆者治其本，先逆而后病者治其本；先寒而后生病者治其本，先病而后生寒者治其本；先热而后生病者治其本，先热而后生中满者治其标；先病而后泄者治其本，先泄而后生他病者治其本，必且调之，乃治其他病；先病而后生中满者治其标，先中满而后烦心者治其本。人有客气有同气。小大不利治其标，小大利治其本。病发而有余，本而标之，先治其本，后治其标。病发而不足，标而本之，先治其标，后治其本。谨察间甚，以意调之，间者并行，甚者独行。先小大不利而后生病者治其本。夫病传者，心病先心痛，一日而咳，三日胁支痛，五日闭塞不通，身痛体重，三日不已死，冬夜半，夏日中。肺病喘咳，三日而胁支满痛，一日身重体痛，五日而胀，十日不已死，冬日入，夏日出。肝病头目眩胁支满，三日体重身痛，五日而胀，三日腰脊少腹痛，胫痠，三日不已死，冬日入，夏早食。脾病身痛体重，一日而胀，二日少腹腰脊痛，胫痠，三日背<月吕>筋痛，小便闭，十日不已死，冬人定，夏晏食。肾病少腹腰脊痛，<骨行>痠，三日背<月吕>筋痛，小便闭，三日腹胀，三日两胁支痛，三日不已死，冬大晨，夏晏晡。胃病胀满，五日少腹腰脊痛，<骨行>痠，三日背<月吕>筋痛，小便闭，五日身体重，六日不已死，冬夜半后，夏日昳。膀胱病小便闭，五日少腹胀，腰脊痛，<骨行>痠，一日腹胀，一日身体痛，二日不已死，冬鸡鸣，夏下晡。诸病以次相传，如是者，皆有死期，不可刺。间一藏止，及至三四藏者，乃可刺也。
 卷十九
                 </div>
             </div>
@@ -689,7 +704,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇确立“标本、逆从、病传”之纲：先辨属标属本，再定从治或逆治；描述心肺肝脾肾及腑病传变的时间序列和可刺/不可刺之戒。临床意义：按先后寒热、泄满、大小便等主症判标本，急则治标、缓则治本，识别病传至几藏之危候以定止刺与预后。</p>
             </div>
         </div>
     </section>
@@ -701,19 +716,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Establishes rules for branch/root and for treating with/against the flow, and charts transmission sequences across viscera with do‑not‑needle periods. Clinical use: decide branch vs. root by onset and primaries (cold/heat, diarrhea/fullness) and gauge prognosis by stages.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A doctrine of 标/本 and propagation. Management alternates between branch and root; staging determines intervention and contraindications.</p>
                     </div>
                 </div>
             </div>

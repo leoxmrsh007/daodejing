@@ -6,6 +6,21 @@
     <title>经络论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter57.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter57.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter57.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     五十七
-黄帝问曰：夫络脉之见也，其五色各异，青黄赤白黑不同，其故何也？岐伯对曰：经有常色而络无常变也。帝曰：经之常色何如？岐伯曰：心赤，肺白，肝青，脾黄，肾黑，皆亦应其经脉之色也。帝曰：络之阴阳，亦应其经乎？岐伯曰：阴络之色应其经，阳络之色变无常，随四时而行也。寒多则凝泣，凝泣则青黑，热多则淖泽，淖泽则黄赤，此皆常色，谓之无病。五色具见者，谓之寒热。帝曰：善。
+黄帝问曰：夫<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>之见也，其五色各异，青黄赤白黑不同，其故何也？岐伯对曰：经有常色而络无常变也。帝曰：经之常色何如？岐伯曰：心赤，肺白，肝青，脾黄，肾黑，皆亦应其<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>之色也。帝曰：络之<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，亦应其经乎？岐伯曰：阴络之色应其经，阳络之色变无常，随四时而行也。寒多则凝泣，凝泣则青黑，热多则淖泽，淖泽则黄赤，此皆常色，谓之无病。五色具见者，谓之寒热。帝曰：善。
                 </div>
             </div>
         </div>
@@ -688,7 +703,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇总论经络系统：十二经与络脉循行、主病与表里联系。临床意义：循经定位病位，按经取穴调和气血、通达闭阻。</p>
             </div>
         </div>
     </section>
@@ -700,19 +715,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Summarizes twelve channels and network vessels, their courses, ties, and disorders, forming the map for locating and treating disease.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A synopsis of channels and collaterals—their trajectories and functions as the framework for therapy.</p>
                     </div>
                 </div>
             </div>

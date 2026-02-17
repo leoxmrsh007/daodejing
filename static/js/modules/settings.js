@@ -7,6 +7,8 @@
         // 从URL参数恢复设置
         loadSettingsFromUrl();
 
+        initSpeechVoiceSelect();
+
         if (window.SettingsManager && typeof window.SettingsManager.init === 'function') {
             return;
         }
@@ -380,51 +382,67 @@
                 localStorage.setItem('daodejing_openai_key', this.value);
             });
         }
+    }
 
-        // ===== 语音朗读设置 =====
+    function initSpeechVoiceSelect() {
         const browserVoice = document.getElementById('browserVoice');
-        if (browserVoice) {
-            // 加载可用语音
-            if ('speechSynthesis' in window) {
-                const loadVoices = function() {
-                    const voices = window.speechSynthesis.getVoices();
-                    browserVoice.innerHTML = '';
+        if (!browserVoice) {
+            return;
+        }
 
-                    const zhVoices = voices.filter(function(v) {
-                        return v.lang.startsWith('zh') || v.lang.startsWith('cmn');
-                    });
+        if (!('speechSynthesis' in window)) {
+            return;
+        }
 
-                    if (zhVoices.length > 0) {
-                        zhVoices.forEach(function(voice) {
-                            const option = document.createElement('option');
-                            option.value = voice.lang;
-                            option.textContent = voice.name + ' (' + voice.lang + ')';
-                            browserVoice.appendChild(option);
-                        });
-                    } else {
-                        // 没有中文语音时添加默认选项
-                        browserVoice.innerHTML = '<option value="zh-CN">中文(简体)</option>' +
-                                                '<option value="zh-TW">中文(繁体)</option>' +
-                                                '<option value="zh-HK">粤语</option>';
+        const loadVoices = function() {
+            const voices = window.speechSynthesis.getVoices();
+            browserVoice.innerHTML = '';
+
+            if (voices && voices.length > 0) {
+                const priorityCodes = [
+                    'nan','zh-min-nan','minnan','nan-TW',      // 闽南语
+                    'yue','zh-HK','zh-yue',                   // 粤语
+                    'ja','ja-JP',                             // 日语
+                    'en','en-US','en-GB'                      // 英语
+                ];
+                const score = function(v) {
+                    const lang = (v.lang || '').toLowerCase();
+                    const name = (v.name || '').toLowerCase();
+                    let base = 10;
+                    for (let i = 0; i < priorityCodes.length; i++) {
+                        if (lang.includes(priorityCodes[i]) || name.includes('yue') || name.includes('cantonese') || name.includes('hokkien') || name.includes('min nan')) {
+                            base = Math.min(base, i);
+                        }
                     }
+                    // Microsoft 优先
+                    const msBoost = name.includes('microsoft') ? -5 : 0;
+                    return base + msBoost;
                 };
-
-                // 某些浏览器需要等待
-                if (window.speechSynthesis.onvoiceschanged !== undefined) {
-                    window.speechSynthesis.onvoiceschanged = loadVoices;
-                }
-                loadVoices();
+                voices.sort((a,b)=>score(a)-score(b));
+                voices.forEach(function(voice) {
+                    const option = document.createElement('option');
+                    option.value = voice.lang + '|' + voice.name;
+                    option.textContent = voice.name + ' (' + voice.lang + ')';
+                    browserVoice.appendChild(option);
+                });
+            } else {
+                browserVoice.innerHTML = '<option value="">当前浏览器未提供语音引擎</option>';
             }
-
-            browserVoice.addEventListener('change', function() {
-                localStorage.setItem('daodejing_browser_voice', this.value);
-            });
 
             const savedVoice = localStorage.getItem('daodejing_browser_voice');
             if (savedVoice) {
                 browserVoice.value = savedVoice;
             }
+        };
+
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = loadVoices;
         }
+        loadVoices();
+
+        browserVoice.addEventListener('change', function() {
+            localStorage.setItem('daodejing_browser_voice', this.value);
+        });
     }
 
     // 应用阅读模式
@@ -592,56 +610,6 @@
                 console.log('生成引用卡片功能');
                 alert('生成引用卡片功能开发中');
             });
-        }
-
-        // 暗黑模式切换
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            const html = document.documentElement;
-            const currentTheme = localStorage.getItem('theme') || 'auto';
-
-            // 恢复保存的主题
-            if (currentTheme !== 'auto') {
-                html.setAttribute('data-theme', currentTheme);
-                updateThemeIcon(currentTheme);
-            }
-
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-theme') || 'auto';
-                let newTheme;
-
-                if (currentTheme === 'light') {
-                    newTheme = 'dark';
-                } else if (currentTheme === 'dark') {
-                    newTheme = 'auto';
-                } else {
-                    newTheme = 'light';
-                }
-
-                if (newTheme === 'auto') {
-                    html.removeAttribute('data-theme');
-                    localStorage.removeItem('theme');
-                } else {
-                    html.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                }
-
-                updateThemeIcon(newTheme);
-                console.log('主题已切换为:', newTheme);
-            });
-
-            function updateThemeIcon(theme) {
-                const icon = themeToggle.querySelector('.theme-icon');
-                if (icon) {
-                    if (theme === 'dark') {
-                        icon.textContent = '☀️';
-                    } else if (theme === 'light') {
-                        icon.textContent = '🌙';
-                    } else {
-                        icon.textContent = '🌓';
-                    }
-                }
-            }
         }
     }
 })();

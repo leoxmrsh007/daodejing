@@ -6,6 +6,21 @@
     <title>第27章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter27.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter27.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter27.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter27.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter27.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter27.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">顺自然而行．不造不始．故物得至．而无辙迹也．顺物之性．不别不析．故无瑕谪可得其门也．因物之数．不假形也．因物自然．不设不施．故不用关楗．绳约而不可开解也．此五者皆言不造不施因物之性不以形制物也．圣人不立形名以检于物．不造进向以殊弃不肖．辅万物之自然而不为始．故曰无弃人也．不尚贤能．则民不争．不贵难得之货．则民不为盗．不见可欲．则民心不乱．常使民心无欲无惑．则无弃人也．举善以齐不善．故谓之师矣．资取也．善人以善齐不善．不以善弃不善也．故不善人善人之所取也．虽有其智．自任其智．不因物于其道必失．故曰虽智大迷.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">善行無轍迹，善行道者，求之於身，不下堂，不出門，故無轍跡。行，去聲。善言無瑕讁；善言謂擇言而出則無瑕疵，讁過於天下也。○瑕，音遐。讁，直革反。善計不用籌策；善以道計事者，則守一不移，所計不多則不用籌策而可知也。○籌，音儔。善閉無關揵而不可開，善以道閉情欲、守精神者，不如門戶有關揵可得開。○揵，音鍵。善結無繩約而不可解。善以道結事者，乃可結其心，不如繩索可得解也。是以聖人常善救人，聖人所以常教人忠孝者，欲以救人在命。故無棄人；使貴賤各得其所也。常善救物，聖人所以教民順四時以救萬物之殘傷。故無棄物。聖人不賤石而貴玉，視之如一。是謂襲明。聖人善救人物，謂襲明大道也。故善人者，不善人之師；人之行善者，聖人即以為人師。不善人者，善人之資。資，用也。人行不善，聖人猶教導使為善，得以給用也。不貴其師，獨無輔也。不愛其資，無所使也。雖智大迷，雖自以為智言，此人乃大迷惑。是謂要妙。能通此意，是謂知微妙要道也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">我之有明，非明也，又況投明於物，絜其長短以為耀乎？故鳥窒於實，蚓困於空，魚窮於陸，固其獲，而未知不得者之可為得也。我欲勝之，勿往絜之。萬物飾其形以相求，或逃其美以相激，咸潛測其根柢，掩而有之，則物投我而我不投物。眾實求給，一虛無間，故善惡之意消，而言行閉結之所攝者，要妙不可窺矣。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人善入塵勞，過化存神之妙也。轍跡，猶言痕跡。世人皆以人我對待，動與物競，彼此不忘，故有痕跡。聖人虛己遊世，不與物忤，任物之自然，所謂忘於物者物亦忘之。彼此兼忘，此行之善者。故無轍跡。瑕謫，謂是非辨別，指瑕謫疵之意。聖人無意必固我。因人之言。然，然。不然，不然。可，可。不可，不可。未嘗堅白同異，此言之善者，故無瑕謫。籌策，謂揣摩進退，算計得失利害之意。聖人無心御世，迫不得已而後應，曾無得失之心。然死生無變於己，而況利害之端乎。此計之善者，故不用籌策。關鍵，閉門之具。猶言機關也。世人以巧設機關，籠羅一世，將謂機密而不可破。殊不知能設之，亦有能破之者。歷觀古之機詐相尚之士，造為勝負者，皆可破者也。唯聖人忘機待物，在宥群生。然以道為密，不設網羅，而物無所逃。此閉之善者，所謂天下莫能破。故無關鍵而不可開。繩約，謂繫屬之意。世人有心施恩，要以結屬人心。殊不知有可屬，亦有可解。然有心之德，使人雖感而易忘，所謂賊莫大於德有心。聖人大仁不仁，利澤施乎一世，而不為己功，且無望報之心，故使人終古懷之而不忘。此結之善者，故無繩約而不可解。是以聖人處世，無不可化之人，有教無類，故無棄人。無不可為之事，物各有理，故無棄物。物，猶事也。如此應用，初無難者，不過承其本明，因之以通其蔽耳。故曰襲明。襲，承也。猶因也。莊子庖丁游刃解牛，因其固然，動刀甚微，劃然已解。意出於此。觀留侯躡足附耳，因偶語而乞封，借四皓而定漢，以得老氏之用。故其因事處事，如此之妙，可謂善救者也。其他孰能與之。故世之善人，不善人之師。不善人，善人之資。由其飾智矜愚，修身明汙，故皆知師之可貴。擇類而教，樂得而育，故皆知資之可愛。若夫聖人為舉世師保，而不知其師之可貴。化育億兆，而不知其資之可愛。所謂兼忘天下易。使天下忘己難。此雖在智者，猶太迷而不知，況淺識乎。斯所過者化，所存者神，是謂要妙。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">One who excels in travelling leaves no wheel tracks; One who excels in speech makes no slips; One who excels in reckoning uses no counting rods; One who excels in shutting uses no bolts yet what he has shut cannot be opened. One who excels in tying uses no cords yet what he has tied cannot be undone. Therefore the sage always excels in saving people, and so abandons no one; Always excels in saving things, and so abandons nothing. This is called following one's discernment. Hence the good man is the teacher the bad learns from; And the bad man is the material the good works on. Not to value the teacher Nor to love the material Though it seems clever, betrays great bewilderment. This is called the essential and the secret.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The good traveler leaves no track behind; 2. The good speaker [speaks] without blemish or flaw; 3. The good counter doesn't use tallies or chips; 4. The good closer of doors does so without bolt or lock, and yet the door cannot be opened; 5. The good tier of knots ties without rope or cord, yet his knots can't be undone. 6. Therefore the Sage is constantly good at saving men and never rejects anyone; 7. And with things, he never rejects useful goods. 8. This is called Doubly Bright. 9. Therefore the good man is the teacher of the good, 10. And the bad man is the raw material for the good. 11. To not value one's teacher and not cherish the raw goods — 12. Though one had great knowledge, he would still be greatly confused. 13. This is called the Essential of the Sublime.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">A good traveler leaves no tracks. A good speaker makes no slips. A good counter uses no counting rods. A good door uses no bolts, yet cannot be opened. A good knot uses no rope, yet cannot be untied. Therefore the sage is always good at saving people, and does not abandon anyone. Always good at saving things, and does not abandon anything. This is called following the light. Therefore the good person is the teacher of the not good. The not good is the resource of the good. If the teacher is not valued and the resource not cherished, however wise one is, one is greatly confused. This is called the essence of mystery.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Perfect activity leaves no track behind it; Perfect speech is like a jade-worker whose tool leaves no mark. The perfect reckoner needs no counting-slips; The perfect door has neither bolt nor bar, Yet cannot be opened. The perfect knot needs neither rope nor twine, Yet cannot be united. Therefore the Sage Is all the time in the most perfect way helping men, He certainly does not turn his back on men; Is all the time in the most perfect way helping creatures, He certainly does not turn his back on creatures. This is called resorting to the Light. Truly, "the perfect man is the teacher of the imperfect; But the imperfect is the stock-in-trade of the perfect man". He who does not respect his teacher, He who does not take care of his stock-in-trade, Much learning through he may possess, is far astray. This is the essential secret.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第27章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">A good traveler has no fixed plans and is not intent upon arriving. A good artist lets his intuition lead him wherever it wants. A good scientist has freed himself of concepts and keeps his mind open to what is. Thus the Master is available to all people and doesn't reject anyone. He is ready to use all situations and doesn't waste anything. This is called embodying the light. What is a good man but a bad man's teacher? What is a bad man but a good man's job? If you don't understand this, you will get lost, however intelligent you are. It is the great secret.</p>
                     </div>
                 </div>
             </div>

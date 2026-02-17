@@ -6,6 +6,21 @@
     <title>第45章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter45.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter45.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter45.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="真正聪明的人不显露，表面看起来笨拙&#10;原文：大巧若拙，大辩若讷">
-                <span class="idiom-word">大巧若拙</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="真正聪明的人不显露，表面看起来笨拙&#10;原文：大巧若拙，大辩若讷">
+            <span class="idiom-word">大巧若拙</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">随物而成．不为一象．故若缺也．大盈充足．随物而与．无所爱矜．故若冲也．随物而直．直不在一．故若屈也．大巧因自然以成器．不造为异端．故若拙也．大辩因物而言．己无所造．故若讷也．躁罢然后胜寒．静无为以胜热．以此推之则清静为天下正也．静则全物之眞．躁则犯物之性．故惟清静乃得如上诸大也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">大成若缺，謂道德大成之君。若缺者，滅名藏譽，如毀缺不備也。其用不弊。其用心如是，則無弊盡時。大盈若沖，謂道德大盈滿之君也，如沖者，貴不敢驕也，富不敢奢也。其用不窮。其用心如是，則無窮盡時也。大直若屈，大直謂脩道法度，正直如一也，如屈者，不與俗人爭，如可屈拆。大巧若拙，大巧，謂多才術也。如拙者，亦不敢見其能。大辯若訥。大辯者，智無疑；如訥者，口無辭。躁勝寒，勝，極也。春夏陽氣，躁疾於上，萬物盛大，極則寒，寒則零落死亡也。言人不當剛躁也。靜勝熱。秋冬萬物，靜於黃泉之下，極則熱，熱者生之源。清靜為天下正。能清靜則為天下長，持正則無終已時也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">陰陽交而人事煩，人事煩而功名著。故喜於有為者，其物之盈而往附之。已盈而往附焉，必損於己，遂思以勝之；我見其寒而趨火，熱而飲冰，徒自困也。彼豈樂有此患哉？始亦以附彼者之易於求盈，而不知其至此也。而早嗇於己，不驚於物，則陰陽方長，而不附之以為功名。始於不依，終於不競，天下正矣，而我若未有功。故貌見不足，而實享其有餘。誠享矣，而又奚恤於貌之不足？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言道之為貴，誡人當勉力求之也。道者，萬物之奧。奧者，室之西南隅。有室必有奧。但人雖居其室，而不知奧之深邃。以譬道在萬物，施之日用尋常之間，人日用而不知，故如奧也。然道既在萬物，足知人性皆同。雖有善惡之差，而性未嘗異，以其俗習之偏耳。故善人得之以為寶。惡人雖失，亦賴此道保之以有生。故曰所保。苟非其道以保之，則同無情瓦石矣。足見理本同也，所謂堯舜與人同耳。由此觀之，天下豈有可棄之人耶。且一言之美，則可以市。市，利也。一行之尊，則可以加於人之上。況大道之貴，豈止一言之美，一行之尊。且人之全具而不欠缺一毫者，斯則不善之人，又何棄之有耶。故立天子，置三公，雖有拱璧以先駟馬，不如坐進此道，此古語也。老子解之曰，然天子三公，不足為尊貴。拱璧駟馬，不足為榮觀。總不如坐進此道。所以貴此道者，何耶。豈不曰，求道以得之，縱有罪亦可以免之耶。是知桀紂，天子也，不免其誅。四凶，三公也，不免其戮。非無拱璧駟馬，而竟不能免其罪。故夷齊諫武王而不兵，巢許傲天子而不譴，豈非求以得有罪以免耶。況夫一念復真，諸罪頓滅。苟求而得，立地超凡。故為天下貴也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Great perfection seems chipped, Yet use will not wear it out; Great fullness seems empty, Yet use will not drain it; Great straightness seems bent; Great skill seems awkward; Great eloquence seems tongue-tied. Restlessness overcomes cold; Stillness overcomes heat. Limpid and still, One can be a leader in the empire.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Great completion seems incomplete; 2. Yet its usefulness is never exhausted. 3. Great fullness seems to be empty; 4. Yet its usefulness is never used up. 5. Great straightness seems to be bent. 6. Great skill seems to be clumsy. 7. Great surplus seems to stammer. 8. Activity overcomes cold; 9. Tranquility overcomes heat. 10. If you're quiet and tranquil you can become the ruler of the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Great perfection seems incomplete, but its use is not exhausted. Great fullness seems empty, but its use is not depleted. Great straightness seems crooked. Great skill seems clumsy. Great eloquence seems stuttering. Movement overcomes cold. Stillness overcomes heat. Clear stillness is the standard of the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">What is most perfect seems to have something missing; Yet its use is unimpaired. What is most full seems empty; Yet its use will never fail. What is most straight seems crooked; The greatest skill seems like clumsiness, The greatest eloquence like stuttering. Movement overcomes cold; But staying still overcomes heat. So he by his limpid calm Puts right everything under heaven.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第45章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">True perfection seems imperfect, yet it is perfectly itself. True fullness seems empty, yet it is fully present. True straightness seems crooked. True wisdom seems foolish. True art seems artless. The Master allows things to happen. She shapes events as they come. She steps out of the way and lets the Tao speak for itself.</p>
                     </div>
                 </div>
             </div>

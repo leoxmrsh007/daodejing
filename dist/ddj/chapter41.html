@@ -6,6 +6,21 @@
     <title>第41章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter41.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter41.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter41.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,18 +675,18 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="大的器物需要长时间才能制成，比喻人才成就较晚&#10;原文：大方无隅，大器晚成">
-                <span class="idiom-word">大器晚成</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="最大的声音反而听不到&#10;原文：大音希声，大象无形">
-                <span class="idiom-word">大音希声</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="最大的形象反而看不见&#10;原文：大音希声，大象无形">
-                <span class="idiom-word">大象无形</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="大的器物需要长时间才能制成，比喻人才成就较晚&#10;原文：大方无隅，大器晚成">
+            <span class="idiom-word">大器晚成</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="最大的声音反而听不到&#10;原文：大音希声，大象无形">
+            <span class="idiom-word">大音希声</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="最大的形象反而看不见&#10;原文：大音希声，大象无形">
+            <span class="idiom-word">大象无形</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -704,48 +719,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">有志也．建犹立也．光而不耀．后其身而身先．外其身而身存．颣土内也．大夷之道．因物之性．不执平以割物．其平不见．乃更反若颣土内也．不徳其徳．无所怀也．知其白守其黒．大自然后乃得．广徳不盈．廓然无形．不可满也．伦匹也．建徳者．因物自然．不立不施．故若伦匹．质眞者不矜其眞故若沦．方而不割故无隅也．大器成天下不持然别．故必晩成也．听之不闻名曰希．大音不可得闻之音也．有声则有分．有分则不宫而商矣．分则不能统众．故有声者非大也．有形则有分．有分者不温则凉不炎则寒．故象而形者非大象．凡此诸善皆此道之所成也．在象则为大象而大象无形．在音则为大音而大音希声．物以之成．而不见其成形．故隐而无名也．贷之非唯供其乏而已．一贷之则足以永终其徳．故曰善贷也．成之不如机匠之裁．无物而不济其形．故曰善成.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">上士聞道，勤而行之；上士聞道，自勤苦竭力而行之。中士聞道，若存若亡；中士聞道，治身以長存，治國以太平，欣然而存之，退見財色榮譽，或於情欲而復亡之也。下士聞道，大笑之。下士貪狼多欲，見道柔弱，謂之恐懼，見道質朴，謂之鄙陋，故大笑之。不笑不足以為道。不為下士所笑，不足以名為道。故建言有之，建，設也。設言以有道當如下句。明道若昧，明道之人，若闇昧無所見。○昧，音妹。進道若退，進取道者若退不及。夷道若類，夷，平也。大道之人，不自別殊，若多比類也。上德若谷，上德之人，若深谷，不恥垢濁也。大白若辱，大潔白之人，若汙辱，不自彰顯。廣德若不足，德行廣大之人，若愚須不足也。建德若偷，建設道德之人，若可偷引使空虛也。質真若渝，質朴之人，若五色，有渝淺不明。大方無隅，大方正之人，無委曲廉隅。大器晚成，大器之人，若九鼎瑚璉，不可卒成也。大音希聲，大音猶雷霆，待時而動，喻常愛氣希言也。大象無形，大法象之人，質朴無形容。道隱無名。道潛隱，使人無能指名也。夫唯道，善貸且成。成，就也。言道善稟貸人精氣且成就之也。○貸，音態。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">有善貸者於此，則人將告貸焉，而彼非執物以賜之也。夫道，亦若是而已矣；然我未見物之告貸於道也。何也？物與道為體，而物即道也。物有來有往，有生有反，日飲於道，而究歸於未嘗或潤；日燭於道，而要反於未之有明。無潤無明，物之小成；不耀不流，道用自極。故欲勤，而莫致其力；欲行，而不見其功。蓋「昧」、「退」、「辱」、「偷」之名，非虛加之也。然而受之不辭者，且得不謂之上士乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人不言之教，無心成化，故無不可教之人也。常者，一定不移之意。謂聖人之心，至虛無我。以至誠待物，曾無一定之心。但無百姓之心為心耳。以聖人復乎性善，而見人性皆善。故善者固已善之，即不善者亦以善遇之。彼雖不善，因我以善遇之。彼將因我之德所感，亦化之而為善矣。故曰德善。以聖人至誠待物，而見人性皆誠。故信者固已信之，即不信者亦以信待之。彼雖不信，因我以信遇之。彼將因我之德所感，亦化之而為信矣。故曰德信。以天下人心不古，日趨於澆薄。聖人處其厚而不處其薄，汲汲為天下渾厚其心。惵惵，猶汲汲也。百姓皆注其耳目者，謂注目而視，傾耳而聽，司其是非之昭昭。聖人示之以不識不知，無是無非，渾然不見有善惡之跡，一皆以淳厚之德而遇之，若嬰孩而已。故曰皆孩之。若以嬰孩待天下之人，則無一人可責其過者。聖人之心如此，所以不言而信，無為而化，則天下無不可教之人矣。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -753,19 +726,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">When the best student hears about the way He practises it assiduously; When the average student hears about the way It seems to him there one moment and gone the next; When the worst student hears about the way He laughs out loud. If he did not laugh It would be unworthy of being the way. Hence the Chien yen has it: The way that is bright seems dull; The way that is forward seems to lead backward; The way that is even seems rough. The highest virtue is like the valley; The sheerest whiteness seems sullied; Ample virtue seems defective; Vigorous virtue seems indolent; Plain virtue seems soiled; The great square has no corners. The great vessel takes long to complete; The great note is rarefied in sound; The great image has no shape. The way conceals itself in being nameless. It is the way alone that excels in bestowing and in accomplishing.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. When the highest type of men hear the Way, with diligence thye're able to practice it; 2. When the average men hear the Way, some things they retain and others they lose; 3. When the lowest type of men hear the Way, they laugh out loud at it. 4. If they didn't laught at it, it wouldn't be regarded as the Way. 5. Therefore, there is a set saying about this that goes: 6. The bright Way appears to be dark; 7. The Way that goes forward appears to retreat; 8. The smooth Way appears to be uneven; 9. The highest virtue [is empty] like a valley; 10. The purest white appears to be soiled; 11. Vast virtue appears to be insufficient; 12. Firm virtue appears thin and weak; 13. The simplest reality appears to change. 14. The Great Square has no corners; 15. The Great Vessel takes long to complete; 16. The Great Tone makes little sound; 17. The Great Image has no shape. 18. The Way is Great but has no name. 19. Only the Way is good at beginning things and also good at bringing things to completion.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">When a superior scholar hears the way, he diligently practices it. When a middling scholar hears the way, he seems to both keep and lose it. When an inferior scholar hears the way, he laughs at it. If he does not laugh, it is not the way. Therefore there are sayings: The illuminated way seems dark. The advancing way seems to retreat. The level way seems uneven. High virtue seems like a valley. Great purity seems shameful. Broad virtue seems insufficient. Established virtue seems deceitful. Great purity seems blemished. The great square has no corners. The great vessel is late in completion. The great sound is faint. The great image has no shape. The way is hidden and nameless. Only the way is good at lending and completing.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">When the man of highest capacities hears Tao He does his best to put it into practice. When the man of middling capacity hears Tao He is in two minds about it. When the man of low capacity hears Tao He laughs loudly at it. If he did not laugh, it would not be worth the name of Tao. Therefore the proverb has it: "The way out into the light often looks dark, The way that goes ahead often looks as if it went back." The way that is least hilly often looks as if it went up and down, The "power" that is really loftiest looks like an abyss, What is sheerest white looks blurred. The "power" that is most sufficing looks inadequate, The "power" that stands firmest looks flimsy. What is in its natural, pure state looks faded; The largest square has no corners, The greatest vessel takes the longest to finish, Great music has the faintest notes, The Great Form is without shape. For Tao is hidden and nameless. Yet Tao alone supports all things and brings them to fulfillment.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第41章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">When a superior man hears of the Tao, he immediately begins to embody it. When an average man hears of the Tao, he half believes it, half doubts it. When a foolish man hears of the Tao, he laughs out loud. If he didn't laugh, it wouldn't be the Tao. Thus it is said: The path into the light seems dark, the path forward seems to go back, the direct path seems long, true power seems weak, true purity seems tarnished, true steadfastness seems changeable, true clarity seems obscure, the greatest are seems unsophisticated, the greatest love seems indifferent, the greatest wisdom seems childish. The Tao is nowhere to be found. Yet it nourishes and completes all things.</p>
                     </div>
                 </div>
             </div>

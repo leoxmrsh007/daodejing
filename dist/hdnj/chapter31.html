@@ -6,6 +6,21 @@
     <title>热论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter31.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter31.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter31.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter31.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter31.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="用兵是不吉利的&#10;原文：夫佳兵者，不祥之器">
-                <span class="idiom-word">佳兵不祥</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="用兵是不吉利的&#10;原文：夫佳兵者，不祥之器">
+            <span class="idiom-word">佳兵不祥</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -681,12 +696,12 @@
                 <div class="original-text" id="originalText">
                     三十一
 黄帝问曰：今夫热病者，皆伤寒之类也，或愈或死，其死皆以六七日之间，其愈皆以十日以上者何也？不知其解，愿闻其故。岐伯对曰：巨阳者，诸阳之属也，其脉连于风府，故为诸阳主气也。人之伤于寒也，则为病热，热虽甚不死；其两感于寒而病者，必不免于死。
-帝曰：愿闻其状。岐伯曰：伤寒一日，巨阳受之，故头项痛腰脊强。二日阳明受之，阳明主肉，其脉侠鼻络于目，故身热目疼而鼻干，不得卧也。三日少阳受之，少阳主胆，其脉循胁络于耳，故胸胁痛而耳聋。三阳经络皆受其病，而未入于藏者，故可汗而已。四日太阴受之，太阴脉布胃中络于嗌，故腹满而嗌干。五日少阴受之，少阴脉贯肾络于肺，系舌本，故口燥舌干而渴。六日厥阴受之，厥阴脉循阴<span class="difficult" data-pinyin="qì" data-meaning="器具">器</span>而络于肝，故烦满而囊缩。三阴三阳，五藏六府皆受病，荣卫不行，五藏不通，则死矣。其不两感于寒者，七日巨阳病衰，头痛少愈；八日阳明病衰，身热少愈；九日少阳病衰，耳聋微闻；十日太阴病衰，腹减如故，则思饮食；十一日少阴病衰，渴止不满，舌干已而嚏；十二日厥阴病衰，囊纵少腹微下，大气皆去，病日已矣。
+帝曰：愿闻其状。岐伯曰：伤寒一日，巨阳受之，故头项痛腰脊强。二日<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>受之，<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>主肉，其脉侠鼻络于目，故身热目疼而鼻干，不得卧也。三日<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>受之，<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>主胆，其脉循胁络于耳，故胸胁痛而耳聋。三阳经络皆受其病，而未入于藏者，故可汗而已。四日<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>受之，<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>脉布胃中络于嗌，故腹满而嗌干。五日<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>受之，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>脉贯肾络于肺，系舌本，故口燥舌干而渴。六日<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>受之，<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>脉循阴<span class="difficult" data-pinyin="qì" data-meaning="器具">器</span>而络于肝，故烦满而囊缩。<span class="difficult" data-pinyin="sān yīn sān yáng" data-meaning="手足三阴三阳六经的总称">三阴三阳</span>，五藏六府皆受病，荣卫不行，五藏不通，则死矣。其不两感于寒者，七日巨阳病衰，头痛少愈；八日<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>病衰，身热少愈；九日<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>病衰，耳聋微闻；十日<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>病衰，腹减如故，则思饮食；十一日<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>病衰，渴止不满，舌干已而嚏；十二日<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>病衰，囊纵少腹微下，大气皆去，病日已矣。
 帝曰：治之奈何？岐伯曰：治之各通其藏脉，病日衰已矣。其未满三日者，可汗而已；其满三日者，可泄而已。
 帝曰：热病已愈，时有所遗者何也？岐伯曰：诸遗者，热甚而强食之，故有所遗也。若此者，皆病已衰而热有所藏，因其<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>气相薄，两热相合，故有所遗也。
 帝曰：善。治遗奈何？岐伯曰：视其虚实，调其逆从，可使必已矣。帝曰：病热当何禁之？岐伯曰：病热少愈，食肉则复，多食则遗，此其禁也。
-帝曰：其病两感于寒者，其脉应与其病形何如？岐伯曰：两感于寒者，病一日则巨阳与少阴俱病，则头痛口干而烦满；二日则阳明与太阴俱病，则腹满身热，不欲食，谵言；三日则少阳与厥阴俱病，则耳聋囊缩而厥，水浆不入，不知人，六日死。
-帝曰：五藏已伤，六府不通，荣卫不行，如是之后，三日乃死何也？岐伯曰：阳明者，十二经脉之长也，其血气盛，故不知人，三日其气乃尽，故死矣。凡病伤寒而成温者，先夏至日者为病温，后夏至日者为病暑，暑当与汗皆出，勿止。
+帝曰：其病两感于寒者，其脉应与其病形何如？岐伯曰：两感于寒者，病一日则巨阳与<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>俱病，则头痛口干而烦满；二日则<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>与<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>俱病，则腹满身热，不欲食，谵言；三日则<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>与<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>俱病，则耳聋囊缩而<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>，水浆不入，不知人，六日死。
+帝曰：五藏已伤，六府不通，荣卫不行，如是之后，三日乃死何也？岐伯曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>者，十二<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>之长也，其血气盛，故不知人，三日其气乃尽，故死矣。凡病伤寒而成温者，先夏至日者为病温，后夏至日者为病暑，暑当与汗皆出，勿止。
                 </div>
             </div>
         </div>
@@ -698,7 +713,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇综论“热”之辨：外感与内生、表热与里热、虚热与实热，及其脉色病机分野。临床意义：按部位与表里虚实立法，或辛凉解表，或苦寒清里，或养阴清热，或清泄阳明腑实，谨防误以实治虚或以虚治实。</p>
             </div>
         </div>
     </section>
@@ -710,19 +725,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Classifies heat disorders by exterior/interior and vacuity/repletion, pairing pulse–complexion with site to choose辛凉解表, 苦寒清里, or yin‑nourishing strategies; guards against treating vacuity as repletion and vice versa.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A taxonomy of ‘heat’: exogenous vs. endogenous, surface vs. interior, emptiness vs. fullness. Diagnosis integrates pulse and color; therapy clears and vents according to site and nature without confusing branch and root.</p>
                     </div>
                 </div>
             </div>

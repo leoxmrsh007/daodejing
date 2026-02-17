@@ -6,6 +6,21 @@
     <title>第53章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter53.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter53.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter53.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">言若使我可介然有知．行大道于天下．唯施为是畏也．言大道荡然正平．而民犹尚舍之而不由．好从邪径．况复施为以塞大道之中乎．故曰大道甚夷而民好径．朝宫室也．除洁好也．朝甚除则田甚芜食甚虚．设一而众害生也．凡物不以其道得之则皆邪也．邪则盗也．夸而不以其道得之．盗夸也贵而不以其道得之窃位也．故举非道以明．非道则皆盗夸也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">使我介然有知，行於大道，介，大也。老子疾時王不行大道，故設此言，使我介然有知於政事，我則行於大道，躬無為之化。唯施是畏。唯，獨也。獨畏有所施為，失道意。欲賞善，恐偽善生。欲信忠，恐詐忠起。大道甚夷，夷，平易也。而民好徑。徑，邪不平正也。大道甚平易，而民好從邪徑也。○好，去聲。朝甚除，高臺榭宮室修。田甚蕪，農事廢，不耕治。○蕪，音無。倉甚虛；五穀傷害，國無儲也。服文綵，好飾偽，貴尚華。帶利劍，尚剛強，武且奢。厭飲食，財貨有餘；多嗜欲，無足時。是為盜夸。百姓不足而君有餘者，是由劫盜以為服飾，持行夸人，不知身死家破，親戚并隨也。非道哉﹗人君所行如是，此非道也。復言哉者，痛傷之辭。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">天下不勝「知」也。「知」而「施」之，則物之情狀死於己之耳目，而耳目亦將死於情狀矣。然則將去知乎？而知亦無容去也。有知者，有使找知者。知者自謂久知，而使我知者用其「介然」而已。知「介然」之靡常，則己無留好。己無留好，而天下不羨其留，雖施不足畏，而況於知？俄頃之光，而終身之據；已尚之物，亦從而尚之。莽、操之奉堯、舜為竽，黃巾、赤眉之奉湯、武為竽，與陰陽之沴奉凝滯之衝氣以為竽而盜其生等也。道之不可以「介然」行也，如斯夫！</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章示人立言之指，使知而行之，欲其深造而自得也。老子自謂我所言者，皆人人日用中最省力一著工夫。明明白白，甚容易知，容易行。只是人不能知，不能行耳。以我言言事事，皆以大道為主，非是漫衍荒唐之說。故曰言有宗，事有君。宗，君，皆主也。且如一往所說，絕聖棄智，虛心無我，謙下不爭，忘形釋智，件件都是最省力工夫，放下便是，全不用你多知多解。只在休心二字，豈不最易知最易行耶。然人之所以不能知者，因從來人人都在知見上用心。除卻知字，便無下落。以我無知無識一著，極難湊泊，所以人不知我耳。故曰夫惟無知，是以不我知。然無知一著，不獨老子法門宗旨，即孔子亦同。如曰吾有知乎哉，無知也，有鄙夫問於我空空如也，此豈不是孔聖亦以無知為心宗耶。此夫子見老子後，方得妙悟如此。故稱猶龍，正謂此耳。然以無知契無知，如以空合空。若以有知求無知，如以水投石。所以孔老心法，千古罕明。故曰知我者希。若能當下頓悟此心，則立地便是聖人，故曰則我者貴。則，謂法則。言取法也。聖人懷此虛心妙道以遊世。則終日與人周旋，對面不識。故如披褐懷王。永嘉云，貧則身常披縷褐，道則心藏無價珍。此一章書，當在末後結束。蓋老子向上一往所言天人之蘊，至此已發露太盡，故著此語。後章只是要人在日用著力做工夫，以至妙悟而後已。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Were I possessed of the least knowledge, I would, when walking on the great way, fear only paths that lead astray. The great way is easy, yet people prefer by-paths. The court is corrupt, The fields are overgrown with weeds, The granaries are empty; Yet there are those dressed in fineries, With swords at their sides, Filled with food and drink, And possessed of too much wealth. This is known as taking the lead in robbery. Far indeed is this from the way.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Were I to have the least bit of knowledge, in walking on a Great Rod, it's only going astray that I would fear. 2. The Great Way is very level; 3. But people greatly delight in tortuous paths. 4. The courts are swept very clean; 5. While the fields are full of weeds; 6. And the granaries are all empty. 7. Their clothing — richly embroidered and colored; 8. While at their waists they carry sharp swords. 9. They gorge themselves on food, and of possessions and goods they have plenty. 10. This is called thievery! 11. And thievery certainly isn't the Way!</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">If I have slight knowledge, walking the great way, I only fear deviation. The great way is very level, but people love shortcuts. When the court is corrupt, the fields are overgrown, the granaries are empty, yet some wear embroidered clothes and carry sharp swords, gorge on food and drink, and have wealth in surplus. This is called robbery and extravagance, not the way.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">He who has the least scrap of sense, Once he has got started on the great highway has nothing to fear So long as he avoids turnings. For great highways are safe and easy. But men love by-paths. So long as Court is in order They are content to let their fields run to weed And their granaries stand empty. They wear patterns and embroideries, Carry sharp swords, glut themselves with drink and food, Have more possessions than they can use. These are the riotous ways of brigandage; they are not the Highway.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第53章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The great Way is easy, yet people prefer the side paths. Be aware when things are out of balance. Stay centered within the Tao. When rich speculators prosper While farmers lose their land; when government officials spend money on weapons instead of cures; when the upper class is extravagant and irresponsible while the poor have nowhere to turn- all this is robbery and chaos. It is not in keeping with the Tao.</p>
                     </div>
                 </div>
             </div>

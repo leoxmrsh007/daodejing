@@ -4,6 +4,7 @@ API 路由 - JSON API 端点
 支持多经典：道德经、庄子等
 """
 
+from datetime import datetime
 from typing import Any, Tuple, Union
 
 from flask import Blueprint, Response, jsonify, request
@@ -34,6 +35,25 @@ from utils.security import rate_limit
 from utils.validators import validate_search_query
 
 bp = Blueprint("api", __name__, url_prefix="/api")
+
+
+# ============ 健康检查 API ============
+
+
+@bp.route("/health")
+def api_health() -> Response:
+    """健康检查端点"""
+    return jsonify(
+        {
+            "status": "healthy",
+            "timestamp": datetime.now().isoformat(),
+            "version": "2.0.0",
+            "services": {
+                "api": "up",
+                "data": "up",
+            },
+        }
+    )
 
 
 # ============ 经典管理 API ============

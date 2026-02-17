@@ -6,6 +6,21 @@
     <title>在宥 - 庄子</title>
     <meta name="description" content="庄子多版本对照平台 - 成玄英疏 · 郭象注 · 王夫之">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter11.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../zzj/index.html">
+            <a class="dropdown-item active" href="../zzj/chapter11.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter11.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter11.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter11.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter11.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -533,7 +548,7 @@
                 <div class="original-text" id="originalText">
                     闻在宥天下，不闻治天下也。在之也者，恐天下之淫其性也；宥之也者，恐天下之迁其德也。天下不淫其性，不迁其德，有治天下者哉！昔尧之治天下也，使天下欣欣焉人乐其性，是不恬也；桀之治天下也，使天下瘁瘁焉人苦其性，是不愉也。夫不恬不愉，非德也。非德也而可长久者，天下无之。
 
-人大喜邪，毗于阳；大怒邪，毗于阴。阴阳并毗，四时不至，寒暑之和不成，其反伤人之形乎！使人喜怒失位，居处无常，思虑不自得，中道不成章，于是乎天下始乔诘卓鸷，而后有盗跖曾史之行。故举天下以赏其善者不足，举天下以罚其恶者不给，故天下之大不足以赏罚。自三代以下者，匈匈焉终以赏罚为事，彼何暇安其性命之情哉！
+人大喜邪，毗于阳；大怒邪，毗于阴。<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>并毗，四时不至，寒暑之和不成，其反伤人之形乎！使人喜怒失位，居处无常，思虑不自得，中道不成章，于是乎天下始乔诘卓鸷，而后有盗跖曾史之行。故举天下以赏其善者不足，举天下以罚其恶者不给，故天下之大不足以赏罚。自三代以下者，匈匈焉终以赏罚为事，彼何暇安其性命之情哉！
 
 而且说明邪，是淫于色也；说聪邪，是淫于声也；说仁邪，是乱于德也；说义邪，是悖于理也；说礼邪，是相于技也；说乐邪，是相于淫也；说圣邪，是相于艺也；说知邪，是相于疵也。天下将安其性命之情，之八者，存可也，亡可也；天下将不安其性命之情，之八者，乃始脔卷獊囊而乱天下也。而天下乃始尊之惜之，甚矣天下之惑也！岂直过也而去之邪！乃斋戒以言之，跪坐以进之，鼓歌以舞之，吾若是何哉！
                 </div>
@@ -563,19 +578,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-watson" type="button">Burton Watson</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-ziporyn" type="button">Brook Ziporyn</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-watson">
+                        <p class="english-text mb-0 fst-italic">[Burton Watson 庄子 第11篇 英文译本正在整理中]</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-ziporyn">
+                        <p class="english-text mb-0 fst-italic">[Brook Ziporyn 庄子 第11篇 英文译本正在整理中]</p>
                     </div>
                 </div>
             </div>

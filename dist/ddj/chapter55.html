@@ -6,6 +6,21 @@
     <title>第55章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter55.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter55.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter55.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="事物发展到极端就会向反面转化&#10;原文：物壮则老，谓之不道">
-                <span class="idiom-word">物极必反</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="事物发展到极端就会向反面转化&#10;原文：物壮则老，谓之不道">
+            <span class="idiom-word">物极必反</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">赤子无求无欲不犯众物．故毒螫之物无犯于人也．含徳之厚者不犯于物．故无物以损其全也．以柔弱之故故握能周固．作长也．无物以损其身故能全长也．言含徳之厚者无物可以损其徳渝其眞．柔弱不争而不摧折．皆若此也．无争欲之心．故终日出声而不嗄也．物以和为常．故知和则得常也．不皦不昧不温不凉此常也．无形不可得而见．故曰知常曰明也．生不可益．益之则夭也．心宜无有使气则强.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">含德之厚，謂含懷道德之厚也。比於赤子。神明保祐含德之人，若父母之於赤子也。毒蟲不螫，蜂蠆蛇虺不螫。○螫音適。猛獸不據，玃鳥不搏。赤子不害於物，物亦不害之，故太平之世，人無貴賤之心，有刺之物，還反其本，有毒之蟲，不傷於人。○玃音矍。搏音博。骨弱筋柔而握固。赤子筋骨柔弱而持物堅固，以其意心不移也。未知牝牡之合而朘作，精之至也。赤子未知男女之合會而陰作怒者，由精氣多之所致也。終日號而不啞，和之至也。赤子從朝至暮，啼號聲不變易者，和氣多之所致也。○號，平聲。知和曰常，人能知和氣之柔弱，有益於人者，則為知道之常也。知常曰明。人能知道之常行，則日以明達於玄妙也。益生日祥。祥，長也。益生，言欲自生，日以長大。心使氣日強。心當專一和柔而氣實內，故形柔而反使妄有所為，和氣去於中，故形體日以剛強也。物壯則老，萬物壯極則枯老也。謂之不道，老不得道。不道早已。不得道者早已死也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">以一己受天下之無涯，不給矣。憂其不給，將奔心馳氣，內爭而外渝。然且立德以為德，吐為外景，而不知中之未有明也。含而比於赤子者，德不立德；德不立德，而取舍無跡；無跡則「和」。不立德以為德，則陰陽歸一，陰陽歸一則「精」。如是者，大富不資，大勁不折，而猶有「使氣」「益生」之患乎？故閉之戶牖，無有六合；守之酣寢，無有風雷；至人無涯之化，赤子無情之效也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章教人遺形去欲，為入道之工夫，以造聖人無知之地也。凜然赫然而可畏者，謂之威。如云寒威，炎威，是也。是則凡可畏者，皆謂威。唯國之大罰，與天地之肅殺，乃大威也。此借以為戕生傷性者之喻。世人以為小惡不足戒，而不知畏，必致殺身而後已。此民不畏威，大威至矣。喻世人祇知嗜欲養生，而不知養生者，皆足以害生而可畏也。且若嗜酒色，必死於酒色。嗜利欲，必死於利欲。嗜飲食，必死於飲食。是則但有所嗜，而不知畏，必至於戕生傷性而後已。此不畏威，故大威至矣。然人但知嗜而不知畏者，以其止知有身之可愛，有生之可貴，以此為足。而不知大有過於此者，性也。且吾性之廣大，與太虛同體，乃吾之真宅也。苟以性視身，則若大海之一涵，太虛之一塵耳，至微小而不足貴者。人不知此，而但以蕞爾之身。以為所居之地。將為至足，而貴愛之，則狹陋甚矣。故戒之曰，無狹其所居。狹其居者，將以此身此生為至足也。故又戒之曰，無厭其所生。厭，足也。若知此身此生之不足貴，則彼物欲固能傷生，亦不足以害我矣，以其無死地也。故曰夫惟不厭，是以不厭。厭，棄也。故聖人自知尊性，而不見生之可養。自愛遺形，而不見身之可貴。此聖人之所獨知，世人之所不知也。故去彼眾人之所知，取彼所不知，以為道之要妙耳。以此足見世人之所知者，皆病也。聖人病之而不取，故不病也。後三章互相發明此章之旨。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">One who possesses virtue in abundance is comparable to a new born babe: Poisonous insects will not sting it; Ferocious animals will not pounce on it; Predatory birds will not swoop down on it. Its bones are weak and its sinews supple yet its hold is firm. It does not know the union of male and female yet its male member will stir: This is because its virility is at its height. It howls all day yet does not become hoarse: This is because its harmony is at its height. To know harmony is called the constant; To know the constant is called discernment. To try to add to one's vitality is called ill-omened; For the mind to egg on the breath is called violent. A creature in its prime doing harm to the old Is known as going against the way. That which goes against the way will come to an early end.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. One who embraces the fullness of Virtue, 2. Can be compared to a newborn babe. 3. Wasps and scorpions, snakes and vipers do not sting him; 4. Birds of prey and fierce beasts do not seize him; 5. His bones and muscles are weak and pliant, yet his grasp is firm; 6. He does not yet know the meeting of male and female, yet his organ is aroused — 7. This is because his essence is at its height. 8. He can scream all day, yet he won't become hoarse — 9. This is because his harmony is at its height. 10. To know harmony is called "the constant"; 11. To know the constant is called "being wise"; 12. To add on to life is called a "bad omen"; 13. For the mind to control the breath — that's called "forcing things." 14. When things reach their prime they get old; 15. This is called "not the Way." 16. What is not the Way will come to an early end.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">He who is rich in virtue is like a newborn. Poisonous insects do not sting him, wild beasts do not claw him, birds of prey do not strike him. His bones are weak, his tendons soft, but his grip is firm. He does not know the union of male and female, but his organ is aroused - this is the peak of essence. He can cry all day without becoming hoarse - this is the peak of harmony. Knowing harmony is called constant. Knowing constant is called enlightenment. To increase life is called auspicious. The mind controlling the qi is called strong. Things prosper then grow old - this is called not following the way. What does not follow the way will perish early.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">The impunity of things fraught with the "power" May be likened to that of an infant. Poisonous insects do not sting it, Nor fierce beasts seize it, Nor clawing birds maul it, Its bones are soft, its sinews weak; but its grip is strong. Not yet to have known the union of male and female, But to be completely formed, Means that the vital force is at its height; To be able to scream all day without getting hoarse Means that the harmony is at its perfection. To understand such harmony is to understand the always so. To understand the always-so is to be illumined. But to fill life to the brim is to invite omens. If the heart makes calls upon the life-breath, rigidity follows. Whatever has a time of vigour also has a time of decay. Such things are against Tao, And whatever is against Tao is soon destroyed.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第55章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">He who is in harmony with the Tao is like a newborn child. Its bones are soft, its muscles are weak, but its grip is powerful. It doesn't know about the union of male and female, yet its penis can stand erect, so intense is its vital power. It can scream its head off all day, yet it never becomes hoarse, so complete is its harmony. The Master's power is like this. He lets all things come and go effortlessly, without desire. He never expects results; thus he is never disappointed. He is never disappointed; thus his spirit never grows old.</p>
                     </div>
                 </div>
             </div>

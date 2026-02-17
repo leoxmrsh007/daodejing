@@ -6,6 +6,21 @@
     <title>痿论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter44.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter44.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter44.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="知道满足就经常快乐&#10;原文：知足者富">
-                <span class="idiom-word">知足常乐</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="知道满足就不会受到屈辱&#10;原文：知足不辱，知止不殆">
-                <span class="idiom-word">知足不辱</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="知道满足就经常快乐&#10;原文：知足者富">
+            <span class="idiom-word">知足常乐</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="知道满足就不会受到屈辱&#10;原文：知足不辱，知止不殆">
+            <span class="idiom-word">知足不辱</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -684,10 +699,10 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     四十四
-黄帝问曰：五藏使人痿何也？岐伯对曰：肺主身之皮毛，心主身之血脉，肝主身之筋膜，脾主身之肌肉，肾主身之骨髓，故肺热叶焦，则皮毛虚弱急薄，著则生痿躄也。心气热，则下脉厥而上，上则下脉虚，虚则生脉痿，枢折挈，胫纵而不任地也。肝气热，则胆泄口苦筋膜干，筋膜干则筋急而挛，发为筋痿。脾气热，则胃干而渴，肌肉不仁，发为肉痿。肾气热，则腰脊不举，骨枯而髓减，发为骨痿。
-帝曰：何以得之？岐伯曰：肺者，藏之长也，为心之盖也，有所失亡，所求不得，则发肺鸣，鸣则肺热叶焦。故曰：五藏因肺热叶焦，发为痿躄。此之谓也。悲哀太甚，则胞络绝，胞络绝则阳气内动，发则心下崩，数溲血也。故《本病》曰：大经空虚，发为肌痹，传为脉痿。思相无穷，所愿不得，意淫于外，入房太甚，宗筋弛纵，发为筋痿，及为白淫。故《下经》曰：筋痿者，生于肝，使内也。有渐于湿，以水为事，若有所留，居处相湿，肌肉濡渍，痹而不仁，发为肉痿。故《下经》曰：肉痿者，得之湿地也。有所远行劳倦，逢大热而渴，渴则阳气内伐，内伐则热舍于肾，肾者水藏也，今水不胜火，则骨枯而髓虚，故足不任身，发为骨痿。故《下经》曰：骨痿者，生于大热也。
-帝曰：何以别之？岐伯曰：肺热者色白而毛败，心热者色赤而络脉溢，肝热者色苍而爪枯，脾热者色黄而肉蠕动，肾热者色黑而齿槁。
-帝曰：如夫子言可矣，论言治痿者独取阳明何也？岐伯曰：阳明者，五藏六府之海，主润宗筋，宗筋主束骨而利机关也。<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>脉者，经脉之海也，主渗灌<span class="difficult" data-pinyin="xī" data-meaning="溪涧">溪</span><span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>，与阳明合于宗筋，阴阳总宗筋之会，会于气街，而阳明为之长，皆属于带脉，而络于督脉。故阳明虚则宗筋纵，带脉不引，故足痿不用也。
+黄帝问曰：五藏使人<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>何也？岐伯对曰：肺主身之皮毛，心主身之血脉，肝主身之筋膜，脾主身之肌肉，肾主身之骨髓，故肺热叶焦，则皮毛虚弱急薄，著则生<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>躄也。心气热，则下脉<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>而上，上则下脉虚，虚则生脉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>，枢折挈，胫纵而不任地也。肝气热，则胆泄口苦筋膜干，筋膜干则筋急而挛，发为筋<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。脾气热，则胃干而渴，肌肉不仁，发为肉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。肾气热，则腰脊不举，骨枯而髓减，发为骨<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。
+帝曰：何以得之？岐伯曰：肺者，藏之长也，为心之盖也，有所失亡，所求不得，则发肺鸣，鸣则肺热叶焦。故曰：五藏因肺热叶焦，发为<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>躄。此之谓也。悲哀太甚，则胞络绝，胞络绝则阳气内动，发则心下崩，数溲血也。故《本病》曰：大经空虚，发为肌<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，传为脉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。思相无穷，所愿不得，意淫于外，入房太甚，宗筋弛纵，发为筋<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>，及为白淫。故《下经》曰：筋<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>者，生于肝，使内也。有渐于湿，以水为事，若有所留，居处相湿，肌肉濡渍，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>而不仁，发为肉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。故《下经》曰：肉<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>者，得之湿地也。有所远行劳倦，逢大热而渴，渴则阳气内伐，内伐则热舍于肾，肾者水藏也，今水不胜火，则骨枯而髓虚，故足不任身，发为骨<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。故《下经》曰：骨<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>者，生于大热也。
+帝曰：何以别之？岐伯曰：肺热者色白而毛败，心热者色赤而<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>溢，肝热者色苍而爪枯，脾热者色黄而肉蠕动，肾热者色黑而齿槁。
+帝曰：如夫子言可矣，论言治<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>者独取<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>何也？岐伯曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>者，五藏六府之海，主润宗筋，宗筋主束骨而利机关也。<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>脉者，<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>之海也，主渗灌<span class="difficult" data-pinyin="xī" data-meaning="溪涧">溪</span><span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>，与<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>合于宗筋，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>总宗筋之会，会于气街，而<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>为之长，皆属于带脉，而络于督脉。故<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>虚则宗筋纵，带脉不引，故足<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>不用也。
 帝曰：治之奈何？岐伯曰：各补其荥而通其俞，调其虚实，和其逆顺，筋脉骨肉，各以其时受月，则病已矣。帝曰：善。
                 </div>
             </div>
@@ -700,7 +715,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇论痿（筋脉弛缓无力）：多由热伤津、湿热困脾、肾精亏虚、血脉不荣等。临床意义：清热养阴、健脾化湿、补肾填精、养血通络，配合功能训练与饮食起居调摄。</p>
             </div>
         </div>
     </section>
@@ -712,19 +727,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Discusses flaccidity syndromes from fluid injury by heat, spleen damp‑heat, kidney essence depletion, or malnourished vessels. Treat by clearing and nourishing, strengthening spleen, supplementing kidney, and moving blood.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A classification of ‘wei’ with etiologies and targeted regulations—cool and moisten, fortify and supplement, and reopen channels.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>第50章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter50.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter50.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter50.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">出生地入死地．十有三犹云十分有三．取其生道全生之极十分有三耳．取死之道全死之极亦十分有三耳．而民生生之厚．更之无生之地焉．全摄生者无以生为生．故无死地也．器之害者莫甚乎兵戈．兽之害者莫甚兕虎．而令兵戈无所容其锋刃．虎兕无所措其爪角．斯诚不以欲累其身者也．何死地之有乎．夫蚖蟺以渊为浅而凿穴其中．鹰鹯以山为卑而増巣其上．矰缴不能及网罟不能到．可谓处于无死地矣．然而卒以甘饵乃入于无生之地．岂非生生之厚乎．故物苟不以求离其本不以欲渝其眞．虽入军而不害．陆行而不犯可也．赤子之可则而贵信矣.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">出生入死。出生，謂情欲出於內，魂定魄靜，故生也。入死，謂情欲入於胸臆，精神勞惑，故死。生之徒，十有三；死之徒，十有三；言死生之類各有，十三謂九竅四關也。其生也，目不妄視，耳不妄聽，鼻不妄香臰，口不妄言味，手不妄持，足不妄行，精神不妄施，其死也反是也。人之生，動之死地，十有三。人之求生動作，反之十三死也。夫何故？問何故動之死地也。以其生生之厚。所以動之死地者，以其求生活之事太厚，違道忤天，妄行失紀。蓋聞善攝生者，攝，養也。陸行不遇兕虎，自然遠避，害不干也。入軍不避甲兵。不好戰以殺人。兕無所投其角，虎無所措其爪，兵無所容其刃。養生之人，虎兕無由傷，兵刃無從加之也。夫何故？問虎兕兵甲，何故不害之。以其無死地。以其不犯十三之死地，言神明營護之，此物不敢害。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">有死地，無生地。無地為生，有地為死。試效言之矣。人之生也，神舍空而即用，形拔實以營虛，非其出乎？迨氣與空為宅，形與壤為質．則死者非其入乎？雖然，既有生矣，遂以其出者為可繼也，引緒旁生，據地而游，則死固死於靜．生亦死於動。死於動者，能不靜，而不能靜於動也。靜於動，則動於靜，動靜兩用而兩不用。靜於動，則動可名為靜；可名為靜，靜亦樂得而歸之；所謂「守靜篤」者此也。動於靜，則靜可名為動；可名為動，靜與周旋而不死；所謂「反者道之動」者此也。故有地者三，無地以為地者三，鶩於地不地而究以得地者三。此自九而外，一之妙所難言與！然而攝生者其用在動，之死者其用亦動。何以效之？攝生者以得地為憂，動而離之。之死者以不得地為憂，動而即之。彼雖日往還於出入之間，而又惡知動哉？則甚矣，地之可畏也！兕虎之攫，必按地以為威；甲兵之殺，必爭地以制勝。遇無地者，則皆廢然而喪其殺機。殺不在彼，死去於我，御風音所以泠然善，雲將所以暢言遊也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此章老子自言所得之道至大，世人不知，其實所守者至約也。道大，如巍巍乎惟天為大，蕩蕩乎民無稱焉，言其廣大難以名狀也。不肖，如孔子云不器。大史公謂孟子迂遠而不切於事情之意。即莊子所謂大有徑庭，不近人情也。此蓋當時人見老子其道廣大，皆如下文所云，以勇廣器長稱之，且不得而名，故又為不肖，即若孔子稱之猶龍也。故老子因時人之言，乃自解之曰，天下人皆謂我之道大，似乎不肖，無所可用。惟其大，所以似不肖耳。肖者，與物相似。如俗云一樣也。若肖，作一句。久矣其細，作一句。倒文法耳。謂我若是與世人一樣，則成細人久矣，又安得以道大稱之哉。下文釋其大之所以。謂世人皆見其物莫能勝我，遂以我為勇。見我寬裕有餘，遂以我為廣。見其人皆推我為第一等人，遂以我為器長。器者，人物之通稱也。以此故，皆謂我道大，其實似無所肖。殊不知我所守者至約。乃慈，儉，不敢為天下先，三法而已。慈者，并包萬物，覆育不遺，如慈母之育嬰兒。儉者，嗇也，有而不敢盡用。不敢為天下先者，虛懷遊世，無我而不與物對。然以慈育物，物物皆己。且無己與物敵，物自莫能勝矣。故曰慈故能勇。心常自足，雖有餘而不用，所處無不裕然寬大矣。故曰儉故能廣。物我兩忘，超然獨立，而不見有己以處人前。故人皆以我為畸人，推為人中之最上者矣。故曰不敢為天下先，故能成器長。以此故，皆以我為道大似不肖耳。以我所守者如此，即前所云我獨異於人，而貴求食於母也。以此三者，乃大道之要妙耳。且今世人，捨慈而言勇，捨儉而言廣，捨後而言先，死矣。此死字，非生死之死，如禪家所云死在句下。蓋死活之死，言其無生意也。以世人不知大道之妙，但以血氣誇侈爭勝做工夫。故一毫沒用頭，皆死法，非活法也。且此三者之中，又以慈為主。不但學道，即治天下國家莫不皆然。若以戰則勝，以守則固，故王師無敵，民效死而勿去，皆仁慈素有所孚，故為戰勝守固之道。此所謂道之真以治身，其緒餘以為天下國家。以天地之大德曰生。故天將救斯民，而純以慈衛之。故聖人法天利用，而以慈為第一也，世俗惡足以知之。故知治世能用老氏之術，坐觀三代之化。所以漢之文景，得糟粕之餘，施於治道，迴超百代耳。此老子言言皆真實工夫，切於人事，故云甚易知易行。學人視太高，類以虛玄談之，不能身體而力行，故不得其受用耳。惜哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">When going one way means life and going the other means death, three in ten will be comrades in life, three in ten will be comrades in death, and there are those who value life and as a result move into the realm of death, and these also number three in ten. Why is this so? Because they set too much store by life. I have heard it said that one who excels in safeguarding his own life does not meet with rhinoceros or tiger when travelling on land nor is he touched by weapons when charging into an army. There is nowhere for the rhinoceros to pitch its horn; There is nowhere for the tiger to place its claws; There is nowhere for the weapon to lodge its blade. Why is this so? Because for him there is no realm of death.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. We come out into life and go back into death. 2. The companions of life are thirteen; 3. The companions of death are thirteen; 4. And yet people, because they regard life as LIFE, in all of their actions move towards the thirteen that belong to the realm of death. 5. Now, why is this so? 6. It's because they regard life as LIFE. 7. You've no doubt heard of those who are good at holding on to life: 8. When walking through hills, they don't avoid rhinos and tigers; 9. When they go into battle, they don't put on armor or shields; 10. The rhino has no place to probe with its horn; 11. The tiger finds no place to put its claws. 12. And weapons find no place to hold their blades. 13. Now, why is this so? 14. Because there is no place for death in them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Coming out is life, going in is death. Three tenths follow life, three tenths follow death. People who move from life to death, why is it so? It is because they pursue life too intensely. I hear those who are good at preserving life: When traveling they do not encounter rhinoceros or tigers. When entering the army, they are not wounded by weapons. The rhinoceros has nowhere to thrust its horn. The tiger has nowhere to use its claws. Weapons have nowhere to place their blades. Why is it so? Because there is no death in them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">He who aims at life achieves death. If the "companions of life" are thirteen, So likewise are the "companions of death" thirteen. How is it that the "death-stops" in man's life And activity are also thirteen? It is because men feed life too grossly. It is said that he who has a true hold on life, When he walks on land does not meet tigers or wild buffaloes; In battle he is not touched by weapons of war. Indeed, A buffalo that attacked him would find nothing for its horns to butt, A tiger would find nothing for its claws to tear, A weapon would find no place for its point to enter in. And why? Because such men have no "death-spot" in them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第50章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The Master gives himself up to whatever the moment brings. He knows that he is going to die, and her has nothing left to hold on to: no illusions in his mind, no resistances in his body. He doesn't think about his actions; they flow from the core of his being. He holds nothing back from life; therefore he is ready for death, as a man is ready for sleep after a good day's work.</p>
                     </div>
                 </div>
             </div>

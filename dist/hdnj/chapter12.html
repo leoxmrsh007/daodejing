@@ -6,6 +6,21 @@
     <title>异法方宜论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter12.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter12.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter12.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter12.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter12.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter12.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,8 +691,8 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     十二
-黄帝问曰：医之治病也，一病而治各不同，皆愈何也？岐伯对曰：地势使然也。故东方之域，天地之所始生也，鱼盐之地，海滨傍水。其民食鱼而嗜咸，皆安其处，美其食，鱼者使人热中，盐者胜血。故其民皆黑色疏理，其病皆为痈疡，其治宜砭石。故砭石者，亦从东方来。
-西方者，金玉之域，沙石之处，天地之所收引也。其民陵居而多风，水土刚强，其民不衣而褐荐，其民华食而脂肥。故邪不能伤其形体，其病生于内，其治宜毒药。故毒药者，亦从西方来。北方者，天地所闭藏之域也，其地高陵居，风寒冰洌。其民乐野处而乳食，藏寒生满病，其治宜灸焫。故灸焫者，亦从北方来。南方者，天地所长养，阳之所盛处也，其地下，水土弱，雾露之所聚也，其民嗜酸而食胕。故其民皆致理而赤色，其病挛痹，其治宜微针。故九针者，亦从南方来。中央者，其地平以湿，天地所以生万物也众。其民食杂而不劳，故其病多痿厥寒热，其治宜导引按跷，故导引按跷者，亦从中央出也。故圣人杂合以治，各得其所宜。故治所以异而病皆愈者，得病之情，知治之大体也。
+黄帝问曰：医之治病也，一病而治各不同，皆愈何也？岐伯对曰：地势使然也。故东方之域，天地之所始生也，鱼盐之地，海滨傍水。其民食鱼而嗜咸，皆安其处，美其食，鱼者使人热中，盐者胜血。故其民皆黑色疏理，其病皆为<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>疡，其治宜砭石。故砭石者，亦从东方来。
+西方者，金玉之域，沙石之处，天地之所收引也。其民陵居而多风，水土刚强，其民不衣而褐荐，其民华食而脂肥。故邪不能伤其形体，其病生于内，其治宜毒药。故毒药者，亦从西方来。北方者，天地所闭藏之域也，其地高陵居，风寒冰洌。其民乐野处而乳食，藏寒生满病，其治宜灸焫。故灸焫者，亦从北方来。南方者，天地所长养，阳之所盛处也，其地下，水土弱，雾露之所聚也，其民嗜酸而食胕。故其民皆致理而赤色，其病挛<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，其治宜微针。故九针者，亦从南方来。中央者，其地平以湿，天地所以生万物也众。其民食杂而不劳，故其病多<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>寒热，其治宜导引按跷，故导引按跷者，亦从中央出也。故圣人杂合以治，各得其所宜。故治所以异而病皆愈者，得病之情，知治之大体也。
                 </div>
             </div>
         </div>
@@ -689,7 +704,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇说明地势与民俗不同，则病机和适宜的治疗方法也各异：东方滨海食鱼嗜咸，多痈疡，宜砭石；西方沙石之区，内病为多，宜毒药；北方高寒乳食，寒满盛行，宜灸焫；南方长养湿热，嗜酸食胕，多挛痹，宜微针；中央平湿、饮食杂而少劳，多痿厥寒热，宜导引按跷。临床意义：同一疾病名下，因地域、气候、体质不同而治法各殊，医者当因地制宜、综合运用多种手段，而不执一法。</p>
             </div>
         </div>
     </section>
@@ -701,19 +716,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Explains regional etiologies and suitable therapies: bian‑stone in the fish‑salty east, potent drugs in the arid west, moxibustion in the frigid north, fine needles in the warm‑damp south, and daoyin/pressing in the central plains. Same disease, different treatments—because地势与民俗不同而病机各异。</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">This chapter explains why the same disease may be treated differently in various regions yet all obtain cure: 地势 and customs shape both disease patterns and therapeutic preferences. In the salty, fish‑eating east, people tend toward boils and abscesses, so砭石 is suitable; in the dry, fat‑eating west, internal disorders predominate, so potent drugs are favored; in the cold, dairy‑eating north, fullness from cold藏 demands moxibustion; in the warm, damp south, with sour foods and meats, spasms and bi‑syndromes call for fine needles; in the central plains, with mixed diet and little labor, weakness and alternating cold–heat respond to导引 and按跷. The sage combines these methods according to what suits the region and the disease, realizing that true skill lies in grasping the情 of the illness and the great outline of treatment.</p>
                     </div>
                 </div>
             </div>

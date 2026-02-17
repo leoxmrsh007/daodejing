@@ -6,6 +6,21 @@
     <title>刺禁论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter52.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter52.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter52.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,7 +691,7 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     五十二
-黄帝问曰：愿闻禁数。岐伯对曰：藏有要害，不可不察。肝生于左，肺藏于右，心部于表，肾治于里，脾为之使，胃为之市。鬲肓之上，中有父母，七节之傍，中有小心，从之有福，逆之有咎。刺中心，一日死，其动为噫。刺中肝，五日死，其动为语。刺中肾，六日死，其动为嚏。刺中肺，三日死，其动为咳。刺中脾，十日死，其动为吞。刺中胆，一日半死，其动为呕。刺跗上中大脉，血出不止死。刺面中溜脉，不幸为盲。刺头中脑户，入脑立死。刺舌下中脉太过，血出不止为喑。刺足下布络中脉，血不出为肿。刺郄中大脉，令人仆，脱色。刺气街中脉，血不出，为肿鼠仆。刺脊间中髓，为伛。刺乳上，中乳房，为肿根蚀。刺缺盆中内陷，气泄，令人喘咳逆。刺手鱼腹内陷，为肿。无刺大醉，令人气乱。无刺大怒，令人气逆。无刺大劳人，无刺新饱人，无刺大饥人，无刺大渴人，无刺大惊人。刺阴股中大脉，血出不止死。刺客主人内陷中脉，为内漏为聋。刺膝髌出液，为跛。刺臂太阴脉，出血多，立死。刺足少阴脉，重虚出血，为舌难以言。刺膺中陷中肺，为喘逆仰息。刺肘中内陷，气归之，为不屈伸。刺阴股下三寸内陷，令人遗溺。刺掖下胁间内陷，令人咳。刺少腹中膀胱，溺出，令人少腹满。刺腨肠内陷，为肿。刺匡上陷骨中脉，为漏为肓。刺关节中液出，不得屈伸。
+黄帝问曰：愿闻禁数。岐伯对曰：藏有要害，不可不察。肝生于左，肺藏于右，心部于表，肾治于里，脾为之使，胃为之市。鬲肓之上，中有父母，七节之傍，中有小心，从之有福，逆之有咎。刺中心，一日死，其动为噫。刺中肝，五日死，其动为语。刺中肾，六日死，其动为嚏。刺中肺，三日死，其动为咳。刺中脾，十日死，其动为吞。刺中胆，一日半死，其动为呕。刺跗上中大脉，血出不止死。刺面中溜脉，不幸为盲。刺头中脑户，入脑立死。刺舌下中脉太过，血出不止为喑。刺足下布络中脉，血不出为肿。刺郄中大脉，令人仆，脱色。刺气街中脉，血不出，为肿鼠仆。刺脊间中髓，为伛。刺乳上，中乳房，为肿根蚀。刺缺盆中内陷，气泄，令人喘咳逆。刺手鱼腹内陷，为肿。无刺大醉，令人气乱。无刺大怒，令人气逆。无刺大劳人，无刺新饱人，无刺大饥人，无刺大渴人，无刺大惊人。刺阴股中大脉，血出不止死。刺客主人内陷中脉，为内漏为聋。刺膝髌出液，为跛。刺臂<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>脉，出血多，立死。刺足<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>脉，重虚出血，为舌难以言。刺膺中陷中肺，为喘逆仰息。刺肘中内陷，气归之，为不屈伸。刺阴股下三寸内陷，令人遗溺。刺掖下胁间内陷，令人咳。刺少腹中膀胱，溺出，令人少腹满。刺腨肠内陷，为肿。刺匡上陷骨中脉，为漏为肓。刺关节中液出，不得屈伸。
                 </div>
             </div>
         </div>
@@ -688,7 +703,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇列刺禁：孕妇、小儿、危重、特定部位与血脉大络等禁忌与慎用。临床意义：识别禁区与禁时，化险为夷，宁失之缓不犯大忌。</p>
             </div>
         </div>
     </section>
@@ -700,19 +715,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Enumerates contraindications: vulnerable patients and dangerous sites and times. Safety first—better to delay than to violate prohibitions.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On where and when not to needle, and on the prudence required to avoid grave harm.</p>
                     </div>
                 </div>
             </div>

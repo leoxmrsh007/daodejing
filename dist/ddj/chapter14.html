@@ -6,6 +6,21 @@
     <title>第14章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter14.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter14.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter14.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter14.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter14.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter14.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">无状无象．无声无响．故能无所不通．无所不往．不得而知．更以我耳目体不知为名．故不可致诘．混而为一也．欲言无邪．而物由以成．欲言有邪．而不见其形．故曰无状之状无物之象也．不可得而定也．有有其事．无形无名者．万物之宗也．虽今古不同．时移俗易．故莫不由乎此以成其治者也．故可执古之道以御今之有．上古虽远．其道存焉．故虽在今可以知古始也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">視之不見名曰夷，無色曰夷，言一無采色，不可得視而見之。聽之不聞名曰希，無聲曰希，言一無音聲，不可得聽而聞之。搏之不得名曰微。無形曰微，言一無形體，不可搏持而得之。此三者不可致詰，三者謂夷希微也，不可致詰者，謂無色無聲無形，口不能言，書不能傳，當受之以靜，求之以神，不可詰問而得之也。故混而為一。混，合也。故合於三，名之而為一。其上不皦，言一在天上，不皦皦光明。○皦，音皎。其下不昧。言一在天下，不昧昧有所闇冥。○昧，音妹。繩繩不可名，繩繩者，動行無窮極也。不可名者，非一色也，不可以青黃白黑別；非一聲也，不可以宮商角徵羽聽；非一形也，不可以長短大小度之也。復歸於無物。物，質也。復當歸之於無質。復，音服。是謂無狀之狀，言一無形狀，而能為萬物作形狀也。無物之象，一無物質，而為萬物設形象也。是為忽恍。一忽忽恍恍者，若存若亡，不可見之也。迎之不見其首，一無端末，不可預待也。除情去欲，一自歸之也。隨之不見其後。言一無形迹，不可得而看。執古之道以御今之有，聖人執守古道，生一以御物，知今當有一也。以知古始，是謂道紀。人能知上古本始有一，是謂知道綱紀也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">物有間；人不知其間；故合之，背之，而物皆為患。道無間，人強分其間；故執之，別之，而道僅為名。以無間乘有間，終日遊，而患與名去。患與名去，斯「無物」矣。夫有物者，或輕，或重；或光，或塵；或作，或止；是謂無紀。一名為陰，一名為陽，而沖氣死。一名為仁，一名為義，而太和死。道也者，生於未陰未陽，而死於仁義者與！故離朱不能察黑白之交，師曠不能審宮商之會，慶忌不能攫空塵之隙，神禹不能皙天地之分。非至常者，何足以與於斯！</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言大道體虛，超乎聲色名相思議之表，聖人執此以御世也。夷，無色也。故視之不可見。希，無聲也。故聽之不可聞。微，無相也。故搏之不可得。搏，取之也。此三者，雖有此名，其實不可致詰。致詰，猶言思議。由其道體混融而不可分，故為一。其上日月不足以增其明，故不皦。皦，明也，其下幽暗不能以昏其禮，故不昧。繩繩，猶綿綿不絕之意。謂道體雖綿綿不絕，其實不可名言。畢竟至虛，雖生而不有，故復歸於無物。杳冥之內，而至精存焉，故曰無狀之狀。恍惚之中，而似有物焉，故曰無象之象，是謂惚恍。此正楞嚴所謂罔象虛無，微細精想耳。由其此體，前觀無始，故迎之不見其首。後觀無終，故隨之不見其後。此乃古始之道也。上皆歷言大道之妙，下言得道之人。然聖人所以為聖人者，蓋執此妙道以御世。故曰執古之道，以御今之有。吾人有能知此古始之道者，即是道統所係也。故曰能知古始，是謂道紀。紀，綱紀。謂統緒也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">What cannot be seen is called evanescent; What cannot be heard is called rarefied; What cannot be touched is called minute. These three cannot be fathomed And so they are confused and looked upon as one. Its upper part is not dazzling; Its lower part is not obscure. Dimly visible, it cannot be named And returns to that which is without substance. This is called the shape that has no shape, The image that is without substance. This is called indistinct and shadowy. Go up to it and you will not see its head; Follow behind it and you will not see its rear. Hold fast to the way of antiquity In order to keep in control the realm of today. The ability to know the beginning of antiquity Is called the thread running through the way.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. We look at it but do not see it; 2. We name this "the minute." 3. We listen to it but do not hear it; 4. We name this "the rarefied." 5. We touch it but do not hold it; 6. We name this "the level and smooth." 7. These three cannot be examined to the limit. 8. Thus they merge together as one. 9. "One" — there is nothing more encompassing above it, 10. And nothing smaller below it. 11. Boundless, formless! It cannot be named, 12. And returns to the state of no-thing. 13. This is called the formless form, 14. The substanceless image. 15. This is called the subtle and indistinct. 16. Follow it and you won't see its back; 17. Greet it and you won't see its head. 18. Hold on to the Way of the present — 19. To manage the things of the present, 20. And to know the ancient beginning. 21. This is called the beginning of the thread of the Way.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Look, it cannot be seen - it is invisible. Listen, it cannot be heard - it is inaudible. Reach, it cannot be touched - it is intangible. These three cannot be investigated, they merge into one. Above is not bright, below is not dark. An unending thread beyond naming, it returns to nothingness. This is the formless form, the image of nothing. This is the elusive. Meet it, it has no beginning. Follow it, it has no end. Hold to the ancient way, to rule the present. Knowing the ancient beginning is the way's thread.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Because the eye gazes but can catch no glimpse of it, It is called elusive. Because the ear listens but cannot hear it, It is called the rarefied. Because the hand feels for it but cannot find it, It is called the infinitesimal. These three, because they cannot be further scrutinized, Blend into one, Its rising brings no light; Its sinking, no darkness. Endless the series of things without name On the way back to where there is nothing. They are called shapeless shapes; Forms without form; Are called vague semblance. Go towards them, and you can see no front; Go after them, and you see no rear. Yet by seizing on the Way that was You can ride the things that are now. For to know what once there was, in the Beginning, This is called the essence of the Way.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第14章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Look, and it can't be seen. Listen, and it can't be heard. Reach, and it can't be grasped. Above, it isn't bright. Below, it isn't dark. Seamless, unnamable, it returns to the realm of nothing. Form that includes all forms, image without an image, subtle, beyond all conception. Approach it and there is no beginning; follow it and there is no end. You can't know it, but you can be it, at ease in your own life. Just realize where you come from: this is the essence of wisdom.</p>
                     </div>
                 </div>
             </div>

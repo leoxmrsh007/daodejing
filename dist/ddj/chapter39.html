@@ -6,6 +6,21 @@
     <title>第39章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter39.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter39.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter39.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">昔始也．一数之始而物之极也．各是一物之生．所以为主也．物皆各得此一以成．既成而舍以居成．居成则失其母．故皆裂发歇竭灭蹶也．各以其一致此清宁灵盈生贞．用一以致清耳．非用清以清也．守一则清不失．用清则恐裂也．故为功之母不可舍也．是以皆无用其功．恐丧其本也．清不能为清．盈不能为盈．故清不足贵盈不足多．贵在其母而母无贵形．贵乃以贱为本．高乃以下为基．故致数舆乃无也．玉石琭琭珞珞．体尽于形．故不欲也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">昔之得一者，昔，往也。一，無為道之子也。天得一以清，地得一以寧，言天得一，故能垂象清明。地得一，故能安靜不動搖。神得一以靈，言神得一，故能變化無形。谷得一以盈，言谷得一，故能盈滿而不絕也。萬物得一以生，言萬物皆須道以生成也。侯王得一以為天下正。言侯王得一，故能為天下平正。其致之，致，誠也。謂下五事也。天無以清將恐裂，言天當有陰陽施張，晝夜更用，不可但，欲清明無已時將恐分裂不為天。地無以寧將恐發，言地當有高下剛柔，氣節五行，不可但，欲安靜無已時，將恐發泄不為地。神無以靈將恐歇，言神當有王相囚死休廢，不可但，欲靈無已時將恐虛歇不為神也。谷無以盈將恐竭，言谷當有盈縮虛實，不可但，欲盈滿無已時，將恐枯竭不為谷。萬物無以生將恐滅，言萬物當隨時生死，不可但，欲生無己時，將恐滅亡不為物也。侯王無以貴高將恐蹶。言侯王當屈己以下人，汲汲求賢，不可但，欲高於人，將恐顛蹶失其位也。○蹶，音厥。故貴以賤為本，言必欲尊貴，當以薄賤為本，若禹稷躬稼，舜陶河濱，周公下白屋也。高必以下為基。言必欲尊貴，當以下為本基，猶築牆造功，因卑成高，下不堅固，後必傾危。是以侯王自謂孤寡不轂。孤寡喻孤獨，不轂喻不能，如車轂為眾轂所湊。此非以賤為本耶？言侯王至尊貴，能以孤寡自稱，此非以賤為本乎，以曉人。非乎？嗟歎之辭。故致數車無車。致，就也。言人就車數之為輻、為輪、為轂、為衡、為轝，無有名為車者，故成為車。以喻侯王不以尊號自名，故能成其貴。○數，上聲。不欲琭琭如玉，落落如石。琭琭，喻少。落落，喻多。玉少故見貴，石多故見賤，言不欲如玉為人所貴，如石為人所賤，當處其中也。○琭，音祿。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">愚者仍乎「一」，而不能「以」；智者日「以」之，而不能「一」。「以」者失「一」也，不「一」者無「以」也。「一」含萬，入萬而不與萬為對。「以」無事，有事而不與事為麗。而況可邀，而況可執乎？是以酒熟而酤者至，舍葺而行者休。我不「得一」，而姑守其濁，以為之筐橐，而後「一」可「致」而不拒。夫貴賤高下之與「一」均，豈有當哉？乃貴高者功名之府，而賤下者未有成也。功立而不相兼，名定而不相通，則萬且不盡，而況於「一」？故天地之理虧，而王侯之道喪。以大「輿」載天下者，知所取舍久矣。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上言聖人所以無為而成者，以其自足於己也。謂聖人性真自足，則智周萬物，無幽不鑒。故天下雖，可不出戶而知。天道雖微，可不窺牖而見。以其私欲淨盡，而無一毫障蔽，故也。若夫人者，沉瞑利欲，向外馳求，以利令智昏，故去性日遠，情塵日厚，塵厚而心益暗。故其出彌遠，其知彌少。是以聖人淡然無欲，不事於物。故寂然不動，感而遂通天下之故。故曰不行而知。如此，則尸居而龍見，淵默而雷聲。故曰不見而名。道備於己，德被群生，可不言而化。故曰不為而成。是皆自足於性也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Of old, these came to be in possession of the One: Heaven in virtue of the One is limpid; Earth in virtue of the One is settled; Gods in virtue of the One have their potencies; The valley in virtue of the One is full; The myriad creatures in virtue of the One are alive; Lords and princes in virtue of the One become leaders of the empire. It is the One that makes these what they are. Without what makes it limpid heaven might split; Without what makes it settled earth might sink; Without what gives them their potencies gods might spend themselves; Without what makes it full the valley might run dry; Without what keeps them alive the myriad creatures might perish; Without what makes them leaders lords and princes might fall. Hence the superior must have the inferior as root; The high must have the low as base. Thus lords and princes refer to themselves as 'solitary', 'desolate', and 'hapless'. This is taking the inferior as root, is it not? Hence the highest renown is without renown, Not wishing to be one among many like jade Nor to be aloof like stone.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Of those in the past that attained the One — 2. Heaven, by attaining the One became clear; 3. Earth, by attaining the One became stable; 4. Gods, by attaining the One became divine; 5. Valley, by attaining the One became full; 6. Marquises and kings, by attaining the One made the whole land ordered and secure. 7. Taking this to its logical conclusion we would say — 8. If Heaven were not by means of it clear, it would, I'm afraid, shatter; 9. If the Earth were not by means of it stable, it would, I'm afraid, let go. 10. If the gods were not by means of it divine, they would, I'm afraid, be powerless. 11. If valley were not by means of it full, they would, [I'm afraid,] dry up. 12. And if marquises and kings were not by means of it noble and high, they would, I'm afraid, topple and fall. 13. Therefore, it must be the case that the noble has the base as its root; 14. And it must be the case that the high has the low for its foundation. 15. Thus, for this reason, marquises and kings call themselves "The Orphan," "The Widower," and "The One Without Grain." 16. This is taking the base as one's root, is it not?! 17. Therefore, they regard their large numbers of carriages as having no carriage. 18. And because of this, they desire not to dazzle and glitter like jade, 19. But to remain firm and strong like stone.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Those who obtained the one in the past: heaven obtained the one and became clear. Earth obtained the one and became peaceful. The spirits obtained the one and became divine. The valley obtained the one and became full. The ten thousand things obtained the one and lived. Kings and lords obtained the one and became leaders of the world. This is because of it. If heaven were not clear, it would split. If earth were not peaceful, it would quake. If spirits were not divine, they would dissipate. If the valley were not full, it would dry up. If the ten thousand things were not alive, they would perish. If kings and lords were not leaders, they would fall. Therefore nobility has root in humility, height has root in lowliness. Therefore kings and lords call themselves orphaned, lonely, unworthy. Is this not taking humility as root? Therefore the highest praise is no praise. Do not wish to be like jade, or like stone.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">As for the things that from of old have understood the Whole — The sky through such understanding remains limpid, Earth remains steady, The spirits keep their holiness, The abyss is replenished, The ten thousand creatures bear their kind, Barons and princes direct their people. It is the Whole that causes it. Were it not so limpid, the sky would soon get torn, Were is not for steadiness, the earth would soon tip over, Were it not for their holiness, the spirit would soon wither away, Were it not for this replenishment, the abyss would soon go dry, Were it not that ten thousand creatures can bear their kind, They would soon become extinct. Were the barons and princes no longer directors of their people And for that reason honoured and exalted, they would soon be overthrown. Truly " the humble is the stem upon which the mighty grows, The low is the foundation upon which the high is laid." That is why barons and princes refer to themselves as "The Orphan", "The Needy", "The Ill-provided. Is this not indeed a case of might rooting itself upon humility? True indeed are the sayings: "Enumerate the parts of a carriage, And you still have not explained what a carriage is," And They did not want themselves to tinkle like jade-bells, While others resounded like stone chimes".</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第39章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">In harmony with the Tao, the sky is clear and spacious, the earth is solid and full, all creature flourish together, content with the way they are, endlessly repeating themselves, endlessly renewed. When man interferes with the Tao, the sky becomes filthy, the earth becomes depleted, the equilibrium crumbles, creatures become extinct. The Master views the parts with compassion, because he understands the whole. His constant practice is humility. He doesn't glitter like a jewel but lets himself be shaped by the Tao, as rugged and common as stone.</p>
                     </div>
                 </div>
             </div>

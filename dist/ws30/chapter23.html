@@ -6,6 +6,21 @@
     <title>第23颂 - 唯识三十颂</title>
     <meta name="description" content="唯识三十颂多版本对照平台 - 世亲著 · 唯识三十颂">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter23.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter23.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter23.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter23.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../ws30/index.html">
+            <a class="dropdown-item active" href="../ws30/chapter23.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter23.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -522,7 +537,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    【第23颂】此颂阐述唯识学的深奥义理，分析识的变现和诸法的缘起性空。详细内容可参考《成唯识论》的阐释。
+                    即依此三性  立彼三无性  故佛密意说  一切法无性
                 </div>
             </div>
         </div>
@@ -534,7 +549,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">第23颂继续阐发唯识三十颂的义理，从唯识无境的角度，说明一切外境都是识的变现，破除我法二执，证得唯识真性。</p>
+                <p class="modern-text mb-0">本颂由三性进而建立三无性：依前说遍计所执、依他起、圆成实三性，分别安立相无性、生无性、胜义无性三种“无性”。因此，佛陀以密意宣说“一切法无自性”：不是落入断灭，而是从不同角度解除对相状、因生、自性的执著，使行者得入中道正观。</p>
             </div>
         </div>
     </section>
@@ -546,19 +561,15 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-generic" type="button">English</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-generic">
+                        <p class="english-text mb-0 fst-italic">On the basis of the three natures the three kinds of non-nature are posited. Corresponding to the imagined, dependent, and perfected natures are the absence of characteristics, the absence of arising, and the absence of ultimate nature. Thus the Buddha, with a hidden intention, teaches that all dharmas are without self-nature. This is not nihilism, but a skillful way to free practitioners from clinging to appearances, production, and any fixed essence, guiding them into the middle way.</p>
                     </div>
                 </div>
             </div>

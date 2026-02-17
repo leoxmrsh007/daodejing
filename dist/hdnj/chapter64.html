@@ -6,6 +6,21 @@
     <title>四时刺逆从论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter64.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter64.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter64.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="走千里路，从脚下第一步开始&#10;原文：千里之行，始于足下">
-                <span class="idiom-word">千里之行</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="结束时像开始一样谨慎&#10;原文：慎终如始，则无败事">
-                <span class="idiom-word">慎终如始</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="走千里路，从脚下第一步开始&#10;原文：千里之行，始于足下">
+            <span class="idiom-word">千里之行</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="结束时像开始一样谨慎&#10;原文：慎终如始，则无败事">
+            <span class="idiom-word">慎终如始</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -684,8 +699,8 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     六十四
-厥阴有余病阴痹，不足病生热痹，滑则病狐疝风，涩则病少腹积气。少阴有余病皮痹隐轸，不足病肺痹，滑则病肺风疝，涩则病积溲血。太阴有余病肉痹寒中，不足病脾痹，滑则病脾风疝，涩则病积心腹时满。阳明有余病脉痹身时热，不足病心痹，滑则病心风疝，涩则病积时善惊。太阳有余病骨痹身重，不足病肾痹，滑则病肾风疝，涩则病积善时巅疾。少阳有余病筋痹胁满，不足病肝痹，滑则病肝风疝，涩则病积时筋急目痛。是故春气在经脉，夏气在孙络，长夏气在肌肉，秋气在皮肤，冬气在骨髓中。帝曰：余愿闻其故。岐伯曰：春者，天气始开，地气始泄，冻解冰释，水行经通，故人气在脉。夏者，经满气溢，入孙络受血，皮肤充实。长夏者，经络皆盛，内溢肌中。秋者，天气始收，腠理闭塞，皮肤引急。冬者盖藏，血气在中，内著骨髓，通于五藏。是故邪气者，常随四时之气血而入客也，至其变化不可为度，然必从其经气，辟除其邪，除其邪则乱气不生。
-帝曰：逆四时而生乱气奈何？岐伯曰：春刺络脉，血气外溢，令人少气；春刺肌肉，血气环逆，令人上气；春刺筋骨，血气内著，令人腹胀。夏刺经脉，血气乃竭，令人解亻亦；夏刺肌肉，血气内却，令人善恐；夏刺筋骨，血气上逆，令人善怒。秋刺经脉，血气上逆，令人善忘；秋刺络脉，气不外行，令人卧不欲动；秋刺筋骨，血气内散，令人寒栗。冬刺经脉，血气皆脱，令人目不明；冬刺络脉，内气外泄，留为大痹；冬刺肌肉，阳气竭绝，令人善忘。凡此四时刺者，大逆之病，不可不从也，反之，则生乱气相淫病焉。故刺不知四时之经，病之所生，以从为逆，正气内乱，与精相薄，必审九候，正气不乱，精气不转。
+<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>有余病阴<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，不足病生热<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病狐<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>风，涩则病少腹积气。<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>有余病皮<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>隐轸，不足病肺<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病肺风<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，涩则病积溲血。<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>有余病肉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>寒中，不足病脾<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病脾风<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，涩则病积心腹时满。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>有余病脉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>身时热，不足病心<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病心风<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，涩则病积时善惊。<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>有余病骨<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>身重，不足病肾<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病肾风<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，涩则病积善时巅疾。<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>有余病筋<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>胁满，不足病肝<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，滑则病肝风<span class="difficult" data-pinyin="shàn" data-meaning="少腹拘急疼痛一类病证">疝</span>，涩则病积时筋急目痛。是故春气在<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>，夏气在孙络，长夏气在肌肉，秋气在皮肤，冬气在骨髓中。帝曰：余愿闻其故。岐伯曰：春者，天气始开，地气始泄，冻解冰释，水行经通，故人气在脉。夏者，经满气溢，入孙络受血，皮肤充实。长夏者，经络皆盛，内溢肌中。秋者，天气始收，<span class="difficult" data-pinyin="còu lǐ" data-meaning="皮肤与肌肉之间的空隙，为邪气出入之处">腠理</span>闭塞，皮肤引急。冬者盖藏，血气在中，内著骨髓，通于五藏。是故邪气者，常随四时之气血而入客也，至其变化不可为度，然必从其经气，辟除其邪，除其邪则乱气不生。
+帝曰：逆四时而生乱气奈何？岐伯曰：春刺<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>，血气外溢，令人少气；春刺肌肉，血气环逆，令人上气；春刺筋骨，血气内著，令人腹胀。夏刺<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>，血气乃竭，令人解亻亦；夏刺肌肉，血气内却，令人善恐；夏刺筋骨，血气上逆，令人善怒。秋刺<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>，血气上逆，令人善忘；秋刺<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>，气不外行，令人卧不欲动；秋刺筋骨，血气内散，令人寒栗。冬刺<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>，血气皆脱，令人目不明；冬刺<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>，内气外泄，留为大<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>；冬刺肌肉，阳气竭绝，令人善忘。凡此四时刺者，大逆之病，不可不从也，反之，则生乱气相淫病焉。故刺不知四时之经，病之所生，以从为逆，正气内乱，与精相薄，必审九候，正气不乱，<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>不转。
 帝曰：善。刺五藏，中心一日死，其动为噫。中肝五日死，其动为语。中肺三日死，其动为咳。中肾六日死，其动为嚏欠。中脾十日死，其动为吞。刺伤人五藏必死，其动，则依其藏之所变候知其死也。
                 </div>
             </div>
@@ -698,7 +713,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇阐四时气血所在与刺法顺逆：春在经、夏在孙络、长夏在肌、秋在皮、冬在骨髓，逆之则乱气生、伤正致祸。临床意义：立足季节部位选刺，顺时而为，严禁逆刺以免脱气与内外失衡。</p>
             </div>
         </div>
     </section>
@@ -710,19 +725,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Locates seasonal residence of qi and prescribes compliant needling; warns that reversing the seasonal order generates disorder and harms the upright.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On following seasons in puncture—where qi resides and what to avoid—to prevent chaos and preserve 正.</p>
                     </div>
                 </div>
             </div>

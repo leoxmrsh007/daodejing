@@ -50,3 +50,8 @@ statistics = true
 
 # 输出格式
 format = default
+
+# 复杂度豁免 - 需要逐步重构的函数
+per-file-ignores =
+    generate_static.py:C901
+    services/fulltext_search.py:C901

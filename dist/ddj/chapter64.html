@@ -6,6 +6,21 @@
     <title>第64章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter64.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter64.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter64.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="走千里路，从脚下第一步开始&#10;原文：千里之行，始于足下">
-                <span class="idiom-word">千里之行</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="结束时像开始一样谨慎&#10;原文：慎终如始，则无败事">
-                <span class="idiom-word">慎终如始</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="走千里路，从脚下第一步开始&#10;原文：千里之行，始于足下">
+            <span class="idiom-word">千里之行</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="结束时像开始一样谨慎&#10;原文：慎终如始，则无败事">
+            <span class="idiom-word">慎终如始</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -700,48 +715,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">以其安不忘危．谋之无功之势．故曰易也．虽失无入有．以其微脆之故．未足以兴大功．故易也．此四者皆说愼终也．不可以无野故而不持．不可以微之故而弗散也．无而弗持则生有焉．微而不散则生大焉．故虑终之患如始之祸．则无败事．谓其安未兆也．谓闭微脆也．当以愼终除微．愼微除乱．而以施为治之．形名执之．反生事原．巧辟滋作．故败失也．不愼终也．好欲虽微争尚为之兴．难得之货虽细贫盗为之起．不学而能者自然也．喩于学者过也．故学不学以复众人之所过.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">古之善為道者，謂古之善以道治身及治國者。非以明民，不以道教民明知巧詐也。將以愚之。將以道德教民，使朴質不詐偽。民之難治，以其智多。以其智多，故為巧偽。以智治國，國之賊，使智惠之人治國之政事，必遠道德，妄作威福，為國之賊。不以智治國，國之福。不使智惠之人治國之政事，則民守正直，不為邪飾，上下相親，君臣同力，故為國之福也。知此兩者亦楷式。兩者，謂智與不智者。當知，智者為賊，不智者能為福，是治身治國之法式也。常知楷式，是謂玄德。玄，天也。能知治身及治過之法式，是謂與天同德也。玄德深矣，遠矣，玄德之人，深不可測。遠不可極也。與物反矣，玄德之人，與萬物反異，萬物欲益己，玄德施與人也。乃至於大順。玄德與萬物反異，故能至大順，順天理也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">失有道者，不為吉先，不為福贅。「未有」、「未亂」而逆治，其事近迎。「幾成」而「慎」有餘，其事近隨。迎隨之非道，久矣，非以其數數於往來而中敝邪？孰知夫往者之方來，而來者之方往也？又孰知夫往者之未嘗往，而來者之來嘗來也？戒其隨，始若迎之；戒其迎，始若隨之。又孰知夫迎隨之可避，而避迎隨之亦可戒也？或敝或避，因物者也。兼而戒之，從事其易者，因道者也。因物者不常，因道者致一。一無所倚，迎幾「早服」，此以「恃萬物主自然而不為」。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言聖人入道之要妙，示人以真切工夫也。凡有為，謂智巧。有事，謂功業。有味，謂功名利欲。此三者，皆世人之所尚。然道本至虛而無為。至靜而無事。至淡而無味。獨聖人以道為懷，去彼取此。故所為者無為。所事者無事。所味者無味。故世人皆以名位為大，以利祿為多而取之。然道至虛微淡泊無物，皆以為小少，故棄而不取。聖人去功與名，釋智遺形，而獨與道游。是去其大多，而取其小少。故至小為至大，至少為至多。故大其小，而多其少也。試觀世人報怨以德，則可知矣。何也。且世之人，無論貴賤，事最大而難解者，怨也。然怨之始也，偶因一言之失，一事之差。遂相搆結，以至殺身滅名，亡國敗家之禍。甚至有積怨深憤，父子子孫，累世相報而未已者。此舉世古今之恆情也。豈非其事極大且多哉。惟聖人則不然。察其怨之未結也，本不有。始結也，事甚小。既結也，以為無與於己。故無固執不化之心，亦無有我以與物為匹敵。其既往也，事已消之，求其朕而不可得。以此觀之，則任彼之怨，在我了無報之之心矣。然彼且以為有怨，在我全無報復之心，彼必以我為德矣。是所謂報怨以德，非謂曲意將德以報怨也。孔子以直報怨，正謂此耳。斯則怨乃事之至大而多，人人必有難釋者。殊不知有至易者存焉。是所謂為無為，事無事，大其小，而多其少也。天下之事，何獨於怨，而事事皆然。故天下之事至難者，有至易存焉。至大者，有至細存焉。人不見其易與細，而於難處圖之，大處為之，必終無成。苟能圖之於易，而為之於細，鮮不濟者。以天下難事必作於易。天下大事必作於細，故也。作者，始起也。是以聖人虛心體道，退藏於密。跡愈隱而道愈光，澤流終古而與天地參。此所謂終不為大，故能成其大也。老子言及至此，抑恐世人把易字當作容易輕易字看。故誡之曰，夫輕諾必寡信，多易必多難。謂世人不可將事作容易看也。且容易許人，謂之輕諾。凡輕許者，必食言而寡信。見事之容易而輕為者，必有始而無終。是故易字，非容易也。世人之所難，而聖人之所易。世人之所易，而聖人之所難。故曰聖人猶難之，故終無難。猶，應作尤。古字通用。更也。謂世人之所甚易者，而聖人更難之，故終不難耳。觀夫文王兢兢，周公業業，戒慎恐懼乎不睹不聞，皆聖人之所難也。余少誦圖難於易為大於細二語，只把作事看。及余入山學道，初為極難，苦心不可言。及得用心之訣，則見其甚易。然初之難，即今之易。今之易，即初之難。然治心如此，推之以及天下之事皆然。此聖人示人入道之真切工夫也。志道者勉之。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -749,19 +722,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">It is easy to maintain a situation while it is still secure; It is easy to deal with a situation before symptoms develop; It is easy to break a thing when it is yet brittle; It is easy to dissolve a thing when it is yet minute. Deal with a thing while it is still nothing; Keep a thing in order before disorder sets in. A tree that can fill the span of a man's arms Grows from a downy tip; A terrace nine storeys high Rises from hodfuls of earth; A journey of a thousand miles Starts from beneath your feet. Whoever does anything to it will ruin it; Whoever lays hold of it will lose it. Therefore the sage, because he does nothing, never ruins anything; And, because he does not lay hold of anything, loses nothing. In their enterprises the people Always ruin them when on the verge of success. Be as careful at the end as at the beginning And there will be no ruined enterprises. Therefore the sage desires not to desire And does not value goods which are hard to come by; Learns to be without learning And makes good the mistakes of the multitude In order to help the myriad creatures to be natural and to refrain from daring to act.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. What is at rest is easy to hold; 2. What has not yet given a sign is easy to plan for; 3. The brittle is easily shattered; 4. The minute is easily scattered; 5. Act on it before it comes into being; 6. Order it before it turns into chaos. 7. A tree [so big] that it takes both arms to surround starts out as the tiniest shoot; 8. A nine-story terrace rises up from a basket of dirt. 9. A high place one hundred, one thousand feet high begins from under your feet. 10. Those who act on it ruin it; 11. Those who hold on to it lose it. 12. Therefore the Sage does not act, 13. And as a result, he doesn't ruin [things]; 14. He does not hold on to [things], 15. And as a result, he doesn't lose [things]; 16. In people's handling of affairs, they always ruin things when they're right at the point of completion. 17. Therefore we say, "If you're as careful at the end as you were at the beginning, you'll have no failures." 18. Therefore the Sage desires not to desire and doesn't value goods that are hard to obtain; 19. He learns not to learn and returns to what the masses pass by; 20. He could help all things to be natural, yet he dare not do it.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">What is still is easily held. What has not yet shown omens is easily planned. What is fragile is easily broken. What is minute is easily scattered. Act before things exist. Govern before disorder. A tree you can barely reach around grows from a tiny sprout. A nine-story tower rises from a pile of earth. A journey of a thousand miles begins under one's feet. Acting destroys, grasping loses. Therefore the sage does not act, and thus does not destroy. Does not grasp, and thus does not lose. People in their undertakings always ruin things when near success. Be as careful at the end as at the beginning, and you will not ruin things. Therefore the sage desires no desire, values no rare goods, learns what others do not learn, returns the errors of the multitude, and thus assists all things naturally without daring to act.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">"What stays still is easy to hold; Before there has been an omen it is easy to lay plans. What is tender is easily torn, What is minute is easy to scatter." Deal with things in their state of not-yet-being, Put them in order before they have got into confusion. For "the tree big as a man's embrace began as a tiny sprout, The tower nine storeys high began with a heap of earth, The journey of a thousand leagues began with what was under the feet". He who acts, harms; he who grabs, lets slip. Therefore the Sage does not act, and so does not harm; Does not grab, and so does not let slip. Whereas the people of the world, at their tasks, Constantly spoil things when within an ace of completing them. "Heed the end no less than the beginning," And your work will not be spoiled. Therefore the Sage wants only things that are unwanted, Sets no store by products difficult to get, And so teaches things untaught, Turning all men back to the things they have left behind, That the ten thousand creatures may be restored to their Self-so. This he does; but dare not act.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第64章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">What is rooted is easy to nourish. What is recent is easy to correct. What is brittle is easy to break. What is small is easy to scatter. Prevent trouble before it arises. Put things in order before they exist. The giant pine tree grows from the tiniest sprout. The journey of a thousand miles starts from beneath your feet. Rushing into action, you fail. Trying to grasp things, you lose them. Forcing a project to completion, you ruin what was almost ripe. Therefore the Master takes action by letting things take their course. He remains as calm at the end as at the beginning. He has nothing, thus has nothing to lose. What he desires is non-desire; what he learns is to unlearn. He simply reminds people of who they have always been. He cares about nothing but the Tao. Thus he can care for all things.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>第24章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter24.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter24.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter24.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter24.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter24.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter24.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">物尚进则失安．故曰企者不立．不自见则其明全也．不自是则其是彰也．不自伐则其功有也．不自矜则其徳长也．其唯于道而论之．若郄至之行．盛馔之余也．本虽美更可秽也．本有功而自伐之．故更为肬赘者也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">跂者不立；跂，進也，謂貪權慕名，進取功榮也，則不可久立身行道也。跨者不行；自以為貴而跨於人，眾共蔽之使不得行。自見者不明；人自見其形容以為好，自見所行以為應道，殊不自知其形貌操行之鄙。自是者不彰；自以為是而非人，眾共蔽之使不得彰明。自伐者無功；所謂輒自伐取其功美，即失有功於人也。自矜者不長。好自矜大者，不可以長久。其於道也，曰餘食贅行。贅，貪也。使此自矜伐之人，在治國之道曰然斂餘祿食為贅行。物或惡之，此人在位，動欲傷害，故物無有不畏惡也。惡，去聲。故有道者不處也。言有道之人不居其國也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">心彌急者機彌失，是彌堅者非彌甚。前機已往，追而綴之，如食已飫而更設。後機未至，強而屬之，如形已具而更駢。道數無窮，執偏執餘以盡之，宜其憎乎物，而傷乎己也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承前章言好辯者不能持久，猶如跂跨之人不能立行，甚言用智之過也。跂，足根不著地也。跨，闊步而行也。蓋跂者只知要強高出人一頭，故舉踵而立。殊不知舉踵不能久立。跨者只知要強先出人一步，故闊步而行。殊不知跨步不能長行。以其皆非自然。以此二句為向下自見自是自伐自矜之譬喻耳。自見，謂自逞己見。自是，謂偏執己是。此一曲之士，於道必暗而不明。自伐，謂自誇其功。自矜，謂自恃其能。此皆好勝強梁之人，不但無功，而且速於取死。然此道中本無是事。故曰其在道也，如食之餘，如形之贅，皆人之所共惡。而有道之士，以謙虛自守，必不處此。故曰有道者不處。以其不能合乎自然也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">He who tiptoes cannot stand; he who strides cannot walk. He who shows himself is not conspicuous; He who considers himself right is not illustrious; He who brags will have no merit; He who boasts will not endure. From the point of view of the way these are 'excessive food and useless excresences'. As there are Things that detest them, he who has the way does not abide in them.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. One who boasts is not established; 2. One who shows himself off does not become prominent; 3. One who puts himself on display does not brightly shine; 4. One who brags about himself gests no credit; 5. One who praises himself does not long endure. 6. In the Way, such things are called: 7. "Surplus food and redundant action." 8. And with things — there are those who hate them. 9. Therefore, the one with the Way in them does not dwell.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">On tiptoe, one does not stand. Striding, one does not go forward. Showing oneself, one is not enlightened. Justifying oneself, one is not distinguished. Boasting, one has no merit. Bragging, one does not endure. From the way's perspective, this is called extra food and action. All things detest it. Therefore those with the way do not dwell in it.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">'He who stands on tip-toe, does not stand firm; He who takes the longest strides, does not walk the fastest." He who does his own looking sees little, He who defines himself is not therefore distinct. He who boasts of what he will do succeeds in nothing; He who is proud of his work, achieves nothing that endures. Of these, from the standpoint of the Way, it is said: "Pass round superfluous dishes to those that have already had enough, And no creature but will reject them in disgust." That is why he that possesses Tao does not linger.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第24章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">He who stands on tiptoe doesn't stand firm. He who rushes ahead doesn't go far. He who tries to shine dims his own light. He who defines himself can't know who he really is. He who has power over others can't empower himself. He who clings to his work will create nothing that endures. If you want to accord with the Tao, just do your job, then let go.</p>
                     </div>
                 </div>
             </div>

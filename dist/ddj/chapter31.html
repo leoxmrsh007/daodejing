@@ -6,6 +6,21 @@
     <title>第31章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter31.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter31.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter31.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter31.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter31.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="用兵是不吉利的&#10;原文：夫佳兵者，不祥之器">
-                <span class="idiom-word">佳兵不祥</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="用兵是不吉利的&#10;原文：夫佳兵者，不祥之器">
+            <span class="idiom-word">佳兵不祥</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">夫佳兵者，不祥之器，物或恶之，故有道者不处。君子居则贵左，用兵则贵右。兵者不祥之器，非君子之器，不得已而用之，恬淡为上。胜而不美，而美之者，是乐杀人。夫乐杀人者，则不可得志于天下矣。吉事尚左，凶事尚右。偏将军居左，上将军居右，言以丧礼处之。杀人之众，以悲哀泣之，战胜以丧礼处之。</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">夫佳兵，不祥之器，祥，喜也。兵者，驚精神，濁和氣，不善人之器也。不當修飾之。物或惡之，兵，動則有所害，故萬物無有不惡之。○惡，去聲。故有道者不處。有道之人，不處其國。君子居則貴左，貴柔弱也。用兵則貴右。貴剛強也。此言，兵道與君子道反，所貴者異也。兵者不祥之器，兵革者，不善之器也。非君子之器，非君子所貴重器也。不得已而用之，謂遭衰逆亂禍欲加萬民，乃用之以自守。恬惔為上。不貪土地，利人財寶。○惔，一作然。勝而不美，雖得勝而不以為利己也。而美之者，是樂殺人。美得勝若是為喜，樂殺人者也。夫樂殺人者，則不可以得志於天下矣。為人君而樂殺人，此不可使得志於天下，為人主必專制人命，妄行刑誅。吉事尚左，左生位也。凶事尚右。陰道殺人。偏將軍居左，偏將軍卑而居陽者，以其不專殺也。上將軍居右，上將軍尊而居右者，言其主殺也。言以喪禮處之。上將軍於右，喪禮尚右，死人貴陰也。殺人之眾，以悲哀泣之，傷己德薄，不能以道化人，而害無辜之民。戰勝以喪禮處之。古者戰勝將軍，居喪主禮之位，素服而哭之，明君子貴德而賤兵，不得已誅，不祥心不樂之，比於喪也。知後世用兵不已，故悲痛之。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">與其悲之於後，何如忘之於先；與其以凶禮居功，何如以吉道處無功之地。不能先機，不能擇吉，不能因間以有餘，所謂「彼惡知禮意」者也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上言不以兵強天下，故此甚言兵之不可尚也。佳兵，乃用兵之最精巧者，謂之佳兵。凡善用兵者，必甘心於殺人。兵益佳而禍益深，故為不祥之器。歷觀古今善用兵者，不但不得其死，而多無後。此蓋殺機自絕，而造物或惡之者。以其詐變不正，好殺不仁，故有道者不處。不但有道者不處，而苟有仁心者，亦不處也。何以知其然耶。觀夫君子所居則以左為貴，用兵則以右為貴，然右乃凶地，由是而知兵者，乃不祥之器，非君子之器也。萬一不得已而用之者。老子誡曰，當以恬淡為上。恬淡者，言其心和平，不以功利為美，而厭飽之意。既無貪功欲利之心，則雖勝而不以為美。縱不貪功利，而若以勝為美者，亦是甘心樂於殺人。夫樂於殺人者，必不可使其得志於天下矣。且世之吉事必尚左。凶事則尚右。凶事，謂喪事也。所以用兵則貴右，言其可哀也。故兵家以偏將軍居左，以上將軍居右者，蓋上將軍司殺之重者。言居上勢者，則當以喪禮處之也。故殺人眾多，則當以悲哀泣之。即戰勝，亦當以喪禮處之。甚言其不得已而用之，即不得已而處之也。上二章，通言人臣不能以道佐人主，而返以兵為強者，故切誡之。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">It is because arms are instruments of ill omen and there are Things that detest them that the one who has the way does not abide by their use. The gentleman gives precedence to the left when at home, but to the right when he goes to war. Arms are instruments of ill omen, not the instruments of the gentleman. When one is compelled to use them, it is best to do so without relish. There is no glory in victory, and so to glorify it despite this is to exult in the killing of men. One who exults in the killing of men will never have his way in the empire. On occasions of rejoicing precedence is given to the left; On occasions of mourning precedence is given to the right. A lieutenants place is on the left; The general's place is on the right. This means that it is mourning rites that are observed. When great numbers of people are killed, one should weep over them with sorrow. When victorious in war, one should observe the rites of mourning.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. As for weapons — they are instruments of ill omen. 2. And among things there are those that hate them. 3. Therefore, the one who has the Way, with them does not dwell. 4. When the gentleman is at home, he honors the left; 5. When at war, he honors the right. 6. Therefore, weapons are not the instrument of the gentleman — 7. Weapons are instruments of ill omen. 8. When you have no choice but to use them, it's best to remain tranquil and calm. 9. You should never look upon them as things of beauty. 10. If you see them as beautiful things — this is to delight in the killing of men. 11. And when you delight in the killing of men, you'll not realize your goal in the land. 12. Therefore, in happy events we honor the left, 13. But in mourning we honor the right. 14. Therefore, the lieutenant general stands on the left; 15. And the supreme general stands on the right. 16. Which is to say, they arrange themselves as they would at a funeral. 17. When multitudes of people are killed, we stand before them in sorrow and grief. 18. When we're victorious in battle, we treat the occasion like a funeral ceremony.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Fine weapons are instruments of ill omen. All things detest them. Therefore those with the way do not dwell in them. The gentleman values the left in daily life, but in war values the right. Weapons are instruments of ill omen, not the gentleman's instruments. When one must use them, calm detachment is best. Do not celebrate victory. Those who celebrate victory kill people. Those who kill people cannot fulfill their purpose in the world. On auspicious occasions the left is valued, on inauspicious the right is valued. The lieutenant general is on the left, the general on the right. This is said to be conducting it like a funeral. When many people are killed, mourn them with grief. When victorious in war, conduct it like a funeral.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Fine weapons are none the less ill-omened things. (People despise them, therefore, Those in possession of the Tao do not depend on them.) That is why, among people of good birth, In peace the left-hand side is the place of honour, But in war this is reversed and the right-hand side is the place of honour. (Weapons are ill-omened things, which the superior man should not depend on. When he has no choice but to use them, The best attitude is to retain tranquil and peaceful.) The Quietist, even when he conquers, does not regard weapons as lovely things. For to think them lovely means to delight in them, And to delight in them means to delight in the slaughter of men. And he who delights in the slaughter of men Will never get what he looks for out of those that dwell under heaven. (Thus in happy events, The left-hand side is the place of honour, in grief and mourning, The right-hand is the place of honour. The lieutenant general stands on the left, While the supreme general stands on the right, Which is arranged on the rites of mourning.) A host that has slain men is received with grief and mourning; He that has conquered in battle is received with rites of mourning.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第31章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Weapons are the tools of violence; all decent men detest them. Weapons are the tools of fear; a decent man will avoid them except in the direst necessity and, if compelled, will use them only with the utmost restraint. Peace is his highest value. If the peace has been shattered, how can he be content? His enemies are not demons, but human beings like himself. He doesn't wish them personal harm. Nor does he rejoice in victory. How could he rejoice in victory and delight in the slaughter of men? He enters a battle gravely, with sorrow and with great compassion, as if he were attending a funeral.</p>
                     </div>
                 </div>
             </div>

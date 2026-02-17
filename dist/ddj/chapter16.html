@@ -6,6 +6,21 @@
     <title>第16章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter16.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter16.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter16.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter16.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter16.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter16.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">言致虚．物之极笃．守静物之眞正也．动作成长．以虚静观其反复．凡有起于虚．动起于静．故万物虽并动作．卒复归于虚静．是物之极笃也．各返其所始．归根则静．故曰静．静则复命．故曰复命也．复命则得性命之常．故曰常也．常之为物．不偏不彰．无皦昧之状．温凉之象．故曰知常曰明也．唯此复．乃能包通万物．无所不容．失此以往．则邪入乎分．则物离其分．故曰不知常则妄作凶．无所包通也．无所不包通．则乃至于荡然公平也．荡然公平．则乃至于无所不周普也．无所不周普．则乃至于同乎天也．与天合徳．体道大通．则乃至于穷极虚无也．穷极虚无．得道之常．则乃至于不穷极也．无之为物．水火不能害．金石不能残．用之于心．则虎兕无所投其爪角．兵戈无所容其锋刃．何危殆之有乎.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">致虛極，得道之人，捐情去欲，五內清淨，至於虛極。守靜篤。守清靜，行篤厚。萬物並作，作，生也。萬物並生也。吾以觀其復。言吾以觀見萬物無不皆歸其本也。人當念重本也。夫物芸芸，芸芸者，華葉盛。各復歸其根。言萬物無不枯落，各復反其根而更生也。歸根曰靜，靜謂根也。根安靜柔弱，謙卑處下，故不復死也。是謂復命。言安靜者，是為復還性命，使不死也。復命曰常，復命使不死，乃道之所常行也。知常曰明。能知道之所常行則為明。不知常，萎作凶。不知道之所常行，妄作巧詐，則失神明，故凶也。知常容，能知道之所常行，去情忘欲，無所不包容也。容乃公，無所不包容則公正無私，眾邪莫當。公乃王，公正無私，可以為天下王。治身正則形一，神明一，萬共湊已躬也。王乃天，能正德合神，明乃與天子。天乃道，德與天通則與道合同也。道乃久，與道合同乃能長久。沒身不殆。能公能天，通天合道，四者純備，道德弘遠，無殃無咎，乃與天地俱，沒不危殆也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">最下擊實，其次邀虛。最下取動，其次執靜。兩實之中，虛故自然：眾動之極，靜原自復；不邀不執，乃極乃篤。何以明其然也？萬物並作，而蕓蕓者，勢盡而反其所自來也。是故鄧林之葉，可無籌而數；千里之雨，可無器而量。猶舍是而有作，其不謂之妄手？故無所有事，而天下為我用，其道不用作而用觀。觀，目也。觀而不作，目亦腹矣。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上章要人作靜定功夫，此示功夫之方法也。致虛極守靜篤者。致，謂推致推窮之意。虛，謂外物本來不有。靜，謂心體本來不動。世人不知外物本來不有，而妄以為實。故逐物牽心，其心擾擾妄動，火馳而不返。見利亡形，見得亡真，故競進而不休，所以不能保此道也。今學道工夫，先要推窮目前萬物，本來不有。則一切聲色貨利，當體全是虛假不實之事。如此推窮，縱有亦無。一切既是虛假，則全不見有可欲之相。既不見可欲，則心自然不亂。而永絕貪求，心閒無事。如此守靜，可謂篤矣。故致虛要極，守靜要篤也。老子既勉人如此做工夫，恐人不信。乃自出己意曰，我之工夫亦無他術，唯只是萬物並作，吾以觀其復，如此而已。並作，猶言並列於前也。然目前萬物本來不有，蓋從無以生有。雖千態萬狀，並列於前，我只觀得當體全無。故曰萬物並作，吾以觀其復。復，謂心不妄動也。向下又自解之曰，夫物芸芸，各歸其根。意謂目前萬物雖是暫有，畢竟歸無，故云各歸其根。根，謂根本元無也。物既本無，則心亦不有。是則物我兩忘，寂然不動。故曰歸根曰靜，靜曰復命。命，乃當人之自性，賴而有生者。然人雖有形，而形本無形。能見無形，則不獨忘世，抑且忘身。身世兩忘，則自復矣。故云靜曰復命。性，乃真常之道也。故云復命曰常。人能返觀內照，知此真常妙性，纔謂之明。故云知常曰明。由人不知此性，故逐物妄生，貪欲無厭。以取戕生傷性亡身敗家之禍。故曰不知常，妄作凶。人若知此真常之道，則天地同根，萬物一體，此心自然包含天地萬物。故曰知常容。人心苟能廣大如此，則民吾同胞，物吾與也。其心廓然大公，則全不見有我之私。故曰容乃公。此真常大道，人若得之於內，則為聖。施之於外，則為王。故曰公乃王。王乃法天行事，合乎天心。故曰王乃天。天法道，合乎自然。故曰天乃道。與天地參。故曰道乃久。人得此道，則身雖死而道常存。故曰沒身不殆。殆，盡也。且此真常之道，備在於我。而人不知，返乃亡身殉物，嗜欲而不返，豈不謬哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">I do my utmost to attain emptiness; I hold firmly to stillness. The myriad creatures all rise together And I watch their return. The teaming creatures All return to their separate roots. Returning to one's roots is known as stillness. This is what is meant by returning to one's destiny. Returning to one's destiny is known as the constant. Knowledge of the constant is known as discernment. Woe to him who wilfully innovates While ignorant of the constant, But should one act from knowledge of the constant One's action will lead to impartiality, Impartiality to kingliness, Kingliness to heaven, Heaven to the way, The way to perpetuity, And to the end of one's days one will meet with no danger.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Take emptiness to the limit; 2. Maintain tranquility in the center. 3. The ten thousand things — side-by-side they arise; 4. And by this I see their return. 5. Things [come forth] in great numbers; 6. Each one returns to its root. 7. This is called tranquility. 8. "Tranquility" — This means to return to your fate. 9. To return to your fate is to be constant; 10. To know the constant is to be wise. 11. Not to know the constant is to be reckless and wild; 12. If you're reckless and wild, your actions will lead to misfortune. 13. To know the constant is to be all-embracing; 14. To be all-embracing is to be impartial; 15. To be impartial is to be kingly; 16. To be kingly is to be [like] Heaven; 17. To be [like] Heaven is to be [one with] the Dao; 18. If you're [one with] the Dao, to the end of your days you'll suffer no harm.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Empty to the limit, become still. Ten thousand things arise, I watch them return. Things flourish and each returns to its root. Returning to the root is stillness. Stillness is returning to life. Returning to life is the constant. Knowing the constant is enlightenment. Not knowing the constant is recklessness, leading to disaster. Knowing the constant is acceptance. Acceptance is impartiality. Impartiality is kingship. Kingship is heaven. Heaven is the way. The way is eternal. Though the body dies, the way does not.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Push far enough towards the Void, Hold fast enough to Quietness, And of the ten thousand things none but can be worked on by you. I have beheld them, whither they go back. See, all things howsoever they flourish Return to the root from which they grew. This return to the root is called Quietness; Quietness is called submission to Fate; What has submitted to Fate has become part of the always so. To know the always-so is to be Illumined; Not to know it, means to go blindly to disaster. He who knows the always-so has room in him for everything; He who has room in him for everything is without prejudice. To be without prejudice is to be kingly; To be kingly is to be of heaven; To be of heaven is to be in Tao. Tao is forever and he that possess it, Though his body ceases, is not destroyed.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第16章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Empty your mind of all thoughts. Let your heart be at peace. Watch the turmoil of beings, but contemplate their return. Each separate being in the universe returns to the common source. Returning to the source is serenity. If you don't realize the source, you stumble in confusion and sorrow. When you realize where you come from, you naturally become tolerant, disinterested, amused, kindhearted as a grandmother, dignified as a king. Immersed in the wonder of the Tao, you can deal with whatever life brings you, and when death comes, you are ready.</p>
                     </div>
                 </div>
             </div>

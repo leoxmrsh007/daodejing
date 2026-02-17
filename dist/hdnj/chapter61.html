@@ -6,6 +6,21 @@
     <title>水热穴论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter61.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter61.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter61.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,11 +691,11 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     六十一
-黄帝问曰：少阴何以主肾？肾何以主水？岐伯对曰：肾者至阴也，至阴者盛水也，肺者太阴也，少阴者冬脉也，故其本在肾，其末在肺，皆积水也。
+黄帝问曰：<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>何以主肾？肾何以主水？岐伯对曰：肾者至阴也，至阴者盛水也，肺者<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>也，<span class="difficult" data-pinyin="shào yīn" data-meaning="手少阴心经、足少阴肾经等经脉名">少阴</span>者冬脉也，故其本在肾，其末在肺，皆积水也。
 帝曰：肾何以能聚水而生病？岐伯曰：肾者胃之关也，关闭不利，故聚水而从其类也。上下溢于皮肤，故为胕肿。胕肿者，聚水而生病也。
 帝曰：诸水皆生于肾乎？岐伯曰：肾者<span class="difficult" data-pinyin="pìn" data-meaning="鸟兽的雌性，喻指柔弱">牝</span>藏也，地气上者属于肾，而生水液也，故曰至阴。勇而劳甚则肾汗出，肾汗出逢于风，内不得入于藏府，外不得越于皮肤，客于玄府，行于皮里，传为胕肿，本之于肾，名曰风水。所谓玄府者，汗空也。
 帝曰：水俞五十七处者，是何主也？岐伯曰：肾俞五十七穴，积阴之所聚也，水所从出入也。尻上五行行五者，此肾俞。故水病下为胕肿大腹，上为喘呼，不得卧者，标本俱病，故肺为喘呼，肾为水肿，肺为逆不得卧，分为相输俱受者，水气之所留也。伏菟上各二行行五者，此肾之街也。三阴之所交结于脚也。踝上各一行行六者，此肾脉之下行也，名曰太<span class="difficult" data-pinyin="chōng" data-meaning="谦虚，冲和">冲</span>。凡五十七穴者，皆藏之阴络，水之所客也。
-帝曰：春取络脉分肉何也？岐伯曰：春者木始治，肝气始生，肝气急，其风疾，经脉常深，其气少，不能深入，故取络脉分肉间。帝曰：夏取盛经分腠何也？岐伯曰：夏者火始治，心气始长，脉瘦气弱，阳气留溢，热熏分腠，内至于经，故取盛经分腠。绝肤而病去者，邪居浅也。所谓盛经者，阳脉也。帝曰：秋取经俞何也？岐伯曰：秋者金始治，肺将收杀，金将胜火，阳气在合，阴气初胜，湿气及体，阴气未盛，未能深入，故取俞以泻阴邪，取合以虚阳邪，阳气始衰，故取于合。帝曰：冬取井荥何也？岐伯曰：冬者水始治，肾方闭，阳气衰少，阴气坚盛，巨阳伏沉，阳脉乃去，故取井以下阴逆，取荥以实阳气。故曰：冬取井荥，春不鼽衄。此之谓也。
+帝曰：春取<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>分肉何也？岐伯曰：春者木始治，肝气始生，肝气急，其风疾，<span class="difficult" data-pinyin="jīng mài" data-meaning="运行气血的主干通路">经脉</span>常深，其气少，不能深入，故取<span class="difficult" data-pinyin="luò mài" data-meaning="从属于经脉的分支小脉">络脉</span>分肉间。帝曰：夏取盛经分腠何也？岐伯曰：夏者火始治，心气始长，脉瘦气弱，阳气留溢，热熏分腠，内至于经，故取盛经分腠。绝肤而病去者，邪居浅也。所谓盛经者，阳脉也。帝曰：秋取经俞何也？岐伯曰：秋者金始治，肺将收杀，金将胜火，阳气在合，阴气初胜，湿气及体，阴气未盛，未能深入，故取俞以泻阴邪，取合以虚阳邪，阳气始衰，故取于合。帝曰：冬取井荥何也？岐伯曰：冬者水始治，肾方闭，阳气衰少，阴气坚盛，巨阳伏沉，阳脉乃去，故取井以下阴逆，取荥以实阳气。故曰：冬取井荥，春不鼽衄。此之谓也。
 帝曰：夫子言治热病五十九俞，余论其意，未能领别其处，愿闻其处，因闻其意。岐伯曰：头上五行行五者，以越诸阳之热逆也。大杼、膺俞、缺盆、背俞，此八者，以泻胸中之热也。气街，三里，巨虚上下廉，此八者，以泻胃中之热也。云门、髃骨、委中、髓空，此八者，以泻四支之热也。五藏俞傍五，此十者，以泻五藏之热也。凡此五十九穴者，皆热之左右也。帝曰：人伤于寒而传为热何也？岐伯曰：夫寒盛则生热也。
 卷十七
                 </div>
@@ -694,7 +709,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇统论肾主水与水热之辨，提出“水俞五十七穴”以处治水肿喘满等证，并按四时取穴：春取络、夏取盛经分腠、秋取经俞、冬取井荥。临床意义：把握肾肺水气升降与热由寒化生之变，按季节选穴泄热利水，标本兼顾。</p>
             </div>
         </div>
     </section>
@@ -706,19 +721,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Explains kidney‑water physiology and the ‘fifty‑seven water points’ for edema and dyspnea, matching seasonal selection: spring‑luo, summer‑channels, autumn‑shu, winter‑jing/ying. Notes cold transforming into heat and treats by venting heat and moving water.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">A doctrine of water and heat with a mapped set of points and seasonal tactics to drain, vent, and restore the kidney–lung water pivot.</p>
                     </div>
                 </div>
             </div>

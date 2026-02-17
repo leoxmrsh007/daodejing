@@ -6,6 +6,21 @@
     <title>痹论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter43.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter43.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter43.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,10 +691,10 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     四十三
-黄帝问曰：痹之安生？岐伯对曰：风寒湿三气杂至，合而为痹也。其风气胜者为行痹，寒气胜者为痛痹，湿气胜者多著痹也。帝曰：其有五者何也？岐伯曰：以冬遇此者为骨痹，以春遇此者为筋痹，以夏遇此者为脉痹，以至阴遇此者为肌痹，以秋遇此者为皮痹。帝曰：内舍五藏六府，何气使然？岐伯曰：五藏皆有合，病久而不去者，内舍于其合也。故骨痹不已，复感于邪，内舍于肾。筋痹不已，复感于邪，内舍于肝，脉痹不已，复感于邪，内舍于心。肌痹不已，复感于邪，内舍于脾。皮痹不已，复感于邪，内舍于肺。所谓痹者，各以其时重感于风寒湿之气也。凡痹之客五藏者，肺痹者，烦满喘而呕。心痹者，脉不通，烦则心下鼓，暴上气而喘，嗌干善噫，厥气上则恐。肝痹者，夜卧则惊，多饮数小便，上为引如怀。肾痹者，善胀，尻以代踵，脊以代头。脾痹者，四支解墯，发咳呕汁，上为大塞。肠痹者，数饮而出不得，中气喘争，时发飧泄。胞痹者，少腹膀胱按之内痛，若沃以汤，涩于小便，上为清涕。阴气者，静则神藏，躁则消亡，饮食自倍，肠胃乃伤。淫气喘息，痹聚在肺；淫气忧思，痹聚在心；淫气遗溺，痹聚在肾；淫气乏竭，痹聚在肝；淫气肌绝，痹聚在脾。诸痹不已，亦益内也。其风气胜者，其人易已也。
-帝曰：痹，其时有死者，或疼久者，或易已者，其故何也？岐伯曰：其入藏者死，其留连筋骨间者疼久，其留皮肤间者易已。帝曰：其客于六府者何也？岐伯曰：此亦其食饮居处，为其病本也。六府亦各有俞，风寒湿气中其俞，而食饮应之，循俞而入，各舍其府也。
+黄帝问曰：<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>之安生？岐伯对曰：风寒湿三气杂至，合而为<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>也。其风气胜者为行<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，寒气胜者为痛<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，湿气胜者多著<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>也。帝曰：其有五者何也？岐伯曰：以冬遇此者为骨<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，以春遇此者为筋<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，以夏遇此者为脉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，以至阴遇此者为肌<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，以秋遇此者为皮<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>。帝曰：内舍五藏六府，何气使然？岐伯曰：五藏皆有合，病久而不去者，内舍于其合也。故骨<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，复感于邪，内舍于肾。筋<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，复感于邪，内舍于肝，脉<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，复感于邪，内舍于心。肌<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，复感于邪，内舍于脾。皮<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，复感于邪，内舍于肺。所谓<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，各以其时重感于风寒湿之气也。凡<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>之客五藏者，肺<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，烦满喘而呕。心<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，脉不通，烦则心下鼓，暴上气而喘，嗌干善噫，<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>气上则恐。肝<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，夜卧则惊，多饮数小便，上为引如怀。肾<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，善胀，尻以代踵，脊以代头。脾<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，四支解墯，发咳呕汁，上为大塞。肠<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，数饮而出不得，中气喘争，时发飧泄。胞<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>者，少腹膀胱按之内痛，若沃以汤，涩于小便，上为清涕。阴气者，静则神藏，躁则消亡，饮食自倍，肠胃乃伤。淫气喘息，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>聚在肺；淫气忧思，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>聚在心；淫气遗溺，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>聚在肾；淫气乏竭，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>聚在肝；淫气肌绝，<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>聚在脾。诸<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>不已，亦益内也。其风气胜者，其人易已也。
+帝曰：<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>，其时有死者，或疼久者，或易已者，其故何也？岐伯曰：其入藏者死，其留连筋骨间者疼久，其留皮肤间者易已。帝曰：其客于六府者何也？岐伯曰：此亦其食饮居处，为其病本也。六府亦各有俞，风寒湿气中其俞，而食饮应之，循俞而入，各舍其府也。
 帝曰：以针治之奈何？岐伯曰：五藏有俞，六府有合，循脉之分，各有所发，各随其过，则病瘳也。
-帝曰：荣卫之气亦令人痹乎？岐伯曰：荣者，水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>之精气也，和调于五藏，洒陈于六府，乃能入于脉也，故循脉上下，贯五藏，络六府也。卫者，水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>之悍气也，其气剽疾滑利，不能入于脉也。故循皮肤之中，分肉之间，熏于肓膜，散于胸腹，逆其气则病，从其气则愈，不与风寒湿气合，故不为痹。帝曰：善。痹或痛，或不痛，或不仁，或寒，或热，或燥，或湿，其故何也？岐伯曰：痛者，寒气多也，有寒故痛也。其不痛不仁者，病久入深，荣卫之行涩，经络时疏，故不通，皮肤不营，故为不仁。其寒者，阳气少，阴气多，与病相益，故寒也。其热者，阳气多，阴气少，病气胜，阳遭阴，故为痹热。其多汗而濡者，此其逢湿甚也，阳气少，阴气盛，两气相感，故汗出而濡也。帝曰：夫痹之为病，不痛何也？岐伯曰：痹在于骨则重，在于脉则血凝而不流，在于筋则屈不伸，在于肉则不仁，在于皮则寒，故具此五者，则不痛也。凡痹之类，逢寒则虫，逢热则纵。帝曰：善。
+帝曰：荣卫之气亦令人<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>乎？岐伯曰：荣者，水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>之<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>也，和调于五藏，洒陈于六府，乃能入于脉也，故循脉上下，贯五藏，络六府也。卫者，水<span class="difficult" data-pinyin="gǔ" data-meaning="川谷，虚怀">谷</span>之悍气也，其气剽疾滑利，不能入于脉也。故循皮肤之中，分肉之间，熏于肓膜，散于胸腹，逆其气则病，从其气则愈，不与风寒湿气合，故不为<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>。帝曰：善。<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>或痛，或不痛，或不仁，或寒，或热，或燥，或湿，其故何也？岐伯曰：痛者，寒气多也，有寒故痛也。其不痛不仁者，病久入深，荣卫之行涩，经络时疏，故不通，皮肤不营，故为不仁。其寒者，阳气少，阴气多，与病相益，故寒也。其热者，阳气多，阴气少，病气胜，阳遭阴，故为<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>热。其多汗而濡者，此其逢湿甚也，阳气少，阴气盛，两气相感，故汗出而濡也。帝曰：夫<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>之为病，不痛何也？岐伯曰：<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>在于骨则重，在于脉则血凝而不流，在于筋则屈不伸，在于肉则不仁，在于皮则寒，故具此五者，则不痛也。凡<span class="difficult" data-pinyin="bì" data-meaning="痹证，多因风寒湿阻滞经络">痹</span>之类，逢寒则虫，逢热则纵。帝曰：善。
                 </div>
             </div>
         </div>
@@ -691,7 +706,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇析痹证（风寒湿热痰瘀）与经脉、脏腑之相关，痛、麻、重、肿之不同表现。临床意义：辨痹之性质与部位，或祛风散寒除湿，或清热化痰活血通络，辅以针灸导引。</p>
             </div>
         </div>
     </section>
@@ -703,19 +718,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Analyzes ‘bi’ impediments by wind, cold, damp, heat, phlegm, and stasis with channel mapping. Treat by dispelling and transforming while coursing the networks and relieving pain/swelling.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">On impediment disorders: classify by nature and site; disperse wind/cold/damp or clear heat, transform phlegm, and move blood while opening passages.</p>
                     </div>
                 </div>
             </div>

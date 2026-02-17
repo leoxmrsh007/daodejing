@@ -6,6 +6,21 @@
     <title>经脉别论篇 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter21.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter21.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter21.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter21.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter21.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter21.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -676,9 +691,9 @@
             <div class="card-body">
                 <div class="original-text" id="originalText">
                     二十一
-黄帝问曰：人之居处动静勇怯，脉亦为之变乎？岐伯对曰：凡人之惊恐恚劳动静，皆为变也。是以夜行则喘出于肾，淫气病肺。有所堕恐，喘出于肝，淫气害脾。有所惊恐，喘出于肺，淫气伤心。度水跌仆，喘出于肾与骨，当是之时，勇者气行则已，怯者则着而为病也。故曰：诊病之道，观人勇怯骨肉皮肤，能知其情，以为诊法也。故饮食饱甚，汗出于胃。惊而夺精，汗出于心，持重远行，汗出于肾。疾走恐惧，汗出于肝。摇体劳苦，汗出于脾。故春秋冬夏，四时阴阳，生病起于过用，此为常也。食气入胃，散精于肝，淫气于筋。食气入胃，<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>气归
-心，淫精于脉。脉气流经，经气归于肺，肺朝百脉，输精于皮毛。毛脉合精，行气于府。府精神明，留于四脏，气归于权衡。权衡以平，气口成寸，以决死生。饮入于胃，游溢精气，上输于脾。脾气散精，上归于肺，通调水道，下输膀胱。水精四布，五经并行，合于四时五脏阴阳，揆度以为常也。太阳藏独至，厥喘虚气逆，是阴不足阳有余也，表里当俱泻，取之下俞。阳明藏独至，是阳气重并也，当泻阳补阴，取之下俞。少阳藏独至，是厥气也，跷前卒大，取之下俞，少阳独至者，一阳之过也。太阴藏搏者，用心省真，五脉气少，胃气不平，三阴也，宜治其下俞，补阳泻阴。一阳独啸，少阳厥也，阳并于上，四脉争<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>，气归于肾，宜治其经络，泻阳补阴。一阴至，厥阴之治也，真虚心，厥气留薄，发为白汗，调食和药，治在下俞。
-帝曰：太阳藏何象？岐伯曰：象三阳而浮也。帝曰：少阳藏何象？岐伯曰：象一阳也，一阳藏者，滑而不实也。帝曰：阳明藏何象？岐伯曰：象大浮也。太阴藏搏，言伏鼓也。二阴搏至，肾沉不浮也。
+黄帝问曰：人之居处动静勇怯，脉亦为之变乎？岐伯对曰：凡人之惊恐恚劳动静，皆为变也。是以夜行则喘出于肾，淫气病肺。有所堕恐，喘出于肝，淫气害脾。有所惊恐，喘出于肺，淫气伤心。度水跌仆，喘出于肾与骨，当是之时，勇者气行则已，怯者则着而为病也。故曰：诊病之道，观人勇怯骨肉皮肤，能知其情，以为诊法也。故饮食饱甚，汗出于胃。惊而夺精，汗出于心，持重远行，汗出于肾。疾走恐惧，汗出于肝。摇体劳苦，汗出于脾。故春秋冬夏，四时<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，生病起于过用，此为常也。食气入胃，散精于肝，淫气于筋。食气入胃，<span class="difficult" data-pinyin="zhuó" data-meaning="浑浊">浊</span>气归
+心，淫精于脉。脉气流经，经气归于肺，肺朝百脉，输精于皮毛。毛脉合精，行气于府。府精神明，留于四脏，气归于权衡。权衡以平，气口成寸，以决死生。饮入于胃，游溢<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>，上输于脾。脾气散精，上归于肺，通调水道，下输膀胱。水精四布，五经并行，合于四时<span class="difficult" data-pinyin="wǔ zàng" data-meaning="心、肝、脾、肺、肾五脏">五脏</span><span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，揆度以为常也。<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>藏独至，<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>喘虚气逆，是阴不足阳有余也，表里当俱泻，取之下俞。<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>藏独至，是阳气重并也，当泻阳补阴，取之下俞。<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>藏独至，是<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>气也，跷前卒大，取之下俞，<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>独至者，一阳之过也。<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>藏搏者，用心省真，五脉气少，胃气不平，三阴也，宜治其下俞，补阳泻阴。一阳独啸，<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>也，阳并于上，四脉争<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>，气归于肾，宜治其经络，泻阳补阴。一阴至，<span class="difficult" data-pinyin="jué yīn" data-meaning="手厥阴心包经、足厥阴肝经等经脉名">厥阴</span>之治也，真虚心，<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>气留薄，发为白汗，调食和药，治在下俞。
+帝曰：<span class="difficult" data-pinyin="tài yáng" data-meaning="手太阳小肠经、足太阳膀胱经等经脉名">太阳</span>藏何象？岐伯曰：象三阳而浮也。帝曰：<span class="difficult" data-pinyin="shào yáng" data-meaning="手少阳三焦经、足少阳胆经等经脉名">少阳</span>藏何象？岐伯曰：象一阳也，一阳藏者，滑而不实也。帝曰：<span class="difficult" data-pinyin="yáng míng" data-meaning="手阳明大肠经、足阳明胃经等经脉名">阳明</span>藏何象？岐伯曰：象大浮也。<span class="difficult" data-pinyin="tài yīn" data-meaning="手太阴肺经、足太阴脾经等经脉名">太阴</span>藏搏，言伏鼓也。二阴搏至，肾沉不浮也。
                 </div>
             </div>
         </div>
@@ -690,7 +705,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇总论居处、动静、惊恐恚劳对脉象与病机的影响，辨汗出所从脏，条述“食气入胃—脾—肺—皮毛—四脏—权衡”的气机输布与诊法，结合三阳三阴之“独至/交至”确定补泻纲领。临床要点：视勇怯与体格定诊法，合上中下三部九候审虚实寒热，按太阳/阳明/少阳与太阴/少阴/厥阴不同主病，于经络与下俞取法，审权衡而定“泻阳补阴”或“补阳泻阴”，配缪刺以平衡上下表里。</p>
             </div>
         </div>
     </section>
@@ -702,19 +717,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">Links residence, movement, fear/anger, and exertion to pulse variations; maps sites of sweating to visceral origins; traces the circuit stomach→spleen→lung→skin→four viscera→‘balance’. Clinically differentiates Taiyang/Yangming/Shaoyang and Taiyin/Shaoyin/Jueyin patterns, selecting lower-shu and channel points to drain or tonify so that upper–lower and interior–exterior equilibrate.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">An exposition on how conditions of dwelling and conduct alter the pulse. It specifies where sweat issues from each viscus and outlines the circulation of grain qi to the skin and the four viscera. Diagnosis employs three sections and the six channel categories; therapy accords with repletion/deficiency above and below and uses contralateral and lower-shu strategies to restore balance.</p>
                     </div>
                 </div>
             </div>

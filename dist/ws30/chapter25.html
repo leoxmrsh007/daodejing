@@ -6,6 +6,21 @@
     <title>第25颂 - 唯识三十颂</title>
     <meta name="description" content="唯识三十颂多版本对照平台 - 世亲著 · 唯识三十颂">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter25.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter25.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter25.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter25.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../ws30/index.html">
+            <a class="dropdown-item active" href="../ws30/chapter25.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter25.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -507,10 +522,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="指大道的运行法则遵循自然规律，不加人为干预&#10;原文：人法地，地法天，天法道，道法自然">
-                <span class="idiom-word">道法自然</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="指大道的运行法则遵循自然规律，不加人为干预&#10;原文：人法地，地法天，天法道，道法自然">
+            <span class="idiom-word">道法自然</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -526,7 +541,7 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    由一切种识，如是如是变，以辗转力故，彼彼分别生。
+                    此诸法胜义  亦即是真如  常如其性故  即唯识实性
                 </div>
             </div>
         </div>
@@ -538,7 +553,7 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">第二十五颂阐明阿赖耶识的功能。由一切种识（阿赖耶识）的种子变现，以辗转起现行的力量，产生各种分别。</p>
+                <p class="modern-text mb-0">本颂指出：诸法的胜义实相就是所谓真如，它从来如其本性，不因凡夫分别而增减改变。就唯识家看来，这个真如正是唯识之实性——当一切遍计所执都被遣除，依他起流中所显现的，就是圆成实性的如如。由此可知，“唯识”并非仅指识之流动，也包括识所证得的不二真如。</p>
             </div>
         </div>
     </section>
@@ -550,19 +565,15 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-generic" type="button">English</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-generic">
+                        <p class="english-text mb-0 fst-italic">This verse identifies the ultimate truth of phenomena with suchness. Suchness is always thus by its very nature; it does not arise or cease with our confused discriminations. From the Yogācāra viewpoint, this suchness is the true nature of consciousness-only: when all imagined constructions have been eliminated, what appears within the dependent flow is the perfected nature, the suchness of consciousness itself. Consciousness-only therefore encompasses not just the moving stream of mind, but also the non-dual reality realized within it.</p>
                     </div>
                 </div>
             </div>

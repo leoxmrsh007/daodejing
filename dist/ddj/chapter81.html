@@ -6,6 +6,21 @@
     <title>第81章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter81.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter81.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -660,14 +675,14 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="真实的话不华丽&#10;原文：信言不美，美言不信">
-                <span class="idiom-word">信言不美</span>
-                <span class="idiom-chapter">📖</span>
-            </span>
-            <span class="idiom-tag" title="华丽的话不真实&#10;原文：信言不美，美言不信">
-                <span class="idiom-word">美言不信</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="真实的话不华丽&#10;原文：信言不美，美言不信">
+            <span class="idiom-word">信言不美</span>
+            <span class="idiom-chapter">📖</span>
+        </span>
+        <span class="idiom-tag" title="华丽的话不真实&#10;原文：信言不美，美言不信">
+            <span class="idiom-word">美言不信</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -700,48 +715,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">实在质也．本在朴也．极在一也．无私而有．唯善是与．任物而已．物所尊也．物所归也．动常生成之也．顺天之利不相伤也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">信言不美者，信言者，真实之言也。不美者，不华美也。美言不信者，华美之言，不信实也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">以所「有」「為人」，則人「有」而己損；以「多」「與人」，則人「多」而己貧。孰能知無所為者之「為人」邪？無所與者之「與人」邪？道散於天下，天下廣矣，故「不積」。道積於已，於是而有「美」，有「辯」，有「博」。既「美」且「辯」，益之以「博」，未有「不爭」者也。乃其於道之涯際，如勺水之於大海，揮之、飲之，而已窮。俯首而「為」，惡知昂首而「爭」？不問其「利」「利」自成，惡與「害」逢？能不以有涯測無涯者，亦無涯矣。「休之以天鈞」，奚「為」、奚「與」，又奚窮哉？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此結通篇無為之益，施於治道，可復太古之化也。什伯之器，並十曰什，兼百曰伯。器，材也。老子自謂以我無為之治，試於小國。縱使有兼十夫百夫之材者，亦無所用之，以民淳而無事故也。若國多事，煩擾於民。或窮兵致亂，重賦致饑。民不安其居，則輕死而去之。今一切無之，故使民重死，而不遠徙。舟輿，水陸之具。不遠徙，故雖有舟車無所用。不尚爭，故雖有甲兵無所陳。陳，列也。不用智，故可使結繩而用之如太古矣。民各自足其足，絕無外慕之心。不事口體，故以尋常衣食為甘美，以平居里俗為安樂，曰與鄰國雞狗相聞。至近之地，民至老死而不相往來。如此，則淳樸之至，乃太古之化也。老子所言，疾當時之弊，皆有為用智剛強，好爭尚利，自私奉己，而不恤於民。故國亂民貧，而愈難治。所以治推上古，道合無為，全篇所論，不出乎此，蓋立言之本旨也。故終篇以此，請試而行之，可以頓見太古鴻荒之化。言取效之速如此也。所謂一日克己復禮，天下歸仁，深有味乎此言也。老氏之學，豈矯世絕俗之謂哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -749,19 +722,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">Truthful words are not beautiful; Beautiful words are not truthful. Good words are not persuasive; Persuasive words are not good. He who knows has no wide learning; He who has wide learning does not know. The sage does not hoard. Having bestowed all he has on others, he has yet more; Having given all he has to others, he is richer still. The way of heaven benefits and does not harm; The way of the sage is bountiful and does not contend.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Sincere words are not showy; 2. Showy words are not sincere. 3. Those who know are not "widely learned"; 4. Those "widely learned" do not know. 5. The good do not have a lot; 6. Those with a lot are not good. 7. The Sage accumulates nothing. 8. Having used what he had for others, 9. He has even more. 10. Having given what he had to others, 11. What he has is even greater. 12. Therefore, the Way of Heaven is to benefit and not cause any harm; 13. The Way of Man is to act on behalf of others and not to compete with them.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">True words are not beautiful, beautiful words are not true. Good speakers are not eloquent, eloquent speakers are not good. Knowledgeable people are not broad, broad people are not knowledgeable. Sages do not accumulate. The more they do for others, the more they have. The more they give to others, the more they gain. The way of heaven benefits and does not harm. The way of the sage acts without contending.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">True words are not fine-sounding; Fine-sounding words are not true. The good man does not prove by argument; The he who proves by argument is not good. True wisdom is different from much learning; Much learning means little wisdom. The Sage has no need to hoard; When his own last scrap has been used up on behalf of others, Lo, he has more than before! When his own last scrap has been used up in giving to other, Lo, his stock is even greater than before! For heaven's way is to sharpen without cutting, And the Sage's way is to act without striving.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第81章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">True words aren't eloquent; eloquent words aren't true. Wise men don't need to prove their point; men who need to prove their point aren't wise. The Master has no possessions. The more he does for others, the happier he is. The more he gives to others, the wealthier he is. The Tao nourishes by not forcing. By not dominating, the Master leads.</p>
                     </div>
                 </div>
             </div>

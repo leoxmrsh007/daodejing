@@ -6,6 +6,21 @@
     <title>第56章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,7 +233,7 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter56.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
@@ -232,7 +247,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter56.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
@@ -260,7 +275,7 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter56.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="真正有智慧的人不多说话&#10;原文：知者不言，言者不知">
-                <span class="idiom-word">知者不言</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="真正有智慧的人不多说话&#10;原文：知者不言，言者不知">
+            <span class="idiom-word">知者不言</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -696,48 +711,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">因自然也．造事端也．含守质也．除争原也．无所特显则物无所偏争也．无所特贱则物无所偏耻也．可得而亲则可得而疎也．可得而利则可得而害也．可得而贵则可得而贱也．无物可以加之也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">知者不言，知者貴行不貴言也。言者不知。駟不及舌，多言多患。塞其兌，閑其門，塞閑之者，欲絕其源。挫其銳，情欲有所銳為，當念道無為以挫止之也。解其紛，紛，結恨不休，當念道無為以解釋之。和其光，雖有獨見之明，當和之，使闇昧不使矅眩。同其塵，不當自別殊也。是謂玄同。玄，天也。人能行此上事，是謂與天同道也。故不可得而親，不以榮譽為樂，獨立為哀。亦不可得而疏，志靜無，故與人無怨。不可得而利，身不欲富貴，口不欲五味。亦不可得而害；不與貪爭利，不與勇爭氣。不可得而貴，不為亂世主，不處暗君位。亦不可得而賤。不以乘權故驕，不以失志故屈。故為天下貴。其德如此，天子不得臣，諸侯不得屈，與世沉浮，容身避害，故為天下貴也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">夫將同其所同，則亦異其所異。同者我貴之，而或賤之；異者我賤之，而或貴之，何也？以我之貴，知或之賤；以我之賤，知或之貴也。唯不犯物者，物亦不犯我。非不犯也、物固莫能犯之也。因而靡之，坐而老之，使明如列炬，暗如窌土，銳如干將，紛如亂絲，一聽其是非之無極，終不爭同己以為貴，乃冒天下之上，以視天下短長之命。玄乎！玄乎！而何言之足建乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此言天命可畏，報應昭然，教人不可輕忽也。勇者，決定之志也。敢者，不計利害而決於為也。殺活，死生也。謂凡世人作事，不顧利害，不怕死生，而敢為之。然敢乃必死之地。故曰勇於敢則殺。若用志於不敢為，是足以保身全生。故曰勇於不敢則活。此天道必然之理也。且此二者，亦有敢而生，不敢而死者，至若顏子夭，而盜蹤壽，此乃當害而利，當利而反害者，何耶。況天道好謙而惡盈，與善而惡惡。是則為惡者，當惡而不惡，斯豈報應差舛耶。世皆疑之。故解之曰，天之所惡，孰能知其故。故，所以然也。孔子曰，無求生以害仁，有殺身以成仁。由此觀之，生存而仁害，雖生亦死。身滅而仁成，雖死亦生。斯則蹠非壽，顏非夭矣。此乃天道所以然之妙，而非世人所易知。是以聖人於此猶難之，不敢輕忽，而敬畏之。所謂畏天之威，於時保之也。故下文歷示天道之所以。逆天者亡，故不爭而善勝。感應冥符，故不言而善應。吉凶禍福如影響，故不召而自來。然報愈遲，而惡愈深，禍愈慘，故繟然而善謀。以報速者有所警，報緩則不及悔，必至盡絕而後已。此所謂善謀也。是則天道昭昭在上，如網之四張，雖恢恢廣大，似乎疏闊。其實善惡感應，毫髮不遺。此所謂疏而不失也。世人不知天命之如此，乃以敢以強以爭競於名利之場。將謂一身之謀，不顧利害死生而為之，自謂智力以致之。蓋不知命之過，皆取死之道也。可不畏哉。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -745,19 +718,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">One who knows does not speak; One who speaks does not know. Block the openings; Shut the doors. Blunt the sharpness; Untangle the knots; Soften the glare; Let your wheels move only along old ruts. This is known as mysterious sameness. Hence you cannot get close to it, nor can you keep it at arm's length; You cannot bestow benefit on it, nor can you do it harm; You cannot ennoble it, nor can you debase it. Therefore it is valued by the empire.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. Those who know don't talk about it; those who talk don't know it. 2. He blocks up his holes, 3. Closes his doors, 4. Softens the glare, 5. Settles the dust, 6. Files down the sharp edges, 7. And unties the tangles. 8. This is called Profound Union. 9. Therefore, there is no way to get intimate with him, 10. But there is also no way to shun him. 11. There is no way to benefit him, 12. But there is also no way to harm him. 13. There is no way to ennoble him, 14. But there is also no way to debase him. 15. For this very reason he's the noblest thing in the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Those who know do not speak. Those who speak do not know. Block the openings, close the doors, blunt the sharpness, untie the knots, harmonize the light, mix with the dust. This is called mysterious unity. Therefore it cannot be made close, cannot be made distant, cannot benefit, cannot harm, cannot honor, cannot humiliate. Therefore it is the most noble in the world.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">Those who know do not speak; Those who speak do not know. Black the passages, Shut the doors, Let all sharpness be blunted, All tangles untied, All glare tempered. All dust smoothed. This is called the mysterious leveling. He who has achieved it cannot either be drawn into friendship or repelled, Cannot be benefited, cannot be harmed, Cannot either be raised or humbled, And for that very reason is highest of all creatures under heaven.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第56章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">Those who know don't talk. Those who talk don't know. Close your mouth, block off your senses, blunt your sharpness, untie your knots, soften your glare, settle your dust. This is the primal identity. Be like the Tao. It can't be approached or withdrawn from, benefited or harmed, honored or brought into disgrace. It gives itself up continually. That is why it endures.</p>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,21 @@
     <title>第26章 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,28 +233,28 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item active" href="../ddj/index.html">
+            <a class="dropdown-item active" href="../ddj/chapter26.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter26.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../hdnj/index.html">
+            <a class="dropdown-item " href="../hdnj/chapter26.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter26.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
@@ -253,14 +268,14 @@
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter26.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter26.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
@@ -692,48 +707,6 @@
         </div>
     </section>
 
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">凡物轻不能载重小不能鎭大．不行者使行．不动者制动．是以重必为轻根．静必为躁君也．以重为本故不离．不以经心也．轻不鎭重也．失本为丧身也．失君为失君位也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">重為輕根，人君不重則不尊，治身不重則失神。草木之華輕故零落，根重故長存也。○輕，去聲。靜為躁君。人君不靜則失威，治身不靜則身危，龍靜故能變化，虎躁故夭虧也。是以聖人終日行不離輜重。輜，靜也。聖人終日行道，不離其靜與重也。○離，音利。輜，音緇。重，去聲。雖有榮觀，燕處超然。榮觀，謂宮觀燕處，后妃所居也。超然遠避而不處也。○觀，去聲。奈何萬乘之主，奈何者，疾時主傷痛之辭。萬乘之主，謂王。○乘，去聲。而以身輕天下？王者至尊而以其身行輕，躁乎疾時，王奢恣輕淫也。輕則失臣，王者輕淫則失其臣，治身輕淫則失其精。躁則失君。王者行躁疾，則失其君位。治身躁疾，則失其精神也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">有根則有莖，有君則有臣。雖然，無寧守其本乎！ 一息之頃，眾動相乘，而不能不有所止。道不滯於所止，而因所止以觀，則道之游於虛，而常無間者見矣。惟不須臾忍，而輕以往，則應在一而違在萬，恩在一隅而怨在三隅，倒授天下以柄，而反制其身。故夏亡於牧宮之造，周衰於征漢之舟。以仁援天下而天下溺，以義濟天下而天下陷，天下之大，蕩之俄頃，而況吾身之內僅有之和乎？</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此誡君人者，當知輕重動靜，欲其保身重命之意也。然重字指身。輕字指身外之物，即功名富貴。靜字指性命。躁字指嗜慾之情。意謂身為生本，固當重者。彼功名利祿，聲色貨利，乃身外之物，固當輕者。且彼外物必因身而後有，故重為輕之根。性為形本，固至靜者。彼馳騁狂躁，甘心物慾，出於好尚之情者，彼必由性而發，故靜為躁之君。世人不知輕重，故忘身徇物，戕生於名利之間。不達動靜，故傷性失真，馳情於嗜慾之境。惟聖人不然，雖終日行而不離輜重。輜重，兵車所載糧食者也。兵行而糧食在後，乃大軍之司命。雖千里遠行，深入敵國，戒其擄掠，三軍不致鼓譟以取敗者，賴其所保輜重也。聖人遊行生死畏途，不因貪位慕祿，馳情物慾，而取戕生傷性之害者，以其所保身心性命為重也。故曰不離輜重。縱使貴為天子，富有四海之榮觀，但恬澹燕處，超然物慾之表。此其堯舜有天下而不與也。奈何後之人主，沈暝荒淫於聲色貨利之間，戕生傷性而不悟。是以物為重而身為輕也。故曰身輕天下。奈何者，怪歎之詞。物重則損生，故曰輕則失根。慾極則傷性，故曰躁則失君。君，謂性也。莊子養生讓王，蓋釋此篇之意。子由本云，輕則失臣。然臣字蓋亦指身而言。齊物以身為臣妾，以性為真君，源出於此。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -741,19 +714,45 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert Henricks</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-addiss" type="button">Addiss & Lombardo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-waley" type="button">Arthur Waley</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-lin" type="button">林语堂</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-mitchell" type="button">Stephen Mitchell</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
+
+                    <div class="tab-pane fade show active" id="en-lau">
                         <p class="english-text mb-0 fst-italic">The heavy is the root of the light; The still is the lord of the restless. Therefore the gentleman when travelling all day Never lets the heavily laden carts out of his sight. It is only when he is safely behind walls and watch-towers That he rests peacefully and is above worries. How, then, should a ruler of ten thousand chariots Make light of his own person in the eyes of the empire? If light, then the root is lost; If restless, then the lord is lost.</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
+                    <div class="tab-pane fade" id="en-henricks">
                         <p class="english-text mb-0 fst-italic">1. The heavy is the root of the light; 2. Tranquility is the loard of agitation. 3. Therefore the gentleman, in traveling all day, does not get far away from his luggage carts. 4. When he's safely inside a walled-in [protected] hostel and resting at ease — only then does he transcend all concern. 5. How can the king of ten thousand chariots treat his own person more lightly than the whole world?! 6. If you regard things too lightly, then you lose the basic; 7. If you're agitated, you lose the "lord."</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-addiss">
+                        <p class="english-text mb-0 fst-italic">Heaviness is the root of lightness. Stillness is the master of restlessness. Therefore the sage travels all day without leaving the baggage cart. Though having magnificent sights, he remains calm and detached. How can the lord of ten thousand chariots treat his body more lightly than the world? Lightness loses the root, restlessness loses the master.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-waley">
+                        <p class="english-text mb-0 fst-italic">As the heavy must be the foundation of the light, So quietness is lord and master of activity. Truly, "A man of consequence though he travels all day Will not let himself be separated from his baggage-wagon, However magnificent the view, he sits quiet and dispassionate". How much less, then, must be the lord of ten thousand chariots Allow himself to be lighter than these he rules! If he is light, the foundation is lost; If he is active, the lord and master is lost.</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-lin">
+                        <p class="english-text mb-0 fst-italic">[林语堂 道德经 第26章 英文译本正在整理中]</p>
+                    </div>
+                    <div class="tab-pane fade" id="en-mitchell">
+                        <p class="english-text mb-0 fst-italic">The heavy is the root of the light. The unmoved is the source of all movement. Thus the Master travels all day without leaving home. However splendid the views, she stays serenely in herself. Why should the lord of the country flit about like a fool? If you let yourself be blown to and fro, you lose touch with your root. If you let restlessness move you, you lose touch with who you are.</p>
                     </div>
                 </div>
             </div>

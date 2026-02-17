@@ -6,6 +6,21 @@
     <title>生气通天论篇第三 - 黄帝内经</title>
     <meta name="description" content="黄帝内经多版本对照平台 - 黄帝著 · 黄帝内经">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <script>
+    (function(){
+        var storageKey='daodejing_theme';
+        var saved=localStorage.getItem(storageKey);
+        var theme=saved;
+        if(!theme){
+            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+                theme='dark';
+            }else{
+                theme='light';
+            }
+        }
+        document.documentElement.setAttribute('data-theme',theme);
+    })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
@@ -218,63 +233,63 @@
                 <li><h6 class="dropdown-header">📚 选择经典</h6></li>
                 
         <li>
-            <a class="dropdown-item " href="../ddj/index.html">
+            <a class="dropdown-item " href="../ddj/chapter3.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">道德经</span>
                 <span class="classic-info">81章 · 老子</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zzj/index.html">
+            <a class="dropdown-item " href="../zzj/chapter3.html">
                 <span class="classic-icon">🦋</span>
                 <span class="classic-name">庄子</span>
                 <span class="classic-info">33章 · 庄周</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item active" href="../hdnj/index.html">
+            <a class="dropdown-item active" href="../hdnj/chapter3.html">
                 <span class="classic-icon">🌿</span>
                 <span class="classic-name">黄帝内经</span>
                 <span class="classic-info">81章 · 黄帝</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../jgj/index.html">
+            <a class="dropdown-item " href="../jgj/chapter3.html">
                 <span class="classic-icon">💎</span>
                 <span class="classic-name">金刚经</span>
                 <span class="classic-info">32章 · 鸠摩罗什译</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
+            <a class="dropdown-item " href="../lztyj/chapter3.html">
                 <span class="classic-icon">🪷</span>
                 <span class="classic-name">六祖坛经</span>
                 <span class="classic-info">10章 · 慧能</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ws30/index.html">
+            <a class="dropdown-item " href="../ws30/chapter3.html">
                 <span class="classic-icon">🧘</span>
                 <span class="classic-name">唯识三十颂</span>
                 <span class="classic-info">30章 · 世亲</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../zy/index.html">
+            <a class="dropdown-item " href="../zy/chapter3.html">
                 <span class="classic-icon">☯</span>
                 <span class="classic-name">周易</span>
                 <span class="classic-info">64章 · 文王、周公</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../ss/index.html">
+            <a class="dropdown-item " href="../ss/chapter3.html">
                 <span class="classic-icon">📚</span>
                 <span class="classic-name">四书</span>
                 <span class="classic-info">4章 · 朱熹</span>
             </a>
         </li>
         <li>
-            <a class="dropdown-item " href="../cxl/index.html">
+            <a class="dropdown-item " href="../cxl/chapter3.html">
                 <span class="classic-icon">📖</span>
                 <span class="classic-name">传习录</span>
                 <span class="classic-info">3章 · 王阳明</span>
@@ -660,10 +675,10 @@
             <div class="card-body">
                 <div id="idiomsContainer">
                     <div class="idioms-container d-flex flex-wrap gap-2">
-            <span class="idiom-tag" title="顺应自然，不妄为，从而达到治理的效果&#10;原文：为无为，则无不治">
-                <span class="idiom-word">无为而治</span>
-                <span class="idiom-chapter">📖</span>
-            </span></div>
+        <span class="idiom-tag" title="顺应自然，不妄为，从而达到治理的效果&#10;原文：为无为，则无不治">
+            <span class="idiom-word">无为而治</span>
+            <span class="idiom-chapter">📖</span>
+        </span></div>
                 </div>
             </div>
         </div>
@@ -679,9 +694,9 @@
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    黄帝曰：夫自古通天者，生之本，本于阴阳。天地之间，六合之内，其气九州九窍、五藏、十二节，皆通乎天气。其生五，其气三，数犯此者，则邪气伤人，此寿命之本也。苍天之气清净，则志意治，顺之则阳气固，虽有贼邪，弗能害也，此因时之序。故圣人抟精神，服天气，而通神明。失之则内闭九窍，外壅肌肉，卫气散解，此谓自伤，气之削也。阳气者，若天与日，失其所，则折寿而不彰，故天运当以日光明。是故阳因而上，卫外者也。因于寒，欲如运枢，起居如惊，神气乃浮。因于暑，汗，烦则喘喝，静则多言。体若燔炭，汗出而散。因于湿，首如裹，湿热不攘，大筋软短，小筋驰长，緛短为拘，弛长为痿。因于气，为肿，四维相代，阳气乃竭。阳气者，烦劳则<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>，精绝，辟积于夏，使人煎厥。目盲不可以视，耳闭不可以听，溃溃乎若坏都，汩汩乎不可止。阳气者，大怒则形气绝，而血菀于上，使人薄厥。有伤于筋，纵，其若不容，汗出偏沮，使人偏枯。汗出见湿，乃生痤痱。高梁之变，足生大丁，受如持虚。劳汗当风，寒薄为皶，郁乃痤。阳气者，精则养神，柔则养筋。开阖不得，寒气从之，乃生大偻。陷脉为瘘，留连肉腠。俞气化薄，传为善畏，及为惊骇。营气
-不从，逆于肉理，乃生痈肿。魄汗未尽，形弱而气烁，穴俞以闭，发为风疟。故风者，百病之始也，清静则肉腠闭拒，虽有大风苛毒，弗之能害，此因时之序也。故病久则传化，上下不并，良医弗为。故阳畜积病死，而阳气当隔，隔者当泻，不亟正治，粗乃败之。故阳气者，一日而主外，平旦人气生，日中而阳气隆，日西而阳气已虚，气门乃闭。是故暮而收拒，无扰筋骨，无见雾露，反此三时，形乃困薄。
-岐伯曰：阴者，藏精而起亟也；阳者，卫外而为固也。阴不胜其阳，则脉流薄疾，并乃狂。阳不胜其阴，则五藏气争，九窍不通。是以圣人陈阴阳，筋脉和同，骨髓坚固，气血皆从。如是则内外调和，邪不能害，耳目聪明，气立如故。风客淫气，精乃亡，邪伤肝也。因而饱食，筋脉横解，肠澼为痔。因而大饮，则气逆。因而强力，肾气乃伤，高骨乃坏。凡阴阳之要，阳密乃固，两者不和，若春无秋，若冬无夏，因而和之，是谓圣度。故阳强不能密，阴气乃绝，阴平阳秘，精神乃治，阴阳离决，精气乃绝。因于露风，乃生寒热。是以春伤于风，邪气留连，乃为洞泄。夏伤于暑，秋为痎疟。秋伤于湿，上逆而咳，发为痿厥。冬伤于寒，春必温病。四时之气，更伤五藏。阴之所生，本在五味，阴之五宫，伤在五味。是故味过于酸，肝气以津，脾气乃绝。味过于咸，大骨气劳，短肌，心气抑。味过于甘，心气喘满，色黑，肾气不衡。味过于苦，脾气不濡，胃气乃厚。味过于辛，筋脉沮弛，精神乃央。是故谨和五味，骨正筋柔，气血以流，腠理以密，如是则骨气以精，谨道如法，长有天命。
+                    黄帝曰：夫自古通天者，生之本，本于<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>。天地之间，六合之内，其气九州九窍、五藏、十二节，皆通乎天气。其生五，其气三，数犯此者，则邪气伤人，此寿命之本也。苍天之气清净，则志意治，顺之则阳气固，虽有贼邪，弗能害也，此因时之序。故圣人抟精神，服天气，而通神明。失之则内闭九窍，外壅肌肉，<span class="difficult" data-pinyin="wèi qì" data-meaning="循行于脉外，护卫肌表的阳气">卫气</span>散解，此谓自伤，气之削也。阳气者，若天与日，失其所，则折寿而不彰，故天运当以日光明。是故阳因而上，卫外者也。因于寒，欲如运枢，起居如惊，神气乃浮。因于暑，汗，烦则喘喝，静则多言。体若燔炭，汗出而散。因于湿，首如裹，湿热不攘，大筋软短，小筋驰长，緛短为拘，弛长为<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span>。因于气，为肿，四维相代，阳气乃竭。阳气者，烦劳则<span class="difficult" data-pinyin="zhāng" data-meaning="扩张，张开">张</span>，精绝，辟积于夏，使人煎<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。目盲不可以视，耳闭不可以听，溃溃乎若坏都，汩汩乎不可止。阳气者，大怒则形气绝，而血菀于上，使人薄<span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。有伤于筋，纵，其若不容，汗出偏沮，使人偏枯。汗出见湿，乃生痤痱。高梁之变，足生大丁，受如持虚。劳汗当风，寒薄为皶，郁乃痤。阳气者，精则养神，柔则养筋。开阖不得，寒气从之，乃生大偻。陷脉为瘘，留连肉腠。俞气化薄，传为善畏，及为惊骇。营气
+不从，逆于肉理，乃生<span class="difficult" data-pinyin="yōng" data-meaning="阳性疮肿，多有红肿热痛">痈</span>肿。魄汗未尽，形弱而气烁，穴俞以闭，发为风疟。故风者，百病之始也，清静则肉腠闭拒，虽有大风苛毒，弗之能害，此因时之序也。故病久则传化，上下不并，良医弗为。故阳畜积病死，而阳气当隔，隔者当泻，不亟正治，粗乃败之。故阳气者，一日而主外，平旦人气生，日中而阳气隆，日西而阳气已虚，气门乃闭。是故暮而收拒，无扰筋骨，无见雾露，反此三时，形乃困薄。
+岐伯曰：阴者，藏精而起亟也；阳者，卫外而为固也。阴不胜其阳，则脉流薄疾，并乃狂。阳不胜其阴，则五藏气争，九窍不通。是以圣人陈<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>，筋脉和同，骨髓坚固，气血皆从。如是则内外调和，邪不能害，耳目聪明，气立如故。风客淫气，精乃亡，邪伤肝也。因而饱食，筋脉横解，肠澼为痔。因而大饮，则气逆。因而强力，肾气乃伤，高骨乃坏。凡<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>之要，阳密乃固，两者不和，若春无秋，若冬无夏，因而和之，是谓圣度。故阳强不能密，阴气乃绝，阴平阳秘，精神乃治，<span class="difficult" data-pinyin="yīn yáng" data-meaning="古代对立统一的两大范畴">阴阳</span>离决，<span class="difficult" data-pinyin="jīng qì" data-meaning="精与气的合称，为生命活动的物质基础">精气</span>乃绝。因于露风，乃生寒热。是以春伤于风，邪气留连，乃为洞泄。夏伤于暑，秋为痎疟。秋伤于湿，上逆而咳，发为<span class="difficult" data-pinyin="wěi" data-meaning="肌肉软弱无力的病证">痿</span><span class="difficult" data-pinyin="jué" data-meaning="四肢厥冷，神志骤变等急证">厥</span>。冬伤于寒，春必温病。四时之气，更伤五藏。阴之所生，本在五味，阴之五宫，伤在五味。是故味过于酸，肝气以津，脾气乃绝。味过于咸，大骨气劳，短肌，心气抑。味过于甘，心气喘满，色黑，肾气不衡。味过于苦，脾气不濡，胃气乃厚。味过于辛，筋脉沮弛，精神乃央。是故谨和五味，骨正筋柔，气血以流，<span class="difficult" data-pinyin="còu lǐ" data-meaning="皮肤与肌肉之间的空隙，为邪气出入之处">腠理</span>以密，如是则骨气以精，谨道如法，长有天命。
                 </div>
             </div>
         </div>
@@ -693,7 +708,13 @@
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0"></p>
+                <p class="modern-text mb-0">本篇以“生气通天”为纲，阐明人气机与天地节律相通的原则，提出防病养生与治疗的总纲：顺四时、调阴阳、护卫外、养营内。要点包括：
+1) 一日气机：平旦阳气生、日中阳盛、日西阳虚、入夜闭藏，暮时宜收敛，避免露风劳作，以护卫外之阳；
+2) 六气致病：寒使神浮、暑耗津致烦热、湿困如裹损筋、风为百病之始、气郁致肿、劳倦耗阳；
+3) 情志与饮食：大怒上逆、饱食损筋、暴饮气逆、强力伤肾；五味偏嗜分别损五脏，故当“谨和五味”；
+4) 四时相感：春风、夏暑、秋湿、冬寒，各有相应病机与转归；
+5) 治养原则：调和阴阳，使筋脉和同、骨髓坚固、气血从顺，则内外相安，邪不能入。
+临床与养生意义：作息要顺应昼夜与四时，保暖避风湿热；饮食节制、五味均衡；情志平和、劳逸有度；慢性病重在护阳与理脾化湿、通络祛风，治疗与起居并重，方能“生气通天”而延年。</p>
             </div>
         </div>
     </section>
@@ -705,19 +726,21 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-wilson" type="button">Nelson Wu</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic"></p>
+
+                    <div class="tab-pane fade show active" id="en-wilson">
+                        <p class="english-text mb-0 fst-italic">This chapter sets out the axiom that human qi circulation must resonate with the rhythms of heaven and earth. Key ideas: (1) the diurnal course—yang rises at dawn, peaks at midday, declines toward sunset, and closes at night, so evenings call for conservation and avoidance of dew and exertion; (2) the six climatic factors—cold floats the mind and congeals, summer heat consumes fluids and agitates, dampness binds like wrapping and weakens sinews, wind is the initiator of a hundred diseases, qi constraint causes swelling, overexertion exhausts yang; (3) emotions and diet—rage drives qi upward, overeating loosens sinews, heavy drinking reverses qi, forceful strain injures the kidneys; excessive reliance on any flavor harms its corresponding organ, hence dietary balance; (4) seasonal impacts—spring wind, summer heat, autumn damp, winter cold each imprint specific patterns; (5) therapeutic principle—harmonize yin and yang so sinews and vessels accord, marrow is firm, and qi-blood flow freely, securing the exterior so evils cannot invade. Clinically this guides lifestyle (work–rest cycles, protection from wind/damp/heat/cold), balanced nutrition, emotional moderation, and treatment that combines securing yang, transforming damp, and dispelling wind with orderly routines to ‘let life’s qi connect with the heavens.’</p>
                     </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic"></p>
+                    <div class="tab-pane fade" id="en-unschuld">
+                        <p class="english-text mb-0 fst-italic">The Yellow Emperor said: Since antiquity, those who communed with Heaven took life’s basis to lie in yin and yang. Within Heaven and Earth, in the space of the Six Directions, the qi of the Nine Regions, the nine orifices, the five viscera, and the twelve joints all communicate with Heaven’s qi. When clarity prevails above and one follows the seasonal order, yang is made secure and no pernicious influence can harm. If one loses this, the orifices close within, the flesh is obstructed without, and the defensive qi disperses—self‑injury and depletion. Yang is like Heaven and the sun: if it loses its place, lifespan is cut short. Cold makes the spirit float; summer heat drives sweat and agitation; damp wraps the head; constraint causes swelling; overstrain depletes yang. Great anger drives blood upward; gluttony loosens the sinews; heavy drinking reverses qi; exertion injures the kidneys. Wind is the beginning of a hundred diseases; in quietude the interstices close and wind cannot harm. By day yang governs the exterior—rising at dawn, flourishing at midday, declining toward sunset—therefore in the evening collect and guard, avoid dew and labor. Qi Bo said: Yin stores essence and rises quickly; yang guards the exterior and makes it firm. When yin cannot control yang, madness ensues; when yang cannot control yin, the portals are blocked. The sage arranges yin and yang so that sinews and vessels accord and qi and blood follow. Excess in the five flavors harms their organs; therefore harmonize the five flavors, make bones and sinews correct, let qi and blood flow and the interstices be tight; thus one preserves mandate for long life.</p>
                     </div>
                 </div>
             </div>
