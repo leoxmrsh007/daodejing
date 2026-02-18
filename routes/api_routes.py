@@ -5,7 +5,7 @@ API 路由 - JSON API 端点
 """
 
 from datetime import datetime
-from typing import Any, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union
 
 from flask import Blueprint, Response, jsonify, request
 
@@ -110,7 +110,7 @@ def api_chapter(
 @bp.route("/<classic_id>/search")
 @rate_limit(max_requests=30, window=60)
 def api_search(classic_id: str) -> Union[Response, Tuple[Response, int]]:
-    """API: 搜索章节（带输入验证和速率限制）"""
+    """API: 搜索章节（带输入验证、速率限制和高级过滤）"""
     query = request.args.get("q", "")
 
     # 验证输入
@@ -118,9 +118,134 @@ def api_search(classic_id: str) -> Union[Response, Tuple[Response, int]]:
     if not is_valid and query:
         return jsonify({"error": error_msg}), 400
 
+    # 获取过滤参数
+    commentator = request.args.get("commentator")
+    content_type = request.args.get("content_type")  # original/modern/notes/english
+    fuzzy_threshold = int(request.args.get("fuzzy_threshold", "70"))
+    limit = int(request.args.get("limit", "20"))
+
+    # 验证过滤参数
+    valid_content_types = ["original", "modern", "notes", "english"]
+    if content_type and content_type not in valid_content_types:
+        return (
+            jsonify(
+                {
+                    "error": f"Invalid content_type. Must be one of: {', '.join(valid_content_types)}"
+                }
+            ),
+            400,
+        )
+
     service = ClassicService(classic_id)
-    results = service.search_chapters(query)
-    return jsonify({"query": query, "classic_id": classic_id, "results": results})
+    results = service.search_chapters(
+        query,
+        classic_id=classic_id,
+        commentator=commentator,
+        content_type=content_type,
+        fuzzy_threshold=fuzzy_threshold,
+        limit=limit,
+    )
+
+    return jsonify(
+        {
+            "query": query,
+            "classic_id": classic_id,
+            "filters": {
+                "commentator": commentator,
+                "content_type": content_type,
+                "fuzzy_threshold": fuzzy_threshold,
+            },
+            "results": results,
+        }
+    )
+
+
+# ============ 搜索历史 API ============
+
+
+@bp.route("/search/history", methods=["POST"])
+def api_search_history_add() -> Union[Response, Tuple[Response, int]]:
+    """API: 添加搜索历史"""
+    data = request.get_json() or {}
+    query = data.get("query", "").strip()
+
+    if not query:
+        return jsonify({"error": "Query cannot be empty"}), 400
+
+    # 搜索历史主要存储在客户端
+    # 这里返回成功状态，实际由客户端管理
+    return jsonify(
+        {
+            "status": "success",
+            "message": "Search history is managed on client-side using localStorage",
+        }
+    )
+
+
+@bp.route("/search/history", methods=["GET"])
+def api_search_history_get() -> Response:
+    """API: 获取搜索历史（客户端存储为主）"""
+    return jsonify(
+        {
+            "message": "Search history is managed on client-side using localStorage",
+            "hint": "Use localStorage.getItem('daodejing_search_history') on client-side",
+        }
+    )
+
+
+@bp.route("/search/history", methods=["DELETE"])
+def api_search_history_clear() -> Response:
+    """API: 清空搜索历史"""
+    return jsonify(
+        {
+            "status": "success",
+            "message": "Search history is managed on client-side using localStorage",
+        }
+    )
+
+
+# ============ 个性化推荐 API ============
+
+
+@bp.route("/recommendations", methods=["GET", "POST"])
+def api_recommendations() -> Union[Response, Tuple[Response, int]]:
+    """API: 获取个性化推荐章节"""
+    from services.classic_service import get_all_classics
+    from services.fulltext_search import PersonalizedRecommender
+
+    # 构建经典服务字典
+    classic_services: Dict[str, Any] = {}
+    for classic in get_all_classics():
+        classic_id = classic.get("id")
+        if classic_id:
+            classic_services[str(classic_id)] = ClassicService(str(classic_id))
+
+    # 初始化推荐系统
+    recommender = PersonalizedRecommender(classic_services)
+
+    # 获取用户历史（从客户端请求参数）
+    data = request.get_json(silent=True) or {}
+    user_history = data.get("history", [])
+    limit = int(request.args.get("limit", "5"))
+
+    # 转换用户历史格式：{classic_id, chapter_id}
+    history_tuples: List[Tuple[str, int]] = []
+    for item in user_history:
+        classic_id = item.get("classic_id")
+        chapter_id = item.get("chapter_id")
+        if classic_id and chapter_id:
+            history_tuples.append((str(classic_id), int(chapter_id)))
+
+    # 获取推荐
+    recommendations = recommender.recommend_chapters(history_tuples, limit=limit)
+
+    return jsonify(
+        {
+            "recommendations": recommendations,
+            "count": len(recommendations),
+            "hint": "Send user history via POST body for personalized recommendations",
+        }
+    )
 
 
 # ============ 向后兼容 API ============

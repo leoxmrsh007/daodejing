@@ -1,0 +1,145 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.93:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+127.0.0.1 - - [18/Feb/2026 10:08:06] "GET /api/classics HTTP/1.1" 200 -
+127.0.0.1 - - [18/Feb/2026 10:08:06] "GET /api/ss/chapters HTTP/1.1" 200 -
+127.0.0.1 - - [18/Feb/2026 10:08:06] "GET /api/cxl/chapters HTTP/1.1" 200 -
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\utils\\security.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\fulltext_search.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\routes\\api_routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\tests\\test_services.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\utils\\security.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\utils\\security.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\utils\\performance.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\fulltext_search.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\fulltext_search.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\classic_service.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\fulltext_search.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\services\\fulltext_search.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\routes\\api_routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\routes\\api_routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\tests\\test_search_history.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\tests\\test_search_history.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 542-844-332
+ * Detected change in 'D:\\项目文件\\daodejing\\routes\\api_routes.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "D:\项目文件\daodejing\app.py", line 71, in <module>
+    app = create_app()
+          ^^^^^^^^^^^^
+  File "D:\项目文件\daodejing\app.py", line 38, in create_app
+    register_blueprints(app)
+  File "D:\项目文件\daodejing\routes\__init__.py", line 20, in register_blueprints
+    app.register_blueprint(bp)
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\app.py", line 595, in register_blueprint
+    blueprint.register(self, options)
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\blueprints.py", line 335, in register
+    deferred(state)
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\blueprints.py", line 434, in <lambda>
+    lambda s: s.add_url_rule(
+              ^^^^^^^^^^^^^^^
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\blueprints.py", line 110, in add_url_rule
+    self.app.add_url_rule(
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huhu5\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\sansio\app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: api.api_search_history_get

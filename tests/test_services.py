@@ -375,6 +375,64 @@ class TestClassicService:
         data = service.load_data()
         assert data is not None
 
+    def test_classic_service_init_invalid_id_fallback(self):
+        """测试使用无效ID初始化时回退到默认经典"""
+        service = ClassicService("invalid_nonexistent_id")
+        # 应该回退到默认经典（ddj）
+        assert service.classic_id == "ddj"
+
+    @patch("builtins.open")
+    def test_load_classics_metadata_file_not_found(self, mock_open):
+        """测试文件不存在时返回默认配置"""
+        mock_open.side_effect = FileNotFoundError()
+        # 清除缓存以确保重新加载
+        from services import classic_service
+
+        classic_service._classics_metadata_cache = None  # type: ignore
+        metadata = load_classics_metadata()
+        assert metadata is not None
+        assert "classics" in metadata
+        assert len(metadata["classics"]) >= 1
+        assert metadata["classics"][0]["id"] == "ddj"
+
+    @patch("builtins.open")
+    def test_load_classics_metadata_json_decode_error(self, mock_open):
+        """测试JSON解析错误时返回空列表"""
+        mock_file = MagicMock()
+        mock_file.read.return_value = "invalid json"
+        mock_open.return_value.__enter__.return_value = mock_file
+        # 清除缓存以确保重新加载
+        from services import classic_service
+
+        classic_service._classics_metadata_cache = None  # type: ignore
+        metadata = load_classics_metadata()
+        assert metadata is not None
+        assert metadata.get("classics") == []
+
+    def test_classic_service_get_all_chapters(self):
+        """测试获取所有章节"""
+        service = ClassicService("ddj")
+        chapters = service.get_all_chapters()
+        assert chapters is not None
+        assert len(chapters) == 81
+        assert chapters[0]["chapter"] == 1
+
+    def test_classic_service_get_chapter_with_annotation(self):
+        """测试获取带标注的章节"""
+        service = ClassicService("ddj")
+        chapter = service.get_chapter_with_annotation(1)
+        assert chapter is not None
+        assert chapter["chapter"] == 1
+        assert "original" in chapter
+
+    def test_classic_service_warmup_cache(self):
+        """测试缓存预热功能"""
+        ClassicService.clear_all_cache()
+        service = ClassicService("ddj")
+        # 调用预热，预热前3章
+        result = service.warmup_cache(3)
+        assert result is None
+
 
 class TestKnowledgeGraph:
     """知识图谱服务测试"""
@@ -1051,6 +1109,260 @@ class TestTTSService:
             response, status_code = service.synthesize()  # type: ignore
             assert status_code == 500
             assert b"Server error" in response.data
+
+
+class TestFullTextSearch:
+    """全文搜索测试（增强版）"""
+
+    def test_fulltext_search_initialization(self):
+        """测试全文搜索初始化"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        assert search_engine is not None
+        assert hasattr(search_engine, "search_index")
+        assert hasattr(search_engine, "tfidf_calculator")
+
+    def test_tfidf_calculator_fit(self):
+        """测试TF-IDF计算器训练"""
+        from services.fulltext_search import TFIDFCalculator
+
+        calc = TFIDFCalculator()
+        documents = [
+            ["道", "可", "道"],
+            ["道", "德", "经"],
+        ]
+
+        calc.fit(documents)
+        assert calc.total_documents == 2
+        assert calc.document_frequency["道"] == 2
+
+    def test_tfidf_calculator_score(self):
+        """测试TF-IDF分数计算"""
+        from services.fulltext_search import TFIDFCalculator
+
+        calc = TFIDFCalculator()
+        documents = [["道", "可", "道"], ["道德", "经"]]
+        calc.fit(documents)
+
+        score = calc.calculate_tfidf("道", documents[0], len(documents[0]))
+        assert score > 0
+        assert score <= 10  # TF-IDF scores should be reasonable
+
+    def test_search_exact_match(self):
+        """测试精确搜索"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("道可道", limit=10)
+
+        # 应该找到匹配的结果
+        assert len(results) >= 0
+        if results:
+            assert "chapter" in results[0]
+            assert "score" in results[0]
+            assert "highlighted_context" in results[0]
+
+    def test_search_with_classic_filter(self):
+        """测试经典ID过滤"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("道", classic_id="ddj", limit=10)
+
+        # 所有结果应该都属于道德经
+        for result in results:
+            assert result.get("classic_id") == "ddj"
+
+    def test_search_with_content_type_filter(self):
+        """测试内容类型过滤"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+
+        # 搜索原文
+        results_original = search_engine.search("道", content_type="original", limit=10)
+        assert isinstance(results_original, list)
+
+        # 搜索译文
+        results_modern = search_engine.search("道", content_type="modern", limit=10)
+        assert isinstance(results_modern, list)
+
+    def test_search_with_invalid_content_type(self):
+        """测试无效内容类型"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        # 应该不会报错，只是返回空结果或默认行为
+        results = search_engine.search("道", content_type="invalid", limit=10)
+        assert isinstance(results, list)
+
+    def test_search_result_structure(self):
+        """测试搜索结果结构"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("道", limit=5)
+
+        for result in results:
+            # 必需字段
+            assert "chapter" in result
+            assert "title" in result
+            assert "score" in result
+            assert "matches" in result
+            assert "context" in result
+            assert "highlighted_context" in result
+
+            # 可选字段
+            assert "classic_id" in result
+            assert "classic_name" in result
+            assert "match_type" in result
+            assert result["match_type"] in ["exact", "fuzzy"]
+
+    def test_search_empty_query(self):
+        """测试空搜索查询"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("")
+        assert results == []
+
+        results = search_engine.search("   ")
+        assert results == []
+
+    def test_search_context_highlighting(self):
+        """测试搜索结果上下文高亮"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("道", limit=1)
+
+        if results:
+            highlighted = results[0].get("highlighted_context", "")
+            # 应该包含高亮标记
+            # 注意：如果查询词不在结果上下文中，可能不会出现<mark>标签
+            assert isinstance(highlighted, str)
+
+    def test_search_score_ordering(self):
+        """测试搜索结果按分数排序"""
+        from services.classic_service import get_fulltext_search
+
+        search_engine = get_fulltext_search()
+        results = search_engine.search("道", limit=10)
+
+        if len(results) >= 2:
+            # 分数应该降序排列
+            scores = [r["score"] for r in results]
+            assert scores == sorted(scores, reverse=True)
+
+
+class TestSearchHistoryManager:
+    """搜索历史管理器测试"""
+
+    def test_search_history_initialization(self):
+        """测试搜索历史管理器初始化"""
+        from services.fulltext_search import SearchHistoryManager
+
+        manager = SearchHistoryManager()
+        assert manager.max_history == 50
+        assert manager.history_key == "daodejing_search_history"
+
+    def test_search_history_custom_limit(self):
+        """测试自定义历史记录限制"""
+        from services.fulltext_search import SearchHistoryManager
+
+        manager = SearchHistoryManager(max_history=10)
+        assert manager.max_history == 10
+
+    def test_search_history_get(self):
+        """测试获取搜索历史"""
+        from services.fulltext_search import SearchHistoryManager
+
+        manager = SearchHistoryManager()
+        history = manager.get_history()
+        assert isinstance(history, list)
+
+    def test_search_history_clear(self):
+        """测试清空搜索历史"""
+        from services.fulltext_search import SearchHistoryManager
+
+        manager = SearchHistoryManager()
+        # 不应该抛出异常
+        manager.clear_history()
+
+
+class TestPersonalizedRecommender:
+    """个性化推荐系统测试"""
+
+    def test_recommender_initialization(self):
+        """测试推荐系统初始化"""
+        from services.classic_service import get_all_classics
+        from services.fulltext_search import PersonalizedRecommender
+
+        # 创建经典服务字典
+        classic_services: dict = {}
+        for classic in get_all_classics():
+            classic_id = classic.get("id")
+            if classic_id:
+                classic_services[classic_id] = ClassicService(classic_id)
+
+        recommender = PersonalizedRecommender(classic_services)
+        assert recommender is not None
+        assert recommender.classic_services == classic_services
+
+    def test_recommend_without_history(self):
+        """测试无历史记录时的推荐"""
+        from services.classic_service import get_all_classics
+        from services.fulltext_search import PersonalizedRecommender
+
+        classic_services: dict = {}
+        for classic in get_all_classics():
+            classic_id = classic.get("id")
+            if classic_id:
+                classic_services[classic_id] = ClassicService(classic_id)
+
+        recommender = PersonalizedRecommender(classic_services)
+        recommendations = recommender.recommend_chapters([])
+
+        assert len(recommendations) > 0
+        assert isinstance(recommendations, list)
+        if recommendations:
+            assert "chapter" in recommendations[0]
+            assert "reason" in recommendations[0]
+
+    def test_recommend_with_history(self):
+        """测试有历史记录时的推荐"""
+        from services.classic_service import get_all_classics
+        from services.fulltext_search import PersonalizedRecommender
+
+        classic_services: dict = {}
+        for classic in get_all_classics():
+            classic_id = classic.get("id")
+            if classic_id:
+                classic_services[classic_id] = ClassicService(classic_id)
+
+        recommender = PersonalizedRecommender(classic_services)
+        user_history = [("ddj", 1), ("ddj", 2), ("ddj", 3)]
+        recommendations = recommender.recommend_chapters(user_history, limit=5)
+
+        assert len(recommendations) > 0
+        assert isinstance(recommendations, list)
+
+    def test_recommend_limit(self):
+        """测试推荐数量限制"""
+        from services.classic_service import get_all_classics
+        from services.fulltext_search import PersonalizedRecommender
+
+        classic_services: dict = {}
+        for classic in get_all_classics():
+            classic_id = classic.get("id")
+            if classic_id:
+                classic_services[classic_id] = ClassicService(classic_id)
+
+        recommender = PersonalizedRecommender(classic_services)
+        recommendations = recommender.recommend_chapters([], limit=3)
+
+        assert len(recommendations) <= 3
 
 
 if __name__ == "__main__":

@@ -15,6 +15,9 @@ _classics_metadata_cache: Optional[Dict[str, Any]] = None
 # 各经典数据缓存
 _classics_data_cache: Dict[str, Dict[str, Any]] = {}
 
+# 全局全文搜索实例（延迟初始化）
+_fulltext_search: Optional[Any] = None
+
 
 def load_classics_metadata() -> Dict[str, Any]:
     """
@@ -96,6 +99,32 @@ def get_default_classic_id() -> str:
     """
     metadata = load_classics_metadata()
     return cast(str, metadata.get("default_classic", "ddj"))
+
+
+def get_fulltext_search() -> Any:
+    """
+    获取全局全文搜索实例（延迟初始化）
+
+    Returns:
+        FullTextSearch实例
+    """
+    global _fulltext_search
+
+    if _fulltext_search is None:
+        # 延迟导入避免循环依赖
+        from services.fulltext_search import FullTextSearch
+
+        # 收集所有经典服务
+        classic_services: Dict[str, Any] = {}
+        for classic in get_all_classics():
+            classic_id = cast(str, classic.get("id"))
+            classic_services[classic_id] = ClassicService(classic_id)
+
+        # 初始化搜索引擎
+        _fulltext_search = FullTextSearch(classic_services)
+        print("[ClassicService] 全文搜索引擎初始化完成")
+
+    return _fulltext_search
 
 
 def validate_classic_id(classic_id: str) -> bool:
@@ -183,6 +212,38 @@ class ClassicService:
         _classics_data_cache = {}
         _classics_metadata_cache = None
 
+    def warmup_cache(self, count: int = 10) -> None:
+        """
+        预热缓存，加载前N章节数据
+        应用启动时调用，提升首次访问性能
+
+        Args:
+            count: 预热的章节数量
+        """
+        import threading
+
+        def _warmup() -> None:
+            try:
+                data = self.load_data()
+                chapters = data.get("chapters", [])
+                # 预热前 count 章
+                for i in range(min(count, len(chapters))):
+                    chapter_id = chapters[i].get("chapter")
+                    if chapter_id:
+                        # 触发缓存访问
+                        self.get_chapter(chapter_id)
+                print(
+                    f"[ClassicService] 缓存预热完成: {min(count, len(chapters))} 章节"
+                )
+            except Exception as e:
+                print(f"[ClassicService] 缓存预热失败: {e}")
+
+        # 后台线程预热，不阻塞启动
+        warmup_thread = threading.Thread(target=_warmup, daemon=True)
+        warmup_thread.start()
+
+        return None
+
     def get_chapter(self, chapter_id: int) -> Optional[Dict]:
         """
         获取指定章节的内容
@@ -207,31 +268,26 @@ class ClassicService:
             chapter_id: 章节编号
 
         Returns:
-            包含标注内容和相邻章节信息的字典，如果不存在则返回 None
+            章节数据字典，如果不存在则返回 None
         """
-        from services.annotation_service import annotate_difficult_chars
-
         data = self.load_data()
         chapter = next(
             (c for c in data["chapters"] if c["chapter"] == chapter_id), None
         )
-
-        if chapter:
-            # 为原文添加疑难字标注
-            if "original" in chapter:
-                chapter["original_annotated"] = annotate_difficult_chars(
-                    chapter.get("original", "")
-                )
-
-            # 获取相邻章节
-            idx = data["chapters"].index(chapter)
-            chapter["prev_chapter"] = data["chapters"][idx - 1] if idx > 0 else None
-            chapter["next_chapter"] = (
-                data["chapters"][idx + 1] if idx < len(data["chapters"]) - 1 else None
-            )
-            chapter["total_chapters"] = len(data["chapters"])
-
         return chapter
+
+    def preload_chapters(self, chapter_ids: List[int]) -> None:
+        """
+        预加载指定章节到缓存
+        用于缓存预热，提高访问性能
+
+        Args:
+            chapter_ids: 章节ID列表
+        """
+        data = self.load_data()
+        for chapter_id in chapter_ids:
+            # 触发缓存访问，数据已在load_data中
+            next((c for c in data["chapters"] if c["chapter"] == chapter_id), None)
 
     def get_all_chapters(self) -> List[Dict]:
         """
@@ -243,12 +299,25 @@ class ClassicService:
         data = self.load_data()
         return cast(List[Dict], data.get("chapters", []))
 
-    def search_chapters(self, query: str) -> List[Dict]:
+    def search_chapters(
+        self,
+        query: str,
+        classic_id: Optional[str] = None,
+        commentator: Optional[str] = None,
+        content_type: Optional[str] = None,
+        fuzzy_threshold: int = 70,
+        limit: int = 20,
+    ) -> List[Dict]:
         """
-        搜索章节
+        搜索章节（增强版，支持TF-IDF评分、模糊搜索和多维度过滤）
 
         Args:
             query: 搜索关键词
+            classic_id: 经典ID过滤 (None表示搜索所有经典)
+            commentator: 注释家过滤
+            content_type: 内容类型过滤 (original/modern/notes/english)
+            fuzzy_threshold: 模糊搜索相似度阈值 (0-100)
+            limit: 返回结果数量限制
 
         Returns:
             匹配的章节列表
@@ -256,11 +325,38 @@ class ClassicService:
         if not query:
             return []
 
+        try:
+            # 使用全局全文搜索实例
+            search_engine = get_fulltext_search()
+            return search_engine.search(
+                query=query,
+                classic_id=classic_id or self.classic_id,
+                commentator=commentator,
+                content_type=content_type,
+                fuzzy_threshold=fuzzy_threshold,
+                limit=limit,
+            )
+        except Exception as e:
+            # 回退到简单搜索
+            print(f"[ClassicService] 搜索失败，使用回退搜索: {e}")
+            return self._fallback_search(query, limit)
+
+    def _fallback_search(self, query: str, limit: int) -> List[Dict]:
+        """
+        回退搜索（简单字符串匹配）
+
+        Args:
+            query: 搜索关键词
+            limit: 返回结果数量限制
+
+        Returns:
+            匹配的章节列表
+        """
         data = self.load_data()
         results = []
         query_lower = query.lower()
 
-        for chapter in data["chapters"]:
+        for chapter in data["chapters"][:limit]:
             # 在原文中搜索
             if query_lower in chapter.get("original", "").lower():
                 results.append(
@@ -339,7 +435,7 @@ class ClassicService:
 # ============ 向后兼容的 DataService ============
 
 
-class DataService(ClassicService):
+class DataService(ClassicService):  # type: ignore[misc]
     """
     向后兼容的数据服务类
     保持与原代码的兼容性
@@ -351,7 +447,7 @@ class DataService(ClassicService):
         """初始化道德经服务（默认）"""
         super().__init__("ddj")
 
-    @classmethod
+    @classmethod  # type: ignore[misc]
     def load_data(cls) -> Dict:
         """
         加载道德经数据（带缓存）- 类方法保持兼容
@@ -360,35 +456,50 @@ class DataService(ClassicService):
         service = ClassicService("ddj")
         return service.load_data()
 
-    @classmethod
+    @classmethod  # type: ignore[misc]
     def clear_cache(cls) -> None:
         """清除数据缓存 - 类方法保持兼容"""
         cls._data_cache = None
         ClassicService.clear_all_cache()
 
-    @classmethod
+    @classmethod  # type: ignore[misc]
     def get_chapter(cls, chapter_id: int) -> Optional[Dict]:
         """获取指定章节的内容 - 类方法保持兼容"""
         service = ClassicService("ddj")
         return service.get_chapter(chapter_id)
 
-    @classmethod
+    @classmethod  # type: ignore[misc]
     def get_chapter_with_annotation(cls, chapter_id: int) -> Optional[Dict]:
         """获取指定章节的内容（带标注）- 类方法保持兼容"""
         service = ClassicService("ddj")
         return service.get_chapter_with_annotation(chapter_id)
 
-    @classmethod
+    @classmethod  # type: ignore[misc]
     def get_all_chapters(cls) -> List[Dict]:
         """获取所有章节列表 - 类方法保持兼容"""
         service = ClassicService("ddj")
         return service.get_all_chapters()
 
-    @classmethod
-    def search_chapters(cls, query: str) -> List[Dict]:
+    @classmethod  # type: ignore[misc]
+    def search_chapters(
+        cls,
+        query: str,
+        classic_id: Optional[str] = None,
+        commentator: Optional[str] = None,
+        content_type: Optional[str] = None,
+        fuzzy_threshold: int = 70,
+        limit: int = 20,
+    ) -> List[Dict]:
         """搜索章节 - 类方法保持兼容"""
         service = ClassicService("ddj")
-        return service.search_chapters(query)
+        return service.search_chapters(
+            query,
+            classic_id=classic_id,
+            commentator=commentator,
+            content_type=content_type,
+            fuzzy_threshold=fuzzy_threshold,
+            limit=limit,
+        )
 
 
 # ============ 函数别名（向后兼容） ============

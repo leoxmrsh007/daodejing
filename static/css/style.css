@@ -2517,10 +2517,239 @@ body {
     padding: 1rem;
 }
 
-/* ==================== 音乐控制按钮样式 ==================== */
-.music-controls .media-btn.active,
-.speech-controls .media-btn.active {
-    background: var(--accent-color);
-    color: #fff;
-    border-color: var(--accent-color);
-}
+ /* ==================== 音乐控制按钮样式 ==================== */
+ .music-controls .media-btn.active,
+ .speech-controls .media-btn.active {
+     background: var(--accent-color);
+     color: #fff;
+     border-color: var(--accent-color);
+ }
+
+ /* ==================== 搜索历史样式 ==================== */
+ .search-box {
+     position: relative;
+ }
+
+ .search-history-menu {
+     position: absolute;
+     top: 100%;
+     right: 0;
+     z-index: 1000;
+     width: 320px;
+     max-width: 90vw;
+     background: var(--card-bg);
+     border: 1px solid var(--border-color);
+     border-radius: 8px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     margin-top: 8px;
+     overflow: hidden;
+ }
+
+ .search-history-header {
+     background: var(--bg-light);
+     border-bottom: 1px solid var(--border-color);
+ }
+
+ .search-history-header small {
+     font-weight: 500;
+     color: var(--text-muted);
+ }
+
+ .search-history-header .btn-link {
+     font-size: 0.75rem;
+     padding: 2px 8px;
+     line-height: 1;
+ }
+
+ .search-history-list {
+     max-height: 400px;
+     overflow-y: auto;
+ }
+
+ .search-history-item {
+     padding: 10px 15px;
+     border-bottom: 1px solid var(--border-light);
+     transition: background-color 0.15s ease;
+ }
+
+ .search-history-item:last-child {
+     border-bottom: none;
+ }
+
+ .search-history-item:hover {
+     background-color: var(--bg-hover);
+ }
+
+ .search-history-item:active {
+     background-color: var(--bg-active);
+ }
+
+ .search-history-query {
+     flex: 1;
+     min-width: 0;
+ }
+
+ .search-history-text {
+     font-size: 0.9rem;
+     color: var(--text-color);
+ }
+
+ .search-history-text strong {
+     color: var(--accent-color);
+ }
+
+ .search-history-item .badge {
+     font-size: 0.65rem;
+     padding: 2px 6px;
+     font-weight: 500;
+ }
+
+ /* 滚动条样式 */
+ .search-history-list::-webkit-scrollbar {
+     width: 6px;
+ }
+
+ .search-history-list::-webkit-scrollbar-track {
+     background: var(--bg-light);
+ }
+
+ .search-history-list::-webkit-scrollbar-thumb {
+     background: var(--border-color);
+     border-radius: 3px;
+ }
+
+ .search-history-list::-webkit-scrollbar-thumb:hover {
+     background: var(--text-muted);
+ }
+
+ /* 暗黑模式适配 */
+ [data-theme="dark"] .search-history-menu {
+     background: var(--card-bg-dark);
+     border-color: var(--border-color-dark);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+ }
+
+ [data-theme="dark"] .search-history-header {
+     background: var(--bg-light-dark);
+     border-bottom-color: var(--border-color-dark);
+ }
+
+ [data-theme="dark"] .search-history-item {
+     border-bottom-color: var(--border-light-dark);
+ }
+
+ [data-theme="dark"] .search-history-item:hover {
+     background-color: var(--bg-hover-dark);
+ }
+
+ [data-theme="dark"] .search-history-item:active {
+     background-color: var(--bg-active-dark);
+ }
+
+ [data-theme="dark"] .search-history-text {
+     color: var(--text-color-dark);
+ }
+
+ [data-theme="dark"] .search-history-list::-webkit-scrollbar-track {
+     background: var(--bg-light-dark);
+ }
+
+ [data-theme="dark"] .search-history-list::-webkit-scrollbar-thumb {
+     background: var(--border-color-dark);
+ }
+
+ /* ==================== 用户认证样式 ==================== */
+ .auth-tabs .nav-pills .nav-link {
+     color: var(--text-muted);
+     border: 1px solid transparent;
+ }
+
+ .auth-tabs .nav-pills .nav-link.active {
+     background-color: var(--accent-color);
+     color: #fff;
+     border-color: var(--accent-color);
+ }
+
+ .auth-tabs .nav-pills .nav-link:hover:not(.active) {
+     background-color: var(--bg-hover);
+     color: var(--text-color);
+ }
+
+ [data-theme="dark"] .auth-tabs .nav-pills .nav-link:hover:not(.active) {
+     background-color: var(--bg-hover-dark);
+     color: var(--text-color-dark);
+ }
+
+ .modal-body .form-control {
+     border-color: var(--border-color);
+     background-color: var(--card-bg);
+     color: var(--text-color);
+ }
+
+ .modal-body .form-control:focus {
+     border-color: var(--accent-color);
+     box-shadow: 0 0 0 0.25rem rgba(var(--accent-rgb), 0.3);
+ }
+
+ [data-theme="dark"] .modal-body .form-control {
+     border-color: var(--border-color-dark);
+     background-color: var(--card-bg-dark);
+     color: var(--text-color-dark);
+ }
+
+ .modal-body .form-text {
+     color: var(--text-muted);
+     font-size: 0.875rem;
+ }
+
+ .btn-primary {
+     background-color: var(--accent-color);
+     border-color: var(--accent-color);
+ }
+
+ .btn-primary:hover {
+     background-color: var(--accent-color);
+     border-color: var(--accent-color);
+     opacity: 0.9;
+ }
+
+ .btn-primary:active {
+     background-color: var(--accent-color);
+     border-color: var(--accent-color);
+     opacity: 0.8;
+ }
+
+ /* 用户下拉菜单 */
+ #loginButton .dropdown-menu {
+     border-color: var(--border-color);
+     background-color: var(--card-bg);
+     min-width: 180px;
+ }
+
+ #loginButton .dropdown-menu .dropdown-item {
+     color: var(--text-color);
+     transition: background-color 0.15s ease;
+ }
+
+ #loginButton .dropdown-menu .dropdown-item:hover {
+     background-color: var(--bg-hover);
+     color: var(--text-color);
+ }
+
+ #loginButton .dropdown-menu .dropdown-item.text-danger {
+     color: #dc3545;
+ }
+
+ [data-theme="dark"] #loginButton .dropdown-menu {
+     border-color: var(--border-color-dark);
+     background-color: var(--card-bg-dark);
+ }
+
+ [data-theme="dark"] #loginButton .dropdown-menu .dropdown-item {
+     color: var(--text-color-dark);
+ }
+
+ [data-theme="dark"] #loginButton .dropdown-menu .dropdown-item:hover {
+     background-color: var(--bg-hover-dark);
+ }
+ 

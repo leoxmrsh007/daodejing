@@ -48,59 +48,27 @@
       "icon": "🦋",
       "color": "#7cb9a8",
       "description": "道家哲学经典，内篇七篇为庄子本人所作，汪洋恣肆，想象丰富",
-      "commentators": [
-        {"id": "chengxuanying", "name": "成玄英疏", "era": "唐"},
-        {"id": "guoxiang", "name": "郭象注", "era": "西晋"},
-        {"id": "wangfuzhi", "name": "王夫之", "era": "明末清初"}
-      ],
-      "translators": [
-        {"id": "watson", "name": "Burton Watson", "lang": "en"},
-        {"id": "ziporyn", "name": "Brook Ziporyn", "lang": "en"}
-      ],
-      "variants": []
-    },
-    {
-      "id": "hdnj",
-      "name": "黄帝内经",
-      "short_name": "黄帝内经",
-      "author": "黄帝",
-      "era": "战国至西汉",
-      "chapters": 81,
-      "data_file": "data/huangdi_neijing/chapters.json",
-      "icon": "🌿",
-      "color": "#5a9a8f",
-      "description": "中医经典著作，阐述阴阳五行、藏象经络、病因病机等中医理论体系",
-      "commentators": [
-        {"id": "wangbing", "name": "王冰补注", "era": "唐"},
-        {"id": "zhangzhicong", "name": "张志聪集注", "era": "清"},
-        {"id": "gaoshizong", "name": "高士宗直解", "era": "清"}
-      ],
-      "translators": [
-        {"id": "wilson", "name": "Nelson Wu", "lang": "en"},
-        {"id": "unschuld", "name": "Paul Unschuld", "lang": "en"}
-      ],
-      "variants": []
-    },
-    {
-      "id": "jgj",
-      "name": "金刚经",
-      "short_name": "金刚经",
-      "author": "鸠摩罗什译",
-      "era": "后秦",
-      "chapters": 32,
-      "data_file": "data/jgj/chapters.json",
-      "icon": "💎",
-      "color": "#e07a5f",
-      "description": "大乘佛教核心经典，阐述空性智慧与般若波罗蜜多心要",
-      "commentators": [
-        {"id": "kongzi", "name": "孔子注", "era": "春秋"},
-        {"id": "zhuanshi", "name": "传大士颂", "era": "南朝梁"}
-      ],
-      "translators": [
-        {"id": "kumarajiva", "name": "鸠摩罗什", "lang": "zh"},
-        {"id": "xuanzang", "name": "玄奘", "lang": "zh"},
-        {"id": "redpine", "name": "Bill Porter", "lang": "en"}
-      ]
+       "commentators": [
+         {"id": "chengxuanying", "name": "成玄英疏", "era": "唐"},
+         {"id": "guoxiang", "name": "郭象注", "era": "西晋"},
+         {"id": "wangfuzhi", "name": "王夫之", "era": "明末清初"},
+         {"id": "linxiyi_note", "name": "林希逸注", "era": "东晋"},
+         {"id": "simabiao_note", "name": "司马彪注", "era": "东晋"},
+         {"id": "zhangzhan_note", "name": "张湛注", "era": "东晋"},
+         {"id": "ludeming_note", "name": "陆德明注", "era": "东晋"}
+       ],
+       "translators": [
+         {"id": "watson", "name": "Burton Watson", "lang": "en"},
+         {"id": "ziporyn", "name": "Brook Ziporyn", "lang": "en"},
+         {"id": "feng", "name": "冯友兰译", "lang": "en"},
+         {"id": "culver", "name": "冯承钧译", "lang": "en"},
+         {"id": "mair", "name": "Victor Mair译", "lang": "en"},
+         {"id": "graham", "name": "A.C. Graham译", "lang": "en"}
+       ],
+       "variants": [
+         {"id": "guodian", "name": "郭店楚简", "era": "战国中期"},
+         {"id": "postsilk", "name": "马王堆帛书", "era": "西汉"}
+       ]
     },
     {
       "id": "lztyj",
@@ -112,77 +80,143 @@
       "data_file": "data/lztyj/chapters.json",
       "icon": "🪷",
       "color": "#8b5a2b",
-      "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性",
-      "commentators": [
-        {"id": "huineng", "name": "慧能", "era": "唐代"},
-        {"id": "fahai", "name": "法海", "era": "唐代"}
-      ],
-      "translators": [
-        {"id": "redpine", "name": "Bill Porter", "lang": "en"}
-      ]
-    },
-    {
-      "id": "ws30",
-      "name": "唯识三十颂",
-      "short_name": "唯识三十颂",
-      "author": "世亲",
-      "era": "四至五世纪",
-      "chapters": 30,
-      "data_file": "data/ws30/chapters.json",
-      "icon": "🧘",
-      "color": "#f39c12",
-      "description": "大乘佛教论典，系统阐述唯识学三性相分与瑜伽行位",
-      "commentators": [],
-      "translators": []
-    },
-    {
-      "id": "zy",
-      "name": "周易",
-      "short_name": "周易",
-      "author": "文王、周公",
-      "era": "西周",
-      "chapters": 64,
-      "data_file": "data/zy/chapters.json",
-      "icon": "☯",
-      "color": "#8e44ad",
-      "description": "群经之首，易经六十四卦，阐述天地万物变化之理",
-      "commentators": [
-        {"id": "wangbi", "name": "王弼", "era": "三国"},
-        {"id": "chengyi", "name": "程颐", "era": "北宋"},
-        {"id": "zhuxi", "name": "朱熹", "era": "南宋"}
-      ],
-      "translators": [
-        {"id": "legge", "name": "James Legge", "lang": "en"}
-      ]
-    },
-    {
-      "id": "ss",
-      "name": "四书",
-      "short_name": "四书",
-      "author": "朱熹",
-      "era": "南宋",
-      "chapters": 4,
-      "data_file": "data/ss/chapters.json",
-      "icon": "📚",
-      "color": "#6c5ce7",
-      "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道",
-      "commentators": [],
-      "translators": []
-    },
-    {
-      "id": "cxl",
-      "name": "传习录",
-      "short_name": "传习录",
-      "author": "王阳明",
-      "era": "明代",
-      "chapters": 3,
-      "data_file": "data/cxl/chapters.json",
-      "icon": "📖",
-      "color": "#06b6d4",
-      "description": "心学重要著作，阐述知行合一、致良知等哲学思想",
-      "commentators": [],
-      "translators": []
-    }
-  ],
+       "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性",
+        "commentators": [
+          {"id": "huineng", "name": "慧能", "era": "唐代"},
+          {"id": "fahai", "name": "法海", "era": "唐代"},
+          {"id": "dumoulin", "name": "宗密注", "era": "唐代"},
+          {"id": "yampolsky", "name": "虚云", "era": "唐代"}
+        ],
+        "translators": [
+          {"id": "suzuki", "name": "D.T. Suzuki", "lang": "zh"},
+          {"id": "yampolsky", "name": "Philip Yampolsky", "lang": "en"},
+          {"id": "pine", "name": "John Pine", "lang": "en"},
+          {"id": "mcleod", "name": "Thomas Cleary", "lang": "en"},
+          {"id": "redpine", "name": "Bill Porter", "lang": "en"},
+          {"id": "davis", "name": "A.J. Davis", "lang": "en"},
+          {"id": "conze", "name": "Edward Conze", "lang": "en"},
+          {"id": "watts", "name": "Alan Watts", "lang": "en"}
+        ]
+     },
+      {
+        "id": "cxl",
+       "name": "传习录",
+       "short_name": "传习录",
+       "author": "王阳明",
+       "era": "明代",
+       "chapters": 3,
+       "data_file": "data/cxl/chapters.json",
+       "icon": "📖",
+       "color": "#06b6d4",
+       "description": "心学重要著作，阐述知行合一、致良知等哲学思想",
+       "commentators": [
+         {"id": "chens_xu", "name": "陈献章注", "era": "明"},
+         {"id": "zhu_xi", "name": "朱熹注", "era": "明"},
+         {"id": "wang_yangming", "name": "王阳明注", "era": "明"}
+       ],
+       "translators": [
+         {"id": "henkes", "name": "David Hinkes", "lang": "en"},
+         {"id": "wingtsit", "name": "Wing-tsit Chan", "lang": "en"},
+         {"id": "cleary", "name": "Thomas Cleary", "lang": "en"}
+        ]
+     },
+     {
+       "id": "ss",
+       "name": "四书",
+       "short_name": "四书",
+       "author": "朱熹",
+       "era": "南宋",
+       "chapters": 4,
+       "data_file": "data/ss/chapters.json",
+       "icon": "📚",
+       "color": "#6c5ce7",
+       "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道",
+       "commentators": [],
+       "translators": []
+      },
+      {
+       "id": "jgj",
+       "name": "金刚经",
+       "short_name": "金刚经",
+       "author": "鸠摩罗什译",
+       "era": "后秦",
+       "chapters": 1,
+       "data_file": "data/jgj/chapters.json",
+       "icon": "📿",
+       "color": "#e0a0a0",
+       "description": "大乘佛教般若部经典，阐述空性、无我、无相的甚深智慧",
+       "commentators": [
+         {"id": "dipamkara", "name": "世亲", "era": "印度"},
+         {"id": "asanga", "name": "无著", "era": "印度"}
+       ],
+       "translators": [
+         {"id": "mueller", "name": "Max Mueller", "lang": "en"},
+         {"id": "conze", "name": "Edward Conze", "lang": "en"},
+         {"id": "redpine", "name": "Bill Porter", "lang": "en"}
+       ]
+      },
+      {
+       "id": "ws30",
+       "name": "唯识三十颂",
+       "short_name": "唯识三十颂",
+       "author": "世亲",
+       "era": "印度",
+       "chapters": 30,
+       "data_file": "data/ws30/chapters.json",
+       "icon": "🧠",
+       "color": "#9c59b6",
+       "description": "瑜伽行派唯识学纲要，简述唯识三性说",
+       "commentators": [
+         {"id": "xuanzang", "name": "玄奘注", "era": "唐"},
+         {"id": "dharmapala", "name": "法称", "era": "印度"}
+       ],
+       "translators": [
+         {"id": "poussin", "name": "Theodore Poussin", "lang": "en"},
+         {"id": "wood", "name": "Thomas A. Wood", "lang": "en"}
+       ]
+      },
+      {
+       "id": "zy",
+       "name": "周易",
+       "short_name": "周易",
+       "author": "周文王/孔子",
+       "era": "西周/春秋",
+       "chapters": 64,
+       "data_file": "data/zy/chapters.json",
+       "icon": "📊",
+       "color": "#8b4513",
+       "description": "群经之首，以阴阳变易为核心思想体系，阐述天人合一之道",
+       "commentators": [
+         {"id": "kongyingda", "name": "孔颖达", "era": "三国魏"},
+         {"id": "chengyi", "name": "程颐", "era": "北宋"},
+         {"id": "zhu", "name": "朱熹", "era": "南宋"}
+       ],
+       "translators": [
+         {"id": "wilhelm", "name": "Richard Wilhelm", "lang": "en"},
+         {"id": "legge", "name": "James Legge", "lang": "en"}
+       ]
+      },
+      {
+       "id": "hdnj",
+       "name": "黄帝内经",
+       "short_name": "黄帝内经",
+       "author": "岐伯/黄帝",
+       "era": "战国/秦汉",
+       "chapters": 81,
+       "data_file": "data/hdnj/chapters.json",
+       "icon": "⚕️",
+       "color": "#dc2626",
+       "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
+       "commentators": [
+         {"id": "wangbinghe", "name": "王冰注", "era": "唐"},
+         {"id": "zhangzhongjing", "name": "张仲景注", "era": "东汉"},
+         {"id": "lizhongji", "name": "李时珍注", "era": "明"}
+       ],
+       "translators": [
+         {"id": "unschuld", "name": "Paul Unschuld", "lang": "en"},
+         {"id": "ni", "name": "Maoshing Ni", "lang": "en"}
+       ]
+      }
+   ],
   "default_classic": "ddj"
 }

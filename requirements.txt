@@ -1,6 +1,14 @@
 flask>=2.3.0
 requests>=2.31.0
 
+# 中文分词和搜索
+jieba>=0.42.1
+thefuzz>=0.22.1
+
+# 用户认证
+pyjwt>=2.8.0
+bcrypt>=4.1.0
+
 # 测试工具
 pytest>=7.4.0
 pytest-cov>=4.1.0

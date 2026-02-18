@@ -188,37 +188,13 @@ def init_security(app: Flask) -> None:
         app: Flask 应用实例
     """
 
-    # 添加安全头到所有响应
-    @app.after_request
-    def apply_security_headers(response: Response) -> Response:
-        return add_security_headers(response)
-
     # CORS 配置
     cors_config = get_cors_config()
-
-    # CORS 处理
-    @app.after_request
-    def apply_cors_headers(response: Response) -> Response:
-        """为所有响应添加CORS头"""
-        origin = request.headers.get("Origin")
-        if origin:
-            # 检查来源是否在允许列表中
-            allowed_origins = cors_config["origins"]
-            if allowed_origins == "*" or origin in allowed_origins:
-                response.headers["Access-Control-Allow-Origin"] = origin
-                response.headers["Access-Control-Allow-Methods"] = ", ".join(
-                    cors_config["methods"]
-                )
-                response.headers["Access-Control-Allow-Headers"] = ", ".join(
-                    cors_config["allow_headers"]
-                )
-                response.headers["Access-Control-Max-Age"] = str(cors_config["max_age"])
-                response.headers["Vary"] = "Origin"
-        return response
 
     # OPTIONS 预检请求处理
     @app.before_request
     def handle_options_request() -> Optional[Response]:
+        """OPTIONS 预检请求处理"""
         if request.method == "OPTIONS":
             response = jsonify({"status": "ok"})
             origin = request.headers.get("Origin")
@@ -238,3 +214,28 @@ def init_security(app: Flask) -> None:
                     response.headers["Vary"] = "Origin"
             return response
         return None
+
+    # 添加安全头和CORS头到所有响应
+    @app.after_request
+    def apply_headers(response: Response) -> Response:
+        """为所有响应添加安全头和CORS头"""
+        # 添加安全头
+        for key, value in get_security_headers().items():
+            response.headers[key] = value
+
+        # 添加CORS头
+        origin = request.headers.get("Origin")
+        if origin:
+            allowed_origins = cors_config["origins"]
+            if allowed_origins == "*" or origin in allowed_origins:
+                response.headers["Access-Control-Allow-Origin"] = origin
+                response.headers["Access-Control-Allow-Methods"] = ", ".join(
+                    cors_config["methods"]
+                )
+                response.headers["Access-Control-Allow-Headers"] = ", ".join(
+                    cors_config["allow_headers"]
+                )
+                response.headers["Access-Control-Max-Age"] = str(cors_config["max_age"])
+                response.headers["Vary"] = "Origin"
+
+        return response

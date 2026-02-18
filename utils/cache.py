@@ -16,7 +16,10 @@ T = TypeVar("T")
 class CacheStats:
     """缓存统计信息"""
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """
+        初始化缓存统计
+        """
         self.hits = 0
         self.misses = 0
         self.evictions = 0
@@ -127,7 +130,7 @@ class LRUCache:
         with self.lock:
             self.cache.clear()
 
-    def get_stats(self) -> Dict[str, any]:
+    def get_stats(self) -> Dict[str, Any]:
         """
         获取缓存统计信息
 
@@ -181,7 +184,7 @@ def clear_all_caches() -> None:
     _search_cache.clear()
 
 
-def get_all_cache_stats() -> Dict[str, Dict[str, any]]:
+def get_all_cache_stats() -> Dict[str, Dict[str, Any]]:
     """
     获取所有缓存的统计信息
 
@@ -196,7 +199,7 @@ def get_all_cache_stats() -> Dict[str, Dict[str, any]]:
     }
 
 
-def cached(ttl: int = 600, cache_type: str = "default"):
+def cached(ttl: int = 600, cache_type: str = "default") -> Any:
     """
     缓存装饰器
 
@@ -211,9 +214,9 @@ def cached(ttl: int = 600, cache_type: str = "default"):
             pass
     """
 
-    def decorator(func: Callable[..., T]) -> Callable[..., T]:
+    def decorator(func: Callable[..., T]) -> Callable[..., T | None]:
         @wraps(func)
-        def wrapper(*args, **kwargs) -> T:
+        def wrapper(*args: Any, **kwargs: Any) -> T | None:
             # 生成缓存键
             cache_key = f"{func.__name__}:{args}:{kwargs}"
 
@@ -221,7 +224,9 @@ def cached(ttl: int = 600, cache_type: str = "default"):
             cache = get_cache(cache_type)
             cached_value = cache.get(cache_key)
             if cached_value is not None:
-                return cached_value
+                # cache.get返回Any，但wrapper声明返回T|None，这里需要类型忽略
+                # 因为缓存值的类型在运行时确定
+                return cached_value  # type: ignore[no-any-return]
 
             # 执行函数
             result = func(*args, **kwargs)

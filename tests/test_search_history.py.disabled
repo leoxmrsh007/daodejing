@@ -1,0 +1,156 @@
+# -*- coding: utf-8 -*-
+"""
+搜索历史功能测试
+测试 localStorage 搜索历史管理功能
+"""
+
+import json
+import sys
+from pathlib import Path
+
+import pytest
+
+# 添加项目根目录到路径
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from app import app
+
+
+@pytest.fixture
+def client():
+    """创建测试客户端"""
+    app.config["TESTING"] = True
+    with app.test_client() as client:
+        yield client
+
+
+class TestSearchHistoryAPI:
+    """搜索历史 API 测试"""
+
+    def test_search_history_post_success(self, client):
+        """测试添加搜索历史（成功）"""
+        response = client.post(
+            "/api/search/history",
+            json={"query": "道可道", "filters": {"classic_id": "ddj"}},
+            content_type="application/json",
+        )
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert data["status"] == "success"
+
+    def test_search_history_post_empty_query(self, client):
+        """测试添加搜索历史（空查询）"""
+        response = client.post(
+            "/api/search/history",
+            json={"query": "", "filters": {}},
+            content_type="application/json",
+        )
+        assert response.status_code == 400
+        data = json.loads(response.data)
+        assert "error" in data
+
+    def test_search_history_get(self, client):
+        """测试获取搜索历史"""
+        response = client.get("/api/search/history")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert "message" in data
+
+    def test_search_history_delete(self, client):
+        """测试清空搜索历史"""
+        response = client.delete("/api/search/history")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert data["status"] == "success"
+
+    def test_search_history_post_with_filters(self, client):
+        """测试添加带过滤器的搜索历史"""
+        response = client.post(
+            "/api/search/history",
+            json={
+                "query": "道",
+                "filters": {
+                    "classic_id": "ddj",
+                    "commentator": "wangbi",
+                    "content_type": "original",
+                },
+            },
+            content_type="application/json",
+        )
+        assert response.status_code == 200
+
+
+class TestSearchHistoryLocalStorage:
+    """搜索历史 localStorage 测试（模拟）"""
+
+    def test_search_history_json_structure(self):
+        """测试搜索历史 JSON 结构"""
+        # 模拟搜索历史项
+        history_item = {
+            "query": "道可道",
+            "filters": {"classic_id": "ddj"},
+            "timestamp": 1234567890,
+        }
+
+        # 验证必需字段
+        assert "query" in history_item
+        assert "filters" in history_item
+        assert "timestamp" in history_item
+
+        # 验证类型
+        assert isinstance(history_item["query"], str)
+        assert isinstance(history_item["filters"], dict)
+        assert isinstance(history_item["timestamp"], (int, float))
+
+    def test_search_history_max_limit(self):
+        """测试搜索历史最大限制"""
+        max_history = 50
+
+        # 模拟超过限制的历史记录
+        history = [
+            {"query": f"搜索{i}", "filters": {}, "timestamp": i}
+            for i in range(max_history + 10)
+        ]
+
+        # 裁剪到最大限制
+        history = history[:max_history]
+
+        assert len(history) == max_history
+        assert history[0]["query"] == "搜索0"
+        assert history[-1]["query"] == f"搜索{max_history - 1}"
+
+    def test_search_history_deduplication(self):
+        """测试搜索历史去重（保留最新的）"""
+        # 模拟有重复的历史记录
+        history = [
+            {"query": "道可道", "filters": {}, "timestamp": 100},
+            {"query": "道德经", "filters": {}, "timestamp": 90},
+            {"query": "道可道", "filters": {}, "timestamp": 80},  # 重复（更早）
+        ]
+
+        # 去重（保留最新的，即 timestamp 最大的）
+        seen = set()
+        deduplicated = []
+
+        # 按时间倒序遍历，确保保留最新的
+        for item in sorted(history, key=lambda x: x["timestamp"], reverse=True):
+            key = (item["query"], json.dumps(item["filters"], sort_keys=True))
+            if key not in seen:
+                seen.add(key)
+                deduplicated.append(item)
+
+        # 恢复原始顺序（按时间排序）
+        deduplicated = sorted(deduplicated, key=lambda x: x["timestamp"], reverse=False)
+
+        assert len(deduplicated) == 2
+        # 应该包含两个不同的查询
+        queries = [item["query"] for item in deduplicated]
+        assert "道可道" in queries
+        assert "道德经" in queries
+        # 道可道应该保留最新的 (timestamp=100)
+        daodedao = next(item for item in deduplicated if item["query"] == "道可道")
+        assert daodedao["timestamp"] == 100
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-v"])
