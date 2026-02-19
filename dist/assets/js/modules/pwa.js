@@ -24,4 +24,3 @@ this.deferredPrompt=null;installBtn.remove();});}};const navbarActions=document.
 return'offline';}};if(typeof module!=='undefined'&&module.exports){module.exports=PWAManager;}
 if(typeof window!=='undefined'){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',()=>{PWAManager.init();PWAManager.showInstallPrompt();});}else{PWAManager.init();PWAManager.showInstallPrompt();}
 window.addEventListener('online',()=>{console.log('[PWA] 网络已连接');document.body.classList.remove('offline-mode');});window.addEventListener('offline',()=>{console.log('[PWA] 网络已断开');document.body.classList.add('offline-mode');});window.PWAManager=PWAManager;}
-

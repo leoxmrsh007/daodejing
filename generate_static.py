@@ -50,7 +50,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
     <style>
 {extra_css}
     </style>
@@ -190,7 +190,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
     </audio>
 
     <!-- 音乐音量控制面板 -->
@@ -419,18 +419,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/modules/theme.js"></script>
-    <script src="./assets/js/modules/sidebar.js"></script>
-    <script src="./assets/js/modules/music.js"></script>
-    <script src="./assets/js/modules/shortcuts.js"></script>
-    <script src="./assets/js/modules/pwa.js"></script>
-    <script src="./assets/js/modules/local-search.js"></script>
-    <script src="./assets/js/modules/notes.js"></script>
-    <script src="./assets/js/modules/quote-card.js"></script>
-    <script src="./assets/js/modules/knowledge-graph.js"></script>
-    <script src="./assets/js/modules/commentary-chat.js"></script>
-    <script src="./assets/js/modules/philosophy-dialogue.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="/assets/js/modules/theme.js"></script>
+    <script src="/assets/js/modules/sidebar.js"></script>
+    <script src="/assets/js/modules/music.js"></script>
+    <script src="/assets/js/modules/shortcuts.js"></script>
+    <script src="/assets/js/modules/pwa.js"></script>
+    <script src="/assets/js/modules/local-search.js"></script>
+    <script src="/assets/js/modules/notes.js"></script>
+    <script src="/assets/js/modules/quote-card.js"></script>
+    <script src="/assets/js/modules/knowledge-graph.js"></script>
+    <script src="/assets/js/modules/commentary-chat.js"></script>
+    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="/assets/js/main.js"></script>
     <script>
 {extra_js}
     </script>
@@ -632,7 +632,7 @@ def generate_index_page(data, classic_meta):
     cards = []
     for ch in data["chapters"][:20]:  # 首页显示前20章
         preview = ch.get("modern_chinese", "")[:30]
-        ch_title = ch.get("title", f'第{ch["chapter"]}{chapter_unit}')
+        ch_title = ch.get("title", f"第{ch['chapter']}{chapter_unit}")
         cards.append(f'<a href="./chapter{ch["chapter"]}.html" class="chapter-card">')
         cards.append(f'    <div class="chapter-num">{ch_title}</div>')
         cards.append(f'    <div class="chapter-preview">{preview}...</div>')
@@ -667,7 +667,7 @@ def generate_index_page(data, classic_meta):
 
     <h4 class="mb-3">章节目录</h4>
     <div class="chapters-grid index-page">
-{''.join(cards)}
+{"".join(cards)}
     </div>
 
     <div class="text-center mt-4">
@@ -701,7 +701,7 @@ def generate_all_chapters_page(data, classic_meta):
     cards = []
     for ch in data["chapters"]:
         preview = ch.get("modern_chinese", "")[:30]
-        ch_title = ch.get("title", f'第{ch["chapter"]}{chapter_unit}')
+        ch_title = ch.get("title", f"第{ch['chapter']}{chapter_unit}")
         cards.append(f'<a href="./chapter{ch["chapter"]}.html" class="chapter-card">')
         cards.append(f'    <div class="chapter-num">{ch_title}</div>')
         cards.append(f'    <div class="chapter-preview">{preview}...</div>')
@@ -710,7 +710,7 @@ def generate_all_chapters_page(data, classic_meta):
     content = f"""
     <h4 class="mb-3">全部{total_chapters}{chapter_unit}</h4>
     <div class="chapters-grid index-page">
-{''.join(cards)}
+{"".join(cards)}
     </div>
 """
 
@@ -766,7 +766,7 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
             safe_source = idiom.get("source", "").replace('"', "&quot;")
             idioms_html += f"""
             <span class="idiom-tag" title="{safe_meaning}&#10;原文：{safe_source}">
-                <span class="idiom-word">{idiom.get('word', '')}</span>
+                <span class="idiom-word">{idiom.get("word", "")}</span>
                 <span class="idiom-chapter">📖</span>
             </span>"""
         idioms_html += "</div>"
@@ -819,7 +819,7 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 <h5 class="mb-0">现代白话译文</h5>
             </div>
             <div class="card-body">
-                <p class="modern-text mb-0">{chapter.get('modern_chinese', '')}</p>
+                <p class="modern-text mb-0">{chapter.get("modern_chinese", "")}</p>
             </div>
         </div>
     </section>
@@ -851,19 +851,19 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 <div class="tab-content p-3">
                     <div class="tab-pane fade show active" id="wangbi">
                         <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">{chapter.get('wangbi_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("wangbi_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="heshanggong">
                         <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">{chapter.get('heshanggong_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("heshanggong_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="wangfuzhi">
                         <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">{chapter.get('wangfuzhi_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("wangfuzhi_note", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="hanshan">
                         <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">{chapter.get('hanshandeqing_note', '')}</p>
+                        <p class="note-text mb-0">{chapter.get("hanshandeqing_note", "")}</p>
                     </div>
                 </div>
             </div>
@@ -889,10 +889,10 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
                 </ul>
                 <div class="tab-content p-3">
                     <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic">{chapter.get('english_lau', '')}</p>
+                        <p class="english-text mb-0 fst-italic">{chapter.get("english_lau", "")}</p>
                     </div>
                     <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic">{chapter.get('english_henricks', '')}</p>
+                        <p class="english-text mb-0 fst-italic">{chapter.get("english_henricks", "")}</p>
                     </div>
                 </div>
             </div>
