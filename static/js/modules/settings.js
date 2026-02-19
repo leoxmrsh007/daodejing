@@ -48,6 +48,9 @@
         if (params.has('showEnglish')) {
             localStorage.setItem('daodejing_show_english', params.get('showEnglish'));
         }
+        if (params.has('voiceLanguage')) {
+            localStorage.setItem('daodejing_voice_language', params.get('voiceLanguage'));
+        }
 
         // 清除URL参数
         if (params.toString()) {
@@ -328,7 +331,8 @@
                     showNotes: localStorage.getItem('daodejing_show_notes'),
                     showPinyin: localStorage.getItem('daodejing_show_pinyin'),
                     showAnnotation: localStorage.getItem('daodejing_show_annotation'),
-                    showEnglish: localStorage.getItem('daodejing_show_english')
+                    showEnglish: localStorage.getItem('daodejing_show_english'),
+                    voiceLanguage: localStorage.getItem('daodejing_voice_language')
                 };
 
                 // 生成分享链接
@@ -386,9 +390,56 @@
 
     function initSpeechVoiceSelect() {
         const browserVoice = document.getElementById('browserVoice');
+        const voiceLanguageSelect = document.getElementById('voiceLanguage');
         if (!browserVoice) {
             return;
         }
+
+        // 获取保存的语言偏好
+        const savedLanguage = localStorage.getItem('daodejing_voice_language') || 'all';
+
+        // 设置语言选择器的值
+        if (voiceLanguageSelect) {
+            voiceLanguageSelect.value = savedLanguage;
+            voiceLanguageSelect.addEventListener('change', function() {
+                localStorage.setItem('daodejing_voice_language', this.value);
+                initSpeechVoiceSelect(); // 重新加载语音列表
+            });
+        }
+
+        // 等待语音API加载
+        if ('speechSynthesis' in window) {
+            const loadVoices = () => {
+                const voices = window.speechSynthesis.getVoices();
+                browserVoice.innerHTML = '<option value="">正在加载可用语音...</option>';
+
+                // 根据语言偏好过滤语音
+                voices.forEach((voice, index) => {
+                    if (savedLanguage !== 'all' && !voice.lang.startsWith(savedLanguage)) {
+                        return; // 跳过不符合语言偏好的语音
+                    }
+
+                    const option = document.createElement('option');
+                    option.value = voice.name;
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    if (voice.default) {
+                        option.textContent += ' [默认]';
+                    }
+                    browserVoice.appendChild(option);
+                });
+
+                // 恢复保存的语音
+                const savedVoice = localStorage.getItem('daodejing_speech_voice');
+                if (savedVoice) {
+                    browserVoice.value = savedVoice;
+                }
+            };
+
+            // 加载语音（不同浏览器加载时机不同）
+            loadVoices();
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+        }
+    }
 
         if (!('speechSynthesis' in window)) {
             return;

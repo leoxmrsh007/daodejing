@@ -46,7 +46,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} - 道德经</title>
+    <title>{title}</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -88,8 +88,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             </div>
 
             <a class="navbar-brand" href="./index.html">
-                <span class="brand-icon">☯</span>
-                <span class="brand-text">道德经</span>
+                <span class="brand-icon">{icon}</span>
+                <span class="brand-text">{short_name}</span>
             </a>
             <span class="navbar-text ms-3 d-none d-md-block">{page_title}</span>
             <div class="ms-auto d-flex align-items-center gap-2">
@@ -731,6 +731,8 @@ def generate_index_page(data, classic_meta):
         chapter_list=chapter_list,
         content=content,
         extra_js="",
+        icon=icon,
+        short_name=short_name,
     )
 
     return html
@@ -740,8 +742,10 @@ def generate_all_chapters_page(data, classic_meta):
     """生成全部章节页面"""
     classic_id = classic_meta["id"]
     short_name = classic_meta["short_name"]
-    total_chapters = classic_meta.get("chapters", len(data["chapters"]))
+    icon = classic_meta.get("icon", "☯")
+    color = classic_meta.get("color", "#d4a574")
     chapter_unit = "篇" if classic_id == "zzj" else "章"
+    total_chapters = classic_meta.get("chapters", len(data["chapters"]))
 
     chapter_list = generate_chapter_list_html(data["chapters"], classic_id)
 
@@ -768,6 +772,8 @@ def generate_all_chapters_page(data, classic_meta):
         chapter_list=chapter_list,
         content=content,
         extra_js="",
+        icon=icon,
+        short_name=short_name,
     )
 
     return html
@@ -777,6 +783,7 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
     """生成单章页面"""
     classic_id = classic_meta["id"]
     short_name = classic_meta["short_name"]
+    icon = classic_meta.get("icon", "☯")
     color = classic_meta.get("color", "#d4a574")
     chapter_unit = "篇" if classic_id == "zzj" else "章"
     total_chapters = classic_meta.get("chapters", len(data["chapters"]))
@@ -969,6 +976,8 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
         chapter_list=chapter_list,
         content=content,
         extra_js=CHAPTER_EXTRA_JS,
+        icon=icon,
+        short_name=short_name,
     )
 
     return html
