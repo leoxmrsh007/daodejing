@@ -96,7 +96,10 @@ def annotate_difficult_chars(text: str) -> str:
     Returns:
         带标注的 HTML 文本
     """
-    # 按字数降序排序，先处理长词（如"玄牝"、"谷神"）
+    # 疑难字配置，排除"徼"以避免错误标注
+    EXCLUDED_CHARS = {"徼"}
+
+    # 按字数降序排序，先处理长词
     sorted_chars = sorted(DIFFICULT_CHARS.items(), key=lambda x: -len(x[0]))
 
     # 使用占位符记录已标注的内容，避免嵌套
@@ -104,6 +107,10 @@ def annotate_difficult_chars(text: str) -> str:
     temp_text = text
 
     for char, info in sorted_chars:
+        # 跳过排除的字符
+        if char in EXCLUDED_CHARS:
+            continue
+
         pinyin = info["pinyin"]
         meaning = info["meaning"]
 
@@ -118,8 +125,6 @@ def annotate_difficult_chars(text: str) -> str:
             placeholder = f"___PH_{len(placeholders)}___"
             span_html = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
             temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char) :]
-            placeholders[placeholder] = span_html
-            start = pos + len(placeholder)
 
     # 将所有占位符替换回实际的HTML
     result = temp_text
