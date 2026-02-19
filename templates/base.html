@@ -991,8 +991,24 @@
 
          console.log('[UserAuth] 用户认证功能已初始化');
      })();
-     </script>
+      </script>
 
-     {% block extra_js %}{% endblock %}
+      <!-- 书签、笔记、收藏管理 -->
+      <script>
+          // 页面加载时初始化
+          if (document.readyState === 'complete') {
+              if (typeof BookmarkManager !== 'undefined') {
+                  BookmarkManager.init();
+              }
+          } else {
+              document.addEventListener('DOMContentLoaded', () => {
+                  if (typeof BookmarkManager !== 'undefined') {
+                      BookmarkManager.init();
+                  }
+              });
+          }
+      </script>
+
+      {% block extra_js %}{% endblock %}
 </body>
 </html>

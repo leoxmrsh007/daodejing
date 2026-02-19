@@ -349,7 +349,7 @@ class TestClassicService:
         service = ClassicService("ddj")
         translators = service.get_translators()
         assert isinstance(translators, list)
-        assert len(translators) >= 5
+        assert len(translators) >= 2  # Simplified to 2 translators (lau, henricks)
 
     def test_classic_service_to_dict(self):
         """测试转换为字典"""
