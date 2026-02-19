@@ -401,9 +401,12 @@
         // 设置语言选择器的值
         if (voiceLanguageSelect) {
             voiceLanguageSelect.value = savedLanguage;
-            voiceLanguageSelect.addEventListener('change', function() {
-                localStorage.setItem('daodejing_voice_language', this.value);
-                initSpeechVoiceSelect(); // 重新加载语音列表
+            voiceLanguageSelect.addEventListener('change', function(e) {
+                const language = this.value;
+                localStorage.setItem('daodejing_voice_language', language);
+                console.log('语言偏好已更改为:', language);
+                // 延迟一点以确保语音列表已更新
+                setTimeout(() => initSpeechVoiceSelect(), 100);
             });
         }
 
