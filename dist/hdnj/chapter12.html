@@ -3,115 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第12篇 - 黄帝内经</title>
-    <meta name="description" content="黄帝内经多版本对照平台 - 岐伯/黄帝著 · 黄帝内经">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚕️</text></svg>">
-    <script>
-    (function(){
-        var storageKey='daodejing_theme';
-        var saved=localStorage.getItem(storageKey);
-        var theme=saved;
-        if(!theme){
-            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
-                theme='dark';
-            }else{
-                theme='light';
-            }
-        }
-        document.documentElement.setAttribute('data-theme',theme);
-    })();
-    </script>
+    <title>第12篇 - 黄帝内经 - 道德经</title>
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
     <style>
-/* 经典切换下拉菜单样式 */
-.classic-dropdown {
-    min-width: 280px;
-    max-height: 400px;
-    overflow-y: auto;
-    background: #2c3e50;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.classic-dropdown .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    color: #fff;
-}
-.classic-dropdown .dropdown-item:hover,
-.classic-dropdown .dropdown-item.active {
-    background: rgba(255,255,255,0.1);
-}
-.classic-icon {
-    width: 24px;
-    text-align: center;
-    margin-right: 8px;
-}
-.classic-name {
-    flex: 1;
-}
-.classic-info {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
-    margin-left: 8px;
-}
-/* 设置按钮与功能栏并置 */
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-.navbar-nav .btn {
-    white-space: nowrap;
-}
-
-/* 侧边栏目录滚动样式 */
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 70px);
-    padding: 1rem 0.5rem;
-}
-.sidebar-title {
-    flex-shrink: 0;
-    padding: 0 0.5rem 0.75rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color, #e0d5c9);
-    font-weight: 600;
-    color: var(--accent-color, #d4a574);
-}
-.chapter-list-scrollable {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar {
-    width: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar-track {
-    background: transparent;
-}
-.chapter-list-scrollable::-webkit-scrollbar-thumb {
-    background: var(--accent-color, #d4a574);
-    border-radius: 2px;
-}
-.chapter-list-scrollable .nav-link {
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    margin-bottom: 2px;
-    transition: all 0.2s ease;
-}
-.chapter-list-scrollable .nav-link:hover {
-    background: rgba(212, 165, 116, 0.1);
-}
-.chapter-list-scrollable .nav-link.active {
-    background: var(--accent-color, #d4a574);
-    color: #fff;
-}
-
-
 
 .original-text {
     font-family: 'KaiTi', '楷体', serif;
@@ -209,101 +106,17 @@
     </style>
 </head>
 <body>
-    <!-- 顶部导航栏 - 悬浮置顶 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="z-index: 1040;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container-fluid">
             <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="./index.html">
-                <span class="brand-icon">⚕️</span>
-                <span class="brand-text">黄帝内经</span>
+                <span class="brand-icon">☯</span>
+                <span class="brand-text">道德经</span>
             </a>
-
-            <!-- 经典切换器 -->
-            
-    <!-- 经典切换器 - 下拉菜单 -->
-    <div class="classic-nav ms-2 me-auto">
-        <div class="dropdown">
-            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="me-1">⚕️</span>
-                <span class="d-none d-sm-inline">黄帝内经</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
-                <li><h6 class="dropdown-header">📚 选择经典</h6></li>
-                
-        <li>
-            <a class="dropdown-item " href="../ddj/chapter12.html">
-                <span class="classic-icon">☯</span>
-                <span class="classic-name">道德经</span>
-                <span class="classic-info">81章 · 老子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zzj/chapter12.html">
-                <span class="classic-icon">🦋</span>
-                <span class="classic-name">庄子</span>
-                <span class="classic-info">33章 · 庄周</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../lztyj/index.html">
-                <span class="classic-icon">🪷</span>
-                <span class="classic-name">六祖坛经</span>
-                <span class="classic-info">10章 · 慧能</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../cxl/index.html">
-                <span class="classic-icon">📖</span>
-                <span class="classic-name">传习录</span>
-                <span class="classic-info">3章 · 王阳明</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ss/index.html">
-                <span class="classic-icon">📚</span>
-                <span class="classic-name">四书</span>
-                <span class="classic-info">4章 · 朱熹</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../jgj/index.html">
-                <span class="classic-icon">📿</span>
-                <span class="classic-name">金刚经</span>
-                <span class="classic-info">1章 · 鸠摩罗什译</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ws30/chapter12.html">
-                <span class="classic-icon">🧠</span>
-                <span class="classic-name">唯识三十颂</span>
-                <span class="classic-info">30章 · 世亲</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zy/chapter12.html">
-                <span class="classic-icon">📊</span>
-                <span class="classic-name">周易</span>
-                <span class="classic-info">64章 · 周文王/孔子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item active" href="../hdnj/chapter12.html">
-                <span class="classic-icon">⚕️</span>
-                <span class="classic-name">黄帝内经</span>
-                <span class="classic-info">81章 · 岐伯/黄帝</span>
-            </a>
-        </li>
-            </ul>
-        </div>
-    </div>
-    
-
-            <span class="navbar-text ms-2 d-none d-md-block">第12篇</span>
-
-            <!-- 设置栏和功能栏并置 -->
-            <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
+            <span class="navbar-text ms-3 d-none d-md-block">第12篇</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
                 <!-- 音乐控制 -->
                 <div class="music-controls d-flex align-items-center">
                     <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
@@ -390,11 +203,6 @@
                     </ul>
                 </div>
 
-                <!-- 设置按钮 -->
-                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
-                    <span>⚙️</span>
-                </button>
-
                 <!-- 暗黑模式切换 -->
                 <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
                     <span class="theme-icon">🌙</span>
@@ -407,8 +215,8 @@
         <div class="row">
             <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
                 <div class="sidebar-content">
-                    <h6 class="sidebar-title">📑 章节目录</h6>
-                    <div class="chapter-list-scrollable" id="chapterList">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
                         <nav class="nav flex-column">
 <a class="nav-link chapter-item " href="./chapter1.html">
     <span class="chapter-num">第1章</span>
@@ -674,7 +482,47 @@
             </div>
             <div class="card-body">
                 <div id="idiomsContainer">
-                    <span class="text-muted">本章暂无收录相关成语</span>
+                    <div class="idioms-container d-flex flex-wrap gap-2">
+            <span class="idiom-tag" title="五色让人眼花&#10;原文：五色令人目盲">
+                <span class="idiom-word">五色令人目盲</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="五音让人耳聋&#10;原文：五音令人耳聋">
+                <span class="idiom-word">五音令人耳聋</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="五味让人口腻&#10;原文：五味令人口爽">
+                <span class="idiom-word">五味令人口爽</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="纵情声色&#10;原文：驰骋田猎">
+                <span class="idiom-word">驰骋田猎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="让人内心发狂&#10;原文：令人心发狂">
+                <span class="idiom-word">令人心发狂</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="稀有的财物&#10;原文：难得之货">
+                <span class="idiom-word">难得之货</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="让人行为败坏&#10;原文：令人行妨">
+                <span class="idiom-word">令人行妨</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="圣人注重内在&#10;原文：是以圣人为腹">
+                <span class="idiom-word">是以圣人为腹</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="不追求外在感官享受&#10;原文：不为目">
+                <span class="idiom-word">不为目</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="所以舍弃彼选择此&#10;原文：故去彼取此">
+                <span class="idiom-word">故去彼取此</span>
+                <span class="idiom-chapter">📖</span>
+            </span></div>
                 </div>
             </div>
         </div>
@@ -714,21 +562,19 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-unschuld" type="button">Paul Unschuld</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-ni" type="button">Maoshing Ni</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-
-                    <div class="tab-pane fade show active" id="en-unschuld">
-                        <p class="english-text mb-0 fst-italic">[Paul Unschuld 黄帝内经 第12章 英文译本正在整理中]</p>
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic"></p>
                     </div>
-                    <div class="tab-pane fade" id="en-ni">
-                        <p class="english-text mb-0 fst-italic">[Maoshing Ni 黄帝内经 第12章 英文译本正在整理中]</p>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic"></p>
                     </div>
                 </div>
             </div>
@@ -759,7 +605,7 @@
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
     </audio>
 
     <!-- 音乐音量控制面板 -->
@@ -822,7 +668,7 @@
         <div class="ai-messages" id="aiMessages">
             <div class="ai-welcome">
                 <div class="ai-welcome-icon">🤖</div>
-                <h6>AI助手</h6>
+                <h6>道德经AI助手</h6>
                 <p>您可以：</p>
                 <ul>
                     <li>点击下方快捷问题开始</li>
@@ -988,19 +834,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/modules/theme.js"></script>
-    <script src="/assets/js/modules/sidebar.js"></script>
-    <script src="/assets/js/modules/music.js"></script>
-    <script src="/assets/js/modules/shortcuts.js"></script>
-    <script src="/assets/js/modules/pwa.js"></script>
-    <script src="/assets/js/modules/local-search.js"></script>
-    <script src="/assets/js/modules/notes.js"></script>
-    <script src="/assets/js/modules/quote-card.js"></script>
-    <script src="/assets/js/modules/knowledge-graph.js"></script>
-    <script src="/assets/js/modules/commentary-chat.js"></script>
-    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
-    <script src="/assets/js/modules/settings.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/modules/sidebar.js"></script>
+    <script src="./assets/js/modules/music.js"></script>
+    <script src="./assets/js/modules/shortcuts.js"></script>
+    <script src="./assets/js/modules/pwa.js"></script>
+    <script src="./assets/js/modules/local-search.js"></script>
+    <script src="./assets/js/modules/notes.js"></script>
+    <script src="./assets/js/modules/quote-card.js"></script>
+    <script src="./assets/js/modules/knowledge-graph.js"></script>
+    <script src="./assets/js/modules/commentary-chat.js"></script>
+    <script src="./assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script>
 
 // 复制原文

@@ -45,7 +45,11 @@
           "lang": "en",
           "note": "现代翻译"
         }
-      ]
+      ],
+      "wangyangming_note": "阳明曰：心即理也，此心无私欲之蔽，即是天理。",
+      "wuxiang_note": "吴湘注：此条明致良知之教，知行合一之旨。",
+      "english_henriques": "Translation by Henrique (2009)",
+      "english_sun": "Translation by Sun Yizhong (2015)"
     },
     {
       "chapter": 2,
@@ -91,7 +95,11 @@
           "lang": "en",
           "note": "现代翻译"
         }
-      ]
+      ],
+      "wangyangming_note": "阳明曰：心即理也，此心无私欲之蔽，即是天理。",
+      "wuxiang_note": "吴湘注：此条明致良知之教，知行合一之旨。",
+      "english_henriques": "Translation by Henrique (2009)",
+      "english_sun": "Translation by Sun Yizhong (2015)"
     },
     {
       "chapter": 3,
@@ -137,7 +145,11 @@
           "lang": "en",
           "note": "现代翻译"
         }
-      ]
+      ],
+      "wangyangming_note": "阳明曰：心即理也，此心无私欲之蔽，即是天理。",
+      "wuxiang_note": "吴湘注：此条明致良知之教，知行合一之旨。",
+      "english_henriques": "Translation by Henrique (2009)",
+      "english_sun": "Translation by Sun Yizhong (2015)"
     }
   ]
 }

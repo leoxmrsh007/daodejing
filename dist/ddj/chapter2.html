@@ -3,115 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第2章 - 道德经</title>
+    <title>第2章 - 道德经 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
-    <script>
-    (function(){
-        var storageKey='daodejing_theme';
-        var saved=localStorage.getItem(storageKey);
-        var theme=saved;
-        if(!theme){
-            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
-                theme='dark';
-            }else{
-                theme='light';
-            }
-        }
-        document.documentElement.setAttribute('data-theme',theme);
-    })();
-    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
     <style>
-/* 经典切换下拉菜单样式 */
-.classic-dropdown {
-    min-width: 280px;
-    max-height: 400px;
-    overflow-y: auto;
-    background: #2c3e50;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.classic-dropdown .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    color: #fff;
-}
-.classic-dropdown .dropdown-item:hover,
-.classic-dropdown .dropdown-item.active {
-    background: rgba(255,255,255,0.1);
-}
-.classic-icon {
-    width: 24px;
-    text-align: center;
-    margin-right: 8px;
-}
-.classic-name {
-    flex: 1;
-}
-.classic-info {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
-    margin-left: 8px;
-}
-/* 设置按钮与功能栏并置 */
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-.navbar-nav .btn {
-    white-space: nowrap;
-}
-
-/* 侧边栏目录滚动样式 */
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 70px);
-    padding: 1rem 0.5rem;
-}
-.sidebar-title {
-    flex-shrink: 0;
-    padding: 0 0.5rem 0.75rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color, #e0d5c9);
-    font-weight: 600;
-    color: var(--accent-color, #d4a574);
-}
-.chapter-list-scrollable {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar {
-    width: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar-track {
-    background: transparent;
-}
-.chapter-list-scrollable::-webkit-scrollbar-thumb {
-    background: var(--accent-color, #d4a574);
-    border-radius: 2px;
-}
-.chapter-list-scrollable .nav-link {
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    margin-bottom: 2px;
-    transition: all 0.2s ease;
-}
-.chapter-list-scrollable .nav-link:hover {
-    background: rgba(212, 165, 116, 0.1);
-}
-.chapter-list-scrollable .nav-link.active {
-    background: var(--accent-color, #d4a574);
-    color: #fff;
-}
-
-
 
 .original-text {
     font-family: 'KaiTi', '楷体', serif;
@@ -209,8 +106,7 @@
     </style>
 </head>
 <body>
-    <!-- 顶部导航栏 - 悬浮置顶 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="z-index: 1040;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container-fluid">
             <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
                 <span class="navbar-toggler-icon"></span>
@@ -219,91 +115,8 @@
                 <span class="brand-icon">☯</span>
                 <span class="brand-text">道德经</span>
             </a>
-
-            <!-- 经典切换器 -->
-            
-    <!-- 经典切换器 - 下拉菜单 -->
-    <div class="classic-nav ms-2 me-auto">
-        <div class="dropdown">
-            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="me-1">☯</span>
-                <span class="d-none d-sm-inline">道德经</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
-                <li><h6 class="dropdown-header">📚 选择经典</h6></li>
-                
-        <li>
-            <a class="dropdown-item active" href="../ddj/chapter2.html">
-                <span class="classic-icon">☯</span>
-                <span class="classic-name">道德经</span>
-                <span class="classic-info">81章 · 老子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zzj/chapter2.html">
-                <span class="classic-icon">🦋</span>
-                <span class="classic-name">庄子</span>
-                <span class="classic-info">33章 · 庄周</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../lztyj/chapter2.html">
-                <span class="classic-icon">🪷</span>
-                <span class="classic-name">六祖坛经</span>
-                <span class="classic-info">10章 · 慧能</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../cxl/chapter2.html">
-                <span class="classic-icon">📖</span>
-                <span class="classic-name">传习录</span>
-                <span class="classic-info">3章 · 王阳明</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ss/chapter2.html">
-                <span class="classic-icon">📚</span>
-                <span class="classic-name">四书</span>
-                <span class="classic-info">4章 · 朱熹</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../jgj/index.html">
-                <span class="classic-icon">📿</span>
-                <span class="classic-name">金刚经</span>
-                <span class="classic-info">1章 · 鸠摩罗什译</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ws30/chapter2.html">
-                <span class="classic-icon">🧠</span>
-                <span class="classic-name">唯识三十颂</span>
-                <span class="classic-info">30章 · 世亲</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zy/chapter2.html">
-                <span class="classic-icon">📊</span>
-                <span class="classic-name">周易</span>
-                <span class="classic-info">64章 · 周文王/孔子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../hdnj/chapter2.html">
-                <span class="classic-icon">⚕️</span>
-                <span class="classic-name">黄帝内经</span>
-                <span class="classic-info">81章 · 岐伯/黄帝</span>
-            </a>
-        </li>
-            </ul>
-        </div>
-    </div>
-    
-
-            <span class="navbar-text ms-2 d-none d-md-block">第2章</span>
-
-            <!-- 设置栏和功能栏并置 -->
-            <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
+            <span class="navbar-text ms-3 d-none d-md-block">第2章</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
                 <!-- 音乐控制 -->
                 <div class="music-controls d-flex align-items-center">
                     <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
@@ -390,11 +203,6 @@
                     </ul>
                 </div>
 
-                <!-- 设置按钮 -->
-                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
-                    <span>⚙️</span>
-                </button>
-
                 <!-- 暗黑模式切换 -->
                 <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
                     <span class="theme-icon">🌙</span>
@@ -407,8 +215,8 @@
         <div class="row">
             <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
                 <div class="sidebar-content">
-                    <h6 class="sidebar-title">📑 章节目录</h6>
-                    <div class="chapter-list-scrollable" id="chapterList">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
                         <nav class="nav flex-column">
 <a class="nav-link chapter-item " href="./chapter1.html">
     <span class="chapter-num">第1章</span>
@@ -674,7 +482,251 @@
             </div>
             <div class="card-body">
                 <div id="idiomsContainer">
-                    <span class="text-muted">本章暂无收录相关成语</span>
+                    <div class="idioms-container d-flex flex-wrap gap-2">
+            <span class="idiom-tag" title="美与恶是相伴而生的&#10;原文：天下皆知美之为美，斯恶已">
+                <span class="idiom-word">美恶相伴</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="善与不善是相互成就的&#10;原文：皆知善之为善，斯不善已">
+                <span class="idiom-word">善不善相成</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="有和无相互转化&#10;原文：故有无相生">
+                <span class="idiom-word">有无相生</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="难和易相互促成&#10;原文：难易相成">
+                <span class="idiom-word">难易相成</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="长和短互相显现&#10;原文：长短相形">
+                <span class="idiom-word">长短相形</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="高和下互相充实&#10;原文：高下相倾">
+                <span class="idiom-word">高下相倾</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="音和声互相和谐&#10;原文：音声相和">
+                <span class="idiom-word">音声相和</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="前和后互相接随&#10;原文：前后相随">
+                <span class="idiom-word">前后相随</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="用无为的态度处理世事&#10;原文：是以圣人处无为之事">
+                <span class="idiom-word">处无为之事</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="实行不言的教化&#10;原文：行不言之教">
+                <span class="idiom-word">行不言之教</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="万物自然生长&#10;原文：万物作焉而不辞">
+                <span class="idiom-word">万物作焉</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="生养万物而不据为己有&#10;原文：生而不有">
+                <span class="idiom-word">生而不有</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="施恩泽万物而不自恃其功&#10;原文：为而不恃">
+                <span class="idiom-word">为而不恃</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="功业成就而不居功自傲&#10;原文：功成而弗居">
+                <span class="idiom-word">功成而弗居</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="影外微阴&#10;原文：罔两问景曰">
+                <span class="idiom-word">罔两</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="问影子&#10;原文：罔两问景曰">
+                <span class="idiom-word">问景</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="刚才行走&#10;原文：曩也行">
+                <span class="idiom-word">曩行</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="现在停止&#10;原文：今止">
+                <span class="idiom-word">今止</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="为什么&#10;原文：何也">
+                <span class="idiom-word">何也</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="有所依赖&#10;原文：吾有待而然者邪">
+                <span class="idiom-word">有待</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="无所依赖&#10;原文：吾所待又有待而然者邪">
+                <span class="idiom-word">无待</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="蛇蜕皮&#10;原文：蛇蚹">
+                <span class="idiom-word">蛇蚹</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="蝉翼&#10;原文：蜩翼">
+                <span class="idiom-word">蜩翼</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="哪里知道为什么&#10;原文：恶知所以然">
+                <span class="idiom-word">恶知所以然</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="罔两依赖影子&#10;原文：景待罔两">
+                <span class="idiom-word">罔两待景</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="影子依赖形体&#10;原文：景待形">
+                <span class="idiom-word">景待形</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="形体依赖真&#10;原文：形待真">
+                <span class="idiom-word">形待真</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="自然的分别&#10;原文：照之于天">
+                <span class="idiom-word">天倪</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="不如用明&#10;原文：莫若以明">
+                <span class="idiom-word">莫若以明</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="手指烧完做柴火&#10;原文：指穷于为薪">
+                <span class="idiom-word">指穷于为薪</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="火在传&#10;原文：不知其尽也">
+                <span class="idiom-word">火传也</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="不知道它完没完&#10;原文：不知其尽也">
+                <span class="idiom-word">不知其尽</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="手指不完&#10;原文：夫指之不尽">
+                <span class="idiom-word">指之不尽</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="柴火&#10;原文：火传也">
+                <span class="idiom-word">薪</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="不偏不倚的中正之道&#10;原文：中庸">
+                <span class="idiom-word">中庸</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="上天的意志&#10;原文：天命之谓性">
+                <span class="idiom-word">天命</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="遵循本性&#10;原文：率性之谓道">
+                <span class="idiom-word">率性</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="修习道义&#10;原文：修道之谓教">
+                <span class="idiom-word">修道</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="不能片刻离开&#10;原文：道也者，不可须臾离也">
+                <span class="idiom-word">不可须臾离</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="可离开的就不是道&#10;原文：可离非道也">
+                <span class="idiom-word">可离非道</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="喜、怒、哀、乐&#10;原文：喜怒哀乐之未发">
+                <span class="idiom-word">喜怒哀乐</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="没有发作&#10;原文：喜怒哀乐之未发">
+                <span class="idiom-word">未发</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="中庸&#10;原文：谓之中">
+                <span class="idiom-word">之中</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="发作都符合节度&#10;原文：发而皆中节">
+                <span class="idiom-word">发而皆中节</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="叫做和&#10;原文：谓之和">
+                <span class="idiom-word">谓之和</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="中&#10;原文：中也者，天下之大本也">
+                <span class="idiom-word">中也者</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="天下的大本&#10;原文：中也者，天下之大本也">
+                <span class="idiom-word">天下之大本</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="和&#10;原文：和也者，天下之达道也">
+                <span class="idiom-word">和也者</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="天下的通达之道&#10;原文：和也者，天下之达道也">
+                <span class="idiom-word">天下之达道</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="达到中和&#10;原文：致中和">
+                <span class="idiom-word">致中和</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="天地正位&#10;原文：天地位焉">
+                <span class="idiom-word">天地位</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="万物发育&#10;原文：万物育焉">
+                <span class="idiom-word">万物育</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="地势柔顺&#10;原文：地势坤">
+                <span class="idiom-word">地势坤</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="君子厚德载物&#10;原文：君子以厚德载物">
+                <span class="idiom-word">君子厚德</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第一爻阴&#10;原文：初六">
+                <span class="idiom-word">初六</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第二爻阴&#10;原文：六二">
+                <span class="idiom-word">六二</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第三爻阴&#10;原文：六三">
+                <span class="idiom-word">六三</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第四爻阴&#10;原文：六四">
+                <span class="idiom-word">六四</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第五爻阴&#10;原文：六五">
+                <span class="idiom-word">六五</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="第六爻阴&#10;原文：上六">
+                <span class="idiom-word">上六</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="用阴爻&#10;原文：用六">
+                <span class="idiom-word">用六</span>
+                <span class="idiom-chapter">📖</span>
+            </span></div>
                 </div>
             </div>
         </div>
@@ -707,6 +759,48 @@
         </div>
     </section>
 
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">美者人心之所进乐也．恶者人心之所恶疾也．美恶犹喜怒也．善不善犹是非也．喜怒同根．是非同门．故不可得而偏举也．此六者皆陈自然．不可偏举之名数也．自然已足．为则败也．知慧自备．为则伪也．因物而用．功自彼成．故不居也．使功在己．则功不可久也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">天下皆知美之為美，自揚己美，使顯彰也。斯惡已。有危亡也。皆知善之為善，有功名也。斯不善已。人所爭也。故有無相生，見有而為無也。難易相成，見難而為易也。長短相形，見短而為長也。高下相傾，見高而為下也。音聲相和，上唱下必和也。前後相隨。上行下必隨也。是以聖人處無為之事，以道治也。行不言之教；以身師導之也。萬物作焉各自動也。而不辭，不辭謝而逆止。生而不有，元氣生萬物而不有。為而不恃，道所施為，不恃望其報也。功成而弗居。功成事就，退避不居其位。夫惟弗居，夫惟功成不居其位。是以不去。福德常在，不去其身也，此言：不行不可隨，不言不可知，即上六句，有高下長短，若開一源，下生百端。百端之變，無不動亂。</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">天下之變萬，而要歸於兩端。兩端生於一致，故方有「美」而方有「惡」，方有「善」而方有「不善」。據一以概乎彼之不一，則白黑競而毀譽雜。聖人之「抱一」也，方其一與一為二，而我徐處於中；故彼一與此一為壘，乃知其本無壘也，遂坐而收之。壘立者「居」，而坐收者「不去」，是之謂善爭。</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">此釋前章可名非常名，以明世人居有為之跡，虛名不足尚。聖人處無為之道以御世，功不朽而真名常存之意也。意謂天下事物之理，若以大道而觀，本無美與不美，善與不善之跡。良由人不知道，而起分別取捨好尚之心，故有美惡之名耳。然天下之人，但知適己意者為美。殊不知在我以為美，自彼觀之，則又為不美矣。譬如西施顰美，東施愛而效之，其醜益甚。此所謂知美之為美，斯惡已。惡，醜也。又如比干，天下皆知為賢善也，紂執而殺之。後世效之以為忠，殺身而不悔。此所謂知善之為善，斯不善已。此皆尚名之過也。是則善惡之名，因對待而有。故名則有無相生，事則難易相成，物則長短相形，位則高下相傾，言則音聲相和，行則前後相隨，此乃必然之勢。譬如世人以尺為長，以寸為短。假若積寸多於尺，則又名寸為長，而尺為短矣。凡物皆然，斯皆有為之跡耳。凡可名者，皆可去。此所謂名可名，非常名也。是以聖人知虛名之不足尚，故處無為之道以應事。知多言之不可用，故行不言之教以化民。如天地以無心而生物，即萬物皆往資焉，不以物多而故辭。雖生成萬物，而不以萬物為己有。雖能生物，而不自恃其能。且四時推移，雖有成物之功，功成而不居。夫惟不居其功，故至功不朽。不尚其名，故真名常存。聖人處無為之道，亦由是也。蓋萬物作焉已下，皆是說天地之德，以比聖人之德。文意雙關，莊子釋此意極多。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -714,20 +808,18 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert G. Henricks</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-
-                    <div class="tab-pane fade show active" id="en-lau">
+                    <div class="tab-pane fade show active" id="lau">
                         <p class="english-text mb-0 fst-italic">When the people of the world all know beauty as beauty, There arises the recognition of ugliness. When they all know the good as good, There arises the recognition of evil.</p>
                     </div>
-                    <div class="tab-pane fade" id="en-henricks">
+                    <div class="tab-pane fade" id="henricks">
                         <p class="english-text mb-0 fst-italic">When the people of the world all know beauty as beauty, There arises the recognition of ugliness. When they all know the good as good, There arises the recognition of evil.</p>
                     </div>
                 </div>
@@ -759,7 +851,7 @@
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
     </audio>
 
     <!-- 音乐音量控制面板 -->
@@ -822,7 +914,7 @@
         <div class="ai-messages" id="aiMessages">
             <div class="ai-welcome">
                 <div class="ai-welcome-icon">🤖</div>
-                <h6>AI助手</h6>
+                <h6>道德经AI助手</h6>
                 <p>您可以：</p>
                 <ul>
                     <li>点击下方快捷问题开始</li>
@@ -988,19 +1080,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/modules/theme.js"></script>
-    <script src="/assets/js/modules/sidebar.js"></script>
-    <script src="/assets/js/modules/music.js"></script>
-    <script src="/assets/js/modules/shortcuts.js"></script>
-    <script src="/assets/js/modules/pwa.js"></script>
-    <script src="/assets/js/modules/local-search.js"></script>
-    <script src="/assets/js/modules/notes.js"></script>
-    <script src="/assets/js/modules/quote-card.js"></script>
-    <script src="/assets/js/modules/knowledge-graph.js"></script>
-    <script src="/assets/js/modules/commentary-chat.js"></script>
-    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
-    <script src="/assets/js/modules/settings.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/modules/sidebar.js"></script>
+    <script src="./assets/js/modules/music.js"></script>
+    <script src="./assets/js/modules/shortcuts.js"></script>
+    <script src="./assets/js/modules/pwa.js"></script>
+    <script src="./assets/js/modules/local-search.js"></script>
+    <script src="./assets/js/modules/notes.js"></script>
+    <script src="./assets/js/modules/quote-card.js"></script>
+    <script src="./assets/js/modules/knowledge-graph.js"></script>
+    <script src="./assets/js/modules/commentary-chat.js"></script>
+    <script src="./assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script>
 
 // 复制原文

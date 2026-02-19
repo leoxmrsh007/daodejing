@@ -1,37 +1,3405 @@
 {
   "idioms": [
-    {"word": "道法自然", "meaning": "指大道的运行法则遵循自然规律，不加人为干预", "chapter": 25, "source": "人法地，地法天，天法道，道法自然"},
-    {"word": "上善若水", "meaning": "最高尚的品德像水一样，滋润万物而不争", "chapter": 8, "source": "上善若水。水善利万物而不争"},
-    {"word": "无为而治", "meaning": "顺应自然，不妄为，从而达到治理的效果", "chapter": 3, "source": "为无为，则无不治"},
-    {"word": "知足常乐", "meaning": "知道满足就经常快乐", "chapter": 44, "source": "知足者富"},
-    {"word": "大器晚成", "meaning": "大的器物需要长时间才能制成，比喻人才成就较晚", "chapter": 41, "source": "大方无隅，大器晚成"},
-    {"word": "大巧若拙", "meaning": "真正聪明的人不显露，表面看起来笨拙", "chapter": 45, "source": "大巧若拙，大辩若讷"},
-    {"word": "知足不辱", "meaning": "知道满足就不会受到屈辱", "chapter": 44, "source": "知足不辱，知止不殆"},
-    {"word": "金玉满堂", "meaning": "形容财富极多，但难以长久保持", "chapter": 9, "source": "金玉满堂，莫之能守"},
-    {"word": "虚怀若谷", "meaning": "胸怀像山谷一样开阔，形容十分谦虚", "chapter": 15, "source": "保此道者不欲盈，夫唯不盈，故能蔽不新成"},
-    {"word": "和光同尘", "meaning": "收敛锋芒，与尘俗相融合，不露锋芒", "chapter": 4, "source": "和其光，同其尘"},
-    {"word": "宠辱不惊", "meaning": "受宠或受辱都不放在心上，形容心境平和", "chapter": 13, "source": "宠辱若惊，贵大患若身"},
-    {"word": "道生万物", "meaning": "道产生天地万物", "chapter": 42, "source": "道生一，一生二，二生三，三生万物"},
-    {"word": "弱之胜强", "meaning": "柔弱的东西能战胜刚强的东西", "chapter": 78, "source": "天下莫柔弱于水，而攻坚强者莫之能胜"},
-    {"word": "治大国若烹小鲜", "meaning": "治理大国要像烹小鱼一样，不能经常翻动", "chapter": 60, "source": "治大国，若烹小鲜"},
-    {"word": "天长地久", "meaning": "像天地一样长久", "chapter": 7, "source": "天长地久。天地所以能长且久者，以其不自生，故能长生"},
-    {"word": "少私寡欲", "meaning": "减少私心和欲望", "chapter": 19, "source": "见素抱朴，少私寡欲"},
-    {"word": "抱朴守拙", "meaning": "保持淳朴的本性，不炫耀", "chapter": 19, "source": "见素抱朴，少私寡欲"},
-    {"word": "佳兵不祥", "meaning": "用兵是不吉利的", "chapter": 31, "source": "夫佳兵者，不祥之器"},
-    {"word": "知人者智", "meaning": "了解别人的人是明智的", "chapter": 33, "source": "知人者智，自知者明"},
-    {"word": "自胜者强", "meaning": "战胜自己的人才是真正的强者", "chapter": 33, "source": "胜人者有力，自胜者强"},
-    {"word": "千里之行", "meaning": "走千里路，从脚下第一步开始", "chapter": 64, "source": "千里之行，始于足下"},
-    {"word": "慎终如始", "meaning": "结束时像开始一样谨慎", "chapter": 64, "source": "慎终如始，则无败事"},
-    {"word": "信言不美", "meaning": "真实的话不华丽", "chapter": 81, "source": "信言不美，美言不信"},
-    {"word": "美言不信", "meaning": "华丽的话不真实", "chapter": 81, "source": "信言不美，美言不信"},
-    {"word": "功成身退", "meaning": "功成名就后应该急流勇退", "chapter": 9, "source": "功成身退，天之道"},
-    {"word": "明哲保身", "meaning": "明智的人善于保护自己", "chapter": 22, "source": "曲则全，枉则直"},
-    {"word": "柔弱胜刚强", "meaning": "柔弱能胜过刚强", "chapter": 36, "source": "柔弱胜刚强"},
-    {"word": "物极必反", "meaning": "事物发展到极端就会向反面转化", "chapter": 55, "source": "物壮则老，谓之不道"},
-    {"word": "大音希声", "meaning": "最大的声音反而听不到", "chapter": 41, "source": "大音希声，大象无形"},
-    {"word": "大象无形", "meaning": "最大的形象反而看不见", "chapter": 41, "source": "大音希声，大象无形"},
-    {"word": "知者不言", "meaning": "真正有智慧的人不多说话", "chapter": 56, "source": "知者不言，言者不知"},
-    {"word": "深根固柢", "meaning": "根基牢固，不可动摇", "chapter": 59, "source": "深根固柢，长生久视之道"},
-    {"word": "以柔克刚", "meaning": "用柔弱战胜刚强", "chapter": 78, "source": "天下莫柔弱于水，而攻坚强者莫之能胜"}
+    {
+      "word": "道法自然",
+      "meaning": "指大道的运行法则遵循自然规律，不加人为干预",
+      "chapter": 25,
+      "source": "人法地，地法天，天法道，道法自然"
+    },
+    {
+      "word": "上善若水",
+      "meaning": "最高尚的品德像水一样，滋润万物而不争",
+      "chapter": 8,
+      "source": "上善若水。水善利万物而不争"
+    },
+    {
+      "word": "无为而治",
+      "meaning": "顺应自然，不妄为，从而达到治理的效果",
+      "chapter": 3,
+      "source": "为无为，则无不治"
+    },
+    {
+      "word": "知足常乐",
+      "meaning": "知道满足就经常快乐",
+      "chapter": 44,
+      "source": "知足者富"
+    },
+    {
+      "word": "大器晚成",
+      "meaning": "大的器物需要长时间才能制成，比喻人才成就较晚",
+      "chapter": 41,
+      "source": "大方无隅，大器晚成"
+    },
+    {
+      "word": "大巧若拙",
+      "meaning": "真正聪明的人不显露，表面看起来笨拙",
+      "chapter": 45,
+      "source": "大巧若拙，大辩若讷"
+    },
+    {
+      "word": "知足不辱",
+      "meaning": "知道满足就不会受到屈辱",
+      "chapter": 44,
+      "source": "知足不辱，知止不殆"
+    },
+    {
+      "word": "金玉满堂",
+      "meaning": "形容财富极多，但难以长久保持",
+      "chapter": 9,
+      "source": "金玉满堂，莫之能守"
+    },
+    {
+      "word": "虚怀若谷",
+      "meaning": "胸怀像山谷一样开阔，形容十分谦虚",
+      "chapter": 15,
+      "source": "保此道者不欲盈，夫唯不盈，故能蔽不新成"
+    },
+    {
+      "word": "和光同尘",
+      "meaning": "收敛锋芒，与尘俗相融合，不露锋芒",
+      "chapter": 4,
+      "source": "和其光，同其尘"
+    },
+    {
+      "word": "宠辱不惊",
+      "meaning": "受宠或受辱都不放在心上，形容心境平和",
+      "chapter": 13,
+      "source": "宠辱若惊，贵大患若身"
+    },
+    {
+      "word": "道生万物",
+      "meaning": "道产生天地万物",
+      "chapter": 42,
+      "source": "道生一，一生二，二生三，三生万物"
+    },
+    {
+      "word": "弱之胜强",
+      "meaning": "柔弱的东西能战胜刚强的东西",
+      "chapter": 78,
+      "source": "天下莫柔弱于水，而攻坚强者莫之能胜"
+    },
+    {
+      "word": "治大国若烹小鲜",
+      "meaning": "治理大国要像烹小鱼一样，不能经常翻动",
+      "chapter": 60,
+      "source": "治大国，若烹小鲜"
+    },
+    {
+      "word": "天长地久",
+      "meaning": "像天地一样长久",
+      "chapter": 7,
+      "source": "天长地久。天地所以能长且久者，以其不自生，故能长生"
+    },
+    {
+      "word": "少私寡欲",
+      "meaning": "减少私心和欲望",
+      "chapter": 19,
+      "source": "见素抱朴，少私寡欲"
+    },
+    {
+      "word": "抱朴守拙",
+      "meaning": "保持淳朴的本性，不炫耀",
+      "chapter": 19,
+      "source": "见素抱朴，少私寡欲"
+    },
+    {
+      "word": "佳兵不祥",
+      "meaning": "用兵是不吉利的",
+      "chapter": 31,
+      "source": "夫佳兵者，不祥之器"
+    },
+    {
+      "word": "知人者智",
+      "meaning": "了解别人的人是明智的",
+      "chapter": 33,
+      "source": "知人者智，自知者明"
+    },
+    {
+      "word": "自胜者强",
+      "meaning": "战胜自己的人才是真正的强者",
+      "chapter": 33,
+      "source": "胜人者有力，自胜者强"
+    },
+    {
+      "word": "千里之行",
+      "meaning": "走千里路，从脚下第一步开始",
+      "chapter": 64,
+      "source": "千里之行，始于足下"
+    },
+    {
+      "word": "慎终如始",
+      "meaning": "结束时像开始一样谨慎",
+      "chapter": 64,
+      "source": "慎终如始，则无败事"
+    },
+    {
+      "word": "信言不美",
+      "meaning": "真实的话不华丽",
+      "chapter": 81,
+      "source": "信言不美，美言不信"
+    },
+    {
+      "word": "美言不信",
+      "meaning": "华丽的话不真实",
+      "chapter": 81,
+      "source": "信言不美，美言不信"
+    },
+    {
+      "word": "功成身退",
+      "meaning": "功成名就后应该急流勇退",
+      "chapter": 9,
+      "source": "功成身退，天之道"
+    },
+    {
+      "word": "明哲保身",
+      "meaning": "明智的人善于保护自己",
+      "chapter": 22,
+      "source": "曲则全，枉则直"
+    },
+    {
+      "word": "柔弱胜刚强",
+      "meaning": "柔弱能胜过刚强",
+      "chapter": 36,
+      "source": "柔弱胜刚强"
+    },
+    {
+      "word": "物极必反",
+      "meaning": "事物发展到极端就会向反面转化",
+      "chapter": 55,
+      "source": "物壮则老，谓之不道"
+    },
+    {
+      "word": "大音希声",
+      "meaning": "最大的声音反而听不到",
+      "chapter": 41,
+      "source": "大音希声，大象无形"
+    },
+    {
+      "word": "大象无形",
+      "meaning": "最大的形象反而看不见",
+      "chapter": 41,
+      "source": "大音希声，大象无形"
+    },
+    {
+      "word": "知者不言",
+      "meaning": "真正有智慧的人不多说话",
+      "chapter": 56,
+      "source": "知者不言，言者不知"
+    },
+    {
+      "word": "深根固柢",
+      "meaning": "根基牢固，不可动摇",
+      "chapter": 59,
+      "source": "深根固柢，长生久视之道"
+    },
+    {
+      "word": "以柔克刚",
+      "meaning": "用柔弱战胜刚强",
+      "chapter": 78,
+      "source": "天下莫柔弱于水，而攻坚强者莫之能胜"
+    },
+    {
+      "chapter": 34,
+      "title": "道法自然",
+      "meaning": "道的运行遵循自然规律，不需要人为干预",
+      "source": "道德经·第二十五章",
+      "keyword": "自然"
+    },
+    {
+      "chapter": 41,
+      "title": "上善若水",
+      "meaning": "最高尚的品德像水一样滋润万物而不争",
+      "source": "道德经·第八章",
+      "keyword": "上善若水"
+    },
+    {
+      "chapter": 42,
+      "title": "大音希声",
+      "meaning": "最大的声音反而听不到，意味着真正的伟大是无形无相",
+      "source": "道德经·第四十一章",
+      "keyword": "大音希声"
+    },
+    {
+      "chapter": 43,
+      "title": "无之以为用",
+      "meaning": "把'没有'当作有用，实际上是不占有不执着的智慧",
+      "source": "道德经·第十一章",
+      "keyword": "无之以为用"
+    },
+    {
+      "chapter": 60,
+      "title": "治大国若烹小鲜",
+      "meaning": "治理大国就像烹小鱼一样，不能急躁",
+      "source": "道德经·第六十章",
+      "keyword": "治大国若烹小鲜"
+    },
+    {
+      "chapter": 61,
+      "title": "大国者下流",
+      "meaning": "大国的行为像水流向下一样，自然谦下",
+      "source": "道德经·第六十一章",
+      "keyword": "大国者下流"
+    },
+    {
+      "chapter": 64,
+      "title": "以道莅天下",
+      "meaning": "用道的原则来统治天下，无为而治",
+      "source": "道德经·第六十章",
+      "keyword": "以道莅天下"
+    },
+    {
+      "chapter": 76,
+      "title": "柔弱胜刚强",
+      "meaning": "柔软的反而能战胜刚强的，这是道家的重要观点",
+      "source": "道德经·第七十六章",
+      "keyword": "柔弱胜刚强"
+    },
+    {
+      "chapter": 78,
+      "title": "受国之垢",
+      "meaning": "能承受国家的屈辱，体现宽容的胸襟",
+      "source": "道德经·第七十八章",
+      "keyword": "受国之垢"
+    },
+    {
+      "chapter": 80,
+      "title": "小国寡民",
+      "meaning": "小国百姓少，更容易治理和管理",
+      "source": "道德经·第八十章",
+      "keyword": "小国寡民"
+    },
+    {
+      "chapter": 81,
+      "title": "信言不美",
+      "meaning": "朴实的话语可能不华丽，但更可靠",
+      "source": "道德经·第八十一章",
+      "keyword": "信言不美"
+    },
+    {
+      "word": "道可道",
+      "meaning": "道可以说，但不是永恒不变的道",
+      "chapter": 1,
+      "source": "道可道，非常道"
+    },
+    {
+      "word": "非常之道",
+      "meaning": "非同寻常的道理",
+      "chapter": 1,
+      "source": "非常道"
+    },
+    {
+      "word": "天地之始",
+      "meaning": "天地的开端",
+      "chapter": 1,
+      "source": "无名天地之始"
+    },
+    {
+      "word": "万物之母",
+      "meaning": "万物的根源",
+      "chapter": 1,
+      "source": "有名万物之母"
+    },
+    {
+      "word": "玄之又玄",
+      "meaning": "极其深奥",
+      "chapter": 1,
+      "source": "玄之又玄，众妙之门"
+    },
+    {
+      "word": "美恶相伴",
+      "meaning": "美与恶是相伴而生的",
+      "chapter": 2,
+      "source": "天下皆知美之为美，斯恶已"
+    },
+    {
+      "word": "善不善相成",
+      "meaning": "善与不善是相互成就的",
+      "chapter": 2,
+      "source": "皆知善之为善，斯不善已"
+    },
+    {
+      "word": "有无相生",
+      "meaning": "有和无相互转化",
+      "chapter": 2,
+      "source": "故有无相生"
+    },
+    {
+      "word": "难易相成",
+      "meaning": "难和易相互促成",
+      "chapter": 2,
+      "source": "难易相成"
+    },
+    {
+      "word": "长短相形",
+      "meaning": "长和短互相显现",
+      "chapter": 2,
+      "source": "长短相形"
+    },
+    {
+      "word": "高下相倾",
+      "meaning": "高和下互相充实",
+      "chapter": 2,
+      "source": "高下相倾"
+    },
+    {
+      "word": "音声相和",
+      "meaning": "音和声互相和谐",
+      "chapter": 2,
+      "source": "音声相和"
+    },
+    {
+      "word": "前后相随",
+      "meaning": "前和后互相接随",
+      "chapter": 2,
+      "source": "前后相随"
+    },
+    {
+      "word": "处无为之事",
+      "meaning": "用无为的态度处理世事",
+      "chapter": 2,
+      "source": "是以圣人处无为之事"
+    },
+    {
+      "word": "行不言之教",
+      "meaning": "实行不言的教化",
+      "chapter": 2,
+      "source": "行不言之教"
+    },
+    {
+      "word": "万物作焉",
+      "meaning": "万物自然生长",
+      "chapter": 2,
+      "source": "万物作焉而不辞"
+    },
+    {
+      "word": "生而不有",
+      "meaning": "生养万物而不据为己有",
+      "chapter": 2,
+      "source": "生而不有"
+    },
+    {
+      "word": "为而不恃",
+      "meaning": "施恩泽万物而不自恃其功",
+      "chapter": 2,
+      "source": "为而不恃"
+    },
+    {
+      "word": "功成而弗居",
+      "meaning": "功业成就而不居功自傲",
+      "chapter": 2,
+      "source": "功成而弗居"
+    },
+    {
+      "word": "不尚贤",
+      "meaning": "不推崇有才德的人",
+      "chapter": 3,
+      "source": "不尚贤，使民不争"
+    },
+    {
+      "word": "不贵难得之货",
+      "meaning": "不珍爱难得的财物",
+      "chapter": 3,
+      "source": "不贵难得之货"
+    },
+    {
+      "word": "使民不为盗",
+      "meaning": "使老百姓不去偷窃",
+      "chapter": 3,
+      "source": "使民不为盗"
+    },
+    {
+      "word": "不见可欲",
+      "meaning": "不显耀足以引起贪欲的事物",
+      "chapter": 3,
+      "source": "不见可欲"
+    },
+    {
+      "word": "使民心不乱",
+      "meaning": "使民心不被迷乱",
+      "chapter": 3,
+      "source": "使民心不乱"
+    },
+    {
+      "word": "虚其心",
+      "meaning": "排空百姓的心机",
+      "chapter": 3,
+      "source": "虚其心"
+    },
+    {
+      "word": "实其腹",
+      "meaning": "填饱百姓的肚腹",
+      "chapter": 3,
+      "source": "实其腹"
+    },
+    {
+      "word": "弱其志",
+      "meaning": "减弱百姓的竞争意图",
+      "chapter": 3,
+      "source": "弱其志"
+    },
+    {
+      "word": "强其骨",
+      "meaning": "增强百姓的筋骨",
+      "chapter": 3,
+      "source": "强其骨"
+    },
+    {
+      "word": "常使民无知无欲",
+      "meaning": "使老百姓没有伪诈的心智和争欲的念头",
+      "chapter": 3,
+      "source": "常使民无知无欲"
+    },
+    {
+      "word": "使夫智者不敢为",
+      "meaning": "使那些自作聪明的人不敢妄为造事",
+      "chapter": 3,
+      "source": "使夫智者不敢为"
+    },
+    {
+      "word": "为无为",
+      "meaning": "实行无为之治",
+      "chapter": 3,
+      "source": "为无为"
+    },
+    {
+      "word": "则无不治",
+      "meaning": "天下就没有治理不好的",
+      "chapter": 3,
+      "source": "则无不治"
+    },
+    {
+      "word": "道冲而用之",
+      "meaning": "道是空虚的，但作用无穷",
+      "chapter": 4,
+      "source": "道冲，而用之或不盈"
+    },
+    {
+      "word": "或不盈",
+      "meaning": "不会满溢",
+      "chapter": 4,
+      "source": "或不可盈"
+    },
+    {
+      "word": "渊兮似万物之宗",
+      "meaning": "深得像万物的宗主",
+      "chapter": 4,
+      "source": "渊兮似万物之宗"
+    },
+    {
+      "word": "挫其锐",
+      "meaning": "挫去锋芒",
+      "chapter": 4,
+      "source": "挫其锐"
+    },
+    {
+      "word": "解其纷",
+      "meaning": "解除纷乱",
+      "chapter": 4,
+      "source": "解其纷"
+    },
+    {
+      "word": "和其光",
+      "meaning": "调和光辉",
+      "chapter": 4,
+      "source": "和其光"
+    },
+    {
+      "word": "同其尘",
+      "meaning": "混同尘垢",
+      "chapter": 4,
+      "source": "同其尘"
+    },
+    {
+      "word": "湛兮似或存",
+      "meaning": "深沉得好像存在",
+      "chapter": 4,
+      "source": "湛兮似或存"
+    },
+    {
+      "word": "吾不知谁之子",
+      "meaning": "我不知道它是谁的子孙",
+      "chapter": 4,
+      "source": "吾不知谁之子"
+    },
+    {
+      "word": "象帝之先",
+      "meaning": "像在天帝之前就已经存在",
+      "chapter": 4,
+      "source": "象帝之先"
+    },
+    {
+      "word": "谷神不死",
+      "meaning": "空谷之神永生不灭",
+      "chapter": 6,
+      "source": "谷神不死"
+    },
+    {
+      "word": "是谓玄牝",
+      "meaning": "这叫做玄妙的母体",
+      "chapter": 6,
+      "source": "是谓玄牝"
+    },
+    {
+      "word": "玄牝之门",
+      "meaning": "玄妙母体的门户",
+      "chapter": 6,
+      "source": "玄牝之门"
+    },
+    {
+      "word": "天地之根",
+      "meaning": "天地的根源",
+      "chapter": 6,
+      "source": "天地之根"
+    },
+    {
+      "word": "绵绵若存",
+      "meaning": "连绵不断若存若亡",
+      "chapter": 6,
+      "source": "绵绵若存"
+    },
+    {
+      "word": "用之不勤",
+      "meaning": "用它却无穷无尽",
+      "chapter": 6,
+      "source": "用之不勤"
+    },
+    {
+      "word": "不自生",
+      "meaning": "不是为自己而生存",
+      "chapter": 7,
+      "source": "以其不自生"
+    },
+    {
+      "word": "故能长生",
+      "meaning": "所以能长生",
+      "chapter": 7,
+      "source": "故能长生"
+    },
+    {
+      "word": "是以圣人后其身",
+      "meaning": "所以圣人把自己放在后面",
+      "chapter": 7,
+      "source": "是以圣人后其身"
+    },
+    {
+      "word": "身先",
+      "meaning": "反而能领先",
+      "chapter": 7,
+      "source": "身先"
+    },
+    {
+      "word": "外其身",
+      "meaning": "把自身置之度外",
+      "chapter": 7,
+      "source": "外其身"
+    },
+    {
+      "word": "身存",
+      "meaning": "反而能保存自己",
+      "chapter": 7,
+      "source": "身存"
+    },
+    {
+      "word": "非以其无私邪",
+      "meaning": "不正是因为他的无私吗",
+      "chapter": 7,
+      "source": "非以其无私邪"
+    },
+    {
+      "word": "故能成其私",
+      "meaning": "所以能成就他的私心",
+      "chapter": 7,
+      "source": "故能成其私"
+    },
+    {
+      "word": "水善利万物",
+      "meaning": "水善于滋润万物",
+      "chapter": 8,
+      "source": "水善利万物"
+    },
+    {
+      "word": "而不争",
+      "meaning": "却不争什么",
+      "chapter": 8,
+      "source": "而不争"
+    },
+    {
+      "word": "处众人之所恶",
+      "meaning": "停留在众人厌恶的低洼之地",
+      "chapter": 8,
+      "source": "处众人之所恶"
+    },
+    {
+      "word": "几于道",
+      "meaning": "几乎接近于道",
+      "chapter": 8,
+      "source": "故几于道"
+    },
+    {
+      "word": "居善地",
+      "meaning": "善于选择居处",
+      "chapter": 8,
+      "source": "居善地"
+    },
+    {
+      "word": "心善渊",
+      "meaning": "心胸善于深沉",
+      "chapter": 8,
+      "source": "心善渊"
+    },
+    {
+      "word": "与善仁",
+      "meaning": "与人相处善于真诚",
+      "chapter": 8,
+      "source": "与善仁"
+    },
+    {
+      "word": "言善信",
+      "meaning": "说话善于守信用",
+      "chapter": 8,
+      "source": "言善信"
+    },
+    {
+      "word": "政善治",
+      "meaning": "为政善于治理",
+      "chapter": 8,
+      "source": "政善治"
+    },
+    {
+      "word": "事善能",
+      "meaning": "处事善于发挥能力",
+      "chapter": 8,
+      "source": "事善能"
+    },
+    {
+      "word": "动善时",
+      "meaning": "行动善于掌握时机",
+      "chapter": 8,
+      "source": "动善时"
+    },
+    {
+      "word": "夫唯不争",
+      "meaning": "正因为不争",
+      "chapter": 8,
+      "source": "夫唯不争"
+    },
+    {
+      "word": "故无尤",
+      "meaning": "所以没有过失",
+      "chapter": 8,
+      "source": "故无尤"
+    },
+    {
+      "word": "持而盈之",
+      "meaning": "保持盈满的状态",
+      "chapter": 9,
+      "source": "持而盈之"
+    },
+    {
+      "word": "不如其已",
+      "meaning": "不如适可而止",
+      "chapter": 9,
+      "source": "不如其已"
+    },
+    {
+      "word": "揣而锐之",
+      "meaning": "把它磨得锋利",
+      "chapter": 9,
+      "source": "揣而锐之"
+    },
+    {
+      "word": "不可长保",
+      "meaning": "不能长久保持",
+      "chapter": 9,
+      "source": "不可长保"
+    },
+    {
+      "word": "莫之能守",
+      "meaning": "无法守住",
+      "chapter": 9,
+      "source": "莫之能守"
+    },
+    {
+      "word": "富贵而骄",
+      "meaning": "富贵了就骄横",
+      "chapter": 9,
+      "source": "富贵而骄"
+    },
+    {
+      "word": "自遗其咎",
+      "meaning": "自己招来祸患",
+      "chapter": 9,
+      "source": "自遗其咎"
+    },
+    {
+      "word": "天之道",
+      "meaning": "天道自然的规律",
+      "chapter": 9,
+      "source": "天之道"
+    },
+    {
+      "word": "载营魄抱一",
+      "meaning": "形神合一",
+      "chapter": 10,
+      "source": "载营魄抱一"
+    },
+    {
+      "word": "能无离乎",
+      "meaning": "能不分离吗",
+      "chapter": 10,
+      "source": "能无离乎"
+    },
+    {
+      "word": "专气致柔",
+      "meaning": "专守元气到柔顺",
+      "chapter": 10,
+      "source": "专气致柔"
+    },
+    {
+      "word": "能婴儿乎",
+      "meaning": "能像婴儿一样吗",
+      "chapter": 10,
+      "source": "能婴儿乎"
+    },
+    {
+      "word": "涤除玄览",
+      "meaning": "洗涤心中的玄妙之镜",
+      "chapter": 10,
+      "source": "涤除玄览"
+    },
+    {
+      "word": "能无疵乎",
+      "meaning": "能没有瑕疵吗",
+      "chapter": 10,
+      "source": "能无疵乎"
+    },
+    {
+      "word": "爱民治国",
+      "meaning": "爱护百姓治理国家",
+      "chapter": 10,
+      "source": "爱民治国"
+    },
+    {
+      "word": "能无为乎",
+      "meaning": "能无为而治吗",
+      "chapter": 10,
+      "source": "能无为乎"
+    },
+    {
+      "word": "天门开阖",
+      "meaning": "感官的开启关闭",
+      "chapter": 10,
+      "source": "天门开阖"
+    },
+    {
+      "word": "能无雌乎",
+      "meaning": "能如雌性一样柔静吗",
+      "chapter": 10,
+      "source": "能为雌乎"
+    },
+    {
+      "word": "明白四达",
+      "meaning": "明白通达四方",
+      "chapter": 10,
+      "source": "明白四达"
+    },
+    {
+      "word": "能无知乎",
+      "meaning": "能没有心智机巧吗",
+      "chapter": 10,
+      "source": "能无知乎"
+    },
+    {
+      "word": "生之畜之",
+      "meaning": "生养万物",
+      "chapter": 10,
+      "source": "生之畜之"
+    },
+    {
+      "word": "长而不宰",
+      "meaning": "主导而不主宰",
+      "chapter": 10,
+      "source": "长而不宰"
+    },
+    {
+      "word": "是谓玄德",
+      "meaning": "这叫做玄妙的德行",
+      "chapter": 10,
+      "source": "是谓玄德"
+    },
+    {
+      "word": "三十辐共一毂",
+      "meaning": "三十根辐条汇集到一个轮毂",
+      "chapter": 11,
+      "source": "三十辐共一毂"
+    },
+    {
+      "word": "当其无",
+      "meaning": "正因为中间是空的",
+      "chapter": 11,
+      "source": "当其无"
+    },
+    {
+      "word": "有车之用",
+      "meaning": "才有车的作用",
+      "chapter": 11,
+      "source": "有车之用"
+    },
+    {
+      "word": "埏埴以为器",
+      "meaning": "揉和黏土做成器皿",
+      "chapter": 11,
+      "source": "埏埴以为器"
+    },
+    {
+      "word": "有器之用",
+      "meaning": "才有器皿的作用",
+      "chapter": 11,
+      "source": "有器之用"
+    },
+    {
+      "word": "户牖以为室",
+      "meaning": "门窗合起来成为房屋",
+      "chapter": 11,
+      "source": "户牖以为室"
+    },
+    {
+      "word": "有室之用",
+      "meaning": "才有房屋的作用",
+      "chapter": 11,
+      "source": "有室之用"
+    },
+    {
+      "word": "故有之以为利",
+      "meaning": "所以有的带来利益",
+      "chapter": 11,
+      "source": "故有之以为利"
+    },
+    {
+      "word": "五色令人目盲",
+      "meaning": "五色让人眼花",
+      "chapter": 12,
+      "source": "五色令人目盲"
+    },
+    {
+      "word": "五音令人耳聋",
+      "meaning": "五音让人耳聋",
+      "chapter": 12,
+      "source": "五音令人耳聋"
+    },
+    {
+      "word": "五味令人口爽",
+      "meaning": "五味让人口腻",
+      "chapter": 12,
+      "source": "五味令人口爽"
+    },
+    {
+      "word": "驰骋田猎",
+      "meaning": "纵情声色",
+      "chapter": 12,
+      "source": "驰骋田猎"
+    },
+    {
+      "word": "令人心发狂",
+      "meaning": "让人内心发狂",
+      "chapter": 12,
+      "source": "令人心发狂"
+    },
+    {
+      "word": "难得之货",
+      "meaning": "稀有的财物",
+      "chapter": 12,
+      "source": "难得之货"
+    },
+    {
+      "word": "令人行妨",
+      "meaning": "让人行为败坏",
+      "chapter": 12,
+      "source": "令人行妨"
+    },
+    {
+      "word": "是以圣人为腹",
+      "meaning": "圣人注重内在",
+      "chapter": 12,
+      "source": "是以圣人为腹"
+    },
+    {
+      "word": "不为目",
+      "meaning": "不追求外在感官享受",
+      "chapter": 12,
+      "source": "不为目"
+    },
+    {
+      "word": "故去彼取此",
+      "meaning": "所以舍弃彼选择此",
+      "chapter": 12,
+      "source": "故去彼取此"
+    },
+    {
+      "word": "宠辱若惊",
+      "meaning": "受宠受辱都震惊",
+      "chapter": 13,
+      "source": "宠辱若惊"
+    },
+    {
+      "word": "贵大患若身",
+      "meaning": "重视大患像重视自己",
+      "chapter": 13,
+      "source": "贵大患若身"
+    },
+    {
+      "word": "何谓宠辱若惊",
+      "meaning": "什么叫受宠受辱都震惊",
+      "chapter": 13,
+      "source": "何谓宠辱若惊"
+    },
+    {
+      "word": "宠为下",
+      "meaning": "受宠是卑微的",
+      "chapter": 13,
+      "source": "宠为下"
+    },
+    {
+      "word": "得之若惊",
+      "meaning": "得到时受宠若惊",
+      "chapter": 13,
+      "source": "得之若惊"
+    },
+    {
+      "word": "失之若惊",
+      "meaning": "失去时受辱若惊",
+      "chapter": 13,
+      "source": "失之若惊"
+    },
+    {
+      "word": "是谓宠辱若惊",
+      "meaning": "这叫受宠受辱都震惊",
+      "chapter": 13,
+      "source": "是谓宠辱若惊"
+    },
+    {
+      "word": "吾所以有大患者",
+      "meaning": "我之所以有大患",
+      "chapter": 13,
+      "source": "吾所以有大患者"
+    },
+    {
+      "word": "为吾有身",
+      "meaning": "因为我有身体",
+      "chapter": 13,
+      "source": "为吾有身"
+    },
+    {
+      "word": "及吾无身",
+      "meaning": "等到我没有身体",
+      "chapter": 13,
+      "source": "及吾无身"
+    },
+    {
+      "word": "吾有何患",
+      "meaning": "我有什么祸患",
+      "chapter": 13,
+      "source": "吾有何患"
+    },
+    {
+      "word": "故贵以身为天下",
+      "meaning": "所以珍视自身如同天下",
+      "chapter": 13,
+      "source": "故贵以身为天下"
+    },
+    {
+      "word": "若可寄天下",
+      "meaning": "才可以寄托天下",
+      "chapter": 13,
+      "source": "若可寄天下"
+    },
+    {
+      "word": "爱以身为天下",
+      "meaning": "爱护自身如同天下",
+      "chapter": 13,
+      "source": "爱以身为天下"
+    },
+    {
+      "word": "若可托天下",
+      "meaning": "才可以托付天下",
+      "chapter": 13,
+      "source": "若可托天下"
+    },
+    {
+      "word": "视之不见",
+      "meaning": "看不见",
+      "chapter": 14,
+      "source": "视之不见"
+    },
+    {
+      "word": "名曰夷",
+      "meaning": "叫做夷",
+      "chapter": 14,
+      "source": "名曰夷"
+    },
+    {
+      "word": "听之不闻",
+      "meaning": "听不到",
+      "chapter": 14,
+      "source": "听之不闻"
+    },
+    {
+      "word": "名曰希",
+      "meaning": "叫做希",
+      "chapter": 14,
+      "source": "名曰希"
+    },
+    {
+      "word": "搏之不得",
+      "meaning": "摸不着",
+      "chapter": 14,
+      "source": "搏之不得"
+    },
+    {
+      "word": "名曰微",
+      "meaning": "叫做微",
+      "chapter": 14,
+      "source": "名曰微"
+    },
+    {
+      "word": "三者不可致诘",
+      "meaning": "这三者不能追问",
+      "chapter": 14,
+      "source": "此三者不可致诘"
+    },
+    {
+      "word": "故混而为一",
+      "meaning": "所以混成为一",
+      "chapter": 14,
+      "source": "故混而为一"
+    },
+    {
+      "word": "其上不皦",
+      "meaning": "上面不清晰",
+      "chapter": 14,
+      "source": "其上不皦"
+    },
+    {
+      "word": "其下不昧",
+      "meaning": "下面不昏暗",
+      "chapter": 14,
+      "source": "其下不昧"
+    },
+    {
+      "word": "绳绳兮",
+      "meaning": "连绵不绝的样子",
+      "chapter": 14,
+      "source": "绳绳兮不可名"
+    },
+    {
+      "word": "复归于无物",
+      "meaning": "又回到无物的状态",
+      "chapter": 14,
+      "source": "复归于无物"
+    },
+    {
+      "word": "是谓无状之状",
+      "meaning": "这叫没有形状的形状",
+      "chapter": 14,
+      "source": "是谓无状之状"
+    },
+    {
+      "word": "无物之象",
+      "meaning": "没有物体的形象",
+      "chapter": 14,
+      "source": "无物之象"
+    },
+    {
+      "word": "是谓惚恍",
+      "meaning": "这叫恍惚",
+      "chapter": 14,
+      "source": "是谓惚恍"
+    },
+    {
+      "word": "迎之不见其首",
+      "meaning": "迎着它看不见头",
+      "chapter": 14,
+      "source": "迎之不见其首"
+    },
+    {
+      "word": "随之不见其后",
+      "meaning": "跟着它看不见尾",
+      "chapter": 14,
+      "source": "随之不见其后"
+    },
+    {
+      "word": "执古之道",
+      "meaning": "把握古人的道",
+      "chapter": 14,
+      "source": "执古之道"
+    },
+    {
+      "word": "以御今之有",
+      "meaning": "来驾御当今的万物",
+      "chapter": 14,
+      "source": "以御今之有"
+    },
+    {
+      "word": "能知古始",
+      "meaning": "能知道古代的开始",
+      "chapter": 14,
+      "source": "能知古始"
+    },
+    {
+      "word": "是谓道纪",
+      "meaning": "这是道的纲纪",
+      "chapter": 14,
+      "source": "是谓道纪"
+    },
+    {
+      "word": "古之善为道者",
+      "meaning": "古代善于行道的人",
+      "chapter": 15,
+      "source": "古之善为道者"
+    },
+    {
+      "word": "微妙玄通",
+      "meaning": "微妙玄妙通晓",
+      "chapter": 15,
+      "source": "微妙玄通"
+    },
+    {
+      "word": "深不可识",
+      "meaning": "深得无法认识",
+      "chapter": 15,
+      "source": "深不可识"
+    },
+    {
+      "word": "夫唯不可识",
+      "meaning": "正因为无法认识",
+      "chapter": 15,
+      "source": "夫唯不可识"
+    },
+    {
+      "word": "故强为之容",
+      "meaning": "所以勉强形容他",
+      "chapter": 15,
+      "source": "故强为之容"
+    },
+    {
+      "word": "豫兮若冬涉川",
+      "meaning": "犹豫像冬天过河",
+      "chapter": 15,
+      "source": "豫兮若冬涉川"
+    },
+    {
+      "word": "犹兮若畏四邻",
+      "meaning": "谨慎像害怕邻居",
+      "chapter": 15,
+      "source": "犹兮若畏四邻"
+    },
+    {
+      "word": "俨兮其若客",
+      "meaning": "庄重像做客",
+      "chapter": 15,
+      "source": "俨兮其若客"
+    },
+    {
+      "word": "涣兮若冰之将释",
+      "meaning": "涣散像冰将融化",
+      "chapter": 15,
+      "source": "涣兮若冰之将释"
+    },
+    {
+      "word": "敦兮其若朴",
+      "meaning": "敦厚像未雕的木",
+      "chapter": 15,
+      "source": "敦兮其若朴"
+    },
+    {
+      "word": "旷兮其若谷",
+      "meaning": "空旷像山谷",
+      "chapter": 15,
+      "source": "旷兮其若谷"
+    },
+    {
+      "word": "混兮其若浊",
+      "meaning": "混同像浊水",
+      "chapter": 15,
+      "source": "混兮其若浊"
+    },
+    {
+      "word": "孰能浊以静之",
+      "meaning": "谁能让浑浊静止",
+      "chapter": 15,
+      "source": "孰能浊以静之"
+    },
+    {
+      "word": "徐清",
+      "meaning": "慢慢变清",
+      "chapter": 15,
+      "source": "徐清"
+    },
+    {
+      "word": "孰能安以久动之",
+      "meaning": "谁能让安静长久动起来",
+      "chapter": 15,
+      "source": "孰能安以久动之"
+    },
+    {
+      "word": "徐生",
+      "meaning": "慢慢生发",
+      "chapter": 15,
+      "source": "徐生"
+    },
+    {
+      "word": "保此道者不欲盈",
+      "meaning": "保持道的人不追求盈满",
+      "chapter": 15,
+      "source": "保此道者不欲盈"
+    },
+    {
+      "word": "夫唯不盈",
+      "meaning": "正因为不盈满",
+      "chapter": 15,
+      "source": "夫唯不盈"
+    },
+    {
+      "word": "故能蔽不新成",
+      "meaning": "所以能去旧成新",
+      "chapter": 15,
+      "source": "故能蔽不新成"
+    },
+    {
+      "word": "致虚极",
+      "meaning": "达到极度的虚",
+      "chapter": 16,
+      "source": "致虚极"
+    },
+    {
+      "word": "守静笃",
+      "meaning": "坚守极致的静",
+      "chapter": 16,
+      "source": "守静笃"
+    },
+    {
+      "word": "万物并作",
+      "meaning": "万物一起生长",
+      "chapter": 16,
+      "source": "万物并作"
+    },
+    {
+      "word": "吾以观其复",
+      "meaning": "我观察它们的循环",
+      "chapter": 16,
+      "source": "吾以观其复"
+    },
+    {
+      "word": "夫物芸芸",
+      "meaning": "万物纷繁众多",
+      "chapter": 16,
+      "source": "夫物芸芸"
+    },
+    {
+      "word": "各复归其根",
+      "meaning": "各自回到根本",
+      "chapter": 16,
+      "source": "各复归其根"
+    },
+    {
+      "word": "归根曰静",
+      "meaning": "回到根本叫静",
+      "chapter": 16,
+      "source": "归根曰静"
+    },
+    {
+      "word": "是谓复命",
+      "meaning": "这叫复命",
+      "chapter": 16,
+      "source": "是谓复命"
+    },
+    {
+      "word": "复命曰常",
+      "meaning": "复命叫常",
+      "chapter": 16,
+      "source": "复命曰常"
+    },
+    {
+      "word": "知常曰明",
+      "meaning": "知常叫明",
+      "chapter": 16,
+      "source": "知常曰明"
+    },
+    {
+      "word": "不知常",
+      "meaning": "不知常",
+      "chapter": 16,
+      "source": "不知常"
+    },
+    {
+      "word": "妄作凶",
+      "meaning": "胡乱妄为会有凶险",
+      "chapter": 16,
+      "source": "妄作凶"
+    },
+    {
+      "word": "知常容",
+      "meaning": "知常就能包容",
+      "chapter": 16,
+      "source": "知常容"
+    },
+    {
+      "word": "容乃公",
+      "meaning": "包容就公正",
+      "chapter": 16,
+      "source": "容乃公"
+    },
+    {
+      "word": "公乃王",
+      "meaning": "公正就王",
+      "chapter": 16,
+      "source": "公乃王"
+    },
+    {
+      "word": "王乃天",
+      "meaning": "王就合天",
+      "chapter": 16,
+      "source": "王乃天"
+    },
+    {
+      "word": "天乃道",
+      "meaning": "天就合道",
+      "chapter": 16,
+      "source": "天乃道"
+    },
+    {
+      "word": "道乃久",
+      "meaning": "道就长久",
+      "chapter": 16,
+      "source": "道乃久"
+    },
+    {
+      "word": "没身不殆",
+      "meaning": "终身没有危险",
+      "chapter": 16,
+      "source": "没身不殆"
+    },
+    {
+      "word": "太上下知有之",
+      "meaning": "太上者知道他",
+      "chapter": 17,
+      "source": "太上下知有之"
+    },
+    {
+      "word": "其次亲而誉之",
+      "meaning": "其次亲近赞扬他",
+      "chapter": 17,
+      "source": "其次亲而誉之"
+    },
+    {
+      "word": "其次畏之",
+      "meaning": "其次畏惧他",
+      "chapter": 17,
+      "source": "其次畏之"
+    },
+    {
+      "word": "其次侮之",
+      "meaning": "其次轻侮他",
+      "chapter": 17,
+      "source": "其次侮之"
+    },
+    {
+      "word": "信不足焉",
+      "meaning": "诚信不足",
+      "chapter": 17,
+      "source": "信不足焉"
+    },
+    {
+      "word": "有不信焉",
+      "meaning": "才有不信任",
+      "chapter": 17,
+      "source": "有不信焉"
+    },
+    {
+      "word": "悠兮其贵言",
+      "meaning": "悠游谨慎重视言语",
+      "chapter": 17,
+      "source": "悠兮其贵言"
+    },
+    {
+      "word": "功成事遂",
+      "meaning": "功成事就",
+      "chapter": 17,
+      "source": "功成事遂"
+    },
+    {
+      "word": "百姓皆谓我自然",
+      "meaning": "百姓都说我自然",
+      "chapter": 17,
+      "source": "百姓皆谓我自然"
+    },
+    {
+      "word": "大道废",
+      "meaning": "大道废弃",
+      "chapter": 18,
+      "source": "大道废"
+    },
+    {
+      "word": "有仁义",
+      "meaning": "才有仁义",
+      "chapter": 18,
+      "source": "有仁义"
+    },
+    {
+      "word": "智慧出",
+      "meaning": "智慧出现",
+      "chapter": 18,
+      "source": "智慧出"
+    },
+    {
+      "word": "有大伪",
+      "meaning": "就有大伪",
+      "chapter": 18,
+      "source": "有大伪"
+    },
+    {
+      "word": "六亲不和",
+      "meaning": "六亲不和睦",
+      "chapter": 18,
+      "source": "六亲不和"
+    },
+    {
+      "word": "有孝慈",
+      "meaning": "才有孝慈",
+      "chapter": 18,
+      "source": "有孝慈"
+    },
+    {
+      "word": "国家昏乱",
+      "meaning": "国家昏乱",
+      "chapter": 18,
+      "source": "国家昏乱"
+    },
+    {
+      "word": "有忠臣",
+      "meaning": "才有忠臣",
+      "chapter": 18,
+      "source": "有忠臣"
+    },
+    {
+      "word": "绝圣弃智",
+      "meaning": "抛弃圣智",
+      "chapter": 19,
+      "source": "绝圣弃智"
+    },
+    {
+      "word": "民利百倍",
+      "meaning": "百姓获利百倍",
+      "chapter": 19,
+      "source": "民利百倍"
+    },
+    {
+      "word": "绝仁弃义",
+      "meaning": "抛弃仁义",
+      "chapter": 19,
+      "source": "绝仁弃义"
+    },
+    {
+      "word": "民复孝慈",
+      "meaning": "百姓恢复孝慈",
+      "chapter": 19,
+      "source": "民复孝慈"
+    },
+    {
+      "word": "绝巧弃利",
+      "meaning": "抛弃巧利",
+      "chapter": 19,
+      "source": "绝巧弃利"
+    },
+    {
+      "word": "盗贼无有",
+      "meaning": "盗贼就没有",
+      "chapter": 19,
+      "source": "盗贼无有"
+    },
+    {
+      "word": "此三者",
+      "meaning": "这三者",
+      "chapter": 19,
+      "source": "此三者"
+    },
+    {
+      "word": "以为文",
+      "meaning": "作为文饰",
+      "chapter": 19,
+      "source": "以为文"
+    },
+    {
+      "word": "不足",
+      "meaning": "不足",
+      "chapter": 19,
+      "source": "不足"
+    },
+    {
+      "word": "故令有所属",
+      "meaning": "所以让人有所归属",
+      "chapter": 19,
+      "source": "故令有所属"
+    },
+    {
+      "word": "见素抱朴",
+      "meaning": "表现朴素保持淳朴",
+      "chapter": 19,
+      "source": "见素抱朴"
+    },
+    {
+      "word": "绝学无忧",
+      "meaning": "抛弃学问就没有忧虑",
+      "chapter": 20,
+      "source": "绝学无忧"
+    },
+    {
+      "word": "逍遥游",
+      "meaning": "自由自在地遨游",
+      "chapter": 1,
+      "source": "北冥有鱼，其名为鲲"
+    },
+    {
+      "word": "扶摇而上",
+      "meaning": "盘旋而上",
+      "chapter": 1,
+      "source": "抟扶摇而上者九万里"
+    },
+    {
+      "word": "天池",
+      "meaning": "天然池沼，指南方",
+      "chapter": 1,
+      "source": "南冥者，天池也"
+    },
+    {
+      "word": "野马也",
+      "meaning": "游气像野马",
+      "chapter": 1,
+      "source": "野马也，尘埃也"
+    },
+    {
+      "word": "生物之以息相吹",
+      "meaning": "生物的气息相吹拂",
+      "chapter": 1,
+      "source": "生物之以息相吹也"
+    },
+    {
+      "word": "天之苍苍",
+      "meaning": "天空苍茫",
+      "chapter": 1,
+      "source": "天之苍苍"
+    },
+    {
+      "word": "其正色邪",
+      "meaning": "它真正的颜色吗",
+      "chapter": 1,
+      "source": "其正色邪"
+    },
+    {
+      "word": "培风",
+      "meaning": "乘风",
+      "chapter": 1,
+      "source": "而后乃今培风"
+    },
+    {
+      "word": "背负青天",
+      "meaning": "背对着青天",
+      "chapter": 1,
+      "source": "背负青天"
+    },
+    {
+      "word": "莫之夭阏",
+      "meaning": "没有什么阻碍",
+      "chapter": 1,
+      "source": "莫之夭阏者"
+    },
+    {
+      "word": "蜩与学鸠",
+      "meaning": "蝉与小鸠",
+      "chapter": 1,
+      "source": "蜩与学鸠笑之曰"
+    },
+    {
+      "word": "我决起",
+      "meaning": "我快速飞起",
+      "chapter": 1,
+      "source": "我决起而飞"
+    },
+    {
+      "word": "抢榆枋",
+      "meaning": "碰到榆树檀树",
+      "chapter": 1,
+      "source": "抢榆枋"
+    },
+    {
+      "word": "时则不至",
+      "meaning": "有时就不到",
+      "chapter": 1,
+      "source": "时则不至"
+    },
+    {
+      "word": "控于地",
+      "meaning": "投在地上",
+      "chapter": 1,
+      "source": "控于地"
+    },
+    {
+      "word": "奚以之九万里",
+      "meaning": "哪里用去九万里",
+      "chapter": 1,
+      "source": "奚以之九万里"
+    },
+    {
+      "word": "南徙",
+      "meaning": "向南迁徙",
+      "chapter": 1,
+      "source": "我腾跃而上"
+    },
+    {
+      "word": "不过数仞",
+      "meaning": "不过几仞高",
+      "chapter": 1,
+      "source": "不过数仞"
+    },
+    {
+      "word": "翱翔蓬蒿之间",
+      "meaning": "在蓬蒿间飞翔",
+      "chapter": 1,
+      "source": "翱翔蓬蒿之间"
+    },
+    {
+      "word": "此亦飞之至",
+      "meaning": "这也是飞翔的极致",
+      "chapter": 1,
+      "source": "此亦飞之至"
+    },
+    {
+      "word": "而彼且奚适",
+      "meaning": "他要去哪里",
+      "chapter": 1,
+      "source": "而彼且奚适也"
+    },
+    {
+      "word": "朝菌",
+      "meaning": "早晨的菌类",
+      "chapter": 1,
+      "source": "朝菌不知晦朔"
+    },
+    {
+      "word": "不知晦朔",
+      "meaning": "不知道月末月初",
+      "chapter": 1,
+      "source": "朝菌不知晦朔"
+    },
+    {
+      "word": "蟪蛄",
+      "meaning": "寒蝉",
+      "chapter": 1,
+      "source": "蟪蛄不知春秋"
+    },
+    {
+      "word": "不知春秋",
+      "meaning": "不知道春秋",
+      "chapter": 1,
+      "source": "蟪蛄不知春秋"
+    },
+    {
+      "word": "冥灵",
+      "meaning": "大椿树",
+      "chapter": 1,
+      "source": "冥灵者，大椿也"
+    },
+    {
+      "word": "五百岁为春",
+      "meaning": "五百年是春季",
+      "chapter": 1,
+      "source": "五百岁为春"
+    },
+    {
+      "word": "五百岁为秋",
+      "meaning": "五百年是秋季",
+      "chapter": 1,
+      "source": "五百岁为秋"
+    },
+    {
+      "word": "上古大椿",
+      "meaning": "上古大椿树",
+      "chapter": 1,
+      "source": "上古有大椿者"
+    },
+    {
+      "word": "八千岁为春",
+      "meaning": "八千年是春季",
+      "chapter": 1,
+      "source": "八千岁为春"
+    },
+    {
+      "word": "八千岁为秋",
+      "meaning": "八千年是秋季",
+      "chapter": 1,
+      "source": "八千岁为秋"
+    },
+    {
+      "word": "彭祖",
+      "meaning": "长寿之人",
+      "chapter": 1,
+      "source": "而彭祖乃今以久特闻"
+    },
+    {
+      "word": "以久特闻",
+      "meaning": "以长寿特别闻名",
+      "chapter": 1,
+      "source": "而彭祖乃今以久特闻"
+    },
+    {
+      "word": "小大之辩",
+      "meaning": "小的大的区别",
+      "chapter": 1,
+      "source": "此小大之辩也"
+    },
+    {
+      "word": "列子御风",
+      "meaning": "列子驾风",
+      "chapter": 1,
+      "source": "夫列子御风而行"
+    },
+    {
+      "word": "泠然善也",
+      "meaning": "轻妙美好",
+      "chapter": 1,
+      "source": "泠然善也"
+    },
+    {
+      "word": "五日而反",
+      "meaning": "五天返回",
+      "chapter": 1,
+      "source": "旬有五日而后反"
+    },
+    {
+      "word": "彼于致福者",
+      "meaning": "他对于求福的人",
+      "chapter": 1,
+      "source": "彼于致福者"
+    },
+    {
+      "word": "未数数然",
+      "meaning": "没有急切的样子",
+      "chapter": 1,
+      "source": "未数数然也"
+    },
+    {
+      "word": "姑射之神人",
+      "meaning": "姑射山的神人",
+      "chapter": 1,
+      "source": "藐姑射之山，有神人居焉"
+    },
+    {
+      "word": "肌肤若冰雪",
+      "meaning": "肌肤像冰雪",
+      "chapter": 1,
+      "source": "肌肤若冰雪"
+    },
+    {
+      "word": "淖约若处子",
+      "meaning": "柔美像处子",
+      "chapter": 1,
+      "source": "淖约若处子"
+    },
+    {
+      "word": "不食五谷",
+      "meaning": "不吃五谷",
+      "chapter": 1,
+      "source": "不食五谷"
+    },
+    {
+      "word": "吸风饮露",
+      "meaning": "吸风饮露",
+      "chapter": 1,
+      "source": "吸风饮露"
+    },
+    {
+      "word": "乘云气",
+      "meaning": "驾乘云气",
+      "chapter": 1,
+      "source": "乘云气"
+    },
+    {
+      "word": "御飞龙",
+      "meaning": "驾驭飞龙",
+      "chapter": 1,
+      "source": "御飞龙"
+    },
+    {
+      "word": "游乎四海",
+      "meaning": "遨游四海",
+      "chapter": 1,
+      "source": "游乎四海之外"
+    },
+    {
+      "word": "其神凝",
+      "meaning": "精神凝聚",
+      "chapter": 1,
+      "source": "其神凝"
+    },
+    {
+      "word": "使物不疵疠",
+      "meaning": "使物不生疠病",
+      "chapter": 1,
+      "source": "使物不疵疠"
+    },
+    {
+      "word": "狂接舆",
+      "meaning": "狂人接舆",
+      "chapter": 1,
+      "source": "肩吾问于连叔曰"
+    },
+    {
+      "word": "之人也",
+      "meaning": "这样的人",
+      "chapter": 1,
+      "source": "之人也，之德也"
+    },
+    {
+      "word": "将磅礴万物",
+      "meaning": "将使万物广博",
+      "chapter": 1,
+      "source": "将磅礴万物"
+    },
+    {
+      "word": "以为一世",
+      "meaning": "作为一代",
+      "chapter": 1,
+      "source": "以为一世"
+    },
+    {
+      "word": "弊弊焉",
+      "meaning": "辛苦的样子",
+      "chapter": 1,
+      "source": "弊弊焉"
+    },
+    {
+      "word": "大泽",
+      "meaning": "大沼泽",
+      "chapter": 1,
+      "source": "吾与之游于大泽"
+    },
+    {
+      "word": "大旱",
+      "meaning": "大旱灾",
+      "chapter": 1,
+      "source": "大旱"
+    },
+    {
+      "word": "金石流",
+      "meaning": "金石熔化",
+      "chapter": 1,
+      "source": "金石流，土山焦"
+    },
+    {
+      "word": "土山焦",
+      "meaning": "土山烧焦",
+      "chapter": 1,
+      "source": "金石流，土山焦"
+    },
+    {
+      "word": "不以己弊弊",
+      "meaning": "不让自己辛苦",
+      "chapter": 1,
+      "source": "而不以己弊弊"
+    },
+    {
+      "word": "尘垢秕糠",
+      "meaning": "尘土糟糠",
+      "chapter": 1,
+      "source": "犹将陶铸尧舜者也"
+    },
+    {
+      "word": "陶铸",
+      "meaning": "铸造塑造",
+      "chapter": 1,
+      "source": "陶铸尧舜"
+    },
+    {
+      "word": "物物",
+      "meaning": "使各物成为其物",
+      "chapter": 1,
+      "source": "物物而不物于物"
+    },
+    {
+      "word": "宋人次章甫",
+      "meaning": "宋国人越章甫",
+      "chapter": 1,
+      "source": "宋人次章甫而适越"
+    },
+    {
+      "word": "适越",
+      "meaning": "到越国",
+      "chapter": 1,
+      "source": "宋人次章甫而适越"
+    },
+    {
+      "word": "断发文身",
+      "meaning": "剪发纹身",
+      "chapter": 1,
+      "source": "越人断发文身"
+    },
+    {
+      "word": "无所用之",
+      "meaning": "没什么用",
+      "chapter": 1,
+      "source": "无所用之"
+    },
+    {
+      "word": "尧治天下",
+      "meaning": "尧治理天下",
+      "chapter": 1,
+      "source": "昔者尧治天下"
+    },
+    {
+      "word": "海内",
+      "meaning": "四海之内",
+      "chapter": 1,
+      "source": "海内"
+    },
+    {
+      "word": "海外",
+      "meaning": "四海之外",
+      "chapter": 1,
+      "source": "四海之外"
+    },
+    {
+      "word": "不赏一民",
+      "meaning": "不奖赏一个百姓",
+      "chapter": 1,
+      "source": "不赏一民"
+    },
+    {
+      "word": "不罚一民",
+      "meaning": "不惩罚一个百姓",
+      "chapter": 1,
+      "source": "不罚一民"
+    },
+    {
+      "word": "治",
+      "meaning": "太平",
+      "chapter": 1,
+      "source": "治"
+    },
+    {
+      "word": "乱",
+      "meaning": "混乱",
+      "chapter": 1,
+      "source": "乱"
+    },
+    {
+      "word": "罔两",
+      "meaning": "影外微阴",
+      "chapter": 2,
+      "source": "罔两问景曰"
+    },
+    {
+      "word": "问景",
+      "meaning": "问影子",
+      "chapter": 2,
+      "source": "罔两问景曰"
+    },
+    {
+      "word": "曩行",
+      "meaning": "刚才行走",
+      "chapter": 2,
+      "source": "曩也行"
+    },
+    {
+      "word": "今止",
+      "meaning": "现在停止",
+      "chapter": 2,
+      "source": "今止"
+    },
+    {
+      "word": "何也",
+      "meaning": "为什么",
+      "chapter": 2,
+      "source": "何也"
+    },
+    {
+      "word": "有待",
+      "meaning": "有所依赖",
+      "chapter": 2,
+      "source": "吾有待而然者邪"
+    },
+    {
+      "word": "无待",
+      "meaning": "无所依赖",
+      "chapter": 2,
+      "source": "吾所待又有待而然者邪"
+    },
+    {
+      "word": "蛇蚹",
+      "meaning": "蛇蜕皮",
+      "chapter": 2,
+      "source": "蛇蚹"
+    },
+    {
+      "word": "蜩翼",
+      "meaning": "蝉翼",
+      "chapter": 2,
+      "source": "蜩翼"
+    },
+    {
+      "word": "恶知所以然",
+      "meaning": "哪里知道为什么",
+      "chapter": 2,
+      "source": "恶知所以然"
+    },
+    {
+      "word": "罔两待景",
+      "meaning": "罔两依赖影子",
+      "chapter": 2,
+      "source": "景待罔两"
+    },
+    {
+      "word": "景待形",
+      "meaning": "影子依赖形体",
+      "chapter": 2,
+      "source": "景待形"
+    },
+    {
+      "word": "形待真",
+      "meaning": "形体依赖真",
+      "chapter": 2,
+      "source": "形待真"
+    },
+    {
+      "word": "天倪",
+      "meaning": "自然的分别",
+      "chapter": 2,
+      "source": "照之于天"
+    },
+    {
+      "word": "莫若以明",
+      "meaning": "不如用明",
+      "chapter": 2,
+      "source": "莫若以明"
+    },
+    {
+      "word": "指穷于为薪",
+      "meaning": "手指烧完做柴火",
+      "chapter": 2,
+      "source": "指穷于为薪"
+    },
+    {
+      "word": "火传也",
+      "meaning": "火在传",
+      "chapter": 2,
+      "source": "不知其尽也"
+    },
+    {
+      "word": "不知其尽",
+      "meaning": "不知道它完没完",
+      "chapter": 2,
+      "source": "不知其尽也"
+    },
+    {
+      "word": "指之不尽",
+      "meaning": "手指不完",
+      "chapter": 2,
+      "source": "夫指之不尽"
+    },
+    {
+      "word": "薪",
+      "meaning": "柴火",
+      "chapter": 2,
+      "source": "火传也"
+    },
+    {
+      "word": "明明德",
+      "meaning": "彰显光明的品德",
+      "chapter": 1,
+      "source": "大学之道，在明明德"
+    },
+    {
+      "word": "亲民",
+      "meaning": "亲近百姓",
+      "chapter": 1,
+      "source": "在亲民"
+    },
+    {
+      "word": "止于至善",
+      "meaning": "达到至善的境界",
+      "chapter": 1,
+      "source": "在止于至善"
+    },
+    {
+      "word": "知止而后有定",
+      "meaning": "知道目标才能安定",
+      "chapter": 1,
+      "source": "知止而后有定"
+    },
+    {
+      "word": "定而后能静",
+      "meaning": "安定才能静心",
+      "chapter": 1,
+      "source": "定而后能静"
+    },
+    {
+      "word": "静而后能安",
+      "meaning": "静心才能安稳",
+      "chapter": 1,
+      "source": "静而后能安"
+    },
+    {
+      "word": "安而后能虑",
+      "meaning": "安稳才能思考",
+      "chapter": 1,
+      "source": "安而后能虑"
+    },
+    {
+      "word": "虑而后能得",
+      "meaning": "思考才能有所得",
+      "chapter": 1,
+      "source": "虑而后能得"
+    },
+    {
+      "word": "物有本末",
+      "meaning": "万物有根本枝末",
+      "chapter": 1,
+      "source": "物有本末"
+    },
+    {
+      "word": "事有终始",
+      "meaning": "事情有始终",
+      "chapter": 1,
+      "source": "事有终始"
+    },
+    {
+      "word": "知所先后",
+      "meaning": "知道先后顺序",
+      "chapter": 1,
+      "source": "知所先后"
+    },
+    {
+      "word": "则近道矣",
+      "meaning": "就接近道了",
+      "chapter": 1,
+      "source": "则近道矣"
+    },
+    {
+      "word": "格物",
+      "meaning": "推究事物的原理",
+      "chapter": 1,
+      "source": "致知在格物"
+    },
+    {
+      "word": "致知",
+      "meaning": "获得知识",
+      "chapter": 1,
+      "source": "致知在格物"
+    },
+    {
+      "word": "诚意",
+      "meaning": "使意念真诚",
+      "chapter": 1,
+      "source": "欲诚其意，先致其知"
+    },
+    {
+      "word": "正心",
+      "meaning": "端正心念",
+      "chapter": 1,
+      "source": "欲正其心，先诚其意"
+    },
+    {
+      "word": "修身",
+      "meaning": "修养身心",
+      "chapter": 1,
+      "source": "欲修其身，先正其心"
+    },
+    {
+      "word": "齐家",
+      "meaning": "整顿家庭",
+      "chapter": 1,
+      "source": "欲齐其家，先修其身"
+    },
+    {
+      "word": "治国",
+      "meaning": "治理国家",
+      "chapter": 1,
+      "source": "欲治其国，先齐其家"
+    },
+    {
+      "word": "平天下",
+      "meaning": "平定天下",
+      "chapter": 1,
+      "source": "欲平天下，先治其国"
+    },
+    {
+      "word": "物格而后知至",
+      "meaning": "推究事物后知识到来",
+      "chapter": 1,
+      "source": "物格而后知至"
+    },
+    {
+      "word": "知至而后意诚",
+      "meaning": "知识到来后意念真诚",
+      "chapter": 1,
+      "source": "知至而后意诚"
+    },
+    {
+      "word": "意诚而后心正",
+      "meaning": "意念真诚后心念端正",
+      "chapter": 1,
+      "source": "意诚而后心正"
+    },
+    {
+      "word": "心正而后身修",
+      "meaning": "心念端正后身心修养",
+      "chapter": 1,
+      "source": "心正而后身修"
+    },
+    {
+      "word": "身修而后家齐",
+      "meaning": "身心修养后家庭整顿",
+      "chapter": 1,
+      "source": "身修而后家齐"
+    },
+    {
+      "word": "家齐而后国治",
+      "meaning": "家庭整顿后国家治理",
+      "chapter": 1,
+      "source": "家齐而后国治"
+    },
+    {
+      "word": "国治而后天下平",
+      "meaning": "国家治理后天下太平",
+      "chapter": 1,
+      "source": "国治而后天下平"
+    },
+    {
+      "word": "中庸",
+      "meaning": "不偏不倚的中正之道",
+      "chapter": 2,
+      "source": "中庸"
+    },
+    {
+      "word": "天命",
+      "meaning": "上天的意志",
+      "chapter": 2,
+      "source": "天命之谓性"
+    },
+    {
+      "word": "率性",
+      "meaning": "遵循本性",
+      "chapter": 2,
+      "source": "率性之谓道"
+    },
+    {
+      "word": "修道",
+      "meaning": "修习道义",
+      "chapter": 2,
+      "source": "修道之谓教"
+    },
+    {
+      "word": "不可须臾离",
+      "meaning": "不能片刻离开",
+      "chapter": 2,
+      "source": "道也者，不可须臾离也"
+    },
+    {
+      "word": "可离非道",
+      "meaning": "可离开的就不是道",
+      "chapter": 2,
+      "source": "可离非道也"
+    },
+    {
+      "word": "喜怒哀乐",
+      "meaning": "喜、怒、哀、乐",
+      "chapter": 2,
+      "source": "喜怒哀乐之未发"
+    },
+    {
+      "word": "未发",
+      "meaning": "没有发作",
+      "chapter": 2,
+      "source": "喜怒哀乐之未发"
+    },
+    {
+      "word": "之中",
+      "meaning": "中庸",
+      "chapter": 2,
+      "source": "谓之中"
+    },
+    {
+      "word": "发而皆中节",
+      "meaning": "发作都符合节度",
+      "chapter": 2,
+      "source": "发而皆中节"
+    },
+    {
+      "word": "谓之和",
+      "meaning": "叫做和",
+      "chapter": 2,
+      "source": "谓之和"
+    },
+    {
+      "word": "中也者",
+      "meaning": "中",
+      "chapter": 2,
+      "source": "中也者，天下之大本也"
+    },
+    {
+      "word": "天下之大本",
+      "meaning": "天下的大本",
+      "chapter": 2,
+      "source": "中也者，天下之大本也"
+    },
+    {
+      "word": "和也者",
+      "meaning": "和",
+      "chapter": 2,
+      "source": "和也者，天下之达道也"
+    },
+    {
+      "word": "天下之达道",
+      "meaning": "天下的通达之道",
+      "chapter": 2,
+      "source": "和也者，天下之达道也"
+    },
+    {
+      "word": "致中和",
+      "meaning": "达到中和",
+      "chapter": 2,
+      "source": "致中和"
+    },
+    {
+      "word": "天地位",
+      "meaning": "天地正位",
+      "chapter": 2,
+      "source": "天地位焉"
+    },
+    {
+      "word": "万物育",
+      "meaning": "万物发育",
+      "chapter": 2,
+      "source": "万物育焉"
+    },
+    {
+      "word": "学而时习",
+      "meaning": "学习并按时温习",
+      "chapter": 3,
+      "source": "学而时习之"
+    },
+    {
+      "word": "不亦说乎",
+      "meaning": "不也高兴吗",
+      "chapter": 3,
+      "source": "不亦说乎"
+    },
+    {
+      "word": "有朋自远方来",
+      "meaning": "有朋友从远方来",
+      "chapter": 3,
+      "source": "有朋自远方来"
+    },
+    {
+      "word": "不亦乐乎",
+      "meaning": "不也快乐吗",
+      "chapter": 3,
+      "source": "不亦乐乎"
+    },
+    {
+      "word": "人不知而不愠",
+      "meaning": "别人不了解也不生气",
+      "chapter": 3,
+      "source": "人不知而不愠"
+    },
+    {
+      "word": "不亦君子乎",
+      "meaning": "不也是君子吗",
+      "chapter": 3,
+      "source": "不亦君子乎"
+    },
+    {
+      "word": "巧言令色",
+      "meaning": "花言巧语",
+      "chapter": 3,
+      "source": "巧言令色"
+    },
+    {
+      "word": "鲜矣仁",
+      "meaning": "很少有仁德",
+      "chapter": 3,
+      "source": "鲜矣仁"
+    },
+    {
+      "word": "三省吾身",
+      "meaning": "多次反省自己",
+      "chapter": 3,
+      "source": "吾日三省吾身"
+    },
+    {
+      "word": "为人谋而不忠",
+      "meaning": "为人谋划不忠诚",
+      "chapter": 3,
+      "source": "为人谋而不忠乎"
+    },
+    {
+      "word": "与朋友交而不信",
+      "meaning": "与朋友交往不讲信用",
+      "chapter": 3,
+      "source": "与朋友交而不信乎"
+    },
+    {
+      "word": "传不习乎",
+      "meaning": "传授的知识不温习",
+      "chapter": 3,
+      "source": "传不习乎"
+    },
+    {
+      "word": "吾十有五",
+      "meaning": "我十五岁",
+      "chapter": 3,
+      "source": "吾十有五而志于学"
+    },
+    {
+      "word": "志于学",
+      "meaning": "立志学习",
+      "chapter": 3,
+      "source": "吾十有五而志于学"
+    },
+    {
+      "word": "三十而立",
+      "meaning": "三十岁自立",
+      "chapter": 3,
+      "source": "三十而立"
+    },
+    {
+      "word": "四十而不惑",
+      "meaning": "四十岁不困惑",
+      "chapter": 3,
+      "source": "四十而不惑"
+    },
+    {
+      "word": "五十而知天命",
+      "meaning": "五十岁知天命",
+      "chapter": 3,
+      "source": "五十而知天命"
+    },
+    {
+      "word": "六十而耳顺",
+      "meaning": "六十岁耳顺",
+      "chapter": 3,
+      "source": "六十而耳顺"
+    },
+    {
+      "word": "七十而从心",
+      "meaning": "七十岁随心所欲",
+      "chapter": 3,
+      "source": "七十而从心"
+    },
+    {
+      "word": "不逾矩",
+      "meaning": "不逾越规矩",
+      "chapter": 3,
+      "source": "不逾矩"
+    },
+    {
+      "word": "温故而知新",
+      "meaning": "温习旧知获得新知",
+      "chapter": 3,
+      "source": "温故而知新"
+    },
+    {
+      "word": "可以为师",
+      "meaning": "可以做老师",
+      "chapter": 3,
+      "source": "可以为师矣"
+    },
+    {
+      "word": "君子不器",
+      "meaning": "君子不是器皿",
+      "chapter": 3,
+      "source": "君子不器"
+    },
+    {
+      "word": "先行其言",
+      "meaning": "先做后说",
+      "chapter": 3,
+      "source": "先行其言而后从之"
+    },
+    {
+      "word": "学而不思则罔",
+      "meaning": "学习不思考就迷惑",
+      "chapter": 3,
+      "source": "学而不思则罔"
+    },
+    {
+      "word": "思而不学则殆",
+      "meaning": "思考不学习就危险",
+      "chapter": 3,
+      "source": "思而不学则殆"
+    },
+    {
+      "word": "攻乎异端",
+      "meaning": "钻研异端",
+      "chapter": 3,
+      "source": "攻乎异端"
+    },
+    {
+      "word": "斯害已",
+      "meaning": "这就是害了",
+      "chapter": 3,
+      "source": "斯害也已"
+    },
+    {
+      "word": "由诲女知之乎",
+      "meaning": "我教给你知吗",
+      "chapter": 3,
+      "source": "由诲女知之乎"
+    },
+    {
+      "word": "知之为知",
+      "meaning": "知道就是知道",
+      "chapter": 3,
+      "source": "知之为知之"
+    },
+    {
+      "word": "不知为不知",
+      "meaning": "不知道就是不知道",
+      "chapter": 3,
+      "source": "不知为不知"
+    },
+    {
+      "word": "是知也",
+      "meaning": "这才是知",
+      "chapter": 3,
+      "source": "是知也"
+    },
+    {
+      "word": "人而无信",
+      "meaning": "人如果没有信用",
+      "chapter": 3,
+      "source": "人而无信"
+    },
+    {
+      "word": "不知其可",
+      "meaning": "不知道能做什么",
+      "chapter": 3,
+      "source": "不知其可也"
+    },
+    {
+      "word": "大车无輗",
+      "meaning": "大车没有輗",
+      "chapter": 3,
+      "source": "大车无輗"
+    },
+    {
+      "word": "小车无軏",
+      "meaning": "小车没有軏",
+      "chapter": 3,
+      "source": "小车无軏"
+    },
+    {
+      "word": "其何以行之",
+      "meaning": "怎么能行走",
+      "chapter": 3,
+      "source": "其何以行之哉"
+    },
+    {
+      "word": "里仁",
+      "meaning": "居处在仁中",
+      "chapter": 3,
+      "source": "里仁为美"
+    },
+    {
+      "word": "择不处仁",
+      "meaning": "选择不住仁中",
+      "chapter": 3,
+      "source": "择不处仁"
+    },
+    {
+      "word": "焉得知",
+      "meaning": "怎能得到智慧",
+      "chapter": 3,
+      "source": "焉得知"
+    },
+    {
+      "word": "朝闻道",
+      "meaning": "早晨闻道",
+      "chapter": 3,
+      "source": "朝闻道"
+    },
+    {
+      "word": "夕死可矣",
+      "meaning": "晚上死也愿意",
+      "chapter": 3,
+      "source": "夕死可矣"
+    },
+    {
+      "word": "君子怀德",
+      "meaning": "君子怀德",
+      "chapter": 3,
+      "source": "君子怀德"
+    },
+    {
+      "word": "小人怀土",
+      "meaning": "小人怀土",
+      "chapter": 3,
+      "source": "小人怀土"
+    },
+    {
+      "word": "君子怀刑",
+      "meaning": "君子怀刑",
+      "chapter": 3,
+      "source": "君子怀刑"
+    },
+    {
+      "word": "小人怀惠",
+      "meaning": "小人怀惠",
+      "chapter": 3,
+      "source": "小人怀惠"
+    },
+    {
+      "word": "般若",
+      "meaning": "智慧",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "缘起性空",
+      "meaning": "因缘生起，本性空寂",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "凡所有相",
+      "meaning": "所有相状",
+      "chapter": 1,
+      "source": "凡所有相"
+    },
+    {
+      "word": "皆是虚妄",
+      "meaning": "都是虚妄的",
+      "chapter": 1,
+      "source": "皆是虚妄"
+    },
+    {
+      "word": "见诸相非相",
+      "meaning": "看到各种相不是相",
+      "chapter": 1,
+      "source": "见诸相非相"
+    },
+    {
+      "word": "即见如来",
+      "meaning": "就见到如来",
+      "chapter": 1,
+      "source": "即见如来"
+    },
+    {
+      "word": "菩提自性",
+      "meaning": "觉悟的本性",
+      "chapter": 1,
+      "source": "六祖坛经"
+    },
+    {
+      "word": "本来清净",
+      "meaning": "本来就是清净的",
+      "chapter": 1,
+      "source": "菩提自性，本来清净"
+    },
+    {
+      "word": "直了成佛",
+      "meaning": "直接了悟成佛",
+      "chapter": 1,
+      "source": "但用此心，直了成佛"
+    },
+    {
+      "word": "风幡论",
+      "meaning": "关于风和幡的辩论",
+      "chapter": 1,
+      "source": "六祖坛经"
+    },
+    {
+      "word": "非风动",
+      "meaning": "不是风在动",
+      "chapter": 1,
+      "source": "非风动"
+    },
+    {
+      "word": "非幡动",
+      "meaning": "不是幡在动",
+      "chapter": 1,
+      "source": "非幡动"
+    },
+    {
+      "word": "仁者心动",
+      "meaning": "是仁者的心在动",
+      "chapter": 1,
+      "source": "仁者心动"
+    },
+    {
+      "word": "见性成佛",
+      "meaning": "见性就能成佛",
+      "chapter": 1,
+      "source": "六祖坛经"
+    },
+    {
+      "word": "无相布施",
+      "meaning": "无相的布施",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "不住色布施",
+      "meaning": "不住于色的布施",
+      "chapter": 1,
+      "source": "不住色布施"
+    },
+    {
+      "word": "不住声香味触法",
+      "meaning": "不住于声香味触法",
+      "chapter": 1,
+      "source": "不住声香味触法"
+    },
+    {
+      "word": "福德无量",
+      "meaning": "福报德行无量",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "我法二执",
+      "meaning": "我执和法执",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "破我法二执",
+      "meaning": "破除我执和法执",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "金刚不坏",
+      "meaning": "金刚般若不可破坏",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "断一切烦恼",
+      "meaning": "断除一切烦恼",
+      "chapter": 1,
+      "source": "金刚经"
+    },
+    {
+      "word": "一实境界",
+      "meaning": "真实的境界",
+      "chapter": 1,
+      "source": "维摩诘经"
+    },
+    {
+      "word": "不可思议",
+      "meaning": "不能思量议说",
+      "chapter": 1,
+      "source": "法华经"
+    },
+    {
+      "word": "大乘",
+      "meaning": "大的车辆",
+      "chapter": 1,
+      "source": "大乘佛教"
+    },
+    {
+      "word": "小乘",
+      "meaning": "小的车辆",
+      "chapter": 1,
+      "source": "小乘佛教"
+    },
+    {
+      "word": "三法印",
+      "meaning": "三种印证",
+      "chapter": 1,
+      "source": "三法印"
+    },
+    {
+      "word": "诸行无常",
+      "meaning": "一切行无常",
+      "chapter": 1,
+      "source": "诸行无常"
+    },
+    {
+      "word": "诸法无我",
+      "meaning": "一切法无我",
+      "chapter": 1,
+      "source": "诸法无我"
+    },
+    {
+      "word": "涅槃寂静",
+      "meaning": "涅槃寂静",
+      "chapter": 1,
+      "source": "涅槃寂静"
+    },
+    {
+      "word": "八正道",
+      "meaning": "八种正道",
+      "chapter": 1,
+      "source": "八正道"
+    },
+    {
+      "word": "四圣谛",
+      "meaning": "四种圣谛",
+      "chapter": 1,
+      "source": "四圣谛"
+    },
+    {
+      "word": "苦集灭道",
+      "meaning": "苦、集、灭、道",
+      "chapter": 1,
+      "source": "四圣谛"
+    },
+    {
+      "word": "六波罗蜜",
+      "meaning": "六种到达彼岸",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "布施",
+      "meaning": "给予",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "持戒",
+      "meaning": "持守戒律",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "忍辱",
+      "meaning": "忍耐屈辱",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "精进",
+      "meaning": "精勤上进",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "禅定",
+      "meaning": "禅修定心",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "智慧",
+      "meaning": "般若智慧",
+      "chapter": 1,
+      "source": "六波罗蜜"
+    },
+    {
+      "word": "阿耨多罗",
+      "meaning": "无上正等正觉",
+      "chapter": 1,
+      "source": "佛号"
+    },
+    {
+      "word": "三身",
+      "meaning": "法身、报身、化身",
+      "chapter": 1,
+      "source": "三身佛"
+    },
+    {
+      "word": "法身",
+      "meaning": "真理之身",
+      "chapter": 1,
+      "source": "三身佛"
+    },
+    {
+      "word": "报身",
+      "meaning": "功德之身",
+      "chapter": 1,
+      "source": "三身佛"
+    },
+    {
+      "word": "化身",
+      "meaning": "应化之身",
+      "chapter": 1,
+      "source": "三身佛"
+    },
+    {
+      "word": "天行健",
+      "meaning": "天道运行刚健",
+      "chapter": 1,
+      "source": "天行健"
+    },
+    {
+      "word": "君子自强",
+      "meaning": "君子自我奋发",
+      "chapter": 1,
+      "source": "君子以自强不息"
+    },
+    {
+      "word": "地势坤",
+      "meaning": "地势柔顺",
+      "chapter": 2,
+      "source": "地势坤"
+    },
+    {
+      "word": "君子厚德",
+      "meaning": "君子厚德载物",
+      "chapter": 2,
+      "source": "君子以厚德载物"
+    },
+    {
+      "word": "易",
+      "meaning": "变化",
+      "chapter": 1,
+      "source": "易"
+    },
+    {
+      "word": "不易",
+      "meaning": "不变的道理",
+      "chapter": 1,
+      "source": "不易"
+    },
+    {
+      "word": "变易",
+      "meaning": "变化的现象",
+      "chapter": 1,
+      "source": "变易"
+    },
+    {
+      "word": "简易",
+      "meaning": "简单易知",
+      "chapter": 1,
+      "source": "简易"
+    },
+    {
+      "word": "太极",
+      "meaning": "至高无上的本源",
+      "chapter": 1,
+      "source": "易有太极"
+    },
+    {
+      "word": "生两仪",
+      "meaning": "产生天地",
+      "chapter": 1,
+      "source": "是生两仪"
+    },
+    {
+      "word": "两仪生四象",
+      "meaning": "天地生四象",
+      "chapter": 1,
+      "source": "两仪生四象"
+    },
+    {
+      "word": "四象生八卦",
+      "meaning": "四象生八卦",
+      "chapter": 1,
+      "source": "四象生八卦"
+    },
+    {
+      "word": "乾坤",
+      "meaning": "天地",
+      "chapter": 1,
+      "source": "乾坤"
+    },
+    {
+      "word": "坎离",
+      "meaning": "水火",
+      "chapter": 1,
+      "source": "坎离"
+    },
+    {
+      "word": "巽震",
+      "meaning": "风雷",
+      "chapter": 1,
+      "source": "巽震"
+    },
+    {
+      "word": "艮兑",
+      "meaning": "山泽",
+      "chapter": 1,
+      "source": "艮兑"
+    },
+    {
+      "word": "元亨利贞",
+      "meaning": "始、通、利、正",
+      "chapter": 1,
+      "source": "元亨利贞"
+    },
+    {
+      "word": "潜龙勿用",
+      "meaning": "龙潜藏，不可用",
+      "chapter": 1,
+      "source": "潜龙勿用"
+    },
+    {
+      "word": "见龙在田",
+      "meaning": "龙在田野",
+      "chapter": 1,
+      "source": "见龙在田"
+    },
+    {
+      "word": "君子终日乾乾",
+      "meaning": "君子整日努力",
+      "chapter": 1,
+      "source": "君子终日乾乾"
+    },
+    {
+      "word": "夕惕若厉",
+      "meaning": "晚上警惕像有危险",
+      "chapter": 1,
+      "source": "夕惕若厉"
+    },
+    {
+      "word": "无咎",
+      "meaning": "没有过错",
+      "chapter": 1,
+      "source": "无咎"
+    },
+    {
+      "word": "或跃在渊",
+      "meaning": "或许跳在深渊",
+      "chapter": 1,
+      "source": "或跃在渊"
+    },
+    {
+      "word": "飞龙在天",
+      "meaning": "龙飞在天上",
+      "chapter": 1,
+      "source": "飞龙在天"
+    },
+    {
+      "word": "亢龙有悔",
+      "meaning": "龙过分高而有悔",
+      "chapter": 1,
+      "source": "亢龙有悔"
+    },
+    {
+      "word": "群龙无首",
+      "meaning": "群龙没有首领",
+      "chapter": 1,
+      "source": "群龙无首"
+    },
+    {
+      "word": "吉",
+      "meaning": "吉祥",
+      "chapter": 1,
+      "source": "吉"
+    },
+    {
+      "word": "凶",
+      "meaning": "凶险",
+      "chapter": 1,
+      "source": "凶"
+    },
+    {
+      "word": "悔",
+      "meaning": "后悔",
+      "chapter": 1,
+      "source": "悔"
+    },
+    {
+      "word": "吝",
+      "meaning": "困难",
+      "chapter": 1,
+      "source": "吝"
+    },
+    {
+      "word": "初九",
+      "meaning": "第一爻阳",
+      "chapter": 1,
+      "source": "初九"
+    },
+    {
+      "word": "九二",
+      "meaning": "第二爻阳",
+      "chapter": 1,
+      "source": "九二"
+    },
+    {
+      "word": "九三",
+      "meaning": "第三爻阳",
+      "chapter": 1,
+      "source": "九三"
+    },
+    {
+      "word": "九四",
+      "meaning": "第四爻阳",
+      "chapter": 1,
+      "source": "九四"
+    },
+    {
+      "word": "九五",
+      "meaning": "第五爻阳",
+      "chapter": 1,
+      "source": "九五"
+    },
+    {
+      "word": "上九",
+      "meaning": "第六爻阳",
+      "chapter": 1,
+      "source": "上九"
+    },
+    {
+      "word": "用九",
+      "meaning": "用阳爻",
+      "chapter": 1,
+      "source": "用九"
+    },
+    {
+      "word": "初六",
+      "meaning": "第一爻阴",
+      "chapter": 2,
+      "source": "初六"
+    },
+    {
+      "word": "六二",
+      "meaning": "第二爻阴",
+      "chapter": 2,
+      "source": "六二"
+    },
+    {
+      "word": "六三",
+      "meaning": "第三爻阴",
+      "chapter": 2,
+      "source": "六三"
+    },
+    {
+      "word": "六四",
+      "meaning": "第四爻阴",
+      "chapter": 2,
+      "source": "六四"
+    },
+    {
+      "word": "六五",
+      "meaning": "第五爻阴",
+      "chapter": 2,
+      "source": "六五"
+    },
+    {
+      "word": "上六",
+      "meaning": "第六爻阴",
+      "chapter": 2,
+      "source": "上六"
+    },
+    {
+      "word": "用六",
+      "meaning": "用阴爻",
+      "chapter": 2,
+      "source": "用六"
+    },
+    {
+      "word": "承乘",
+      "meaning": "承接或乘凌",
+      "chapter": 1,
+      "source": "承乘"
+    },
+    {
+      "word": "比应",
+      "meaning": "比附或应合",
+      "chapter": 1,
+      "source": "比应"
+    },
+    {
+      "word": "中正",
+      "meaning": "居中得正",
+      "chapter": 1,
+      "source": "中正"
+    },
+    {
+      "word": "当位",
+      "meaning": "位置得当",
+      "chapter": 1,
+      "source": "当位"
+    },
+    {
+      "word": "失位",
+      "meaning": "位置失当",
+      "chapter": 1,
+      "source": "失位"
+    },
+    {
+      "word": "心即理",
+      "meaning": "心就是天理",
+      "chapter": 1,
+      "source": "传习录"
+    },
+    {
+      "word": "致良知",
+      "meaning": "发挥良知",
+      "chapter": 1,
+      "source": "致良知"
+    },
+    {
+      "word": "知行合一",
+      "meaning": "知行统一",
+      "chapter": 1,
+      "source": "知行合一"
+    },
+    {
+      "word": "格物致知",
+      "meaning": "推究事物获得知识",
+      "chapter": 1,
+      "source": "格物致知"
+    },
+    {
+      "word": "诚意正心",
+      "meaning": "意念真诚心念端正",
+      "chapter": 1,
+      "source": "诚意正心"
+    },
+    {
+      "word": "修身齐家",
+      "meaning": "修养身心整顿家庭",
+      "chapter": 1,
+      "source": "修身齐家"
+    },
+    {
+      "word": "事上磨练",
+      "meaning": "在事上磨练",
+      "chapter": 1,
+      "source": "事上磨练"
+    },
+    {
+      "word": "良知",
+      "meaning": "本然之知",
+      "chapter": 1,
+      "source": "良知"
+    },
+    {
+      "word": "私欲",
+      "meaning": "私心欲望",
+      "chapter": 1,
+      "source": "私欲"
+    },
+    {
+      "word": "天理",
+      "meaning": "自然之理",
+      "chapter": 1,
+      "source": "天理"
+    },
+    {
+      "word": "去人欲",
+      "meaning": "去除私欲",
+      "chapter": 1,
+      "source": "去人欲"
+    },
+    {
+      "word": "存天理",
+      "meaning": "保存天理",
+      "chapter": 1,
+      "source": "存天理"
+    },
+    {
+      "word": "不动心",
+      "meaning": "心不动摇",
+      "chapter": 1,
+      "source": "不动心"
+    },
+    {
+      "word": "慎独",
+      "meaning": "独处时要谨慎",
+      "chapter": 1,
+      "source": "慎独"
+    },
+    {
+      "word": "省察",
+      "meaning": "反省检查",
+      "chapter": 1,
+      "source": "省察"
+    },
+    {
+      "word": "克治",
+      "meaning": "克制治理",
+      "chapter": 1,
+      "source": "克治"
+    },
+    {
+      "word": "知行并进",
+      "meaning": "知行并进",
+      "chapter": 1,
+      "source": "知行并进"
+    },
+    {
+      "word": "一念发动处",
+      "meaning": "一念发动的地方",
+      "chapter": 1,
+      "source": "一念发动处"
+    },
+    {
+      "word": "即知即行",
+      "meaning": "知道就是行动",
+      "chapter": 1,
+      "source": "即知即行"
+    },
+    {
+      "word": "知而不行",
+      "meaning": "知道但不做",
+      "chapter": 1,
+      "source": "知而不行"
+    },
+    {
+      "word": "行而不知",
+      "meaning": "做了但不知道",
+      "chapter": 1,
+      "source": "行而不知"
+    },
+    {
+      "word": "心之本体",
+      "meaning": "心的本体",
+      "chapter": 1,
+      "source": "心之本体"
+    },
+    {
+      "word": "性",
+      "meaning": "本性",
+      "chapter": 1,
+      "source": "性"
+    },
+    {
+      "word": "情",
+      "meaning": "情感",
+      "chapter": 1,
+      "source": "情"
+    },
+    {
+      "word": "情顺其正",
+      "meaning": "情感顺应正道",
+      "chapter": 1,
+      "source": "情顺其正"
+    },
+    {
+      "word": "性无所偏",
+      "meaning": "本性无所偏颇",
+      "chapter": 1,
+      "source": "性无所偏"
+    },
+    {
+      "word": "无所作",
+      "meaning": "无所造作",
+      "chapter": 1,
+      "source": "无所作"
+    },
+    {
+      "word": "良知之体",
+      "meaning": "良知的本体",
+      "chapter": 1,
+      "source": "良知之体"
+    },
+    {
+      "word": "良知之用",
+      "meaning": "良知的运用",
+      "chapter": 1,
+      "source": "良知之用"
+    },
+    {
+      "word": "戒慎恐惧",
+      "meaning": "戒慎恐惧",
+      "chapter": 1,
+      "source": "戒慎恐惧"
+    }
   ]
 }

@@ -16,6 +16,13 @@
     --shadow: 0 2px 8px rgba(44, 24, 16, 0.08);
 }
 
+/* 性能优化：字体回退策略 */
+@font-face {
+    font-family: 'System';
+    src: local('Microsoft YaHei'), local('PingFang SC'), local('SimHei'), local('Arial');
+    font-display: swap;
+}
+
 /* 暗黑模式变量 */
 [data-theme="dark"] {
     --bg-primary: #1a1a1a;
@@ -137,6 +144,28 @@ body {
     display: flex;
     flex-direction: column;
     transition: background-color 0.3s ease, color 0.3s ease;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 性能优化：为动画元素使用 will-change */
+.navbar-brand:hover {
+    will-change: transform;
+}
+
+.chapter-item:hover {
+    will-change: transform, background-color;
+}
+
+.sidebar {
+    will-change: transform;
+}
+
+/* 性能优化：对长内容使用 content-visibility */
+.chapter-content {
+    contain: layout style;
+    content-visibility: auto;
 }
 
 /* 导航栏样式 */

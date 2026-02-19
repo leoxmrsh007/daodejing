@@ -3,115 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第10章 - 道德经</title>
+    <title>第10章 - 道德经 - 道德经</title>
     <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
-    <script>
-    (function(){
-        var storageKey='daodejing_theme';
-        var saved=localStorage.getItem(storageKey);
-        var theme=saved;
-        if(!theme){
-            if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
-                theme='dark';
-            }else{
-                theme='light';
-            }
-        }
-        document.documentElement.setAttribute('data-theme',theme);
-    })();
-    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
     <style>
-/* 经典切换下拉菜单样式 */
-.classic-dropdown {
-    min-width: 280px;
-    max-height: 400px;
-    overflow-y: auto;
-    background: #2c3e50;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.classic-dropdown .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    color: #fff;
-}
-.classic-dropdown .dropdown-item:hover,
-.classic-dropdown .dropdown-item.active {
-    background: rgba(255,255,255,0.1);
-}
-.classic-icon {
-    width: 24px;
-    text-align: center;
-    margin-right: 8px;
-}
-.classic-name {
-    flex: 1;
-}
-.classic-info {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
-    margin-left: 8px;
-}
-/* 设置按钮与功能栏并置 */
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-.navbar-nav .btn {
-    white-space: nowrap;
-}
-
-/* 侧边栏目录滚动样式 */
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 70px);
-    padding: 1rem 0.5rem;
-}
-.sidebar-title {
-    flex-shrink: 0;
-    padding: 0 0.5rem 0.75rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color, #e0d5c9);
-    font-weight: 600;
-    color: var(--accent-color, #d4a574);
-}
-.chapter-list-scrollable {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar {
-    width: 4px;
-}
-.chapter-list-scrollable::-webkit-scrollbar-track {
-    background: transparent;
-}
-.chapter-list-scrollable::-webkit-scrollbar-thumb {
-    background: var(--accent-color, #d4a574);
-    border-radius: 2px;
-}
-.chapter-list-scrollable .nav-link {
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    margin-bottom: 2px;
-    transition: all 0.2s ease;
-}
-.chapter-list-scrollable .nav-link:hover {
-    background: rgba(212, 165, 116, 0.1);
-}
-.chapter-list-scrollable .nav-link.active {
-    background: var(--accent-color, #d4a574);
-    color: #fff;
-}
-
-
 
 .original-text {
     font-family: 'KaiTi', '楷体', serif;
@@ -209,8 +106,7 @@
     </style>
 </head>
 <body>
-    <!-- 顶部导航栏 - 悬浮置顶 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="z-index: 1040;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container-fluid">
             <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
                 <span class="navbar-toggler-icon"></span>
@@ -219,91 +115,8 @@
                 <span class="brand-icon">☯</span>
                 <span class="brand-text">道德经</span>
             </a>
-
-            <!-- 经典切换器 -->
-            
-    <!-- 经典切换器 - 下拉菜单 -->
-    <div class="classic-nav ms-2 me-auto">
-        <div class="dropdown">
-            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="me-1">☯</span>
-                <span class="d-none d-sm-inline">道德经</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark classic-dropdown">
-                <li><h6 class="dropdown-header">📚 选择经典</h6></li>
-                
-        <li>
-            <a class="dropdown-item active" href="../ddj/chapter10.html">
-                <span class="classic-icon">☯</span>
-                <span class="classic-name">道德经</span>
-                <span class="classic-info">81章 · 老子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zzj/chapter10.html">
-                <span class="classic-icon">🦋</span>
-                <span class="classic-name">庄子</span>
-                <span class="classic-info">33章 · 庄周</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../lztyj/chapter10.html">
-                <span class="classic-icon">🪷</span>
-                <span class="classic-name">六祖坛经</span>
-                <span class="classic-info">10章 · 慧能</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../cxl/index.html">
-                <span class="classic-icon">📖</span>
-                <span class="classic-name">传习录</span>
-                <span class="classic-info">3章 · 王阳明</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ss/index.html">
-                <span class="classic-icon">📚</span>
-                <span class="classic-name">四书</span>
-                <span class="classic-info">4章 · 朱熹</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../jgj/index.html">
-                <span class="classic-icon">📿</span>
-                <span class="classic-name">金刚经</span>
-                <span class="classic-info">1章 · 鸠摩罗什译</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../ws30/chapter10.html">
-                <span class="classic-icon">🧠</span>
-                <span class="classic-name">唯识三十颂</span>
-                <span class="classic-info">30章 · 世亲</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../zy/chapter10.html">
-                <span class="classic-icon">📊</span>
-                <span class="classic-name">周易</span>
-                <span class="classic-info">64章 · 周文王/孔子</span>
-            </a>
-        </li>
-        <li>
-            <a class="dropdown-item " href="../hdnj/chapter10.html">
-                <span class="classic-icon">⚕️</span>
-                <span class="classic-name">黄帝内经</span>
-                <span class="classic-info">81章 · 岐伯/黄帝</span>
-            </a>
-        </li>
-            </ul>
-        </div>
-    </div>
-    
-
-            <span class="navbar-text ms-2 d-none d-md-block">第10章</span>
-
-            <!-- 设置栏和功能栏并置 -->
-            <div class="ms-auto d-flex align-items-center gap-2 navbar-nav">
+            <span class="navbar-text ms-3 d-none d-md-block">第10章</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
                 <!-- 音乐控制 -->
                 <div class="music-controls d-flex align-items-center">
                     <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
@@ -390,11 +203,6 @@
                     </ul>
                 </div>
 
-                <!-- 设置按钮 -->
-                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="设置">
-                    <span>⚙️</span>
-                </button>
-
                 <!-- 暗黑模式切换 -->
                 <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
                     <span class="theme-icon">🌙</span>
@@ -407,8 +215,8 @@
         <div class="row">
             <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
                 <div class="sidebar-content">
-                    <h6 class="sidebar-title">📑 章节目录</h6>
-                    <div class="chapter-list-scrollable" id="chapterList">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
                         <nav class="nav flex-column">
 <a class="nav-link chapter-item " href="./chapter1.html">
     <span class="chapter-num">第1章</span>
@@ -674,7 +482,67 @@
             </div>
             <div class="card-body">
                 <div id="idiomsContainer">
-                    <span class="text-muted">本章暂无收录相关成语</span>
+                    <div class="idioms-container d-flex flex-wrap gap-2">
+            <span class="idiom-tag" title="形神合一&#10;原文：载营魄抱一">
+                <span class="idiom-word">载营魄抱一</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能不分离吗&#10;原文：能无离乎">
+                <span class="idiom-word">能无离乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="专守元气到柔顺&#10;原文：专气致柔">
+                <span class="idiom-word">专气致柔</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能像婴儿一样吗&#10;原文：能婴儿乎">
+                <span class="idiom-word">能婴儿乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="洗涤心中的玄妙之镜&#10;原文：涤除玄览">
+                <span class="idiom-word">涤除玄览</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能没有瑕疵吗&#10;原文：能无疵乎">
+                <span class="idiom-word">能无疵乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="爱护百姓治理国家&#10;原文：爱民治国">
+                <span class="idiom-word">爱民治国</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能无为而治吗&#10;原文：能无为乎">
+                <span class="idiom-word">能无为乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="感官的开启关闭&#10;原文：天门开阖">
+                <span class="idiom-word">天门开阖</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能如雌性一样柔静吗&#10;原文：能为雌乎">
+                <span class="idiom-word">能无雌乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="明白通达四方&#10;原文：明白四达">
+                <span class="idiom-word">明白四达</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="能没有心智机巧吗&#10;原文：能无知乎">
+                <span class="idiom-word">能无知乎</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="生养万物&#10;原文：生之畜之">
+                <span class="idiom-word">生之畜之</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="主导而不主宰&#10;原文：长而不宰">
+                <span class="idiom-word">长而不宰</span>
+                <span class="idiom-chapter">📖</span>
+            </span>
+            <span class="idiom-tag" title="这叫做玄妙的德行&#10;原文：是谓玄德">
+                <span class="idiom-word">是谓玄德</span>
+                <span class="idiom-chapter">📖</span>
+            </span></div>
                 </div>
             </div>
         </div>
@@ -707,6 +575,48 @@
         </div>
     </section>
 
+    <section class="versions-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">多版本对照</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="wangbi">
+                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
+                        <p class="note-text mb-0">载犹处也．营魄人之常居处也．一人之眞也．言人能处常居之宅．抱一清神能常无离乎．则万物自宾也．专任也．致极也．言任自然之气．致至柔之和．能若婴儿之无所欲乎．则物全而性得矣．玄物之极也．言能涤除邪饰．至于极览．能不以物介其明．疵之其神乎．则终与玄同也．任术以求成运数以求匿者智也．玄览无疵．治国无以智．犹弃智也．能无以智乎．则民不辟而国治也．天门谓天下之所由从也．开阖治乱之际也．或开或阖．经通于天下．故曰天门开阖也．雌应而不倡．因而不为．言天门开阖能为雌乎．则物自宾而处自安矣．言至明四达．无迷无惑．能无以为乎．则物化矣．所谓道常无为．侯王若能守．则万物将自化．不塞其源也．不塞其源．则物自生．何功之有．不禁其性．则物自济．何为之恃．物自长足．不吾宰成．有徳无主．非玄而何．凡言玄徳．皆有徳而不知其主．出乎幽冥.</p>
+                    </div>
+                    <div class="tab-pane fade" id="heshanggong">
+                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
+                        <p class="note-text mb-0">載營魄營魄，魂魄也。人載魂魄之上得以生，當愛養之。喜怒亡魂，卒驚傷魄。魂在肝，魄在肺，美酒甘肴，腐人肝肺，故魂靜志道不亂，魄安得壽延年也。抱一能無離。言人能抱一，使不離於身，則長存一者，道始所生，太和之精氣也。故曰，一布名於天下，天得一以清，地得一以寧，侯王得一以為正平，入為心，出為行，布施為德，統名為一。一之為言，志一無二也。○離，去聲。專氣致柔專，守精氣使不亂，則形體能應之而柔順。能孾兒。能如孾兒，內無思慮，外無政事，則精神不去也。滌除玄覽當洗其心，使潔靜也。心居玄冥之處，覽知萬事，故謂之玄覽也。○滌，音迪。能無疵，不淫邪也，淨能無疵病乎。愛民治國治身者，愛氣則身全，治國者，愛民則國安。能無知，治身者，呼吸精氣，無令耳聞也。治國者，布施惠德，無令下知也。天門開闔天門，謂北極紫微宮。開闔，謂終始五際也。治身，天門謂鼻孔，開謂喘息，闔謂呼吸也。○闔，音盍。能無雌，治身當如雌牝，安靜柔弱，治國應變，和而不唱。明白四達言達明白，如日月四通，滿於天下八極之外，故曰，視之不見，聽之不聞，彰布之於十方，煥煥煌煌也。能無知。無有能知道，滿於天下者。生之畜之。道生萬物而畜養之。生而不有，道生萬物，無所取有。為而不恃，道所施為，不恃望其報也。長而不宰，道長養萬物，不宰割以為器用。○長，上聲。是謂玄德。言道行德，玄冥不可得見，欲德人如道也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="wangfuzhi">
+                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
+                        <p class="note-text mb-0">載，則與所載者二，而離矣。專之，致之，則不嬰兒矣。有所滌，有所除，早有疵矣。愛而治之，斯有為矣。闔伏開啟，將失雌之半矣。明白在中，而達在四隅，則有知矣。此不常之道，倚以為名，而兩俱無猜，妙德之至也。</p>
+                    </div>
+                    <div class="tab-pane fade" id="hanshan">
+                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
+                        <p class="note-text mb-0">此章教人以造道之方，必至忘知絕跡，然後方契玄妙之德也。載，乘也。營，舊註為魂。楚辭云，魂識路之營營，蓋營營，猶言惺惺，擾動貌。然魂動而魄靜，人乘此魂魄而有思慮妄想之心者。故動則乘魂，營營而亂想。靜則乘魄，昧昧而昏沈。是皆不能抱一也。故楞嚴曰，精神魂魄，遞相離合，是也。今抱一者，謂魂魄兩載，使合而不離也。魂與魄合，則動而常靜，雖惺惺而不亂想。魄與魂合，則靜而常動，雖寂寂而不昏沈。道若如此，常常抱一而不離，則動靜不異，寤寐一如。老子審問學者做工夫能如此。乎者，責問之辭。專氣致柔。專，如專城之專。謂制也。然人賴氣而有生。以妄有緣氣，於中積聚，假名為心。氣隨心行，故心妄動則氣益剛。氣剛而心益動。所謂氣壹則動志。學道工夫，先制其氣不使妄動以薰心，制其心不使妄動以鼓氣，心靜而氣自調柔。工夫到此，則怒出於不怒矣。如嬰兒號而不嗄也。故老子審問其人之工夫能如此乎。滌除玄覽。玄覽者，謂前抱一專氣工夫，做到純熟，自得玄妙之境也。若將此境覽在胸中，執之而不化，則返為至道之病。只須將此亦須洗滌，淨盡無餘，以至於忘心絕跡，方為造道之極。老子審問能如此乎。此三句，乃入道工夫，得道之體也。老子意謂道體雖是精明，不知用上何如，若在用上無跡，方為道妙。故向下審問其用。然愛民治國，乃道之緒餘也。所謂道之真以治身，其緒餘土苴以為天下國家。故聖人有天下而不與。愛民治國，可無為而治。老子審問能無為乎。若不能無為，還是不能忘跡，雖妙而不妙也。天門，指天機而言。開闔，猶言出入應用之意。雌，物之陰者。蓋陽施而陰受，乃留藏之意。蓋門有虛通出入之意。而人心之虛靈，所以應事接物，莫不由此天機發動。蓋常人應物，由心不虛，凡事有所留藏，故心日茆塞。莊子謂室無空虛，則婦姑勃蹊。心無天遊，則六鑿相攘。此言心不虛也。然聖人用心如鏡，不將不迎，來無所粘，去無蹤跡。所謂應而不藏。此所謂天門開闔而無雌也。老子審問做工夫者能如此乎。明白四達，謂智無不燭也。然常人有智，則用智於外，衒耀見聞。聖人智包天地，而不自有其知。謂含光內照。故曰明白四達而無知。老子問人能如此乎。然而學道工夫做到如此，體用兩全，形神俱妙，可謂造道之極。其德至妙，可以合乎天地之德矣。且天地之德，生之畜之。雖生而不有，雖為而不恃，雖長而不宰，聖人之德如此，可謂玄妙之德矣。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -714,20 +624,18 @@
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#en-lau" type="button">D.C. Lau</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">D.C. Lau</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link " data-bs-toggle="pill" data-bs-target="#en-henricks" type="button">Robert G. Henricks</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
                     </li>
                 </ul>
                 <div class="tab-content p-3">
-
-                    <div class="tab-pane fade show active" id="en-lau">
+                    <div class="tab-pane fade show active" id="lau">
                         <p class="english-text mb-0 fst-italic">Can you keep the body and the soul together without separating them? Can you concentrate your breath and make it soft like an infant?</p>
                     </div>
-                    <div class="tab-pane fade" id="en-henricks">
+                    <div class="tab-pane fade" id="henricks">
                         <p class="english-text mb-0 fst-italic">Can you keep the body and the soul together without separating them? Can you concentrate your breath and make it soft like an infant?</p>
                     </div>
                 </div>
@@ -759,7 +667,7 @@
 
     <!-- 背景音乐 -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+        <source src="./assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
     </audio>
 
     <!-- 音乐音量控制面板 -->
@@ -822,7 +730,7 @@
         <div class="ai-messages" id="aiMessages">
             <div class="ai-welcome">
                 <div class="ai-welcome-icon">🤖</div>
-                <h6>AI助手</h6>
+                <h6>道德经AI助手</h6>
                 <p>您可以：</p>
                 <ul>
                     <li>点击下方快捷问题开始</li>
@@ -988,19 +896,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/modules/theme.js"></script>
-    <script src="/assets/js/modules/sidebar.js"></script>
-    <script src="/assets/js/modules/music.js"></script>
-    <script src="/assets/js/modules/shortcuts.js"></script>
-    <script src="/assets/js/modules/pwa.js"></script>
-    <script src="/assets/js/modules/local-search.js"></script>
-    <script src="/assets/js/modules/notes.js"></script>
-    <script src="/assets/js/modules/quote-card.js"></script>
-    <script src="/assets/js/modules/knowledge-graph.js"></script>
-    <script src="/assets/js/modules/commentary-chat.js"></script>
-    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
-    <script src="/assets/js/modules/settings.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/modules/sidebar.js"></script>
+    <script src="./assets/js/modules/music.js"></script>
+    <script src="./assets/js/modules/shortcuts.js"></script>
+    <script src="./assets/js/modules/pwa.js"></script>
+    <script src="./assets/js/modules/local-search.js"></script>
+    <script src="./assets/js/modules/notes.js"></script>
+    <script src="./assets/js/modules/quote-card.js"></script>
+    <script src="./assets/js/modules/knowledge-graph.js"></script>
+    <script src="./assets/js/modules/commentary-chat.js"></script>
+    <script src="./assets/js/modules/philosophy-dialogue.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script>
 
 // 复制原文

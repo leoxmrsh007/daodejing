@@ -204,65 +204,25 @@
       "commentators": [
         {
           "id": "huineng",
-          "name": "慧能",
-          "era": "唐代"
+          "name": "六祖慧能",
+          "era": "唐"
         },
         {
           "id": "fahai",
           "name": "法海",
-          "era": "唐代"
-        },
-        {
-          "id": "dumoulin",
-          "name": "宗密注",
-          "era": "唐代"
-        },
-        {
-          "id": "yampolsky",
-          "name": "虚云",
-          "era": "唐代"
+          "era": "唐"
         }
       ],
       "translators": [
         {
-          "id": "suzuki",
-          "name": "D.T. Suzuki",
-          "lang": "zh"
-        },
-        {
-          "id": "yampolsky",
-          "name": "Philip Yampolsky",
-          "lang": "en"
-        },
-        {
-          "id": "pine",
-          "name": "John Pine",
-          "lang": "en"
+          "id": "redpine",
+          "name": "Bill Porter (Red Pine)",
+          "era": "现代"
         },
         {
           "id": "mcleod",
-          "name": "Thomas Cleary",
-          "lang": "en"
-        },
-        {
-          "id": "redpine",
-          "name": "Bill Porter",
-          "lang": "en"
-        },
-        {
-          "id": "davis",
-          "name": "A.J. Davis",
-          "lang": "en"
-        },
-        {
-          "id": "conze",
-          "name": "Edward Conze",
-          "lang": "en"
-        },
-        {
-          "id": "watts",
-          "name": "Alan Watts",
-          "lang": "en"
+          "name": "John McLeod",
+          "era": "现代"
         }
       ]
     },
@@ -279,36 +239,26 @@
       "description": "心学重要著作，阐述知行合一、致良知等哲学思想",
       "commentators": [
         {
-          "id": "chens_xu",
-          "name": "陈献章注",
+          "id": "wangyangming",
+          "name": "王阳明",
           "era": "明"
         },
         {
-          "id": "zhu_xi",
-          "name": "朱熹注",
-          "era": "明"
-        },
-        {
-          "id": "wang_yangming",
-          "name": "王阳明注",
-          "era": "明"
+          "id": "wuxiang",
+          "name": "吴湘",
+          "era": "现代"
         }
       ],
       "translators": [
         {
-          "id": "henkes",
-          "name": "David Hinkes",
-          "lang": "en"
+          "id": "henriques",
+          "name": "Peter D. Hershock",
+          "era": "现代"
         },
         {
-          "id": "wingtsit",
-          "name": "Wing-tsit Chan",
-          "lang": "en"
-        },
-        {
-          "id": "cleary",
-          "name": "Thomas Cleary",
-          "lang": "en"
+          "id": "sun",
+          "name": "孙伊中",
+          "era": "现代"
         }
       ]
     },
@@ -339,31 +289,31 @@
       "description": "大乘佛教般若部经典，阐述空性、无我、无相的甚深智慧",
       "commentators": [
         {
-          "id": "dipamkara",
-          "name": "世亲",
-          "era": "印度"
+          "id": "xuanzang",
+          "name": "玄奘",
+          "era": "唐"
         },
         {
-          "id": "asanga",
-          "name": "无著",
-          "era": "印度"
+          "id": "kumarajiva",
+          "name": "鸠摩罗什",
+          "era": "后秦"
+        },
+        {
+          "id": "yinqi",
+          "name": "印顺",
+          "era": "现代"
         }
       ],
       "translators": [
         {
-          "id": "mueller",
-          "name": "Max Mueller",
-          "lang": "en"
-        },
-        {
-          "id": "conze",
-          "name": "Edward Conze",
-          "lang": "en"
-        },
-        {
           "id": "redpine",
-          "name": "Bill Porter",
-          "lang": "en"
+          "name": "Bill Porter (Red Pine)",
+          "era": "现代"
+        },
+        {
+          "id": "muller",
+          "name": "Charles Muller",
+          "era": "现代"
         }
       ]
     },
@@ -381,13 +331,18 @@
       "commentators": [
         {
           "id": "xuanzang",
-          "name": "玄奘注",
+          "name": "玄奘",
           "era": "唐"
         },
         {
-          "id": "dharmapala",
-          "name": "法称",
-          "era": "印度"
+          "id": "dharmalaksana",
+          "name": "法相唯识",
+          "era": "现代"
+        },
+        {
+          "id": "wuxiang",
+          "name": "无相",
+          "era": "现代"
         }
       ],
       "translators": [
@@ -416,8 +371,8 @@
       "description": "群经之首，以阴阳变易为核心思想体系，阐述天人合一之道",
       "commentators": [
         {
-          "id": "kongyingda",
-          "name": "孔颖达",
+          "id": "wangbi",
+          "name": "王弼注",
           "era": "三国魏"
         },
         {
@@ -426,7 +381,7 @@
           "era": "北宋"
         },
         {
-          "id": "zhu",
+          "id": "zhuxi",
           "name": "朱熹",
           "era": "南宋"
         }

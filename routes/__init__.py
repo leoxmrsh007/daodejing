@@ -8,10 +8,11 @@ from typing import List
 from flask import Blueprint, Flask
 
 from routes.api_routes import bp as api_bp
+from routes.monitoring_routes import bp as monitoring_bp
 from routes.page_routes import bp as page_bp
 
 # 蓝图列表
-blueprints: List[Blueprint] = [page_bp, api_bp]
+blueprints: List[Blueprint] = [page_bp, api_bp, monitoring_bp]
 
 
 def register_blueprints(app: Flask) -> None:
