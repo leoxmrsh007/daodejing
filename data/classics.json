@@ -11,91 +11,68 @@
       "icon": "☯",
       "color": "#d4a574",
       "description": "道家哲学奠基之作，五千余言阐述宇宙本源与人生智慧",
-      "commentators": [
-        {
-          "id": "wangbi",
-          "name": "王弼注",
-          "era": "三国魏"
-        },
-        {
-          "id": "heshanggong",
-          "name": "河上公注",
-          "era": "西汉"
-        },
-        {
-          "id": "wangfuzhi",
-          "name": "王夫之",
-          "era": "明末清初"
-        },
-        {
-          "id": "hanshandeqing",
-          "name": "憨山德清注",
-          "era": "明末"
-        },
-        {
-          "id": "suzhe",
-          "name": "苏辙注",
-          "era": "北宋"
-        },
-        {
-          "id": "lihanxu",
-          "name": "李涵虚注",
-          "era": "清"
-        },
-        {
-          "id": "huangyuanji",
-          "name": "黄元吉注",
-          "era": "清"
-        },
-        {
-          "id": "weiyuan",
-          "name": "魏源注",
-          "era": "清"
-        },
-        {
-          "id": "xianger",
-          "name": "想尔注",
-          "era": "东汉"
-        },
-        {
-          "id": "yanzun",
-          "name": "严遵注",
-          "era": "西汉"
-        },
-        {
-          "id": "wanganshi",
-          "name": "王安石注",
-          "era": "北宋"
-        }
-      ],
-      "translators": [
-        {
-          "id": "lau",
-          "name": "D.C. Lau",
-          "full_name": "D.C. Lau (刘殿爵)",
-          "era": "1963",
-          "description": "Penguin Classics edition, renowned for clarity"
-        },
-        {
-          "id": "henricks",
-          "name": "Robert G. Henricks",
-          "full_name": "Robert G. Henricks",
-          "era": "1989",
-          "description": "Mawangdui silk text edition, scholarly accuracy"
-        }
-      ],
-      "variants": [
-        {
-          "id": "postsilk",
-          "name": "马王堆帛书",
-          "era": "西汉"
-        },
-        {
-          "id": "guodian",
-          "name": "郭店楚简",
-          "era": "战国中期"
-        }
-      ]
+          "commentators": [
+            {
+              "id": "wangbi",
+              "name": "王弼注",
+              "era": "三国魏"
+            },
+            {
+              "id": "heshanggong",
+              "name": "河上公注",
+              "era": "西汉"
+            },
+            {
+              "id": "wangfuzhi",
+              "name": "王夫之",
+              "era": "明末清初"
+            },
+            {
+              "id": "hanshandeqing",
+              "name": "憨山德清注",
+              "era": "明末"
+            },
+            {
+              "id": "suzhe",
+              "name": "苏辙注",
+              "era": "北宋"
+            },
+            {
+              "id": "lihanxu",
+              "name": "李涵虚注",
+              "era": "清"
+            },
+            {
+              "id": "huangyuanji",
+              "name": "黄元吉注",
+              "era": "清"
+            },
+            {
+              "id": "weiyuan",
+              "name": "魏源注",
+              "era": "清"
+            },
+            {
+              "id": "yanzun",
+              "name": "严遵注",
+              "era": "西汉"
+            },
+            {
+              "id": "wanganshi",
+              "name": "王安石注",
+              "era": "北宋"
+            },
+            {
+              "id": "wangbi_laozi",
+              "name": "王弼老子注",
+              "era": "明"
+            },
+            {
+              "id": "sanskrit",
+              "name": "梵文翻译",
+              "era": "现代"
+            }
+          ]
     },
     {
       "id": "zzj",
@@ -400,34 +377,72 @@
       ]
     },
     {
-      "id": "hdnj",
-      "name": "黄帝内经",
-      "short_name": "黄帝内经",
-      "author": "岐伯/黄帝",
-      "era": "战国/秦汉",
-      "chapters": 81,
-      "data_file": "data/hdnj/chapters.json",
-      "icon": "⚕️",
-      "color": "#dc2626",
-      "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
-      "commentators": [
-        {
-          "id": "wangbinghe",
-          "name": "王冰注",
-          "era": "唐"
+        "id": "hdnj",
+          "name": "黄帝内经",
+          "short_name": "黄帝内经",
+          "author": "岐伯/黄帝",
+          "era": "战国/秦汉",
+          "chapters": 81,
+          "data_file": "data/hdnj/chapters.json",
+          "icon": "⚕️",
+          "color": "#dc2626",
+          "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
+          "commentators": [
+            {
+              "id": "wangbinghe",
+              "name": "王冰注",
+              "era": "唐"
+            },
+            {
+              "id": "zhangzhongjing",
+              "name": "张仲景注",
+              "era": "东汉"
+            },
+            {
+              "id": "lizhongji",
+              "name": "李时珍注",
+              "era": "明"
+            }
+          ],
+        "translators": [
+            {
+              "id": "sanskrit",
+              "name": "梵文翻译",
+              "era": "现代",
+              "lang": "en"
+            },
+            {
+              "id": "unschuld",
+              "name": "Paul Unschuld",
+              "lang": "en"
+            },
+            {
+              "id": "ni",
+              "name": "Maoshing Ni",
+              "lang": "en"
+            }
+          ],
+          "default_classic": "ddj"
         },
-        {
-          "id": "zhangzhongjing",
-          "name": "张仲景注",
-          "era": "东汉"
+            {
+              "id": "sanskrit",
+              "name": "梵文翻译",
+              "era": "现代",
+              "lang": "en"
+            },
+            {
+              "id": "unschuld",
+              "name": "Paul Unschuld",
+              "lang": "en"
+            },
+            {
+              "id": "ni",
+              "name": "Maoshing Ni",
+              "lang": "en"
+            }
+          ],
+          "default_classic": "ddj"
         },
-        {
-          "id": "lizhongji",
-          "name": "李时珍注",
-          "era": "明"
-        }
-      ],
-      "translators": [
         {
           "id": "unschuld",
           "name": "Paul Unschuld",
