@@ -800,7 +800,7 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
     )
 
     # 使用服务层的标注函数
-    original_annotated = annotate_difficult_chars(chapter.get("original", ""))
+    # original_annotated = annotate_difficult_chars(chapter.get("original", ""))
 
     chapter_list = generate_chapter_list_html(data["chapters"], classic_id, chapter_id)
 
