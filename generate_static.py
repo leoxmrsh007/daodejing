@@ -10,7 +10,6 @@ import shutil
 
 # 从服务层导入共享逻辑
 from config import BASE_DIR, DATA_DIR
-from services.annotation_service import annotate_difficult_chars
 from services.classic_service import load_classics_metadata
 
 # 静态生成器专用配置
@@ -743,7 +742,6 @@ def generate_all_chapters_page(data, classic_meta):
     classic_id = classic_meta["id"]
     short_name = classic_meta["short_name"]
     icon = classic_meta.get("icon", "☯")
-    color = classic_meta.get("color", "#d4a574")
     chapter_unit = "篇" if classic_id == "zzj" else "章"
     total_chapters = classic_meta.get("chapters", len(data["chapters"]))
 
@@ -861,7 +859,7 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
             </div>
             <div class="card-body">
                 <div class="original-text" id="originalText">
-                    {original_annotated}
+                    {chapter.get("original", "")}
                 </div>
             </div>
         </div>
@@ -1106,7 +1104,7 @@ def generate_site():
 
     print("\n[6/6] 完成！")
     print("\n" + "=" * 50)
-    print(f"✓ 静态网站生成完成！")
+    print("✓ 静态网站生成完成！")
     print(f"  输出目录: {OUTPUT_DIR}")
     print(f"  总文件数: {total_html_files} 个HTML文件")
     print(f"  包含经典: {', '.join([c['short_name'] for c in classics])}")

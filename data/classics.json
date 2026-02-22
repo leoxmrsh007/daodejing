@@ -11,68 +11,75 @@
       "icon": "☯",
       "color": "#d4a574",
       "description": "道家哲学奠基之作，五千余言阐述宇宙本源与人生智慧",
-          "commentators": [
-            {
-              "id": "wangbi",
-              "name": "王弼注",
-              "era": "三国魏"
-            },
-            {
-              "id": "heshanggong",
-              "name": "河上公注",
-              "era": "西汉"
-            },
-            {
-              "id": "wangfuzhi",
-              "name": "王夫之",
-              "era": "明末清初"
-            },
-            {
-              "id": "hanshandeqing",
-              "name": "憨山德清注",
-              "era": "明末"
-            },
-            {
-              "id": "suzhe",
-              "name": "苏辙注",
-              "era": "北宋"
-            },
-            {
-              "id": "lihanxu",
-              "name": "李涵虚注",
-              "era": "清"
-            },
-            {
-              "id": "huangyuanji",
-              "name": "黄元吉注",
-              "era": "清"
-            },
-            {
-              "id": "weiyuan",
-              "name": "魏源注",
-              "era": "清"
-            },
-            {
-              "id": "yanzun",
-              "name": "严遵注",
-              "era": "西汉"
-            },
-            {
-              "id": "wanganshi",
-              "name": "王安石注",
-              "era": "北宋"
-            },
-            {
-              "id": "wangbi_laozi",
-              "name": "王弼老子注",
-              "era": "明"
-            },
-            {
-              "id": "sanskrit",
-              "name": "梵文翻译",
-              "era": "现代"
-            }
-          ]
+      "commentators": [
+        {
+          "id": "wangbi",
+          "name": "王弼注",
+          "era": "三国魏"
+        },
+        {
+          "id": "heshanggong",
+          "name": "河上公注",
+          "era": "西汉"
+        },
+        {
+          "id": "wangfuzhi",
+          "name": "王夫之",
+          "era": "明末清初"
+        },
+        {
+          "id": "hanshandeqing",
+          "name": "憨山德清注",
+          "era": "明末"
+        },
+        {
+          "id": "suzhe",
+          "name": "苏辙注",
+          "era": "北宋"
+        },
+        {
+          "id": "lihanxu",
+          "name": "李涵虚注",
+          "era": "清"
+        },
+        {
+          "id": "huangyuanji",
+          "name": "黄元吉注",
+          "era": "清"
+        },
+        {
+          "id": "weiyuan",
+          "name": "魏源注",
+          "era": "清"
+        },
+        {
+          "id": "yanzun",
+          "name": "严遵注",
+          "era": "西汉"
+        },
+        {
+          "id": "wanganshi",
+          "name": "王安石注",
+          "era": "北宋"
+        }
+      ],
+      "translators": [
+        {
+          "id": "lau",
+          "name": "D.C. Lau",
+          "lang": "en"
+        },
+        {
+          "id": "henricks",
+          "name": "Robert Henricks",
+          "lang": "en"
+        },
+        {
+          "id": "addiss",
+          "name": "Addiss & Lombardo",
+          "lang": "en"
+        }
+      ]
     },
     {
       "id": "zzj",
@@ -102,24 +109,9 @@
           "era": "明末清初"
         },
         {
-          "id": "linxiyi_note",
+          "id": "linxiaoyun",
           "name": "林希逸注",
-          "era": "东晋"
-        },
-        {
-          "id": "simabiao_note",
-          "name": "司马彪注",
-          "era": "东晋"
-        },
-        {
-          "id": "zhangzhan_note",
-          "name": "张湛注",
-          "era": "东晋"
-        },
-        {
-          "id": "ludeming_note",
-          "name": "陆德明注",
-          "era": "东晋"
+          "era": "宋"
         }
       ],
       "translators": [
@@ -129,208 +121,8 @@
           "lang": "en"
         },
         {
-          "id": "ziporyn",
-          "name": "Brook Ziporyn",
-          "lang": "en"
-        },
-        {
-          "id": "feng",
-          "name": "冯友兰译",
-          "lang": "en"
-        },
-        {
-          "id": "culver",
-          "name": "冯承钧译",
-          "lang": "en"
-        },
-        {
-          "id": "mair",
-          "name": "Victor Mair译",
-          "lang": "en"
-        },
-        {
           "id": "graham",
-          "name": "A.C. Graham译",
-          "lang": "en"
-        }
-      ],
-      "variants": [
-        {
-          "id": "guodian",
-          "name": "郭店楚简",
-          "era": "战国中期"
-        },
-        {
-          "id": "postsilk",
-          "name": "马王堆帛书",
-          "era": "西汉"
-        }
-      ]
-    },
-    {
-      "id": "lztyj",
-      "name": "六祖坛经",
-      "short_name": "六祖坛经",
-      "author": "慧能",
-      "era": "唐代",
-      "chapters": 10,
-      "data_file": "data/lztyj/chapters.json",
-      "icon": "🪷",
-      "color": "#8b5a2b",
-      "description": "禅宗根本经典，记录慧能大师说法开示，直指人心明心见性",
-      "commentators": [
-        {
-          "id": "huineng",
-          "name": "六祖慧能",
-          "era": "唐"
-        },
-        {
-          "id": "fahai",
-          "name": "法海",
-          "era": "唐"
-        }
-      ],
-      "translators": [
-        {
-          "id": "redpine",
-          "name": "Bill Porter (Red Pine)",
-          "era": "现代"
-        },
-        {
-          "id": "mcleod",
-          "name": "John McLeod",
-          "era": "现代"
-        }
-      ]
-    },
-    {
-      "id": "cxl",
-      "name": "传习录",
-      "short_name": "传习录",
-      "author": "王阳明",
-      "era": "明代",
-      "chapters": 3,
-      "data_file": "data/cxl/chapters.json",
-      "icon": "📖",
-      "color": "#06b6d4",
-      "description": "心学重要著作，阐述知行合一、致良知等哲学思想",
-      "commentators": [
-        {
-          "id": "wangyangming",
-          "name": "王阳明",
-          "era": "明"
-        },
-        {
-          "id": "wuxiang",
-          "name": "吴湘",
-          "era": "现代"
-        }
-      ],
-      "translators": [
-        {
-          "id": "henriques",
-          "name": "Peter D. Hershock",
-          "era": "现代"
-        },
-        {
-          "id": "sun",
-          "name": "孙伊中",
-          "era": "现代"
-        }
-      ]
-    },
-    {
-      "id": "ss",
-      "name": "四书",
-      "short_name": "四书",
-      "author": "朱熹",
-      "era": "南宋",
-      "chapters": 4,
-      "data_file": "data/ss/chapters.json",
-      "icon": "📚",
-      "color": "#6c5ce7",
-      "description": "儒家核心经典，大学、中庸、论语、孟子，阐述修身齐家治国之道",
-      "commentators": [],
-      "translators": []
-    },
-    {
-      "id": "jgj",
-      "name": "金刚经",
-      "short_name": "金刚经",
-      "author": "鸠摩罗什译",
-      "era": "后秦",
-      "chapters": 1,
-      "data_file": "data/jgj/chapters.json",
-      "icon": "📿",
-      "color": "#e0a0a0",
-      "description": "大乘佛教般若部经典，阐述空性、无我、无相的甚深智慧",
-      "commentators": [
-        {
-          "id": "xuanzang",
-          "name": "玄奘",
-          "era": "唐"
-        },
-        {
-          "id": "kumarajiva",
-          "name": "鸠摩罗什",
-          "era": "后秦"
-        },
-        {
-          "id": "yinqi",
-          "name": "印顺",
-          "era": "现代"
-        }
-      ],
-      "translators": [
-        {
-          "id": "redpine",
-          "name": "Bill Porter (Red Pine)",
-          "era": "现代"
-        },
-        {
-          "id": "muller",
-          "name": "Charles Muller",
-          "era": "现代"
-        }
-      ]
-    },
-    {
-      "id": "ws30",
-      "name": "唯识三十颂",
-      "short_name": "唯识三十颂",
-      "author": "世亲",
-      "era": "印度",
-      "chapters": 30,
-      "data_file": "data/ws30/chapters.json",
-      "icon": "🧠",
-      "color": "#9c59b6",
-      "description": "瑜伽行派唯识学纲要，简述唯识三性说",
-      "commentators": [
-        {
-          "id": "xuanzang",
-          "name": "玄奘",
-          "era": "唐"
-        },
-        {
-          "id": "dharmalaksana",
-          "name": "法相唯识",
-          "era": "现代"
-        },
-        {
-          "id": "wuxiang",
-          "name": "无相",
-          "era": "现代"
-        }
-      ],
-      "translators": [
-        {
-          "id": "poussin",
-          "name": "Theodore Poussin",
-          "lang": "en"
-        },
-        {
-          "id": "wood",
-          "name": "Thomas A. Wood",
+          "name": "A.C. Graham",
           "lang": "en"
         }
       ]
@@ -340,12 +132,12 @@
       "name": "周易",
       "short_name": "周易",
       "author": "周文王/孔子",
-      "era": "西周/春秋",
+      "era": "西周/战国",
       "chapters": 64,
       "data_file": "data/zy/chapters.json",
-      "icon": "📊",
-      "color": "#8b4513",
-      "description": "群经之首，以阴阳变易为核心思想体系，阐述天人合一之道",
+      "icon": "☯",
+      "color": "#8b5cf6",
+      "description": "群经之首，三易之一，阐述天地万物变化之道",
       "commentators": [
         {
           "id": "wangbi",
@@ -361,6 +153,11 @@
           "id": "zhuxi",
           "name": "朱熹",
           "era": "南宋"
+        },
+        {
+          "id": "zhougong",
+          "name": "周公注",
+          "era": "西周"
         }
       ],
       "translators": [
@@ -377,72 +174,34 @@
       ]
     },
     {
-        "id": "hdnj",
-          "name": "黄帝内经",
-          "short_name": "黄帝内经",
-          "author": "岐伯/黄帝",
-          "era": "战国/秦汉",
-          "chapters": 81,
-          "data_file": "data/hdnj/chapters.json",
-          "icon": "⚕️",
-          "color": "#dc2626",
-          "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
-          "commentators": [
-            {
-              "id": "wangbinghe",
-              "name": "王冰注",
-              "era": "唐"
-            },
-            {
-              "id": "zhangzhongjing",
-              "name": "张仲景注",
-              "era": "东汉"
-            },
-            {
-              "id": "lizhongji",
-              "name": "李时珍注",
-              "era": "明"
-            }
-          ],
-        "translators": [
-            {
-              "id": "sanskrit",
-              "name": "梵文翻译",
-              "era": "现代",
-              "lang": "en"
-            },
-            {
-              "id": "unschuld",
-              "name": "Paul Unschuld",
-              "lang": "en"
-            },
-            {
-              "id": "ni",
-              "name": "Maoshing Ni",
-              "lang": "en"
-            }
-          ],
-          "default_classic": "ddj"
+      "id": "hdnj",
+      "name": "黄帝内经",
+      "short_name": "黄帝内经",
+      "author": "岐伯/黄帝",
+      "era": "战国/秦汉",
+      "chapters": 81,
+      "data_file": "data/hdnj/chapters.json",
+      "icon": "⚕️",
+      "color": "#dc2626",
+      "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
+      "commentators": [
+        {
+          "id": "wangbinghe",
+          "name": "王冰注",
+          "era": "唐"
         },
-            {
-              "id": "sanskrit",
-              "name": "梵文翻译",
-              "era": "现代",
-              "lang": "en"
-            },
-            {
-              "id": "unschuld",
-              "name": "Paul Unschuld",
-              "lang": "en"
-            },
-            {
-              "id": "ni",
-              "name": "Maoshing Ni",
-              "lang": "en"
-            }
-          ],
-          "default_classic": "ddj"
+        {
+          "id": "zhangzhongjing",
+          "name": "张仲景注",
+          "era": "东汉"
         },
+        {
+          "id": "lizhongji",
+          "name": "李时珍注",
+          "era": "明"
+        }
+      ],
+      "translators": [
         {
           "id": "unschuld",
           "name": "Paul Unschuld",
@@ -451,6 +210,176 @@
         {
           "id": "ni",
           "name": "Maoshing Ni",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "jgj",
+      "name": "金刚经",
+      "short_name": "金刚经",
+      "author": "释迦牟尼/鸠摩罗什译",
+      "era": "公元前/后秦",
+      "chapters": 1,
+      "data_file": "data/jgj/chapters.json",
+      "icon": "🙏",
+      "color": "#f59e0b",
+      "description": "佛教经典，阐述诸法空相、般若智慧",
+      "commentators": [
+        {
+          "id": "kumrajiva",
+          "name": "鸠摩罗什注",
+          "era": "后秦"
+        },
+        {
+          "id": "huayan",
+          "name": "华严宗注",
+          "era": "唐"
+        },
+        {
+          "id": "chan",
+          "name": "禅宗注",
+          "era": "宋"
+        }
+      ],
+      "translators": [
+        {
+          "id": "thich",
+          "name": "Thich Nhat Hanh",
+          "lang": "en"
+        },
+        {
+          "id": "watson",
+          "name": "Burton Watson",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "ss",
+      "name": "四书",
+      "short_name": "四书",
+      "author": "孔子/孟子/子思/朱熹",
+      "era": "春秋至南宋",
+      "chapters": 4,
+      "data_file": "data/ss/chapters.json",
+      "icon": "📖",
+      "color": "#2563eb",
+      "description": "大学、中庸、论语、孟子，儒家核心经典",
+      "commentators": [
+        {
+          "id": "zhuxi",
+          "name": "朱熹注",
+          "era": "南宋"
+        },
+        {
+          "id": "wangyangming",
+          "name": "王阳明注",
+          "era": "明"
+        }
+      ],
+      "translators": [
+        {
+          "id": "legge",
+          "name": "James Legge",
+          "lang": "en"
+        },
+        {
+          "id": "waley",
+          "name": "Arthur Waley",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "cxl",
+      "name": "传习录",
+      "short_name": "传习录",
+      "author": "王阳明",
+      "era": "明代",
+      "chapters": 3,
+      "data_file": "data/cxl/chapters.json",
+      "icon": "✍",
+      "color": "#7c3aed",
+      "description": "阳明心学核心著作，记录王阳明与弟子问答",
+      "commentators": [
+        {
+          "id": "wangyangming",
+          "name": "王阳明自注",
+          "era": "明"
+        },
+        {
+          "id": "zhangjue",
+          "name": "张居正注",
+          "era": "明"
+        }
+      ],
+      "translators": [
+        {
+          "id": "wang",
+          "name": "Wang Robin",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "liuzutan",
+      "name": "六祖坛经",
+      "short_name": "六祖坛经",
+      "author": "慧能",
+      "era": "唐代",
+      "chapters": 10,
+      "data_file": "data/liuzutan/chapters.json",
+      "icon": "🧘",
+      "color": "#f97316",
+      "description": "禅宗六祖慧能说法记录，中国化佛教经典",
+      "commentators": [
+        {
+          "id": "zongbao",
+          "name": "宗宝注",
+          "era": "元"
+        },
+        {
+          "id": "daolian",
+          "name": "道联注",
+          "era": "明"
+        }
+      ],
+      "translators": [
+        {
+          "id": "yamp",
+          "name": "Yampolsky",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "ws30",
+      "name": "唯识三十颂",
+      "short_name": "唯识三十颂",
+      "author": "世亲菩萨",
+      "era": "南北朝",
+      "chapters": 30,
+      "data_file": "data/ws30/chapters.json",
+      "icon": "🧠",
+      "color": "#6366f1",
+      "description": "唯识学核心经典，阐述瑜伽行派法相唯识思想",
+      "commentators": [
+        {
+          "id": "xuanzang",
+          "name": "玄奘注",
+          "era": "唐"
+        },
+        {
+          "id": "kuiji",
+          "name": "窥基注",
+          "era": "唐"
+        }
+      ],
+      "translators": [
+        {
+          "id": "thomas",
+          "name": "Thomas",
           "lang": "en"
         }
       ]

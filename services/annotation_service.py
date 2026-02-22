@@ -124,6 +124,7 @@ def annotate_difficult_chars(text: str) -> str:
             # 执行替换，使用占位符
             placeholder = f"___PH_{len(placeholders)}___"
             span_html = f'<span class="difficult" data-pinyin="{pinyin}" data-meaning="{meaning}">{char}</span>'
+            placeholders[placeholder] = span_html
             temp_text = temp_text[:pos] + placeholder + temp_text[pos + len(char) :]
 
     # 将所有占位符替换回实际的HTML

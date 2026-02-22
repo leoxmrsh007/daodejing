@@ -4,9 +4,8 @@
 提供缓存统计、API响应时间、系统性能指标
 """
 
-import time
 from datetime import datetime
-from typing import Any, Dict, Literal, Tuple
+from typing import Literal, Tuple
 
 from flask import Blueprint, Response, jsonify, request
 

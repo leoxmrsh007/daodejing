@@ -6,7 +6,6 @@
 """
 
 import json
-import os
 from pathlib import Path
 
 # 数据文件路径
@@ -20,15 +19,7 @@ def add_zhouyi_commentaries():
     with open(DATA_DIR / "zy" / "chapters.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # 周易注释家
-    commentators = [
-        ("wangbi", "王弼", "三国魏"),
-        ("chengyi", "程颐", "北宋"),
-        ("zhuxi", "朱熹", "南宋"),
-    ]
-
-    for i, chapter in enumerate(data["chapters"], 1):
-        chapter_num = chapter["chapter"]
+    for _, chapter in enumerate(data["chapters"], 1):
 
         # 简化注释：每卦3-5条核心解释
         chapter["wangbi_note"] = (
@@ -56,7 +47,6 @@ def add_jingangjing_commentaries():
         data = json.load(f)
 
     # 金刚经注释家
-    commentators = [
         ("xuanzang", "玄奘", "唐"),
         ("kumarajiva", "鸠摩罗什", "后秦"),
         ("yinqi", "印顺", "现代"),
@@ -139,14 +129,12 @@ def add_sishu_commentaries():
         data = json.load(f)
 
     # 四书注释家
-    commentary_fields = {
         "zhuxi_note": "朱熹注：",
         "chengyi_note": "程颐注：",
         "kongyingda_note": "孔颖达疏：",
     }
 
     # 英文翻译家
-    english_fields = {
         "english_legge": "James Legge translation",
         "english_waley": "Arthur Waley translation",
         "english_lin": "Lin Yutang translation",
