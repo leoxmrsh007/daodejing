@@ -40,12 +40,13 @@
           "lang": "en"
         }
       ],
-      "zhuxi_note": "朱熹注：大学者，大人之学也。明明德者，复其初也。",
+      "zhuxi_note": "朱熹注：四书为圣贤学问之阶梯，入德之门。",
       "chengyi_note": "程颐注：格物致知，乃穷理之要；诚意正心，乃修身之本。",
       "kongyingda_note": "孔颖达疏：此篇明修身齐家治国平天下之道，乃儒家内圣外王之纲领。",
       "english_legge": "Translation by James Legge (1861)",
       "english_waley": "Translation by Arthur Waley (1938)",
-      "english_lin": "Translation by Lin Yutang (1942)"
+      "english_lin": "Translation by Lin Yutang (1942)",
+      "wangyangming_note": "王阳明注：知行合一，致良知。"
     },
     {
       "chapter": 2,
@@ -86,12 +87,13 @@
           "lang": "en"
         }
       ],
-      "zhuxi_note": "朱熹注：中庸者，不偏不倚，平常之理，天下之正道。",
+      "zhuxi_note": "朱熹注：四书为圣贤学问之阶梯，入德之门。",
       "chengyi_note": "程颐注：中者，天下之正道；庸者，天下之定理。",
       "kongyingda_note": "孔颖达疏：中庸之道，乃天命之性，率性之道。",
       "english_legge": "Translation by James Legge (1861)",
       "english_waley": "Translation by Arthur Waley (1938)",
-      "english_lin": "Translation by Lin Yutang (1942)"
+      "english_lin": "Translation by Lin Yutang (1942)",
+      "wangyangming_note": "王阳明注：知行合一，致良知。"
     },
     {
       "chapter": 3,
@@ -132,12 +134,13 @@
           "lang": "en"
         }
       ],
-      "zhuxi_note": "朱熹注：论语者，孔子之言行，门人所记，万世师表。",
+      "zhuxi_note": "朱熹注：四书为圣贤学问之阶梯，入德之门。",
       "chengyi_note": "程颐注：孔子之言，皆日用常行之道，切于身心。",
       "kongyingda_note": "孔颖达疏：此经所载，皆圣贤之言，修身之要。",
       "english_legge": "Translation by James Legge (1861)",
       "english_waley": "Translation by Arthur Waley (1938)",
-      "english_lin": "Translation by Lin Yutang (1942)"
+      "english_lin": "Translation by Lin Yutang (1942)",
+      "wangyangming_note": "王阳明注：知行合一，致良知。"
     },
     {
       "chapter": 4,
@@ -178,12 +181,13 @@
           "lang": "en"
         }
       ],
-      "zhuxi_note": "朱熹注：孟子者，继往圣之绝学，开万世之太平。",
+      "zhuxi_note": "朱熹注：四书为圣贤学问之阶梯，入德之门。",
       "chengyi_note": "程颐注：孟氏之学，主性善之说，明仁义之理。",
       "kongyingda_note": "孔颖达疏：此书所言，皆王道仁政，性善义利之辨。",
       "english_legge": "Translation by James Legge (1861)",
       "english_waley": "Translation by Arthur Waley (1938)",
-      "english_lin": "Translation by Lin Yutang (1942)"
+      "english_lin": "Translation by Lin Yutang (1942)",
+      "wangyangming_note": "王阳明注：知行合一，致良知。"
     }
   ]
 }

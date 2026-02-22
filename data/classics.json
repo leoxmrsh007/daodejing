@@ -107,11 +107,6 @@
           "id": "wangfuzhi",
           "name": "王夫之",
           "era": "明末清初"
-        },
-        {
-          "id": "linxiaoyun",
-          "name": "林希逸注",
-          "era": "宋"
         }
       ],
       "translators": [
@@ -123,6 +118,11 @@
         {
           "id": "graham",
           "name": "A.C. Graham",
+          "lang": "en"
+        },
+        {
+          "id": "mair",
+          "name": "Victor Mair",
           "lang": "en"
         }
       ]
@@ -158,6 +158,16 @@
           "id": "zhougong",
           "name": "周公注",
           "era": "西周"
+        },
+        {
+          "id": "jingfang",
+          "name": "京房注",
+          "era": "西汉"
+        },
+        {
+          "id": "shao",
+          "name": "邵雍注",
+          "era": "北宋"
         }
       ],
       "translators": [
@@ -169,6 +179,11 @@
         {
           "id": "legge",
           "name": "James Legge",
+          "lang": "en"
+        },
+        {
+          "id": "baynes",
+          "name": "Cary Baynes",
           "lang": "en"
         }
       ]
@@ -186,7 +201,7 @@
       "description": "中医奠基之作，阐述阴阳五行、藏象经络、病因病机",
       "commentators": [
         {
-          "id": "wangbinghe",
+          "id": "wangbing",
           "name": "王冰注",
           "era": "唐"
         },
@@ -199,6 +214,11 @@
           "id": "lizhongji",
           "name": "李时珍注",
           "era": "明"
+        },
+        {
+          "id": "zhudanxi",
+          "name": "朱丹溪注",
+          "era": "元"
         }
       ],
       "translators": [
@@ -210,6 +230,11 @@
         {
           "id": "ni",
           "name": "Maoshing Ni",
+          "lang": "en"
+        },
+        {
+          "id": "veith",
+          "name": "Ilza Veith",
           "lang": "en"
         }
       ]
@@ -232,6 +257,11 @@
           "era": "后秦"
         },
         {
+          "id": "xuanzang",
+          "name": "玄奘注",
+          "era": "唐"
+        },
+        {
           "id": "huayan",
           "name": "华严宗注",
           "era": "唐"
@@ -239,7 +269,7 @@
         {
           "id": "chan",
           "name": "禅宗注",
-          "era": "宋"
+          "era": "唐"
         }
       ],
       "translators": [
@@ -251,6 +281,11 @@
         {
           "id": "watson",
           "name": "Burton Watson",
+          "lang": "en"
+        },
+        {
+          "id": "redman",
+          "name": "Michael Redman",
           "lang": "en"
         }
       ]
@@ -276,6 +311,11 @@
           "id": "wangyangming",
           "name": "王阳明注",
           "era": "明"
+        },
+        {
+          "id": "zhu",
+          "name": "朱熹集注",
+          "era": "南宋"
         }
       ],
       "translators": [
@@ -287,6 +327,11 @@
         {
           "id": "waley",
           "name": "Arthur Waley",
+          "lang": "en"
+        },
+        {
+          "id": "moody",
+          "name": "Peter Moody",
           "lang": "en"
         }
       ]
@@ -312,12 +357,27 @@
           "id": "zhangjue",
           "name": "张居正注",
           "era": "明"
+        },
+        {
+          "id": "huang",
+          "name": "黄宗羲注",
+          "era": "清"
         }
       ],
       "translators": [
         {
           "id": "wang",
           "name": "Wang Robin",
+          "lang": "en"
+        },
+        {
+          "id": "anton",
+          "name": "Anton",
+          "lang": "en"
+        },
+        {
+          "id": "china",
+          "name": "China Academic",
           "lang": "en"
         }
       ]
@@ -343,12 +403,27 @@
           "id": "daolian",
           "name": "道联注",
           "era": "明"
+        },
+        {
+          "id": "hui",
+          "name": "慧能自述",
+          "era": "唐"
         }
       ],
       "translators": [
         {
           "id": "yamp",
           "name": "Yampolsky",
+          "lang": "en"
+        },
+        {
+          "id": "buswell",
+          "name": "Robert Buswell",
+          "lang": "en"
+        },
+        {
+          "id": "faur",
+          "name": "Mikael Faur",
           "lang": "en"
         }
       ]
@@ -374,12 +449,27 @@
           "id": "kuiji",
           "name": "窥基注",
           "era": "唐"
+        },
+        {
+          "id": "weiming",
+          "name": "唯识论",
+          "era": "唐"
         }
       ],
       "translators": [
         {
           "id": "thomas",
           "name": "Thomas",
+          "lang": "en"
+        },
+        {
+          "id": "潜入",
+          "name": "Koch",
+          "lang": "en"
+        },
+        {
+          "id": "western",
+          "name": "Western Scholars",
           "lang": "en"
         }
       ]
