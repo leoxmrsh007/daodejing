@@ -1,922 +1,198 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="auto">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第57章 - 道德经</title>
-    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
-    <style>
-
-.original-text {
-    font-family: 'KaiTi', '楷体', serif;
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-    line-height: 2;
-    text-align: center;
-    padding: 1.5rem;
-}
-/* 疑难字标注 - 纯CSS方案 */
-.difficult {
-    border-bottom: 1px dashed var(--accent-color);
-    cursor: help;
-    position: relative;
-    display: inline-block;
-    transition: background-color 0.2s;
-}
-.difficult:hover {
-    background-color: rgba(212, 165, 116, 0.15);
-}
-/* 悬停提示 - 显示在文字上方 */
-.difficult:hover::after {
-    content: attr(data-pinyin) ": " attr(data-meaning);
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(44, 24, 16, 0.95);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 9999;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-}
-/* 小箭头 */
-.difficult:hover::before {
-    content: "";
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: rgba(44, 24, 16, 0.95);
-}
-[data-theme="dark"] .difficult:hover::after {
-    background-color: rgba(232, 224, 216, 0.95);
-    color: #2c1810;
-}
-[data-theme="dark"] .difficult:hover::before {
-    border-top-color: rgba(232, 224, 216, 0.95);
-}
-.modern-text {
-    line-height: 1.8;
-    font-size: 1.05rem;
-}
-.note-text {
-    line-height: 1.8;
-}
-.english-text {
-    line-height: 1.6;
-    font-family: Georgia, serif;
-}
-.chapter-navigation .page-link {
-    border-color: var(--border-color);
-}
-#versionTabs .nav-link {
-    color: var(--text-primary);
-    border-color: transparent;
-}
-#versionTabs .nav-link:hover {
-    background-color: rgba(212, 165, 116, 0.1);
-}
-#versionTabs .nav-link.active {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-}
-#englishTabs .nav-link {
-    color: var(--text-primary);
-}
-#englishTabs .nav-link.active {
-    background-color: var(--accent-color);
-}
-.version-content {
-    line-height: 1.8;
-}
-.version-original-text {
-    padding: 0.75rem;
-    background-color: var(--bg-secondary);
-    border-left: 3px solid var(--accent-color);
-    border-radius: 4px;
-}
-
-    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container-fluid">
-            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- 经典切换下拉菜单 -->
-            <div class="dropdown me-2">
-                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" title="切换经典">
-                    <span class="brand-icon">📚</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><h6 class="dropdown-header">道家经典</h6></li>
-                    <li><a class="dropdown-item" href="/ddj/index.html">☯ 道德经</a></li>
-                    <li><a class="dropdown-item" href="/zzj/index.html">🦋 庄子</a></li>
-                    <li><a class="dropdown-item" href="/lztyj/index.html">🪷 六祖坛经</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><h6 class="dropdown-header">儒家经典</h6></li>
-                    <li><a class="dropdown-item" href="/cxl/index.html">📖 传习录</a></li>
-                    <li><a class="dropdown-item" href="/ss/index.html">📚 四书</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><h6 class="dropdown-header">佛家经典</h6></li>
-                    <li><a class="dropdown-item" href="/jgj/index.html">📿 金刚经</a></li>
-                    <li><a class="dropdown-item" href="/ws30/index.html">🧠 唯识三十颂</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><h6 class="dropdown-header">其他经典</h6></li>
-                    <li><a class="dropdown-item" href="/zy/index.html">📊 周易</a></li>
-                    <li><a class="dropdown-item" href="/hdnj/index.html">⚕️ 黄帝内经</a></li>
-                </ul>
-            </div>
-
-            <a class="navbar-brand" href="./index.html">
-                <span class="brand-icon">☯</span>
-                <span class="brand-text">道德经</span>
-            </a>
-            <span class="navbar-text ms-3 d-none d-md-block">第57章</span>
-            <div class="ms-auto d-flex align-items-center gap-2">
-                <!-- 音乐控制 -->
-                <div class="music-controls d-flex align-items-center">
-                    <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
-                        <span class="music-icon">🎵</span>
-                    </button>
-                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="musicLoop" title="循环播放">
-                        <span class="loop-icon">🔁</span>
-                    </button>
-                </div>
-
-                <div class="media-divider"></div>
-
-                <!-- 朗读控制 -->
-                <div class="speech-controls d-flex align-items-center">
-                    <button class="btn btn-sm btn-outline-light media-btn" id="speechToggle" title="朗读原文">
-                        <span class="speech-icon">🔊</span>
-                    </button>
-                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="speechStop" title="停止朗读">
-                        ⏹
-                    </button>
-                </div>
-
-                <!-- AI解读按钮 -->
-                <button class="btn btn-sm btn-outline-light ai-btn" id="aiToggle" title="AI解读">
-                    <span>🤖</span>
-                </button>
-
-                <!-- AI创新功能下拉菜单 -->
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" title="AI创新功能">
-                        <span>✨</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><h6 class="dropdown-header">AI创新功能</h6></li>
-                        <li>
-                            <button class="dropdown-item" id="knowledgeGraphBtn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
-                                </svg>
-                                概念关系图谱
-                            </button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item" id="commentaryChatBtn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                                与注释家对话
-                            </button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item" id="philosophyDialogueBtn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                                </svg>
-                                跨文明哲学对话
-                            </button>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><h6 class="dropdown-header">实用工具</h6></li>
-                        <li>
-                            <button class="dropdown-item" id="noteBtn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
-                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg>
-                                阅读笔记
-                            </button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item" id="quoteBtn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
-                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                                    <polyline points="16 6 12 2 8 6"></polyline>
-                                    <line x1="12" y1="2" x2="12" y2="15"></line>
-                                </svg>
-                                生成引用卡片
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- 设置按钮 -->
-                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="阅读设置">
-                    <span>⚙️</span>
-                </button>
-
-                <!-- 暗黑模式切换 -->
-                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
-                <div class="sidebar-content">
-                    <h6 class="sidebar-title">目录</h6>
-                    <div class="chapter-list" id="chapterList">
-                        <nav class="nav flex-column">
-<a class="nav-link chapter-item " href="./chapter1.html">
-    <span class="chapter-num">第1章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter2.html">
-    <span class="chapter-num">第2章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter3.html">
-    <span class="chapter-num">第3章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter4.html">
-    <span class="chapter-num">第4章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter5.html">
-    <span class="chapter-num">第5章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter6.html">
-    <span class="chapter-num">第6章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter7.html">
-    <span class="chapter-num">第7章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter8.html">
-    <span class="chapter-num">第8章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter9.html">
-    <span class="chapter-num">第9章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter10.html">
-    <span class="chapter-num">第10章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter11.html">
-    <span class="chapter-num">第11章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter12.html">
-    <span class="chapter-num">第12章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter13.html">
-    <span class="chapter-num">第13章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter14.html">
-    <span class="chapter-num">第14章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter15.html">
-    <span class="chapter-num">第15章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter16.html">
-    <span class="chapter-num">第16章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter17.html">
-    <span class="chapter-num">第17章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter18.html">
-    <span class="chapter-num">第18章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter19.html">
-    <span class="chapter-num">第19章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter20.html">
-    <span class="chapter-num">第20章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter21.html">
-    <span class="chapter-num">第21章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter22.html">
-    <span class="chapter-num">第22章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter23.html">
-    <span class="chapter-num">第23章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter24.html">
-    <span class="chapter-num">第24章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter25.html">
-    <span class="chapter-num">第25章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter26.html">
-    <span class="chapter-num">第26章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter27.html">
-    <span class="chapter-num">第27章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter28.html">
-    <span class="chapter-num">第28章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter29.html">
-    <span class="chapter-num">第29章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter30.html">
-    <span class="chapter-num">第30章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter31.html">
-    <span class="chapter-num">第31章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter32.html">
-    <span class="chapter-num">第32章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter33.html">
-    <span class="chapter-num">第33章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter34.html">
-    <span class="chapter-num">第34章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter35.html">
-    <span class="chapter-num">第35章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter36.html">
-    <span class="chapter-num">第36章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter37.html">
-    <span class="chapter-num">第37章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter38.html">
-    <span class="chapter-num">第38章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter39.html">
-    <span class="chapter-num">第39章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter40.html">
-    <span class="chapter-num">第40章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter41.html">
-    <span class="chapter-num">第41章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter42.html">
-    <span class="chapter-num">第42章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter43.html">
-    <span class="chapter-num">第43章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter44.html">
-    <span class="chapter-num">第44章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter45.html">
-    <span class="chapter-num">第45章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter46.html">
-    <span class="chapter-num">第46章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter47.html">
-    <span class="chapter-num">第47章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter48.html">
-    <span class="chapter-num">第48章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter49.html">
-    <span class="chapter-num">第49章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter50.html">
-    <span class="chapter-num">第50章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter51.html">
-    <span class="chapter-num">第51章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter52.html">
-    <span class="chapter-num">第52章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter53.html">
-    <span class="chapter-num">第53章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter54.html">
-    <span class="chapter-num">第54章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter55.html">
-    <span class="chapter-num">第55章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter56.html">
-    <span class="chapter-num">第56章</span>
-</a>
-<a class="nav-link chapter-item active" href="./chapter57.html">
-    <span class="chapter-num">第57章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter58.html">
-    <span class="chapter-num">第58章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter59.html">
-    <span class="chapter-num">第59章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter60.html">
-    <span class="chapter-num">第60章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter61.html">
-    <span class="chapter-num">第61章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter62.html">
-    <span class="chapter-num">第62章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter63.html">
-    <span class="chapter-num">第63章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter64.html">
-    <span class="chapter-num">第64章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter65.html">
-    <span class="chapter-num">第65章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter66.html">
-    <span class="chapter-num">第66章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter67.html">
-    <span class="chapter-num">第67章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter68.html">
-    <span class="chapter-num">第68章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter69.html">
-    <span class="chapter-num">第69章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter70.html">
-    <span class="chapter-num">第70章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter71.html">
-    <span class="chapter-num">第71章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter72.html">
-    <span class="chapter-num">第72章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter73.html">
-    <span class="chapter-num">第73章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter74.html">
-    <span class="chapter-num">第74章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter75.html">
-    <span class="chapter-num">第75章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter76.html">
-    <span class="chapter-num">第76章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter77.html">
-    <span class="chapter-num">第77章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter78.html">
-    <span class="chapter-num">第78章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter79.html">
-    <span class="chapter-num">第79章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter80.html">
-    <span class="chapter-num">第80章</span>
-</a>
-<a class="nav-link chapter-item " href="./chapter81.html">
-    <span class="chapter-num">第81章</span>
-</a>
-                        </nav>
-                    </div>
-                </div>
-            </aside>
-
-            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
-
-    <nav aria-label="章节导航" class="chapter-nav mb-3">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
-            <li class="breadcrumb-item active">第57章</li>
-        </ol>
-    </nav>
-
-    <section class="idioms-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">📖 相关成语</h5>
-            </div>
-            <div class="card-body">
-                <div id="idiomsContainer">
-                    <span class="text-muted">本章暂无收录相关成语</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="original-section mb-4">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">第57章 · 原文</h5>
-                <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="original-text" id="originalText">
-                    以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫；人多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为，而民自化；我好静，而民自正；我无事，而民自富；我无欲，而民自朴。
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="modern-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">现代白话译文</h5>
-            </div>
-            <div class="card-body">
-                <p class="modern-text mb-0">用清正无为的方法治理国家，用诡奇的方法用兵，用无为的方法来夺取天下。我怎么知道是这样的呢？根据下面这些情况：天下的禁忌越多，百姓越贫穷；民间的利器越多，国家越昏乱；人们的技巧越多，邪恶的事情就越发生；法令越森严，盗贼反而越多。所以圣人说：我无为，百姓自然感化；我好静，百姓自然端正；我无事，百姓自然富足；我无欲，百姓自然淳朴。</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="versions-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">多版本对照</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">以道治国则国平．以正治国则奇兵起也．以无事则能取天下也．上章云．其取天下者．常以无事．及其有事．亦不足以取天下也．故以正治国则不足以取天下治以奇用兵也．夫以道治国崇本以息末．以正治国立辟以攻末．本不立而末浅．民无所及．故必至于以奇用兵也．利器凡所以利己之器也．民强则国家弱．民多知慧则巧伪生．巧伪生则邪事起．立正欲以息邪而奇兵用．多忌讳欲以耻贫而民弥贫．利器欲以强国者也而国愈昏弱．皆舍本以治末故以致此也．上之所欲民从之则也．我之所欲唯无欲．而民亦无欲而自朴也．此四者崇本以息末也.</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">以正治國，以至也。天使正身之人，使至有國也。以奇用兵，奇，詐也。天使詐為之人，使用兵也。以無事取天下。以無事無為之人，使取天下為之主。吾何以知其然哉？以此。此，今也。老子言我何以知天意然哉？以今日所見知。天下多忌諱，而民彌貧；天下謂人主也。忌諱者，防禁也。令煩則奸生，禁多則下詐，相殆故貧。民多利器，國家滋昏；利器者，權也。民多權則視者眩於目，聽者惑於耳，上下不親，故國家昏亂。人多伎巧，奇物滋起；人謂人君，百里諸侯也。多知伎巧，謂刻畫宮觀，彫琢服章，奇物滋起。下則化上，飾金鏤玉，文綉綵色，日以滋甚。法物滋彰，盜賊多有。法物，好物也。珍好之物滋生彰著，則農事廢，飢寒並至，故盜賊多有也。故聖人云，謂下事也。我無為而民自化，聖人言我修道承天，無所作為，而民自化成也。我好靜而民自正，聖人言我好靜，不言不教，民皆自忠正也。我無事而民自富，我無徭役征召之事，民安其業，故皆自富。我無欲而民自朴。我常無欲去華飾，民則隨我為，多質朴也。</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">天下有所不治，及其治之，非「正」不為功。以「正」正其不正，惡知正者之固將不正邪？故「正」必至於「奇」，而治國必至於「用兵」。夫無事者，正所正而我不治，則雖有欲為奇者，以無猜而自阻，我乃得坐而取之。彼多動多事者則不然，曰「治者物之當然，而用兵者我之不得已也」。方與天下共居其安平之富，而曰不得已，是誰詒之戚哉？故無名無器，無器無利，無利無巧，無巧則法無所試。故欲弭兵者先去治。</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">此承上章天道無言，而賞罰不遺，以明治天下者當敬天保民，不可有心尚殺以傷慈也。治天下者，不知天道，動尚刑威，是以死懼民也。老子因而欺之曰，民不畏死，奈何以死懼之耶。以愚民無知，但為養生口體之故。或因利而行劫奪，或貪欲而嗜酒色。明知曰蹈死亡，而安心為之，是不畏死也。如此者眾，豈得人人而盡殺之耶。若民果有畏死之心，但凡有為奇詭之行者，吾執一人而殺之，則足以禁天下之暴矣。如此，誰又敢為不法耶。民既不畏死，殺之無益，適足以傷慈耳。夫天之生民，必有以養之。而人不知天，不安命，橫肆貪欲以養生。甚至不顧利害，而無忌憚以作惡，是乃不畏天威。天道昭昭，必將有以殺之矣。是居常自有司殺者殺，無庸有心以殺之也。所謂天生天殺，道之理也。今夫人主，操生殺之權，乃代天之威以保民者。若民惡貫盈，天必殺之。人主代天以行殺，故云代司殺者殺，如代大匠斲也。且天鑑昭明，毫髮不爽。其於殺也，運無心以合度，揮神斤以巧裁。不疾不徐，故如大匠之斲，運斤成風而不傷鋒犯手。至若代大匠斲者，希有不傷手矣。何也，夫有心之殺，乃嗜殺也。嗜殺傷慈。且天之司殺，實為好生。然天好生，而人好殺，是不畏天而悖之，反取其殃。此所以為自傷其手也。孟子曰，不嗜殺人者能一之，此語深得老子之餘意。故軻力排楊墨，而不及老莊，良有以焉。至哉仁人之言也。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="english-section mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">English Translations / 英文译本</h5>
-            </div>
-            <div class="card-body p-0">
-                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
-                    </li>
-                </ul>
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic">Rule a country by doing what is proper. Wage war by doing what is crafty. Win the world by doing nothing. How do I know this is so? By this.</p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic">Rule a country by doing what is proper. Wage war by doing what is crafty. Win the world by doing nothing. How do I know this is so? By this.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <nav class="chapter-navigation" aria-label="章节翻页">
-        <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="./chapter56.html">← 第56章</a></li>
-            <li class="page-item disabled">
-                <span class="page-link">57 / 81</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="./chapter58.html">第58章 →</a></li>
-        </ul>
-    </nav>
-
-            </main>
-        </div>
+    
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">首页</a> / <a href="index.html">道德经</a>
+        </nav>
+        <article class="chapter">
+            <h1>第57章</h1>
+            <div class="original-text">以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫；人多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为，而民自化；我好静，而民自正；我无事，而民自富；我无欲，而民自朴。</div>
+            <div class="notes"><div class="note"><h3>Wangbi</h3><p>以道治国则国平．以正治国则奇兵起也．以无事则能取天下也．上章云．其取天下者．常以无事．及其有事．亦不足以取天下也．故以正治国则不足以取天下治以奇用兵也．夫以道治国崇本以息末．以正治国立辟以攻末．本不立而末浅．民无所及．故必至于以奇用兵也．利器凡所以利己之器也．民强则国家弱．民多知慧则巧伪生．巧伪生则邪事起．立正欲以息邪而奇兵用．多忌讳欲以耻贫而民弥贫．利器欲以强国者也而国愈昏弱．皆舍本以治末故以致此也．上之所欲民从之则也．我之所欲唯无欲．而民亦无欲而自朴也．此四者崇本以息末也.</p></div><div class="note"><h3>Heshanggong</h3><p>以正治國，以至也。天使正身之人，使至有國也。以奇用兵，奇，詐也。天使詐為之人，使用兵也。以無事取天下。以無事無為之人，使取天下為之主。吾何以知其然哉？以此。此，今也。老子言我何以知天意然哉？以今日所見知。天下多忌諱，而民彌貧；天下謂人主也。忌諱者，防禁也。令煩則奸生，禁多則下詐，相殆故貧。民多利器，國家滋昏；利器者，權也。民多權則視者眩於目，聽者惑於耳，上下不親，故國家昏亂。人多伎巧，奇物滋起；人謂人君，百里諸侯也。多知伎巧，謂刻畫宮觀，彫琢服章，奇物滋起。下則化上，飾金鏤玉，文綉綵色，日以滋甚。法物滋彰，盜賊多有。法物，好物也。珍好之物滋生彰著，則農事廢，飢寒並至，故盜賊多有也。故聖人云，謂下事也。我無為而民自化，聖人言我修道承天，無所作為，而民自化成也。我好靜而民自正，聖人言我好靜，不言不教，民皆自忠正也。我無事而民自富，我無徭役征召之事，民安其業，故皆自富。我無欲而民自朴。我常無欲去華飾，民則隨我為，多質朴也。</p></div><div class="note"><h3>Wangfuzhi</h3><p>天下有所不治，及其治之，非「正」不為功。以「正」正其不正，惡知正者之固將不正邪？故「正」必至於「奇」，而治國必至於「用兵」。夫無事者，正所正而我不治，則雖有欲為奇者，以無猜而自阻，我乃得坐而取之。彼多動多事者則不然，曰「治者物之當然，而用兵者我之不得已也」。方與天下共居其安平之富，而曰不得已，是誰詒之戚哉？故無名無器，無器無利，無利無巧，無巧則法無所試。故欲弭兵者先去治。</p></div><div class="note"><h3>Hanshandeqing</h3><p>此承上章天道無言，而賞罰不遺，以明治天下者當敬天保民，不可有心尚殺以傷慈也。治天下者，不知天道，動尚刑威，是以死懼民也。老子因而欺之曰，民不畏死，奈何以死懼之耶。以愚民無知，但為養生口體之故。或因利而行劫奪，或貪欲而嗜酒色。明知曰蹈死亡，而安心為之，是不畏死也。如此者眾，豈得人人而盡殺之耶。若民果有畏死之心，但凡有為奇詭之行者，吾執一人而殺之，則足以禁天下之暴矣。如此，誰又敢為不法耶。民既不畏死，殺之無益，適足以傷慈耳。夫天之生民，必有以養之。而人不知天，不安命，橫肆貪欲以養生。甚至不顧利害，而無忌憚以作惡，是乃不畏天威。天道昭昭，必將有以殺之矣。是居常自有司殺者殺，無庸有心以殺之也。所謂天生天殺，道之理也。今夫人主，操生殺之權，乃代天之威以保民者。若民惡貫盈，天必殺之。人主代天以行殺，故云代司殺者殺，如代大匠斲也。且天鑑昭明，毫髮不爽。其於殺也，運無心以合度，揮神斤以巧裁。不疾不徐，故如大匠之斲，運斤成風而不傷鋒犯手。至若代大匠斲者，希有不傷手矣。何也，夫有心之殺，乃嗜殺也。嗜殺傷慈。且天之司殺，實為好生。然天好生，而人好殺，是不畏天而悖之，反取其殃。此所以為自傷其手也。孟子曰，不嗜殺人者能一之，此語深得老子之餘意。故軻力排楊墨，而不及老莊，良有以焉。至哉仁人之言也。</p></div><div class="note"><h3>Suzhe</h3><p>古之聖人柔遠能邇，無意於用兵，唯不得已，然後有征伐之事。故以治國為正，以用兵為奇。雖然，此亦未足以取天下。天下神器，不可為也，為者敗之，執者失之，唯體道者廓然無事，雖不取天下而天下歸之矣。
+利器，權謀也。明君在上，常使民無、知無欲。民多權謀，則其上眩而昏矣。
+患人之詐偽，而多為法令以勝之，民無所措手足，則日入於盜賊矣。
+故聖人云：我無為而民自化，我好靜而民自正，我無事而民自富，我無欲而民自樸。</p></div><div class="note"><h3>Lihanxu</h3><p>（河上公注本作淳风章，彭本作以正章）
+【以正治国，以奇用兵，以无事取天下。吾何以知其然乎？以此。天下多忌讳，而民弥贫。民多利器，国家滋昏。民多技巧，奇物滋起。法令滋彰，盗贼多有。故圣人云：我无为而民自化，我好静而民自正，我无事而民自富，我无欲而民自朴。】
+正，非徒端拱也，实有能敬之教，使之感孚。奇，非同诡诈也，实有静镇之教，使人难测。故必以正治国，以奇用兵焉。无事取天下，无为而成功也。以此者，以治身之道，知治世之道也。朝多忌讳，则贪鄙之臣进，故能使民贫。民多利器，则机诈之徒起，故国家滋昏。至于技巧悦君，必多奇淫之物。法令侮民，必多盗贼之属。此皆治理之变也。故复引圣人所言，以观其治道之常，盖在于有欲、无欲之分耳。</p></div><div class="note"><h3>Huangyuanji</h3><p>以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：夫天下多忌讳，而民弥贫；人多利嚣，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：“我无为而民自化。我好静而民自正，我无事而民自富，我无欲而民自朴。”
+孔子曰：“吾道一以贯之。”是知道只一道，而天下万事万物，无不是此道贯通流行。所谓一本散为万殊，万殊仍归一本是。治身治世，其大端也。治世之道，莫过士农工商，各安生理；孝悌忠信，各循天良。此日用常行之事，即天下之大经，万古之大法，固常道也，亦正道也。人人当尽之事，即人人固有之良。为民上者，躬行节俭，力尽孝慈，为天下先，而又庄之蒞之，须以导之，不息机以言静镇，不好事以壮规模，一正无不文，自有风行草偃，捷于影响者焉。孟子曰：“一正君而国定矣。”又曰：“天下之生久矣。”一治一乱，循环相因。自古及今，未有或爽。虽然，治则用礼乐，乱则用兵戎，一旦两军对垒，大敌交锋，社稷安危，人民生死，系于一将，顾不重哉？虽权谋术数之学，智计机变之巧，非君子所尚，然奉天命以讨贼，仗大义以吊民，又不妨出奇制胜也。兵法所以有掩袭暗侵，乘劳乘倦，离间反间，示弱示弱，神出鬼没之奇谋焉。惟以奇用兵，战无不胜，攻无不克，不伤民命，不竭民财，而万民长安有道之天，共享太平之福，不诚无事也哉？然联山河为一统，合乾坤归一人，此中岂无事事？但任它事物纷投，而此心从容镇静，自然上与天通，而天心眷顾；下为民慕，而万民归依，天下于焉可取也。故曰：“唐虞揖让三杯酒，汤武征诛一局棋。”惟见天下不甚希奇，取天下亦不介意，所以胸中无事，其量与天地同。故蒞中国，抚四夷，有不期然而然者。此治世之道如是。吾何以知其然哉？以治世之道，不外治身，身犹国也。视听言动，一准乎礼；心思智虑，一定以情；内想不出，外想不入，性定而身克正。至于静养既久，天机自动。以须生之常道，为逆修之丹法，临炉进火，大有危险。太上喻为用兵，务须因时而进，相机而行，采取有时，烹炼有地，野战有候，守城有方，不得不待时乘势，出之以奇计也。它如药足止火，丹熟温炉，超阳神于虚境，养仙胎于不坏，又当静养神室，毫无一事无心，而后丹可就仙可成。此治身之道，即喻治世之功。吾所以知治世之道者，即此治身之法而知之也。夫取天下者在无事，而守天下者又不可以多事。否则兴条兴款，悬禁悬令，使斯民动辄龃龉，势必奸究因之作弊，民事于焉废驰。天下多忌讳，而民所以日贫也。金玉玑珠，舆马衣服，民间之利器弥多。而贪心一起，欲壑难填，神焉有不昏，气焉有不浊者哉？浑朴不闻，奸诈是尚。一有技巧者出，人方爱之慕之，且群起而效尤之，于是奇奇怪怪之物，悉罗致于前。呜呼噫嘻！三代盛时，君皆神圣，民尽淳良，令悬而不用，法设而不施，所以称盛世也。今则法网高张，稠密如罗；五等刑威，违者不赦；三章法典，犯者必诛。顾何以法愈严而奸愈出，令愈繁而盗愈多乎？盖德不足以服民心，斯法不足以畏民志耳。古来民之职为乱阶者，未有不自此刑驱势迫使然也。秦汉以来可知矣。古圣云：“天以无为而尊，人以无为而累。”我若居敬行简，不繁冗以扰民，不纷更以误国，但端九重之上，静处深宫之中，斯民日迁善而不知为之者。且淡定为怀，渊默自守，惟以诚意正心为事——而孰知正一己即以正朝廷，正百官即以正万民，皆自此静镇中来也。万民一正，各亲其亲，长其长，无越其命，永建乃家。于是耕田而食，凿井而饮，日出而作，日入而息，仓箱有庆，俯仰无虞，而民自富矣。若此者，皆由上之人须其自然，行所无事，有以致之也。又况宁静守寂，恬默无为，一安浑浑噩噩之真，而民之感之化之者，有不底于忠厚长者之风，浑朴无华之俗，未之有也。《书》曰：“一人元良，万国以贞。”其机伏于隐微，其效察乎天地。吾愿治世者以正君心为主，治身者以养天君为先焉。
+此理已明，不容再赘。吾想打坐之顷，其始阳气沉于海底，犹冬残腊尽，四顾寂然；以神光下照，即是冬至阳生，而阗寂无声，四壁萧条，仍如故也。从此慢慢气机旋运，不觉三阳开泰，而万物回春，花红叶绿，水丽山明，已见阳极之甚。天道如斯，人身奚若？惟有头稍稍向下，以目微微下顾，即是阴极阳生。第此个工夫，不似前此下手，执着一个意思，去数呼吸之息。须将外火不用，内火停工，一任天然不及防，又堕于夙根习气而不自知。此即存有觉之心，以养无为之性是也。迨至觉照已久，义精仁熟，又何须存，又何须养？一须其天然之常而已。不然，起初不用力操持，则狂猿烈马，一时恐难降伏。乃至猿马来归，即孟子所谓放豚入苙，切不可从而来缚之，反令彼活泼自如者，转而跼蹐难安也。其法维何？《易》曰：“天地絪缊，万物化醇。”这个絪缊之气，在人身中就是停内火外符，浑然不动，任气息之流行。在工夫纯熟者，斯时全不用意，若未到此境，觉照之心不可忘也。若或忘之，又恐不知不觉，一念起，一念灭，转转生生，将一个本来物事，竟为此生灭之心而汩没焉。古佛云：“了知起处，便知灭处。“如此存养，久久而见起灭之始，又久久而见未有念之始，斯得之矣。至于黄庭之说，在不有不无，不内不外；又有色身之中，又不在色身之中。此个妙窍，到底在何处？古所谓“凝神于虚，合气于漠”是也。夫凝神于虚，合气于漠，亦犹是在丹田中，但眼光不死死向内而观耳，神气不死死入内而团耳。惟凝神于脐下，离色身肉皮不远，此即不内不外之说也。以意照于此，但觉口鼻呼吸之气一停，而丹田之气，滚滚辘辘，在于内外两相交结之处，纽成一团；直见絪絪缊缊，浑浑沦沦，悠扬活泼之样，一出一入，真与天之元气，两相通于无间。生精生气生神，即在此处，与天相隔不远。此即合气于漠之说也。昔人谓之“元气”、“脱胎”、“真人之息以踵”者，非此而何？所谓元气者，即无思无虑、无名无象中，浑沦一团，清空一气是也。所谓胎息者，盖人受气之初，此身养于母腹，此时口鼻未开，从何纳气而生？惟此脐田之气。与母之脐轮相通，是以日见其长。及至呱地一声，生下地来，此气即从呱鼻出入往来，所谓各立乾坤者此也。吾示脐轮之气，与外来之天气相接，不内不外，絪缊混合，打成一片，即是返还于受气之初，而与母气相连之时，即是胎息也。所谓“真人之息以踵”者，盖以真人之息，藏之深深，达之亹亹，视不见，听不闻，抟不得，深而又密，如气之及于脚底是也。彼口鼻之气非不可用，但当须其自然，不可专以此气为进退出入。若第用此气而不知凝神于脐下一寸三分之地，寻出这个虚无窟子，以纳天气于无穷，终嫌清浊相间，难以成丹。昔人云，天以一元真气生人，此气非口非鼻，非知觉运动之灵可比。又云：“玄牝之门世罕知，休将口鼻妄施为。饶君吐纳千载，怎得金乌搦兔儿。”即此数语观之，明明道“出玄入牝”，实在脐下丹田离肉一寸三分之间，氤氤氲氲，凝成一片者是。学道人无论茶时饭时，言语应酬时，微微用一点意思，凝神于虚无一穴之中，自然合气于漠，直见真气调动，有不可名言之妙。然于此调息，则知觉不入于内，而坎水自然澄清。此历代仙圣不传之秘，吾今一口吐出，后之学者，勿视为具文而忽之也。</p></div><div class="note"><h3>Weiyuan</h3><p>此章明德之用也。盖道以虚无为体。其运而为德。则以慈俭谦退为用。然德为万物之母。则慈乃善之长也。与慈相反者莫如兵。故专以兵明慈之为用。而俭与不敢先皆在其中也。首言我有三宝。宝而持之。末言几丧吾宝。首尾相应以致其丁宁。欲人宝之而勿失也。老子著书。明道救时。见天下方务于刚强。而刚强莫胜于争战。今将救其弊。而返以慈俭谦退。则天下必以为不适于用。故卽其所明者以喻之。言吾之道无施而不可。虽用之以战守。亦无不胜且固者。盖慈则必俭。慈则必不敢为先。是卽兵家以退为进以弱为强之道。其证以用兵之言者。使卽兵以知柔退。卽柔退以反于仁慈。非为谈兵而设。故卽继之以祸莫大于无敌。无敌几亡吾宝也。三宝首慈。哀者慈心之所发。故天卫之而必胜。若佳兵者不祥。未有能久胜者也。由慈而发者为哀之则。不由慈而发者为佳兵矣。请[疑诸字误]本皆分为数章。是以旨意不明。而昧者遂至以老子为谈兵之书。其失甚矣。韩非子解老曰。慈母之于弱子也。务致其福而除其祸。则思虑熟。思虑熟则事理得。事理得则必成功。必成功则其行之也不疑。不疑之谓勇。冬日之闭冻不固。则春夏之长草木也不茂。天地不能长侈长费。而况于人乎。是以智士俭用其财则家富。圣人爱宝其神则精盛。人君重战其卒则民众。民众则国广。故曰俭故能广。叶氏梦得曰。我目处也易。物无不济也难。故卽三者推慈以为先。而复申之以为战则胜。守则固。是今之所急也。天若救斯民。必使有为慈者出而卫之。此老氏之所怛然有期于天下者欤。焦氏竑曰。不武不怒。而遂云配天古之极者。何也。盖至争者性兵。故借之以明不争之德也。用兵有言。古兵家有此言也。扔仍同。诗云仍执丑虏是也。王氏弼曰。士者卒之帅也。不武不怒者。后而不先。应而不唱也。不与者不与争也。用人而不为之下。则不尽力也。言以哀慈谦退。用之以战。犹不须行列。不必攘臂。不用兵刃。而敌自无与之抗也。虽然。吾哀慈谦退。非欲以取强无敌于天下也。不得已而卒至于无敌。斯乃吾之所以为大祸也。几亡吾宝。谓三宝也。举兵相当。哀者必相恤而不趋利避害。故必胜也。源案军惟死战以拒敌。故有行列攘臂执兵之事。苟无敌之可扔。则亦无列足整无臂足攘。无兵足执矣。盖以后为先。以退为进。常致人而不致于人。则是操全胜之术。不劳力而坐致之。是谓扔无敌也。虽然。所谓无敌者岂吾之所乐哉。盖兵至无敌于天下。则杀人必多。乃祸莫大焉者也。前徒倒戈。血流漂杵。王者之师。而君子尚不忍言之。岂非几亡吾宝之谓乎。是故吾之用兵。不得已而用之。以不祥视之。以丧礼处之。皆哀之至也。惟哀而后可以言胜。所谓慈则战胜而守固。天将救之。以慈卫之者也。诸本皆作祸莫大于轻敌。轻敌几丧吾宝。夫轻敌必败。身且不存。奚但宝之几丧。是直一孙吴制胜之术耳。何足语太上慈哀之敎邪。○苏氏辙曰。勇广先。三者人之所共疾。为众所疾。故常近于死。以慈卫物。则物爱之如父母。虽为之效死而不辞。故可以战。可以守。天之将救斯人也。则开其心志。无所不慈。无所不慈。则物皆为之卫矣。故两敌相加。而吾出于不得已。则有哀心。哀心见而天人助之。虽欲不胜不可得也。吕氏惠卿曰。所谓三宝。皆人之所难持者也。惟无我不争者能持之。然惟慈故俭。惟俭故不敢为天下先。则慈者三宝之所自出也。夫道之动常在于迫。而其用常主于不争。其施之于用兵之际。宜若有所不行者也。不知主逆而客顺。主劳而客逸。进骄而退卑。进躁而退静。以顺待逆。逸待劳。卑待骄。静待躁。皆非所敌。然则道之为常。主于不为。虽兵亦犹是矣。}}</p></div><div class="note"><h3>Xianger</h3><p>则民不争，亦不盗。“不见可欲，使心不乱。”□□□不欲视之，比如不见，勿令心动。若动自诫，即□道去复还，心乱遂之，道去之矣。“圣人治，灵其心，实其腹。”心者，规也，中有吉凶善恶。腹者，道囊，气常欲实。心为凶恶，道去囊空。空者耶入，便煞人。虚去心中凶恶，道来归之，腹则实矣。“弱其志，强其骨。”志随心有善恶，骨随腹仰气。彊志为恶，气去骨枯，弱其恶志，气归髓满。“常使民无知无欲。”道绝不行，耶文滋起，货赂为生，民竟贪学之。身随危倾，当禁之。勿知耶文，勿贪宝货，国则易治。上之化下，犹风之靡草。欲如此，上要当知信道。“使知者不敢不为。”上信道不倦，多知之士，虽有耶心，犹志是非。见上勤勤，亦不敢不为也。“则无不治。”如此国以治也。</p></div><div class="note"><h3>Yanzun</h3><p>（一）太上之象，莫高乎道德，其次莫大乎神明，其次莫大乎太和，其次莫崇乎天地，其次莫著乎陰陽，其次莫明乎大聖。夫道德所以可道而不可原也，神明所以可存而不可伸也，太和所以可體而不可化也，天地所以可行而不可宣也，陰陽所以可用而不可傳也，大聖所以可觀而不可言也。故，度之所度者知，而數之可數者少；知之所知者淺，而為之所為者薄。至眾之眾不可數，而至大之大不可度；微妙窮理，非智之所能測；大成之至，非為之所能得；天地之間，禍亂患咎，非事之所能克也。故不道之道，不德之德，政之元也；不名之名，亡功而功，化之根也。
+是故王者有為而天下有欲，去醇而離厚，清化而為濁，開人耳目，示以</p></div><div class="note"><h3>Wanganshi</h3><p>汉之诸儒皆以为周公摄政而召公不悦，以孔氏古文考之，则召公之不悦也。“周公既归政矣，然召公之不悦，何也？”曰：成王，可与为善，可与为恶者也。周公既复辟，成王既即位，盖公惧王之不能终而废先王之业也，是以不悦焉。夫周之先王，非圣人则仁人也，积德累行、数世而后受命，以周公继之，累年而后太平，民之习治也久矣。成王以中才承其后，则其不得罪于天下之民而无负于先王之烈也，不亦难乎！如此则责任之臣，不得不以为忧也。周公曰：“君惟乃知民德，罔不能厥初，惟其终。”然则召公之不悦，亦周公之心也，周公以为在天者其命之终、吉凶，吾不得而知也；在人者后嗣或不修德坠厥命，则吾亦不得而知也；在我者吾知勉之而已，则天下不庸释于文王受命也。且以古之人君至于文、武，所以能保其天人国家者，亦皆有贤人为佐，我自今乃相与济成王，同未在位之时，则可以无大责矣。夫在我者君子之所及而当勉者也，在天与人者吾如彼何哉？故周公之告也，亦竭其心、尽其力而已，所以勉且慰之也。曰：“如周公之诰，则召公可以无不悦矣。然则召公之所以不及周公，傥在是乎？”曰：忧其可忧，疑其可疑，召公之所以不悦也；忧其可忧而卒之以不忧，疑其可疑而卒之以不疑，周公之所以诰也。五声之相得也，五味之相入也，其始不同而卒于和也。圣贤之相揆也，亦若是而已矣。以此谓召公为不及周公，则吾于征苗，以伯翳为贤于禹也，其可乎？“然则召公固无不悦周公之事乎？”曰：自尧、舜没至于周，而贤人为众，《诗》曰“肃肃兔鳎灾丁丁。赳赳武夫，公侯干城”，言兔髦人犹足以干城乎公侯也。又曰“肆成人有德，小子有造，古之人无誉，誉髦斯士”，言其为士者亦皆有德之髦也。当此之时，而召公为公，则其为贤亦远矣。以召公为不足以知周公也，则凡在周之士大夫宜无一人知周公者矣。“然则周公孰与之谋而就事乎？且以召公为不贤而不足以知周公也，则文、武、周公曷为任之至于此极，而召公又安能以其令名终也？以召公为贤则不悦乎周公，则其与之共事而不争，又不去焉，何也？”夫圣人之所立，贤人有所不能知者矣。其颜子曰：“既竭吾才，如有所立卓尔，虽欲从之，未由也己。”颜子之于孔子，有所不能知者也。虽然，未尝不心悦而诚服之也。此其所以为贤人也。如贤人之于圣人，既不足以知之，而又不能悦也，则是圣与贤几异类而相反也。或曰：“子路之于孔子，尝不悦也。”曰：由之鄙人也，何足以语召公也哉！孔子曰：“由也，千乘之国，可使治其赋也。”文、武、周公之使人犹孔子也，文、武、周公所以为三公，与孔子所使治千乘之赋者，其智之不同亦可知已。“然则成王之疑周公也，召公曷为不谏？”曰：召公，坐而论道以相成王者也，其朝夕所以开王心者，史能悉记之乎？（《全宋文》卷一四六引《历代名贤确论》卷九。）
+“周南”、“召南”者，文王之诗。曰：言文王之化被民深，则诗人歌者其志远，以见圣人之风，而属之周公，故为周南也。言文王之教化人浅，则诗人歌者其志近，以见贤人之风，而属之召公，故为召南也。然其诗则文王，其事则后妃夫人，不言美。而《甘棠》美召伯，《江有汜》美媵，《何彼且印访劳跫В而皆言美者，盖召伯也。媵也，王姬也，各主于一人而美之也。若后妃夫人，则皆文王教化之所致，其美不足以为言也。故先以周南，而召南次之也。邶、汀⑽溃皆卫诗。三国本商纣之地，而武王伐纣，裂其地以封纣子武庚并管、蔡者。及其叛而周公诛之，乃以余民封康叔。而后之刺美其君者，三国之人咸有所赋，是以分邶、汀⑽姥伞９授、椭《诗》序必曰卫者，以别其卫诗尔。至于卫，则无所言卫矣。有《凯风》、《定之方中》、《干旄》、《淇澳》、《木瓜》，以美文公、桓公、武公。而《凯风》、《木瓜》，虽非其君，然国之淫风流行，而有尽孝道以慰其母心之子。国为狄人所灭，而有救而封之之齐桓公。则所以美之者，其君亦与焉，故次召南也。王者、周也。自平王东迁，其后政不足以及天下，而止于一国，于是为风而不雅矣。不言周者，盖平、桓、庄、王德之不修，政之不讲，非周之罪也，故次卫也。郑有《缁衣》，武公之美，而次于王后者，盖王之皆刺，而不能加于多美之诸侯者，天下之公义也。若诸侯之少美矣，虽王之皆刺，而不足以胜之。岂非君与臣善恶不相远，则君得以先其臣，而理所可也，故次王也。齐皆刺也，然有《木瓜》美桓公，系于卫诗之末，故次郑也。魏皆刺也，而无所主名，言为魏之君者，皆甚恶尔。夫序《诗》者，岂以一端而已。皆美而无所主名，则先之，好其善之盛也，周南是也。皆刺而无所主名，则先之，丑其恶之极也，魏是也，故次齐也。唐本晋诗，而美武公者，《无衣》也。然武公始并晋国，而大夫为之请命于天子之使，而作是诗也。夫不请命于天子，虽云美而君子所不与，犹若武公无美焉尔。或曰：“鲁之有颂，亦请命于周，乃列于周、商之间，而于此诎晋，何也？”曰：鲁请于天子，而史克作颂，与夫请天子之使而为之者异矣。弟贤于无美者也，故次魏也。秦之《车邻》美秦仲，《驷铁》、《小戎》美襄公。虽贤于唐，然本西垂，秦仲始大，至于襄公，方列于诸侯，故次唐也。陈皆刺也，而所刺主于幽公、僖公之徒，言其馀君或不至于是，然刺诗多矣，故次秦也。桧皆刺也，而无所主名，犹魏也，故次陈也。曹皆刺也，然所刺止于昭公、共公，犹陈也，故次桧也。《豳·七月》，周公摄政之诗也，所美见于《东山》、《破斧》、《伐柯》、《九ァ贰ⅰ独前稀芬病Ｆ洹镀咴隆烦峦跻担《鸱巍芬砸磐跽撸皆公所自为，故不言美也。然名之以雅，则公非王也；次之以周南，则公非诸侯。因其陈王业先公之所由，乃以属于豳也。不属于周者，周、王国也，周公何所系焉？所以居小雅之前，而处变风之后，故次豳也。或曰：“国风之次，学士大夫辨之多矣，然世儒犹以为惑，今子独刺美序之，何也？”曰：昔者圣人之于诗，既取其合于礼义之言以为经，又以序天子诸侯之善恶，而垂万世之法。其视天子诸侯，位虽有殊，语其善恶则同而已矣。故余言之甚详。而十有五国之序，不无微意也。呜呼，惟其序善恶以示万世，不以尊卑小大之为后先，而取礼之言以为经。此所以乱臣贼子知惧，而天下劝焉。（《王文公文集》卷三十。）
+【论舍人院条制】
+准月日中书札子，奉圣旨指挥，今后舍人院不得申请除改文字者。窃以为舍人者，陛下近臣，以典掌诰命，为职司所当参审。若词头所批，事情不尽，而不得申请，则是舍人不复行其职事，而事无可否，听执政所为。自非执政大臣欲倾侧而为私，则立法不当如此。前日具论，冀蒙陛下审察，而至今未奉指挥。臣等不知陛下以今月八日指挥为是而不改乎？将不必以为是，而特以出于执政大臣之所建而不改乎？将陛下视臣等所奏，未尝可否，而执政大臣自持其议而不肯改乎？以为是而不改，则臣等考寻载籍以来，未有欲治之世，而设法蔽塞近臣论议之端如此者也。不必为是，而特以出于执政大臣所建而不改，是则陛下不复考问义理之是非，一切苟顺执政大臣所为而已也。若陛下视臣等所奏，未尝有所可否，而执政大臣自持其议而不肯改，则是政已不自人主出，而天下之公议废矣。此所以臣等哮现义，不能自已者。
+臣等窃观陛下自近岁已来，举天下之事属之七八大臣，天下之初亦翕然幸其所能为，救一切之弊。然而方今大臣之弱者，则不敢为陛下守法以忤谏官御史，而专为持禄保位之谋。大臣之强者则挟圣旨造法令，恣改所欲，不择义之是非，而谏官御史亦无敢忤其意者。陛下方且深拱渊默，两听其所为而无所问，安有朝廷如此，而能旷日持久而无乱者乎？自古乱之所生，不必君臣为大恶，但无至诚恻怛求治之心，择利害不审，办是非不早，以小失为无伤而不改，以小善为无补而不为，以阿谀顺己为悦而其说用，以直谅逆己为讳而其言废，积事之不当，而失人心者众矣，乃所以为乱也。陛下以臣等所言为是，则宜以至诚恻怛、欲治念乱之心考核大臣，改修政事，则今月八日指挥为不当先改矣。若以臣等所言为非，则臣等狂瞽，不知治体，而诬谤朝廷政事，当明加贬斥，以惩妄言之罪，则别选才能通达之士，以补从官。臣等受陛下宠禄，典领朝廷职事，不得其守，则义不得不言，而朝廷以为非也，则义不敢辞贬斥。伏乞详酌，早赐指挥。（见《王文公文集》卷三十一。）
+【谋杀罪议（熙宁元年八月）】
+《刑统》杀伤罪名不一，有因谋，有因斗，有因劫囚窃囚，有因略卖人，有因被囚禁拒捍官司而走，有因强奸，有因厌魅咒咀，此杀伤而有所因者也。惟有敌杀伤则无所因，故《刑法》因犯杀伤而自首，得免所因之罪，仍从故杀伤法。其意以为于法得首，所因之罪既已原免，而法不许首，杀伤刑名未有所从，唯有故杀伤为无所因而杀伤，故令从故杀伤法。至今因犯过失杀伤而自首，则所因之罪已免，唯有杀伤之罪未除。过失杀伤，非故杀伤，不可亦从故杀伤法，故《刑统》令过失者从本过失法，至於斗杀伤，则所因之罪常轻，杀伤之罪常重，则自首合从本法可知。此则《刑统》之意，唯过失与斗当从本法，其馀杀伤得免所因之罪，皆从故杀伤罪科之。则于法所得首之罪皆原，而于法所不得首之罪皆不免，其杀伤之情本轻者自从本法，本重者得以首原。今刑部以因犯杀伤者谓别因有犯，遂致杀伤。窃以为律但言因犯，不言别因，则谋杀何故不得为杀伤所因之犯？又刑部以始谋专为杀人，即无所因之罪。窃以为律谋杀人者徒三年，已伤者绞，已杀者斩。谋杀与已伤、已杀，自为三等，刑名因有谋杀徒三年之犯，然后有已伤、已杀绞斩之刑名，岂得称别无所因之罪？今法寺、刑部乃以法得首免之谋杀与法不得首免之已伤合为一罪，其失律意明甚。臣以为亡谋杀已伤按问，欲举自首合从谋杀减二等论。然窃原法寺、刑部所以自来用例断谋杀已伤秒许首免者，盖为律疏但言假有因盗杀伤，盗罪得免，故杀伤罪，仍科遂引为所因之罪，止谓因盗杀伤之类。盗与杀伤为二事，与谋杀杀伤类例不同，臣以为律疏假设条例，其于出罪则当举重以包轻。因盗伤人者斩，尚得免所因之罪，谋杀伤人者绞，绞轻于斩，则其得免所因之罪可知也。然议者或谓谋杀、已伤，情理有甚重者，若开自首则或启奸，臣以为有司议罪惟当守法，情理轻重则敕许奏裁。若有司辄得舍法以论罪，则法乱于下，人无所措手足矣。（《全宋文》卷一三八六引《文献通考》卷一七。）
+【祭先圣祝文】
+惟王之道，内则妙万物，而外则师王者。为绪馀于一时，而鼓舞于万世。学者范围于覆帱之中，而不足以酬高原之德。今与诸生释奠而不后者，兹学校之仪，而兴其所以爱礼之意也。（《王文公文集》卷三十一。）
+【祭先师祝文】
+外物不足以动心而乐者，可谓知性矣。然后用舍之际，始可以语命。而三千之徒，圣人独以公预，此所以学校有释菜之事，而以公配享焉。（同上。）
+【祭沈舍人文】
+惟公之德，孔洁且硕。淡泊超然，更无忤逆。德实不类，不容如石。遂厄其行，卒不克驰。谓天恶贤，我不敢知。果好之也，今又何其。惟公于我，义兼师友，何以荐诚，有馨惟酒。物则微矣，其诚则有。（《永乐大典》卷一四○四六。）
+【屯田员外郎致仕虞君墓志铭】
+祥符八年，真宗第进士于廷，先人与上饶虞君俱在其选。其后庆历二年、皇淘年，虞君之诸子相继以进士起，而先人之孤亦在焉。故安石尝与虞君之诸子游，而诸子称君之所为甚悉。君兼于进取，宽厚长者，人可欺以其方，而君未尝辄欺人也。自为进士时，能以文学知名乡里，三为举首。尝献其所为书于天子，天子以为能，欲特招试，而以君方试于有司，乃止。及君起家为建州司理参军、福州观察推官，转运使奏君监福州之宝积银场。君为创法，而银大溢。岁终当迁，有司使人喻君求赂，君谢不与曰：“与其以赂迁，吾宁困以终身也。”终以此不得迁，而复为军事判官郴州。州尝失入人罪，吏方被劾而有赦除其罪。君初在告，不与断其狱而与奏其案也，刑部遂书君为失入，坐是坎Б不得意以至于老，而君初未尝自讼也。自郴州归，而为邵州防御判官，又为杭州节度推官，又为台州军事判官，所至辄以治行为在势者所称，章交于朝廷，而天子终以其尝失入不用。已而右谏议大夫李宥特荐之，召赴京师，又不用。流内铨以为言，乃以君知明州之慈溪县，县得君以无事，而君日与处士讲学赋诗饮酒，恬如也。淮南转运使吴遵路、两浙转运使段少连、叶清臣皆一时名人，交荐君以为材，而朝廷又以君为台州军事判官，不用。及李元昊反，近边皆骚动，有诏举能吏可以为河北、河东、陕西诸县者，于是君始得迁，为太子中允，知河中府猗氏县。今并州故相国庞公经略陕西，欲辟公为其判官，君不就而辞以老，庞公贤其意，亦不强也。后迁太常丞、知越州山阴县、太常博士、尚书屯田员外郎、通判滁州，间从容语诸子曰：“吾尝游宜兴，甚爱其山水，儿为我筑室荆溪上，吾且休于此矣。”时皇潭年也。明年，遂致仕，诸子为筑室荆溪上，如其志。以至和三年七月戊戌卒，享年八十。
+君既不急于仕进，又未尝问家人生产，士友多哀君困厄。及其老，诸子皆孝友，能致其力以养，而多以文学称于世。其长子太微为润州司理参军，次太宁为和州防御推官，太熙为苏州吴江县尉，太冲为通州静海县主簿，太蒙为进士。女子五人，皆嫁为士大夫妻。诸孙男女凡十八人，内外诜诜。人不以为初不得意为怜，而顾以其后子孙慈良泉多为可愿也。
+君讳肃，字元卿。其先自会稽遭乱，避徙江南。曾大父讳瞻，大父讳遥当李氏时，为李氏将兵上饶以拒闽人，兵罢，因留家之不去，故至今为上饶人。父讳戬，博学善属文，尝求进士第不得，遂止，不复言仕，以君故，赠殿中丞。君子以嘉潭年某月日葬君于常州宜兴县永定乡某山，而以夫人福昌县君周氏凇７蛉擞邢托校君所以得毋恤其家，亦以其夫人也。将葬，君子使来告曰：“宜铭吾先人莫如子。”于是为铭曰：
+蹈污而陵蓿又左右以窥，以侥其私，人趋为之，而公谢不为。秀发而豪眉，子孙颀颀，以荣其归，维帝之诒。（见《王文公文集》卷九十五。）
+【宋故赠尚都官郎中司马君墓表】
+朝奉郎、尚书刑部员外郎、知制诰、权修起居注、纠察在京刑狱、上骑都尉，赐紫金鱼袋王安石撰。朝奉郎、尚书都官员外郎、知同州兼同群牧及管内劝农事、骑都尉，赐绯鱼袋借紫雷简夫书。）
+君姓司马氏，讳沂，陕州夏县涑水乡高堠里人。其先出于晋安平献王孚，至征东大将军阳，始葬于河东安邑。后魏分安邑为夏县，遂为夏县人。自唐以来，降在畎亩。而君之曾祖林、祖政、父炳，皆不仕，然累世未尝异居，故农之食口甚众，而贫无以赡。君幼孝谨，父兄悉以家事付之，能俭勤以成其家。当是时，田不加广，又未尝为商贾奇衷之业，而司马氏更富，父兄皆醉饱安逸。而时有馀力，则及其乡人，然君遂以恶衣疏食终身。其卒也，以景德三年十二月丙子，年三十二。以祥符六年□□□□葬涑水之南原。夫人同邑李氏女，年二十八，生男讠永、里及一女子而寡。顷之，讠永及女皆卒，于是父母欲夺其志而舅姑亦遣焉。夫人自誓不嫁，躬执勤苦，使里之四方就学。姑李氏老且病，常卧一榻，扶然后起，哺然后食。夫人左右视养，未尝少失其志，如是累年，以至其没。既而里以□□□仕，奉夫人之官，夫人始别其母，而思慕成疾，久之乃愈。里积迁至尚书都官郎中，历将数州，□□□而封君尚书都官郎中。夫人封永寿县太君，年八十三，以嘉涛迥昃旁录滓终于京师。其年十一月壬寅，合葬于君之墓，而君之从父弟子起居舍人光序其事如此，以来请曰：“愿有述也，以表之墓上。”呜呼，君所谓谨身节用以养父母而道行于妻子者欤？以此而学，则岂与夫操浮说而无其质者比哉！夫人之德，可谓协矣。虽非其家人所欲论著，吾固乐为道之。又况以起居之贤，尝为吾僚而有请也，于是书以遗之去。朝奉郎、尚书屯田员外郎、知国子监书学、权同判吏部南曹、上骑都尉，赐绯鱼袋杨南仲篆额。布衣曹知白模刻。（《全宋文》卷一四二引《山右石刻丛编》卷一三。）
+【上蒋侍郎书】
+某尝读《易》，见《晋》之初六曰：“晋如。摧如，正吉。罔孚，裕，无咎。”此谓离明在上，己往应之。然处卦之初，道未章著，上虽明照而未之信，故摧如不进，宽裕以待其时也。又《比》之上六曰：“比之无首，凶”。此谓九五居中，为上下之主，众皆亲比，而己独后期，时过道穷，则人所不与也。斯则圣人赜必然之理，寓卦象以示人事，欲人进退以时，不为妄动。时未可而进谓之躁，躁则事不审而上必疑；时可进而不进谓之缓，缓则事不及而上必违。诚如是，是上之人非无待下之意，由乎在下者动之不以时，干之不以道，不得中行而然耳。夫读圣人之书，师圣人之道，约而为事业，奋而为文辞，而又胸中所蕴，异乎世俗之所尚，凡闻当世贤公卿大夫之名，则必蕲一见，以卜特达之知，庶乎道有所闻，而志有所展。其于进退之理，可以不观时乎？故自执事下车受署，于兹数月，士之藉于郡者，皆获见于左右。然某独以区区之质，保在逆旅，适当宇下，屏息退处，终未能伏谒麾。岂无意乎？盖以声迹沈下，最处疏贱，旧未为执事之知，加公庭兼视之初，宾游接武之际，虽神明之政，尚或未周。某当是之时，苟一而进，则才之与否，窃虑未察。故《晋》之义，有摧如之退也。今执事聪明视听，悉已周洽，风俗之美恶，士流之能否，皆得而知之矣。况复侧聆执事，屡以羁齿，挂于馀论。某当此之时，苟不自进，是在《比》之义，有后失之凶也。故窃自蹈于二卦之象，当可进之时，得其中而行之，则或几于圣人之训矣。恭维执事，禀天正气，为朝名臣，以文雅蹇谔，简在上意。是以出人台阁，践履中外，朝廷百执事，天下之人，孰不惮执事之威名，服执事之德望？谓师尹庶士，坯冶群品，天子用之，期于匪久。虽某居丧之制，越在草土，厌冠苞屦，不入公门，苟候外除，然后请于左右。倏然朝廷走一封之传，升执事于严近，与诸公对掌机政，召和气于天下。则必廉隅之上，体貌之殊绝，廊庙之间，贵贱之不接。某于是时，愿拜风采，则无因而至前矣。今所以道可进之时，不以丧礼自忌，直诣铃下，期一拜伏者，诚以斯时之难得会也。执事必以某进得其时，于道无所戾，赐之坐次，察其言行。若乃时政之得失，国家之大体，虽不能尽识其所底，至于前古之盛鉴，圣贤之大意，亦少见其素蕴焉。而某受知于执事，岂止于兹乎？冀异时执事陶熔之下，庶或裨于均政之万一。言质意直，干浼英听，无任惶越之至。（《王文公文集》卷二。）
+【上龚舍人书】
+闰八月七日，具位王某谨白书于安抚谏院舍人：某读《孟子》，至于“不见诸侯”，然后知士虽厄穷贫贱，而道不少屈于当世，其自信之笃、自待之重也如此。是皆出处之义，上下之合，不可苟也。为人上者而不以是，不足与有为。为人下者而不以是，虽有材不足以有为，其进几于祸矣。在上不骄，在下不谄。此进退之中道也。某尝守此言，退而甘自处于为贱，夜思昼学，以待当世之求，而未尝怀一刺，吐一言，以干公卿大夫之间，至于今十年矣。已而思之，方孟子之时，天下纷乱。诸侯皆欲自以为王，强攻弱，大并小，战伐侵入，无岁无之。此乃存亡得失之秋，所谓得士则兴、失士则亡之时也。故下得以自重，而上不可以不求焉。方今席奕世之基业，治虽未及三代、两汉，然亦可以谓之亡事矣。其选才取士，外则贤良进士诸科之举，内则公卿提转郡守之荐。然皆士自媒绍其所长，以干于当世，然后得充其选，未尝闻公卿大夫能自察其贤而荐之者。则士之包羞冒耻，栖栖屑屑，伺人之颜色，徇时之好尚，以谋进退者，世未尝为辱也。又岂知论出处进退之义者哉？今公卿大夫之取士，无问贤否，而媚于己者好之。今士之进退不以义，而惟务苟合而已。吁，可悲也。方公卿大夫据高明之势，外以富贵自尊，内以智能自负，必不欲求于人，欲人之求己，士不欲求于人，如此则上下之合，无时可得矣。某是以翻然改曰：“苟一往公卿大夫之门，与之议论，察其为人，可与言则进，不可与言则退，于道宜未为屈也。”由是颇欲虚游于当世公卿大夫之间，以观可否而去就之。方自窜于穷远僻陋之地，其势不得以往也。比闻天子念东南之民，困于昏垫，辍侍从之臣，亲至其地，以劳徕安集之。某私切自喜，以其所谓当世之公卿大夫，将得而见之矣。既而问某者果谁邪？又有以阁下名告之者，而因含笑大喜曰：“以阁下之势，方用于朝廷。以阁下之贤，尝闻于天下。则某不待接其议论，察其为人，而后知其可以说干之也。”矧阁下官曰谏诤，出宣霈泽，当思所以副朝廷待之之意，则天下之利害，生民之疾苦，未宜忽之而不以风夜疚怀也。傥有意于此，则非士君子不可与论焉。然则某之言，可冀其合矣。辄冒尊严，以进其说，阁下其择焉。某再拜。（同上。）
+【再上龚舍人书】
+闰八月九日，具位王某再白书于安抚舍人阁下：某前日辄以狂瞽之言，有闻于下吏。伏蒙阁下不间疏贱，借之以颜色，接之以从容，使极论而详说之。是其可以吐胸中之有发露于左右之时也。然辞有所未尽，意有所未竭，盖将有以，何哉？前日所与某言者，不过欲计校仓廪，诱民出粟，以纾百姓一时之乏耳。某之所欲言者，非此之谓也。愿毕其说，阁下其择焉。某尝闻善为天下计者，必建长久之策，兴大来之功，当世之人，涵濡盛德，非谓苟且一时之利，以邀浅鲜之功而已。夫水旱者，天时之常有也。仓禀财用者，国家常不足也。以不足之用，以御常有之水旱，未见其能济焉，甚非治国养民之术也。某不敢远引古昔，止于近者十馀年间，耳目之所经者论之。顷自庆历八年，河北、山东饥。皇潭年、三年。两浙、淮南饥。三年、四年，江南饥。嘉涛迥辏两浙饥。四年，福建饥。今年，淮南、两浙又饥。其川、广、夔、陕，京西、河东，则某闻见所不及，不可得而言也。某窃计之，历年才一纪，而岁之空匮，民至流亡殍死，居其太半，卒未闻朝廷有救之之术。岂非政失于苟且，而不建长久之策者哉？伏自庆历以来，南北饥馑相继，朝廷大臣，中外智谋之士，莫不恻然不忍民之流亡殍死，思所以存活之。其术不过发常平、敛富民，为饣ブ嘀养，出糟糠之馀，以有限之食，给无数之民。某原其活者，百未有一，而死者白骨已被野矣。此有惠人之名，而无救患之实者也。某窃谓百姓所以养国家也，未闻以国家养百姓者也。《记》曰：“君者所养，非养人者也。”有子曰：“百姓不足，君孰与足？”此之谓也。昔者梁惠王尝移粟以救饥馑，孟子论而非之，所谓“徒善不足以为政，徒法不能以自行。”若夫治不由先王之道者，是徒善、徒法也。且五帝、三王之世，可谓极盛最隆，亦不能使五谷常登而水旱不至。然而无冻馁之民者，何哉？上有善政，而下有储蓄之备也。某历观古者以还，治日常少，而乱日多。今宋兴百有馀年，民不知有兵革，四境之远者至万馀里，其间可桑之野，民尽居之，可谓至大至庶矣。此诚旷世不可逢之嘉会，而贤者有为之时也。今朝廷公卿大夫不以此时讲求治具，思所以富民化俗之道，以兴起太平，而一切惟务苟且，见患而后虑，见灾而后救。此传所谓“毂既破碎，乃大其辐。事已败矣，乃重太息”，其云益乎？某于阁下无一日之好，论其相知，固已疏矣。然自阁下之来，以说干阁下再矣。某固非苟有觊于阁下者也。某尝谓大丈夫有学术才谋者，常患时之不遭也；既遭其时，患言之不用也。今阁下势在朝廷，不可谓时不遭矣；居可言之地，不可谓言不用矣。惟阁下未为之尔。某故感激而屡干于左右者，以此。阁下其亮之。某再拜。（同上。）
+【与沈道原书一】
+某启：知在长芦，营造功德，无缘一造，岂胜乡往。见黄吉父，说四妹（姐）甚瘦悴，恐久蔬食而然，切需斟量，勿使成疾。一切如梦，不须深以概怀，但精心祈向，亦不必常断肉也。每欲与七弟到长芦，相要会聚数日，然头旬多痰，动辄复剧，是以未果。稍寒自爱。念二谢书，思忆不可言也。某启上。
+【与沈道原书二】
+某启：承眷恤，重以感慰，衰莫眩昏，幸而获愈。然槁骸残息，待尽朝夕，顿伏床枕，无足言者。十四、念二，并烦存问，感愧，感愧。四妹且时时肉食，恐久而成疾也。相去虽近，无缘会晤，良食自爱。疲倦，书不及悉。某启上。
+【与沈道原书三】
+某启：比承诲问，岂胜感慰。肿疡虽未溃，度易治，不烦念恤。推官到此，深喜阖门吉庆。疲困，不宣悉。冀倍自爱。某启上。（《王文公文集》卷四。）
+【与耿天骘书一】
+某启：比得诲示，以无便，不即驰报，然乡往何可胜言也。岁月如流，日就衰ぃ。今夏复感眩瞀如去秋，偶复不死，然几如是而能复久存乎？旁妇已别许人，亦未有可求昏处。此事一切不复关怀。陶渊明所谓“身如逆旅舍，我为当去客”，于未去间，凡事缘督应之而已。藿香散并方附去，或别要应病药，不惜谕及。台上草木茂密，芙蕖极盛，未知何时可复晤语。千万自爱。
+【与耿天骘书二】
+某启：承诲示勤勤，并致美梨，极荷不忘。纯甫事失于不忍小忿，又未尝与人谋，故至此。事已无可奈何，徒能为之忧煎耳。旁每荷念恤，然此须渠肯，乃可以谋，一切委之命，不能复计校也。药封上。未审营从何时能如约见过，日以企伫。稍凉自爱，贵眷各吉庆。不宣。某启上。（同上。）
+【与郭祥正太博书一】
+某启：近承屈顾，殊不得从容奉颜色，遽此为别，岂胜区区愧恨。乍远，千万自爱。承行李朝夕当复来此，诸须面诉乃悉。许诗不惜多以藁副见借为幸。
+【与郭祥正太博书二】
+某顿首：比承手笔，尤剧欣慰。时序感心，不能自释，咫尺无由奉见，向往尤深。蒙许寄诗，幸甚。尚此留连，不惜数赐教也。冬寒自爱。舍弟近出，岁尽乃归，承书所以不得报也。（同上。）
+【与孟逸秘校书】
+某顿首仲休兄足下：辱手笔，感慰。跋涉溪山之远，亦劳矣。然足以慰二邑元元之望，惟宽中自爱也。人求还急，修答不谨，幸见亮。有不逮，见教。（同上。）
+【与柳承议书】
+某启：承诲示，感愧。公方护丧归里，应接必多，岂敢费烦厚馈。糖冰谨已拜贶，馀则纳还，冀蒙亮悉也。（以上见《王文公文集》卷四。）
+【与林宰书】
+数日得奉谈笑，殊自慰怀，渴仰殊深。伏惟动止万福。鹇已领得，感怍。当有元给之直，幸示下。不然，则鲁自是不赎人矣。按田良苦，惟宽中自爱。（《五百家播芳大全文粹》卷六十六。）
+【与吕参政书】
+承累幅勤勤，为礼过当，非敢望于故人也。不敢视此以为报礼，想蒙恕察。承已祥除，伏维尚有馀慕。知有所谕者，恨未见之。虽赖恩爱，得优游疾惫。弃日茫然，未获奉并，惟冀爱重。（同上卷一○三。）
+【再答吕吉甫书】
+承诲示勤勤，岂胜愧感。闻有太原新除，不知果成行否？想遂治装而西也。示及法观文字，辄留玩读，研究义味也。观身与世，如泡梦幻，若不以此洗心，而沈于诸妄，不亦悲乎？想见无期，惟刮摩世习，共进此道，则虽隔阔，常若交臂。虽衰ぃ瞢耗，敢不勉此？犹冀未死间，或得晤语，以究所怀。未尔，良食，为时自爱。令弟想各安裕，必同时西上也。惠及海物，愧荷不忘。村落无物将意，栗二笼驰献。某今年虽无大病，然年弥高矣，衰亦滋极，稍似劳动，便不支持。向著《字说》，粗已成就，恨未得致左右。观古人意，多寓妙道于此。所惜许慎所传止此，又有伪谬，故于思索难尽耳。（《王文公文集》卷六。）
+【答田仲通书】
+某再拜仲通兄足下：乡时在京师，欲走阳翟见颜色，以事卒不果，至今悔恨，非复可自解释。自得从足下游，私心未尝一日忘。羁穷不幸，不得常从，以进道艺。其恨岂有忘时哉？而足下于交游中，亦最见爱。（云云。）
+【答杭州张龙图书】
+某启：阻阔岁久，岂胜乡往。承诲示，乃知舆卫近在京口，动止多福，重增企仰。无缘会晤，惟冀为时倍自寿重。衰疾，书不宣悉。某启上知府龙图。（以上见《王文公文集》卷六。）
+【答王深甫书】
+某启：黾勉从事，不能无劳。略尝奉书，想已得达。承手笔，知与十二娘子侍奉万福，欣慰可知。所示异论具晓，然道德性命，其宗一也。道有君子有小人，德有吉有凶，则命有逆有顺，性有善有恶，固其理也，又何足以疑？伊尹曰：“兹乃不义，习与性成。”去善就恶，谓之性亡，不可谓之性成，则伊尹之言何谓也？召公曰：“惟不敬厥德，乃早坠厥命。”所谓命凶也。命凶者，固自取，犹谓之命。若小人自取，或幸而免，不可谓之命，则召公之言何谓也？夫古之人，以为无君子道为无道，无吉德为无德，则去善就恶，谓之性亡，亦不可也。虽然，可以谓之无道，不可谓道无小人；可以谓之无德，不可以谓之德无凶；可以谓之性亡，不可以谓之性无善。孔子曰：“性相近也，习相远也。”此言相近之性，以习而相远，则习不可以不慎，非谓天下之性皆相近而已也。孔子见南子为有礼，则孔子何不告子路曰“是礼也”，而曰“天厌之”乎？孟子曰：“男女授受不亲，礼也。嫂溺则援之以手者，权也。”若有礼而无权，则何以为孔子？天下之理，固不可以一言尽。君子有时而用礼，故孟子不见诸侯；有时而用权，故孔子见南子也。孔子与蒲人盟而适卫者，将以行法也。不如是，则要盟者得志矣。且有制于人而不得行，则圣人之无所奈何。孔子适卫，非蒲人之所能制，则孔子何为而不适卫？适卫然后足以明义，此孔子所以适卫也。凡此，皆略为深甫道之。以深甫之明，何难于答是，而千里以书见及，此固深甫之好问嗜学之无已也。久废笔墨，言不逮意，幸察。知罢官遂见过，幸甚。然某疲病，恐不能久堪州事，不知还得相见于此否？向秋自爱。（《王文公文集》卷七。）
+【与王逢原书四】
+安石顿首。承跋涉到江阴，与贤阁万福，良以为慰！安石居此，郁郁殊无聊，念非见君子，谁与论此？不久来江宁，冀逢原一来，不审肯否？倘可与子明同来乎？不知脚气近日如何？切自慎爱，千万，千万！近见莘老，其不肯豫人事，固知其如此久矣。而书来过相称誉，似以俗人见遇，不知其故何也？既已任此职事矣，彼以此遇我，殆其宜也。冬寒，自爱。安石顿首。（《全宋文》卷一三九七引《王令集》附录。）
+【与王逢原书五】
+安石顿首。辱书，感慰。舟但乘至蕲阳，当无人呵问，兼是吴舅法所当得，亦何嫌不自驾之，以往还就载官物可也。旅居僧舍，良亦无聊，千万自爱！时以书见教。今日尚苦大风，不可行。匆匆，不谨。安石顿首。（同上。）
+【与王逢原书七】
+安石顿首。辱教具晓。盛指陈山人，今在此，幸便访及也。他俟而谒。匆匆，不谨。安石顿首。（同上。）
+【与王逢原书八】
+安石顿首。比辱足下来见顾存，而人事纷纷，殊不得从容尽所欲言，而遂尔远违，区区乡往之情，岂可以书言哉？到天长，乃知行李已到毗陵，脚气已渐平复，殊以为慰。即日劝止，想与贤阁俱万福，贵眷各宁康。已到宿州，薄晚遂行，更数日即到京师，别上状。然书所传道，岂可以尽意乎？近见说脚气，但于早起未下床未语以前，取唾以手大指摩脚心，取极热，乃下床，久之自不复发，尝试为之。此乃尝有人以此除疾，为之无妨也。葛子明得书否？二舅处有书来否？苦热，自爱！安石寓家船中，数日来热不可胜任，殊以为忧，为之奈何！安石顿首。（同上。）
+【与陈祈柬】
+安石顿首。还弊庐，幸数对案。发日，更承出饯，宠以佳句，尤愧怍，不敢当厚意之辱。宿宇下，尝成一绝，今书奉寄，想一笑而已。秋凉，加爱。安石顿首陈君昆弟足下，九月十一日。（同上。《王荆文公诗笺注》卷四六，清乾隆六年张宗松清绮斋刻本。）
+【与吴正宪公书】
+备官京师二年，鄙吝积于心，每不自胜。一诣长者，即废然而反。夫所谓德人之容，使人之意消者，于晦叔得之矣。以安石之不肖，不得久从左右，以求其放心，而稍近于道。猥以私养窃禄，所以重贪污之罪，哮掀笸，何以胜怀！因书见教，千万之望。（同上。《紫微诗话》，《历代诗话》第三七三页。）
+安石启：承诲累幅，岂胜感慰！初谓优游园宅，足慰亲怀，乃知营从赴官不久，烦暑尚在，冀倍自调啬。令兄想侍奉佳福。安石启推官足下。（同上。《宝真斋法书赞》卷一一。）
+吾在此粗如常。得弟书，喜安佳。岁莫，岂胜忧想！不知行李何时至此，日以企伫，切好将息。累得十侄书，切有便更寄书来也。十四、十六、念一等孙安佳，思忆思忆！十五切修学，有便寄书来也。六弟日夕往来，七、八侄、十一侄常相见。诸不一一，思忆思忆。押送七弟。（同上。）
+【报巩仲至帖】
+来喻所云“漱六艺之芳润，以求真澹”，此极至之论。然恐亦须先识得古今体制，雅俗向背，仍更洗涤得尽肠胃间夙生荤血脂膏，然后此语方有所措。如其未然，窃恐秽浊为主，芳润入不得也。近世诗人正缘不曾透得此关，而规规于近局，故其所就皆不满人意。（同上。《爱日斋丛钞》卷三，守山阁丛书本。）
+【与著作明府帖】
+安石启：特枉营卫，殊阙从容，然慰久阔向往之情多矣。宿寒，安否？明日倘肯顾一饭否？馀留面叙，不宣。安石启上著作明府。（同上。《停云馆帖》第五册。）
+【与蒋颖叔帖】
+承枉顾，深慰久阔向往。衰疾畏风，未获遣诣。请过宿，幸早赐驾也。馀留面赋，不宣。安石启上颖叔。（同上。）
+【请秀长老疏一】
+伏以性无生减，不出于如；法有思修，但除其病。故牟尼以无边阐教，诸祖以直指明宗。虽开方便之多门，同趣涅髦一路。知言语之道断，凡尔忘缘；悟文字之性空，炽然常说。至于穷智之所不能到，论言之所不可传，苟非其人，曷与于此？秀公早种多识，独悟惟心，或以群言开有学之迷，或以一指应无穷之问。云门法印，既所亲承；正觉道场，诚资演畅。宜从众志，来嗣一音。（《王文公文集》卷二四。）
+【请秀长老疏二】
+伏以正法眼藏，诸祖之所亲传；大甘露门，众生之所祈向。非由开士，曷振宗源？伏惟某人性悟无生，识趋有学，喻法常知于舍筏，陶真已得于遗珠。灵焰无穷，能作千生之续；妙音普振，同沾一雨之滋。愿临真觉之道场，亲受云门之法印。仰惟慈证，俯徇众求。（《王文公文集》卷二四。）
+【请文长老疏】
+元丰八年三月伏以肇置仁祠，永延睿算，归诚善导，开迹胜缘。文公长老独受正传，历排戏论，求心之所祈响，发趣之所归宗。俯惟慈哀，勉洵勤企。谨疏。元丰八年三月日。（《全宋文》卷一三九七引《古尊宿语录》卷四五，嘉兴藏第十册。）
+【贺杭州蒋密学启】
+右某近者伏审拜命徽章，升荣北省，伏维庆慰。窃以上大夫为内谏，汉擢忠良；府学士统要藩，唐称优显。逮宋兼任，非贤不居。（恭惟）某官，天与粹温，岳储灵哲。夙抱经济，游天子之彤庭；首见推明，为士林之高选。断直躬以自处，伏大节而不回，名动一朝，官历两省。望之补外，理固非宜；阳城拜官，贺者甚众。上方图任，夕有召书。某展庆未遑，⑿那员叮顾言尘冗，将幸坯掏。依戴所深，翰墨难致。（《王文公集》卷二十二。）
+【贺太守正启】
+献岁发春，自天降祉。方竦瞻于治所，阻交致于寿觞。伏以某官德履端方，才猷敏妙。久镇临于边剧，已茂著于劳能。谅因正始之辰，倍享宜新之祜。某省承荣翰，第切感巍７铰拟藕，冀加珍护。（见《播芳大全》卷二十六。）
+【回皇亲谢及第启】
+伏审校艺中程，霈恩移镇，凡兹有识，皆谓至荣。今国家兴学校以养育天下之材，而材犹未能有成；革科举以新美天下之士，而士或未尽去故。况于以公子之乐善，而能先儒者以试经。傥匪非出常之才，孰能出类如此？伏维某官世绵瓜瓞，才к棣华，不以富贵而自骄矜，而为贫贱之所求取。决科异等，有光汉族之文章；进秩重藩，益壮周家之屏翰。非特为荣于宗室，盖将有激于士风。某限列谏垣，莫趋宫屏，未能驰谢，乃枉赐言。惟荷眷之至深，非多辞之可喻云云。（《王文公文集》卷二十二。）
+【回贺生日启】
+闾史记时，永念劬劳之报；牙兵传教，乃蒙慰赐之加。仰荷眷怜，岂胜感恻！伏维判府留守太尉，望隆国栋，声冠时髦。如畎亩之馀生，乃门阑之旧物。尚负品题之赐，每愧愚憧；敢图恩纪之施，未遗幽远。仰承嘉惠，增激懦衷。（同上。）
+【重建许旌阳祠记】
+自古名德之士，不得行其道以济斯世，则将效其智以泽当时，非所以内交要誉也，亦曰士而独善其身，不得以谓之士也。后世之士，失其所业，糜烂于章句训传之末而号为颖拔者，不过利其艺以干时射利而已。故道日丧而智日卑，于是有不昧其灵者每厌薄焉。非士之所谓道者，名不副实也，亦以所尚者非道也。呜呼，其来久矣！晋有百里之长曰许氏，尝为旌阳令，有惠及于邑之民。其为术也，不免乎后世方技之习，如植竹水中，令疫病者酌水饮焉而病者旋愈，此固其精诚之所致也。而藏金于圃，使囚者出力而得之，因偿负，而或免于桎梏，岂尽出方技之所为者，以是德于民。既后斩蛟而免豫章之昏垫，大抵皆其所志足以及之。志之所至，智亦及焉，是则公之有功于洪，论者固自其道而观之矣。夫以世降俗末之日，仕于时者得人焉如公，亦可谓晦冥之日月矣。公有功于洪，而洪祀之处且久。祥符中，升其观为宫，而公亦进位于侯王之上。于是州吏峻其严祀之宫室与王者等，兹固侈其功而答其赐也。工弗加壮，中焉以圮，今师帅南丰曾君巩慨然新之。巩儒生也，殆非好尚老氏教者，亦曰能御大灾、能捍大患则祀之，礼经然也。国家既隆其礼于公，则视其陋而加之以丽，所以敬王命而昭令德也。书来，使余记之。余尝有感于士之不明其道而泽不及物者，得以议吾儒也，故于是举乐为之述焉。（《全宋文》卷一四八引《古今图书集成》神异典卷二八一。）
+【清溪亭记】
+临池州之溪上，隶军事判官之府，京兆杜君建。夫吴楚荆蜀闽越之徒，出入于是，而离离洞庭、鄱阳之水，浮于日月之上无穷。四方万里之人，飞帆鼓楫，上下于波涛之中，犯不测之险于朝暮之际，而吾等乃于数楹之地，得伟丽之观于寝食坐作之间，是可喜也。君曰：夫备其形于事者宜有以佚其劳，厌其视听之喧嚣，则必之乎空旷之野，然后能无患于晦明。飞禽之啁啾，怒浪之汹涌，渔蓬樵跻啸于前而歌于后，孰与夫讼诉笞榜之交于耳也！岸帻穿履，弦歌而诗书，投壶饮酒，谈古今而忘宾主，孰与夫擎跽折旋之密接于吾目也！此亭之所以作也。（同上。《方舆胜览》卷一六。）
+【送丘秀才序】
+古之人以婚姻为兢兢，合异德以复万世之故。春秋世，此礼始寝废。不亲迎者，吾闻之矣。先配而后祖者，吾闻之矣。时其遂不复振，人皆直情而径行，乌识所谓兢兢者乎？至隋文中子喟然伤之曰：“昏礼废，天下无家道矣。”始采周公、孔子之旧，续而存之。贾琼者乃曰：“今皆云，焉用续？”夫琼，何人也？世之所谓贤人也，亲炙子之教也。贤而亲炙子之教，然且云尔，其不在于程、仇、董、薛之列也宜。今世之读《中说》者，皆知琼之言非是，然而不为琼之所为者亦末矣。夫人万一有喜事者，追古之昏礼而行之，世必指目，以怪迂之名被之矣，若之何其肯拂所习而从之也？於戏，古既往，后世不可期。安得法度士，与之奋不顾世，独行古之所行也？南丘子学于金陵，以亲之命归逆妇。吾望其能然，以是谂之。（见《王文公集》卷三十六。）
+【题自书楞严经要旨】
+余归钟山，假道原本，手自校正，刻书寺中。时元丰八年四月十一日，临川王安石稽首敬书。（《全宋文》卷一三九八引《珊瑚网》卷三。）
+【宋史王安石传】
+王安石字介甫，抚州临川人。父益，都官员外郎。安石少好读书，一过目终身不忘。其属文动笔如飞，初若不经意，既成，见者皆服其精妙。友生曾巩携以示欧阳修，修为之延誉。擢进士上第，笔书淮南判官。旧制，秩满许献文求试馆职，安石独否。再调知鄞县，起堤堰，决陂塘，为水陆之利；贷谷与民，立息以偿，俾新陈相易，邑人便之。通判舒州。文彦为相，荐安石恬退，乞不次进用，以激奔竞之风。寻召试馆职，不就。修荐为谏官，以祖母年高辞。修以其须禄养言于朝，用为群牧判官，请知常州。移提点江东刑狱，入为度支判官，时嘉倘年也。
+安石议论高奇，能以辨博济其说，果于自用，慨然有矫世变俗之志。于是上万言书，以为“今天下之财力日以困穷，风俗日以衰坏，患在不知法度，不法先王之政故也。法先王之政者，法其意而已。法其意，则吾所改易更革，不至乎倾骇天下之耳目，嚣天下之口，而固已合先王之政矣。因天下之力以生天下之财，取天下之财以供天下之费，自古治世，未尝以财不足为公患也，患在治财无其道尔。在位之人才既不足，而闾巷草野之间亦少可用之才，社稷之托，封疆之守，陛下其能久以天幸为常，而无一旦之忧乎？愿监苟且因循之弊，明诏大臣，为之以渐，期合于当世之变。臣之所称，流俗之所不讲，而议者以为迂阔而熟烂者也。”后安石当国，其所注措，大抵皆祖此书。
+俄直集贤院。先是，馆阁之命屡下，安石屡辞，士大夫谓其无意于世，恨不识其面，朝廷每欲俾以美官，惟患其不就也。明年，同修起居注，辞之累日，阁门吏赍敕就付之，拒不受，吏随而拜之，则避于厕，吏置敕于案而去，又追还之，上章至八九，乃受，遂知制诰，纠察在京刑狱，自是不复辞官矣。
+有少年得斗鹑，其侪求之不与，恃与之昵辄持去，少年追杀之。开封当此人死，安石驳曰：“按律，公取、穷取皆为盗。此不与而彼携以去，是盗也；追而杀之，是捕盗也，虽死当勿论。”遂劾府司失入。府官不伏，事下审刑大理，皆以府断为是。诏放安石罪，当诣阁门谢。安石言：“我无罪。”不肯谢。御史举奏之，置不问。
+时有诏舍人院无得申请除改文字，安石争之曰：“审如是，则舍人不得复行其职，而一听大臣所为，自非大臣欲倾侧而为私，则立法不当如此。今大臣之弱者不敢为陛下守法，而强者则挟上旨以造令，谏官、御史无敢逆其意者，臣实惧焉。”语皆侵执政，由是益与之忤。以母忧去，终英宗世召不起。
+安石本楚士，未知名于中朝，以韩、吕二族为巨室，欲藉以取重，乃深与韩绛、绛弟维及吕公著交，三人更称扬之，名始盛。神宗在颍邸，维为记室，每讲说见称，辄曰：“此非维之说，维之友王安石之说也。”及为太子庶子，又荐自代。帝由是想见其人，甫即位，命知江宁府。数月，召为翰林学士兼侍讲。熙宁元年四月，始造朝，入对，帝问为治所先，对曰：“择术为先。”帝曰：“唐太宗何如？”曰：“陛下当法尧、舜，何以太宗为哉？尧、舜之道，至简而不烦，至要而不迂，至易而不难。但末世学者不能通知，以为高不可及尔。”帝曰：“卿可谓责难于君，朕自视眇躬，恐无以副卿此意。可悉意辅朕，庶同济此道。”
+一日讲席，群臣退，帝留安石坐，曰：“有欲与卿从容议论者。”因言：“唐太宗必得魏征，刘备必得诸葛亮，然后可以有为，二子诚不世出之人也。”安石曰：“陛下诚能为尧、舜，则必有皋、夔、稷、Ι；诚能为高宗，则必有傅说。彼二子皆有道者所羞，何足道哉？以天下之大，人民之众，百年承平，学者不为不多。然常患无人可以助治者，以陛下择术未明，推诚未至，虽有皋、夔、稷、Ι、傅说之贤，亦将为小人所蔽，卷怀而去尔。”帝曰：“何世无小人，虽尧、舜之时，不能无四凶。”安石曰：“惟能辨四凶而诛之，此其所以为尧、舜也。若使四凶得肆其谗慝，则皋、夔、稷、Ι亦安肯苟食其禄以终身乎？”
+登州妇人恶其夫寝陋，夜以刃昔刂之，伤而不死。狱上，朝议皆当之死，安石独援律辨证之为合从谋杀伤，减二等论。帝从安石说，且著为令。
+二年二月，拜参知政事。上谓曰：“人皆不能知卿，以为卿但知经术，不晓世务。”安石对曰：“经术正所以经世务，但后世所谓儒者，大抵皆庸人，故世俗皆以为经术不可施于世务尔。”上问：“然而卿所施设以何先？”安石曰：“变风俗，立法度，最方今之所急也。”上以为然。于是设制置三司条例司，命与知枢密院事陈升之同领之。安石令其党吕惠卿任其事。而农田水利、青苗、均输、保甲、免役、市易、保马、方田诸役相继并兴，号为新法，遣提举官四十余辈颁行天下。
+青苗法者，以常平籴本作青苗钱，散与人户，令出息二分，春散秋敛。均输法者，以发运之职改为均输，假以钱货，凡上供之物，皆得徙贵就贱，用近易远，预知在京仓库所当办者，得以便宜蓄买。保甲之法，籍乡村之民，二丁取一，十家为保，保丁皆授以弓弩，教之战阵。免役之法，据家赀高下，各令出钱雇人充役，下至单丁、女户、本来无役者，亦一概输钱，谓之助役钱。市易之法，听人赊贷县官财货，以田宅或金帛为抵当，出息十分之二，过期不输，息外每月更加罚钱百分之二。保马之法，凡五路义保愿养马者，户一匹，以监牧见马给之，或官与其直使自市，岁一阅其肥瘠，死病者补偿。方田之法，以东西南北各千步，当四十一顷六十六亩一百六十步为一方，岁以九月，令、佐分地计量，验地土肥瘠，定其色号，分为五等，以地之等均定税数。又有免行钱者，约京师百物诸行利入厚薄，皆令纳钱，与免行户祗应。自是四方争言农田水利，古陂废堰，悉务兴复。又令民封状增价以买坊场，又增茶监之额，又设措置河北籴便司，广积粮谷于临流州县，以备馈运。由是赋敛愈重，而天下骚然矣。
+御史中丞吕诲论安石过失十事，帝为出诲，安石荐吕公著代之。韩琦谏疏至，帝感悟，欲从之，安石求去。司马光答诏有“士夫沸腾，黎民骚动”之语，安石怒，抗章自辨。帝为巽辞谢，令吕惠卿谕旨，韩绛又劝帝留之。安石入谢，因为上言中外大臣、从官、台谏、朝士朋比之情，且曰：“陛下欲以先王之正道胜天下流俗，故与天下流俗相为重轻。”流俗权重则天下之人归流俗，陛下权重则天下之人归陛下。权者与物相为重轻，虽千钧之物，所加损不过铢两而移。今奸人欲败先王之正道，以沮陛下之所为。于是陛下与流俗之权适争轻重之时，加铢两之力，则用力至微，而天下之权已归于流俗矣，此所以纷纷也。”上以为然，安石乃视事，琦说不得行。
+安石与光素厚，光援朋友责善之义，三诒书反覆劝之，安石不乐。帝用光副枢密，光辞未拜而安石出，命遂寝。公著虽为所引，亦以请罢新法出颍州。御史刘述、刘琦、钱ダ、孙昌龄、王子韶、程颢、张戬、陈襄、陈荐、谢景温、杨绘、刘挚，谏官范纯仁、李常、孙觉、胡宗愈，皆不得其言，相继去。骤用秀州推官李定为御史，知制诰宋敏求、李大临、苏颂封还词头，御史林旦、薛昌朝、范育论定不孝，皆罢逐。翰林学士范镇三疏言青苗，夺职致仕。惠卿遭丧去，安石未知所托，得曾布，信任之，亚于惠卿。
+三年十二月，拜同中书门下平章事。明年春，京东、河北有烈风之异，民大恐。帝批付中书，令省事安静以应天变，放遣两路募夫，责监司、郡守不以上闻者。安石执不下。
+开封民避保甲，有截指断腕者，知府韩维言之，帝问安石，安石曰：“此固未可知，就令有之，亦不足怪。今士大夫睹新政，尚或纷然惊异，况于二十万户百姓，固有跤尬人所惑动者，岂应为此遂不敢一有所为邪？”帝曰：“民言合而听之则胜，亦不可不畏也。”
+东明民或遮宰相为诉助役钱，安石白帝曰：“知县买蕃，乃范仲淹之婿，好附流俗，致民如是。”又曰：“治民当知其情伪利病，不可示姑息。若纵之使妄经省台，鸣鼓邀驾，恃众侥幸，则非所以为政。”其强辩背理率类此。
+帝用韩维为中丞，安石憾曩言，指为善附流俗以非上所建立，因维辞而止。欧阳修乞致仕，冯京请留之，安石曰：“修附丽韩琦，以琦为社稷臣。如此人，在一郡则坏一郡，在朝廷则坏朝廷，留之安用？”乃听之。富弼以格青苗解使相，安石谓罚轻不足以阻奸，至比之共、鲧。灵台郎尤瑛言天久阴，星失度，宜退安石，即黥隶英州。唐訾”疽园彩引荐为谏官，因请对极论其罪，谪死。文彦博言市易与下争利，致华岳山崩。安石曰：“华山之变，殆天意为小人发。市易之起，自为细民久困以抑兼并尔，于官何利焉。”阏其奏，出彦博守魏。于是吕公著、韩维，安石藉以立声誉者也；欧阳修、文彦博，荐己者也；富弼、韩琦，用为侍从者也；司马光、范镇，交友之善者也，悉排斥不遗力。
+礼官议正太庙太祖东向之位，安石独定议还僖祖于祧庙，议者合争之，弗得。上元夕，从驾乘马入宣德门，卫士诃止之，策其马。安石怒，上章请逮治。御史蔡确言：“宿卫之士，拱扈至尊而已，宰相下马非其处，所应诃止。”帝卒为杖卫士，斥内侍，安石犹不平。王韶开熙河奏功，帝以安石主议，解所服玉带赐之。
+七年春，天下久旱，饥民流离，帝忧形于色，对朝嗟叹，欲尽罢法度之不善者，安石曰：“水旱常数，尧、汤所不免，此不足招圣虑，但当修人事以应之。”帝曰：“此岂细事，朕所以恐惧者，正为人事之未修尔。今取免行钱太重，人情咨怨，至出不逊语。自近臣以至后族，无不言其害。两宫泣下，忧京师乱起，以为天旱更失人心。”安石曰：“近臣不知为谁，若两宫有言，乃向经、曹佾所为尔。”冯京曰：“臣亦闻之。”安石曰：“士大夫不者以京为归，故京独闻此言，臣未之闻也。”监安上门郑侠上疏，绘所见流民扶老携幼困苦之状，为图以献，曰：“旱由安石所致，去安石，天必雨。”侠又坐穷岭南。慈圣、宣仁二太后流涕谓帝曰：“安石乱天下。”帝亦疑之，遂罢为观文殿大学士、知江宁府，自礼部侍郎超九转为吏部尚书。
+吕惠卿服阕，安石朝夕汲引之，至是，白为参知政事，又乞召韩绛代己。二人守其成模不少失，时号绛为“传法沙门”，惠卿为“护法善神”。而惠卿实欲自得政，忌安石复来，因郑侠狱陷其弟安国，又起李士宁狱以倾安石。绛觉其意，密白帝请召之。八年二月，复拜相，安石承命即倍道来。《三经义》成，加尚书左仆射兼门下侍郎，以子⑽龙图阁直学士，⒋牵惠卿劝帝允其请，由是嫌隙愈著。惠卿为蔡承禧所击，居家俟命，⒎缬史中丞邓绾，复弹惠卿与知华亭县张若济为奸利事，置狱鞠之，惠卿出守陈。
+十月，彗出东方，诏求直言，及询政事之未协于民者。安石率同列疏言：“晋武帝五年，彗出轸；十年，又有孛。而其在位二十八年，与《乙巳占》所期不合。盖天道远，先王虽有官占，而所信者人事而已。天文之变无穷，上下传会，岂无偶合。周公、召公岂欺成王哉。其言中宗享国日久，则曰‘严恭寅畏，天命自度，治民不敢荒宁。’其言夏、商多历年所，亦曰‘德’而已。裨灶言火而验，欲禳之，国侨不听，则曰‘不用吾言，郑又将火。’侨终不听，郑亦不火。有如裨灶，未免妄诞，况今星工哉？所传占书，又世所禁，誊写伪误，尤不可知。陛下盛德至善，非特贤于中宗，周、召所言，则既阅而尽之矣，岂须愚瞽复有所陈。窃闻两宫以此为忧，望以臣等所言力行开慰。”帝曰：“闻民间殊苦新法。”安石曰：“祁寒暑雨，民犹怨咨，此无庸恤。”帝曰：“岂若并祁寒暑雨之怨亦无邪？”安石不悦，退而属疾卧，帝慰勉起之。其党谋曰：“今不取上素所不喜者暴进用之，则权轻，将有窥人间隙者。”安石是其策。帝喜其出，悉从之。时出师安南，谍得其露布，言：“中国作青苗、助役之法，穷困生民。我今出兵，欲相拯济。”安石怒，自草敕榜诋之。
+华亭狱久不成，⒁允裘畔驴吐兰挝省⒘泛喔共议，取邓绾所列惠卿事，维他书下制狱，安石不知也。省吏告惠卿于陈，惠卿以状，且讼安石曰：“安石尽弃所学，隆尚纵横之末数，方命矫令，罔上要君。此数恶力行于年岁之间，虽古之失志倒行而逆施者，殆不如此。”又发安石私书曰“无使上知”者。帝以示安石，安石谢无有，归以问ⅲ⒀云淝椋安石咎之。⒎唔＃疽发背死。安石暴绾罪增云：“为臣子弟求官及荐臣婿蔡卞”，遂与亨甫皆得罪。绾始以附安石居言职，及安石与吕惠卿相倾，绾极力助攻惠卿。上颇厌安石所为，绾惧失势，屡留之于上。其言无所顾忌。亨甫险薄，谄事⒁越，至是皆斥。
+安石之再相也，屡谢病求去，及子⑺溃尤悲伤不堪，力请解机务。上益厌之，罢为镇南军节度使、同平章事、判江宁府。明年，改集禧观使，封舒国公，屡乞还将相印。元丰二年，复拜左仆射、观文殿大学士。换特进，改封荆。哲宗立，加司空。
+元淘年卒，年六十六，赠太傅。绍圣中，谥曰“文”，配享神宗庙庭。崇宁三年，又配食文宣王庙，列于颜、孟之次，追封舒王。钦宗时，杨时以为言，诏停之。高宗用赵鼎、吕聪问言，停宗庙配享，削其王封。
+初，安石训释《诗》、《书》、《周礼》，既成，颁之学官，天下号曰“新义”。晚居金陵，又作《字说》。多穿凿傅会，其流入于佛、老。一时学者，无敢不传习，主司纯用以取士，士莫得自名一说，先儒传注，一切废不用。黜《春秋》之书，不使列于学官，至戏目为“断烂朝报”。
+安石未贵诗，名震京师，性不好华腴，自奉至俭，或衣垢不浣，面垢不洗，世多称其贤。蜀人苏洵独曰：“是不近人情者，鲜不为大奸慝。”作《辨奸论》以刺之，谓王衍、庐杞合为一人。
+安石性强忮，遇事无可否，自信所见，执意不回。至议变法，而在廷交执不可，安石傅经义，出己意，辨论辄数百言，众不能诎。甚者谓“天变不足畏，祖宗不足法，人言不足恤。”罢黜中外老成人几尽，多用门下儇慧少年。久之，以旱引去，洎复相，岁余罢，终神宗世不复召，凡八年，子ⅰ
+⒆衷泽，为人泻芬蹩蹋无所顾忌。性敏甚，未冠，已著书数万言。年十三，得秦卒言洮、河事，叹曰：“此可抚而有也。使西夏得之，则吾敌强而边患博矣。”其后王韶开熙河，安石力主其议，盖兆于此。举进士，调旌德尉。
+⑵豪，睥睨一世，不能作小官。作策三十余篇，极论天下事，又作《老子训传》及《佛书义解》，亦数万言。时安石执政，所用多少年，⒁嘤预选，乃与父谋曰：“执政子虽不可预事，而经筵可处。”安石欲上知而自用，以⑺作策及注《道德经》镂板鬻于市，遂传达于上。邓绾、曾布又力荐之，召见，除太子中允、祟政殿说书。神宗数留与语，受诏撰《诗》、《书义》，擢天章阁待制兼侍讲。书成，迁龙图阁直学士，以病辞不拜。
+安石更张政事，⑹底裰。常称商鞅为豪杰之士，言不殊异议者法不行。安石与程颢语，⑶羰柞凶悖携妇人冠以出，问父所言何事。曰：“以新法数为人所阻，故与程君议。”⒋笱栽唬骸拌珊琦、富弼之头于市，则法行矣。”安石遂曰：“儿误矣。”卒时才三十三，特赠左谏议大夫。
+论曰：朱熹尝论“安石以文章节行高一世，而尤以道德经济为己任。被遇神宗，致位宰相，世方仰其有为，庶几复见二帝三王之盛，而安石乃汲汲以财利兵革为先务，引用凶邪，排摈忠直，躁迫强戾，使天下之人嚣然丧其乐生之心。卒之群奸嗣虐，流毒四海，至于崇宁、宣和之际，而祸乱极矣。”此天下之公言也。昔神宗欲命相，问韩琦曰：“安石何如？”对曰：“安石为翰林学士则有余，处辅弼之地则不可。”神宗不听，遂相安石。呜呼！此虽宋氏之不幸，亦安石之不幸也。
+【东都事略王安石传】
+王安石字介甫，抚州临川人也。父益，都官员外郎。安石蚤有盛名，博闻强记，为文动笔如飞，观者服其精妙。举进士高第，佥书淮南节度判官。召试馆职，固辞，乃知鄞县。安石好读书，三日一治县事。起堤堰，决陂塘，为水陆之利；货谷于民，立息以偿，俾新陈相易；兴学校，严保伍，邑人便之。通判舒州。文彦博为相，荐安石恬退，不次进用，可以激奔竞之风。寻再召试，又固辞，乃以为群牧判官，出知常州。由是名重天下。
+提点江东刑狱，入为三司度支判官，献书万余言，极陈当世之务。居顷之，除直集贤院，累辞，不获命，始就职。除同修起居注，固辞不拜，遂除知制诰，自是不复辞官矣。以母忧去，服除，英宗朝累召不起。
+神宗即位，除知江宁府，召为翰林学士。初入对，神宗曰：“方今治当何先？”安石曰：“以择术为先。”神宗曰：“唐太宗何如？”安石曰：“陛下当以尧、舜为法，太宗所知不远，所为不尽合先王，但乘隋乱，子孙又皆昏愚，所以独见称述。尧、舜所为，至简而不烦，至要而不迂，至易而不难。但末世学者不能通知，常以为高不可及，不知圣人经世立法，以中人为制也。”神宗曰：“卿所谓责难于君，朕自视眇然，恐无以副卿此意。可悉意辅朕，庶同济此道。”
+一日讲席，群臣退，神宗留安石坐，曰：“有欲从容与卿论议者。”因言：“唐太宗必得魏郑公，刘备必得诸葛亮，然后可以有为，二子诚不世出之人也。”安石曰：“陛下诚能为尧、舜，则必有皋、夔、稷、Ι；陛下诚能为高宗，则必有傅说。魏郑公、诸葛亮，皆有道者所羞，何足道哉！以天下之大，人民之众，百年承平，学者不为不多，然常患无人可以助治者，以陛下择术未明，推诚未至，虽有皋、夔、稷、Ι、傅说之贤，亦必为小人所蔽，因卷怀而去耳。自古患朝廷无贤者，以人君不明，好近小人故也。好近小人，则贤人虽欲自达无由矣。”神宗曰：“自古治世，岂能使朝廷无小人？虽尧、舜之时，不能无四凶。”安石曰：“惟能辨四凶而诛之，此乃所以为尧、舜也。若使四凶得肆其谗慝，则皋、夔、稷、Ι亦安肯苟食其禄以终身乎！”
+未几，除右谏议大夫、参知政事。安石既执政，神宗曰：“人皆不能知卿，以为卿但知经术，不可以经世务。”安石曰：“经术者，所以经世务也。后世所谓儒者，大抵皆庸人，故世俗皆以经术不可施于世务。”神宗曰：“朕察人情，比于卿，有欲造事倾摇者。朕常以吕诲为忠实，毁卿于时事不通；赵ⅰ⑻平槭以言扦塞，惟恐卿进用。卿当立变此风俗，不知卿所施设以何为先？”安石曰：“变风俗，立法度，最方今所急也。”于是设制置三司条例司，与知枢密院陈升之同领之。而青苗、免役、市易、保甲等法相继兴矣。
+常平仓法，以丰岁谷贱伤农，故增价收粜，使蓄积之家无由抑塞，农夫须令贱籴；凶岁谷贵伤民，故减价出籴，使蓄积之家无由邀勒，贫民须令贵籴。物价常平，公私两利也。安石以常平法为不善，更将籴本作青苗钱，散与人户，令出息二分，置提举官以督之。古者，百姓出力以供在上之役，安石以为百姓惟苦差役破产，不惮增税，乃请据家赀高下，各令出钱，雇人充役。向者，役人皆上等户得之，其下等、单丁、女户及品官、僧道本来无役，安石乃使之一概输钱，于是赋敛愈重。市易之法，听人赊贷县官货财，以田宅或以金帛为抵当，三人相保则给之，皆出息什分之二，过期不输，息外每月更加罚钱百分之二。保甲之法，始因戎狄骄傲，侵据汉、唐故地，有征伐开拓之志，故置保甲。乃藉乡村之民，二丁取一，皆授以弓弩，教之战阵，又令河北、陕西、河东三路，皆五日一教阅，每一丁教阅，一丁供送及诸县弓手，亦皆易以保甲，其保甲习于游惰，不复务农。京东、西两路保甲养马，仍各置提举官，权任比监司。自是四方争言农田水利，古陂废堰，悉务兴复。又立赊贷之法，又令民封状增价以买坊场，又增茶盐之额，又设措置河北籴便司，广积粮谷于临流州县，以备馈运。而天下骚然矣。
+自安石变法以来，御史中丞吕诲首论其过失，安石求去位，神宗为出诲。御史刘琦、钱ダ、刘述又交论安石专肆胸臆，轻易宪度，殿中侍御史孙昌龄亦继言，皆坐贬。同知谏院范纯仁亦论安石欲求近功，忘其旧学，罢谏职。吕公著代吕诲为中丞，亦力请罢条例司并青苗等法，谏官孙觉、李常、胡宗愈，御史张戬、王子韶、陈襄、程颢，皆论安石变法非是，以次罢去。
+前宰相韩琦上疏论青苗之害，乞罢诸路提举官，依常平旧法行之。奏至，安石称疾，求分司，神宗不许。时翰林学士司马光当批答，安石指言光有“士夫沸腾，黎民骚动”之语，神宗谕安石曰：“诏中二语，乃为文督迫之过，而朕失于详阅，当令吕惠卿谕旨。”翌日，安石入谢。因为神宗言中外大臣、从官、台谏、朝士朋比之情，且曰：“陛下欲以先王之正道胜天下流俗，故与流俗相为轻重。流俗权重，则天下之人归流俗；陛下权重，则天下之人归陛下。权者与物相为轻重，虽千钧之物，所加损不过铢两而移。今奸人欲败先王之正道，以沮陛下之所为。是于陛下与流俗之权适争轻重之时，加铢两之力，则用力至微，而天下之权已归于流俗矣，此所以纷纷也。”神宗以为然。安石乃视事。
+熙宁三年，拜礼部侍郎、同中书门下平章事、监修国史。御史中丞杨绘、御史刘挚陈免役之害坐黜，御史林旦、薛昌朝、范育皆以忤安石罢，知杂御史谢景温初附安石，亦以不合去。
+六年，命知制诰吕惠卿修撰经义，以安石提举，而以子⒓嫱修撰。王韶取熙、河、洮、岷、叠、宕等州，安石率群臣入贺，神宗解玉带赐之，以旌其功。慈圣光献皇后、宣仁圣烈皇后间见神宗，流涕言新法之不便者，且言：“王安石乱天下。”神宗亦流涕，退，命安石裁损之。安石重为解，乃已。七年，神宗以久旱，益疑新法之不便。安石不悦，求避位，遂拜吏部尚书、观文殿大学士、知江宁府。明年，复拜同中书门下平章事、昭文馆大学士。《三经义》成，拜尚书左仆射兼门下侍郎。
+初，吕惠卿为安石所知，骤引至执政，安石去位，惠卿遂叛安石。洎安石再相，苟可以中安石，无不为也。会安石子⒆洌安石力求去。九年，拜镇南军节度使、同平章事、判江宁府。安石丐奉祠，以使相为集禧观使，封舒国公。又辞使相，乃以左仆射为观文殿大学士。元丰三年，封特进，改封荆国公。安石退居金陵，始悔恨为吕惠卿所误，每叹曰：“吾昔交游，皆以国事相绝。”意甚自愧也。哲宗即位，拜司空。明年，薨，年六十六，赠太傅。绍圣初，谥曰文，配享神宗庙廷。崇宁三年，配享文宣王庙。政和三年，封舒王。靖康元年，停文宣王配享，列于从祀；后又罢安石配享神宗庙，而夺其王爵。
+初，安石提举修撰经义，训释《诗》、《书》、《周官》，既成，颁之学官，天下号曰“新义”。晚岁为《字说》二十四卷，学者争传习之，凡以经试于有司，必宗其说，少异辄不中程。先儒传注既尽废，士亦无复自得之学，故当时议者谓：“王氏之患，在好使人同己。”安石又著《日录》七十卷，如韩琦、富弼、文彦博、司马光、吕公著、舱颉⒙阑濉⑺臻及一时之贤者，重为毁诋，而安石不恤也。
+安石性强忮，遇事无可否，自信所见，执意不回。至议变法，而在廷交执不可，安石傅经义，出己意，辨论辄数百言，众皆不能诎。甚者谓“天变不足畏，祖宗不足法，人言不足恤。”罢黜中外老成人几尽，多用门下儇慧少年。久之，以旱引去，洎复相，岁馀罢，终神宗世，八年不复召，而恩顾不久衰云。弟安国、安礼，子ⅰ３见栽唬喊彩之遇神宗，千载一时也。而不能引君当道，乃以富国强兵为事，摈老成，任新进，黜忠厚，崇浮薄，恶鲠正，乐谀佞，是以廉耻汩丧，风俗败坏。孟子所谓“作于其心，害于其事；作于其事，害于其政”者，岂不然哉？乌埃“彩之学既行，则奸宄得志，假绍述之主以胁持上下，立朋党之论以禁锢忠良，卒之民愁盗起，夷狄乱华，其祸有不可胜言者，悲夫！（王浴抖都事略》卷七十九）
+【临川文集序】
+古之相其君而成不世之业者，其皆与天下共焉而不以己与者乎？未尝无所立，而泊然其不敢居；不能无所长，而慊然其不敢恃。虚怀夷气，受天下若壑，而其精强转运，尝行于韬光挫锐之中。守此而犹有意外不可尽睹之情挠乎其间，则虽有不韪之名，涉似之迹，犹受而甘之，益外砻其所未融，而内浚其所未至，此非独以求济其事也。君子之道，合天地万物为一体，以己与焉，则阻隘阂隔，不联不贯，而况相天下者，其物情国经，殊才积势，取给于赞决，有非以一己能遍察而独承者，其不敢居焉，且恃道固然也。操瑰玮孤特之行，竣于矜己以收其声，持谰龆嚼髦用，必于责人以速其效，是卑处散地效一官者则可尔。据宰相之尊，将奉其君以厘新大业，天下方狃其旧而不吾信，而欲以是道行之，即其雅度夷气，能收其形于外，而潜伏未艾之根，有一毫厕于胸臆，则几微不能自掩，声音笑貌，无以渍灌于物。始而矜，中而胜，终而固争，迨夫情愤惋而词乖激，才易事愤，而天下始不胜其弊矣。矜己而卒于谤，责人而卒于叛，背于道而求济，宜其难矣。
+宋荆国王文公尝相神宗，悯日弱之势，睹积弊之时，方欲变法更制，举其主于尧、舜。而公以平生卓绝之行，精博之学，处得君之地，观其注意措手，规局旨趣，三代以来，一人而已。然其时每一法出，则天下皆骇而争，攻击疏分，曾无虚日。比公不安而去，虽其所尝荐引者，皆起而攻之，至谓为邪，而靖康之祸，或归其邮于公。庸常守成，苟以自度，犹得辞其过于后，而公以尧、舜、伊、周之心，卒用为罪，其亦宜公之不服，而天下后世几称过乎？嗟夫，如公者，岂非所谓瑰玮孤特之行，欲胜天下以长，而谰龆嚼髦用，欲暴天下以所立者与？公既以其高自处，而视天下莫并己才智，老成咸背而去，去而莫与共吾事者，斯奸人乘间而入。反复排击之馀，法制数易，民眩于听，官易其常，始嚣然索其平和敦庞之气。独程淳公尝有天下事非一家之语，诚深知公所为。病若是，而归基祸之过于公，于情未称，亦抑有由也。公文章根柢六经，而贯彻三才，其体简劲精洁，自名一家。平生展错，无出于使还一书，读之有古人畎亩翻然之志，而后世顾以公相业疑之。然公业所以不就，其失自有在，亦安得而并疑其书也？德安吉阳何先生巡抚江西，悉厘百工，表章往哲，刻公集于抚州，而命沐为序。沐尝从先生得闻天地万物一体之学，辄以此序公文，且用以告后之相天下者。
+嘉靖三十九年四月吉，赐进士出身亚中大夫江西布政司右参政前奉敕提督江广两省学政刑部郎临海后学王宗沐书。
+【绍兴重刊临川文集叙】
+绍兴重刊《临川集》者，郡人王丞相介父之文，知州事桐庐詹大和甄老所谱而校也。艺祖神武定天下，列圣右文而守之。江西士大夫多秀而文，挟所长与时而奋。王元之、杨大年笃尚音律，而元献晏公臻其妙。柳仲途志、穆伯长首唱古文，而文忠欧阳公集其成。南丰曾子固，豫章黄鲁直，亦所谓编之乎诗书之册而无愧者也。丞相旦登文忠之门，晚跻元献之位，子固之所深交，而鲁直称为不朽。近岁诸贤旧集，其乡郡皆悉刊行，而丞相之文，流布闽浙，顾此郡独因循不暇，而詹子所为奋然成之者也。纸墨既具，久而未出。一日谓客曰：“读书未破万卷，不可妄下雌雄。雠正之难，自非刘向、扬雄莫胜其任。吾今所校本，仍闽浙之故耳，先后失次，讹舛尚多。念少迟之，尽更其失，而虑岁之不我与也，计为之何？”客曰：“不然。皋，苏不世出，天下未尝废律。刘，杨不世出，天下未尝废书。凡吾所为，将以备临川之故事也。以小不备而忘其大不备，士夫披阅，终无时矣。明窗净榻，永昼清风，日思误书，自是一适。若览而不觉其误，孙而不能思，思而不能得，虽刘、杨复生，将如彼何哉？”詹子曰：“善。客其为我志之。”十年五月戊子，豫章黄次山季岑父叙。
+【王临川文集后序】
+邑侯应君云悼叹９集成，余适东探禹穴，窥石梁、雁荡而归，属序其后。呜呼，是文献之所存也。夙志系焉，虽不敏，其何敢辞！惟公文章发于经术，雄伟精深，长雄一代。然其未尝刻，意殆亦无授，视昌黎所志子厚者远矣。乃顾寥落，不得与欧、苏诸集并流天下。抚，虽公桑梓之区而亦无刻焉，岂非世儒疵公相业、横议不明使然耶？
+夫公之相业，明道、象山之论公矣，精矣。或疑明道不非新法而訾陆党焉，此与儿童之见何异，然窃尝怪之。公以间世之英，气魄盖世，负伊、周之志，宗孔、孟之学，其不迩声色，不殖货利，难进易退之介，固已信于天下。遇大有为之君，而帅行先王之法意，虽其条理弛张或未尽善，彼其志盖昭然可睹也。然而新法一行，群议鼎沸，一时攻讦成风，至诋为奸邪，其故何哉？圣道绝而学术裂也。夫圣人，是非之准也。春秋贤卿大夫，其见称于孔子者不少矣，而独多管仲之功，曰：“民到于今受其赐，微管仲，吾其被发左衽矣。”及其摄相，未几而诛乱政大夫勤帅后阝费，岂群情之所趋哉！彼亦睿圣独见治乱之原耳。况夷狄之逼中国，岂鲁三都比耶？乃有洞见乱原，以先王之道匡天下，而不为管仲者，非夫子之所与哉！世丧道千有馀年，非实得其他坠绪如濂溪、明道者，固难优于春秋贤卿大夫，至其束私见而挛故习，虽贤者不免焉，则是非之谬于圣人久矣。何者？见有所囿则蔽于睹远，意有所诧则乐于党同，其势然也。
+昔充国平羌之策，裴度伐蔡之议，此特一事耳，自其成而观之，虽庸人无疑也。而其始，举朝异之，况大取天下之弊法而更张之者哉！宋之中叶，国势浸弱，民志不振，夷狄交侵，辽夏为急，犹人痈疽并发于肩臂而神力俱疲，咸以其无甚作楚，因谓之安。公既洞见天下之势，逆知夷狄之祸，而独忧之。故每启昭陵以“至诚恻怛忧天下之心，而拳拳以晋武、梁武趋过目前”为戒。盖欲早为之所也。其相裕陵以更化，盖将通壅滞，实藏府也。诸贤既罔或齐公之见，怪其行用，而客气胜心以逞，又复攘臂其间。讦以为直，不孙为勇，夫子之所恶也，而世以为贤。甚至撄人心，挟天变，以要其上而党排之，必使公不得究其志，至元叹“招路ǘ后快。则彼虽幽、厉之政，宜可反而中兴，复文、武之境土矣。乃顾自贻绍圣之戚，因循而致靖康之祸，卒使中国沦陷，一如公所忧者，果谁执其咎。而顾横加诸公，是尚为有是非之心乎？使继相者有若明道，以大公之学善其后，则于公有光矣，岂至沦胥以败哉？当时问相之对博举而不一及之者，亦以其素不排公故耳。虽然，公自谓用志精则知人明，乃亦不知荐以自代，何邪？一时英望之去多公素与，公意为天下忍之，欲俟法行还之，与乐成耳。知者行之，仁者守之，明道已不可其说，而公不从，卒贻后悔，非亦有所蔽与？公谓未有不得先王之道而能行先王之法者，是也。其忧斯民之左衽，不以身家贰其志，岂非自任以至诚恻怛得先王之道乎？而不知其激于群言果于行法者，已不免意必偏党之私，其心之于哀矜而有所忿忄右樱乌能得其正而不辟哉？是公之所以为蔽，不精于圣学之过也，于诸贤何独尤哉？至其洞见幽远，图患于未形，虽圣人不易也。其后忠定因水灾而忧虏变，盖公之馀明也，而天下服其忠知。钦高相之不下，裕陵之倚公者以此。然其御击恢复诸策亦卒夺于谗议而几危其身，况公图之于未形乎？于乎，有宋夷狄之祸极矣。使公不能制之于未乱之前，而忠定不能救之于既变之后，则横议之祸流也。夫学术不明，使下无公论，上无信史，蔽人心而夺国是，卒亡宋于虏，岂独使公负重毁于后世哉！此余所以重为千古发慨而不能已也。若夫新法之未始皆不善也，介庵子序之详矣。后世亦多祖而用之，故余略焉，特取其大而隐者著之耳。
+昔陈申公述郑亚之言以序李集，谓其“蕴开物致君之才，居丞弼上公之位，建靖难平戎之策，垂经天纬地之文。”公虽未尽得先王之道也，将不优于斯语乎？善读公集者，当自得之矣。应侯，宁波人。公尝令鄞邑，称循吏而庙食焉，民至今神之。其法施于民也，侯习闻之，故梓其集于临川云。
+嘉靖丙午秋九月既望，邑后学陈九川叙。
+【书临川文集后】
+嘉靖丙午秋八月，临川邑侯象川应君，刻《荆国王文公集》成，谓衮邑人也，宜有以序其事。昔我象山陆文安公序公祠堂于宋，草庐吴文正公序公文集于元，二公皆命世大儒，其事核而精，其文直而肆，公之纯疵得失，犹方员之囿于规矩也。予末小子，安敢复有所赘？然窃惟公之相业，所以未能成先资之信，快人心之公者，直以变法之故尔。二公之言，虽已抉发隐义，提挈宏纲，而其端绪曲折，尚若有未暇及者。故虽不敏，不敢过避焉。夫善观人者必验乎心迹，善为治者必核乎名实。心迹不明，则名实不正，名实不正，则爵禄废置、生诛予夺皆失其道，而天下之治靡矣。若公与神宗之事，岂非千万世名实不正之最甚者乎？宋之有天下，燕、云尽失，契丹已强于北，元昊继起，兵力又夺于西，不能数战。则其势不得不出于求和。转输金缯，每岁不赀，卑礼甘言，惟恐挑祸。汉之文、景，国辱而民不困，时则有文、景之辱，而无文、景之利。此盖凛然不可恃以常安之势也。治平、熙宁之际，上元刂下弊，纲纪法度，根本枝叶，无不受病。譬如中年之人，虽容色言动，无异少时，然纵恣之馀，腹心肝鬲之疾，缠绵胶锢，待时而发，此盖断然不容怠忽玩忄曷之时也。神宗深知天下之势，将欲大有所为，而又不御游畋，不治宫室，眷求义德，与图治理，诚旷世一出，人臣所当效力致死之君也。乃公之节行文章，既已大过于人，而道德经济又独哮弦陨砣沃。当仁宗在位之日，使回一书，究极治体，直欲化裁三代以趣时变，与区区随世迁就诸人，规模氨稹＜搪凼闭，则语意益切，岌然如祸乱之逼乎其后，贾太傅之痛哭，刘贤良之剀切，可谓异世同符矣。有臣如此，盖亦旷世一出，人君所当虚己委任、共享天心者也。夫其君臣相遇之盛如此，而时势所值，又当否泰安危、往来消长之际，然则公与神宗所以悉心谋议、创制立法，而将以伸其大有为之志于天下，岂但君臣之分义则然，固亦天命人心所不容已也。
+今考当时常平仓，司马公所谓“三代之良法，放青苗钱之害小，废常平仓之害大”者也。然积滞不散，侵移他用，平时既无补于贫民，必待年凶物贵，然后出粜，而所及者又皆城市游手之辈。况谷则减价而粜，惟富民为能应其粜，谷贱则增价而籴，惟富民为能应其籴，贫民下户，既无可粜，又不能籴，势不免于借贷。苏颖滨曰：“天下之人，无田以为农，无财以为商，禁而勿贷，不免转死于沟壑。使富民为贷，则用不仁之法，收太半之息，不然，亦不免脱衣避屋以为质，民受其困，而上不享其利。《周官》之法，使民之贷者与其有司辨其贵贱，而以国服为息，今可使郡县尽贷，而任之以其土著之民。”颖滨此论，则公所行青苗钱之法也。考之于古，景公之于齐，子皮之于郑，司城子罕之于宋，既皆以贷而得民。验之于今，则前此陕西一路，已翕然称便矣。然则青苗钱之放，乃所以救常平之失，而修耕敛补助之政也。
+古者民多则国强，民少则国弱，兵无非民故也。宋自雍熙、端拱以来，西北多事，朝廷争言募兵。既募征行之兵，又募力役之兵，大率非游手之徒，则亡命之辈。于是始聚百万之兵而仰食于县官，非如汉、唐之初，有事则擐甲胄以蹈行陈，无事则服田积谷以广军储。冗而无制，则老弱参半，而不堪战斗；聚而不散，则偃蹇骄隋，而易于为乱。而上下以为得计，方且尽用衰世⒖讨术，剥吾民以抵。及不可用，则又为之俯首以事骄虏，而使此辈自安于营伍之中。况是时京东、京西、淮南诸路剧盗，如王伦、张海辈，肆意横行，建旗鸣鼓，官吏逢迎入城，与之宴饮，虽有番戍之兵，如入无人之境。兵制之坏，莫甚于此。此公保甲之法所由行也。其要在于训练齐民，使皆可战，稍复府兵之旧，以减募兵纾民力。当时，苏东坡极言养兵之害，而欲训练州县之土兵，以省禁兵，意亦如此。然必畿甸就绪，乃以渐推之于天下，始但隶于司农，以捕盗贼相保任，继乃肄习武事，定其赏罚，而隶于兵部，其政令一听于枢密。盖公所以计之者审矣。
+民情莫不欲富，亦莫不欲逸也。宋到中叶，役法大坏，产破家亡，视为常事，而衙前州役为甚。韩绛则言，民有父自经死，冀免其子，逐嫁祖母，与母析居，以图避免者。司马公则言，自置乡户衙前以来，民益困乏，不敢营生，多种一桑，多置一牛，畜二年之粮，藏十疋之帛，则已目为富户，抉充衙前。吴充则言，乡役之中，衙前为重，至有家赀已竭，而逋负未除，子孙既没，而邻保尤逮，田地不敢多耕、骨肉不敢义聚者。然则当役之家，出钱以雇役，坊郭、女户、品官之家，敛钱以助役，官又为之卖坊场、给闲田以充雇直，固先王致民财以禄庶人在官之意也。况公之为是法也，曷示一月，民无异词，乃著为令。令下之日，物情大快，于是始行诸天下，而亦各从其便以为法。此则雇役法之大略也。诸路上供，岁有定数。年有丰凶，故出办有难易；道有远近，故劳费有多寡。典领之官，专务取赢，内外不相知，饶乏不相补，四方有倍蓰之输，中都有半价之鬻。徒使富商大贾乘公私之急，以擅轻重敛散之权，而农民重困，国用无馀，于是均输之法行焉。
+先王之于商也，未尝不欲抑之以惩游末，亦未尝不欲厚之以通货贿。其于民也，固尝补助于耕敛之时，又欲周给于祭祀丧纪困迫之日，此《周官》泉府之法所以为厚也。今虽万室之邑，然货之滞而不售，民之欲赊且贷者，已不赀矣，而况都会之地哉？公之所以创为市易之法者，固将抑兼并以厚商贾，备经制以利民用，而必量取一分二分之息者，亦欲其仁可继尔。
+诸监既废，赋牧地以佐刍粟，诸兵骑战，仰给市马，而义勇保甲之马，复从官给。番部养马，既不常行，各边市马，又患不足。此户马保马之法所由以行也。然户马则蠲科赋，保马则蠲征役，而马又皆从官级也，藉使犹或少厉于民，则亦斟酌修改之而已。国固可使乏马，马顾可使独在边番，而成周丘甸所出之马，岂皆官养之邪？若夫熙河一带，西控吐番，东蔽泾、凉，夏人右臂，实维兹地。若使彼间而取之，则岂惟谎右宦凡唤饧自眨拷秦陇复受兵矣。而西域之不可通无论也，此公所以锐意于王韶之策欤？</p></div><div class="note"><h3>Wangbi Laozi</h3><p>以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫。</p></div></div>
+        </article>
+        <nav class="chapter-nav">
+            <a href="chapter56.html">上一章</a>
+            <a href="chapter58.html">下一章</a>
+        </nav>
     </div>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container text-center text-muted">
-            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
-        </div>
-    </footer>
-
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- 背景音乐 -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- 音乐音量控制面板 -->
-    <div class="volume-panel" id="volumePanel">
-        <div class="volume-panel-header">
-            <span>音量控制</span>
-            <button type="button" class="btn-close btn-close-white" id="closeVolumePanel"></button>
-        </div>
-        <div class="volume-panel-body">
-            <input type="range" class="form-range" id="volumeSlider" min="0" max="100" value="30">
-            <div class="volume-level">
-                <span id="volumeValue">30</span>%
-            </div>
-        </div>
-    </div>
-
-    <!-- 朗读控制面板 -->
-    <div class="speech-panel" id="speechPanel">
-        <div class="speech-panel-header">
-            <span>朗读设置</span>
-            <button type="button" class="btn-close btn-close-white" id="closeSpeechPanel"></button>
-        </div>
-        <div class="speech-panel-body">
-            <div class="speech-option mb-3">
-                <label class="form-label">朗读模式</label>
-                <div class="btn-group w-100" role="group">
-                    <input type="radio" class="btn-check" name="speechMode" id="speechModeCurrent" value="current" checked>
-                    <label class="btn btn-outline-light" for="speechModeCurrent">当前章节</label>
-
-                    <input type="radio" class="btn-check" name="speechMode" id="speechModeAll" value="all">
-                    <label class="btn btn-outline-light" for="speechModeAll">连续朗读</label>
-                </div>
-            </div>
-            <div class="speech-option">
-                <label class="form-label">语速</label>
-                <input type="range" class="form-range" id="speechRate" min="50" max="150" value="80">
-                <div class="rate-level">
-                    <span id="rateValue">0.8</span>x
-                </div>
-            </div>
-            <div class="speech-status mt-3" id="speechStatus">
-                准备就绪
-            </div>
-        </div>
-    </div>
-
-    <!-- AI解读侧边栏 -->
-    <aside class="ai-sidebar" id="aiSidebar">
-        <div class="ai-sidebar-header">
-            <h6 class="ai-title">🤖 AI解读</h6>
-            <div class="ai-actions">
-                <button class="btn btn-sm btn-outline-light" id="aiNewChat" title="新对话">
-                    <span>➕</span>
-                </button>
-                <button class="btn btn-sm btn-outline-light" id="aiCloseSidebar" title="关闭">
-                    <span>✕</span>
-                </button>
-            </div>
-        </div>
-        <div class="ai-messages" id="aiMessages">
-            <div class="ai-welcome">
-                <div class="ai-welcome-icon">🤖</div>
-                <h6>道德经AI助手</h6>
-                <p>您可以：</p>
-                <ul>
-                    <li>点击下方快捷问题开始</li>
-                    <li>或直接输入您的问题</li>
-                </ul>
-            </div>
-        </div>
-        <div class="ai-suggestions">
-            <button class="ai-suggestion-btn">解释这一章的核心思想</button>
-            <button class="ai-suggestion-btn">这段话的哲学含义</button>
-            <button class="ai-suggestion-btn">如何在生活中应用</button>
-        </div>
-        <div class="ai-input-area">
-            <div class="ai-input-wrapper">
-                <textarea class="ai-input" id="aiInput" placeholder="输入您的问题..." rows="2"></textarea>
-                <button class="ai-send-btn" id="aiSendBtn">
-                    <span>📤</span>
-                </button>
-            </div>
-            <small class="ai-model-info">
-                模型: <span id="aiModelDisplay">自动检测</span>
-            </small>
-        </div>
-    </aside>
-
-    <!-- 设置面板 -->
-    <div class="settings-panel" id="settingsPanel">
-        <div class="settings-panel-header">
-            <span>⚙️ 阅读设置</span>
-            <button type="button" class="btn-close btn-close-white" id="closeSettingsPanel"></button>
-        </div>
-        <div class="settings-panel-body">
-            <!-- 阅读模式 -->
-            <div class="setting-section">
-                <label class="setting-label">阅读模式</label>
-                <div class="setting-options">
-                    <button class="mode-btn active" data-mode="reading">
-                        <span class="mode-icon">📖</span>
-                        <span class="mode-text">阅读</span>
-                    </button>
-                    <button class="mode-btn" data-mode="zen">
-                        <span class="mode-icon">🧘</span>
-                        <span class="mode-text">禅读</span>
-                    </button>
-                    <button class="mode-btn" data-mode="recite">
-                        <span class="mode-icon">📝</span>
-                        <span class="mode-text">背诵</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 字体选择 -->
-            <div class="setting-section">
-                <label class="setting-label">字体选择</label>
-                <select class="form-select form-select-sm" id="fontSelect">
-                    <option value="default">系统默认</option>
-                    <option value="kaiti">楷体</option>
-                    <option value="songti">宋体</option>
-                    <option value="fangsong">仿宋</option>
-                    <option value="mingliu">明体</option>
-                    <option value="xkai">华文行楷</option>
-                </select>
-            </div>
-
-            <!-- 字体大小 -->
-            <div class="setting-section">
-                <label class="setting-label">字体大小</label>
-                <div class="font-size-control">
-                    <button class="size-btn" data-size="small">小</button>
-                    <button class="size-btn active" data-size="medium">中</button>
-                    <button class="size-btn" data-size="large">大</button>
-                </div>
-            </div>
-
-            <!-- 文字布局 -->
-            <div class="setting-section">
-                <label class="setting-label">文字布局</label>
-                <div class="setting-options">
-                    <button class="layout-btn active" data-layout="center">
-                        <span class="layout-icon">📍</span>
-                        <span class="layout-text">居中</span>
-                    </button>
-                    <button class="layout-btn" data-layout="left">
-                        <span class="layout-icon">⬅️</span>
-                        <span class="layout-text">靠左</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 背景音乐 -->
-            <div class="setting-section">
-                <label class="setting-label">背景音乐</label>
-                <select class="form-select form-select-sm mb-2" id="musicSelect">
-                    <option value="none">关闭</option>
-                    <option value="chinese">中国古典（古琴/琵琶）</option>
-                    <option value="western">西方古典（钢琴/小提琴）</option>
-                </select>
-                <div class="volume-control-inline">
-                    <span class="volume-label">音量</span>
-                    <input type="range" class="form-range form-range-sm" id="musicVolumeSlider" min="0" max="100" value="30">
-                    <span class="volume-value" id="musicVolumeValue">30%</span>
-                </div>
-            </div>
-
-            <!-- 显示选项 -->
-            <div class="setting-section">
-                <label class="setting-label">显示选项</label>
-                <div class="setting-toggles">
-                    <label class="toggle-item">
-                        <input type="checkbox" id="showPinyin" checked>
-                        <span>显示拼音</span>
-                    </label>
-                    <label class="toggle-item">
-                        <input type="checkbox" id="showAnnotation" checked>
-                        <span>显示释义</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- 版本选择 -->
-            <div class="setting-section">
-                <label class="setting-label">显示版本</label>
-                <div class="version-toggles">
-                    <label class="toggle-item">
-                        <input type="checkbox" id="showModern" checked>
-                        <span>白话译文</span>
-                    </label>
-                    <label class="toggle-item">
-                        <input type="checkbox" id="showNotes" checked>
-                        <span>注解版本</span>
-                    </label>
-                    <label class="toggle-item">
-                        <input type="checkbox" id="showEnglish">
-                        <span>英文译本</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- AI设置 -->
-            <div class="setting-section">
-                <label class="setting-label">AI API配置</label>
-                <input type="password" class="form-control form-control-sm mb-2" id="deepseekKey" placeholder="DeepSeek API Key (可选)">
-                <input type="password" class="form-control form-control-sm" id="openaiKey" placeholder="OpenAI API Key (可选)">
-                <small class="text-muted d-block mt-1">
-                    API Key仅存储在本地，不会上传服务器
-                </small>
-            </div>
-
-            <!-- 语音朗读设置 -->
-            <div class="setting-section">
-                <label class="setting-label">🎙️ 语音朗读设置</label>
-                <div class="mb-2">
-                    <label class="small text-muted">选择语音：</label>
-                    <select class="form-select form-select-sm" id="browserVoice">
-                        <option value="">正在加载可用语音...</option>
-                    </select>
-                    <small class="text-muted d-block">
-                        提示：Microsoft语音质量最佳，搜索"Microsoft"或"Chinese"
-                    </small>
-                </div>
-                <div class="mb-3">
-                    <label class="small text-muted">语言偏好：</label>
-                    <select class="form-select form-select-sm" id="voiceLanguage">
-                        <option value="all">全部语言</option>
-                        <option value="zh-CN">普通话</option>
-                        <option value="zh-TW">台湾国语</option>
-                        <option value="zh-HK">粤语</option>
-                        <option value="zh-min-nan">闽南语</option>
-                        <option value="ja">日语</option>
-                        <option value="en-US">英语 (US)</option>
-                        <option value="en-GB">英语 (UK)</option>
-                        <option value="ko">韩语</option>
-                        <option value="vi">越南语</option>
-                    </select>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/modules/theme.js"></script>
-    <script src="/assets/js/modules/sidebar.js"></script>
-    <script src="/assets/js/modules/music.js"></script>
-    <script src="/assets/js/modules/shortcuts.js"></script>
-    <script src="/assets/js/modules/pwa.js"></script>
-    <script src="/assets/js/modules/local-search.js"></script>
-    <script src="/assets/js/modules/notes.js"></script>
-    <script src="/assets/js/modules/quote-card.js"></script>
-    <script src="/assets/js/modules/knowledge-graph.js"></script>
-    <script src="/assets/js/modules/commentary-chat.js"></script>
-    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
+    
     <script src="/assets/js/main.js"></script>
-    <script>
-
-// 复制原文
-document.getElementById('copyOriginal')?.addEventListener('click', function() {
-    const text = document.getElementById('originalText').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        this.textContent = '已复制';
-        setTimeout(() => this.textContent = '复制', 2000);
-    });
-});
-
-// 成语标签悬停效果
-document.querySelectorAll('.idiom-tag').forEach(tag => {
-    tag.addEventListener('click', function() {
-        // 点击成语时显示详细信息（可选功能）
-        const meaning = this.getAttribute('title');
-        if (meaning) {
-            alert(meaning.replace(/&#10;/g, '\n'));
-        }
-    });
-});
-
-    </script>
 </body>
 </html>
