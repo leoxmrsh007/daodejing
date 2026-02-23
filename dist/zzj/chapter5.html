@@ -1,254 +1,740 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>德充符 - 庄子</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="道德经多版本对照平台 - 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <style>
+
+.original-text {
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 2;
+    text-align: center;
+    padding: 1.5rem;
+}
+/* 疑难字标注 - 纯CSS方案 */
+.difficult {
+    border-bottom: 1px dashed var(--accent-color);
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+.difficult:hover {
+    background-color: rgba(212, 165, 116, 0.15);
+}
+/* 悬停提示 - 显示在文字上方 */
+.difficult:hover::after {
+    content: attr(data-pinyin) ": " attr(data-meaning);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(44, 24, 16, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+/* 小箭头 */
+.difficult:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(44, 24, 16, 0.95);
+}
+[data-theme="dark"] .difficult:hover::after {
+    background-color: rgba(232, 224, 216, 0.95);
+    color: #2c1810;
+}
+[data-theme="dark"] .difficult:hover::before {
+    border-top-color: rgba(232, 224, 216, 0.95);
+}
+.modern-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+.note-text {
+    line-height: 1.8;
+}
+.english-text {
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+.chapter-navigation .page-link {
+    border-color: var(--border-color);
+}
+#versionTabs .nav-link {
+    color: var(--text-primary);
+    border-color: transparent;
+}
+#versionTabs .nav-link:hover {
+    background-color: rgba(212, 165, 116, 0.1);
+}
+#versionTabs .nav-link.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+#englishTabs .nav-link {
+    color: var(--text-primary);
+}
+#englishTabs .nav-link.active {
+    background-color: var(--accent-color);
+}
+.version-content {
+    line-height: 1.8;
+}
+.version-original-text {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+    </style>
 </head>
 <body>
-    
-    <div class="container">
-        <nav class="breadcrumb">
-            <a href="/">首页</a> / <a href="index.html">庄子</a>
-        </nav>
-        <article class="chapter">
-            <h1>德充符</h1>
-            <div class="original-text">鲁有兀者王骀，从之游者与仲尼相若。常季问于仲尼曰：王骀，兀者也，从之游者与夫子中分鲁。立不教，坐不议，虚而往，实而归。固有不言之教，无形而心成者邪？是何人也？仲尼曰：夫子，圣人也，丘也直后而未往耳。丘将以为师，而况不若丘者乎！奚假鲁国！丘将引天下而与从之。常季曰：彼兀者也，而王先生，其与庸亦远矣。若然者，其用心也独若之何？仲尼曰：死生亦大矣，而不得与之变，虽天地覆坠，亦将不与之遗。审乎无假而不与物迁，命物之化而守其宗也。常季曰：何谓也？仲尼曰：自其异者视之，肝胆楚越也；自其同者视之，万物皆一也。夫若然者，且不知耳目之所宜，而游心乎德之和；物视其所一而不见其所丧，视丧其足犹遗土也。
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none me-2" type="button" id="sidebarToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-常季曰：彼为己，以其知得其心，以其心得其常心，物何为最之哉？仲尼曰：人莫鉴于流水而鉴于止水，唯止能止众止。受命于地，唯松柏独也在冬夏青青；受命于天，唯舜独也正，幸能正生，以正众生。夫保始之征，不惧之实。勇士一人，雄入于九军。将求名而能自要者，而犹若是，而况官天地，府万物，直寓六骸，象耳目，一知之所知，而心未尝死者乎！彼且择日而登假，人则从是也。彼且何肯以物为事乎！</div>
-            <div class="notes"><div class="note"><h3>Guoxiang</h3><p>同天人，均彼我，故外無與為歡，而咯焉解#1體，若失其配匹。
-死灰槁木，取其寂寞#3元情耳，夫任自然而忘是非者，其體中獨任天真而已，又何所有哉。故止若立枯木，動若運枯枝，坐若死灰，行若游塵。動止之容，吾所不能一也；其於元心而自得#4，吾所不能二#5也。
-子游常見隱几者，而未有#7若子泰也。
-吾喪我，我自忘矣，我自忘矣，天下有何物足識哉。故都忘外內，然後超然俱得。
-籟，簫也。夫簫管參差，官商異律，故有短長高下萬殊之聲。聲雖萬殊，而所稟之度一也，然則優劣元所錯其問矣。況之風物，異音同是，而咸自取焉，則天地之籟見矣。
-大塊者，元物也。夫噫氣者，豈有物哉？氣塊然而自噫耳。物之生也，莫不塊然而自生，則塊然之體大矣，故遂以大塊為名。
-言風唯元作，作則萬竅皆怒動而為聲也。
-長風之聲。
-大風必所扇動也。
-此略舉眾竅之所似。
-此略舉眾#11竅之聲殊。
-夫聲之官商雖千變萬化，唱和大小，莫不稱其所受而各當其分。
-濟，止也。烈風作則眾竅實，及其止則眾竅虛。虛實雖異，其於各得則同。
-調調刁刁，動搖貌也。言物聲既異，而形之動搖亦又不同也。動雖不同，其得齊一耳，豈調調獨是而刁刁獨非乎。
-此天籟也。夫天籟者，豈復別有一物哉？即眾竅比竹之屬，接乎有生之類，會而共成一天耳。無既無矣，則不能生有；有之未生，又不能為生。然則生生者誰哉？塊然而自生耳。自生耳，非我生也。我既不能生物，物亦不能生我，則我自然矣。自己而然，則謂之天然。天然耳，非為也，故以天言之。以天言之，所以明其自然也，豈蒼蒼之謂哉。而或者謂天籟役物使從己也。夫天且不能自有，況能有物哉。故天也者，萬物之總名也，莫適為天，誰主役物乎？故物各自生而元所出焉，此天道也。
-物皆自得之耳，誰主怒之使然哉。此重明天籟也。
-此蓋知之不同。
-此蓋言語之異。
-此蓋寤寐之異。
-此蓋交接之異。
-此蓋恐悸之異。
-此蓋動止之異。
-其衰殺日消有如此者。
-其溺而遂往有如此者。
-其厭沒於欲，老而愈洫，有如此者。
-其利息輕禍，陰結遂志，有如此者。
-此蓋性情之異者。
-此蓋事變之異也。自此以上，略舉天籟之元方；自此以下，明無方之自然也。物各自然，不知所以然而然，則形雖彌異，其#19然彌同也。
-日夜相代，代故以新也。夫天地萬物，變化日新，與時俱往，何物萌之哉？自然而然耳。
-言其自生。
-彼，自然也。自然生我，我自然生。故自然者，即我之自然，豈遠之哉。
-几物云云，皆自爾耳，非相為使也，故任之而理自至矣。
-萬物萬情，趣舍不同，若有#20真宰使之然也。起索真宰之吠進，而亦終不得，則明物皆自然，元使物然也。
-今夫行者，信己可得行也。
-不見所以得行之形。
-情當其物，枚形不別見也。
-付之自然，而莫不皆存也。
-直自#21存耳。
-皆悅之，則是所私也。有私則不能賅而存矣，故不悅而自存，不為而自生也。
-若皆私之，則志過其分，上下相冒，而莫為臣妾矣。臣妾之才，而不安臣妾之任，則失矣。故知君臣上下，手足外內，乃天理自然，豈直人之所為哉。
-夫臣妾但各當其分耳，未為不足以相治也。相治者若手足耳目，四肢百體，各有所司而更相御用也。
-夫時之所賢者為君，才不應世者為臣。若天之自高，地之自卑，首自在上，足自居下，豈有遞哉。雖無錯於當而鈴自當也。
-任之而自爾，則非偽也。
-凡得真性，用其自為者，雖復皂隸，猶不顧毀譽而自安其業。故知與不知，皆自若也。若乃開希幸之路。以下冒上，物喪其真，人忘其本，則毀譽之問，俯仰失錯也。
-言性各有分，故知者守知以待終，而愚者抱愚以至死，豈有能中易其性者也。
-群品云云，逆順相交，各信其偏見而恣其所行，莫能自反。此比#23眾人之所悲者，亦可悲矣。而眾人未嘗以此為悲者，性然故也。物各性然，又何物足悲哉。
-夫物情元極，知足者鮮。故得此#24不止，復逐於彼。皆疲役終身，未厭其志，死而後已。故其成功者元時可見也。
-凡物各以所好役其形骸，至于疢困莆然。不知所以好此之歸趣云何也。
-言其實與死同。
-言其心形並馳，困而不反，比於凡人所哀，則此真哀之大也。然凡人未嘗以此為哀，則凡所哀者，不足哀也。
-凡此上事，皆不知其所以然而然，故日芒也。今夫知者皆不知所以知而自知矣，生者不知所以生而自生矣。萬物雖異，至於生不由知，則未有不同者也，故天下莫不芒也。
-夫心之足以制一身之用者，謂之成心。人自師其成心，則人各自有師矣。人各自有師，故付之而自當。
-夫以成代不成，非知也，心合得耳。故愚者亦師其成心，未肯用其所謂短而合其所謂長者也。
-今日適越，昨日何由至哉？未成乎心，是非何由生哉？明夫是非者，群品之所不能元，故至人兩順之。
-理元是非，而或者以為有，此以元有為有也》。惑心已成，雖聖人不能解，故付之自若而不強知也。
-各有所說，故異於吹。
-我以為是而彼以為非，彼之所是，我又非之，故未定也。未定也者，由彼我之情偏。
-以為有言邪？然未足以有所定。
-以為元言邪？則據己已有言。
-夫言與穀音，其致一也，有辮元辮，誠未可定也。天下之情不鈴同而所言不能異，故是非紛紜，莫知所定。
-道焉不在。言何隱蔽而有真偽，是非之名紛然而起？
-皆存。
-皆可。
-夫小成榮華，自隱於道，而道不可隱。則真偽是非者，行於榮華而止於實當，見於小成而滅於大全也。
-儒墨更相是非，而天下皆儒墨也。故百家並起，各私所見，而未始出其方也。
-夫有是有非者，儒墨之所是也；元是元非者，儒墨之所非也。今欲是儒墨之所非而非儒墨之所是者，乃欲明元是元非也。欲明元是元非，則莫若還以儒墨反覆相明。反覆相明，則所是者非是而所非者非非矣。非非則元非，非是則元是。
-物皆自是，故元非是；物皆相彼，故元非彼。元非彼，則天下元是矣；元非是，則天上元彼矣。元彼元是，所以玄同也。
-夫物之偏也，皆不見彼之所見，而獨自知其所知。自知其所知，則自以為是。自以為是，則以彼為非矣。故曰彼出於是，是亦因彼，彼是相因而生者也。
-夫死生之變，猶春秋冬夏四時行耳。故死生之狀雖異，其於各安所遇，一也。今生者方自謂生為生，而死者方自謂生為死，則元生矣。生者方自謂死為死，而死者方自謂死為生，則元死矣。元生元死，元可無不可，故儒墨之辮，吾所不能同也；至於各冥其分，吾所不能異也。
-夫懷豁者，因天下之是非而自無是非也。故不由是非之途而是非無患不當者，直明其天然而元所奪故也。
-我亦為彼所彼。
-彼亦自以為是。
-此亦自是而非彼，彼亦自是而非此，此與彼各有一是一非於體中也。
-今欲謂彼為彼，而彼復自是；欲謂是為是，而是復為彼所彼；故復是有無，未果定也。
-偶，對也。彼是相對，而聖人兩順之。故無心者與物冥，而未嘗有對於天下也。樞，要也。#27此居其樞要而會其玄極，以應夫無方也。
-夫是非反覆，相尋無窮，故謂之環。環中，空矣；今以是非為環而得其中者，無是無非也。無是無非，故能應夫是非。是非無窮，故應亦無窮。
-天下莫不自是而莫不相非，故一是一非，兩行無窮。唯涉空得中者，曠然無懷，乘之以遊也。
-夫自是而非彼，彼我之常情也。故以我指喻彼指，則彼指於我指獨為非指矣。此以指喻指之非指也。若復以彼指還喻我指，則我指於彼指復為非指矣。此以#28非指喻指之非指也。將明無是無非，莫若反覆相喻。反覆相喻，則彼之與我，既同於自是，又均於相非。均於相非，則天下無是，同於自是，則天下無非。何以明其然邪？是若果是，則天下不得復#29有非之者也。非若果非，亦#30不得復有是之者也。今是非無主，紛然骰亂，明此區區者各信其偏見而同於一致耳。仰觀俯察，莫不皆然。是以至人知天地一指也，萬物一馬也，故浩然大寧，而天地萬物各當其分，同於自得，而無是無非也。
-可於已者，即謂之可。
-不可於己者，即謂之不可。
-無不成也。
-無不然也。
-各然其所然，各可其所可。
-夫筵橫而楹縱，厲醜而西施好。所謂齊者，豈必齊形狀，同規矩哉。故舉縱橫好醜，恢恑橘怪，各然其所然，各可其所可，則理雖萬殊而性同得，故曰道通為一也。
-夫物或此以為散，而彼以為成。
-我之所謂成而彼或謂之毀。
-夫成毀者，生於自見而不見彼也。故無成與毀，猶無是與非也。
-夫達者無滯於一方，故忽然自忘，而寄當於自用。自用者，莫不條暢而自得也。
-幾，盡也。至理盡於自得也。
-達者因而不作。
-夫達者之因是，豈知因為善而因之哉？不知所以因而自因耳，故謂之道也。
-夫達者之於一，豈勞神哉？若勞神明於為一，不足賴也，與彼不一者無以異矣。亦同眾狙之惑，因所好而自是也。
-莫之偏任，故付之自均而止也。
-任天下之是非。
-此忘天地，遺萬物，外不察乎宇宙，內不覺其一身，故能曠然無累，與物俱往，而無所不應也。
-雖未都忘，猶能忘其彼此。</p></div><div class="note"><h3>Chengxuanying</h3><p>姓王，名馳，魯人也。刖一足日兀。形雖殘兀，而心實虛忘，故冠《德充符》而為篇首也。
-若，如也。陪從王聆遊行稟學，門人多少如似於仲尼者也。
-姓常，名季，魯之賢人也。王聆遊行，外忘形骸，內德充實，所以從遊學者，數滿三千，與孔子同#1徙中分魯國。常季未達真趣，是以生疑。
-弟子雖多，曾無講說，立不教授，坐無議論，請益則虛心而往，得理則實腹而歸。又解：未學無德，亦為虛往之#2。
-教授門人，曾不言議。殘兀如是，無復形容，而玄道至德，內心成滿。鈴固有此，眾乃從之也。
-常季怪其殘兀而聚眾極多。欲顯德充之美，故發斯問也。
-宣尼呼王聆為夫子，答常季云：王胎是體道聖人也，汝自不識人，所以政疑。丘直為參差在後，未得往事。丘將尊為師傅，諮詢問道，何況晚學之類，不如丘者乎。請益服膺，固其宜矣。
-奚，何也。何但假藉魯之一邦耶。丘將誘引宇內，稟承盛德，猶恐未盡其道也。
-王，盛也。庸，常也。先生，孔子也。彼王聆者，是殘兀之人，門徒侍從，於尼父。以斯疑怪，應異常流，與凡常之人固當遠矣。
-然，猶如是也。王馳盛德如是，為物所歸，未審運智用心，獨若何衍？常季不委#3，發此疑也。
-夫山舟潛遁，薪指遷流，雖復萬境皆然，而死生最大。但王馳心冥造物，與變化而遷移，述混人間，將死生而俱往，故變所不能變者也。
-遺，失也。雖復圓天顛覆，方地墜陷，既冥於安危，故未嘗喪我也。
-靈心安審，妙體真元，既與道相應，故不為物所遷變者也。
-達於分命，冥於外物，唯命唯物，與化俱行，動不乖寂，故怛住其宗本者也。
-方深難悟，更請次疑。
-夫#6物云云，悉歸空寂。倒置之類，妄執是非，於重玄道中，橫起分別。何異乎膽附肝生，本同一體也，楚越迢遞，相去數千，而於一體之中，起數千之異#7，異見之徒，例皆如是也。
-若夫玄通之士，浩然大觀，二儀萬物，一指一馬；故能忘懷任物，大順群生，然同者見其同，異者見其異，至論眾妙之境，非異亦非同。
-耳目之宜，宜於聲色者也。且几情分別，耽滯聲色，故有宜與不宜，可與不可。而王馳混同萬物，冥一死生，豈於根塵之問而懷美惡之見耶。
-既而混同萬物，不知耳目之宜，故能遊道德之鄉，放任乎至道之境者也。
-物視，猶視物也。王馳一於死生，物與彼我。生為我時，不見其得；死為我順，不見其喪；觀視萬物，混而一之。故雖兀足，視之如遺土者也。
-彼，王馳也。謂王馳修身修己，猶用心知。嫌其未能忘知而任獨之#12者也。
-嫌王馳不能忘懷任致，猶用心以得心也。夫得心者，無思無慮，忘知忘覺，死灰槁木，泊□爾無情，措之於方寸之問，起之於視聽之表，同二儀之覆載，順三光以照燭，混塵穢而不撓其神，履窮塞而不作其慮，不得為得，而得在於無得，斯得之矣。若以心知之衛而得之者非真得也。
-最，聚也。若能虛忘平淡，得真常之心者，固當和光匿耀，不殊於俗。豈可獨異於物，使眾歸之者也。
-鑒，照也。夫止水所以留鑒者，為其澄清故也；王馳所以聚眾者，為其凝寂故也。止水本無情於鑒物，物自照之；王馳豈有意於招攜，而眾自來歸奏者也。
-唯，獨也。唯止是水本凝湛，能止是留停生#14人，眾止是物來臨照。亦猶王馳獨懷虛寂，故能容止群生，由是功能，所以為眾歸聚也。
-几厥草木，皆資厚地。至於稟質堅勁，隆冬不凋者，在松相通年四季#17，常保青全，受氣自爾，非關指意。王馳聚眾，其義亦然也。
-人稟三才，命受蒼昊，圓首方足，其類至多。至如挺氣正真，獨有虞舜。豈由役意，直置自然。王胎合道，其義亦爾。郭注云#19上首唯有聖人者，但人頭在上，去上則死，木頭在下，去下則死，是以呼人為上首，呼木為下首。故上首食傍首，傍首食下首。下首，草木也，傍首，蟲獸也。
-受氣上玄，能正生道也，非由用意，幸悉自然，既非正己，復能正物。正己正物，自利之#20他，內外行圓，名為大聖。虞舜既爾，王馳亦然。而舜受讓人，故為標的也。
-徵，成也，信也。天子六軍，諸侯三軍，故九軍也。或有一人，稟氣勇武，保守善始之心，信成令終之節，內懷不懼之志，外顯雄猛之姿。既而直入九軍，以求名位，尚能伏心要譽，忘死忘生。何況王馳。體道之狀，列在下文也。
-綱維二儀日官天地，包藏宇宙日府萬物。夫勇士入軍，直要名位，猶能不顧身命，忘於生死。而況官府兩儀，混同萬物，視死如生，不亦宜乎。
-寓，寄也。六骸，謂身首四肢也。王聆體一身非實，達萬有皆真，故能混塵穢於俗中，寄精神於形內，直置暫遇而已，豈係之耶。
-象，似也。和光同塵，似用耳目，非須也。
-一知，智也。所知，境也。能知之智照所知之境，境冥會，能無所差，故知與不知，通而為一。雖復逵理物化，而心未嘗見死者也，豈容有全兀於其問哉。
-彼王馳者，豈復簡擇良日而登昇玄道？蓋不然乎，直置虛淡忘懷而會之也。君#22人無心，止水留鑒，而世問虛假之人，由是而從之也。
-唯彼王胎，冥真合道，虛假之物自來歸之，彼且何曾以為己務。
-姓申徒，名嘉，鄭之賢人，兀者也。姓公孫，名僑，字子產，鄭之賢大夫也。伯昏無人師者之嘉號也#23，伯，長也。昏，閤也。德居物長，韜光若閤，洞忘物我，故日伯昏無人。子產申徒，俱學玄道，雖復出處殊隔，而同師伯昏，故寄此三人以彰德充之義也。
-子產執政當塗，榮華富貴；申徒稟形殘兀，無復容儀。子產雖學伯昏，未能忘遣，猶存寵辱，恥見形殘，故預相檢約，今其叉不並己也。
-子產存榮辱之意，申徒忘貴賤之心，前雖有言，都不采領，所以居則共堂，坐還同席。公孫見其如此，是故質而問之。
-違，避也。夫出處異塗，貴賤殊政。我秉執朝政，便為貴人；汝乃卑賤形殘，應殊敬我。不能遜讓，翻欲齊己也。
-先生，伯昏也。先生道門，深明眾妙，混同榮辱，齊一死生，定以執政自多，叉如此耶？
-汝猶悅愛榮華，矜誇政事，推人於後，欲處物先。意見如斯，何名學道？
-鑒，鏡也。夫境明則塵垢不止，止則非明照，亦猶久與賢人居則無過，若有過則非賢哲。今子之所取，可重可大者，先生之道也。而先生之道，退己虛忘，子乃自矜，深乖妙旨，而出言如是，豈非過者乎。
-反，猶復也。言申徒形殘如是而不自知，乃欲將我並驅，可謂與堯爭善。子雖有德，何足#26言。以德補殘，猶未平復也。
-夫自顯其狀，推罪於他，謂己無愆，不合當犯#27，如此之人，世問甚眾。不顯過狀，將罪歸己，謂己之過，不久#28存生，如此之人，世問寡少。鄭子產奢侈矜伐，於義亦然者也。
-若，順也。夫素質形殘，稟之天命，雖有知計，無如之何，唯當安而順之，則所造皆適。自非盛德，其孰能然。
-羿，堯時善射者也。其矢所及，謂之般中。言羿善射，矢不虛發，般中之地，鈴被殘傷，無問烏獸，罕獲免者。偶然得免，乃關天命，免與不免，非由工拙，自不遺形忘智，皆遊於羿之般中。是知申徒兀足，忽遭羿之一箭；子產形全，中地偶然獲免；既非人事，故不足自多矣。
-怫然，暴戾之心也。人不知天命，妄計虧全，況己形好，嗤彼之#32兀，如此之人，其流甚眾。忿其無知，怫然暴怒，瞋忿他人，斯又未知命也。
-在伯昏之所，稟不言之教，則廢向者之怒而復於常性也。
-既適師門，入於虛室，廢棄忿怒，反復尋常。不知師以善水洗滌我心？為是我之性情#34自反復？進退尋責，莫測所由。斯又忘於學心，遣其係累。
-我與伯昏遊於道德，故能窮陰陽之妙要，極至理之精微。既其遣智忘形，豈覺我之殘兀。
-郭注云：形骸外矣，其德內也。今子與我德遊耳，非與我形交也，而索我外好，豈不過也。此注意更不勞別釋也。
-蹴然，驚慚貌也。子產未能忘懷遣欲，多在物先。既被識嫌，方懷驚悚，‘改矜誇之貌，更醜惡之容，悟知己至，不用稱說者也。
-叔山，字也。踵，頻也。殘兀之人，居於魯國，雖遭刖足，猶有學心，所以接踵頗來，尋師訪道。既無足趾，因以為其名也。
-子之修身，不能饉慎，犯於憲綱，前已遭官，息難艱辛，形殘若此。今來請益，何所逮耶。
-無趾交遊恭謹，重德輕身，唯歌務借聲名，不知務全生道，所以觸犯憲章，遭斯殘兀。形雖虧損，其德猶存，是故頻煩追討，務全道德。以德比形，故言尊足者存。存者，在也。
-夫天地亭毒，覆載無偏，而聖人德合二儀，固當弘普不棄，寧知夫子尚不拾形殘？善救之心，豈其如是也？
-仲尼所陳，不過聖邊；無趾請學，務其全生。答#36淺問深，足成鄙陋也。
-夫子，無趾也。胡，何也。仲尼自覺鄙陋，情實多慚，故屈無趾，今其入室，語說所聞方內之道。既而連廬久處，芻狗再陳，無趾惡聞，故默然而出也。
-勉，聶厲也。夫無趾殘兀，尚全#37生，補其虧殘，悔其前行。況賢人君子，形德兩全，便忘死生，德充於內者也。門人之類，宜勗之焉。
-賓賓，恭動貌也。夫玄德之人，窮理極妙，忘言絕學，率性生知。而仲尼執滯文字，專行聖進，賓賓勤敬，問禮老君。以汝格量，故知其未如至人也，學子何為者也？
-薪，求也。詼詭，猶奇譎也。在手日桂，在足日桔，即今之租械也。彼之仲尼，行於聖進，所學奇譎怪異之事，唯求虛妄幻化之名。不知方外體道至人，用此聲教為己物鎖也。
-無趾前見仲尼談講之日，何不使孔丘忘＃３８於仁義，混同生死，齊一是非？條貫既融，則是帝之縣解，豈非釋其物鎖，解其扭械也。
-仲尼憲章文武，祖迷堯舜，刪《詩》《書》，定禮樂，窮陳蔡，圍商周，執於仁義，遭斯戮恥。亦猶行則影從，言則響隨，自然之勢，鈴至之宜也。是以陳迸既興，疵釁斯起，欲不困弊，其可得乎。故天然刑戮，不可解也。
-惡，醜也。言衛國有人，形容醜陋，內德充滿，為俗#39所歸。而哀聆是醜貌，因以為名。
-妻者，齊也，言其位齊於夫。妾者，接也，適可接事君子。哀馳才全德滿，為物歸依，大順群生，物忘其醜。遂使丈夫與#40同處，戀仰不能拾去；婦人美其才德，競請為其勝妾。十數未止，明其慕義者多；不為人妻，彰其道能感物也。
-滅逵匿端，謙居物後，直置應和而已，未嘗誘引先唱。
-夫人君者，鈴能赦過宥罪，恤死護生。恥它窮為匹夫，位非南面，無權無勢，可以濟人。明其懷人不由威力。
-夫儲積倉庫，招迎士眾歸奏，本希飽腹。而貽它既無聚祿，何以政人。明其慕義非由食往也。
-恥它容形，異常鄙陋，論其醜惡，驚駭天下，明其聚眾，非由色往。
-譬幽谷之響，直而無心，既不以言說招擔，非由先物而唱者也。
-域，分也。志心遣智，率性任真，未曾役思運懷，綠於四方分外也。
-雌雄，禽獸之類也。夫才全之士，與物同波，人無害物之心，物無畏人之慮，故鳥與獸且群聚於前也。
-一無權勢，二無利祿，三無色貌，四無言說，五無知慮。夫聚集人物，叉不從然，今馳它為眾歸依，不由前之五事，以此而驗，固異於常人者也。
-既聞有異，故命召看之。形容醜陋，果驚駭於天下。共其同處，不過二旬，觀其為人，察其意趣，心神凝淡，以覺深遠也。
-日月既久，漬鍊彌深，是以共處一年，情相委信。而國無良宰，治道未弘，庶屈賢人，傳於國政者也。
-悶然而後應，不覺之容，亦是虛淡之貌。既無情於利祿，豈有意於榮華，故何彼世人，問然而應之也。
-氾若者，是無的當不係之貌也。雖無驚於寵辱，亦乃同塵以遜讓，故氾然常人辭亦辭也。
-愧，惹也。卒，終也。幾何，俄頃也。卹，憂也。寡人是五等之謙稱也。既見良人，氾然虛淡，中心愧醜，戀慕殷動，終欲與之國政，屈為卿輔。俄頃之問，逃遁而去，喪失賢宰，實懷憂卹，情之恍惚，若有遺亡，雖君魯邦，魯無歡樂。來喜去憂，感動如此，何人何衛，一至於斯？
-哀公陳己心述以問孔子，孔子以豚子為譬，以答哀公：丘曾領門徒，遊行楚地，適見豚子飲其死母之乳，昀目之頃，少時之間，棄其死母，皆散而走。不見己類，所以為然。故郭注云，生者以才德為類，死而才德去矣，故生者以失類而走也。以況哀公素無才德，非是己類，棄拾而去。馳它才德既全，於#42赤子，物之親愛，固是其宜矣。
-郭注云，使形者才德也。而才德者，精神也。豚子愛母，愛其精神；民之慕君，慕其才德者也。
-嬰者，武飾之具，武王為之，或云周公作也。其形似方扇，飾#44車兩邊。軍將行師，陷陣而死，及其葬日，不用嬰資。是知嬰者武之所資，屨者足之所使#45用；形者神之所使；無足#46屨無所用，無武則嬰無所資，無神則形無所愛#47。然嬰屨峽足武為本，形貌以才德為原，二者無本，故並無用也。
-夫帝王官闈，揀擇御女，穿耳萬爪，恐傷其形。匹夫娶妻，惇於外務，使役驅馳，慮虧其色。比重舉譬以況全才也。
-爾，然也。夫形之全具，尚能降真人，感貞女，而況德全乎。此合譬也。故郭注云，德全而物愛之，宜矣哉。
-夫親由績彰，信藉言顯。今馳它未至吉說而己遭委信，本無功績而付託實親，遂使魯侯虛襟授其朝政，卑己遜讓，唯恐不受。如是之人，鈴當才智全具而推功於物，故德不形見之也。
-前雖標舉，於義未彰，故發此疑，庶希後答。
-夫二儀雖大，萬物雖多，人生所遇，適在於是。故前之八對，並是事物之變化，天命之流行，而留之不停，推之不去，安排任化。所遇所#49適。自非德充之士，其孰能然。此則仲尼答哀公才全之義。
-夫命行事變，其速如馳；代謝遷流，不合晝夜。一前一後，反覆循環，雖有至知，不能測度，豈復在新戀故，在終規始哉？蓋不然也。唯當隨變任化，則無往而不逍遙也。
-滑，亂也。雖復事變命遷，而隨形任化，淡然自若，不亂於中和之道也。
-靈府者，精神之宅，所謂心也。經寒涉#50暑，治亂，千變萬化，與物俱往，未當巢意，豈復關心耶。
-兌，褊悅也。體窮通，達生死，遂使所遇和樂，中心逸豫，經涉夷險，兌然自得，不失其適悅也。
-那，問也。馳它流轉，日夜不停，心心相係，亦無問斷也。
-慈照有生，恩霑動植，與物弁惠，事等青春。
-是者，指斥以前事也。才全之人，接濟群品，生長萬物，應赴順時，無心之心，逗機而照者也。
-總結以前，是才全之義也。
-已領才全，未悟德不形義。更相發問，庶聞後旨也。
-停，止也。而天下均平，莫盛於止水。故上文云人莫鑒於流水而叉鑒於止水。此舉為譬，以彰德不形義故也。
-夫水性澄清，鑒照於物，大匠雖巧，非水不平。故能保守其明而不波蕩者，可以軌轍#53工人，洞鑒妍醜也。故下文云水平中準，大匠取則焉。況至人冥真合道，和光和#54物，模楷蒼生，動而常寂，故云內保之而外不蕩者也。
-夫成於庶事，和於萬物者，非盛德孰能之哉。爻也先須修身立行，後始可成事和物。之德以和而我不喪者，方可以謂之德也。
-夫明齊日月而歸明於昧，功伴造化而歸功於物者，此#55德之不形也。是以含德之厚，比於赤子，天下樂推而不厭，斯而不離之者也。
-姓閔，名損，字子騫，宣尼門人，在四科之數，甚有孝德，魯人也。異日，猶它日也。南面，君位也。初始未悟，矜於魯君，執持綱紀，憂於兆庶，養育教誨，恐其夭死。用斯治衍，為至美至通。今聞尼父言談，且陳才德之義，魯侯悟解，方覺前非。至通憂死之言，更成虛幻；執紀南面之大，都無完錄；於是廖肢體，黜聰明，遺尊卑，忘爵位，觀魯邦若蝸角，視己形如隙影，友仲尼以全道德，禮司寇以異君臣。故知莊老之談，其風清遠，德充之美，一至於斯。
-闡，曲也，謂孿曲全腫而行。脤，脣也，謂支體坼裂，偃償殘病，復無脣也。瓷，盆也。脰，頸也。肩肩，細小貌也。而支離殘病，企踵而行；瘤瘓之病，大如盆甕。此二人者，窮天地之陋，而俱能忘形建德，體道談玄。遂使齊衛兩君，欽風愛悅，美其盛德，不覺病醜，顧視全人之頸，翻小而似肩肩之者。
-大#58瘦支離，道德長遠，遂使齊侯衛主，忘其形惡。
-誠，實也。所忘，形不忘，德也；忘形易忘德難也，故謂形為所忘，德為不忘也。不忘形而忘德者，此乃真實忘。斯德不形之義也。
-物我雙遣，形德兩忘，故放任乎變化之場，遨遊於至虛之域也。
-夫至人道邁三清而神遊六合，故蘊智以救妖孽，約束以檢散心，樹德以接蒼生，工巧以利群品。此之四事，凡類有之，大聖慈救，同塵順物也。
-惡，何也。至人不妖孽謀護，何用智惠？不散亂彫斯，何用膠固？本不喪道，用德何為？不貴難得之貨，無勞商賈。衹為和光和物，是故有之者也。
-常，食也。食，察也。天，自然也。以前四事，蒼生有之，稟自天然，各率其性，聖人順之，故無所用己也。
-稟之自然，各有定分。何須分外添足人情。違天任人，故至悔者也。
-聖人同塵在世，有生處之形害；體道虛忘，無是非之情慮。
-和光混迸，群聚世間。此解有人之形。
-譬彼靈真，絕無性識；既忘物我，何有是非。此解無人之情故也。
-屬，係也。進閔罵恪#59，形係人群，與物不殊，故稱眇小也。此結有人之形耳。
-警，高大貌也。警然大教，萬境都忘，智德高深，凝照宏遠。故欺美大人，獨成自然之至。此結無人之情也。
-前文云，有人之形，無人之情。惠施引此語來質疑。莊子所言人者，鈴固無情慮乎？然莊惠二賢，並道心方外，故常察而為論端。
-然，如是也。許其所問，故答云然。
-若無性智，何名為人？此是惠施進責之辭，問於莊子。
-惡，何也？虛通之道，為之相貌；自然之理，也#61遺其形質。形貌具有，何得不謂之人？且形之將貌，蓋亦不殊。道與自然，互其文耳。欲顯明斯義，故重言之也。
-既名為人，理懷情慮。若無情矣#62，何得謂之人？此是惠施未解形貌之非情。
-吾所言情者，是非彼我好惡憎嫌等也。若無是無非，雖有形貌，直是人耳，情將安寄。
-莊子所謂無情者，非木石其懷也，止言不以好惡綠慮分外，遂成性而內理其身者也。亦何則？蘊虛照之智，無情之情也。
-因任自然之理，以此為常；止於所稟之涯，不知生分。
-若不資益生道，何得有此身乎？未解生之自生，理之自足者也。
-道與形貌，生理已足，但當任之，無勞措意也。
-還將益以酬後問也。
-槁梧，夾漆几也。惠子未遣荃蹄，耽常荃#63理，疏外神識，勞苦精靈，故行則倚樹而吟詠，坐則隱几而談說，是以形勞心倦，疲怠而暝者也。
-選，授也。嗚，言說也。自然之道，授與汝形，夭壽妍醜，其理已定，無勞措意，分外益生。而子稟性聰明，辮析明#65理，執持己德，炫耀眾人。亦何異乎公孫龍作《白馬論》，云白馬非馬，堅守斯論，以此自多。信有其言而無其實，能伏眾人之口，不能伏眾人之心。今子分外誇談，即是斯之類也。</p></div><div class="note"><h3>Wangfuzhi</h3><p>德人而矜有德之容，为容人而已矣；德人而矜德之无容，为无容之人而已矣。“道与之貌”，貌一道也；“天与之形”，形一天也。“死生亦大矣，而不得与之变”；故生于道，死于道；生于天，死于天；道无不貌，貌无非道；天无不形，形无非天。然则生于形，死于形，生于貌，死于貌，死生可遗，而兹未尝与之相离也。
-以道殉容，曼人而已矣。以容殉生，靡人而已矣。以道忘容，忘道而已矣。介者，无趾者，无脤、大瘿者，且不丧其全德，况其不尔者乎？
-“忘其所不忘”，而以殉形，则人知其妄。若夫“不忘其所不忘”，而形与貌在焉，天之所以成，成之所以大，浑外内，合精粗，凝道契天，以不丧其所受。夫圣人者，岂得以詹詹于形貌之末而疵之也哉？
-悲哉！卫灵公之愚也，得无脤者而视全人之脰肩肩。悲哉！齐桓公之愚也，得大瘿者而观全人之脰肩肩。则使之二君者，以巍冠大绅、高趾扬眉之土，怀溪壑，腹刀剑，而得其心，抑将视天下容之不盛者，虽有德，若将浼焉，恐去之不夙矣。
-故符者，德之充也；非德不充，非充不符。不充而符，谓之窃符；不德而充，谓之枵充。德之不充，是谓替德；充之不符，是谓儳充。“道与之貌”，貌以肖道；“天与之形”，形以酬天。宾宾于名闻之间，而数变其天形，则胡不内保而外不荡，逍遥于“羿之彀中”，以弗丧吾天也乎？故其为容，非容人之容也；其为无容，非无容人之无容也；以德徵符，德无非符；以符合德，符无非德。能知天下之以形貌为货，而不知其为符也，又恶知德哉？</p></div></div>
-        </article>
-        <nav class="chapter-nav">
-            <a href="chapter4.html">上一章</a>
-            <a href="chapter6.html">下一章</a>
-        </nav>
+            <!-- 经典切换下拉菜单 -->
+            <div class="dropdown me-2">
+                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" title="切换经典">
+                    <span class="brand-icon">📚</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><h6 class="dropdown-header">道家经典</h6></li>
+                    <li><a class="dropdown-item" href="/ddj/index.html">☯ 道德经</a></li>
+                    <li><a class="dropdown-item" href="/zzj/index.html">🦋 庄子</a></li>
+                    <li><a class="dropdown-item" href="/lztyj/index.html">🪷 六祖坛经</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><h6 class="dropdown-header">儒家经典</h6></li>
+                    <li><a class="dropdown-item" href="/cxl/index.html">📖 传习录</a></li>
+                    <li><a class="dropdown-item" href="/ss/index.html">📚 四书</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><h6 class="dropdown-header">佛家经典</h6></li>
+                    <li><a class="dropdown-item" href="/jgj/index.html">📿 金刚经</a></li>
+                    <li><a class="dropdown-item" href="/ws30/index.html">🧠 唯识三十颂</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><h6 class="dropdown-header">其他经典</h6></li>
+                    <li><a class="dropdown-item" href="/zy/index.html">📊 周易</a></li>
+                    <li><a class="dropdown-item" href="/hdnj/index.html">⚕️ 黄帝内经</a></li>
+                </ul>
+            </div>
+
+            <a class="navbar-brand" href="./index.html">
+                <span class="brand-icon">🦋</span>
+                <span class="brand-text">庄子</span>
+            </a>
+            <span class="navbar-text ms-3 d-none d-md-block">德充符</span>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <!-- 音乐控制 -->
+                <div class="music-controls d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-light media-btn" id="musicToggle" title="背景音乐">
+                        <span class="music-icon">🎵</span>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="musicLoop" title="循环播放">
+                        <span class="loop-icon">🔁</span>
+                    </button>
+                </div>
+
+                <div class="media-divider"></div>
+
+                <!-- 朗读控制 -->
+                <div class="speech-controls d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-light media-btn" id="speechToggle" title="朗读原文">
+                        <span class="speech-icon">🔊</span>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light media-btn d-none" id="speechStop" title="停止朗读">
+                        ⏹
+                    </button>
+                </div>
+
+                <!-- AI解读按钮 -->
+                <button class="btn btn-sm btn-outline-light ai-btn" id="aiToggle" title="AI解读">
+                    <span>🤖</span>
+                </button>
+
+                <!-- AI创新功能下拉菜单 -->
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" title="AI创新功能">
+                        <span>✨</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header">AI创新功能</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="knowledgeGraphBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
+                                </svg>
+                                概念关系图谱
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="commentaryChatBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                与注释家对话
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="philosophyDialogueBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                                跨文明哲学对话
+                            </button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">实用工具</h6></li>
+                        <li>
+                            <button class="dropdown-item" id="noteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                                阅读笔记
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" id="quoteBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                    <polyline points="16 6 12 2 8 6"></polyline>
+                                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                                </svg>
+                                生成引用卡片
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 设置按钮 -->
+                <button class="btn btn-sm btn-outline-light" id="settingsToggle" title="阅读设置">
+                    <span>⚙️</span>
+                </button>
+
+                <!-- 暗黑模式切换 -->
+                <button class="btn btn-sm btn-outline-light" id="themeToggle" title="切换模式">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <h6 class="sidebar-title">目录</h6>
+                    <div class="chapter-list" id="chapterList">
+                        <nav class="nav flex-column">
+<a class="nav-link chapter-item " href="./chapter1.html">
+    <span class="chapter-num">第1章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter2.html">
+    <span class="chapter-num">第2章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter3.html">
+    <span class="chapter-num">第3章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter4.html">
+    <span class="chapter-num">第4章</span>
+</a>
+<a class="nav-link chapter-item active" href="./chapter5.html">
+    <span class="chapter-num">第5章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter6.html">
+    <span class="chapter-num">第6章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter7.html">
+    <span class="chapter-num">第7章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter8.html">
+    <span class="chapter-num">第8章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter9.html">
+    <span class="chapter-num">第9章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter10.html">
+    <span class="chapter-num">第10章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter11.html">
+    <span class="chapter-num">第11章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter12.html">
+    <span class="chapter-num">第12章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter13.html">
+    <span class="chapter-num">第13章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter14.html">
+    <span class="chapter-num">第14章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter15.html">
+    <span class="chapter-num">第15章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter16.html">
+    <span class="chapter-num">第16章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter17.html">
+    <span class="chapter-num">第17章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter18.html">
+    <span class="chapter-num">第18章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter19.html">
+    <span class="chapter-num">第19章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter20.html">
+    <span class="chapter-num">第20章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter21.html">
+    <span class="chapter-num">第21章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter22.html">
+    <span class="chapter-num">第22章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter23.html">
+    <span class="chapter-num">第23章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter24.html">
+    <span class="chapter-num">第24章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter25.html">
+    <span class="chapter-num">第25章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter26.html">
+    <span class="chapter-num">第26章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter27.html">
+    <span class="chapter-num">第27章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter28.html">
+    <span class="chapter-num">第28章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter29.html">
+    <span class="chapter-num">第29章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter30.html">
+    <span class="chapter-num">第30章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter31.html">
+    <span class="chapter-num">第31章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter32.html">
+    <span class="chapter-num">第32章</span>
+</a>
+<a class="nav-link chapter-item " href="./chapter33.html">
+    <span class="chapter-num">第33章</span>
+</a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-10 col-md-9 main-content" id="mainContent">
+
+    <nav aria-label="章节导航" class="chapter-nav mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">目录</a></li>
+            <li class="breadcrumb-item active">德充符</li>
+        </ol>
+    </nav>
+
+    <section class="idioms-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">📖 相关成语</h5>
+            </div>
+            <div class="card-body">
+                <div id="idiomsContainer">
+                    <span class="text-muted">本章暂无收录相关成语</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="original-section mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">德充符 · 原文</h5>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="copyOriginal" title="复制原文">复制</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="original-text" id="originalText">
+                    鲁有兀者王骀，从之游者与仲尼相若。常季问于仲尼曰：王骀，兀者也，从之游者与夫子中分鲁。立不教，坐不议，虚而往，实而归。固有不言之教，无形而心成者邪？是何人也？仲尼曰：夫子，圣人也，丘也直后而未往耳。丘将以为师，而况不若丘者乎！奚假鲁国！丘将引天下而与从之。常季曰：彼兀者也，而王先生，其与庸亦远矣。若然者，其用心也独若之何？仲尼曰：死生亦大矣，而不得与之变，虽天地覆坠，亦将不与之遗。审乎无假而不与物迁，命物之化而守其宗也。常季曰：何谓也？仲尼曰：自其异者视之，肝胆楚越也；自其同者视之，万物皆一也。夫若然者，且不知耳目之所宜，而游心乎德之和；物视其所一而不见其所丧，视丧其足犹遗土也。
+
+常季曰：彼为己，以其知得其心，以其心得其常心，物何为最之哉？仲尼曰：人莫鉴于流水而鉴于止水，唯止能止众止。受命于地，唯松柏独也在冬夏青青；受命于天，唯舜独也正，幸能正生，以正众生。夫保始之征，不惧之实。勇士一人，雄入于九军。将求名而能自要者，而犹若是，而况官天地，府万物，直寓六骸，象耳目，一知之所知，而心未尝死者乎！彼且择日而登假，人则从是也。彼且何肯以物为事乎！
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">现代白话译文</h5>
+            </div>
+            <div class="card-body">
+                <p class="modern-text mb-0">鲁国有个被砍去一只脚的人叫王骀，跟他求学的人和孔子的弟子一样多。常季问孔子说：王骀是个被砍去一只脚的人，跟他求学的人和先生在鲁国各占一半。他站着不教诲，坐着不议论，跟他求学的人空虚而去，满载而归。难道真的有不用言语的教导，无形感化而达到潜移默化的功效吗？这是什么样的人呢？孔子说：这位先生是圣人，我也落在后面还没有去请教。我将拜他为老师，何况不如我的人呢！何止是鲁国！我将引导天下人都去跟他学习。常季说：他是个被砍去一只脚的人，却超过了先生，他比普通人更是远远超过。如果是这样，他的用心是怎样的呢？孔子说：死生也是大事了，却不能使他有所改变，即使天翻地覆，也不会使他遗失。他处于无待的境界而不随物变迁，顺任万物的变化而坚守大道的根本。常季说：这是什么意思？孔子说：从事物的差异一面看，肝和胆就像楚国和越国那样遥远；从事物相同的一面看，万物都是一样的。如果这样，就不知道耳目适宜于什么，而游心于德性的和谐；视物之所同而看不到它所丧失的，看自己失去的那只脚就像丢掉一块泥土一样。
+
+常季说：王骀是为自己，用智慧领悟大道，用心灵领悟永恒之心，人们为什么会归向他呢？孔子说：人们不在流动的水面照影而在静止的水面照影，只有静止的东西才能使各种来照影的东西静止。从大地获得生命的，只有松柏能保持冬夏常青；从天获得生命的，只有舜能独自保正，幸而能正己之性，因此能正众人之性。保持本性的征兆，是不惧的实性。一个勇士，可以雄冲入九军之中。为了求名而能自我要求的人，尚且能做到这样，何况主宰天地，包藏万物，把六骸当作寓所，把耳目当作迹象，把一切智识所知的视为同一，而心灵从不死灭的人呢！他将选择吉日升登仙境，人们都会跟随他。他哪里肯把世俗的事务当回事呢！</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="english-section mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">English Translations / 英文译本</h5>
+            </div>
+            <div class="card-body p-0">
+                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">Lau</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="lau">
+                        <p class="english-text mb-0 fst-italic"></p>
+                    </div>
+                    <div class="tab-pane fade" id="henricks">
+                        <p class="english-text mb-0 fst-italic"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="chapter-navigation" aria-label="章节翻页">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="./chapter4.html">← 第4篇</a></li>
+            <li class="page-item disabled">
+                <span class="page-link">5 / 33</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="./chapter6.html">第6篇 →</a></li>
+        </ul>
+    </nav>
+
+            </main>
+        </div>
     </div>
-    
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-muted">
+            <small>道德经多版本对照平台 | 王弼本 · 河上公本 · 王夫之 · 憨山德清 | 帛书 · 郭店简</small>
+        </div>
+    </footer>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="/assets/audio/gaoshanliushui.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 音乐音量控制面板 -->
+    <div class="volume-panel" id="volumePanel">
+        <div class="volume-panel-header">
+            <span>音量控制</span>
+            <button type="button" class="btn-close btn-close-white" id="closeVolumePanel"></button>
+        </div>
+        <div class="volume-panel-body">
+            <input type="range" class="form-range" id="volumeSlider" min="0" max="100" value="30">
+            <div class="volume-level">
+                <span id="volumeValue">30</span>%
+            </div>
+        </div>
+    </div>
+
+    <!-- 朗读控制面板 -->
+    <div class="speech-panel" id="speechPanel">
+        <div class="speech-panel-header">
+            <span>朗读设置</span>
+            <button type="button" class="btn-close btn-close-white" id="closeSpeechPanel"></button>
+        </div>
+        <div class="speech-panel-body">
+            <div class="speech-option mb-3">
+                <label class="form-label">朗读模式</label>
+                <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="speechMode" id="speechModeCurrent" value="current" checked>
+                    <label class="btn btn-outline-light" for="speechModeCurrent">当前章节</label>
+
+                    <input type="radio" class="btn-check" name="speechMode" id="speechModeAll" value="all">
+                    <label class="btn btn-outline-light" for="speechModeAll">连续朗读</label>
+                </div>
+            </div>
+            <div class="speech-option">
+                <label class="form-label">语速</label>
+                <input type="range" class="form-range" id="speechRate" min="50" max="150" value="80">
+                <div class="rate-level">
+                    <span id="rateValue">0.8</span>x
+                </div>
+            </div>
+            <div class="speech-status mt-3" id="speechStatus">
+                准备就绪
+            </div>
+        </div>
+    </div>
+
+    <!-- AI解读侧边栏 -->
+    <aside class="ai-sidebar" id="aiSidebar">
+        <div class="ai-sidebar-header">
+            <h6 class="ai-title">🤖 AI解读</h6>
+            <div class="ai-actions">
+                <button class="btn btn-sm btn-outline-light" id="aiNewChat" title="新对话">
+                    <span>➕</span>
+                </button>
+                <button class="btn btn-sm btn-outline-light" id="aiCloseSidebar" title="关闭">
+                    <span>✕</span>
+                </button>
+            </div>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-welcome">
+                <div class="ai-welcome-icon">🤖</div>
+                <h6>道德经AI助手</h6>
+                <p>您可以：</p>
+                <ul>
+                    <li>点击下方快捷问题开始</li>
+                    <li>或直接输入您的问题</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ai-suggestions">
+            <button class="ai-suggestion-btn">解释这一章的核心思想</button>
+            <button class="ai-suggestion-btn">这段话的哲学含义</button>
+            <button class="ai-suggestion-btn">如何在生活中应用</button>
+        </div>
+        <div class="ai-input-area">
+            <div class="ai-input-wrapper">
+                <textarea class="ai-input" id="aiInput" placeholder="输入您的问题..." rows="2"></textarea>
+                <button class="ai-send-btn" id="aiSendBtn">
+                    <span>📤</span>
+                </button>
+            </div>
+            <small class="ai-model-info">
+                模型: <span id="aiModelDisplay">自动检测</span>
+            </small>
+        </div>
+    </aside>
+
+    <!-- 设置面板 -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-panel-header">
+            <span>⚙️ 阅读设置</span>
+            <button type="button" class="btn-close btn-close-white" id="closeSettingsPanel"></button>
+        </div>
+        <div class="settings-panel-body">
+            <!-- 阅读模式 -->
+            <div class="setting-section">
+                <label class="setting-label">阅读模式</label>
+                <div class="setting-options">
+                    <button class="mode-btn active" data-mode="reading">
+                        <span class="mode-icon">📖</span>
+                        <span class="mode-text">阅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="zen">
+                        <span class="mode-icon">🧘</span>
+                        <span class="mode-text">禅读</span>
+                    </button>
+                    <button class="mode-btn" data-mode="recite">
+                        <span class="mode-icon">📝</span>
+                        <span class="mode-text">背诵</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 字体选择 -->
+            <div class="setting-section">
+                <label class="setting-label">字体选择</label>
+                <select class="form-select form-select-sm" id="fontSelect">
+                    <option value="default">系统默认</option>
+                    <option value="kaiti">楷体</option>
+                    <option value="songti">宋体</option>
+                    <option value="fangsong">仿宋</option>
+                    <option value="mingliu">明体</option>
+                    <option value="xkai">华文行楷</option>
+                </select>
+            </div>
+
+            <!-- 字体大小 -->
+            <div class="setting-section">
+                <label class="setting-label">字体大小</label>
+                <div class="font-size-control">
+                    <button class="size-btn" data-size="small">小</button>
+                    <button class="size-btn active" data-size="medium">中</button>
+                    <button class="size-btn" data-size="large">大</button>
+                </div>
+            </div>
+
+            <!-- 文字布局 -->
+            <div class="setting-section">
+                <label class="setting-label">文字布局</label>
+                <div class="setting-options">
+                    <button class="layout-btn active" data-layout="center">
+                        <span class="layout-icon">📍</span>
+                        <span class="layout-text">居中</span>
+                    </button>
+                    <button class="layout-btn" data-layout="left">
+                        <span class="layout-icon">⬅️</span>
+                        <span class="layout-text">靠左</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 背景音乐 -->
+            <div class="setting-section">
+                <label class="setting-label">背景音乐</label>
+                <select class="form-select form-select-sm mb-2" id="musicSelect">
+                    <option value="none">关闭</option>
+                    <option value="chinese">中国古典（古琴/琵琶）</option>
+                    <option value="western">西方古典（钢琴/小提琴）</option>
+                </select>
+                <div class="volume-control-inline">
+                    <span class="volume-label">音量</span>
+                    <input type="range" class="form-range form-range-sm" id="musicVolumeSlider" min="0" max="100" value="30">
+                    <span class="volume-value" id="musicVolumeValue">30%</span>
+                </div>
+            </div>
+
+            <!-- 显示选项 -->
+            <div class="setting-section">
+                <label class="setting-label">显示选项</label>
+                <div class="setting-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showPinyin" checked>
+                        <span>显示拼音</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showAnnotation" checked>
+                        <span>显示释义</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 版本选择 -->
+            <div class="setting-section">
+                <label class="setting-label">显示版本</label>
+                <div class="version-toggles">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showModern" checked>
+                        <span>白话译文</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showNotes" checked>
+                        <span>注解版本</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="showEnglish">
+                        <span>英文译本</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- AI设置 -->
+            <div class="setting-section">
+                <label class="setting-label">AI API配置</label>
+                <input type="password" class="form-control form-control-sm mb-2" id="deepseekKey" placeholder="DeepSeek API Key (可选)">
+                <input type="password" class="form-control form-control-sm" id="openaiKey" placeholder="OpenAI API Key (可选)">
+                <small class="text-muted d-block mt-1">
+                    API Key仅存储在本地，不会上传服务器
+                </small>
+            </div>
+
+            <!-- 语音朗读设置 -->
+            <div class="setting-section">
+                <label class="setting-label">🎙️ 语音朗读设置</label>
+                <div class="mb-2">
+                    <label class="small text-muted">选择语音：</label>
+                    <select class="form-select form-select-sm" id="browserVoice">
+                        <option value="">正在加载可用语音...</option>
+                    </select>
+                    <small class="text-muted d-block">
+                        提示：Microsoft语音质量最佳，搜索"Microsoft"或"Chinese"
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label class="small text-muted">语言偏好：</label>
+                    <select class="form-select form-select-sm" id="voiceLanguage">
+                        <option value="all">全部语言</option>
+                        <option value="zh-CN">普通话</option>
+                        <option value="zh-TW">台湾国语</option>
+                        <option value="zh-HK">粤语</option>
+                        <option value="zh-min-nan">闽南语</option>
+                        <option value="ja">日语</option>
+                        <option value="en-US">英语 (US)</option>
+                        <option value="en-GB">英语 (UK)</option>
+                        <option value="ko">韩语</option>
+                        <option value="vi">越南语</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/modules/theme.js"></script>
+    <script src="/assets/js/modules/sidebar.js"></script>
+    <script src="/assets/js/modules/music.js"></script>
+    <script src="/assets/js/modules/shortcuts.js"></script>
+    <script src="/assets/js/modules/pwa.js"></script>
+    <script src="/assets/js/modules/local-search.js"></script>
+    <script src="/assets/js/modules/notes.js"></script>
+    <script src="/assets/js/modules/quote-card.js"></script>
+    <script src="/assets/js/modules/knowledge-graph.js"></script>
+    <script src="/assets/js/modules/commentary-chat.js"></script>
+    <script src="/assets/js/modules/philosophy-dialogue.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script>
+
+// 复制原文
+document.getElementById('copyOriginal')?.addEventListener('click', function() {
+    const text = document.getElementById('originalText').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        this.textContent = '已复制';
+        setTimeout(() => this.textContent = '复制', 2000);
+    });
+});
+
+// 成语标签悬停效果
+document.querySelectorAll('.idiom-tag').forEach(tag => {
+    tag.addEventListener('click', function() {
+        // 点击成语时显示详细信息（可选功能）
+        const meaning = this.getAttribute('title');
+        if (meaning) {
+            alert(meaning.replace(/&#10;/g, '\n'));
+        }
+    });
+});
+
+    </script>
 </body>
 </html>

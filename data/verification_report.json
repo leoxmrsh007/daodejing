@@ -1,0 +1,217 @@
+{
+  "timestamp": 1771806330.5125124,
+  "average_score": 3837.2,
+  "deploy_ready": true,
+  "classics": [
+    {
+      "id": "ddj",
+      "file_exists": true,
+      "chapters_count": 81,
+      "expected_chapters": 81,
+      "fields_complete": {
+        "original": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        },
+        "wangbi_note": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "zzj",
+      "file_exists": true,
+      "chapters_count": 33,
+      "expected_chapters": 33,
+      "fields_complete": {
+        "original": {
+          "count": 33,
+          "total": 33,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 33,
+          "total": 33,
+          "percentage": 100.0
+        },
+        "chengxuanying_note": {
+          "count": 33,
+          "total": 33,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "zy",
+      "file_exists": true,
+      "chapters_count": 64,
+      "expected_chapters": 64,
+      "fields_complete": {
+        "original": {
+          "count": 64,
+          "total": 64,
+          "percentage": 100.0
+        },
+        "gua_ci": {
+          "count": 64,
+          "total": 64,
+          "percentage": 100.0
+        },
+        "yao_ci": {
+          "count": 64,
+          "total": 64,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "hdnj",
+      "file_exists": true,
+      "chapters_count": 81,
+      "expected_chapters": 81,
+      "fields_complete": {
+        "original": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        },
+        "wangbing_note": {
+          "count": 81,
+          "total": 81,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "jgj",
+      "file_exists": true,
+      "chapters_count": 30,
+      "expected_chapters": 32,
+      "fields_complete": {
+        "original": {
+          "count": 30,
+          "total": 30,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 30,
+          "total": 30,
+          "percentage": 100.0
+        }
+      },
+      "issues": [
+        "章节数不符：30/32"
+      ],
+      "score": 4058
+    },
+    {
+      "id": "ss",
+      "file_exists": true,
+      "chapters_count": 4,
+      "expected_chapters": 4,
+      "fields_complete": {
+        "original": {
+          "count": 4,
+          "total": 4,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 4,
+          "total": 4,
+          "percentage": 100.0
+        },
+        "zhuxi_note": {
+          "count": 4,
+          "total": 4,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "cxl",
+      "file_exists": true,
+      "chapters_count": 3,
+      "expected_chapters": 3,
+      "fields_complete": {
+        "original": {
+          "count": 3,
+          "total": 3,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 3,
+          "total": 3,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    },
+    {
+      "id": "liuzutan",
+      "file_exists": true,
+      "chapters_count": 9,
+      "expected_chapters": 10,
+      "fields_complete": {
+        "original": {
+          "count": 9,
+          "total": 9,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 0,
+          "total": 9,
+          "percentage": 0.0
+        }
+      },
+      "issues": [
+        "章节数不符：9/10",
+        "modern_chinese 完整度低：0.0%"
+      ],
+      "score": 2057
+    },
+    {
+      "id": "ws30",
+      "file_exists": true,
+      "chapters_count": 30,
+      "expected_chapters": 30,
+      "fields_complete": {
+        "original": {
+          "count": 30,
+          "total": 30,
+          "percentage": 100.0
+        },
+        "modern_chinese": {
+          "count": 30,
+          "total": 30,
+          "percentage": 100.0
+        }
+      },
+      "issues": [],
+      "score": 4060
+    }
+  ]
+}

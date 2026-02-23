@@ -493,8 +493,346 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
 
-  # 其他AI功能端点占位符...
-  # 包括语义考古、跨文明对话、虚拟注释家等功能
+  # ============ 语义考古 API ============
+  /archaeology/{chapter_id}:
+    get:
+      tags:
+        - AI 创新功能
+        - 语义考古
+      summary: 获取章节语义考古分析
+      description: |
+        获取指定章节的语义考古分析，包括：
+        - 关键概念的语义演变历史
+        - 不同时代的解读差异
+        - 概念在不同经典中的使用情况
+      operationId: getSemanticArchaeology
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          description: 章节编号 (1-81)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 81
+            example: 1
+      responses:
+        '200':
+          description: 成功获取语义考古分析
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SemanticArchaeologyResponse'
+        '404':
+          description: 未找到指定的章节
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /archaeology/{chapter_id}/concept/{concept}:
+    get:
+      tags:
+        - AI 创新功能
+        - 语义考古
+      summary: 获取概念解读历史
+      description: |
+        获取指定概念在特定章节中的解读历史，展示：
+        - 历代注释家对该概念的不同理解
+        - 概念语义的时代变迁
+        - 相关学术争论要点
+      operationId: getInterpretationHistory
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          description: 章节编号 (1-81)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 81
+            example: 1
+        - name: concept
+          in: path
+          required: true
+          description: 概念名称（如 '道', '德', '无为'）
+          schema:
+            type: string
+            example: 道
+      responses:
+        '200':
+          description: 成功获取概念解读历史
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterpretationHistoryResponse'
+        '404':
+          description: 未找到指定的章节或概念
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ 跨文明对话 API ============
+  /dialogue/philosophers:
+    get:
+      tags:
+        - AI 创新功能
+        - 跨文明对话
+      summary: 获取可用哲学家列表
+      description: 获取系统中可用于跨文明对话的哲学家/思想家列表
+      operationId: getPhilosophers
+      responses:
+        '200':
+          description: 成功获取哲学家列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhilosophersResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /dialogue/start:
+    post:
+      tags:
+        - AI 创新功能
+        - 跨文明对话
+      summary: 发起哲学对话
+      description: |
+        发起一场跨文明哲学对话，让古代哲学家就特定主题进行"对话"。
+        系统会模拟不同哲学传统的思想家对同一问题的不同回应。
+      operationId: startDialogue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DialogueRequest'
+      responses:
+        '200':
+          description: 成功发起对话
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DialogueResponse'
+        '400':
+          description: 请求参数无效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /dialogue/compare:
+    post:
+      tags:
+        - AI 创新功能
+        - 跨文明对话
+      summary: 获取比较分析
+      description: |
+        获取不同哲学传统对特定概念或问题的比较分析。
+        系统会分析东西方哲学思想的异同点。
+      operationId: getComparativeAnalysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComparativeAnalysisRequest'
+      responses:
+        '200':
+          description: 成功获取比较分析
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComparativeAnalysisResponse'
+        '400':
+          description: 请求参数无效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /dialogue/correspondence/{concept}/{philosopher_id}:
+    get:
+      tags:
+        - AI 创新功能
+        - 跨文明对话
+      summary: 获取概念对应关系
+      description: |
+        获取某个中国哲学概念与特定西方哲学家思想中对应概念的映射关系。
+        帮助理解跨文化哲学概念的异同。
+      operationId: getConceptCorrespondence
+      parameters:
+        - name: concept
+          in: path
+          required: true
+          description: 中国哲学概念（如 '道', '仁', '无为'）
+          schema:
+            type: string
+            example: 道
+        - name: philosopher_id
+          in: path
+          required: true
+          description: 西方哲学家 ID（如 'plato', 'kant', 'heidegger'）
+          schema:
+            type: string
+            example: heidegger
+      responses:
+        '200':
+          description: 成功获取概念对应关系
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConceptCorrespondence'
+        '404':
+          description: 未找到指定的概念或哲学家
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # ============ 虚拟注释家 API ============
+  /commentary/commentators:
+    get:
+      tags:
+        - AI 创新功能
+        - 虚拟注释家
+      summary: 获取可用注释家列表
+      description: 获取系统中可用的虚拟注释家列表，每个注释家都有独特的人设和注释风格
+      operationId: getCommentators
+      responses:
+        '200':
+          description: 成功获取注释家列表
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentatorsResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /commentary/persona/{commentator_id}:
+    get:
+      tags:
+        - AI 创新功能
+        - 虚拟注释家
+      summary: 获取注释家人设
+      description: |
+        获取指定虚拟注释家的详细人设信息，包括：
+        - 历史背景与学术渊源
+        - 注释风格特点
+        - 擅长解读的经典类型
+        - 代表性观点
+      operationId: getCommentatorPersona
+      parameters:
+        - name: commentator_id
+          in: path
+          required: true
+          description: 注释家 ID（如 'wangbi', 'heshanggong', 'zhuxi'）
+          schema:
+            type: string
+            example: wangbi
+      responses:
+        '200':
+          description: 成功获取注释家人设
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentatorPersona'
+        '404':
+          description: 未找到指定的注释家
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /commentary/chat:
+    post:
+      tags:
+        - AI 创新功能
+        - 虚拟注释家
+      summary: 与注释家对话
+      description: |
+        与虚拟注释家进行对话，获取其对特定章节或概念的解读。
+        注释家会以其独特的风格和视角进行回应。
+      operationId: chatWithCommentator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentaryRequest'
+      responses:
+        '200':
+          description: 成功获取注释家回应
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentaryResponse'
+        '400':
+          description: 请求参数无效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: 未找到指定的注释家
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 服务器内部错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # 其他 AI 功能端点占位符...
+  # 包括更多扩展功能
 
 components:
   schemas:
@@ -851,6 +1189,1024 @@ components:
         - nodes
         - edges
 
+
+    # 语义考古相关 Schema
+    SemanticArchaeologyResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: integer
+          description: 章节编号
+          example: 1
+        concepts:
+          type: array
+          description: 章节中的关键概念列表
+          items:
+            $ref: '#/components/schemas/ConceptAnalysis'
+        semantic_evolution:
+          type: string
+          description: 语义演变分析
+          example: "本章中的'道'概念经历了从宇宙论到伦理学的语义转变"
+        historical_interpretations:
+          type: array
+          description: 历史解读列表
+          items:
+            $ref: '#/components/schemas/HistoricalInterpretation'
+      required:
+        - chapter_id
+        - concepts
+
+    ConceptAnalysis:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 概念名称
+          example: 道
+        frequency:
+          type: integer
+          description: 出现次数
+          example: 5
+        semantic_roles:
+          type: array
+          description: 语义角色列表
+          items:
+            type: string
+          example: [本体论，方法论，伦理学]
+      required:
+        - concept
+        - frequency
+
+    HistoricalInterpretation:
+      type: object
+      properties:
+        era:
+          type: string
+          description: 时代
+          example: 汉代
+        commentator:
+          type: string
+          description: 注释家
+          example: 河上公
+        interpretation:
+          type: string
+          description: 解读内容
+          example: "以养生解道"
+      required:
+        - era
+        - commentator
+        - interpretation
+
+    InterpretationHistoryResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: integer
+          description: 章节编号
+          example: 1
+        concept:
+          type: string
+          description: 概念名称
+          example: 道
+        interpretations:
+          type: array
+          description: 历代解读列表
+          items:
+            $ref: '#/components/schemas/CommentatorInterpretation'
+        semantic_changes:
+          type: array
+          description: 语义变化列表
+          items:
+            $ref: '#/components/schemas/SemanticChange'
+      required:
+        - chapter_id
+        - concept
+        - interpretations
+
+    CommentatorInterpretation:
+      type: object
+      properties:
+        commentator:
+          type: string
+          description: 注释家
+          example: 王弼
+        era:
+          type: string
+          description: 时代
+          example: 魏晋
+        text:
+          type: string
+          description: 解读文本
+          example: "道者，无之称也"
+        perspective:
+          type: string
+          description: 解读视角
+          example: 以无为本
+      required:
+        - commentator
+        - text
+
+    SemanticChange:
+      type: object
+      properties:
+        from_era:
+          type: string
+          description: 起始时代
+          example: 先秦
+        to_era:
+          type: string
+          description: 结束时代
+          example: 汉代
+        change_description:
+          type: string
+          description: 变化描述
+          example: "从宇宙生成论转向政治哲学"
+      required:
+        - from_era
+        - change_description
+
+    # 跨文明对话相关 Schema
+    PhilosopherInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 哲学家 ID
+          example: plato
+        name:
+          type: string
+          description: 哲学家姓名
+          example: 柏拉图
+        name_original:
+          type: string
+          description: 原名
+          example: Plato
+        era:
+          type: string
+          description: 时代
+          example: 古希腊
+        tradition:
+          type: string
+          description: 哲学传统
+          example: 西方哲学/古希腊哲学
+        key_concepts:
+          type: array
+          description: 核心概念列表
+          items:
+            type: string
+          example: [理念论，灵魂三分，哲人王]
+        avatar:
+          type: string
+          description: 头像 URL
+          example: /images/philosophers/plato.png
+      required:
+        - id
+        - name
+        - tradition
+
+    PhilosophersResponse:
+      type: object
+      properties:
+        philosophers:
+          type: array
+          description: 哲学家列表
+          items:
+            $ref: '#/components/schemas/PhilosopherInfo'
+      required:
+        - philosophers
+
+    DialogueRequest:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: 对话主题
+          example: 什么是理想的社会
+        philosophers:
+          type: array
+          description: 参与对话的哲学家 ID 列表
+          items:
+            type: string
+          example: [laozi, plato]
+        context:
+          type: string
+          description: 对话背景或上下文
+          example: 基于道德经第 1 章
+      required:
+        - topic
+        - philosophers
+
+    DialogueResponse:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: 对话主题
+          example: 什么是理想的社会
+        participants:
+          type: array
+          description: 参与对话的哲学家
+          items:
+            $ref: '#/components/schemas/PhilosopherInfo'
+        dialogue:
+          type: array
+          description: 对话内容
+          items:
+            $ref: '#/components/schemas/DialogueTurn'
+        summary:
+          type: string
+          description: 对话总结
+          example: "老子强调无为而治，柏拉图主张哲人王统治，两者都追求理想的社会秩序"
+      required:
+        - topic
+        - dialogue
+
+    DialogueTurn:
+      type: object
+      properties:
+        philosopher_id:
+          type: string
+          description: 发言哲学家 ID
+          example: laozi
+        philosopher_name:
+          type: string
+          description: 发言哲学家姓名
+          example: 老子
+        statement:
+          type: string
+          description: 发言内容
+          example: "治大国，若烹小鲜"
+        source:
+          type: string
+          description: 引用来源
+          example: 道德经第 60 章
+      required:
+        - philosopher_id
+        - statement
+
+    ComparativeAnalysisRequest:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 要比较的概念
+          example: 自然
+        traditions:
+          type: array
+          description: 要比较的哲学传统
+          items:
+            type: string
+          example: [道家，斯多葛学派]
+        aspects:
+          type: array
+          description: 比较的方面
+          items:
+            type: string
+          example: [本体论，伦理学，政治哲学]
+      required:
+        - concept
+        - traditions
+
+    ComparativeAnalysisResponse:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 比较的概念
+          example: 自然
+        traditions:
+          type: array
+          description: 参与比较的传统
+          items:
+            $ref: '#/components/schemas/TraditionAnalysis'
+        similarities:
+          type: array
+          description: 相似点列表
+          items:
+            type: string
+        differences:
+          type: array
+          description: 差异点列表
+          items:
+            type: string
+        conclusion:
+          type: string
+          description: 比较结论
+      required:
+        - concept
+        - traditions
+
+    TraditionAnalysis:
+      type: object
+      properties:
+        tradition:
+          type: string
+          description: 哲学传统名称
+          example: 道家
+        representative:
+          type: string
+          description: 代表人物
+          example: 老子
+        viewpoint:
+          type: string
+          description: 该传统对此概念的观点
+          example: "自然即道的运行方式"
+        key_texts:
+          type: array
+          description: 相关经典
+          items:
+            type: string
+          example: [道德经，庄子]
+      required:
+        - tradition
+        - viewpoint
+
+    ConceptCorrespondence:
+      type: object
+      properties:
+        chinese_concept:
+          type: string
+          description: 中国哲学概念
+          example: 道
+        western_philosopher:
+          $ref: '#/components/schemas/PhilosopherInfo'
+        corresponding_concepts:
+          type: array
+          description: 对应概念列表
+          items:
+            $ref: '#/components/schemas/ConceptMapping'
+        comparison_notes:
+          type: string
+          description: 比较说明
+          example: "海德格尔的'存在'与老子的'道'有相似之处，但也有重要差异"
+      required:
+        - chinese_concept
+        - western_philosopher
+        - corresponding_concepts
+
+    ConceptMapping:
+      type: object
+      properties:
+        western_concept:
+          type: string
+          description: 西方哲学概念
+          example: Being (存在)
+        similarity:
+          type: string
+          description: 相似程度
+          enum: [high, medium, low]
+          example: medium
+        explanation:
+          type: string
+          description: 对应关系说明
+          example: "两者都指向终极实在，但道更强调生成性"
+      required:
+        - western_concept
+        - similarity
+
+    # 虚拟注释家相关 Schema
+    CommentatorInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        name:
+          type: string
+          description: 注释家姓名
+          example: 王弼
+        era:
+          type: string
+          description: 时代
+          example: 魏晋
+        school:
+          type: string
+          description: 学派
+          example: 玄学
+        style:
+          type: string
+          description: 注释风格
+          example: 以无为本，得意忘言
+        avatar:
+          type: string
+          description: 头像 URL
+          example: /images/commentators/wangbi.png
+      required:
+        - id
+        - name
+        - style
+
+    CommentatorsResponse:
+      type: object
+      properties:
+        commentators:
+          type: array
+          description: 注释家列表
+          items:
+            $ref: '#/components/schemas/CommentatorInfo'
+      required:
+        - commentators
+
+    CommentatorPersona:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        name:
+          type: string
+          description: 姓名
+          example: 王弼
+        bio:
+          type: string
+          description: 生平简介
+          example: "王弼（226-249），字辅嗣，魏晋时期著名玄学家"
+        academic_background:
+          type: string
+          description: 学术渊源
+          example: "承袭老子思想，开创玄学注老传统"
+        commentary_style:
+          type: string
+          description: 注释风格详述
+          example: "主张'得意忘言'，以简驭繁"
+        key_works:
+          type: array
+          description: 代表作品
+          items:
+            type: string
+          example: [老子道德经注，周易注]
+        expertise:
+          type: array
+          description: 擅长领域
+          items:
+            type: string
+          example: [本体论，政治哲学]
+      required:
+        - id
+        - name
+        - commentary_style
+
+    CommentaryRequest:
+      type: object
+      properties:
+        commentator_id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        chapter_id:
+          type: integer
+          description: 章节编号（可选）
+          example: 1
+        concept:
+          type: string
+          description: 概念（可选）
+          example: 道
+        question:
+          type: string
+          description: 问题
+          example: 如何理解'道可道，非常道'？
+      required:
+        - commentator_id
+        - question
+
+    CommentaryResponse:
+      type: object
+      properties:
+        commentator:
+          $ref: '#/components/schemas/CommentatorInfo'
+        response:
+          type: string
+          description: 注释家回应
+          example: "夫道可道，非常道者，谓可言说之道，非恒常不变之道也"
+        analysis:
+          type: string
+          description: 分析说明
+          example: "王弼从本体论角度解释，强调道的超越性"
+        related_passages:
+          type: array
+          description: 相关段落
+          items:
+            type: object
+            properties:
+              chapter:
+                type: integer
+              text:
+                type: string
+      required:
+        - commentator
+        - response
+
+
+    # 语义考古相关 Schema
+    SemanticArchaeologyResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: integer
+          description: 章节编号
+          example: 1
+        concepts:
+          type: array
+          description: 章节中的关键概念列表
+          items:
+            $ref: '#/components/schemas/ConceptAnalysis'
+        semantic_evolution:
+          type: string
+          description: 语义演变分析
+          example: "本章中的'道'概念经历了从宇宙论到伦理学的语义转变"
+        historical_interpretations:
+          type: array
+          description: 历史解读列表
+          items:
+            $ref: '#/components/schemas/HistoricalInterpretation'
+      required:
+        - chapter_id
+        - concepts
+
+    ConceptAnalysis:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 概念名称
+          example: 道
+        frequency:
+          type: integer
+          description: 出现次数
+          example: 5
+        semantic_roles:
+          type: array
+          description: 语义角色列表
+          items:
+            type: string
+          example: [本体论，方法论，伦理学]
+      required:
+        - concept
+        - frequency
+
+    HistoricalInterpretation:
+      type: object
+      properties:
+        era:
+          type: string
+          description: 时代
+          example: 汉代
+        commentator:
+          type: string
+          description: 注释家
+          example: 河上公
+        interpretation:
+          type: string
+          description: 解读内容
+          example: "以养生解道"
+      required:
+        - era
+        - commentator
+        - interpretation
+
+    InterpretationHistoryResponse:
+      type: object
+      properties:
+        chapter_id:
+          type: integer
+          description: 章节编号
+          example: 1
+        concept:
+          type: string
+          description: 概念名称
+          example: 道
+        interpretations:
+          type: array
+          description: 历代解读列表
+          items:
+            $ref: '#/components/schemas/CommentatorInterpretation'
+        semantic_changes:
+          type: array
+          description: 语义变化列表
+          items:
+            $ref: '#/components/schemas/SemanticChange'
+      required:
+        - chapter_id
+        - concept
+        - interpretations
+
+    CommentatorInterpretation:
+      type: object
+      properties:
+        commentator:
+          type: string
+          description: 注释家
+          example: 王弼
+        era:
+          type: string
+          description: 时代
+          example: 魏晋
+        text:
+          type: string
+          description: 解读文本
+          example: "道者，无之称也"
+        perspective:
+          type: string
+          description: 解读视角
+          example: 以无为本
+      required:
+        - commentator
+        - text
+
+    SemanticChange:
+      type: object
+      properties:
+        from_era:
+          type: string
+          description: 起始时代
+          example: 先秦
+        to_era:
+          type: string
+          description: 结束时代
+          example: 汉代
+        change_description:
+          type: string
+          description: 变化描述
+          example: "从宇宙生成论转向政治哲学"
+      required:
+        - from_era
+        - change_description
+
+    # 跨文明对话相关 Schema
+    PhilosopherInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 哲学家 ID
+          example: plato
+        name:
+          type: string
+          description: 哲学家姓名
+          example: 柏拉图
+        name_original:
+          type: string
+          description: 原名
+          example: Plato
+        era:
+          type: string
+          description: 时代
+          example: 古希腊
+        tradition:
+          type: string
+          description: 哲学传统
+          example: 西方哲学/古希腊哲学
+        key_concepts:
+          type: array
+          description: 核心概念列表
+          items:
+            type: string
+          example: [理念论，灵魂三分，哲人王]
+        avatar:
+          type: string
+          description: 头像 URL
+          example: /images/philosophers/plato.png
+      required:
+        - id
+        - name
+        - tradition
+
+    PhilosophersResponse:
+      type: object
+      properties:
+        philosophers:
+          type: array
+          description: 哲学家列表
+          items:
+            $ref: '#/components/schemas/PhilosopherInfo'
+      required:
+        - philosophers
+
+    DialogueRequest:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: 对话主题
+          example: 什么是理想的社会
+        philosophers:
+          type: array
+          description: 参与对话的哲学家 ID 列表
+          items:
+            type: string
+          example: [laozi, plato]
+        context:
+          type: string
+          description: 对话背景或上下文
+          example: 基于道德经第 1 章
+      required:
+        - topic
+        - philosophers
+
+    DialogueResponse:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: 对话主题
+          example: 什么是理想的社会
+        participants:
+          type: array
+          description: 参与对话的哲学家
+          items:
+            $ref: '#/components/schemas/PhilosopherInfo'
+        dialogue:
+          type: array
+          description: 对话内容
+          items:
+            $ref: '#/components/schemas/DialogueTurn'
+        summary:
+          type: string
+          description: 对话总结
+          example: "老子强调无为而治，柏拉图主张哲人王统治，两者都追求理想的社会秩序"
+      required:
+        - topic
+        - dialogue
+
+    DialogueTurn:
+      type: object
+      properties:
+        philosopher_id:
+          type: string
+          description: 发言哲学家 ID
+          example: laozi
+        philosopher_name:
+          type: string
+          description: 发言哲学家姓名
+          example: 老子
+        statement:
+          type: string
+          description: 发言内容
+          example: "治大国，若烹小鲜"
+        source:
+          type: string
+          description: 引用来源
+          example: 道德经第 60 章
+      required:
+        - philosopher_id
+        - statement
+
+    ComparativeAnalysisRequest:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 要比较的概念
+          example: 自然
+        traditions:
+          type: array
+          description: 要比较的哲学传统
+          items:
+            type: string
+          example: [道家，斯多葛学派]
+        aspects:
+          type: array
+          description: 比较的方面
+          items:
+            type: string
+          example: [本体论，伦理学，政治哲学]
+      required:
+        - concept
+        - traditions
+
+    ComparativeAnalysisResponse:
+      type: object
+      properties:
+        concept:
+          type: string
+          description: 比较的概念
+          example: 自然
+        traditions:
+          type: array
+          description: 参与比较的传统
+          items:
+            $ref: '#/components/schemas/TraditionAnalysis'
+        similarities:
+          type: array
+          description: 相似点列表
+          items:
+            type: string
+        differences:
+          type: array
+          description: 差异点列表
+          items:
+            type: string
+        conclusion:
+          type: string
+          description: 比较结论
+      required:
+        - concept
+        - traditions
+
+    TraditionAnalysis:
+      type: object
+      properties:
+        tradition:
+          type: string
+          description: 哲学传统名称
+          example: 道家
+        representative:
+          type: string
+          description: 代表人物
+          example: 老子
+        viewpoint:
+          type: string
+          description: 该传统对此概念的观点
+          example: "自然即道的运行方式"
+        key_texts:
+          type: array
+          description: 相关经典
+          items:
+            type: string
+          example: [道德经，庄子]
+      required:
+        - tradition
+        - viewpoint
+
+    ConceptCorrespondence:
+      type: object
+      properties:
+        chinese_concept:
+          type: string
+          description: 中国哲学概念
+          example: 道
+        western_philosopher:
+          $ref: '#/components/schemas/PhilosopherInfo'
+        corresponding_concepts:
+          type: array
+          description: 对应概念列表
+          items:
+            $ref: '#/components/schemas/ConceptMapping'
+        comparison_notes:
+          type: string
+          description: 比较说明
+          example: "海德格尔的'存在'与老子的'道'有相似之处，但也有重要差异"
+      required:
+        - chinese_concept
+        - western_philosopher
+        - corresponding_concepts
+
+    ConceptMapping:
+      type: object
+      properties:
+        western_concept:
+          type: string
+          description: 西方哲学概念
+          example: Being (存在)
+        similarity:
+          type: string
+          description: 相似程度
+          enum: [high, medium, low]
+          example: medium
+        explanation:
+          type: string
+          description: 对应关系说明
+          example: "两者都指向终极实在，但道更强调生成性"
+      required:
+        - western_concept
+        - similarity
+
+    # 虚拟注释家相关 Schema
+    CommentatorInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        name:
+          type: string
+          description: 注释家姓名
+          example: 王弼
+        era:
+          type: string
+          description: 时代
+          example: 魏晋
+        school:
+          type: string
+          description: 学派
+          example: 玄学
+        style:
+          type: string
+          description: 注释风格
+          example: 以无为本，得意忘言
+        avatar:
+          type: string
+          description: 头像 URL
+          example: /images/commentators/wangbi.png
+      required:
+        - id
+        - name
+        - style
+
+    CommentatorsResponse:
+      type: object
+      properties:
+        commentators:
+          type: array
+          description: 注释家列表
+          items:
+            $ref: '#/components/schemas/CommentatorInfo'
+      required:
+        - commentators
+
+    CommentatorPersona:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        name:
+          type: string
+          description: 姓名
+          example: 王弼
+        bio:
+          type: string
+          description: 生平简介
+          example: "王弼（226-249），字辅嗣，魏晋时期著名玄学家"
+        academic_background:
+          type: string
+          description: 学术渊源
+          example: "承袭老子思想，开创玄学注老传统"
+        commentary_style:
+          type: string
+          description: 注释风格详述
+          example: "主张'得意忘言'，以简驭繁"
+        key_works:
+          type: array
+          description: 代表作品
+          items:
+            type: string
+          example: [老子道德经注，周易注]
+        expertise:
+          type: array
+          description: 擅长领域
+          items:
+            type: string
+          example: [本体论，政治哲学]
+      required:
+        - id
+        - name
+        - commentary_style
+
+    CommentaryRequest:
+      type: object
+      properties:
+        commentator_id:
+          type: string
+          description: 注释家 ID
+          example: wangbi
+        chapter_id:
+          type: integer
+          description: 章节编号（可选）
+          example: 1
+        concept:
+          type: string
+          description: 概念（可选）
+          example: 道
+        question:
+          type: string
+          description: 问题
+          example: 如何理解'道可道，非常道'？
+      required:
+        - commentator_id
+        - question
+
+    CommentaryResponse:
+      type: object
+      properties:
+        commentator:
+          $ref: '#/components/schemas/CommentatorInfo'
+        response:
+          type: string
+          description: 注释家回应
+          example: "夫道可道，非常道者，谓可言说之道，非恒常不变之道也"
+        analysis:
+          type: string
+          description: 分析说明
+          example: "王弼从本体论角度解释，强调道的超越性"
+        related_passages:
+          type: array
+          description: 相关段落
+          items:
+            type: object
+            properties:
+              chapter:
+                type: integer
+              text:
+                type: string
+      required:
+        - commentator
+        - response
+
   securitySchemes:
     # 目前API没有认证要求，但可以定义速率限制说明
     RateLimit:
@@ -881,3 +2237,10 @@ tags:
     description: 基于AI的扩展功能接口
   - name: 知识图谱
     description: 知识图谱相关接口（AI创新功能的子分类）
+
+  - name: 语义考古
+    description: 语义考古分析相关接口（AI 创新功能的子分类）
+  - name: 跨文明对话
+    description: 跨文明哲学对话相关接口（AI 创新功能的子分类）
+  - name: 虚拟注释家
+    description: 虚拟注释家对话相关接口（AI 创新功能的子分类）

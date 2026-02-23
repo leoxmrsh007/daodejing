@@ -2371,10 +2371,10 @@ def expand_idioms():
     total_count = len(data["idioms"])
     added_count = len(new_idioms)
 
-    print(f"✓ 成语数据已更新")
+    print("✓ 成语数据已更新")
     print(f"  新增成语: {added_count} 条")
     print(f"  总成语数: {total_count} 条")
-    print(f"\n各经典成语统计:")
+    print("\n各经典成语统计:")
     for classic in ADDITIONAL_IDIOMS.keys():
         classic_count = len(
             [i for i in data["idioms"] if classic in i.get("source", "")]

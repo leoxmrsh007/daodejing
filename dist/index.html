@@ -1,86 +1,215 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>古籍经典学习平台</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>古籍经典多版本对照平台</title>
+    <meta name="description" content="道德经、庄子、周易等经典多版本对照研究平台">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c1810 0%, #4a3728 100%);
+            min-height: 100vh;
+            font-family: 'KaiTi', '楷体', serif;
+        }
+        .home-page {
+            padding: 4rem 2rem;
+        }
+        .home-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #d4a574;
+        }
+        .home-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .home-header p {
+            color: rgba(212, 165, 116, 0.8);
+            font-size: 1.1rem;
+        }
+        .classic-card {
+            display: block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+        .classic-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #d4a574;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .classic-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .classic-info {
+            padding-left: 0.5rem;
+        }
+        .classic-name {
+            margin: 0 0 0.5rem 0;
+            color: #d4a574;
+        }
+        .classic-author {
+            color: rgba(212, 165, 116, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .classic-desc {
+            color: rgba(232, 224, 216, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .classic-chapters {
+            display: inline-block;
+            background: rgba(212, 165, 116, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #d4a574;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(212, 165, 116, 0.6);
+            margin-top: 4rem;
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="container">
-        <header class="site-header">
-            <h1>古籍经典学习平台</h1>
-            <p class="tagline">九部经典，一站式学习</p>
-        </header>
-        <div class="classics-grid">
-            
-        <div class="classic-card">
-            <div class="icon">☯</div>
-            <h3>道德经</h3>
-            <p>道家哲学奠基之作，五千余言阐述宇宙本源与人生智慧</p>
-            <a href="/ddj/index.html" class="btn">阅读</a>
+    <div class="home-page">
+        <div class="home-header">
+            <h1>📚 古籍经典多版本对照平台</h1>
+            <p>探索中华典籍智慧 · 多版本对照研究 · 深度阅读体验</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./ddj/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #d4a574">☯</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">道德经</h3>
+                    <p class="classic-author">老子 · 春秋末期</p>
+                    <p class="classic-desc">道家哲学奠基之作，五千余言阐述宇宙本源与人生智慧</p>
+                    <span class="classic-chapters">81 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">🦋</div>
-            <h3>庄子</h3>
-            <p>道家哲学经典，内篇七篇为庄子本人所作，汪洋恣肆，想象丰富</p>
-            <a href="/zzj/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./zzj/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #7cb9a8">🦋</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">庄子</h3>
+                    <p class="classic-author">庄周 · 战国中期</p>
+                    <p class="classic-desc">道家哲学经典，内篇七篇为庄子本人所作，汪洋恣肆，想象丰富</p>
+                    <span class="classic-chapters">33 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">☯</div>
-            <h3>周易</h3>
-            <p>群经之首，三易之一，阐述天地万物变化之道</p>
-            <a href="/zy/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./zy/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #8b5cf6">☯</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">周易</h3>
+                    <p class="classic-author">周文王/孔子 · 西周/战国</p>
+                    <p class="classic-desc">群经之首，三易之一，阐述天地万物变化之道</p>
+                    <span class="classic-chapters">64 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">⚕️</div>
-            <h3>黄帝内经</h3>
-            <p>中医奠基之作，阐述阴阳五行、藏象经络、病因病机</p>
-            <a href="/hdnj/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./hdnj/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #dc2626">⚕️</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">黄帝内经</h3>
+                    <p class="classic-author">岐伯/黄帝 · 战国/秦汉</p>
+                    <p class="classic-desc">中医奠基之作，阐述阴阳五行、藏象经络、病因病机</p>
+                    <span class="classic-chapters">81 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">🙏</div>
-            <h3>金刚经</h3>
-            <p>佛教经典，阐述诸法空相、般若智慧</p>
-            <a href="/jgj/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./jgj/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #f59e0b">🙏</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">金刚经</h3>
+                    <p class="classic-author">释迦牟尼/鸠摩罗什译 · 公元前/后秦</p>
+                    <p class="classic-desc">佛教经典，阐述诸法空相、般若智慧</p>
+                    <span class="classic-chapters">32 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">📖</div>
-            <h3>四书</h3>
-            <p>大学、中庸、论语、孟子，儒家核心经典</p>
-            <a href="/ss/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./ss/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #2563eb">📖</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">四书</h3>
+                    <p class="classic-author">孔子/孟子/子思/朱熹 · 春秋至南宋</p>
+                    <p class="classic-desc">大学、中庸、论语、孟子，儒家核心经典</p>
+                    <span class="classic-chapters">4 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">✍</div>
-            <h3>传习录</h3>
-            <p>阳明心学核心著作，记录王阳明与弟子问答</p>
-            <a href="/cxl/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./cxl/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #7c3aed">✍</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">传习录</h3>
+                    <p class="classic-author">王阳明 · 明代</p>
+                    <p class="classic-desc">阳明心学核心著作，记录王阳明与弟子问答</p>
+                    <span class="classic-chapters">3 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">🧘</div>
-            <h3>六祖坛经</h3>
-            <p>禅宗六祖慧能说法记录，中国化佛教经典</p>
-            <a href="/liuzutan/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./liuzutan/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #f97316">🧘</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">六祖坛经</h3>
+                    <p class="classic-author">慧能 · 唐代</p>
+                    <p class="classic-desc">禅宗六祖慧能说法记录，中国化佛教经典</p>
+                    <span class="classic-chapters">10 章</span>
+                </div>
+            </a>
         </div>
         
-        <div class="classic-card">
-            <div class="icon">🧠</div>
-            <h3>唯识三十颂</h3>
-            <p>唯识学核心经典，阐述瑜伽行派法相唯识思想</p>
-            <a href="/ws30/index.html" class="btn">阅读</a>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <a href="./ws30/index.html" class="classic-card">
+                <div class="classic-icon" style="color: #6366f1">🧠</div>
+                <div class="classic-info">
+                    <h3 class="classic-name">唯识三十颂</h3>
+                    <p class="classic-author">世亲菩萨 · 南北朝</p>
+                    <p class="classic-desc">唯识学核心经典，阐述瑜伽行派法相唯识思想</p>
+                    <span class="classic-chapters">30 章</span>
+                </div>
+            </a>
         </div>
         
+            </div>
         </div>
+
+        <footer class="footer">
+            <small>古籍经典多版本对照平台 | 道德经 · 庄子 · 周易 · 六祖坛经 · 金刚经 · 唯识三十颂 · 传习录 · 四书 · 黄帝内经</small>
+        </footer>
     </div>
-    
-    <script src="/assets/js/main.js"></script>
 </body>
 </html>

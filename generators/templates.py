@@ -5,7 +5,7 @@ HTML模板模块 - 负责生成所有HTML页面
 """
 
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict
 
 # 输出目录
 OUTPUT_DIR = Path(__file__).parent.parent / "dist"
@@ -134,14 +134,16 @@ def generate_main_index_page(
         desc = classic_meta.get("description", "")
         icon = classic_meta.get("icon", "📚")
 
-        cards.append(f"""
+        cards.append(
+            f"""
         <div class="classic-card">
             <div class="icon">{icon}</div>
             <h3>{name}</h3>
             <p>{desc}</p>
             <a href="/{cid}/index.html" class="btn">阅读</a>
         </div>
-        """)
+        """
+        )
 
     content = f"""
     <div class="container">

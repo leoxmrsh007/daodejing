@@ -4,6 +4,7 @@
 """
 
 import secrets
+import time
 from typing import Any, Dict, Optional
 
 import bcrypt
@@ -88,10 +89,10 @@ class UserService:
 
     def get_user_by_id(self, user_id: str) -> Optional[Dict[str, Any]]:
         """
-        根据用户ID获取用户信息
+        根据用户 ID 获取用户信息
 
         Args:
-            user_id: 用户ID
+            user_id: 用户 ID
 
         Returns:
             用户信息（不包含密码）
@@ -119,7 +120,7 @@ class UserService:
             用户信息（如果有效）
         """
         try:
-            secret = current_app.config.get("SECRET_KEY", "dev-secret-key")
+            secret = self._get_secret_key()
             payload = jwt.decode(token, secret, algorithms=["HS256"])
 
             user_id = payload.get("user_id")
@@ -160,19 +161,25 @@ class UserService:
 
     def _generate_token(self, user: Dict[str, Any]) -> str:
         """生成 JWT Token"""
-        secret = current_app.config.get("SECRET_KEY", "dev-secret-key")
+        secret = self._get_secret_key()
         payload = {
             "user_id": user["id"],
             "username": user["username"],
-            "exp": self._get_timestamp() + (7 * 24 * 60 * 60),  # 7天过期
+            "exp": self._get_timestamp() + (7 * 24 * 60 * 60),  # 7 天过期
         }
 
         return jwt.encode(payload, secret, algorithm="HS256")
 
+    def _get_secret_key(self) -> str:
+        """获取密钥"""
+        try:
+            return current_app.config.get("SECRET_KEY", "dev-secret-key")
+        except RuntimeError:
+            # 不在应用上下文中时使用默认密钥
+            return "dev-secret-key"
+
     def _get_timestamp(self) -> int:
         """获取当前时间戳（秒）"""
-        import time
-
         return int(time.time())
 
 

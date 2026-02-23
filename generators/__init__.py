@@ -7,9 +7,9 @@
 
 import shutil
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
-from .data_loader import load_all_classics, load_classics_metadata, load_idioms
+from .data_loader import load_all_classics, load_classics_metadata
 from .templates import (
     generate_chapter_list_html,
     generate_chapter_page_html,
@@ -28,21 +28,21 @@ class StaticSiteGenerator:
         self.output_dir = output_dir
         self.classics = {}
         self.metadata = {}
-        self.idioms = {}
+        self.idioms = {}  # 成语功能已禁用
         self.stats = {"total_files": 0, "classics": []}
 
     def load_data(self) -> bool:
         """加载所有数据"""
-        print("[1/6] 加载经典元数据...")
+        print("[1/5] 加载经典元数据...")
         self.metadata = load_classics_metadata()
 
-        print("[2/6] 加载经典数据...")
+        print("[2/5] 加载经典数据...")
         self.classics = load_all_classics()
         print(f"      发现 {len(self.classics)} 部经典")
 
-        print("[3/6] 加载成语数据...")
-        self.idioms = load_idioms()
-        print(f"      加载了 {len(self.idioms)} 个成语")
+        # 成语功能已暂时禁用
+        # print("[3/5] 加载成语数据...")
+        # self.idioms = load_idioms()
 
         return len(self.classics) > 0
 
@@ -57,7 +57,7 @@ class StaticSiteGenerator:
             if assets_dst.exists():
                 shutil.rmtree(assets_dst)
             shutil.copytree(assets_src, assets_dst)
-            print(f"      静态资源已复制")
+            print("      静态资源已复制")
 
     def generate_classic_pages(
         self, classic_id: str, classic_data: Dict[str, Any]

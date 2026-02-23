@@ -29,14 +29,14 @@ def add_zhouyi_commentaries():
             f"程颐注：{chapter.get('title', '此卦')}之义，在明体用之辨。体者，本也；用者，施也。"
         )
         chapter["zhuxi_note"] = (
-            f"朱熹注：此卦所示，乃天理自然之序。观象玩辞，方知易道之精微。"
+            "朱熹注：此卦所示，乃天理自然之序。观象玩辞，方知易道之精微。"
         )
 
     # 保存更新后的数据
     with open(DATA_DIR / "zy" / "chapters.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"✓ 周易：已为 {len(data['chapters'])} 章添加注释")
+    print("✓ 周易：已为 " + str(len(data["chapters"])) + " 章添加注释")
 
 
 def add_jingangjing_commentaries():
@@ -45,12 +45,6 @@ def add_jingangjing_commentaries():
 
     with open(DATA_DIR / "jgj" / "chapters.json", "r", encoding="utf-8") as f:
         data = json.load(f)
-
-    # 金刚经注释家
-        ("xuanzang", "玄奘", "唐"),
-        ("kumarajiva", "鸠摩罗什", "后秦"),
-        ("yinqi", "印顺", "现代"),
-    ]
 
     for chapter in data["chapters"]:
         chapter["xuanzang_note"] = (
@@ -127,18 +121,6 @@ def add_sishu_commentaries():
 
     with open(DATA_DIR / "ss" / "chapters.json", "r", encoding="utf-8") as f:
         data = json.load(f)
-
-    # 四书注释家
-        "zhuxi_note": "朱熹注：",
-        "chengyi_note": "程颐注：",
-        "kongyingda_note": "孔颖达疏：",
-    }
-
-    # 英文翻译家
-        "english_legge": "James Legge translation",
-        "english_waley": "Arthur Waley translation",
-        "english_lin": "Lin Yutang translation",
-    }
 
     for chapter in data["chapters"]:
         title = chapter.get("title", "")

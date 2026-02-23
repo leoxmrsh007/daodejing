@@ -4,18 +4,15 @@
 单元测试 - 数据加载模块测试
 """
 
-import json
-import tempfile
+import sys
 import unittest
 from pathlib import Path
-
-import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from generators.data_loader import (
-    load_classic_data,
     load_all_classics,
+    load_classic_data,
     load_classics_metadata,
     load_idioms,
 )

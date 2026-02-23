@@ -1,194 +1,35 @@
 {
-  "timestamp": "2026-02-15 08:59:14",
-  "baseline": {
-    "static_dir": {
-      "bytes": 29616337,
-      "kb": 28922.2,
-      "mb": 28.24,
-      "file_count": 54
+  "timestamp": "2026-02-23 08:19:55",
+  "static_generation": {
+    "seconds": 0.17,
+    "minutes": 0.0,
+    "success": false,
+    "target_seconds": 0.15
+  },
+  "api_response": {
+    "/classics": {
+      "ms": null,
+      "error": "Server not running"
     },
-    "js_bundles": {
-      "js\\app.js": {
-        "bytes": 754,
-        "kb": 0.74,
-        "mb": 0.0
-      },
-      "js\\main-legacy.js": {
-        "bytes": 38984,
-        "kb": 38.07,
-        "mb": 0.04
-      },
-      "js\\main.js": {
-        "bytes": 37960,
-        "kb": 37.07,
-        "mb": 0.04
-      },
-      "js\\sw.js": {
-        "bytes": 2716,
-        "kb": 2.65,
-        "mb": 0.0
-      },
-      "js\\modules\\bookmark.js": {
-        "bytes": 3646,
-        "kb": 3.56,
-        "mb": 0.0
-      },
-      "js\\modules\\commentary-chat.js": {
-        "bytes": 33631,
-        "kb": 32.84,
-        "mb": 0.03
-      },
-      "js\\modules\\knowledge-graph.js": {
-        "bytes": 31476,
-        "kb": 30.74,
-        "mb": 0.03
-      },
-      "js\\modules\\lazy-load.js": {
-        "bytes": 2901,
-        "kb": 2.83,
-        "mb": 0.0
-      },
-      "js\\modules\\local-search.js": {
-        "bytes": 6738,
-        "kb": 6.58,
-        "mb": 0.01
-      },
-      "js\\modules\\music.js": {
-        "bytes": 7324,
-        "kb": 7.15,
-        "mb": 0.01
-      },
-      "js\\modules\\notes.js": {
-        "bytes": 8723,
-        "kb": 8.52,
-        "mb": 0.01
-      },
-      "js\\modules\\philosophy-dialogue.js": {
-        "bytes": 19323,
-        "kb": 18.87,
-        "mb": 0.02
-      },
-      "js\\modules\\pwa.js": {
-        "bytes": 4094,
-        "kb": 4.0,
-        "mb": 0.0
-      },
-      "js\\modules\\quote-card.js": {
-        "bytes": 8006,
-        "kb": 7.82,
-        "mb": 0.01
-      },
-      "js\\modules\\reading-progress.js": {
-        "bytes": 2156,
-        "kb": 2.11,
-        "mb": 0.0
-      },
-      "js\\modules\\shortcuts.js": {
-        "bytes": 6029,
-        "kb": 5.89,
-        "mb": 0.01
-      },
-      "js\\modules\\sidebar.js": {
-        "bytes": 1459,
-        "kb": 1.42,
-        "mb": 0.0
-      },
-      "js\\modules\\theme.js": {
-        "bytes": 1457,
-        "kb": 1.42,
-        "mb": 0.0
-      },
-      "js\\modules\\user-panel.js": {
-        "bytes": 13188,
-        "kb": 12.88,
-        "mb": 0.01
-      },
-      "_total": {
-        "bytes": 230565,
-        "kb": 225.16,
-        "mb": 0.22,
-        "file_count": 19
-      }
+    "/ddj/chapters": {
+      "ms": null,
+      "error": "Server not running"
     },
-    "css_files": {
-      "css\\style.css": {
-        "bytes": 41666,
-        "kb": 40.69,
-        "mb": 0.04
-      },
-      "_total": {
-        "bytes": 41666,
-        "kb": 40.69,
-        "mb": 0.04,
-        "file_count": 1
-      }
+    "/ddj/chapter/1": {
+      "ms": null,
+      "error": "Server not running"
     },
-    "images": {
-      "images\\wechat-group.png": {
-        "bytes": 70831,
-        "kb": 69.17,
-        "mb": 0.07
-      },
-      "images\\alipay.jpg": {
-        "bytes": 126961,
-        "kb": 123.99,
-        "mb": 0.12
-      },
-      "images\\wechat-pay.jpg": {
-        "bytes": 55608,
-        "kb": 54.3,
-        "mb": 0.05
-      },
-      "_total": {
-        "bytes": 253400,
-        "kb": 247.46,
-        "mb": 0.24,
-        "file_count": 3
-      }
-    },
-    "static_generation": {
-      "seconds": 0.33,
-      "minutes": 0.01,
-      "success": false,
-      "returncode": 1
-    },
-    "api_responses": {
-      "/api/classics": {
-        "ms": null,
-        "error": "HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/classics (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
-      },
-      "/api/ddj/chapters": {
-        "ms": null,
-        "error": "HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/ddj/chapters (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
-      },
-      "/api/ddj/chapter/1": {
-        "ms": null,
-        "error": "HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/ddj/chapter/1 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
-      },
-      "/api/ddj/search?q=道": {
-        "ms": null,
-        "error": "HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/ddj/search?q=%E9%81%93 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
-      }
-    },
-    "dist_dir": {
-      "bytes": 36643751,
-      "kb": 35784.91,
-      "mb": 34.95,
-      "file_count": 227
+    "/ddj/search?q=道": {
+      "ms": null,
+      "error": "Server not running"
     }
   },
+  "memory_usage": {
+    "estimated_mb": 39.94
+  },
   "targets": {
-    "static_generation": {
-      "current": 0.33,
-      "target_reduction": 0.5,
-      "target_seconds": 0.165
-    },
-    "api_response": {
-      "current_avg": 0,
-      "target_ms": 300
-    },
-    "page_load": {
-      "target_reduction": 0.3
-    }
+    "static_generation_seconds": 0.15,
+    "api_response_ms": 300,
+    "page_load_ms": 2000
   }
 }

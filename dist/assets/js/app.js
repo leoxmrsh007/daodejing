@@ -1,3 +1,0 @@
-(function(){'use strict';if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-function init(){if(typeof ThemeManager!=='undefined')ThemeManager.init();if(typeof SidebarManager!=='undefined')SidebarManager.init();if(typeof MusicManager!=='undefined')MusicManager.init();if(typeof SearchManager!=='undefined')SearchManager.init();if(typeof SpeechManager!=='undefined')SpeechManager.init();if(typeof SettingsManager!=='undefined')SettingsManager.init();if(typeof KeyboardNavigation!=='undefined')KeyboardNavigation.init();if(typeof ShareManager!=='undefined')ShareManager.init();if(typeof AIManager!=='undefined')AIManager.init();}
-window.DaoDeJingApp={init,ThemeManager,SidebarManager,MusicManager,};})();

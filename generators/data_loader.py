@@ -6,7 +6,7 @@
 
 import json
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, Optional
 
 # 数据目录
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -68,15 +68,6 @@ def load_classics_metadata() -> Dict[str, Any]:
 
 
 def load_idioms() -> Dict[str, str]:
-    """加载成语数据"""
-    idioms_file = DATA_DIR / "idioms.json"
-
-    if not idioms_file.exists():
-        return {}
-
-    try:
-        with open(idioms_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return {item.get("word", item.get("idiom", "")): item["meaning"] for item in data.get("idioms", [])}
-    except (json.JSONDecodeError, IOError):
-        return {}
+    """加载成语数据（已禁用）"""
+    # 成语功能已暂时禁用
+    return {}

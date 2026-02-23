@@ -21,9 +21,10 @@
       "yanzun_note": "道可道，非常道；名可名，非常名。無名天地之始，有名萬物之母。故常無欲，以觀其妙；常有欲，以觀其徼。此兩者同出而異名，同謂之玄。玄之又玄，眾妙之門。（王弼本《老子》第一章）",
       "chu_jian_text": "道可道也，非恒道也。名可名也，非恒名也。无名天地之始也，有名万物之母也。故常无欲以观其妙，常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。",
       "wangbi_laozi_note": "无名天地之始，有名万物之母。此两者同出而异名。无欲以观其妙，有欲以观其徼。",
-      "english_lau": "",
-      "english_henricks": "",
-      "title": "第01章"
+      "english_lau": "The Tao that can be told is not the eternal Tao; The name that can be named is not the eternal name.",
+      "english_henricks": "A way that can be walked is not the eternal Way; A name that can be named is not the eternal Name.",
+      "title": "第01章",
+      "english_addiss": "The way you can go isn't really the eternal Way; The name you can give isn't really the eternal Name."
     },
     {
       "chapter": 2,
@@ -46,7 +47,8 @@
       "wangbi_laozi_note": "天下皆知美之为美，斯恶已；皆知善之为善，斯不善已。故有无相生，难易相成。",
       "english_lau": "When the people of the world all know beauty as beauty, There arises the recognition of ugliness. When they all know the good as good, There arises the recognition of evil.",
       "english_henricks": "When the people of the world all know beauty as beauty, There arises the recognition of ugliness. When they all know the good as good, There arises the recognition of evil.",
-      "title": "第02章"
+      "title": "第02章",
+      "english_addiss": "When people see some things as beautiful, other things become ugly;"
     },
     {
       "chapter": 3,
@@ -68,7 +70,8 @@
       "wangbi_laozi_note": "不尚贤，使民不争。不贵难得之货，使民不为盗。不见可欲，使心不乱。",
       "english_lau": "Not exalting the worthy prevents contention, Not valuing rare treasures prevents theft, Not displaying beautiful things prevents desire.",
       "english_henricks": "Not praising the worthy prevents contention, Not valuing rare treasures prevents theft, Not showing beautiful things prevents desire.",
-      "title": "第03章"
+      "title": "第03章",
+      "english_addiss": "Not putting people in competition keeps them from quarreling;"
     },
     {
       "chapter": 4,
@@ -91,7 +94,8 @@
       "wangbi_laozi_note": "道冲，而用之或不盈。渊兮似万物之宗。挫其锐，解其纷，和其光，同其尘。",
       "english_lau": "The Way is empty, yet use will not drain it. Deep, it is like the ancestor of the myriad things. Blunt the sharpness, Untangle the knot, Harmonize the glare, Mix the dust.",
       "english_henricks": "The Way is empty, yet use will not drain it. Deep, it is like the ancestor of the myriad things. Blunt the sharpness, Untangle the knot, Harmonize the glare, Mix the dust.",
-      "title": "第04章"
+      "title": "第04章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 5,
@@ -115,7 +119,8 @@
       "wangbi_laozi_note": "天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗。天地之间，其犹橐龠乎。",
       "english_lau": "Heaven and Earth are ruthless; To them the ten thousand things are but as straw dogs. The Sage too is ruthless; to him the people are but as straw dogs.",
       "english_henricks": "Heaven and Earth are ruthless; To them the ten thousand things are but as straw dogs. The Sage too is ruthless; to him the people are but as straw dogs.",
-      "title": "第05章"
+      "title": "第05章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 6,
@@ -139,7 +144,8 @@
       "wangbi_laozi_note": "谷神不死，是谓玄牝。玄牝之门，是谓天地根。绵绵若存，用之不勤。",
       "english_lau": "The valley spirit never dies; It is the woman, primal mother. Her gateway is the root of heaven and Earth. It is like a veil barely seen. Use it; it will never fail.",
       "english_henricks": "The valley spirit never dies; It is the woman, primal mother. Her gateway is the root of heaven and Earth. It is like a veil barely seen. Use it; it will never fail.",
-      "title": "第06章"
+      "title": "第06章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 7,
@@ -162,7 +168,8 @@
       "wangbi_laozi_note": "天长地久。天地所以能长且久者，以其不自生，故能长生。是以圣人后其身而身先。",
       "english_lau": "Heaven is long-enduring and Earth continues long. The reason why Heaven and Earth are able to endure and continue thus long is Because they do not live for, or on, themselves.",
       "english_henricks": "Heaven is long-enduring and Earth continues long. The reason why Heaven and Earth are able to endure and continue thus long is Because they do not live for, or on, themselves.",
-      "title": "第07章"
+      "title": "第07章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 8,
@@ -185,7 +192,8 @@
       "wangbi_laozi_note": "上善若水。水善利万物而不争，处众人之所恶，故几于道。居善地，心善渊，与善仁。",
       "english_lau": "The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low place which all men dislike.",
       "english_henricks": "The highest excellence is like that of water. The excellence of water appears in its benefiting all things, and in its occupying, without striving, the low place which all men dislike.",
-      "title": "第08章"
+      "title": "第08章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 9,
@@ -208,7 +216,8 @@
       "wangbi_laozi_note": "持而盈之，不如其已。揣而锐之，不可长保。金玉满堂，莫之能守。富贵而骄，自遗其咎。",
       "english_lau": "When one has filled a cup to the brim, one had better stop. If a hammer is driven until it snaps, the handle can hardly be preserved.",
       "english_henricks": "When one has filled a cup to the brim, one had better stop. If a hammer is driven until it snaps, the handle can hardly be preserved.",
-      "title": "第09章"
+      "title": "第09章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 10,
@@ -231,7 +240,8 @@
       "wangbi_laozi_note": "载营魄抱一，能无离乎？专气致柔，能如婴儿乎？涤除玄鉴，能无疵乎？爱民治国，能无为乎？",
       "english_lau": "Can you keep the body and the soul together without separating them? Can you concentrate your breath and make it soft like an infant?",
       "english_henricks": "Can you keep the body and the soul together without separating them? Can you concentrate your breath and make it soft like an infant?",
-      "title": "第10章"
+      "title": "第10章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 11,
@@ -254,7 +264,8 @@
       "wangbi_laozi_note": "三十辐共一毂，当其无，有车之用。埏埴以为器，当其无，有器之用。凿户牖以为室，当其无，有室之用。",
       "english_lau": "The thirty spokes of a wheel unite in one nave; The usefulness of the wheel depends on the empty space between the spokes. Clay is molded into a vessel; The utility of the vessel lies in its emptiness.",
       "english_henricks": "The thirty spokes of a wheel unite in one nave; The usefulness of the wheel depends on the empty space between the spokes. Clay is molded into a vessel; The utility of the vessel lies in its emptiness.",
-      "title": "第11章"
+      "title": "第11章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 12,
@@ -279,7 +290,8 @@
       "wangbi_laozi_note": "五色令人目盲，五音令人耳聋，五味令人口爽。驰骋畋猎，令人心发狂。难得之货，令人行妨。",
       "english_lau": "The five colors confuse the eye. The five sounds dull the ear. The five tastes spoil the palate.",
       "english_henricks": "The five colors confuse the eye. The five sounds dull the ear. The five tastes spoil the palate.",
-      "title": "第12章"
+      "title": "第12章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 13,
@@ -303,7 +315,8 @@
       "wangbi_laozi_note": "宠辱若惊，贵大患若身。何谓宠辱若惊？宠为下，得之若惊，失之若惊，是谓宠辱若惊。",
       "english_lau": "Favor disgrace brings trouble. The high and low esteem one another as they do their own selves. Hence a man cannot accept too much favor without trouble.",
       "english_henricks": "Favor disgrace brings trouble. The high and low esteem one another as they do their own selves. Hence a man cannot accept too much favor without trouble.",
-      "title": "第13章"
+      "title": "第13章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 14,
@@ -326,7 +339,8 @@
       "wangbi_laozi_note": "视之不见，名曰夷；听之不闻，名曰希；搏之不得，名曰微。此三者不可致诘，故混而为一。",
       "english_lau": "Looked at, it cannot be seen; It is called formless. Listened to, it cannot be heard; It is called soundless. Touched, it cannot be handled; It is called intangible.",
       "english_henricks": "Looked at, it cannot be seen; It is called formless. Listened to, it cannot be heard; It is called soundless. Touched, it cannot be handled; It is called intangible.",
-      "title": "第14章"
+      "title": "第14章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 15,
@@ -351,7 +365,8 @@
       "wangbi_laozi_note": "古之善为道者，微妙玄通，深不可识。夫唯不可识，故强为之容：豫兮若冬涉川，犹兮若畏四邻。",
       "english_lau": "The ancients who showed their skill in practicing the Tao were able to achieve the mysterious and profound. It is deep indeed and cannot be fathomed.",
       "english_henricks": "The ancients who showed their skill in practicing the Tao were able to achieve the mysterious and profound. It is deep indeed and cannot be fathomed.",
-      "title": "第15章"
+      "title": "第15章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 16,
@@ -374,7 +389,8 @@
       "wangbi_laozi_note": "致虚极，守静笃。万物并作，吾以观复。夫物芸芸，各复归其根。归根曰静，静曰复命。",
       "english_lau": "The state of emptiness should be brought to the utmost degree, and stillness maintained with unshaken steadfastness. All things whatsoever go through their process of activity and then return to their original state.",
       "english_henricks": "The state of emptiness should be brought to the utmost degree, and stillness maintained with unshaken steadfastness. All things whatsoever go through their process of activity and then return to their original state.",
-      "title": "第16章"
+      "title": "第16章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 17,
@@ -397,7 +413,8 @@
       "wangbi_laozi_note": "太上，不知有之；其次，亲而誉之；其次，畏之；其次，侮之。信不足焉，有不信焉。",
       "english_lau": "Of the best rulers, The people only know that they exist; The next best, they love and praise; The next, they fear; And the next, they revile.",
       "english_henricks": "Of the best rulers, The people only know that they exist; The next best, they love and praise; The next, they fear; And the next, they revile.",
-      "title": "第17章"
+      "title": "第17章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 18,
@@ -420,7 +437,8 @@
       "wangbi_laozi_note": "大道废，有仁义；智慧出，有大伪；六亲不和，有孝慈；国家昏乱，有忠臣。",
       "english_lau": "When the great Tao declined, The doctrines of humanity and righteousness arose. When wisdom and knowledge appeared, There ensued great hypocrisy.",
       "english_henricks": "When the great Tao declined, The doctrines of humanity and righteousness arose. When wisdom and knowledge appeared, There ensued great hypocrisy.",
-      "title": "第18章"
+      "title": "第18章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 19,
@@ -443,7 +461,8 @@
       "wangbi_laozi_note": "绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。此三者以为文，不足。",
       "english_lau": "Cast away wisdom and discard knowledge, And the people will benefit a hundredfold. Cast away humanity and discard righteousness, And the people will return to filial piety and love.",
       "english_henricks": "Cast away wisdom and discard knowledge, And the people will benefit a hundredfold. Cast away humanity and discard righteousness, And the people will return to filial piety and love.",
-      "title": "第19章"
+      "title": "第19章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 20,
@@ -467,7 +486,8 @@
       "wangbi_laozi_note": "唯之与阿，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮其未央哉！",
       "english_lau": "Abandon learning and there will be no sorrow. How much difference is there between 'yes' and 'no'? How much difference between 'good' and 'evil'?",
       "english_henricks": "Abandon learning and there will be no sorrow. How much difference is there between 'yes' and 'no'? How much difference between 'good' and 'evil'?",
-      "title": "第20章"
+      "title": "第20章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 21,
@@ -490,7 +510,8 @@
       "wangbi_laozi_note": "孔德之容，惟道是从。道之为物，惟恍惟惚。惚兮恍兮，其中有象；恍兮惚兮，其中有物。",
       "english_lau": "The grandest forms are active, yet their origin is in stillness. Manifestation originates in the unmanifest. The Way is the vessel of all that exists.",
       "english_henricks": "The grandest forms are active, yet their origin is in stillness. Manifestation originates in the unmanifest. The Way is the vessel of all that exists.",
-      "title": "第21章"
+      "title": "第21章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 22,
@@ -513,7 +534,8 @@
       "wangbi_laozi_note": "曲则全，枉则直，洼则盈，弊则新，少则得，多则惑。是以圣人抱一为天下式。",
       "english_lau": "To yield is to be preserved whole. To be bent is to become straight. To be empty is to be full. To be worn out is to be renewed. To have little is to possess.",
       "english_henricks": "To yield is to be preserved whole. To be bent is to become straight. To be empty is to be full. To be worn out is to be renewed. To have little is to possess.",
-      "title": "第22章"
+      "title": "第22章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 23,
@@ -538,7 +560,8 @@
       "wangbi_laozi_note": "希言自然。故飘风不终朝，骤雨不终日。孰为此者？天地。天地尚不能久，而况于人乎？",
       "english_lau": "Nature says but a few words: High wind does not last long morning; Rain does not last all day. By what this is so? I do not know. But Nature's way is the same.",
       "english_henricks": "Nature says but a few words: High wind does not last long morning; Rain does not last all day. By what this is so? I do not know. But Nature's way is the same.",
-      "title": "第23章"
+      "title": "第23章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 24,
@@ -560,7 +583,8 @@
       "wangbi_laozi_note": "企者不立，跨者不行。自见者不明，自是者不彰，自伐者无功，自矜者不长。",
       "english_lau": "He who stands on tiptoe does not stand firm. He who makes haste does not get there. He who shows himself is not luminous. He who justifies himself is not prominent.",
       "english_henricks": "He who stands on tiptoe does not stand firm. He who makes haste does not get there. He who shows himself is not luminous. He who justifies himself is not prominent.",
-      "title": "第24章"
+      "title": "第24章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 25,
@@ -584,7 +608,8 @@
       "wangbi_laozi_note": "有物混成，先天地生。寂兮寥兮，独立而不改，周行而不殆，可以为天下母。吾不知其名，字之曰道。",
       "english_lau": "There is something formless yet complete that existed before heaven and Earth. It is silent and solitary, standing alone and unchanging, pervading everywhere, and may be called the mother of all things.",
       "english_henricks": "There is something formless yet complete that existed before heaven and Earth. It is silent and solitary, standing alone and unchanging, pervading everywhere, and may be called the mother of all things.",
-      "title": "第25章"
+      "title": "第25章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 26,
@@ -607,7 +632,8 @@
       "wangbi_laozi_note": "重为轻根，静为躁君。是以圣人终日行不离辎重。虽有荣观，燕处超然。奈何万乘之主，而以身轻天下？",
       "english_lau": "Heaviness is the root of lightness. Tranquility is the master of agitation. Therefore, the Sage travels all day without leaving his baggage.",
       "english_henricks": "Heaviness is the root of lightness. Tranquility is the master of agitation. Therefore, the Sage travels all day without leaving his baggage.",
-      "title": "第26章"
+      "title": "第26章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 27,
@@ -629,7 +655,8 @@
       "wangbi_laozi_note": "善行无辙迹，善言无瑕谪，善数不用筹策，善闭无关楗而不可开，善结无绳约而不可解。",
       "english_lau": "A good walker leaves no tracks. A good speaker makes no slips. A good reckoner needs no tally. A good door needs no lock, yet cannot be opened.",
       "english_henricks": "A good walker leaves no tracks. A good speaker makes no slips. A good reckoner needs no tally. A good door needs no lock, yet cannot be opened.",
-      "title": "第27章"
+      "title": "第27章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 28,
@@ -653,7 +680,8 @@
       "wangbi_laozi_note": "知其雄，守其雌，为天下溪。为天下溪，常德不离，复归于婴儿。知其白，守其黑，为天下式。",
       "english_lau": "Know the male, keep to the female, And become the world's stream. By being the world's stream, Virtue will never depart, And you return to infancy.",
       "english_henricks": "Know the male, keep to the female, And become the world's stream. By being the world's stream, Virtue will never depart, And you return to infancy.",
-      "title": "第28章"
+      "title": "第28章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 29,
@@ -677,7 +705,8 @@
       "wangbi_laozi_note": "将欲取天下而为之，吾见其不得已。天下神器，不可为也，不可执也。为者败之，执者失之。",
       "english_lau": "Those who would take over the earth and shape it according to their will, I see they will not succeed. The earth is a sacred vessel, it cannot be shaped or improved.",
       "english_henricks": "Those who would take over the earth and shape it according to their will, I see they will not succeed. The earth is a sacred vessel, it cannot be shaped or improved.",
-      "title": "第29章"
+      "title": "第29章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 30,
@@ -700,7 +729,8 @@
       "wangbi_laozi_note": "以道佐人主者，不以兵强天下。其事好还。师之所处，荆棘生焉。大军之后，必有凶年。",
       "english_lau": "He who helps a ruler of men by Tao will not use arms to force his way in the world. Such acts tend to recoil. Where troops have camped, briars and thorns grow.",
       "english_henricks": "He who helps a ruler of men by Tao will not use arms to force his way in the world. Such acts tend to recoil. Where troops have camped, briars and thorns grow.",
-      "title": "第30章"
+      "title": "第30章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 31,
@@ -724,7 +754,8 @@
       "wangbi_laozi_note": "夫佳兵者，不祥之器。物或恶之，故有道者不处。君子居则贵左，用兵则贵右。",
       "english_lau": "Fine weapons are instruments of ill omen. All things hate them. Therefore those who possess Tao turn away from them.",
       "english_henricks": "Fine weapons are instruments of ill omen. All things hate them. Therefore those who possess Tao turn away from them.",
-      "title": "第31章"
+      "title": "第31章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 32,
@@ -747,7 +778,8 @@
       "wangbi_laozi_note": "道常无名。朴虽小，天下莫能臣。侯王若能守之，万物将自宾。天地相合，以降甘露。",
       "english_lau": "Tao is eternally nameless. Though the unhewn log is small, No one in the world dare subjugate it. If rulers could hold to it, All things would naturally obey.",
       "english_henricks": "Tao is eternally nameless. Though the unhewn log is small, No one in the world dare subjugate it. If rulers could hold to it, All things would naturally obey.",
-      "title": "第32章"
+      "title": "第32章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 33,
@@ -772,7 +804,8 @@
       "wangbi_laozi_note": "知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。",
       "english_lau": "He who knows others is clever. He who knows himself has discernment. He who conquers others has force. He who conquers himself is strong.",
       "english_henricks": "He who knows others is clever. He who knows himself has discernment. He who conquers others has force. He who conquers himself is strong.",
-      "title": "第33章"
+      "title": "第33章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 34,
@@ -795,7 +828,8 @@
       "wangbi_laozi_note": "大道泛兮，其可左右。万物恃之以生而不辞，功成不名有。衣养万物而不为主，常无欲，可名于小。",
       "english_lau": "Great Tao flows everywhere, both to the left and to the right. The ten thousand things depend upon it; it holds nothing back. It fulfills its purpose silently and makes no claim.",
       "english_henricks": "Great Tao flows everywhere, both to the left and to the right. The ten thousand things depend upon it; it holds nothing back. It fulfills its purpose silently and makes no claim.",
-      "title": "第34章"
+      "title": "第34章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 35,
@@ -818,7 +852,8 @@
       "wangbi_laozi_note": "执大象，天下往。往而不害，安平太。乐与饵，过客止。道之出口，淡乎其无味，视之不足见，听之不足闻。",
       "english_lau": "Hold the Great Symbol and all the world will come. They come without harm, in harmonious peace. Music and delicacies will make the passing guest stay.",
       "english_henricks": "Hold the Great Symbol and all the world will come. They come without harm, in harmonious peace. Music and delicacies will make the passing guest stay.",
-      "title": "第35章"
+      "title": "第35章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 36,
@@ -841,7 +876,8 @@
       "wangbi_laozi_note": "将欲歙之，必固张之；将欲弱之，必固强之；将欲废之，必固兴之；将欲取之，必固与之。",
       "english_lau": "If you would shrink, you must first stretch. If you would weaken, you must first strengthen. If you would overthrow, you must first raise up. If you would take, you must first give.",
       "english_henricks": "If you would shrink, you must first stretch. If you would weaken, you must first strengthen. If you would overthrow, you must first raise up. If you would take, you must first give.",
-      "title": "第36章"
+      "title": "第36章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 37,
@@ -864,7 +900,8 @@
       "wangbi_laozi_note": "道常无为而无不为。侯王若能守之，万物将自化。化而欲作，吾将镇之以无名之朴。",
       "english_lau": "Tao invariably does nothing, yet nothing is left undone. If rulers could hold to it, all things would transform themselves.",
       "english_henricks": "Tao invariably does nothing, yet nothing is left undone. If rulers could hold to it, all things would transform themselves.",
-      "title": "第37章"
+      "title": "第37章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 38,
@@ -887,7 +924,8 @@
       "wangbi_laozi_note": "上德不德，是以有德；下德不失德，是以无德。上德无为而无以为；下德为之而有以为。",
       "english_lau": "A man of highest virtue will not display it as his own; A man of inferior virtue displays it so that he may possess it.",
       "english_henricks": "A man of highest virtue will not display it as his own; A man of inferior virtue displays it so that he may possess it.",
-      "title": "第38章"
+      "title": "第38章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 39,
@@ -910,7 +948,8 @@
       "wangbi_laozi_note": "昔之得一者：天得一以清，地得一以宁，神得一以灵，谷得一以盈，万物得一以生，侯王得一以为天下正。",
       "english_lau": "These in the past obtained the One: Heaven obtained the One and became clear; Earth obtained the One and became tranquil; The spiritual beings obtained the One and became divine.",
       "english_henricks": "These in the past obtained the One: Heaven obtained the One and became clear; Earth obtained the One and became tranquil; The spiritual beings obtained the One and became divine.",
-      "title": "第39章"
+      "title": "第39章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 40,
@@ -932,7 +971,8 @@
       "wangbi_laozi_note": "反者道之动，弱者道之用。天下万物生于有，有生于无。",
       "english_lau": "Reversion is the action of Tao. Weakness is the function of Tao. The ten thousand things in the world are born from being, And being is born from non-being.",
       "english_henricks": "Reversion is the action of Tao. Weakness is the function of Tao. The ten thousand things in the world are born from being, And being is born from non-being.",
-      "title": "第40章"
+      "title": "第40章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 41,
@@ -955,7 +995,8 @@
       "wangbi_laozi_note": "上士闻道，勤而行之；中士闻道，若存若亡；下士闻道，大笑之。不笑不足以为道。",
       "english_lau": "When the superior scholar hears the Tao, He diligently practices it. When the average scholar hears the Tao, It seems to him sometimes present and sometimes absent.",
       "english_henricks": "When the superior scholar hears the Tao, He diligently practices it. When the average scholar hears the Tao, It seems to him sometimes present and sometimes absent.",
-      "title": "第41章"
+      "title": "第41章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 42,
@@ -978,7 +1019,8 @@
       "wangbi_laozi_note": "道生一，一生二，二生三，三生万物。万物负阴而抱阳，冲气以为和。",
       "english_lau": "Tao begot One. One begot Two. Two begot Three. Three begot the ten thousand things. The ten thousand things carry the yin and embrace the yang.",
       "english_henricks": "Tao begot One. One begot Two. Two begot Three. Three begot the ten thousand things. The ten thousand things carry the yin and embrace the yang.",
-      "title": "第42章"
+      "title": "第42章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 43,
@@ -1002,7 +1044,8 @@
       "wangbi_laozi_note": "天下之至柔，驰骋天下之至坚。无有入无间，吾是以知无为之有益。不言之教，无为之益，天下希及之。",
       "english_lau": "The softest of all things overrides the hardest of all things. Only Nothing can enter into no-space. Hence I know the advantages of non-action.",
       "english_henricks": "The softest of all things overrides the hardest of all things. Only Nothing can enter into no-space. Hence I know the advantages of non-action.",
-      "title": "第43章"
+      "title": "第43章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 44,
@@ -1024,7 +1067,8 @@
       "wangbi_laozi_note": "名与身孰亲？身与货孰多？得与亡孰病？是故甚爱必大费，多藏必厚亡。知足不辱，知止不殆，可以长久。",
       "english_lau": "Fame or life, which is dearer? Life or wealth, which is more precious? Gain or loss, which is more painful?",
       "english_henricks": "Fame or life, which is dearer? Life or wealth, which is more precious? Gain or loss, which is more painful?",
-      "title": "第44章"
+      "title": "第44章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 45,
@@ -1047,7 +1091,8 @@
       "wangbi_laozi_note": "大成若缺，其用不弊。大盈若冲，其用不穷。大直若屈，大巧若拙，大辩若讷。",
       "english_lau": "Great perfection seems chipped. Great abundance seems empty. Great straightness seems bent. Great skill seems clumsy. Great eloquence seems stuttering.",
       "english_henricks": "Great perfection seems chipped. Great abundance seems empty. Great straightness seems bent. Great skill seems clumsy. Great eloquence seems stuttering.",
-      "title": "第45章"
+      "title": "第45章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 46,
@@ -1070,7 +1115,8 @@
       "wangbi_laozi_note": "天下有道，却走马以粪。天下无道，戎马生于郊。祸莫大于不知足，咎莫大于欲得。",
       "english_lau": "When Tao prevails in the world, Swift horses are left to fertilize the fields. When Tao does not prevail, War-horses breed on the borders.",
       "english_henricks": "When Tao prevails in the world, Swift horses are left to fertilize the fields. When Tao does not prevail, War-horses breed on the borders.",
-      "title": "第46章"
+      "title": "第46章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 47,
@@ -1092,7 +1138,8 @@
       "wangbi_laozi_note": "不出户，知天下；不窥牖，见天道。其出弥远，其知弥少。是以圣人不行而知，不见而名，不为而成。",
       "english_lau": "Without going out of the door, one may know the whole world. Without peeping through the window, one may see the Way of Heaven. The further one travels, the less one knows.",
       "english_henricks": "Without going out of the door, one may know the whole world. Without peeping through the window, one may see the Way of Heaven. The further one travels, the less one knows.",
-      "title": "第47章"
+      "title": "第47章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 48,
@@ -1115,7 +1162,8 @@
       "wangbi_laozi_note": "为学日益，为道日损。损之又损，以至于无为。无为而无不为。取天下常以无事，及其有事，不足以取天下。",
       "english_lau": "Learning consists in adding to one's stock day by day; The practice of Tao consists in subtracting day by day. Subtracting and again subtracting Till one reaches non-action.",
       "english_henricks": "Learning consists in adding to one's stock day by day; The practice of Tao consists in subtracting day by day. Subtracting and again subtracting Till one reaches non-action.",
-      "title": "第48章"
+      "title": "第48章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 49,
@@ -1138,7 +1186,8 @@
       "wangbi_laozi_note": "圣人无常心，以百姓心为心。善者吾善之，不善者吾亦善之，德善。信者吾信之，不信者吾亦信之，德信。",
       "english_lau": "The Sage has no fixed mind. He takes the mind of the common people as his mind. I treat the good as good, I also treat the bad as good. This is true goodness.",
       "english_henricks": "The Sage has no fixed mind. He takes the mind of the common people as his mind. I treat the good as good, I also treat the bad as good. This is true goodness.",
-      "title": "第49章"
+      "title": "第49章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 50,
@@ -1161,7 +1210,8 @@
       "wangbi_laozi_note": "出生入死。生之徒，十有三；死之徒，十有三；人之生，动之于死地，亦十有三。夫何故？以其生生之厚。",
       "english_lau": "Men come forth to life and go back to death. The companions of life are thirteen, the companions of death are thirteen.",
       "english_henricks": "Men come forth to life and go back to death. The companions of life are thirteen, the companions of death are thirteen.",
-      "title": "第50章"
+      "title": "第50章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 51,
@@ -1184,7 +1234,8 @@
       "wangbi_laozi_note": "道生之，德畜之，物形之，势成之。是以万物莫不尊道而贵德。道之尊，德之贵，夫莫之命而常自然。",
       "english_lau": "Tao gives them life, Virtue rears them. Matter gives them shape, Environment perfects them. Therefore the ten thousand things all revere Tao and honor Virtue.",
       "english_henricks": "Tao gives them life, Virtue rears them. Matter gives them shape, Environment perfects them. Therefore the ten thousand things all revere Tao and honor Virtue.",
-      "title": "第51章"
+      "title": "第51章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 52,
@@ -1207,7 +1258,8 @@
       "wangbi_laozi_note": "天下有始，以为天下母。既得其母，以知其子；既知其子，复守其母，没身不殆。",
       "english_lau": "The world had a beginning, And this beginning is the mother of the world. Having known the mother, One knows her children.",
       "english_henricks": "The world had a beginning, And this beginning is the mother of the world. Having known the mother, One knows her children.",
-      "title": "第52章"
+      "title": "第52章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 53,
@@ -1229,7 +1281,8 @@
       "wangbi_laozi_note": "使我介然有知，行于大道，唯施是畏。大道甚夷，而人好径。朝甚除，田甚芜，仓甚虚，服文彩，带利剑，厌饮食。",
       "english_lau": "If I had the least bit of sense, I would walk the Great Path and fear only straying. The Great Path is level and easy, But men love by-paths.",
       "english_henricks": "If I had the least bit of sense, I would walk the Great Path and fear only straying. The Great Path is level and easy, But men love by-paths.",
-      "title": "第53章"
+      "title": "第53章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 54,
@@ -1252,7 +1305,8 @@
       "wangbi_laozi_note": "善建者不拔，善抱者不脱，子孙以祭祀不辍。修之于身，其德乃真；修之于家，其德乃余。",
       "english_lau": "What is firmly planted cannot be uprooted. What is tightly held cannot slip away. It will be honored from generation to generation.",
       "english_henricks": "What is firmly planted cannot be uprooted. What is tightly held cannot slip away. It will be honored from generation to generation.",
-      "title": "第54章"
+      "title": "第54章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 55,
@@ -1275,7 +1329,8 @@
       "wangbi_laozi_note": "含德之厚，比于赤子。毒虫不螫，猛兽不据，攫鸟不搏。骨弱筋柔而握固，未知牝牡之合而朘作。",
       "english_lau": "He who is endowed with virtue is like a newborn babe. Poisonous insects will not sting him, Ferocious beasts will not pounce on him, Birds of prey will not attack him.",
       "english_henricks": "He who is endowed with virtue is like a newborn babe. Poisonous insects will not sting him, Ferocious beasts will not pounce on him, Birds of prey will not attack him.",
-      "title": "第55章"
+      "title": "第55章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 56,
@@ -1299,7 +1354,8 @@
       "wangbi_laozi_note": "知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。",
       "english_lau": "Those who know do not speak. Those who speak do not know. Stop up the apertures, Close the doors, Blunt the sharpness, Untie the tangles, Harmonize the lights, Mix the dust.",
       "english_henricks": "Those who know do not speak. Those who speak do not know. Stop up the apertures, Close the doors, Blunt the sharpness, Untie the tangles, Harmonize the lights, Mix the dust.",
-      "title": "第56章"
+      "title": "第56章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 57,
@@ -1324,7 +1380,8 @@
       "wangbi_laozi_note": "以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此：天下多忌讳，而民弥贫。",
       "english_lau": "Rule a country by doing what is proper. Wage war by doing what is crafty. Win the world by doing nothing. How do I know this is so? By this.",
       "english_henricks": "Rule a country by doing what is proper. Wage war by doing what is crafty. Win the world by doing nothing. How do I know this is so? By this.",
-      "title": "第57章"
+      "title": "第57章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 58,
@@ -1346,7 +1403,8 @@
       "wangbi_laozi_note": "其政闷闷，其民淳淳；其政察察，其民缺缺。祸兮福之所倚，福兮祸之所伏。孰知其极？",
       "english_lau": "When the government is dull, The people are simple and content. When the government is sharp, The people are cunning and discontented.",
       "english_henricks": "When the government is dull, The people are simple and content. When the government is sharp, The people are cunning and discontented.",
-      "title": "第58章"
+      "title": "第58章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 59,
@@ -1369,7 +1427,8 @@
       "wangbi_laozi_note": "治人事天，莫若啬。夫唯啬，是谓早服。早服谓之重积德。重积德则无不克。无不克则莫知其极。",
       "english_lau": "In governing men and serving Heaven, Nothing is better than frugality. Only by being frugal can one recover early. To recover early is to accumulate virtue abundantly.",
       "english_henricks": "In governing men and serving Heaven, Nothing is better than frugality. Only by being frugal can one recover early. To recover early is to accumulate virtue abundantly.",
-      "title": "第59章"
+      "title": "第59章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 60,
@@ -1391,7 +1450,8 @@
       "wangbi_laozi_note": "治大国，若烹小鲜。以道莅天下，其鬼不神。非其鬼不神，其神不伤人。非其神不伤人，圣人亦不伤人。",
       "english_lau": "Ruling a large country is like cooking small fish. When the world is ruled in accordance with Tao, The demons lose their power.",
       "english_henricks": "Ruling a large country is like cooking small fish. When the world is ruled in accordance with Tao, The demons lose their power.",
-      "title": "第60章"
+      "title": "第60章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 61,
@@ -1413,7 +1473,8 @@
       "wangbi_laozi_note": "大邦者下流，天下之牝，天下之交也。牝常以静胜牡，以静为下。故大邦以下小邦，则取小邦。",
       "english_lau": "A large country should take the low place like a great tributary river, The place where all rivers converge. The female overcomes the male by stillness.",
       "english_henricks": "A large country should take the low place like a great tributary river, The place where all rivers converge. The female overcomes the male by stillness.",
-      "title": "第61章"
+      "title": "第61章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 62,
@@ -1435,7 +1496,8 @@
       "wangbi_laozi_note": "道者万物之奥。善人之宝，不善人之所保。美言可以市，尊行可以加人。人之不善，何弃之有？",
       "english_lau": "Tao is the refuge of the ten thousand things. It is the treasure of the good man, The support of the bad.",
       "english_henricks": "Tao is the refuge of the ten thousand things. It is the treasure of the good man, The support of the bad.",
-      "title": "第62章"
+      "title": "第62章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 63,
@@ -1457,7 +1519,8 @@
       "wangbi_laozi_note": "为无为，事无事，味无味。大小多少，报怨以德。图难于其易，为大于其细。",
       "english_lau": "Practice non-action. Attend to do-nothing. Taste the tasteless. Treat the small as large, the few as many. Repay hatred with virtue.",
       "english_henricks": "Practice non-action. Attend to do-nothing. Taste the tasteless. Treat the small as large, the few as many. Repay hatred with virtue.",
-      "title": "第63章"
+      "title": "第63章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 64,
@@ -1480,7 +1543,8 @@
       "wangbi_laozi_note": "其安易持，其未兆易谋。其脆易泮，其微易散。为之于未有，治之于未乱。",
       "english_lau": "What is still at rest is easily kept. What has not yet arisen is easily prevented. What is frail is easily broken. What is small is easily scattered.",
       "english_henricks": "What is still at rest is easily kept. What has not yet arisen is easily prevented. What is frail is easily broken. What is small is easily scattered.",
-      "title": "第64章"
+      "title": "第64章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 65,
@@ -1502,7 +1566,8 @@
       "wangbi_laozi_note": "古之善为道者，非以明民，将以愚之。民之难治，以其智多。故以智治国，国之贼；不以智治国，国之福。",
       "english_lau": "In ancient times, those who knew Tao did not try to enlighten the people, But to keep them in ignorance. The more knowledge people have, The harder they are to govern.",
       "english_henricks": "In ancient times, those who knew Tao did not try to enlighten the people, But to keep them in ignorance. The more knowledge people have, The harder they are to govern.",
-      "title": "第65章"
+      "title": "第65章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 66,
@@ -1524,7 +1589,8 @@
       "wangbi_laozi_note": "江海所以能为百谷王者，以其善下之，故能为百谷王。是以圣人欲上民，必以言下之；欲先民，必以身后之。",
       "english_lau": "Why is the sea king of a hundred streams? Because it lies lower than them. Thus it is king of a hundred streams.",
       "english_henricks": "Why is the sea king of a hundred streams? Because it lies lower than them. Thus it is king of a hundred streams.",
-      "title": "第66章"
+      "title": "第66章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 67,
@@ -1547,7 +1613,8 @@
       "wangbi_laozi_note": "天下皆谓我道大，似不肖。夫唯大，故似不肖。若肖，久矣其细也夫！我有三宝，持而保之。",
       "english_lau": "All the world says my Tao is great, resembling nothing. It is just because it is great That it resembles nothing. If it resembled something, It would long ago have become small.",
       "english_henricks": "All the world says my Tao is great, resembling nothing. It is just because it is great That it resembles nothing. If it resembled something, It would long ago have become small.",
-      "title": "第67章"
+      "title": "第67章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 68,
@@ -1568,7 +1635,8 @@
       "wangbi_laozi_note": "善为士者，不武；善战者，不怒；善胜敌者，不与；善用人者，为之下。是谓不争之德，是谓用人之力。",
       "english_lau": "A good warrior is not aggressive. A good fighter is not angry. A good conqueror does not engage the enemy. A good user of men places himself below others.",
       "english_henricks": "A good warrior is not aggressive. A good fighter is not angry. A good conqueror does not engage the enemy. A good user of men places himself below others.",
-      "title": "第68章"
+      "title": "第68章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 69,
@@ -1590,7 +1658,8 @@
       "wangbi_laozi_note": "用兵有言：吾不敢为主，而为客；不敢进寸，而退尺。是谓行无行，攘无臂，扔无敌，执无兵。",
       "english_lau": "There is a saying of the men of old: 'Better not to act; Better not to engage. If one does not advance an inch, He retreats a foot.'",
       "english_henricks": "There is a saying of the men of old: 'Better not to act; Better not to engage. If one does not advance an inch, He retreats a foot.'",
-      "title": "第69章"
+      "title": "第69章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 70,
@@ -1612,7 +1681,8 @@
       "wangbi_laozi_note": "吾言甚易知，甚易行。天下莫能知，莫能行。言有宗，事有君。夫唯无知，是以不我知。",
       "english_lau": "My words are very easy to understand and very easy to practice. Yet no one in the world can understand them or practice them.",
       "english_henricks": "My words are very easy to understand and very easy to practice. Yet no one in the world can understand them or practice them.",
-      "title": "第70章"
+      "title": "第70章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 71,
@@ -1633,7 +1703,8 @@
       "wangbi_laozi_note": "知不知，尚矣；不知知，病也。夫唯病病，是以不病。圣人不病，以其病病，是以不病。",
       "english_lau": "To know that one does not know is best. To pretend to know when one does not know is a disease. The Sage is free from disease because he recognizes this disease as disease.",
       "english_henricks": "To know that one does not know is best. To pretend to know when one does not know is a disease. The Sage is free from disease because he recognizes this disease as disease.",
-      "title": "第71章"
+      "title": "第71章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 72,
@@ -1655,7 +1726,8 @@
       "wangbi_laozi_note": "民不畏威，则大威至。无狎其所居，无厌其所生。夫唯不厌，是以不厌。是以圣人自知不自见。",
       "english_lau": "When the people do not fear authority, Then great authority is at hand. Do not restrict their dwellings, Do not oppress their lives.",
       "english_henricks": "When the people do not fear authority, Then great authority is at hand. Do not restrict their dwellings, Do not oppress their lives.",
-      "title": "第72章"
+      "title": "第72章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 73,
@@ -1676,7 +1748,8 @@
       "wangbi_laozi_note": "勇于敢则杀，勇于不敢则活。此两者，或利或害。天之所恶，孰知其故？天之道，不争而善胜。",
       "english_lau": "He who is brave in daring will be killed. He who is brave in not daring will live. Of these two, one is beneficial, one is harmful. Heaven's way is not to strive but to win.",
       "english_henricks": "He who is brave in daring will be killed. He who is brave in not daring will live. Of these two, one is beneficial, one is harmful. Heaven's way is not to strive but to win.",
-      "title": "第73章"
+      "title": "第73章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 74,
@@ -1697,7 +1770,8 @@
       "wangbi_laozi_note": "民不畏死，奈何以死惧之？若使民常畏死，而为奇者，吾得执而杀之，孰敢？",
       "english_lau": "If the people do not fear death, How can you threaten them with death? If you make them constantly fear death, And you execute anyone who behaves strangely, Who would dare to do so?",
       "english_henricks": "If the people do not fear death, How can you threaten them with death? If you make them constantly fear death, And you execute anyone who behaves strangely, Who would dare to do so?",
-      "title": "第74章"
+      "title": "第74章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 75,
@@ -1718,7 +1792,8 @@
       "wangbi_laozi_note": "民之饥，以其上食税之多，是以饥。民之难治，以其上之有为，是以难治。",
       "english_lau": "The people are hungry because rulers eat too much tax. The people are hard to govern because rulers do too much.",
       "english_henricks": "The people are hungry because rulers eat too much tax. The people are hard to govern because rulers do too much.",
-      "title": "第75章"
+      "title": "第75章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 76,
@@ -1741,7 +1816,8 @@
       "wangbi_laozi_note": "人之生也柔弱，其死也坚强。草木之生也柔脆，其死也枯槁。故坚强者死之徒，柔弱者生之徒。",
       "english_lau": "When alive, the body is supple and soft. When dead, it is hard and rigid. Plants are soft and pliant when alive, Withered and brittle when dead.",
       "english_henricks": "When alive, the body is supple and soft. When dead, it is hard and rigid. Plants are soft and pliant when alive, Withered and brittle when dead.",
-      "title": "第76章"
+      "title": "第76章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 77,
@@ -1765,7 +1841,8 @@
       "wangbi_laozi_note": "天之道，其犹张弓与？高者抑之，下者举之，有余者损之，不足者补之。天之道，损有余而补不足。",
       "english_lau": "The Way of Heaven is like drawing a bow: It brings down the high and raises the low. It reduces the surplus and supplies the want.",
       "english_henricks": "The Way of Heaven is like drawing a bow: It brings down the high and raises the low. It reduces the surplus and supplies the want.",
-      "title": "第77章"
+      "title": "第77章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 78,
@@ -1786,7 +1863,8 @@
       "wangbi_laozi_note": "天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。",
       "english_lau": "Nothing under heaven is softer or weaker than water. Yet nothing can surpass it in attacking the hard and strong. The weak overcome the strong, The soft overcome the hard.",
       "english_henricks": "Nothing under heaven is softer or weaker than water. Yet nothing can surpass it in attacking the hard and strong. The weak overcome the strong, The soft overcome the hard.",
-      "title": "第78章"
+      "title": "第78章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 79,
@@ -1808,7 +1886,8 @@
       "wangbi_laozi_note": "和大怨，必有余怨，安可以为善？是以圣人执左契，而不责于人。有德司契，无德司彻。",
       "english_lau": "When a great reconciliation is made, There are bound to be grudges left. How can this be regarded as good? Therefore the Sage holds the left tally.",
       "english_henricks": "When a great reconciliation is made, There are bound to be grudges left. How can this be regarded as good? Therefore the Sage holds the left tally.",
-      "title": "第79章"
+      "title": "第79章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 80,
@@ -1829,7 +1908,8 @@
       "wangbi_laozi_note": "小国寡民。使有什伯之器而不用；使民重死而不远徙。虽有舟舆，无所乘之；虽有甲兵，无所陈之。",
       "english_lau": "A small country with few people. Let them have a thousand times ten thousand weapons, but not use them. Let them take death seriously and not migrate far.",
       "english_henricks": "A small country with few people. Let them have a thousand times ten thousand weapons, but not use them. Let them take death seriously and not migrate far.",
-      "title": "第80章"
+      "title": "第80章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     },
     {
       "chapter": 81,
@@ -1850,7 +1930,8 @@
       "wangbi_laozi_note": "信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有。",
       "english_lau": "Sincere words are not beautiful, Beautiful words are not sincere. Good men are not argumentative, Argumentative men are not good. The wise are not learned, The learned are not wise.",
       "english_henricks": "Sincere words are not beautiful, Beautiful words are not sincere. Good men are not argumentative, Argumentative men are not good. The wise are not learned, The learned are not wise.",
-      "title": "第81章"
+      "title": "第81章",
+      "english_addiss": "(Translation by Addiss & Lombardo)"
     }
   ]
 }
