@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-24T12:38:50.577784",
+  "timestamp": "2026-02-24T12:44:43.188758",
   "issues": [
     "❌ 道德经 缺少分类",
     "❌ 庄子 缺少分类",
@@ -10,15 +10,14 @@
     "❌ 传习录 缺少分类",
     "❌ 六祖坛经 缺少分类",
     "❌ 唯识三十颂 缺少分类",
-    "❌ zy 字段 original 完整度低：6.2%",
-    "❌ zy 字段 gua_ci 完整度低：6.2%",
-    "❌ hdnj 字段 modern_chinese 完整度低：12.3%",
-    "❌ jgj 章节数不符：30/32"
+    "❌ zy 字段 original 完整度低：14.1%",
+    "❌ zy 字段 gua_ci 完整度低：14.1%",
+    "❌ zy 字段 yao_ci 完整度低：15.6%"
   ],
   "warnings": [
     "⚠️ hdnj 字段 original 完整度：60.5%",
-    "⚠️ jgj 字段 modern_chinese 完整度：93.3%"
+    "⚠️ jgj 字段 modern_chinese 完整度：93.8%"
   ],
-  "issues_count": 13,
+  "issues_count": 12,
   "warnings_count": 2
 }
