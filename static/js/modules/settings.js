@@ -396,7 +396,7 @@
         }
 
         // 获取保存的语言偏好
-        const savedLanguage = localStorage.getItem('daodejing_voice_language') || 'all';
+        const savedLanguage = localStorage.getItem('daodejing_voice_language') || 'zh-CN';
 
         // 设置语言选择器的值
         if (voiceLanguageSelect) {
@@ -414,46 +414,117 @@
         if ('speechSynthesis' in window) {
             const loadVoices = () => {
                 const voices = window.speechSynthesis.getVoices();
-                browserVoice.innerHTML = '<option value="">正在加载可用语音...</option>';
 
-                // 根据语言偏好过滤语音
-                const filtered = voices.filter((voice) => {
-                    if (savedLanguage !== 'all' && !voice.lang.startsWith(savedLanguage)) {
-                        return false;
+                if (!voices || voices.length === 0) {
+                    browserVoice.innerHTML = '<option value="">正在加载可用语音...</option>';
+                    return;
+                }
+
+                // 语言分组配置
+                const languageGroups = {
+                    'zh-CN': { name: '普通话', priority: ['Yunyang', 'Yunjian', 'Yunxi', 'Yunxia', 'Xiaoxiao', 'Xiaoyi'] },
+                    'zh-HK': { name: '粤语', priority: ['HiuGaai', 'HiuMaan', 'WanLung'] },
+                    'zh-TW': { name: '台湾国语', priority: ['HsiaoChen', 'YunJhe', 'HanHan'] },
+                    'yue': { name: '粤语', priority: [] },
+                    'nan': { name: '闽南语', priority: [] },
+                    'ja': { name: '日语', priority: ['Nanami', 'Keita'] },
+                    'en': { name: 'English', priority: ['Jenny', 'Guy', 'Aria', 'Davis'] },
+                    'ko': { name: '韩语', priority: ['SunHi', 'InJoon'] }
+                };
+
+                // 按语言分组
+                const groupedVoices = {};
+                voices.forEach(voice => {
+                    const langPrefix = voice.lang.split('-')[0];
+                    const langCode = voice.lang;
+
+                    // 匹配语言组
+                    let matchedGroup = null;
+                    if (languageGroups[langCode]) {
+                        matchedGroup = langCode;
+                    } else if (languageGroups[langPrefix]) {
+                        matchedGroup = langPrefix;
+                    } else if (langPrefix === 'zh') {
+                        matchedGroup = 'zh-CN'; // 默认归类到普通话
                     }
-                    return true;
+
+                    if (matchedGroup) {
+                        if (!groupedVoices[matchedGroup]) {
+                            groupedVoices[matchedGroup] = [];
+                        }
+                        groupedVoices[matchedGroup].push(voice);
+                    }
                 });
 
-                // 排序：优先显示适合经典朗读的沉稳语音
-                const preferredNames = ['Yunyang', 'Yunjian', 'Yunxi', 'Yunxia'];
-                filtered.sort((a, b) => {
-                    const aName = a.name || '';
-                    const bName = b.name || '';
-                    const aPreferred = preferredNames.findIndex(p => aName.includes(p));
-                    const bPreferred = preferredNames.findIndex(p => bName.includes(p));
-                    const aScore = aPreferred >= 0 ? aPreferred : 100;
-                    const bScore = bPreferred >= 0 ? bPreferred : 100;
-                    if (aScore !== bScore) return aScore - bScore;
-                    // Microsoft Neural 语音优先
-                    const aMs = aName.includes('Microsoft') ? 0 : 1;
-                    const bMs = bName.includes('Microsoft') ? 0 : 1;
-                    return aMs - bMs;
-                });
+                // 清空并重新填充
+                browserVoice.innerHTML = '';
 
-                filtered.forEach((voice) => {
-                    const option = document.createElement('option');
-                    option.value = voice.name;
-                    const label = preferredNames.some(p => voice.name.includes(p))
-                        ? `${voice.name} (${voice.lang}) [推荐]`
-                        : `${voice.name} (${voice.lang})`;
-                    option.textContent = label;
-                    browserVoice.appendChild(option);
+                // 根据语言偏好过滤
+                const targetGroups = savedLanguage === 'all'
+                    ? Object.keys(groupedVoices)
+                    : [savedLanguage];
+
+                targetGroups.forEach(langCode => {
+                    const voiceList = groupedVoices[langCode];
+                    if (!voiceList || voiceList.length === 0) return;
+
+                    const groupConfig = languageGroups[langCode];
+                    const groupName = groupConfig ? groupConfig.name : langCode;
+                    const priorityNames = groupConfig ? groupConfig.priority : [];
+
+                    // 排序：优先显示推荐语音
+                    voiceList.sort((a, b) => {
+                        const aName = a.name || '';
+                        const bName = b.name || '';
+                        const aPreferred = priorityNames.findIndex(p => aName.includes(p));
+                        const bPreferred = priorityNames.findIndex(p => bName.includes(p));
+                        const aScore = aPreferred >= 0 ? aPreferred : 100;
+                        const bScore = bPreferred >= 0 ? bPreferred : 100;
+                        if (aScore !== bScore) return aScore - bScore;
+                        // Microsoft Neural 语音优先
+                        const aMs = aName.includes('Microsoft') ? 0 : 1;
+                        const bMs = bName.includes('Microsoft') ? 0 : 1;
+                        return aMs - bMs;
+                    });
+
+                    // 添加分组标题
+                    if (savedLanguage === 'all') {
+                        const optgroup = document.createElement('optgroup');
+                        optgroup.label = groupName;
+                        voiceList.forEach(voice => {
+                            const option = document.createElement('option');
+                            option.value = voice.name;
+                            const isRecommended = priorityNames.some(p => voice.name.includes(p));
+                            option.textContent = isRecommended
+                                ? `${voice.name} [推荐]`
+                                : voice.name;
+                            optgroup.appendChild(option);
+                        });
+                        browserVoice.appendChild(optgroup);
+                    } else {
+                        // 单语言模式，直接添加选项
+                        voiceList.forEach(voice => {
+                            const option = document.createElement('option');
+                            option.value = voice.name;
+                            const isRecommended = priorityNames.some(p => voice.name.includes(p));
+                            option.textContent = isRecommended
+                                ? `${voice.name} (${voice.lang}) [推荐]`
+                                : `${voice.name} (${voice.lang})`;
+                            browserVoice.appendChild(option);
+                        });
+                    }
                 });
 
                 // 恢复保存的语音
                 const savedVoice = localStorage.getItem('daodejing_speech_voice');
                 if (savedVoice) {
                     browserVoice.value = savedVoice;
+                } else {
+                    // 自动选择第一个推荐语音
+                    const firstRecommended = browserVoice.querySelector('option');
+                    if (firstRecommended) {
+                        browserVoice.value = firstRecommended.value;
+                    }
                 }
             };
 
