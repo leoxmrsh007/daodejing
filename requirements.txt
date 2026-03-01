@@ -8,13 +8,3 @@ thefuzz>=0.22.1
 # 用户认证
 pyjwt>=2.8.0
 bcrypt>=4.1.0
-
-# 测试工具
-pytest>=7.4.0
-pytest-cov>=4.1.0
-
-# 代码质量工具
-flake8>=7.0.0
-mypy>=1.8.0
-black>=24.1.0
-pre-commit>=3.6.0

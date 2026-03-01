@@ -72,10 +72,9 @@ class TestDataLoader(unittest.TestCase):
         self.assertEqual(len(metadata["classics"]), 9)
 
     def test_load_idioms(self):
-        """测试加载成语数据"""
+        """测试加载成语数据（已禁用，返回空字典）"""
         idioms = load_idioms()
         self.assertIsInstance(idioms, dict)
-        self.assertGreater(len(idioms), 0)
 
 
 class TestChapterStructure(unittest.TestCase):

@@ -9,6 +9,11 @@ __pycache__/
 .Python
 *.egg-info/
 *.egg
+.coverage
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
 
 # IDE
 .idea/
@@ -23,4 +28,13 @@ Thumbs.db
 # Archive and backup
 _archive/
 *.backup
+*.bak
+*.tmp
 data/**/*.backup
+
+# Logs
+*.log
+deployment.log
+dev_server.log
+
+# Build artifacts (keep dist/ tracked for deployment)

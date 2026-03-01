@@ -70,18 +70,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <li><h6 class="dropdown-header">道家经典</h6></li>
                     <li><a class="dropdown-item" href="/ddj/index.html">☯ 道德经</a></li>
                     <li><a class="dropdown-item" href="/zzj/index.html">🦋 庄子</a></li>
-                    <li><a class="dropdown-item" href="/lztyj/index.html">🪷 六祖坛经</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><h6 class="dropdown-header">儒家经典</h6></li>
-                    <li><a class="dropdown-item" href="/cxl/index.html">📖 传习录</a></li>
-                    <li><a class="dropdown-item" href="/ss/index.html">📚 四书</a></li>
+                    <li><a class="dropdown-item" href="/ss/index.html">📖 四书</a></li>
+                    <li><a class="dropdown-item" href="/cxl/index.html">✍ 传习录</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><h6 class="dropdown-header">佛家经典</h6></li>
-                    <li><a class="dropdown-item" href="/jgj/index.html">📿 金刚经</a></li>
+                    <li><a class="dropdown-item" href="/jgj/index.html">🙏 金刚经</a></li>
+                    <li><a class="dropdown-item" href="/liuzutan/index.html">🧘 六祖坛经</a></li>
                     <li><a class="dropdown-item" href="/ws30/index.html">🧠 唯识三十颂</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><h6 class="dropdown-header">其他经典</h6></li>
-                    <li><a class="dropdown-item" href="/zy/index.html">📊 周易</a></li>
+                    <li><a class="dropdown-item" href="/zy/index.html">☯ 周易</a></li>
                     <li><a class="dropdown-item" href="/hdnj/index.html">⚕️ 黄帝内经</a></li>
                 </ul>
             </div>
@@ -684,23 +684,14 @@ def generate_index_page(data, classic_meta):
         cards.append(f'    <div class="chapter-preview">{preview}...</div>')
         cards.append("</a>")
 
-    # 生成版本标签
+    # 动态生成版本标签
     version_badges = ""
-    if classic_id == "ddj":
-        version_badges = """
-            <span class="badge bg-secondary me-1">王弼注</span>
-            <span class="badge bg-secondary me-1">河上公注</span>
-            <span class="badge bg-secondary me-1">王夫之</span>
-            <span class="badge bg-secondary me-1">憨山德清</span>
-            <span class="badge bg-info me-1">帛书</span>
-            <span class="badge bg-info">郭店简</span>
-        """
-    elif classic_id == "zzj":
-        version_badges = """
-            <span class="badge bg-secondary me-1">成玄英疏</span>
-            <span class="badge bg-secondary me-1">郭象注</span>
-            <span class="badge bg-secondary">王夫之</span>
-        """
+    for comm in classic_meta.get("commentators", []):
+        version_badges += (
+            f'<span class="badge bg-secondary me-1">{comm["name"]}</span>\n'
+        )
+    for variant in classic_meta.get("variants", []):
+        version_badges += f'<span class="badge bg-info me-1">{variant["name"]}</span>\n'
 
     content = f"""
     <div class="intro-section">
@@ -877,9 +868,32 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
     </section>
 """
 
-    # 根据经典类型添加不同的注释版本
-    if classic_id == "ddj":
-        content += f"""
+    # 动态生成注释版本（基于 classics.json 元数据）
+    commentators = classic_meta.get("commentators", [])
+    if commentators:
+        # 过滤掉本章没有内容的注释家
+        active_commentators = [
+            c for c in commentators if chapter.get(f"{c['id']}_note", "").strip()
+        ]
+        if active_commentators:
+            tabs_html = ""
+            panes_html = ""
+            for i, comm in enumerate(active_commentators):
+                active_cls = " active" if i == 0 else ""
+                show_cls = " show active" if i == 0 else ""
+                tabs_html += (
+                    f'<li class="nav-item" role="presentation">'
+                    f'<button class="nav-link{active_cls}" data-bs-toggle="tab" '
+                    f'data-bs-target="#comm_{comm["id"]}" type="button">'
+                    f'{comm["name"]}</button></li>\n'
+                )
+                note_text = chapter.get(f"{comm['id']}_note", "此版本暂未收录")
+                panes_html += (
+                    f'<div class="tab-pane fade{show_cls}" id="comm_{comm["id"]}">'
+                    f'<h6 class="text-muted mb-2">{comm["name"]}（{comm["era"]}）</h6>'
+                    f'<p class="note-text mb-0">{note_text}</p></div>\n'
+                )
+            content += f"""
     <section class="versions-section mb-4">
         <div class="card">
             <div class="card-header">
@@ -887,65 +901,56 @@ def generate_chapter_page(data, chapter_id, classic_meta, idioms=None):
             </div>
             <div class="card-body p-0">
                 <ul class="nav nav-tabs" id="versionTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#wangbi" type="button">王弼注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#heshanggong" type="button">河上公注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wangfuzhi" type="button">王夫之注</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hanshan" type="button">憨山德清注</button>
-                    </li>
+                    {tabs_html}
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="wangbi">
-                        <h6 class="text-muted mb-2">王弼注（魏晋）</h6>
-                        <p class="note-text mb-0">{chapter.get("wangbi_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="heshanggong">
-                        <h6 class="text-muted mb-2">河上公注（汉）</h6>
-                        <p class="note-text mb-0">{chapter.get("heshanggong_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="wangfuzhi">
-                        <h6 class="text-muted mb-2">王夫之《老子衍》（明末清初）</h6>
-                        <p class="note-text mb-0">{chapter.get("wangfuzhi_note", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="hanshan">
-                        <h6 class="text-muted mb-2">憨山德清《老子道德经解》（明）</h6>
-                        <p class="note-text mb-0">{chapter.get("hanshandeqing_note", "")}</p>
-                    </div>
+                    {panes_html}
                 </div>
             </div>
         </div>
     </section>
 """
 
-    # 添加英文译本
-    content += f"""
+    # 动态生成英文译本（基于 classics.json 元数据）
+    translators = classic_meta.get("translators", [])
+    if translators:
+        # 过滤掉本章没有内容的译者
+        active_translators = [
+            t for t in translators if chapter.get(f"english_{t['id']}", "").strip()
+        ]
+        if active_translators:
+            eng_tabs = ""
+            eng_panes = ""
+            for i, trans in enumerate(active_translators):
+                active_cls = " active" if i == 0 else ""
+                show_cls = " show active" if i == 0 else ""
+                eng_tabs += (
+                    f'<li class="nav-item" role="presentation">'
+                    f'<button class="nav-link{active_cls}" data-bs-toggle="pill" '
+                    f'data-bs-target="#eng_{trans["id"]}" type="button">'
+                    f'{trans["name"]}</button></li>\n'
+                )
+                eng_text = chapter.get(
+                    f"english_{trans['id']}",
+                    "This translation is not yet available.",
+                )
+                eng_panes += (
+                    f'<div class="tab-pane fade{show_cls}" id="eng_{trans["id"]}">'
+                    f'<h6 class="text-muted mb-2">{trans["name"]}</h6>'
+                    f'<p class="english-text mb-0 fst-italic">{eng_text}</p></div>\n'
+                )
+            content += f"""
     <section class="english-section mb-4">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0">English Translations / 英文译本</h5>
             </div>
             <div class="card-body p-0">
-                 <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#lau" type="button">Lau</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#henricks" type="button">Henricks</button>
-                    </li>
+                <ul class="nav nav-pills mb-0 p-2" id="englishTabs" role="tablist">
+                    {eng_tabs}
                 </ul>
                 <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="lau">
-                        <p class="english-text mb-0 fst-italic">{chapter.get("english_lau", "")}</p>
-                    </div>
-                    <div class="tab-pane fade" id="henricks">
-                        <p class="english-text mb-0 fst-italic">{chapter.get("english_henricks", "")}</p>
-                    </div>
+                    {eng_panes}
                 </div>
             </div>
         </div>

@@ -265,7 +265,9 @@ class TestUserServiceToken:
 
         with app.app_context():
             # 创建一个过期的 payload
-            secret = app.config.get("SECRET_KEY", "dev-secret-key")
+            secret = (
+                app.config.get("SECRET_KEY") or "dev-secret-key-change-in-production"
+            )
             expired_payload = {
                 "user_id": registered_user["user_id"],
                 "exp": int(time.time()) - 3600,  # 1 小时前过期

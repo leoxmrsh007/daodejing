@@ -153,11 +153,16 @@ class UserService:
 
     def _hash_password(self, password: str) -> str:
         """哈希密码"""
-        return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+        # bcrypt 限制密码最长 72 字节
+        truncated = password[:72]
+        return bcrypt.hashpw(truncated.encode("utf-8"), bcrypt.gensalt()).decode(
+            "utf-8"
+        )
 
     def _verify_password(self, password: str, password_hash: str) -> bool:
         """验证密码"""
-        return bcrypt.checkpw(password.encode("utf-8"), password_hash.encode("utf-8"))
+        truncated = password[:72]
+        return bcrypt.checkpw(truncated.encode("utf-8"), password_hash.encode("utf-8"))
 
     def _generate_token(self, user: Dict[str, Any]) -> str:
         """生成 JWT Token"""
@@ -173,10 +178,13 @@ class UserService:
     def _get_secret_key(self) -> str:
         """获取密钥"""
         try:
-            return current_app.config.get("SECRET_KEY", "dev-secret-key")
+            key = current_app.config.get("SECRET_KEY")
+            if key:
+                return key
         except RuntimeError:
-            # 不在应用上下文中时使用默认密钥
-            return "dev-secret-key"
+            pass
+        # 不在应用上下文中或未设置时使用默认密钥
+        return "dev-secret-key-change-in-production"
 
     def _get_timestamp(self) -> int:
         """获取当前时间戳（秒）"""
