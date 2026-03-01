@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function(){var t=localStorage.getItem('daodejing_theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{var d=window.matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.setAttribute('data-theme',d?'dark':'light')}})();
+    </script>
 
     <title>
         {%- block title %}{{ classic.short_name if classic else '古籍经典' }} - 多版本对照阅读{% endblock -%}

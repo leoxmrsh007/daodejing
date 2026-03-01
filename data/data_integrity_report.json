@@ -1,0 +1,724 @@
+[
+  {
+    "id": "ddj",
+    "name": "道德经",
+    "expected_chapters": 81,
+    "actual_chapters": 81,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangbi_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "heshanggong_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangfuzhi_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "hanshandeqing_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "postsilk_text": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "postsilk_diff": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "guodian_text": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "guodian_diff": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "suzhe_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "lihanxu_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "huangyuanji_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "weiyuan_note": {
+        "total": 66,
+        "filled": 66,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "yanzun_note": {
+        "total": 36,
+        "filled": 36,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "chu_jian_text": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangbi_laozi_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_lau": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_henricks": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_addiss": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "xianger_note": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wanganshi_note": {
+        "total": 14,
+        "filled": 14,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "zzj",
+    "name": "庄子",
+    "expected_chapters": 33,
+    "actual_chapters": 33,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "guoxiang_note": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "chengxuanying_note": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangfuzhi_note": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_watson": {
+        "total": 33,
+        "filled": 1,
+        "empty": 32,
+        "coverage": 3.0303030303030303,
+        "missing_chapters": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "english_ziporyn": {
+        "total": 33,
+        "filled": 1,
+        "empty": 32,
+        "coverage": 3.0303030303030303,
+        "missing_chapters": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "guodian_text": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "guodian_diff": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "postsilk_text": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "postsilk_diff": {
+        "total": 33,
+        "filled": 33,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_feng": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "english_culver": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "english_mair": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "english_graham": {
+        "total": 33,
+        "filled": 0,
+        "empty": 33,
+        "coverage": 0.0,
+        "missing_chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    }
+  },
+  {
+    "id": "zy",
+    "name": "周易",
+    "expected_chapters": 64,
+    "actual_chapters": 64,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "gua_ci": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "yao_ci": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangbi_note": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "chengyi_note": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "zhuxi_note": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 64,
+        "filled": 64,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "hdnj",
+    "name": "黄帝内经",
+    "expected_chapters": 81,
+    "actual_chapters": 81,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangbing_note": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 81,
+        "filled": 81,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "zhang_note": {
+        "total": 76,
+        "filled": 76,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "jgj",
+    "name": "金刚经",
+    "expected_chapters": 32,
+    "actual_chapters": 32,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 32,
+        "filled": 32,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "kumrajiva_note": {
+        "total": 30,
+        "filled": 30,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 32,
+        "filled": 32,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "kumarajiva_note": {
+        "total": 2,
+        "filled": 2,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_thich": {
+        "total": 2,
+        "filled": 2,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "ss",
+    "name": "四书",
+    "expected_chapters": 4,
+    "actual_chapters": 4,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "commentators": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "translators": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "zhuxi_note": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "chengyi_note": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "kongyingda_note": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_legge": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_waley": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_lin": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangyangming_note": {
+        "total": 4,
+        "filled": 4,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "cxl",
+    "name": "传习录",
+    "expected_chapters": 3,
+    "actual_chapters": 3,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "commentators": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "translators": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wangyangming_note": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "wuxiang_note": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_henriques": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "english_sun": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "note": {
+        "total": 3,
+        "filled": 3,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "liuzutan",
+    "name": "六祖坛经",
+    "expected_chapters": 10,
+    "actual_chapters": 10,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 10,
+        "filled": 10,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 10,
+        "filled": 10,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "note": {
+        "total": 10,
+        "filled": 10,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  },
+  {
+    "id": "ws30",
+    "name": "唯识三十颂",
+    "expected_chapters": 30,
+    "actual_chapters": 30,
+    "chapter_complete": true,
+    "field_coverage": {
+      "original": {
+        "total": 30,
+        "filled": 30,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "xuanzang_note": {
+        "total": 30,
+        "filled": 30,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      },
+      "modern_chinese": {
+        "total": 30,
+        "filled": 30,
+        "empty": 0,
+        "coverage": 100.0,
+        "missing_chapters": []
+      }
+    }
+  }
+]

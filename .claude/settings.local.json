@@ -38,7 +38,11 @@
       "Bash(vercel logs:*)",
       "Bash(vercel env ls:*)",
       "Bash(vercel env add:*)",
-      "Bash(vercel redeploy:*)"
+      "Bash(vercel redeploy:*)",
+      "Bash(python3:*)",
+      "Bash(rm:*)",
+      "Bash(vercel:*)",
+      "Bash(grep:*)"
     ]
   }
 }

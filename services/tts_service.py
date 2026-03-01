@@ -43,8 +43,11 @@ class TTSService:
 MULTILANG_VOICES = {
     # 普通话
     "zh-CN": {
-        "xiaoxiao": "zh-CN-XiaoxiaoNeural",
+        "yunyang": "zh-CN-YunyangNeural",
+        "yunjian": "zh-CN-YunjianNeural",
         "yunxi": "zh-CN-YunxiNeural",
+        "yunxia": "zh-CN-YunxiaNeural",
+        "xiaoxiao": "zh-CN-XiaoxiaoNeural",
         "xiaoyi": "zh-CN-XiaoyiNeural",
     },
     # 粤语
@@ -80,9 +83,12 @@ MULTILANG_VOICES = {
 
 # 语音名称映射（用于前端显示）
 VOICE_NAMES = {
-    "zh-CN-XiaoxiaoNeural": "普通话 - 晓晓（女）",
-    "zh-CN-YunxiNeural": "普通话 - 云希（男）",
-    "zh-CN-XiaoyiNeural": "普通话 - 晓伊（女）",
+    "zh-CN-YunyangNeural": "普通话 - 云扬（男·沉稳）",
+    "zh-CN-YunjianNeural": "普通话 - 云健（男·浑厚）",
+    "zh-CN-YunxiNeural": "普通话 - 云希（男·温和）",
+    "zh-CN-YunxiaNeural": "普通话 - 云夏（男·沉静）",
+    "zh-CN-XiaoxiaoNeural": "普通话 - 晓晓（女·清亮）",
+    "zh-CN-XiaoyiNeural": "普通话 - 晓伊（女·柔和）",
     "zh-HK-HiuMaaiNeural": "粤语 - 晓美（女）",
     "zh-HK-HiuGaaiNeural": "粤语 - 晓嘉（女）",
     "zh-HK-WanLungNeural": "粤语 - 云龙（男）",
@@ -187,7 +193,7 @@ class EdgeTTSService(TTSService):
             data is not None
         )  # data is guaranteed to not be None when is_valid is True
         text = data.get("text")
-        voice = data.get("voice", "zh-CN-XiaoxiaoNeural")
+        voice = data.get("voice", "zh-CN-YunyangNeural")
 
         # 根据语音自动检测语言
         lang = self._detect_language_from_voice(voice)
