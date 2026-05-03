@@ -38,3 +38,6 @@ deployment.log
 dev_server.log
 
 # Build artifacts (keep dist/ tracked for deployment)
+
+# Archive of old reports
+archive/
