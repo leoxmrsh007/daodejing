@@ -67,7 +67,7 @@ jobs:
         python generate_static.py
 
     - name: Upload static site artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: static-site
         path: dist/
